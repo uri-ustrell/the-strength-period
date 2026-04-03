@@ -1,0 +1,27 @@
+{
+  "title": "Estadísticas",
+  "period": {
+    "week": "Semana",
+    "month": "Mes",
+    "all": "Todo"
+  },
+  "volume_by_muscle": "Volumen por grupo muscular",
+  "progression": "Progresión por ejercicio",
+  "adherence": "Adherencia semanal",
+  "pr_tracker": "Récords personales",
+  "select_exercise": "Selecciona un ejercicio",
+  "no_data": "Sin datos todavía",
+  "weight_kg": "Peso (kg)",
+  "total_sets": "Series totales",
+  "date": "Fecha",
+  "best_weight": "Mejor peso",
+  "best_reps": "Mejores reps",
+  "best_volume": "Mejor volumen",
+  "planned": "Planificadas",
+  "completed": "Completadas",
+  "exercise": "Ejercicio",
+  "week_label": "S{{num}}",
+  "sessions": "Sesiones",
+  "sets": "Series",
+  "export_import": "Exportar / Importar"
+}

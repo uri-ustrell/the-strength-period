@@ -1,0 +1,133 @@
+{
+  "app": {
+    "name": "The Strength Period",
+    "tagline": "Entrena con inteligencia. Tus datos, en tu dispositivo."
+  },
+  "nav": {
+    "dashboard": "Inicio",
+    "planning": "Plan",
+    "session": "Sesión",
+    "stats": "Evolución",
+    "settings": "Configuración",
+    "more": "Más",
+    "language": "Idioma",
+    "edit_profile": "Editar perfil y configuración"
+  },
+  "landing": {
+    "title": "Entrena con inteligencia",
+    "subtitle": "Tus datos, en tu dispositivo.",
+    "feature_ai": "Planes generados por IA adaptados a tu objetivo",
+    "feature_local": "Todo guardado en local. Sin cuentas ni registros.",
+    "feature_privacy": "Cero servidores intermediarios. Cero suscripciones.",
+    "cta": "Empieza ahora"
+  },
+  "session": {
+    "start": "Empieza la sesión",
+    "next_exercise": "Saltar bloque",
+    "rest": "Descanso",
+    "skip_exercise": "Saltar ejercicio",
+    "finish": "Termina la sesión",
+    "rpe_prompt": "¿Cómo te has sentido? (1-10)",
+    "saved": "Sesión guardada ✓",
+    "exercise_of": "Ejercicio {{current}} de {{total}}",
+    "set_of": "Serie {{current}} de {{total}}",
+    "target": "Objetivo",
+    "sets": "Series",
+    "reps": "Repeticiones",
+    "weight_kg": "Peso (kg)",
+    "rpe": "RPE",
+    "rest_seconds": "Descanso (s)",
+    "reps_actual": "Repeticiones hechas",
+    "weight_actual": "Peso usado (kg)",
+    "complete_set": "Completar serie",
+    "skip_rest": "Saltar descanso",
+    "summary": "Resumen de la sesión",
+    "exercises_done": "Ejercicios completados",
+    "total_volume": "Volumen total (kg)",
+    "total_time": "Tiempo total",
+    "total_sets": "Series totales",
+    "notes_placeholder": "Notas sobre la sesión (opcional)",
+    "save_close": "Guardar y cerrar",
+    "no_session": "No hay ninguna sesión activa",
+    "go_planning": "Ir al planificador",
+    "saving": "Guardando...",
+    "minutes": "min",
+    "preview_title": "Vista previa de la sesión",
+    "exercises_count": "ejercicios",
+    "order_mode": "Orden de ejercicios",
+    "remove_exercise": "Eliminar ejercicio",
+    "primary_muscles": "Músculos principales",
+    "instructions": "Instrucciones"
+  },
+  "execution_mode": {
+    "standard": "Estándar",
+    "circuit": "Circuito",
+    "standard_desc": "Por grupos musculares",
+    "circuit_desc": "Un ejercicio por grupo, poco descanso",
+    "circuit_round": "Circuito {{current}} de {{total}}",
+    "circuit_rest": "Descanso entre circuitos"
+  },
+  "data": {
+    "export": "Exportar datos",
+    "import": "Importar datos",
+    "exporting": "Exportando...",
+    "importing": "Importando...",
+    "export_success": "Datos exportados correctamente",
+    "import_success": "Datos importados correctamente",
+    "import_error": "Error al importar",
+    "export_error": "Error al exportar",
+    "importError": "Error al importar",
+    "exportError": "Error al exportar",
+    "importConfirm": "Esto reemplazará todos los datos actuales. ¿Continuar?",
+    "importSuccess": "Datos importados correctamente"
+  },
+  "language": {
+    "ca": "Català",
+    "es": "Castellano",
+    "en": "English"
+  },
+  "dashboard": {
+    "greeting": "¡Hola!",
+    "today": "Hoy",
+    "your_plan": "Tu plan",
+    "last_weeks": "Últimas 4 semanas",
+    "streak": "{{count}} días seguidos",
+    "streak_one": "1 día seguido",
+    "streak_zero": "Sin racha activa",
+    "no_session_today": "No tienes sesión hoy",
+    "rest_day": "Día de descanso",
+    "quick_session": "Sesión rápida",
+    "start_session": "Empieza",
+    "generate_quick": "Genera",
+    "weekly_load": "Carga semanal",
+    "sets_this_week": "{{count}} series esta semana",
+    "view_plan": "Ver plan completo",
+    "create_plan": "Crear nuevo plan",
+    "adherence": "Adherencia",
+    "volume": "Volumen",
+    "completed": "Completada",
+    "skipped": "Saltada",
+    "planned": "Planificada",
+    "no_plan": "Sin plan activo",
+    "session_today": "Sesión de hoy",
+    "minutes": "min"
+  },
+  "errors": {
+    "db_error": "Error accediendo a los datos locales. Inténtalo de nuevo.",
+    "ai_error": "Error generando el plan. Inténtalo de nuevo.",
+    "generic": "Se ha producido un error. Inténtalo de nuevo."
+  },
+  "settings": {
+    "save": "Guardar cambios",
+    "saved": "Guardado ✓"
+  },
+  "session_control": {
+    "cancel": "Cancelar sesión",
+    "cancel_confirm": "¿Seguro que quieres cancelar la sesión? Se perderán los datos.",
+    "pause": "Pausar sesión",
+    "discard": "Descartar sesión",
+    "discard_confirm": "¿Descartar la sesión o guardar el progreso parcial?",
+    "save_partial": "Guardar parcial",
+    "keep_training": "Seguir entrenando"
+  }
+}

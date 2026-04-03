@@ -1,0 +1,27 @@
+{
+  "title": "Estadístiques",
+  "period": {
+    "week": "Setmana",
+    "month": "Mes",
+    "all": "Tot"
+  },
+  "volume_by_muscle": "Volum per grup muscular",
+  "progression": "Progressió per exercici",
+  "adherence": "Adherència setmanal",
+  "pr_tracker": "Rècords personals",
+  "select_exercise": "Selecciona un exercici",
+  "no_data": "Sense dades encara",
+  "weight_kg": "Pes (kg)",
+  "total_sets": "Sèries totals",
+  "date": "Data",
+  "best_weight": "Millor pes",
+  "best_reps": "Millors reps",
+  "best_volume": "Millor volum",
+  "planned": "Planificades",
+  "completed": "Completades",
+  "exercise": "Exercici",
+  "week_label": "S{{num}}",
+  "sessions": "Sessions",
+  "sets": "Sèries",
+  "export_import": "Exporta / Importa"
+}

@@ -1,0 +1,133 @@
+{
+  "app": {
+    "name": "The Strength Period",
+    "tagline": "Train with intelligence. Your data, on your device."
+  },
+  "nav": {
+    "dashboard": "Home",
+    "planning": "Plan",
+    "session": "Session",
+    "stats": "Progress",
+    "settings": "Settings",
+    "more": "More",
+    "language": "Language",
+    "edit_profile": "Edit profile & settings"
+  },
+  "landing": {
+    "title": "Train with intelligence",
+    "subtitle": "Your data, on your device.",
+    "feature_ai": "AI-generated plans adapted to your goal",
+    "feature_local": "Everything saved locally. No accounts, no sign-ups.",
+    "feature_privacy": "Zero intermediary servers. Zero subscriptions.",
+    "cta": "Start now"
+  },
+  "session": {
+    "start": "Start session",
+    "next_exercise": "Skip block",
+    "rest": "Rest",
+    "skip_exercise": "Skip exercise",
+    "finish": "Finish session",
+    "rpe_prompt": "How did you feel? (1-10)",
+    "saved": "Session saved ✓",
+    "exercise_of": "Exercise {{current}} of {{total}}",
+    "set_of": "Set {{current}} of {{total}}",
+    "target": "Target",
+    "sets": "Sets",
+    "reps": "Reps",
+    "weight_kg": "Weight (kg)",
+    "rpe": "RPE",
+    "rest_seconds": "Rest (s)",
+    "reps_actual": "Reps done",
+    "weight_actual": "Weight used (kg)",
+    "complete_set": "Complete set",
+    "skip_rest": "Skip rest",
+    "summary": "Session summary",
+    "exercises_done": "Exercises completed",
+    "total_volume": "Total volume (kg)",
+    "total_time": "Total time",
+    "total_sets": "Total sets",
+    "notes_placeholder": "Session notes (optional)",
+    "save_close": "Save & close",
+    "no_session": "No active session",
+    "go_planning": "Go to planner",
+    "saving": "Saving...",
+    "minutes": "min",
+    "preview_title": "Session Preview",
+    "exercises_count": "exercises",
+    "order_mode": "Exercise order",
+    "remove_exercise": "Remove exercise",
+    "primary_muscles": "Primary muscles",
+    "instructions": "Instructions"
+  },
+  "execution_mode": {
+    "standard": "Standard",
+    "circuit": "Circuit",
+    "standard_desc": "By muscle groups",
+    "circuit_desc": "One exercise per group, short rest",
+    "circuit_round": "Circuit {{current}} of {{total}}",
+    "circuit_rest": "Rest between circuits"
+  },
+  "data": {
+    "export": "Export data",
+    "import": "Import data",
+    "exporting": "Exporting...",
+    "importing": "Importing...",
+    "export_success": "Data exported successfully",
+    "import_success": "Data imported successfully",
+    "import_error": "Import error",
+    "export_error": "Export error",
+    "importError": "Import error",
+    "exportError": "Export error",
+    "importConfirm": "This will replace all current data. Continue?",
+    "importSuccess": "Data imported successfully"
+  },
+  "language": {
+    "ca": "Català",
+    "es": "Castellano",
+    "en": "English"
+  },
+  "dashboard": {
+    "greeting": "Hello!",
+    "today": "Today",
+    "your_plan": "Your plan",
+    "last_weeks": "Last 4 weeks",
+    "streak": "{{count}} days in a row",
+    "streak_one": "1 day in a row",
+    "streak_zero": "No active streak",
+    "no_session_today": "No session today",
+    "rest_day": "Rest day",
+    "quick_session": "Quick session",
+    "start_session": "Start",
+    "generate_quick": "Generate",
+    "weekly_load": "Weekly load",
+    "sets_this_week": "{{count}} sets this week",
+    "view_plan": "View full plan",
+    "create_plan": "Create new plan",
+    "adherence": "Adherence",
+    "volume": "Volume",
+    "completed": "Completed",
+    "skipped": "Skipped",
+    "planned": "Planned",
+    "no_plan": "No active plan",
+    "session_today": "Today's session",
+    "minutes": "min"
+  },
+  "errors": {
+    "db_error": "Error accessing local data. Please try again.",
+    "ai_error": "Error generating plan. Please try again.",
+    "generic": "An error occurred. Please try again."
+  },
+  "settings": {
+    "save": "Save changes",
+    "saved": "Saved ✓"
+  },
+  "session_control": {
+    "cancel": "Cancel session",
+    "cancel_confirm": "Are you sure you want to cancel the session? Data will be lost.",
+    "pause": "Pause session",
+    "discard": "Discard session",
+    "discard_confirm": "Discard the session or save partial progress?",
+    "save_partial": "Save partial",
+    "keep_training": "Keep training"
+  }
+}

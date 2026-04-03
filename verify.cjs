@@ -1,0 +1,31 @@
+const exercises = require("./public/exercises/exercises.json");
+const exerciseIds = new Set(exercises.map(e => e.id));
+const fs = require("fs");
+
+const enrichmentContent = fs.readFileSync("src/data/exerciseEnrichment.ts", "utf8");
+const enrichmentIds = [...enrichmentContent.matchAll(/^\s+'?([\w][\w-]+)'?:\s*\{/gm)].map(m => m[1]);
+
+const missing = enrichmentIds.filter(id => !exerciseIds.has(id));
+console.log("Enrichment IDs not in exercises.json:", missing.length ? missing : "NONE - all valid");
+
+const caTrans = JSON.parse(fs.readFileSync("src/i18n/locales/ca/exercises.json", "utf8"));
+const esTrans = JSON.parse(fs.readFileSync("src/i18n/locales/es/exercises.json", "utf8"));
+const enTrans = JSON.parse(fs.readFileSync("src/i18n/locales/en/exercises.json", "utf8"));
+const caKeys = new Set(Object.keys(caTrans));
+const esKeys = new Set(Object.keys(esTrans));
+const enKeys = new Set(Object.keys(enTrans));
+
+const missingCa = enrichmentIds.filter(id => !caKeys.has(id));
+const missingEs = enrichmentIds.filter(id => !esKeys.has(id));
+const missingEn = enrichmentIds.filter(id => !enKeys.has(id));
+
+console.log("Missing CA translations:", missingCa.length ? missingCa : "NONE");
+console.log("Missing ES translations:", missingEs.length ? missingEs : "NONE");
+console.log("Missing EN translations:", missingEn.length ? missingEn : "NONE");
+console.log("Total enriched:", enrichmentIds.length);
+console.log("CA keys:", caKeys.size, "ES keys:", esKeys.size, "EN keys:", enKeys.size);
+
+const musclesCa = JSON.parse(fs.readFileSync("src/i18n/locales/ca/muscles.json", "utf8"));
+const musclesEs = JSON.parse(fs.readFileSync("src/i18n/locales/es/muscles.json", "utf8"));
+const musclesEn = JSON.parse(fs.readFileSync("src/i18n/locales/en/muscles.json", "utf8"));
+console.log("Muscle keys CA:", Object.keys(musclesCa).length, "ES:", Object.keys(musclesEs).length, "EN:", Object.keys(musclesEn).length);

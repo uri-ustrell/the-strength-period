@@ -1,0 +1,27 @@
+{
+  "title": "Statistics",
+  "period": {
+    "week": "Week",
+    "month": "Month",
+    "all": "All"
+  },
+  "volume_by_muscle": "Volume by muscle group",
+  "progression": "Progression by exercise",
+  "adherence": "Weekly adherence",
+  "pr_tracker": "Personal records",
+  "select_exercise": "Select an exercise",
+  "no_data": "No data yet",
+  "weight_kg": "Weight (kg)",
+  "total_sets": "Total sets",
+  "date": "Date",
+  "best_weight": "Best weight",
+  "best_reps": "Best reps",
+  "best_volume": "Best volume",
+  "planned": "Planned",
+  "completed": "Completed",
+  "exercise": "Exercise",
+  "week_label": "W{{num}}",
+  "sessions": "Sessions",
+  "sets": "Sets",
+  "export_import": "Export / Import"
+}

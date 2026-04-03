@@ -1,0 +1,49 @@
+{
+  "title": "Initial Setup",
+  "step": "Step {{current}} of {{total}}",
+  "next": "Next",
+  "back": "Back",
+  "finish": "Get Started",
+  "step1": {
+    "title": "What's your profile?",
+    "subtitle": "Choose the one that best describes you",
+    "athlete": {
+      "title": "Self-directed athlete",
+      "description": "I know what I'm doing, I want full control"
+    },
+    "rehab": {
+      "title": "In rehabilitation",
+      "description": "I have an active or recent injury"
+    },
+    "general": {
+      "title": "General fitness",
+      "description": "I want to improve, I need guidance"
+    }
+  },
+  "step3": {
+    "title": "Your training context",
+    "subtitle": "Customize your plan",
+    "equipment": "Available equipment",
+    "equipmentOptions": {
+      "pes_corporal": "Bodyweight",
+      "manueles": "Dumbbells",
+      "barra": "Barbell",
+      "banda_elastica": "Resistance band",
+      "pilates": "Pilates",
+      "trx": "TRX"
+    },
+    "daysPerWeek": "Days per week",
+    "minutesPerSession": "Minutes per session",
+    "restrictions": "Active restrictions",
+    "restrictionOptions": {
+      "knee": "Knee injury",
+      "ankle": "Ankle injury",
+      "back": "Lower back injury",
+      "shoulder": "Shoulder injury",
+      "hip": "Hip injury",
+      "wrist": "Wrist injury"
+    },
+    "otherRestrictions": "Other restrictions",
+    "otherRestrictionsPlaceholder": "Describe any other restrictions..."
+  }
+}

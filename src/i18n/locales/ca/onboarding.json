@@ -1,0 +1,49 @@
+{
+  "title": "Configuració inicial",
+  "step": "Pas {{current}} de {{total}}",
+  "next": "Següent",
+  "back": "Enrere",
+  "finish": "Començar",
+  "step1": {
+    "title": "Quin és el teu perfil?",
+    "subtitle": "Tria el que millor et descrigui",
+    "athlete": {
+      "title": "Atleta autònom",
+      "description": "Sé el que faig, vull control total"
+    },
+    "rehab": {
+      "title": "En rehabilitació",
+      "description": "Tinc una lesió activa o recent"
+    },
+    "general": {
+      "title": "Esportista general",
+      "description": "Vull millorar, necessito guia"
+    }
+  },
+  "step3": {
+    "title": "El teu context d'entrenament",
+    "subtitle": "Personalitza el teu pla",
+    "equipment": "Equipament disponible",
+    "equipmentOptions": {
+      "pes_corporal": "Pes corporal",
+      "manueles": "Manuelles",
+      "barra": "Barra",
+      "banda_elastica": "Banda elàstica",
+      "pilates": "Pilates",
+      "trx": "TRX"
+    },
+    "daysPerWeek": "Dies per setmana",
+    "minutesPerSession": "Minuts per sessió",
+    "restrictions": "Restriccions actives",
+    "restrictionOptions": {
+      "knee": "Lesió de genoll",
+      "ankle": "Lesió de turmell",
+      "back": "Lesió lumbar",
+      "shoulder": "Lesió d'espatlla",
+      "hip": "Lesió de maluc",
+      "wrist": "Lesió de canell"
+    },
+    "otherRestrictions": "Altres restriccions",
+    "otherRestrictionsPlaceholder": "Descriu qualsevol altra restricció..."
+  }
+}

@@ -1,0 +1,73 @@
+import type { MuscleGroup } from '@/types/exercise'
+
+export const ALL_MUSCLE_GROUPS: MuscleGroup[] = [
+  'quadriceps', 'isquiotibials', 'glutis', 'bessons',
+  'tibial_anterior', 'adductors', 'abductors', 'psoes',
+  'pectoral', 'dorsal', 'trapezi', 'deltoides',
+  'biceps', 'triceps', 'avantbras',
+  'abdominal', 'oblics', 'lumbar', 'estabilitzadors_cadera',
+  'mobilitat_cadera', 'mobilitat_turmell', 'mobilitat_toracica', 'fascies',
+]
+
+export const muscleGroupNameKeys: Record<MuscleGroup, string> = {
+  quadriceps: 'muscles:quadriceps',
+  isquiotibials: 'muscles:isquiotibials',
+  glutis: 'muscles:glutis',
+  bessons: 'muscles:bessons',
+  tibial_anterior: 'muscles:tibial_anterior',
+  adductors: 'muscles:adductors',
+  abductors: 'muscles:abductors',
+  psoes: 'muscles:psoes',
+  pectoral: 'muscles:pectoral',
+  dorsal: 'muscles:dorsal',
+  trapezi: 'muscles:trapezi',
+  deltoides: 'muscles:deltoides',
+  biceps: 'muscles:biceps',
+  triceps: 'muscles:triceps',
+  avantbras: 'muscles:avantbras',
+  abdominal: 'muscles:abdominal',
+  oblics: 'muscles:oblics',
+  lumbar: 'muscles:lumbar',
+  estabilitzadors_cadera: 'muscles:estabilitzadors_cadera',
+  mobilitat_cadera: 'muscles:mobilitat_cadera',
+  mobilitat_turmell: 'muscles:mobilitat_turmell',
+  mobilitat_toracica: 'muscles:mobilitat_toracica',
+  fascies: 'muscles:fascies',
+}
+
+/** Maps free-exercise-db muscle names → our MuscleGroup taxonomy */
+export const freeExerciseDbMuscleMap: Record<string, MuscleGroup> = {
+  quadriceps: 'quadriceps',
+  hamstrings: 'isquiotibials',
+  glutes: 'glutis',
+  calves: 'bessons',
+  adductors: 'adductors',
+  abductors: 'abductors',
+  abdominals: 'abdominal',
+  chest: 'pectoral',
+  lats: 'dorsal',
+  'middle back': 'dorsal',
+  'lower back': 'lumbar',
+  traps: 'trapezi',
+  shoulders: 'deltoides',
+  biceps: 'biceps',
+  triceps: 'triceps',
+  forearms: 'avantbras',
+  neck: 'trapezi',
+}
+
+/** Maps free-exercise-db equipment names → our Equipment enum */
+export const freeExerciseDbEquipmentMap: Record<string, import('@/types/exercise').Equipment> = {
+  'body only': 'pes_corporal',
+  dumbbell: 'manueles',
+  barbell: 'barra',
+  bands: 'banda_elastica',
+  'exercise ball': 'pilates',
+  'foam roll': 'pilates',
+  cable: 'barra',
+  kettlebells: 'manueles',
+  'e-z curl bar': 'barra',
+  'medicine ball': 'pilates',
+  machine: 'barra',
+  other: 'pes_corporal',
+}

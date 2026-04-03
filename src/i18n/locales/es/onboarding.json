@@ -1,0 +1,49 @@
+{
+  "title": "Configuración inicial",
+  "step": "Paso {{current}} de {{total}}",
+  "next": "Siguiente",
+  "back": "Atrás",
+  "finish": "Empezar",
+  "step1": {
+    "title": "¿Cuál es tu perfil?",
+    "subtitle": "Elige el que mejor te describa",
+    "athlete": {
+      "title": "Atleta autónomo",
+      "description": "Sé lo que hago, quiero control total"
+    },
+    "rehab": {
+      "title": "En rehabilitación",
+      "description": "Tengo una lesión activa o reciente"
+    },
+    "general": {
+      "title": "Deportista general",
+      "description": "Quiero mejorar, necesito guía"
+    }
+  },
+  "step3": {
+    "title": "Tu contexto de entrenamiento",
+    "subtitle": "Personaliza tu plan",
+    "equipment": "Equipamiento disponible",
+    "equipmentOptions": {
+      "pes_corporal": "Peso corporal",
+      "manueles": "Mancuernas",
+      "barra": "Barra",
+      "banda_elastica": "Banda elástica",
+      "pilates": "Pilates",
+      "trx": "TRX"
+    },
+    "daysPerWeek": "Días por semana",
+    "minutesPerSession": "Minutos por sesión",
+    "restrictions": "Restricciones activas",
+    "restrictionOptions": {
+      "knee": "Lesión de rodilla",
+      "ankle": "Lesión de tobillo",
+      "back": "Lesión lumbar",
+      "shoulder": "Lesión de hombro",
+      "hip": "Lesión de cadera",
+      "wrist": "Lesión de muñeca"
+    },
+    "otherRestrictions": "Otras restricciones",
+    "otherRestrictionsPlaceholder": "Describe cualquier otra restricción..."
+  }
+}

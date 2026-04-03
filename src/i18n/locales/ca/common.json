@@ -1,0 +1,133 @@
+{
+  "app": {
+    "name": "The Strength Period",
+    "tagline": "Entrena amb intel·ligència. Les teves dades, al teu dispositiu."
+  },
+  "nav": {
+    "dashboard": "Inici",
+    "planning": "Pla",
+    "session": "Sessió",
+    "stats": "Evolució",
+    "settings": "Configuració",
+    "more": "Més",
+    "language": "Idioma",
+    "edit_profile": "Editar perfil i configuració"
+  },
+  "landing": {
+    "title": "Entrena amb intel·ligència",
+    "subtitle": "Les teves dades, al teu dispositiu.",
+    "feature_ai": "Plans generats per IA adaptats al teu objectiu",
+    "feature_local": "Tot persistit en local. Sense comptes ni registres.",
+    "feature_privacy": "Zero servidors intermediaris. Zero subscripcions.",
+    "cta": "Comença ara"
+  },
+  "session": {
+    "start": "Comença la sessió",
+    "next_exercise": "Saltar bloc",
+    "rest": "Descans",
+    "skip_exercise": "Saltar exercici",
+    "finish": "Acaba la sessió",
+    "rpe_prompt": "Com t'has sentit? (1-10)",
+    "saved": "Sessió desada ✓",
+    "exercise_of": "Exercici {{current}} de {{total}}",
+    "set_of": "Sèrie {{current}} de {{total}}",
+    "target": "Objectiu",
+    "sets": "Sèries",
+    "reps": "Repeticions",
+    "weight_kg": "Pes (kg)",
+    "rpe": "RPE",
+    "rest_seconds": "Descans (s)",
+    "reps_actual": "Repeticions fetes",
+    "weight_actual": "Pes usat (kg)",
+    "complete_set": "Completar sèrie",
+    "skip_rest": "Saltar descans",
+    "summary": "Resum de la sessió",
+    "exercises_done": "Exercicis completats",
+    "total_volume": "Volum total (kg)",
+    "total_time": "Temps total",
+    "total_sets": "Sèries totals",
+    "notes_placeholder": "Notes sobre la sessió (opcional)",
+    "save_close": "Desar i tancar",
+    "no_session": "No hi ha cap sessió activa",
+    "go_planning": "Anar al planificador",
+    "saving": "Desant...",
+    "minutes": "min",
+    "preview_title": "Previsualització de la sessió",
+    "exercises_count": "exercicis",
+    "order_mode": "Ordre d'exercicis",
+    "remove_exercise": "Eliminar exercici",
+    "primary_muscles": "Músculs principals",
+    "instructions": "Instruccions"
+  },
+  "execution_mode": {
+    "standard": "Estàndard",
+    "circuit": "Circuit",
+    "standard_desc": "Per grups musculars",
+    "circuit_desc": "Un exercici per grup, poc descans",
+    "circuit_round": "Circuit {{current}} de {{total}}",
+    "circuit_rest": "Descans entre circuits"
+  },
+  "data": {
+    "export": "Exporta dades",
+    "import": "Importa dades",
+    "exporting": "Exportant...",
+    "importing": "Important...",
+    "export_success": "Dades exportades correctament",
+    "import_success": "Dades importades correctament",
+    "import_error": "Error en importar",
+    "export_error": "Error en exportar",
+    "importError": "Error en importar",
+    "exportError": "Error en exportar",
+    "importConfirm": "Això substituirà totes les dades actuals. Continuar?",
+    "importSuccess": "Dades importades correctament"
+  },
+  "language": {
+    "ca": "Català",
+    "es": "Castellano",
+    "en": "English"
+  },
+  "dashboard": {
+    "greeting": "Hola!",
+    "today": "Avui",
+    "your_plan": "El teu pla",
+    "last_weeks": "Últimes 4 setmanes",
+    "streak": "{{count}} dies seguits",
+    "streak_one": "1 dia seguit",
+    "streak_zero": "Cap ratxa activa",
+    "no_session_today": "No tens sessió avui",
+    "rest_day": "Dia de descans",
+    "quick_session": "Sessió ràpida",
+    "start_session": "Comença",
+    "generate_quick": "Genera",
+    "weekly_load": "Càrrega setmanal",
+    "sets_this_week": "{{count}} sèries aquesta setmana",
+    "view_plan": "Veure pla complet",
+    "create_plan": "Crear nou pla",
+    "adherence": "Adherència",
+    "volume": "Volum",
+    "completed": "Completada",
+    "skipped": "Saltada",
+    "planned": "Planificada",
+    "no_plan": "Sense pla actiu",
+    "session_today": "Sessió d'avui",
+    "minutes": "min"
+  },
+  "errors": {
+    "db_error": "Error accedint a les dades locals. Torna-ho a intentar.",
+    "ai_error": "Error generant el pla. Intenta-ho de nou.",
+    "generic": "S'ha produït un error. Torna-ho a intentar."
+  },
+  "settings": {
+    "save": "Desar canvis",
+    "saved": "Desat ✓"
+  },
+  "session_control": {
+    "cancel": "Cancel·lar sessió",
+    "cancel_confirm": "Segur que vols cancel·lar la sessió? Es perdran les dades.",
+    "pause": "Pausar sessió",
+    "discard": "Descartar sessió",
+    "discard_confirm": "Vols descartar la sessió o desar el progrés parcial?",
+    "save_partial": "Desar parcial",
+    "keep_training": "Seguir entrenant"
+  }
+}

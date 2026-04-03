@@ -1,0 +1,46 @@
+export type MuscleGroup =
+  | 'quadriceps' | 'isquiotibials' | 'glutis' | 'bessons'
+  | 'tibial_anterior' | 'adductors' | 'abductors' | 'psoes'
+  | 'pectoral' | 'dorsal' | 'trapezi' | 'deltoides'
+  | 'biceps' | 'triceps' | 'avantbras'
+  | 'abdominal' | 'oblics' | 'lumbar' | 'estabilitzadors_cadera'
+  | 'mobilitat_cadera' | 'mobilitat_turmell' | 'mobilitat_toracica' | 'fascies'
+
+export type Equipment =
+  | 'pes_corporal' | 'manueles' | 'barra' | 'banda_elastica'
+  | 'pilates' | 'trx'
+
+export type ExerciseTag =
+  | 'corredor' | 'pujada' | 'baixada' | 'velocitat'
+  | 'rehab_genoll' | 'rehab_turmell' | 'rehab_lumbar'
+  | 'tendinitis_rotuliana' | 'tendinitis_anserina'
+  | 'core_estabilitat' | 'equilibri' | 'pliometria'
+  | 'mobilitat' | 'escalfament' | 'tornada_calma'
+
+export type Restriction = {
+  condition: string
+  action: 'avoid' | 'modify'
+  note?: string
+}
+
+export type ExerciseImage = {
+  url: string
+  alt: string
+  isRepresentative: boolean
+}
+
+export type Exercise = {
+  id: string
+  nameKey: string
+  primaryMuscles: MuscleGroup[]
+  secondaryMuscles: MuscleGroup[]
+  equipment: Equipment[]
+  level: 'beginner' | 'intermediate' | 'expert'
+  category: 'strength' | 'mobility' | 'stability' | 'plyometrics' | 'cardio'
+  estimatedSeriesDurationSeconds: number
+  tags: ExerciseTag[]
+  restrictions: Restriction[]
+  rehabNotesKey?: string
+  instructions: string[]
+  images: ExerciseImage[]
+}
