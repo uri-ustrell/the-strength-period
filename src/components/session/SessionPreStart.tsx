@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Play, Trash2, Repeat, ListOrdered } from 'lucide-react'
 
@@ -12,6 +13,11 @@ export const SessionPreStart = () => {
   const startSession = useSessionStore((s) => s.startSession)
   const removeExerciseFromPreview = useSessionStore((s) => s.removeExerciseFromPreview)
 
+  const orderedExercises = useMemo(() => {
+    if (!generatedSession) return []
+    return [...generatedSession.exercises]
+  }, [generatedSession, executionMode])
+
   if (!generatedSession) return null
 
   const handleStart = () => {
@@ -23,7 +29,7 @@ export const SessionPreStart = () => {
       <div className="mx-auto max-w-lg space-y-4">
         <h1 className="text-xl font-bold text-gray-900">{t('common:session.preview_title')}</h1>
         <p className="text-sm text-gray-500">
-          {generatedSession.exercises.length} {t('common:session.exercises_count')} · ~{generatedSession.estimatedDurationMinutes} {t('common:session.minutes')}
+          {orderedExercises.length} {t('common:session.exercises_count')} · ~{generatedSession.estimatedDurationMinutes} {t('common:session.minutes')}
         </p>
 
         {/* Execution mode selector */}
@@ -69,7 +75,7 @@ export const SessionPreStart = () => {
 
         {/* Exercise list */}
         <div className="space-y-2">
-          {generatedSession.exercises.map((se, index) => {
+          {orderedExercises.map((se, index) => {
             const repsDisplay = Array.isArray(se.reps) ? `${se.reps[0]}-${se.reps[1]}` : String(se.reps)
             const representativeImage = se.exercise.images.find((img) => img.isRepresentative) ?? se.exercise.images[0]
             return (
@@ -102,7 +108,7 @@ export const SessionPreStart = () => {
                       </div>
                     </div>
                   </div>
-                  {generatedSession.exercises.length > 1 && (
+                  {orderedExercises.length > 1 && (
                     <button
                       type="button"
                       onClick={() => removeExerciseFromPreview(index)}
@@ -122,7 +128,7 @@ export const SessionPreStart = () => {
         <button
           type="button"
           onClick={handleStart}
-          disabled={generatedSession.exercises.length === 0}
+          disabled={orderedExercises.length === 0}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-4 text-white font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-50"
         >
           <Play size={20} fill="white" />
