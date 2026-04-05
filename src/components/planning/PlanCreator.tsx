@@ -61,6 +61,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
     },
   )
   const [aiDecides, setAiDecides] = useState(false)
+  const [weeklyProgression, setWeeklyProgression] = useState(5)
 
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
   const [showSavePreset, setShowSavePreset] = useState(false)
@@ -183,7 +184,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
       selectedPreset?.id ?? 'forca_general',
       config,
       exercises,
-      { weeks, muscleDistribution },
+      { weeks, muscleDistribution, weeklyProgression },
     )
     setStep('preview')
   }
@@ -326,6 +327,24 @@ export const PlanCreator = ({ onComplete }: Props) => {
               ))}
             </div>
           </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700">{t('planning:weekly_progression')}</label>
+          <p className="text-xs text-gray-400 mt-0.5">{t('planning:weekly_progression_desc')}</p>
+          <div className="mt-2 flex items-center gap-3">
+            <span className="text-xs text-gray-400 w-20">{t('planning:progression_maintenance')}</span>
+            <input
+              type="range"
+              min={0}
+              max={10}
+              value={weeklyProgression}
+              onChange={(e) => setWeeklyProgression(Number(e.target.value))}
+              className="flex-1 accent-indigo-600"
+            />
+            <span className="text-xs text-gray-400 w-16 text-right">{t('planning:progression_aggressive')}</span>
+          </div>
+          <div className="mt-1 text-center text-sm font-medium text-indigo-600">{weeklyProgression}/10</div>
         </div>
 
         <button

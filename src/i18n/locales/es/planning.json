@@ -63,6 +63,10 @@
   "save_as_preset": "Guardar como preset",
   "preset_name_placeholder": "Nombre del preset...",
   "delete_preset": "Eliminar preset",
+  "weekly_progression": "Progresión semanal",
+  "weekly_progression_desc": "Intensidad de progresión: 0 = mantenimiento, 10 = agresivo",
+  "progression_maintenance": "Mantenimiento",
+  "progression_aggressive": "Agresivo",
   "presets": {
     "corredor_general": "Corredor General",
     "corredor_general_desc": "Fuerza para corredores: glúteos, cuádriceps, isquiotibiales, gemelos y core",

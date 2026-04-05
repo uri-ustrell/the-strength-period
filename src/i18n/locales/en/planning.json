@@ -63,6 +63,10 @@
   "save_as_preset": "Save as preset",
   "preset_name_placeholder": "Preset name...",
   "delete_preset": "Delete preset",
+  "weekly_progression": "Weekly progression",
+  "weekly_progression_desc": "Progression intensity: 0 = maintenance, 10 = aggressive",
+  "progression_maintenance": "Maintenance",
+  "progression_aggressive": "Aggressive",
   "presets": {
     "corredor_general": "General Runner",
     "corredor_general_desc": "Strength for runners: glutes, quads, hamstrings, calves and core",
