@@ -35,6 +35,34 @@
 - [x] Verify build
 - [x] Update STATUS.md
 
+### QA Inputs — Session, Full Plan, and Gemini Prompt (2026-04-05)
+- [x] Block 1: Live reordering in pre-session view (`SessionPreStart`)
+	- [x] Implement a derived list that depends on `executionMode` instead of rendering `generatedSession.exercises` directly
+	- [x] When switching `setExecutionMode('standard' | 'circuit')`, validate immediate order updates without starting the session
+	- [x] Keep consistency with `removeExerciseFromPreview(index)` so deletion applies to the same visible list
+	- [x] Verify `startSession()` preserves the selected mode and the final order shown in preview
+- [x] Block 2: Circuit mode text cleanup (remove "short rest")
+	- [x] Update `execution_mode.circuit_desc` in `src/i18n/locales/{ca,es,en}/common.json` to remove short-rest references
+	- [x] Verify no visible variants remain for "short rest" / "poco descanso" / "poc descans"
+	- [x] Validate correct rendering of the updated text in the session mode selector
+- [x] Block 3: Active session with a single skip button
+	- [x] Remove the second button in `Session.tsx` bound to `session.next_exercise`
+	- [x] Remove `skipBlock` from `sessionStore.ts` (interface + implementation) and `useSession.ts`
+	- [x] Remove i18n keys and content for `session.next_exercise` in ca/es/en
+	- [x] Validate end-to-end flow in `standard` and `circuit` with only `session.skip_exercise`
+- [x] Block 4: Full plan visualization (all sessions + exercises)
+	- [x] Keep the week overview (`MonthView` / `WeekView`) and add expandable per-session detail
+	- [x] Define the exercise data source per session (currently `SessionTemplate` only includes `muscleGroupTargets`)
+	- [x] Show per-session details: exercises, sets, reps, target load, and rest
+	- [x] Validate navigation and readability on mobile and desktop for full-plan review in one place
+- [x] Block 5: Gemini reanalysis + 0-10 progression + 60% deload
+	- [x] Add a weekly progression field (0..10) to the plan creation flow (`PlanCreator` + `UserConfig`)
+	- [x] Propagate this value through `planningStore` -> `planningEngine` -> `/api/generate-plan` (types, payload, validation)
+	- [x] Update `SYSTEM_PROMPT` and `buildUserMessage` in `api/generate-plan.ts` to use the selected percentage
+	- [x] Apply conservative rehab/injury behavior: increment <= selected percentage and never above safety cap
+	- [x] Define deload weeks on multiples of 4 (4, 8, 12) at 60% of achieved load (aligned across prompt and local rules)
+	- [x] Validate `loadPercentage` follows configured week-by-week progression
+
 ### QA Inputs — UX, Language, Planning, and Session (2026-04-03)
 - [x] Language as a dropdown and official UX criterion
 	- [x] Replace language buttons with a reusable dropdown selector

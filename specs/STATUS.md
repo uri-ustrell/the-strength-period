@@ -1,8 +1,20 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-03
+> Last updated: 2026-04-05
 
-## Current Phase: All Steps Complete
+## Current Phase: Core Steps Complete + Step 13 Ethical Gamification Planned
+
+## QA Pass (2026-04-05) — Session, Full Plan, and Gemini Prompt
+- **Improved**: Pre-session exercise list uses derived (useMemo) list based on executionMode for reactive reordering
+- **Fixed**: Circuit mode description — removed "short rest" / "poc descans" / "poco descanso" references from ca/es/en
+- **Removed**: Second skip button (skipBlock / "next exercise") — single "skip exercise" button remains in active session
+- **Removed**: `skipBlock` action from sessionStore, useSession, and i18n keys
+- **Added**: Expandable per-session detail in plan view — compact SessionPreview rows expand to show muscle group targets with sets, reps, RPE, rest
+- **Added**: Weekly progression field (0-10 scale) in plan creation configure step with range slider
+- **Updated**: Gemini SYSTEM_PROMPT — progression rules tied to 0-10 scale, deload at multiples of 4 weeks at 60%, conservative rehab behavior
+- **Updated**: buildUserMessage — includes progression level and deload schedule in prompt
+- **Updated**: All progression rules — deload percentage standardized to 60% across linear/undulating/block types
+- **Propagated**: weeklyProgression through UserConfig → PlanCreator → planningStore → planningEngine → /api/generate-plan
 
 ## QA Pass (2026-04-03) — UX, Language, Planning, Session
 - **Improved**: Language selector — replaced button grid with native `<select>` dropdown in BottomNav for mobile scalability
@@ -37,6 +49,29 @@
 - Data persists locally in IndexedDB. AI inference via Vercel Serverless Function (no user data stored server-side).
 - Export/Import via JSON file for data portability (Feature 10)
 
+## Architecture Exploration (2026-04-05)
+### Exploration A — Post-API Bifurcation (Deterministic vs User-Owned LLM Assistant)
+- Goal: Define a future planning architecture that removes the project-managed API option and splits into two user-facing paths.
+- API option status: Project-managed API generation is removed from this evolution direction.
+- Branch 1 (Deterministic): On-device rule-engine and template-driven planning (preset/profile/progression/restrictions).
+- Branch 2 (User-owned LLM Assistant): Plan generation assisted by the user's own LLM assistant/provider, with strict JSON contract validation in-app.
+- Pros: Lower infrastructure cost, user sovereignty, transparent control of model choice, and reduced backend maintenance.
+- Cons: Quality variance across user assistants, higher UX complexity, and stronger validation/fallback requirements.
+- Trade-off: Eliminating API simplifies platform ownership and cost, but shifts reliability and consistency responsibility toward product constraints and validation.
+- Recommendation: Run a comparative discovery between both branches, define acceptance thresholds, and keep both as explicit alternatives without reintroducing project-managed API generation.
+
+### Exploration C — Ethical Gamification + Patronage
+- Goal: Increase long-term healthy adherence with meaningful motivation loops while avoiding addictive mechanics or financial pressure.
+- Candidate approaches:
+	- Achievements tied to sustainable habits (consistency, deload compliance, recovery, mobility, injury-safe progression).
+	- Non-speculative tokens/points used only for in-app milestones, reflection prompts, and streak recovery safeguards.
+	- Bonus challenges focused on health behaviors (sleep, warm-up completion, pain-aware training adjustments), never max-volume pressure.
+	- Voluntary patronage for maintenance (tips, supporter badge, optional thank-you perks) with no paywalled core functionality.
+- Pros: Better engagement and retention aligned with user wellbeing, with a transparent sustainability model for app maintenance.
+- Cons: Requires careful UX and copy to avoid guilt loops, extra balancing and abuse prevention, and legal/ethical review for reward language.
+- Trade-off: Engagement systems can help adherence, but only if they reinforce autonomy, recovery, and realistic goals instead of compulsion.
+- Recommendation: Start with low-stakes achievements and non-monetized points, define anti-addictive guardrails first, then test optional patronage with explicit non-capitalist framing and no pay-to-win dynamics.
+
 ## Architecture Migration — Fase 1 (Complete)
 - Migrated from user-provided Claude API key (browser-side) to server-side Gemini 2.5 Flash via Vercel Serverless Function
 - Onboarding simplified from 3 steps to 2 (removed Claude API key step)
@@ -60,6 +95,7 @@
 | 10 | Polish + PWA + Export/Import | ✅ Complete | All above | PWA, Export/Import, UI components, CSP headers |
 | 11 | Local API Mock for Dev | ✅ Complete | Step 7 ✅ | `vercel dev` + MSW with canned fixture |
 | 12 | Git Flow + GitHub Push | ✅ Complete | — | Git init, git flow, GitHub push |
+| 13 | Ethical Gamification + Patronage Exploration | 🚧 Planned | Steps 8, 9, 10 ✅ | Strategic evolution: healthy engagement + ethical sustainability |
 
 ## Completed Work
 
@@ -156,7 +192,16 @@ src/pages/Onboarding/index.tsx
 - [x] `npm run build` passes with zero errors
 
 ## Next Up
-- All steps complete. Project is live on GitHub.
+- Step 13 (planned): Ethical Gamification + Patronage Exploration.
+- Focus: healthy engagement loops, anti-addictive guardrails, and voluntary maintenance support.
+
+### Step 13 — 🚧 Planned (Exploration)
+- [ ] Define product principles for ethical gamification (health-first, non-addictive, no pay-to-win, transparent rules)
+- [ ] Design initial achievements/tokens/bonus system centered on sustainable habits and recovery behaviors
+- [ ] Evaluate optional patronage model for maintenance funding (tips, supporter badge, non-paywalled perks)
+- [ ] Define anti-addictive guardrails and wellbeing protections (no guilt loops, no punishment mechanics, no pay-to-win pressure)
+- [ ] Define success metrics (adherence uplift, perceived wellbeing, user trust, zero dark-pattern violations)
+- [ ] Propose rollout strategy: opt-in beta, qualitative feedback loop, and staged release plan
 
 ### Step 10 — ✅ Complete
 - [x] `vite-plugin-pwa` installed and configured in `vite.config.ts` (autoUpdate, manifest, workbox caching for exercises.json)
