@@ -23,7 +23,6 @@
   },
   "session": {
     "start": "Start session",
-    "next_exercise": "Skip block",
     "rest": "Rest",
     "skip_exercise": "Skip exercise",
     "finish": "Finish session",
@@ -63,7 +62,7 @@
     "standard": "Standard",
     "circuit": "Circuit",
     "standard_desc": "By muscle groups",
-    "circuit_desc": "One exercise per group, short rest",
+    "circuit_desc": "Rotate through exercises from different groups",
     "circuit_round": "Circuit {{current}} of {{total}}",
     "circuit_rest": "Rest between circuits"
   },

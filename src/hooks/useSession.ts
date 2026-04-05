@@ -65,7 +65,6 @@ export function useSession() {
     startSession,
     logSet,
     skipExercise: store.skipExercise,
-    skipBlock: store.skipBlock,
     tickRest: store.tickRest,
     skipRest,
     setExecutionMode,

@@ -38,7 +38,6 @@ interface SessionStore {
   setExecutionMode: (mode: ExecutionMode) => void
   logSet: (repsActual: number, weightActual?: number) => void
   skipExercise: () => void
-  skipBlock: () => void
   startRest: (seconds: number) => void
   tickRest: () => void
   finishSession: (globalRpe: number, notes?: string) => Promise<void>
@@ -192,24 +191,6 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
   },
 
   skipExercise: () => {
-    const { generatedSession, currentExerciseIndex } = get()
-    if (!generatedSession) return
-
-    const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
-
-    if (isLastExercise) {
-      set({ isFinished: true, isResting: false })
-    } else {
-      set({
-        currentExerciseIndex: currentExerciseIndex + 1,
-        currentSetIndex: 0,
-        isResting: false,
-        restSecondsRemaining: 0,
-      })
-    }
-  },
-
-  skipBlock: () => {
     const { generatedSession, currentExerciseIndex } = get()
     if (!generatedSession) return
 

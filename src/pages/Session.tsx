@@ -32,7 +32,6 @@ export const Session = () => {
     currentExercise,
     logSet,
     skipExercise,
-    skipBlock,
     tickRest,
     skipRest,
     finishSession,
@@ -185,22 +184,13 @@ export const Session = () => {
               />
             )}
 
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={skipExercise}
-                className="flex-1 rounded-xl border border-gray-300 bg-white py-3 text-sm font-semibold text-gray-700 active:bg-gray-50"
-              >
-                {t('session.skip_exercise')}
-              </button>
-              <button
-                type="button"
-                onClick={skipBlock}
-                className="flex-1 rounded-xl bg-indigo-100 py-3 text-sm font-semibold text-indigo-700 active:bg-indigo-200"
-              >
-                {t('session.next_exercise')}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={skipExercise}
+              className="w-full rounded-xl border border-gray-300 bg-white py-3 text-sm font-semibold text-gray-700 active:bg-gray-50"
+            >
+              {t('session.skip_exercise')}
+            </button>
           </>
         )}
 

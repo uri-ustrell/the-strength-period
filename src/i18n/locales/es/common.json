@@ -23,7 +23,6 @@
   },
   "session": {
     "start": "Empieza la sesión",
-    "next_exercise": "Saltar bloque",
     "rest": "Descanso",
     "skip_exercise": "Saltar ejercicio",
     "finish": "Termina la sesión",
@@ -63,7 +62,7 @@
     "standard": "Estándar",
     "circuit": "Circuito",
     "standard_desc": "Por grupos musculares",
-    "circuit_desc": "Un ejercicio por grupo, poco descanso",
+    "circuit_desc": "Rotación entre ejercicios de diferentes grupos",
     "circuit_round": "Circuito {{current}} de {{total}}",
     "circuit_rest": "Descanso entre circuitos"
   },
