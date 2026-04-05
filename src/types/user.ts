@@ -10,4 +10,5 @@ export type UserConfig = {
   minutesPerSession: number
   activeRestrictions: string[]
   onboardingCompleted: boolean
+  weeklyProgression?: number
 }

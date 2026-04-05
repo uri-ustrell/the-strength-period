@@ -12,6 +12,7 @@ interface PlanningRequest {
   restrictions: string[]
   muscleDistribution?: Record<string, number>
   progressionType?: string
+  weeklyProgression?: number
   exerciseCatalog: Array<{
     id: string
     nameKey: string
@@ -120,6 +121,7 @@ export async function generateMesocycle(
     weeks?: number
     muscleDistribution?: Record<string, number>
     progressionType?: string
+    weeklyProgression?: number
   },
 ): Promise<Mesocycle> {
   const filtered = filterExercisesByEquipment(availableExercises, config.equipment)
@@ -135,6 +137,7 @@ export async function generateMesocycle(
     restrictions: config.activeRestrictions,
     muscleDistribution: options?.muscleDistribution,
     progressionType: options?.progressionType ?? 'linear',
+    weeklyProgression: options?.weeklyProgression,
     exerciseCatalog: catalog,
   }
 

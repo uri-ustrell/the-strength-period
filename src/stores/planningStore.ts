@@ -17,7 +17,7 @@ interface PlanningStore {
   error: string | null
 
   // Actions
-  generate: (presetId: string, config: UserConfig, exercises: Exercise[], options?: { weeks?: number; muscleDistribution?: Record<string, number>; progressionType?: string }) => Promise<void>
+  generate: (presetId: string, config: UserConfig, exercises: Exercise[], options?: { weeks?: number; muscleDistribution?: Record<string, number>; progressionType?: string; weeklyProgression?: number }) => Promise<void>
   saveGenerated: () => Promise<void>
   discardGenerated: () => void
   loadActive: () => Promise<void>

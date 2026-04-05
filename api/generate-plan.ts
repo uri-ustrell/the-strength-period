@@ -28,7 +28,12 @@ La teva tasca és generar plans d'entrenament estructurats en format JSON estric
 REGLES DE PERIODITZACIÓ:
 - Progressió lineal per a principiants (augment setmanal 5-10% de volum)
 - Progressió ondulant per a intermedis (variació alta/baixa dia a dia)
-- Setmana de descàrrega cada 4 setmanes (70% del volum màxim)
+- L'usuari indica un nivell de progressió de 0 (manteniment) a 10 (agressiu)
+- Adapta l'augment setmanal de volum/intensitat segons aquest nivell:
+  - 0 = sense augment (manteniment pur)
+  - 5 = augment moderat (5% setmanal)
+  - 10 = augment agressiu (10% setmanal)
+- Setmanes de descàrrega als múltiples de 4 (setmanes 4, 8, 12...) al 60% de la càrrega aconseguida
 - Mai augmentar pes i volum a la vegada en la mateixa sessió
 
 REGLES DE DISTRIBUCIÓ MUSCULAR:
@@ -40,8 +45,9 @@ REGLES DE DISTRIBUCIÓ MUSCULAR:
 REGLES DE REHAB (activa si el perfil és 'rehab'):
 - Prioritzar exercicis de nivell 'beginner' les primeres 2 setmanes
 - Evitar exercicis amb restriccions que coincideixin amb les actives de l'usuari
-- Progressió conservadora: 5% màxim per setmana
+- Progressió conservadora: l'augment no pot superar el nivell de progressió indicat ni un 5% absolut per setmana
 - Sempre incloure mobilitat i estabilitat en cada sessió
+- Sense excedir mai el límit de seguretat per perfils de rehabilitació
 
 FORMAT DE RESPOSTA — JSON estricte, sense text addicional:
 {
@@ -92,6 +98,7 @@ interface GeneratePlanRequest {
   restrictions: string[]
   muscleDistribution?: Record<string, number>
   progressionType?: string
+  weeklyProgression?: number
   exerciseCatalog: Array<{
     id: string
     nameKey: string
@@ -126,6 +133,8 @@ function buildUserMessage(req: GeneratePlanRequest): string {
         .join('\n')
     : 'Distribució equilibrada'
 
+  const progressionLevel = req.weeklyProgression ?? 5
+
   return `Genera un mesocicle amb els següents paràmetres:
 
 OBJECTIU: ${req.preset}
@@ -140,6 +149,8 @@ DISTRIBUCIÓ MUSCULAR OBJECTIU:
 ${muscleDistStr}
 
 TIPUS DE PROGRESSIÓ: ${req.progressionType || 'linear'}
+NIVELL DE PROGRESSIÓ SETMANAL: ${progressionLevel}/10 (0=manteniment, 10=agressiu)
+SETMANES DE DESCÀRREGA: cada 4 setmanes (4, 8, 12...) al 60% de la càrrega aconseguida
 
 CATÀLEG D'EXERCICIS DISPONIBLES:
 ${JSON.stringify(req.exerciseCatalog)}`
