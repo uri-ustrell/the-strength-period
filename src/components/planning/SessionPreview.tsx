@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Clock, Target } from 'lucide-react'
+import { Clock, Target, ChevronRight, ChevronDown } from 'lucide-react'
 
 import type { SessionTemplate } from '@/types/planning'
 
@@ -10,8 +11,12 @@ interface Props {
 
 const DAY_KEYS = ['', '1', '2', '3', '4', '5', '6', '7'] as const
 
+const formatReps = (reps: number | [number, number]): string =>
+  Array.isArray(reps) ? `${reps[0]}-${reps[1]}` : String(reps)
+
 export const SessionPreview = ({ session, compact = false }: Props) => {
-  const { t } = useTranslation(['planning', 'muscles'])
+  const { t } = useTranslation(['planning', 'common', 'muscles'])
+  const [isExpanded, setExpanded] = useState(false)
 
   const totalSets = session.muscleGroupTargets.reduce(
     (sum, mg) => sum + mg.loadTarget.sets,
@@ -20,26 +25,58 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
 
   if (compact) {
     return (
-      <div className="flex items-center justify-between rounded-lg bg-gray-50 px-3 py-2">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-gray-500">
-            {t(`planning:day_short.${DAY_KEYS[session.dayOfWeek]}`)}
-          </span>
-          <div className="flex flex-wrap gap-1">
+      <div className="rounded-lg bg-gray-50 overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="flex w-full items-center justify-between px-3 py-2 text-left"
+        >
+          <div className="flex items-center gap-2">
+            {isExpanded ? (
+              <ChevronDown size={14} className="text-gray-400 shrink-0" />
+            ) : (
+              <ChevronRight size={14} className="text-gray-400 shrink-0" />
+            )}
+            <span className="text-xs font-medium text-gray-500">
+              {t(`planning:day_short.${DAY_KEYS[session.dayOfWeek]}`)}
+            </span>
+            <div className="flex flex-wrap gap-1">
+              {session.muscleGroupTargets.map((mg) => (
+                <span
+                  key={mg.muscleGroup}
+                  className="rounded bg-indigo-100 px-1.5 py-0.5 text-[10px] font-medium text-indigo-700"
+                >
+                  {t(`muscles:${mg.muscleGroup}`)}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0 ml-2">
+            <span>{totalSets}s</span>
+            <span>{session.durationMinutes}min</span>
+          </div>
+        </button>
+
+        {isExpanded && (
+          <div className="px-3 pb-2 space-y-1">
             {session.muscleGroupTargets.map((mg) => (
-              <span
+              <div
                 key={mg.muscleGroup}
-                className="rounded bg-indigo-100 px-1.5 py-0.5 text-[10px] font-medium text-indigo-700"
+                className="flex items-center justify-between rounded bg-white border border-gray-100 px-2.5 py-1.5"
               >
-                {t(`muscles:${mg.muscleGroup}`)}
-              </span>
+                <span className="text-xs font-medium text-indigo-700">
+                  {t(`muscles:${mg.muscleGroup}`)}
+                </span>
+                <div className="flex gap-2.5 text-[10px] text-gray-500">
+                  <span>{mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)}</span>
+                  {mg.loadTarget.rpe != null && <span>RPE {mg.loadTarget.rpe}</span>}
+                  {mg.loadTarget.weightKg != null && <span>{mg.loadTarget.weightKg}kg</span>}
+                  <span>{mg.loadTarget.restSeconds}s {t('common:session.rest').toLowerCase()}</span>
+                </div>
+              </div>
             ))}
           </div>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>{totalSets}s</span>
-          <span>{session.durationMinutes}min</span>
-        </div>
+        )}
       </div>
     )
   }
@@ -67,11 +104,7 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
             key={mg.muscleGroup}
             className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700"
           >
-            {t(`muscles:${mg.muscleGroup}`)} ({mg.loadTarget.sets}×
-            {Array.isArray(mg.loadTarget.reps)
-              ? `${mg.loadTarget.reps[0]}-${mg.loadTarget.reps[1]}`
-              : mg.loadTarget.reps}
-            )
+            {t(`muscles:${mg.muscleGroup}`)} ({mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)})
           </span>
         ))}
       </div>
