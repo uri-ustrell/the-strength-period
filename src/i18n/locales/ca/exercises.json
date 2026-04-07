@@ -96,6 +96,9 @@
   "Thigh_Adductor": "Adductor de cuixa",
   "Triceps_Pushdown": "Extensió de tríceps amb politja",
   "Wide-Grip_Lat_Pulldown": "Jaló al pit amb agafada ampla",
+  "Anterior_Tibialis-SMR": "Alliberament tibial anterior (SMR)",
+  "Decline_Oblique_Crunch": "Crunch declinat oblic",
+  "Dumbbell_Side_Bend": "Flexió lateral amb manuella",
   "instructions": {
     "Barbell_Squat": [
       "Dret amb els peus a l'amplada de les espatlles. Centra la barra sobre les espatlles.",

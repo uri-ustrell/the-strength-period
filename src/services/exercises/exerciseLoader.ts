@@ -53,8 +53,8 @@ export async function loadExercises(): Promise<Exercise[]> {
     exercises.push({
       id: raw.id,
       nameKey: enrichment.nameKey,
-      primaryMuscles: mapMuscles(raw.primaryMuscles),
-      secondaryMuscles: mapMuscles(raw.secondaryMuscles),
+      primaryMuscles: [...mapMuscles(raw.primaryMuscles), ...(enrichment.primaryMusclesExtra ?? [])].filter((m, i, a) => a.indexOf(m) === i),
+      secondaryMuscles: [...mapMuscles(raw.secondaryMuscles), ...(enrichment.secondaryMusclesExtra ?? [])].filter((m, i, a) => a.indexOf(m) === i),
       equipment: mapEquipment(raw.equipment),
       level: mapLevel(raw.level),
       category: enrichment.category,

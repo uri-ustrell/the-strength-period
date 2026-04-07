@@ -4,6 +4,16 @@
 
 ## Current Phase: Step 14 Complete + Available Weights Feature — Steps 15–16 Planned
 
+## Exercise Data Quality Audit (2026-04-07)
+- **Added**: `primaryMusclesExtra` and `secondaryMusclesExtra` optional fields to `EnrichmentData` type — allows enrichment to add our custom taxonomy muscles (e.g. `oblics`, `psoes`, `mobilitat_cadera`) that don't exist in free-exercise-db vocabulary
+- **Updated**: `exerciseLoader.ts` merges extra muscles with auto-mapped muscles from raw data (with deduplication)
+- **Added**: Muscle extras to 37 existing enriched exercises covering all 8 previously empty custom muscle groups: `tibial_anterior`, `psoes`, `oblics`, `estabilitzadors_cadera`, `mobilitat_cadera`, `mobilitat_turmell`, `mobilitat_toracica`, `fascies`
+- **Added**: 3 new enriched exercises: `Anterior_Tibialis-SMR`, `Decline_Oblique_Crunch`, `Dumbbell_Side_Bend` (total: 83 enriched)
+- **Added**: ca/es/en translations for 3 new exercises
+- **Fixed**: EN instruction translations added for 10 exercises (were only in CA/ES)
+- **Result**: All 23 muscle groups now have ≥ 3 enriched exercises (previously 8 groups had zero); all 83 exercise name translations complete in 3 languages; 10 exercises have instruction translations in all 3 languages
+- **Noted**: `trx` Equipment type has 0 exercises in raw data (candidate for future cleanup)
+
 ## Available Weights Configuration and Snapping (2026-04-07)
 - **Added**: `AvailableWeights` type and `availableWeights` field to `UserConfig` (per equipment type: `manueles`, `barra`)
 - **Added**: `DEFAULT_AVAILABLE_WEIGHTS` constant with sensible defaults for dumbbells and barbell

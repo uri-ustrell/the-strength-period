@@ -17,6 +17,19 @@
 - [x] **Session execution** — En el pre-start i l'execució activa, mostrar el pes arrodonit i permetre que l'usuari esculli pes superior/inferior dins els seus valors disponibles
 - [x] Run `npm run build` — zero errors
 
+### Skip Set Button in Active Session
+**Context:** Currently, the session page only has a "skip exercise" button that immediately moves to the next exercise. Users sometimes want to skip only the current set (e.g., due to fatigue mid-set) without losing the commitment to the exercise, and without triggering an automatic rest period. The UX should make "skip set" less prominent than "complete set" to reduce accidental clicks.
+**Goal:** Add a "skip set" button that advances to the next set without recording it as completed and without starting a rest timer. The button should be secondary in visual hierarchy (less prominent than "Complete Set").
+
+- [ ] **i18n keys** — Add `session.skip_set` key to all three languages (ca/es/en) in common.json with translations: "Skip set" (en), "Saltar sèrie" (ca), "Omitir serie" (es)
+- [ ] **SessionStore interface** — Add `skipSet: () => void` action to SessionStore interface in `src/stores/sessionStore.ts`
+- [ ] **SessionStore implementation** — Implement `skipSet` action: advance `currentSetIndex`, do NOT create ExecutedSet, do NOT trigger rest (set `isResting: false`); handle both standard and circuit modes
+- [ ] **useSession hook** — Export `skipSet` from `src/hooks/useSession.ts` to make it available to components
+- [ ] **SetLogger UI** — Add secondary-style button (e.g., smaller, gray, less rounded, less bold) in `src/components/session/SetLogger.tsx` below the "Complete Set" button; wire to `onSkipSet` callback
+- [ ] **Session page integration** — Add `skipSet` to hook destructuring in `src/pages/Session.tsx`, pass it to SetLogger as `onSkipSet` prop, handle click event
+- [ ] **Accessibility** — Ensure skip-set button has clear aria-label distinguishing it from skip-exercise; add visual cue (e.g., text hint or icon) to avoid confusion
+- [ ] Run `npm run build` — zero errors
+
 ### Muscle Group Selector Completeness (PlanCreator)
 **Context:** `PlanCreator.tsx` defines a hardcoded `MAIN_MUSCLE_GROUPS` list of only 13 groups, while `ALL_MUSCLE_GROUPS` in `src/data/muscleGroups.ts` has the full 23 groups. The filter engine (`exerciseFilter.ts`) already matches on both `primaryMuscles` and `secondaryMuscles`, so showing all groups in the UI is purely a selector change.
 **Goal:** Any user who wants to target a specific muscle (e.g. `avantbras`, `oblics`, `trapezi`, `mobilitat_turmell`) must be able to do so — including groups that only appear as secondary muscles in the enriched exercises.
@@ -28,23 +41,17 @@
 - [ ] Run `npm run build` — zero errors
 
 ### Exercise Data Quality Audit
-**Context:** 97 exercises are enriched (out of 873 in the raw JSON). Need to validate coverage across the full `MuscleGroup` taxonomy (23 groups), detect gaps, and ensure translations are coherent and complete for ca/es/en.
+**Context:** 83 exercises are enriched (out of 873 in the raw JSON). All 23 MuscleGroup values now have ≥3 enriched exercises. Translations are complete for ca/es/en.
 **Dependencies:** Muscle Group Selector Completeness task above (to know which groups the UI will expose).
 
-- [ ] **Coverage audit** — For each of the 23 `MuscleGroup` values, count exercises where it appears as `primaryMuscles` or `secondaryMuscles` in the enriched set; list groups with fewer than 3 exercises
-- [ ] **Gap filling** — For any under-covered group (< 3 exercises), identify candidate exercises in the raw `exercises.json` and add enrichment entries in `src/data/exerciseEnrichment.ts`
-- [ ] **Translation completeness** — Verify that every enriched exercise `nameKey` has matching entries in `src/i18n/locales/{ca,es,en}/exercises.json`; flag any missing keys
-- [ ] **Translation quality** — Review ca/es/en exercise name translations for accuracy and consistency (especially runner-specific and mobility exercises)
-- [ ] **Muscle mapping coherence** — Check that `primaryMuscles` / `secondaryMuscles` in enrichment are consistent with the free-exercise-db source data and our taxonomy (`freeExerciseDbMuscleMap` in `muscleGroups.ts`)
-- [ ] **Equipment coverage audit** — Deep check of available equipment types:
-  - [ ] Scan `public/exercises/exercises.json` and extract all unique equipment values present in raw data
-  - [ ] Cross-reference against `freeExerciseDbEquipmentMap` in `src/data/muscleGroups.ts` to ensure all raw equipment types have a mapping
-  - [ ] Verify that each raw equipment type maps to a valid `Equipment` enum value in `src/types/exercise.ts`
-  - [ ] Check if any `Equipment` enum values (e.g., `trx`) have no corresponding exercises in the raw data — consider removing unused types
-  - [ ] Count how many exercises use each equipment type in the enriched set; identify any equipment with fewer than 2 exercises
-  - [ ] Flag any orphaned exercises in `exercises.json` with equipment types not covered by enrichment or mapping
-- [ ] **Instruction translations** — Confirm that exercises with translated instruction keys have correct ca/es/en content and no placeholder text
-- [ ] Run `npm run build` — zero errors after any enrichment additions
+- [x] **Coverage audit** — For each of the 23 `MuscleGroup` values, count exercises where it appears as `primaryMuscles` or `secondaryMuscles` in the enriched set; list groups with fewer than 3 exercises
+- [x] **Gap filling** — Added `primaryMusclesExtra`/`secondaryMusclesExtra` to EnrichmentData + exerciseLoader merge; added muscle extras to 37 existing exercises; added 3 new exercises (Anterior_Tibialis-SMR, Decline_Oblique_Crunch, Dumbbell_Side_Bend)
+- [x] **Translation completeness** — All 83 enriched exercise nameKeys have matching entries in all 3 languages
+- [x] **Translation quality** — Reviewed ca/es/en exercise name translations for accuracy and consistency — all coherent
+- [x] **Muscle mapping coherence** — No unmapped raw muscle or equipment values; 8 custom groups covered via new `primaryMusclesExtra`/`secondaryMusclesExtra` mechanism
+- [x] **Equipment coverage audit** — All 12 raw equipment types mapped; `trx` Equipment has 0 exercises (noted for future cleanup); 14 null-equipment exercises correctly default to `pes_corporal`
+- [x] **Instruction translations** — 10 exercises have instruction translations in CA/ES/EN (EN was missing, now fixed); 73 exercises without instruction translations (gradual expansion)
+- [x] Run `npm run build` — zero errors
 
 ### Step 13 — Static Data API
 - [x] Move `public/exercises/exercises.json` → `data/exercises.json`

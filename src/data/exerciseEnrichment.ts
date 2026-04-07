@@ -1,4 +1,4 @@
-import type { ExerciseTag, Restriction, ProgressionMetric } from '@/types/exercise'
+import type { ExerciseTag, Restriction, ProgressionMetric, MuscleGroup } from '@/types/exercise'
 
 export type EnrichmentData = {
   nameKey: string
@@ -7,6 +7,8 @@ export type EnrichmentData = {
   category: 'strength' | 'mobility' | 'stability' | 'plyometrics' | 'cardio'
   estimatedSeriesDurationSeconds: number
   progressionMetric: ProgressionMetric
+  primaryMusclesExtra?: MuscleGroup[]
+  secondaryMusclesExtra?: MuscleGroup[]
 }
 
 export const exerciseEnrichment: Record<string, EnrichmentData> = {
@@ -53,6 +55,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['psoes'],
   },
   Romanian_Deadlift: {
     nameKey: 'exercises:Romanian_Deadlift',
@@ -89,6 +92,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['mobilitat_turmell', 'tibial_anterior'],
   },
   Seated_Calf_Raise: {
     nameKey: 'exercises:Seated_Calf_Raise',
@@ -97,6 +101,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['mobilitat_turmell', 'tibial_anterior'],
   },
   Barbell_Step_Ups: {
     nameKey: 'exercises:Barbell_Step_Ups',
@@ -153,6 +158,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 45,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['psoes'],
   },
   Bodyweight_Squat: {
     nameKey: 'exercises:Bodyweight_Squat',
@@ -177,6 +183,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   Glute_Ham_Raise: {
     nameKey: 'exercises:Glute_Ham_Raise',
@@ -205,6 +212,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   'Stiff-Legged_Barbell_Deadlift': {
     nameKey: 'exercises:Stiff-Legged_Barbell_Deadlift',
@@ -233,6 +241,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['psoes'],
   },
   'Calf_Raises_-_With_Bands': {
     nameKey: 'exercises:Calf_Raises_-_With_Bands',
@@ -241,6 +250,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['mobilitat_turmell'],
   },
 
   // =============================================
@@ -261,6 +271,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'stability',
     estimatedSeriesDurationSeconds: 45,
     progressionMetric: 'seconds',
+    secondaryMusclesExtra: ['oblics'],
   },
   Hanging_Leg_Raise: {
     nameKey: 'exercises:Hanging_Leg_Raise',
@@ -271,6 +282,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['psoes'],
   },
   Ab_Roller: {
     nameKey: 'exercises:Ab_Roller',
@@ -291,6 +303,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',
+    primaryMusclesExtra: ['oblics'],
   },
   Air_Bike: {
     nameKey: 'exercises:Air_Bike',
@@ -299,6 +312,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['oblics'],
   },
   Dead_Bug: {
     nameKey: 'exercises:Dead_Bug',
@@ -315,6 +329,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'cardio',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['oblics', 'psoes'],
   },
   Pallof_Press: {
     nameKey: 'exercises:Pallof_Press',
@@ -351,6 +366,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['psoes'],
   },
   'Jackknife_Sit-Up': {
     nameKey: 'exercises:Jackknife_Sit-Up',
@@ -369,6 +385,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    primaryMusclesExtra: ['oblics'],
   },
   Crunches: {
     nameKey: 'exercises:Crunches',
@@ -393,6 +410,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    primaryMusclesExtra: ['oblics'],
   },
 
   // =============================================
@@ -405,6 +423,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['estabilitzadors_cadera', 'mobilitat_cadera'],
   },
   Standing_Hip_Circles: {
     nameKey: 'exercises:Standing_Hip_Circles',
@@ -413,6 +432,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['estabilitzadors_cadera', 'mobilitat_cadera'],
   },
   Cat_Stretch: {
     nameKey: 'exercises:Cat_Stretch',
@@ -421,6 +441,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_toracica'],
   },
   Ankle_Circles: {
     nameKey: 'exercises:Ankle_Circles',
@@ -429,6 +450,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_turmell', 'tibial_anterior'],
   },
   Childs_Pose: {
     nameKey: 'exercises:Childs_Pose',
@@ -437,6 +459,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    secondaryMusclesExtra: ['mobilitat_toracica'],
   },
   Kneeling_Hip_Flexor: {
     nameKey: 'exercises:Kneeling_Hip_Flexor',
@@ -445,6 +468,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['psoes', 'mobilitat_cadera'],
   },
   Groin_and_Back_Stretch: {
     nameKey: 'exercises:Groin_and_Back_Stretch',
@@ -453,6 +477,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_cadera'],
   },
   IT_Band_and_Glute_Stretch: {
     nameKey: 'exercises:IT_Band_and_Glute_Stretch',
@@ -461,6 +486,8 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_cadera'],
+    secondaryMusclesExtra: ['fascies'],
   },
   Adductor_Groin: {
     nameKey: 'exercises:Adductor_Groin',
@@ -469,6 +496,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_cadera'],
   },
   '90_90_Hamstring': {
     nameKey: 'exercises:90_90_Hamstring',
@@ -477,6 +505,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    secondaryMusclesExtra: ['mobilitat_cadera'],
   },
   Intermediate_Hip_Flexor_and_Quad_Stretch: {
     nameKey: 'exercises:Intermediate_Hip_Flexor_and_Quad_Stretch',
@@ -485,6 +514,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['psoes', 'mobilitat_cadera'],
   },
   Standing_Hip_Flexors: {
     nameKey: 'exercises:Standing_Hip_Flexors',
@@ -493,6 +523,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['psoes', 'mobilitat_cadera'],
   },
   All_Fours_Quad_Stretch: {
     nameKey: 'exercises:All_Fours_Quad_Stretch',
@@ -501,6 +532,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    secondaryMusclesExtra: ['mobilitat_cadera'],
   },
   Dancers_Stretch: {
     nameKey: 'exercises:Dancers_Stretch',
@@ -509,6 +541,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_cadera'],
   },
 
   // =============================================
@@ -621,6 +654,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'weight',
+    secondaryMusclesExtra: ['mobilitat_toracica'],
   },
   Dumbbell_Bicep_Curl: {
     nameKey: 'exercises:Dumbbell_Bicep_Curl',
@@ -677,6 +711,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['mobilitat_toracica'],
   },
 
   // =============================================
@@ -697,6 +732,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'stability',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    primaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   Thigh_Abductor: {
     nameKey: 'exercises:Thigh_Abductor',
@@ -705,6 +741,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'stability',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    primaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   Thigh_Adductor: {
     nameKey: 'exercises:Thigh_Adductor',
@@ -713,6 +750,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'stability',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   Balance_Board: {
     nameKey: 'exercises:Balance_Board',
@@ -721,6 +759,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'stability',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'seconds',
+    secondaryMusclesExtra: ['estabilitzadors_cadera', 'mobilitat_turmell', 'tibial_anterior'],
   },
   Ball_Leg_Curl: {
     nameKey: 'exercises:Ball_Leg_Curl',
@@ -765,6 +804,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 30,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['mobilitat_cadera'],
   },
   'Piriformis-SMR': {
     nameKey: 'exercises:Piriformis-SMR',
@@ -773,6 +813,8 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['fascies'],
+    secondaryMusclesExtra: ['mobilitat_cadera'],
   },
   'Calves-SMR': {
     nameKey: 'exercises:Calves-SMR',
@@ -781,6 +823,8 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['fascies'],
+    secondaryMusclesExtra: ['mobilitat_turmell'],
   },
   'Quadriceps-SMR': {
     nameKey: 'exercises:Quadriceps-SMR',
@@ -789,6 +833,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['fascies'],
   },
   'Lower_Back-SMR': {
     nameKey: 'exercises:Lower_Back-SMR',
@@ -797,6 +842,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'mobility',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'seconds',
+    primaryMusclesExtra: ['fascies'],
   },
   Crossover_Reverse_Lunge: {
     nameKey: 'exercises:Crossover_Reverse_Lunge',
@@ -807,6 +853,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'strength',
     estimatedSeriesDurationSeconds: 45,
     progressionMetric: 'reps',
+    secondaryMusclesExtra: ['estabilitzadors_cadera'],
   },
   Prone_Manual_Hamstring: {
     nameKey: 'exercises:Prone_Manual_Hamstring',
@@ -874,5 +921,41 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     category: 'plyometrics',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
+  },
+
+  // =============================================
+  // GAP-FILLING (3 exercises for empty muscle groups)
+  // =============================================
+  'Anterior_Tibialis-SMR': {
+    nameKey: 'exercises:Anterior_Tibialis-SMR',
+    tags: ['rehab_turmell', 'corredor', 'mobilitat', 'tornada_calma'],
+    restrictions: [],
+    category: 'mobility',
+    estimatedSeriesDurationSeconds: 35,
+    progressionMetric: 'seconds',
+    primaryMusclesExtra: ['tibial_anterior', 'fascies'],
+    secondaryMusclesExtra: ['mobilitat_turmell'],
+  },
+  Decline_Oblique_Crunch: {
+    nameKey: 'exercises:Decline_Oblique_Crunch',
+    tags: ['core_estabilitat'],
+    restrictions: [
+      { condition: 'rehab_lumbar', action: 'modify', note: 'Reduir rang de rotació' },
+    ],
+    category: 'strength',
+    estimatedSeriesDurationSeconds: 40,
+    progressionMetric: 'reps',
+    primaryMusclesExtra: ['oblics'],
+  },
+  Dumbbell_Side_Bend: {
+    nameKey: 'exercises:Dumbbell_Side_Bend',
+    tags: ['core_estabilitat'],
+    restrictions: [
+      { condition: 'rehab_lumbar', action: 'modify', note: 'Rang curt, sense càrrega excessiva' },
+    ],
+    category: 'strength',
+    estimatedSeriesDurationSeconds: 35,
+    progressionMetric: 'weight',
+    primaryMusclesExtra: ['oblics'],
   },
 }

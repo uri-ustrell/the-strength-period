@@ -96,6 +96,9 @@
   "Thigh_Adductor": "Aductor de muslo",
   "Triceps_Pushdown": "Extensión de tríceps con polea",
   "Wide-Grip_Lat_Pulldown": "Jalón al pecho con agarre ancho",
+  "Anterior_Tibialis-SMR": "Liberación tibial anterior (SMR)",
+  "Decline_Oblique_Crunch": "Crunch declinado oblicuo",
+  "Dumbbell_Side_Bend": "Flexión lateral con mancuerna",
   "instructions": {
     "Barbell_Squat": [
       "De pie con los pies al ancho de los hombros. Centra la barra sobre los hombros.",
