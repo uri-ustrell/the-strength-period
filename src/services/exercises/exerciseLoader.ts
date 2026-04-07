@@ -59,6 +59,7 @@ export async function loadExercises(): Promise<Exercise[]> {
       level: mapLevel(raw.level),
       category: enrichment.category,
       estimatedSeriesDurationSeconds: enrichment.estimatedSeriesDurationSeconds,
+      progressionMetric: enrichment.progressionMetric,
       tags: enrichment.tags,
       restrictions: enrichment.restrictions,
       rehabNotesKey: undefined,

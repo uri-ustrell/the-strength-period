@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-import type { Mesocycle, LoadTarget } from '@/types/planning'
+import type { Mesocycle, LoadTarget, ProgressionType } from '@/types/planning'
 import type { Exercise } from '@/types/exercise'
 import type { UserConfig } from '@/types/user'
 import { generateMesocycle } from '@/services/planning/planningEngine'
@@ -17,7 +17,7 @@ interface PlanningStore {
   error: string | null
 
   // Actions
-  generate: (presetId: string, config: UserConfig, exercises: Exercise[], options?: { weeks?: number; muscleDistribution?: Record<string, number>; progressionType?: string; weeklyProgression?: number }) => Promise<void>
+  generate: (presetId: string, config: UserConfig, exercises: Exercise[], options?: { weeks?: number; muscleDistribution?: Record<string, number>; progressionType?: ProgressionType; weeklyProgression?: number; exerciseSelections?: Record<string, string[]> }) => void
   saveGenerated: () => Promise<void>
   discardGenerated: () => void
   loadActive: () => Promise<void>
@@ -37,10 +37,10 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
   isLoading: false,
   error: null,
 
-  generate: async (presetId, config, exercises, options) => {
+  generate: (presetId, config, exercises, options) => {
     set({ isGenerating: true, error: null, generatedPreview: null })
     try {
-      const mesocycle = await generateMesocycle(presetId, config, exercises, options)
+      const mesocycle = generateMesocycle(presetId, config, exercises, options)
       set({ generatedPreview: mesocycle, isGenerating: false })
     } catch (err) {
       set({ error: (err as Error).message, isGenerating: false })

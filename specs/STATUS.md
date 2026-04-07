@@ -1,8 +1,8 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-05
+> Last updated: 2026-04-06
 
-## Current Phase: Core Steps Complete + Step 13 Ethical Gamification Planned
+## Current Phase: Step 14 Complete — Steps 15–16 Planned
 
 ## QA Pass (2026-04-05) — Session, Full Plan, and Gemini Prompt
 - **Improved**: Pre-session exercise list uses derived (useMemo) list based on executionMode for reactive reordering
@@ -46,31 +46,65 @@
 - **Fixed**: Plan view compact mode — shows all muscle groups instead of 3 + ellipsis
 
 ## Architecture Notes
-- Data persists locally in IndexedDB. AI inference via Vercel Serverless Function (no user data stored server-side).
-- Export/Import via JSON file for data portability (Feature 10)
+- Data persists locally in IndexedDB. No server-side AI inference (Gemini API removed, see decisions below).
+- Export/Import via JSON file for data portability (Feature 10).
+- Static data (exercises, presets, i18n) served as static files from `/public/` or bundled in the JS bundle — zero serverless function cost.
 
-## Architecture Exploration (2026-04-05)
-### Exploration A — Post-API Bifurcation (Deterministic vs User-Owned LLM Assistant)
-- Goal: Define a future planning architecture that removes the project-managed API option and splits into two user-facing paths.
-- API option status: Project-managed API generation is removed from this evolution direction.
-- Branch 1 (Deterministic): On-device rule-engine and template-driven planning (preset/profile/progression/restrictions).
-- Branch 2 (User-owned LLM Assistant): Plan generation assisted by the user's own LLM assistant/provider, with strict JSON contract validation in-app.
-- Pros: Lower infrastructure cost, user sovereignty, transparent control of model choice, and reduced backend maintenance.
-- Cons: Quality variance across user assistants, higher UX complexity, and stronger validation/fallback requirements.
-- Trade-off: Eliminating API simplifies platform ownership and cost, but shifts reliability and consistency responsibility toward product constraints and validation.
-- Recommendation: Run a comparative discovery between both branches, define acceptance thresholds, and keep both as explicit alternatives without reintroducing project-managed API generation.
+## Architecture Decisions (2026-04-05)
 
-### Exploration C — Ethical Gamification + Patronage
-- Goal: Increase long-term healthy adherence with meaningful motivation loops while avoiding addictive mechanics or financial pressure.
-- Candidate approaches:
-	- Achievements tied to sustainable habits (consistency, deload compliance, recovery, mobility, injury-safe progression).
-	- Non-speculative tokens/points used only for in-app milestones, reflection prompts, and streak recovery safeguards.
-	- Bonus challenges focused on health behaviors (sleep, warm-up completion, pain-aware training adjustments), never max-volume pressure.
-	- Voluntary patronage for maintenance (tips, supporter badge, optional thank-you perks) with no paywalled core functionality.
-- Pros: Better engagement and retention aligned with user wellbeing, with a transparent sustainability model for app maintenance.
-- Cons: Requires careful UX and copy to avoid guilt loops, extra balancing and abuse prevention, and legal/ethical review for reward language.
-- Trade-off: Engagement systems can help adherence, but only if they reinforce autonomy, recovery, and realistic goals instead of compulsion.
-- Recommendation: Start with low-stakes achievements and non-monetized points, define anti-addictive guardrails first, then test optional patronage with explicit non-capitalist framing and no pay-to-win dynamics.
+### Decision 1 — Remove Server-Side AI (Gemini API)
+- **Decided:** `api/generate-plan.ts` and the `planningEngine.ts` API client are removed.
+- Replaced by two user-facing paths: Deterministic Planning and User-Owned LLM Assistant (see below).
+- Rationale: eliminates infrastructure cost and API key management; shifts control to the user.
+
+### Decision 2 — Deterministic Planning Engine
+The new plan creation wizard lets the user configure everything manually; an on-device algorithm builds the plan.
+
+**User inputs (wizard steps):**
+1. Sessions per week + available minutes per session.
+2. Muscle groups to target.
+3. Specific exercises per muscle group — catalog is pre-filtered by the user's owned equipment/restrictions (from onboarding).
+4. Option to start from a **preset** (built-in or user-saved) and adjust from there.
+
+**Algorithm rules:**
+- Each exercise in the catalog declares a `progressionMetric: 'weight' | 'reps' | 'seconds'`. The algorithm increments the relevant metric over the mesocycle.
+- Random selection within the filtered exercise pool per muscle group.
+- Anti-repeat: no exercise may appear in session N *and* session N+1 (two consecutive sessions).
+- No exercise from the same muscle group is repeated within the same session.
+- Duration constraint: total estimated sets × average set time ≤ user's available minutes.
+
+### Decision 3 — User-Owned LLM Assistant Path ("Let AI do the job")
+An alternative to the wizard for users who prefer AI-assisted configuration.
+
+**Flow:**
+1. App generates a **prompt template** describing the task and JSON contract, plus a **CSV attachment** containing:
+   - Exercise catalog filtered by user's equipment (id, name, muscles, progressionMetric, equipment).
+   - User's owned equipment and restrictions.
+   - The expected JSON schema the app will validate against.
+2. Numbered step-by-step instructions are shown so the user knows exactly how to proceed.
+3. User copies the prompt + attaches the CSV into their LLM of choice (ChatGPT, Claude, Gemini, etc.).
+4. User copies the LLM's JSON output and pastes it back into the app.
+5. App validates the JSON against the schema before importing; shows clear errors if invalid.
+- **Note (idea):** for any large reference data that would bloat the prompt but is stable, pack it into the CSV instead of inline text to avoid clipboard size limits.
+
+### Decision 4 — Presets
+- Built-in presets cover the most common training profiles (already partially implemented).
+- User can load a preset as a starting point and modify it before saving.
+- User-saved presets persist in IndexedDB (already implemented); extend to cover the full new wizard configuration shape.
+
+### Decision 5 — Static Data Serving (exercises, presets, i18n)
+- **Decided:** Keep static files served directly from Vercel's edge CDN. No serverless function endpoints.
+- Exercises: `/public/exercises/exercises.json` fetched at runtime, merged with enrichment client-side.
+- Presets + i18n: bundled in the JS bundle (tiny, change infrequently).
+- **Rationale:** Serverless functions incur cold-start latency + function invocation costs. Static files on Vercel CDN are free, faster (no compute), and sufficient for this app's data size (~97 exercises, 5 presets, 3 locales). A Vercel Function approach only pays off at scale (thousands of exercises, frequent data updates, multiple external consumers).
+- **Reverted:** A prior implementation (Step 13) added `api/exercises.ts`, `api/presets.ts`, `api/i18n/[locale].ts` with ETag/Cache-Control + client-side localStorage cache — removed because it increased infra cost with no real benefit at this scale.
+
+### Decision 6 — Ethical Gamification (kept, scope defined)
+- Achievements tied exclusively to sustainable habits: consistency streaks, deload compliance, warm-up completion, injury-safe progression.
+- Non-speculative points/tokens used only for in-app milestones and reflection prompts — never for pay-to-win or pressure mechanics.
+- Streak recovery safeguards so missing a session does not trigger guilt loops.
+- Optional patronage model (tips, supporter badge) with no paywalled core functionality.
+- Anti-addictive guardrails defined before any engagement mechanic ships.
 
 ## Architecture Migration — Fase 1 (Complete)
 - Migrated from user-provided Claude API key (browser-side) to server-side Gemini 2.5 Flash via Vercel Serverless Function
@@ -95,9 +129,34 @@
 | 10 | Polish + PWA + Export/Import | ✅ Complete | All above | PWA, Export/Import, UI components, CSP headers |
 | 11 | Local API Mock for Dev | ✅ Complete | Step 7 ✅ | `vercel dev` + MSW with canned fixture |
 | 12 | Git Flow + GitHub Push | ✅ Complete | — | Git init, git flow, GitHub push |
-| 13 | Ethical Gamification + Patronage Exploration | 🚧 Planned | Steps 8, 9, 10 ✅ | Strategic evolution: healthy engagement + ethical sustainability |
+| 13 | Static Data API | ❌ Reverted | — | Serverless endpoints replaced with static serving; see Decision 5 |
+| 14 | Deterministic Planning Engine | ✅ Complete | Steps 2, 4 ✅ | Deterministic on-device algorithm; progressionMetric; anti-repeat; exercise selection wizard |
+| 15 | User-Owned LLM Assistant Path | 🚧 Planned | Step 14 ✅ | Prompt + CSV generator; copy-paste JSON return; schema validation |
+| 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 ✅ | Habit-tied achievements; streak safeguards; optional patronage |
 
 ## Completed Work
+
+### Step 14 — ✅ Complete (2026-04-06)
+- [x] `ProgressionMetric` type added to `src/types/exercise.ts` + `progressionMetric` field on `Exercise`
+- [x] `ExerciseAssignment` type and optional `exerciseAssignments` field added to `SessionTemplate` in `src/types/planning.ts`
+- [x] `weeklyProgression` made required in `UserConfig` (`src/types/user.ts`)
+- [x] `progressionMetric` added to all 97 entries in `src/data/exerciseEnrichment.ts` (weight/reps/seconds per exercise)
+- [x] `exerciseLoader.ts` merges `progressionMetric` from enrichment
+- [x] `planningEngine.ts` fully rewritten: deterministic synchronous algorithm, no network calls
+  - Anti-repeat constraint (no exercise in consecutive sessions)
+  - In-session muscle group uniqueness
+  - Duration check + trim (removes lowest-priority targets if over budget)
+  - Progression rules applied: weekly volume scaled by `weeklyProgression` (0–10), deload at week % 4
+  - Undulating variation (odd/even session multipliers)
+- [x] `planningStore.ts` `generate()` made synchronous, accepts `exerciseSelections` option
+- [x] `PlanCreator.tsx` wizard updated:
+  - Removed `generating` spinner step, removed `aiDecides` toggle
+  - Added `exercises` step with auto/manual exercise selection
+  - Per-muscle-group accordion with exercise checkboxes when manual
+  - Instant plan generation on button click
+- [x] i18n keys added/updated in ca/es/en (12 new keys, 3 updated keys)
+- [x] AI references replaced with algorithm references in all i18n strings
+- [x] `npm run build` passes with zero errors
 
 ### Step 1 — ✅ Complete
 - [x] `specs/OVERVIEW.md` — product vision, architecture, stack
@@ -192,16 +251,39 @@ src/pages/Onboarding/index.tsx
 - [x] `npm run build` passes with zero errors
 
 ## Next Up
-- Step 13 (planned): Ethical Gamification + Patronage Exploration.
-- Focus: healthy engagement loops, anti-addictive guardrails, and voluntary maintenance support.
+- Step 14: Deterministic Planning Engine — add `progressionMetric` to exercises, redesign plan creation wizard, implement on-device algorithm.
+- Step 15: User-Owned LLM Assistant — prompt template + CSV generator, paste-in JSON import with schema validation.
+- Step 16: Ethical Gamification — habit-tied achievements, streak recovery safeguards, optional patronage.
 
-### Step 13 — 🚧 Planned (Exploration)
-- [ ] Define product principles for ethical gamification (health-first, non-addictive, no pay-to-win, transparent rules)
-- [ ] Design initial achievements/tokens/bonus system centered on sustainable habits and recovery behaviors
-- [ ] Evaluate optional patronage model for maintenance funding (tips, supporter badge, non-paywalled perks)
-- [ ] Define anti-addictive guardrails and wellbeing protections (no guilt loops, no punishment mechanics, no pay-to-win pressure)
-- [ ] Define success metrics (adherence uplift, perceived wellbeing, user trust, zero dark-pattern violations)
-- [ ] Propose rollout strategy: opt-in beta, qualitative feedback loop, and staged release plan
+### Step 13 — ❌ Reverted (Static Data API)
+- Implemented and then reverted. Serverless function endpoints (`api/exercises.ts`, `api/presets.ts`, `api/i18n/[locale].ts`) + client-side localStorage cache added unnecessary infra cost.
+- Static files on Vercel CDN are free and faster (no cold start, no function invocations).
+- Exercise data (~97 enriched exercises), presets (5), and i18n (3 locales) are too small to justify serverless endpoints.
+- Decision documented in Decision 5 above.
+
+### Step 14 — 🚧 Planned (Deterministic Planning Engine)
+- [ ] Add `progressionMetric: 'weight' | 'reps' | 'seconds'` field to `Exercise` type and exercise catalog
+- [ ] Remove `api/generate-plan.ts` (server-side Gemini endpoint)
+- [ ] Replace `src/services/planning/planningEngine.ts` with on-device deterministic engine
+- [ ] Engine rules: anti-repeat (N and N+1 sessions), no muscle group repeat within a session, duration constraint
+- [ ] Redesign plan creation wizard: sessions/week → muscle groups → exercises per group (filtered by equipment) → review
+- [ ] Integrate preset loading as wizard starting point (load → customise → save)
+- [ ] Extend user-saved preset schema to cover full wizard configuration shape
+
+### Step 15 — 🚧 Planned (User-Owned LLM Assistant)
+- [ ] Design prompt template: describes task, JSON contract, numbered step-by-step instructions for user
+- [ ] Generate CSV artifact: exercise catalog (limited to user equipment), user restrictions, JSON schema
+- [ ] Build UI to present prompt + CSV download to user
+- [ ] Accept pasted JSON from user; validate against schema; show structured errors if invalid
+- [ ] On successful validation, import plan into app (reuse existing import infrastructure)
+
+### Step 16 — 🚧 Planned (Ethical Gamification)
+- [ ] Define anti-addictive guardrails (no guilt loops, no punishment mechanics, no pay-to-win) as acceptance criteria
+- [ ] Design achievement system tied to sustainable habits (consistency, deload compliance, warm-up, injury-safe progression)
+- [ ] Implement non-speculative points/tokens for in-app milestones only
+- [ ] Add streak recovery safeguard (grace period, no punishment for missed session)
+- [ ] Optional patronage UI (tip jar / supporter badge) with explicit non-pressuring copy
+- [ ] Validate every mechanic against guardrails before shipping
 
 ### Step 10 — ✅ Complete
 - [x] `vite-plugin-pwa` installed and configured in `vite.config.ts` (autoUpdate, manifest, workbox caching for exercises.json)

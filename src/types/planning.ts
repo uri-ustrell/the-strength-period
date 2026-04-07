@@ -1,6 +1,12 @@
-import type { MuscleGroup } from '@/types/exercise'
+import type { MuscleGroup, ProgressionMetric } from '@/types/exercise'
 
 export type ProgressionType = 'linear' | 'undulating' | 'block'
+
+export type ExerciseAssignment = {
+  muscleGroup: MuscleGroup
+  exerciseId: string
+  progressionMetric: ProgressionMetric
+}
 
 export type LoadTarget = {
   sets: number
@@ -25,6 +31,7 @@ export type SessionTemplate = {
   muscleGroupTargets: MuscleGroupTarget[]
   progressionType: ProgressionType
   restrictions: string[]
+  exerciseAssignments?: ExerciseAssignment[]
   completed: boolean
   skipped: boolean
 }

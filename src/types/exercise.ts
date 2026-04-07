@@ -17,6 +17,8 @@ export type ExerciseTag =
   | 'core_estabilitat' | 'equilibri' | 'pliometria'
   | 'mobilitat' | 'escalfament' | 'tornada_calma'
 
+export type ProgressionMetric = 'weight' | 'reps' | 'seconds'
+
 export type Restriction = {
   condition: string
   action: 'avoid' | 'modify'
@@ -38,6 +40,7 @@ export type Exercise = {
   level: 'beginner' | 'intermediate' | 'expert'
   category: 'strength' | 'mobility' | 'stability' | 'plyometrics' | 'cardio'
   estimatedSeriesDurationSeconds: number
+  progressionMetric: ProgressionMetric
   tags: ExerciseTag[]
   restrictions: Restriction[]
   rehabNotesKey?: string

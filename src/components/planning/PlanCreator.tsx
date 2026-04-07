@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Sparkles, ArrowLeft, Check, Loader2, X } from 'lucide-react'
+import { ArrowLeft, Check, X, ChevronDown, ChevronUp } from 'lucide-react'
 
 import type { Preset } from '@/data/presets'
 import type { CustomPreset } from '@/data/presets'
 import type { UserConfig } from '@/types/user'
-import type { MuscleGroup } from '@/types/exercise'
+import type { MuscleGroup, Exercise } from '@/types/exercise'
 import { PRESETS, getPresetsForProfile } from '@/data/presets'
 import { getConfig, setConfig } from '@/services/db/configRepository'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
 import { useExercises } from '@/hooks/useExercises'
+import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { SessionPreview } from '@/components/planning/SessionPreview'
 
 const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
@@ -23,14 +24,14 @@ const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
 
 type MuscleGroupPriority = 'high' | 'medium' | 'low'
 
-type Step = 'preset' | 'configure' | 'muscles' | 'generating' | 'preview'
+type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview'
 
 interface Props {
   onComplete?: () => void
 }
 
 export const PlanCreator = ({ onComplete }: Props) => {
-  const { t } = useTranslation(['planning', 'common'])
+  const { t } = useTranslation(['planning', 'common', 'exercises', 'muscles'])
   const { exercises } = useExercises()
 
   const profile = useUserStore((s) => s.profile)
@@ -43,7 +44,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const saveGenerated = usePlanningStore((s) => s.saveGenerated)
   const discardGenerated = usePlanningStore((s) => s.discardGenerated)
   const generatedPreview = usePlanningStore((s) => s.generatedPreview)
-  const isGenerating = usePlanningStore((s) => s.isGenerating)
   const error = usePlanningStore((s) => s.error)
 
   const [step, setStep] = useState<Step>('preset')
@@ -60,12 +60,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
       return initial as Record<MuscleGroup, MuscleGroupPriority | null>
     },
   )
-  const [aiDecides, setAiDecides] = useState(false)
   const [weeklyProgression, setWeeklyProgression] = useState(5)
 
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
   const [showSavePreset, setShowSavePreset] = useState(false)
   const [presetName, setPresetName] = useState('')
+
+  // Exercise step state
+  const [autoSelectExercises, setAutoSelectExercises] = useState(true)
+  const [exerciseSelections, setExerciseSelections] = useState<Record<string, string[]>>({})
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const loadCustomPresets = async () => {
@@ -76,6 +80,27 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }, [])
 
   const presetsForProfile = profile ? getPresetsForProfile(profile) : PRESETS
+
+  const activeMuscleGroups = useMemo(() => {
+    return Object.entries(muscleGroupPriorities)
+      .filter(([, p]) => p !== null)
+      .map(([mg]) => mg as MuscleGroup)
+  }, [muscleGroupPriorities])
+
+  const filteredExercisePool = useMemo(() => {
+    return filterExercises(exercises, {
+      equipment,
+      excludeRestrictions: activeRestrictions,
+    })
+  }, [exercises, equipment, activeRestrictions])
+
+  const exercisesByMuscle = useMemo(() => {
+    const map: Record<string, Exercise[]> = {}
+    for (const mg of activeMuscleGroups) {
+      map[mg] = filteredExercisePool.filter((ex) => ex.primaryMuscles.includes(mg))
+    }
+    return map
+  }, [activeMuscleGroups, filteredExercisePool])
 
   const presetToMuscleGroupPriorities = (preset: Preset | null): Record<MuscleGroup, MuscleGroupPriority | null> => {
     const priorities: Record<string, MuscleGroupPriority | null> = {}
@@ -155,20 +180,21 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setPresetName('')
   }
 
-  const handleGenerate = async () => {
-    if (!profile) return
-    setStep('generating')
-
-    let muscleDistribution: Record<string, number> = {}
-
-    if (!aiDecides) {
-      const priorityWeights: Record<MuscleGroupPriority, number> = { high: 3, medium: 2, low: 1 }
-      const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [string, MuscleGroupPriority][]
-      const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + priorityWeights[p], 0)
-      for (const [mg, priority] of selectedMuscles) {
-        muscleDistribution[mg] = Math.round((priorityWeights[priority] / totalWeight) * 100)
-      }
+  const buildMuscleDistribution = (): Record<string, number> => {
+    const priorityWeights: Record<MuscleGroupPriority, number> = { high: 3, medium: 2, low: 1 }
+    const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [string, MuscleGroupPriority][]
+    const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + priorityWeights[p], 0)
+    const dist: Record<string, number> = {}
+    for (const [mg, priority] of selectedMuscles) {
+      dist[mg] = Math.round((priorityWeights[priority] / totalWeight) * 100)
     }
+    return dist
+  }
+
+  const handleGenerate = () => {
+    if (!profile) return
+
+    const muscleDistribution = buildMuscleDistribution()
 
     const config: UserConfig = {
       profile,
@@ -178,13 +204,19 @@ export const PlanCreator = ({ onComplete }: Props) => {
       minutesPerSession: minutesPerSess,
       activeRestrictions,
       onboardingCompleted: true,
+      weeklyProgression,
     }
 
-    await generate(
+    generate(
       selectedPreset?.id ?? 'forca_general',
       config,
       exercises,
-      { weeks, muscleDistribution, weeklyProgression },
+      {
+        weeks,
+        muscleDistribution,
+        weeklyProgression,
+        exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
+      },
     )
     setStep('preview')
   }
@@ -198,6 +230,20 @@ export const PlanCreator = ({ onComplete }: Props) => {
     discardGenerated()
     setStep('preset')
     setSelectedPreset(null)
+  }
+
+  const toggleExerciseSelection = (mg: string, exId: string) => {
+    setExerciseSelections((prev) => {
+      const current = prev[mg] ?? []
+      const next = current.includes(exId)
+        ? current.filter((id) => id !== exId)
+        : [...current, exId]
+      return { ...prev, [mg]: next }
+    })
+  }
+
+  const toggleGroupExpanded = (mg: string) => {
+    setExpandedGroups((prev) => ({ ...prev, [mg]: !prev[mg] }))
   }
 
   if (step === 'preset') {
@@ -379,27 +425,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
         </div>
 
-        {/* AI decides toggle */}
-        <label className="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={aiDecides}
-            onChange={(e) => setAiDecides(e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-          />
-          <div>
-            <span className="text-sm font-medium text-gray-900">{t('planning:ai_decides_muscles')}</span>
-            <p className="text-xs text-gray-500 mt-0.5">{t('planning:ai_decides_muscles_desc')}</p>
-          </div>
-        </label>
-
-        {/* Helper microcopy */}
-        {!aiDecides && (
-          <p className="text-xs text-gray-400">{t('planning:muscle_group_helper')}</p>
-        )}
+        <p className="text-xs text-gray-400">{t('planning:muscle_group_helper')}</p>
 
         {/* Muscle group grid */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 ${aiDecides ? 'opacity-40 pointer-events-none' : ''}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {MAIN_MUSCLE_GROUPS.map((mg) => {
             const priority = muscleGroupPriorities[mg]
             return (
@@ -420,56 +449,167 @@ export const PlanCreator = ({ onComplete }: Props) => {
           })}
         </div>
 
-        {!aiDecides && (
-          <div className="space-y-2">
-            {!showSavePreset ? (
+        <div className="space-y-2">
+          {!showSavePreset ? (
+            <button
+              type="button"
+              onClick={() => setShowSavePreset(true)}
+              className="text-sm text-indigo-600 hover:text-indigo-800 font-medium"
+            >
+              {t('planning:save_as_preset')}
+            </button>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={presetName}
+                onChange={(e) => setPresetName(e.target.value)}
+                placeholder={t('planning:preset_name_placeholder')}
+                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
               <button
                 type="button"
-                onClick={() => setShowSavePreset(true)}
-                className="text-sm text-indigo-600 hover:text-indigo-800 font-medium"
+                onClick={handleSaveAsPreset}
+                disabled={!presetName.trim()}
+                className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
               >
-                {t('planning:save_as_preset')}
+                {t('planning:save')}
               </button>
-            ) : (
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={presetName}
-                  onChange={(e) => setPresetName(e.target.value)}
-                  placeholder={t('planning:preset_name_placeholder')}
-                  className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                />
-                <button
-                  type="button"
-                  onClick={handleSaveAsPreset}
-                  disabled={!presetName.trim()}
-                  className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
-                >
-                  {t('planning:save')}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
+
+        <p className="text-xs text-gray-400">{t('planning:algorithm_distributes')}</p>
 
         <button
           type="button"
-          onClick={handleGenerate}
-          disabled={exercises.length === 0 || (!aiDecides && !Object.values(muscleGroupPriorities).some(Boolean))}
+          onClick={() => setStep('exercises')}
+          disabled={exercises.length === 0 || !Object.values(muscleGroupPriorities).some(Boolean)}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
         >
-          <Sparkles size={18} />
-          {t('planning:generate_plan')}
+          {t('planning:next')}
         </button>
       </div>
     )
   }
 
-  if (step === 'generating' || isGenerating) {
+  if (step === 'exercises') {
+    const canGenerate = autoSelectExercises || activeMuscleGroups.every(
+      (mg) => (exerciseSelections[mg]?.length ?? 0) > 0,
+    )
+
     return (
-      <div className="flex flex-col items-center justify-center py-20">
-        <Loader2 size={40} className="animate-spin text-indigo-600" />
-        <p className="mt-4 text-gray-500">{t('planning:generating')}</p>
+      <div className="space-y-5">
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={() => setStep('muscles')} className="text-gray-400 hover:text-gray-600">
+            <ArrowLeft size={20} />
+          </button>
+          <div>
+            <h2 className="text-lg font-semibold text-gray-900">{t('planning:select_exercises')}</h2>
+            <p className="text-xs text-gray-500 mt-0.5">{t('planning:select_exercises_desc')}</p>
+          </div>
+        </div>
+
+        {/* Auto/Manual toggle */}
+        <div className="space-y-2">
+          <label className="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3 cursor-pointer">
+            <input
+              type="radio"
+              checked={autoSelectExercises}
+              onChange={() => setAutoSelectExercises(true)}
+              className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+            />
+            <div>
+              <span className="text-sm font-medium text-gray-900">{t('planning:auto_select_all')}</span>
+              <p className="text-xs text-gray-500 mt-0.5">{t('planning:auto_select_all_desc')}</p>
+            </div>
+          </label>
+
+          <label className="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3 cursor-pointer">
+            <input
+              type="radio"
+              checked={!autoSelectExercises}
+              onChange={() => setAutoSelectExercises(false)}
+              className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+            />
+            <div>
+              <span className="text-sm font-medium text-gray-900">{t('planning:manual_select')}</span>
+            </div>
+          </label>
+        </div>
+
+        {/* Manual exercise selection */}
+        {!autoSelectExercises && (
+          <div className="space-y-2 max-h-[50vh] overflow-y-auto">
+            {activeMuscleGroups.map((mg) => {
+              const mgExercises = exercisesByMuscle[mg] ?? []
+              const selected = exerciseSelections[mg] ?? []
+              const isExpanded = expandedGroups[mg] ?? false
+
+              return (
+                <div key={mg} className="rounded-lg border border-gray-200">
+                  <button
+                    type="button"
+                    onClick={() => toggleGroupExpanded(mg)}
+                    className="flex w-full items-center justify-between px-3 py-2"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-gray-900">{t(`muscles:${mg}`)}</span>
+                      <span className="text-xs text-gray-400">
+                        {mgExercises.length > 0
+                          ? t('planning:candidates_count', { count: mgExercises.length })
+                          : t('planning:no_exercises_for_muscle', { muscle: t(`muscles:${mg}`) })}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {selected.length > 0 && (
+                        <span className="text-xs text-indigo-600 font-medium">
+                          {t('planning:exercises_selected', { count: selected.length })}
+                        </span>
+                      )}
+                      {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                    </div>
+                  </button>
+
+                  {isExpanded && (
+                    <div className="border-t border-gray-100 px-3 py-2 space-y-1">
+                      {mgExercises.length === 0 ? (
+                        <p className="text-xs text-gray-400 py-1">
+                          {t('planning:no_exercises_for_muscle', { muscle: t(`muscles:${mg}`) })}
+                        </p>
+                      ) : (
+                        mgExercises.map((ex) => (
+                          <label key={ex.id} className="flex items-center gap-2 py-1 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              checked={selected.includes(ex.id)}
+                              onChange={() => toggleExerciseSelection(mg, ex.id)}
+                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            />
+                            <span className="text-sm text-gray-700">{t(ex.nameKey)}</span>
+                          </label>
+                        ))
+                      )}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        )}
+
+        {!autoSelectExercises && !canGenerate && (
+          <p className="text-xs text-amber-600">{t('planning:min_one_exercise')}</p>
+        )}
+
+        <button
+          type="button"
+          onClick={handleGenerate}
+          disabled={!canGenerate}
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
+        >
+          {t('planning:generate_instant')}
+        </button>
       </div>
     )
   }
@@ -482,7 +622,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           <p className="text-sm text-gray-500">{error}</p>
           <button
             type="button"
-            onClick={() => setStep('configure')}
+            onClick={() => setStep('exercises')}
             className="rounded-lg bg-gray-100 px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200"
           >
             {t('planning:retry')}
@@ -497,7 +637,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           <p className="text-gray-500">{t('planning:errorGenerating')}</p>
           <button
             type="button"
-            onClick={() => setStep('configure')}
+            onClick={() => setStep('exercises')}
             className="rounded-lg bg-gray-100 px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200"
           >
             {t('planning:back')}

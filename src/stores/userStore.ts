@@ -59,6 +59,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
         minutesPerSession: state.minutesPerSession,
         activeRestrictions: state.activeRestrictions,
         onboardingCompleted: true,
+        weeklyProgression: 5,
       }
 
       await setConfig('userConfig', config)

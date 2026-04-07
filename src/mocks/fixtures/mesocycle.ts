@@ -1,4 +1,32 @@
-import type { LLMResponse } from '@/services/planning/planningEngine'
+type LLMSessionTarget = {
+  muscleGroup: string
+  percentageOfSession: number
+  sets: number
+  reps: [number, number]
+  rpe: number
+  restSeconds: number
+}
+
+type LLMSession = {
+  dayOfWeek: number
+  durationMinutes: number
+  muscleGroupTargets: LLMSessionTarget[]
+}
+
+type LLMWeek = {
+  weekNumber: number
+  focus: string
+  loadPercentage: number
+  sessions: LLMSession[]
+}
+
+type LLMResponse = {
+  mesocycle: {
+    name: string
+    durationWeeks: number
+    weeks: LLMWeek[]
+  }
+}
 
 export const mockMesocycleResponse: LLMResponse = {
   mesocycle: {

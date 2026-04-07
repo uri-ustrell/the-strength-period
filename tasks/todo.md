@@ -5,6 +5,52 @@
 
 ## Active Tasks
 
+### Available Weights Configuration and Snapping
+**Context:** `LoadTarget.weightKg` és un nombre lliure (float). `UserConfig` no té cap camp que descrigui els pesos físicament disponibles de l'usuari (p. ex. parelles de manubles: 4, 6, 8, 10, 12, 16 kg; discos de barra; kettlebells). El motor de planificació (`computeLoadTarget` a `planningEngine.ts`) i el Gemini prompt ignoren completament quines càrregues reals pot muntar l'usuari. Això fa que els objectius de pes generats siguin valors teòrics no adaptats a l'equipament real.
+**Goal:** L'usuari declara els pesos disponibles per tipus d'equipament durant l'onboarding o la configuració; el motor i el prompt els utilitzen per arrodonir els `weightKg` al valor disponible més pròxim per sobre o per sota.
+
+- [ ] **Data model** — Afegir `availableWeights` a `UserConfig` (`src/types/user.ts`): estructura per tipus d'equipament (`manueles`, `barra`, `kettlebell`) amb llista de kg disponibles; inicialitzar amb valors per defecte raonables
+- [ ] **Onboarding / Settings UI** — Afegir pas o secció per declarar els pesos disponibles per equipament; UI simple de xips/checkboxes amb valors predefinits comuns (2, 4, 6, 8, 10, 12, 14, 16, 20, 24 kg per manubles/KB; increments de disc de barra)
+- [ ] **Weight snapping util** — Crear funció pura `snapToAvailableWeight(targetKg, availableWeights, direction: 'up' | 'down' | 'nearest'): number` a `src/services/planning/`
+- [ ] **Planning engine integration** — Quan `progressionMetric === 'weight'`, arrodonir el `weightKg` calculat al pes disponible més proper usant la nova utilitat
+- [ ] **Gemini prompt** — Passar els pesos disponibles per equipament al `buildUserMessage` de `api/generate-plan.ts` per tal que Gemini també respecti les càrregues reals en les seves suggerències
+- [ ] **Session execution** — En el pre-start i l'execució activa, mostrar el pes arrodonit i permetre que l'usuari esculli pes superior/inferior dins els seus valors disponibles
+- [ ] Run `npm run build` — zero errors
+
+### Muscle Group Selector Completeness (PlanCreator)
+**Context:** `PlanCreator.tsx` defines a hardcoded `MAIN_MUSCLE_GROUPS` list of only 13 groups, while `ALL_MUSCLE_GROUPS` in `src/data/muscleGroups.ts` has the full 23 groups. The filter engine (`exerciseFilter.ts`) already matches on both `primaryMuscles` and `secondaryMuscles`, so showing all groups in the UI is purely a selector change.
+**Goal:** Any user who wants to target a specific muscle (e.g. `avantbras`, `oblics`, `trapezi`, `mobilitat_turmell`) must be able to do so — including groups that only appear as secondary muscles in the enriched exercises.
+
+- [ ] Replace the hardcoded `MAIN_MUSCLE_GROUPS` constant in `PlanCreator.tsx` with `ALL_MUSCLE_GROUPS` imported from `src/data/muscleGroups.ts`
+- [ ] Initialise `muscleGroupPriorities` state from `ALL_MUSCLE_GROUPS` so all 23 groups get a default `'medium'` priority (no functional change, just correct seed)
+- [ ] Verify that preset preselection logic (`presetToMuscleGroupPriorities`) still covers the new groups as `null` / not selected by default and only highlights the preset-relevant ones
+- [ ] Validate the muscle-group selector UI renders all 23 groups correctly on mobile and desktop (grid layout, no overflow)
+- [ ] Run `npm run build` — zero errors
+
+### Exercise Data Quality Audit
+**Context:** 97 exercises are enriched (out of 873 in the raw JSON). Need to validate coverage across the full `MuscleGroup` taxonomy (23 groups), detect gaps, and ensure translations are coherent and complete for ca/es/en.
+**Dependencies:** Muscle Group Selector Completeness task above (to know which groups the UI will expose).
+
+- [ ] **Coverage audit** — For each of the 23 `MuscleGroup` values, count exercises where it appears as `primaryMuscles` or `secondaryMuscles` in the enriched set; list groups with fewer than 3 exercises
+- [ ] **Gap filling** — For any under-covered group (< 3 exercises), identify candidate exercises in the raw `exercises.json` and add enrichment entries in `src/data/exerciseEnrichment.ts`
+- [ ] **Translation completeness** — Verify that every enriched exercise `nameKey` has matching entries in `src/i18n/locales/{ca,es,en}/exercises.json`; flag any missing keys
+- [ ] **Translation quality** — Review ca/es/en exercise name translations for accuracy and consistency (especially runner-specific and mobility exercises)
+- [ ] **Muscle mapping coherence** — Check that `primaryMuscles` / `secondaryMuscles` in enrichment are consistent with the free-exercise-db source data and our taxonomy (`freeExerciseDbMuscleMap` in `muscleGroups.ts`)
+- [ ] **Instruction translations** — Confirm that exercises with translated instruction keys have correct ca/es/en content and no placeholder text
+- [ ] Run `npm run build` — zero errors after any enrichment additions
+
+### Step 13 — Static Data API
+- [x] Move `public/exercises/exercises.json` → `data/exercises.json`
+- [x] Create `api/exercises.ts` — GET endpoint with filtering, ETag, cache headers
+- [x] Create `api/presets.ts` — GET endpoint with cache headers
+- [x] Create `api/i18n/[locale].ts` — GET endpoint per locale with cache headers
+- [x] Create `src/services/cache/apiCache.ts` — client-side cache (localStorage)
+- [x] Update `src/services/exercises/exerciseLoader.ts` — fetch from API + cache
+- [x] Update `src/mocks/handlers.ts` — add GET handlers for 3 new endpoints
+- [x] Update `vercel.json` — cache headers for API routes
+- [x] Run `npm run build` — verify zero errors
+- [x] Update `specs/STATUS.md` — mark Step 13 complete
+
 ### Env + Documentation Alignment — Gemini Server-side Flow
 - [x] Add implementation checklist and track progress in this section
 - [x] Align `.env.example` with required/optional vars (`GEMINI_API_KEY`, `VITE_MOCK_API`, optional `GEMINI_MODEL`)
