@@ -44,6 +44,12 @@
       "wrist": "Lesión de muñeca"
     },
     "otherRestrictions": "Otras restricciones",
-    "otherRestrictionsPlaceholder": "Describe cualquier otra restricción..."
+    "otherRestrictionsPlaceholder": "Describe cualquier otra restricción...",
+    "availableWeights": "Pesos disponibles",
+    "availableWeightsHint": "Toca para seleccionar los pesos que tienes",
+    "dumbbells": "Mancuernas (kg)",
+    "barbell": "Carga total barra (kg)",
+    "addCustomWeight": "Añadir",
+    "customWeightPlaceholder": "kg"
   }
 }

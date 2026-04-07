@@ -56,7 +56,9 @@
     "order_mode": "Exercise order",
     "remove_exercise": "Remove exercise",
     "primary_muscles": "Primary muscles",
-    "instructions": "Instructions"
+    "instructions": "Instructions",
+    "weight_lower": "Lower weight",
+    "weight_higher": "Higher weight"
   },
   "execution_mode": {
     "standard": "Standard",
@@ -119,6 +121,15 @@
   "settings": {
     "save": "Save changes",
     "saved": "Saved ✓"
+  },
+  "available_weights": {
+    "title": "Available weights",
+    "subtitle": "Select the weights you have for each equipment type",
+    "dumbbells": "Dumbbells (kg)",
+    "barbell": "Barbell (kg)",
+    "add_custom": "Add",
+    "add_placeholder": "kg",
+    "no_equipment_hint": "Select dumbbells or barbell in equipment to configure weights"
   },
   "session_control": {
     "cancel": "Cancel session",

@@ -44,6 +44,12 @@
       "wrist": "Lesió de canell"
     },
     "otherRestrictions": "Altres restriccions",
-    "otherRestrictionsPlaceholder": "Descriu qualsevol altra restricció..."
+    "otherRestrictionsPlaceholder": "Descriu qualsevol altra restricció...",
+    "availableWeights": "Pesos disponibles",
+    "availableWeightsHint": "Toca per seleccionar els pesos que tens",
+    "dumbbells": "Manuelles (kg)",
+    "barbell": "Càrrega total barra (kg)",
+    "addCustomWeight": "Afegir",
+    "customWeightPlaceholder": "kg"
   }
 }

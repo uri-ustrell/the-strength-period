@@ -56,7 +56,9 @@
     "order_mode": "Orden de ejercicios",
     "remove_exercise": "Eliminar ejercicio",
     "primary_muscles": "Músculos principales",
-    "instructions": "Instrucciones"
+    "instructions": "Instrucciones",
+    "weight_lower": "Peso inferior",
+    "weight_higher": "Peso superior"
   },
   "execution_mode": {
     "standard": "Estándar",
@@ -119,6 +121,15 @@
   "settings": {
     "save": "Guardar cambios",
     "saved": "Guardado ✓"
+  },
+  "available_weights": {
+    "title": "Pesos disponibles",
+    "subtitle": "Selecciona los pesos que tienes para cada tipo de equipamiento",
+    "dumbbells": "Mancuernas (kg)",
+    "barbell": "Barra (kg)",
+    "add_custom": "Añadir",
+    "add_placeholder": "kg",
+    "no_equipment_hint": "Selecciona mancuernas o barra en equipamiento para configurar pesos"
   },
   "session_control": {
     "cancel": "Cancelar sesión",

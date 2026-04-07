@@ -56,7 +56,9 @@
     "order_mode": "Ordre d'exercicis",
     "remove_exercise": "Eliminar exercici",
     "primary_muscles": "Músculs principals",
-    "instructions": "Instruccions"
+    "instructions": "Instruccions",
+    "weight_lower": "Pes inferior",
+    "weight_higher": "Pes superior"
   },
   "execution_mode": {
     "standard": "Estàndard",
@@ -119,6 +121,15 @@
   "settings": {
     "save": "Desar canvis",
     "saved": "Desat ✓"
+  },
+  "available_weights": {
+    "title": "Pesos disponibles",
+    "subtitle": "Selecciona els pesos que tens per cada tipus d'equipament",
+    "dumbbells": "Manuelles (kg)",
+    "barbell": "Barra (kg)",
+    "add_custom": "Afegir",
+    "add_placeholder": "kg",
+    "no_equipment_hint": "Selecciona manuelles o barra a l'equipament per configurar pesos"
   },
   "session_control": {
     "cancel": "Cancel·lar sessió",

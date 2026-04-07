@@ -1,8 +1,23 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-06
+> Last updated: 2026-04-07
 
-## Current Phase: Step 14 Complete — Steps 15–16 Planned
+## Current Phase: Step 14 Complete + Available Weights Feature — Steps 15–16 Planned
+
+## Available Weights Configuration and Snapping (2026-04-07)
+- **Added**: `AvailableWeights` type and `availableWeights` field to `UserConfig` (per equipment type: `manueles`, `barra`)
+- **Added**: `DEFAULT_AVAILABLE_WEIGHTS` constant with sensible defaults for dumbbells and barbell
+- **Added**: `snapToAvailableWeight()` pure function in `src/services/planning/weightSnapping.ts` — supports `up`, `down`, `nearest` directions
+- **Added**: `getAdjacentWeights()` helper for session UI weight navigation
+- **Integrated**: Planning engine (`computeLoadTarget`) now computes and snaps `weightKg` for weight-metric exercises based on user's available weights
+- **Added**: `WeightSelector` reusable component — chip-toggle UI for common weights + custom weight input
+- **Added**: Available weights section in Settings page (visible when dumbbells or barbell selected)
+- **Added**: Available weights section in Onboarding Step 3 (visible when dumbbells or barbell selected)
+- **Added**: Weight up/down controls in `ActiveExercise` during session execution using adjacent available weights
+- **Added**: `updateCurrentExerciseWeight` action in sessionStore for runtime weight adjustment
+- **Added**: i18n keys in all 3 languages (ca/es/en) for available weights UI, onboarding weights, and session weight navigation
+- **Updated**: `useUserStore` with `availableWeights` state and `setAvailableWeights` action
+- **Updated**: `PlanCreator` passes `availableWeights` when generating plans
 
 ## QA Pass (2026-04-05) — Session, Full Plan, and Gemini Prompt
 - **Improved**: Pre-session exercise list uses derived (useMemo) list based on executionMode for reactive reordering

@@ -1,9 +1,10 @@
 import type { Exercise, MuscleGroup, ProgressionMetric } from '@/types/exercise'
 import type { Mesocycle, SessionTemplate, MuscleGroupTarget, LoadTarget, ProgressionType, ExerciseAssignment } from '@/types/planning'
-import type { UserConfig } from '@/types/user'
+import type { UserConfig, WeightEquipment } from '@/types/user'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { PROGRESSION_RULES } from '@/data/progressionRules'
 import { getPresetById } from '@/data/presets'
+import { snapToAvailableWeight } from '@/services/planning/weightSnapping'
 
 function generateId(): string {
   return crypto.randomUUID()
@@ -73,6 +74,7 @@ function computeLoadTarget(
   isDeload: boolean,
   progressionType: ProgressionType,
   sessionIndex: number,
+  exerciseEquipmentWeights?: number[],
 ): LoadTarget {
   const baseRpe = Math.min(10, 6 + (weekNumber - 1) * 0.25)
   const rpe = isDeload ? Math.min(baseRpe, 6) : baseRpe
@@ -86,12 +88,24 @@ function computeLoadTarget(
 
   if (metric === 'weight') {
     const sets = Math.max(1, Math.round(3 * effectiveMultiplier))
-    return {
+    const loadTarget: LoadTarget = {
       sets,
       reps: [8, 12],
       rpe: Math.round(rpe * 10) / 10,
       restSeconds: isDeload ? 60 : 90,
     }
+
+    if (exerciseEquipmentWeights && exerciseEquipmentWeights.length > 0) {
+      const sorted = [...exerciseEquipmentWeights].sort((a, b) => a - b)
+      const midIndex = Math.floor(sorted.length * 0.3)
+      const baseWeight = sorted[midIndex]!
+      const progressedWeight = baseWeight * (1 + (weekNumber - 1) * 0.05)
+      const deloadWeight = baseWeight * 0.6
+      const targetWeight = isDeload ? deloadWeight : progressedWeight
+      loadTarget.weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
+    }
+
+    return loadTarget
   }
 
   if (metric === 'reps') {
@@ -167,6 +181,24 @@ function buildCandidatePool(
   muscleGroup: MuscleGroup,
 ): Exercise[] {
   return exercises.filter((ex) => ex.primaryMuscles.includes(muscleGroup))
+}
+
+const WEIGHT_EQUIPMENT: WeightEquipment[] = ['manueles', 'barra']
+
+function resolveExerciseWeights(
+  exercise: Exercise,
+  config: UserConfig,
+): number[] | undefined {
+  if (!config.availableWeights) return undefined
+
+  for (const eq of exercise.equipment) {
+    if (WEIGHT_EQUIPMENT.includes(eq as WeightEquipment)) {
+      const weights = config.availableWeights[eq as WeightEquipment]
+      if (weights && weights.length > 0) return weights
+    }
+  }
+
+  return undefined
 }
 
 function selectExercise(
@@ -273,6 +305,8 @@ export function generateMesocycle(
 
         usedInSession.add(exercise.id)
 
+        const exerciseWeights = resolveExerciseWeights(exercise, config)
+
         const loadTarget = computeLoadTarget(
           exercise.progressionMetric,
           week,
@@ -280,6 +314,7 @@ export function generateMesocycle(
           isDeload,
           progressionType,
           sessionIndex,
+          exerciseWeights,
         )
 
         const scaledSets = Math.max(1, Math.round(alloc.baseSets * weekMultiplier))

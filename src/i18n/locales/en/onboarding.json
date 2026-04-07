@@ -44,6 +44,12 @@
       "wrist": "Wrist injury"
     },
     "otherRestrictions": "Other restrictions",
-    "otherRestrictionsPlaceholder": "Describe any other restrictions..."
+    "otherRestrictionsPlaceholder": "Describe any other restrictions...",
+    "availableWeights": "Available weights",
+    "availableWeightsHint": "Tap to toggle weights you own",
+    "dumbbells": "Dumbbells (kg)",
+    "barbell": "Barbell total load (kg)",
+    "addCustomWeight": "Add",
+    "customWeightPlaceholder": "kg"
   }
 }

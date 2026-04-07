@@ -9,13 +9,13 @@
 **Context:** `LoadTarget.weightKg` és un nombre lliure (float). `UserConfig` no té cap camp que descrigui els pesos físicament disponibles de l'usuari (p. ex. parelles de manubles: 4, 6, 8, 10, 12, 16 kg; discos de barra; kettlebells). El motor de planificació (`computeLoadTarget` a `planningEngine.ts`) i el Gemini prompt ignoren completament quines càrregues reals pot muntar l'usuari. Això fa que els objectius de pes generats siguin valors teòrics no adaptats a l'equipament real.
 **Goal:** L'usuari declara els pesos disponibles per tipus d'equipament durant l'onboarding o la configuració; el motor i el prompt els utilitzen per arrodonir els `weightKg` al valor disponible més pròxim per sobre o per sota.
 
-- [ ] **Data model** — Afegir `availableWeights` a `UserConfig` (`src/types/user.ts`): estructura per tipus d'equipament (`manueles`, `barra`, `kettlebell`) amb llista de kg disponibles; inicialitzar amb valors per defecte raonables
-- [ ] **Onboarding / Settings UI** — Afegir pas o secció per declarar els pesos disponibles per equipament; UI simple de xips/checkboxes amb valors predefinits comuns (2, 4, 6, 8, 10, 12, 14, 16, 20, 24 kg per manubles/KB; increments de disc de barra)
-- [ ] **Weight snapping util** — Crear funció pura `snapToAvailableWeight(targetKg, availableWeights, direction: 'up' | 'down' | 'nearest'): number` a `src/services/planning/`
-- [ ] **Planning engine integration** — Quan `progressionMetric === 'weight'`, arrodonir el `weightKg` calculat al pes disponible més proper usant la nova utilitat
-- [ ] **Gemini prompt** — Passar els pesos disponibles per equipament al `buildUserMessage` de `api/generate-plan.ts` per tal que Gemini també respecti les càrregues reals en les seves suggerències
-- [ ] **Session execution** — En el pre-start i l'execució activa, mostrar el pes arrodonit i permetre que l'usuari esculli pes superior/inferior dins els seus valors disponibles
-- [ ] Run `npm run build` — zero errors
+- [x] **Data model** — Afegir `availableWeights` a `UserConfig` (`src/types/user.ts`): estructura per tipus d'equipament (`manueles`, `barra`, `kettlebell`) amb llista de kg disponibles; inicialitzar amb valors per defecte raonables
+- [x] **Onboarding / Settings UI** — Afegir pas o secció per declarar els pesos disponibles per equipament; UI simple de xips/checkboxes amb valors predefinits comuns (2, 4, 6, 8, 10, 12, 14, 16, 20, 24 kg per manubles/KB; increments de disc de barra)
+- [x] **Weight snapping util** — Crear funció pura `snapToAvailableWeight(targetKg, availableWeights, direction: 'up' | 'down' | 'nearest'): number` a `src/services/planning/`
+- [x] **Planning engine integration** — Quan `progressionMetric === 'weight'`, arrodonir el `weightKg` calculat al pes disponible més proper usant la nova utilitat
+- [x] **Gemini prompt** — ~~Skipped~~ — Server-side AI removed per Decision 1; planning is fully deterministic on-device
+- [x] **Session execution** — En el pre-start i l'execució activa, mostrar el pes arrodonit i permetre que l'usuari esculli pes superior/inferior dins els seus valors disponibles
+- [x] Run `npm run build` — zero errors
 
 ### Muscle Group Selector Completeness (PlanCreator)
 **Context:** `PlanCreator.tsx` defines a hardcoded `MAIN_MUSCLE_GROUPS` list of only 13 groups, while `ALL_MUSCLE_GROUPS` in `src/data/muscleGroups.ts` has the full 23 groups. The filter engine (`exerciseFilter.ts`) already matches on both `primaryMuscles` and `secondaryMuscles`, so showing all groups in the UI is purely a selector change.
@@ -36,6 +36,13 @@
 - [ ] **Translation completeness** — Verify that every enriched exercise `nameKey` has matching entries in `src/i18n/locales/{ca,es,en}/exercises.json`; flag any missing keys
 - [ ] **Translation quality** — Review ca/es/en exercise name translations for accuracy and consistency (especially runner-specific and mobility exercises)
 - [ ] **Muscle mapping coherence** — Check that `primaryMuscles` / `secondaryMuscles` in enrichment are consistent with the free-exercise-db source data and our taxonomy (`freeExerciseDbMuscleMap` in `muscleGroups.ts`)
+- [ ] **Equipment coverage audit** — Deep check of available equipment types:
+  - [ ] Scan `public/exercises/exercises.json` and extract all unique equipment values present in raw data
+  - [ ] Cross-reference against `freeExerciseDbEquipmentMap` in `src/data/muscleGroups.ts` to ensure all raw equipment types have a mapping
+  - [ ] Verify that each raw equipment type maps to a valid `Equipment` enum value in `src/types/exercise.ts`
+  - [ ] Check if any `Equipment` enum values (e.g., `trx`) have no corresponding exercises in the raw data — consider removing unused types
+  - [ ] Count how many exercises use each equipment type in the enriched set; identify any equipment with fewer than 2 exercises
+  - [ ] Flag any orphaned exercises in `exercises.json` with equipment types not covered by enrichment or mapping
 - [ ] **Instruction translations** — Confirm that exercises with translated instruction keys have correct ca/es/en content and no placeholder text
 - [ ] Run `npm run build` — zero errors after any enrichment additions
 

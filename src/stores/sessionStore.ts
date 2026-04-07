@@ -38,6 +38,7 @@ interface SessionStore {
   setExecutionMode: (mode: ExecutionMode) => void
   logSet: (repsActual: number, weightActual?: number) => void
   skipExercise: () => void
+  updateCurrentExerciseWeight: (newWeight: number) => void
   startRest: (seconds: number) => void
   tickRest: () => void
   finishSession: (globalRpe: number, notes?: string) => Promise<void>
@@ -102,6 +103,16 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
   },
 
   setExecutionMode: (mode) => set({ executionMode: mode }),
+
+  updateCurrentExerciseWeight: (newWeight) => {
+    const { generatedSession, currentExerciseIndex } = get()
+    if (!generatedSession) return
+    const exercises = [...generatedSession.exercises]
+    const current = exercises[currentExerciseIndex]
+    if (!current) return
+    exercises[currentExerciseIndex] = { ...current, weightKg: newWeight }
+    set({ generatedSession: { ...generatedSession, exercises } })
+  },
 
   logSet: (repsActual, weightActual) => {
     const state = get()

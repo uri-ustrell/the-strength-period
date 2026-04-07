@@ -32,6 +32,7 @@ export const Session = () => {
     currentExercise,
     logSet,
     skipExercise,
+    updateCurrentExerciseWeight,
     tickRest,
     skipRest,
     finishSession,
@@ -168,6 +169,7 @@ export const Session = () => {
               exerciseIndex={currentExerciseIndex}
               totalExercises={generatedSession.exercises.length}
               currentSet={currentSetIndex}
+              onWeightChange={updateCurrentExerciseWeight}
             />
 
             {isResting ? (

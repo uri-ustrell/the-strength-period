@@ -6,6 +6,7 @@ import { ArrowLeft, Check, User, HeartPulse, Dumbbell } from 'lucide-react'
 import type { UserProfile } from '@/types/user'
 import type { Equipment } from '@/types/exercise'
 import { useUserStore } from '@/stores/userStore'
+import { WeightSelector } from '@/components/ui/WeightSelector'
 
 const ALL_EQUIPMENT: Equipment[] = [
   'pes_corporal',
@@ -48,6 +49,8 @@ export const SettingsPage = () => {
   const setMinutesPerSession = useUserStore((s) => s.setMinutesPerSession)
   const activeRestrictions = useUserStore((s) => s.activeRestrictions)
   const setActiveRestrictions = useUserStore((s) => s.setActiveRestrictions)
+  const availableWeights = useUserStore((s) => s.availableWeights)
+  const setAvailableWeights = useUserStore((s) => s.setAvailableWeights)
   const completeOnboarding = useUserStore((s) => s.completeOnboarding)
 
   const [saved, setSaved] = useState(false)
@@ -220,6 +223,19 @@ export const SettingsPage = () => {
               )
             })}
           </div>
+        </section>
+
+        {/* Available Weights */}
+        <section className="rounded-2xl bg-white p-4 shadow-sm">
+          <h2 className="mb-1 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+            {t('common:available_weights.title')}
+          </h2>
+          <p className="mb-3 text-xs text-gray-400">{t('common:available_weights.subtitle')}</p>
+          <WeightSelector
+            equipment={equipment}
+            availableWeights={availableWeights}
+            onChange={setAvailableWeights}
+          />
         </section>
 
         {/* Save button */}

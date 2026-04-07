@@ -1,20 +1,43 @@
 import { useTranslation } from 'react-i18next'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 import type { SelectedExercise } from '@/services/exercises/sessionGenerator'
+import type { WeightEquipment } from '@/types/user'
+import { useUserStore } from '@/stores/userStore'
+import { getAdjacentWeights } from '@/services/planning/weightSnapping'
+
+const WEIGHT_EQUIPMENT: WeightEquipment[] = ['manueles', 'barra']
 
 interface Props {
   selectedExercise: SelectedExercise
   exerciseIndex: number
   totalExercises: number
   currentSet: number
+  onWeightChange?: (newWeight: number) => void
 }
 
-export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises, currentSet }: Props) => {
+export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises, currentSet, onWeightChange }: Props) => {
   const { t } = useTranslation(['common', 'exercises', 'muscles'])
   const { exercise, sets, reps, weightKg, rpe, restSeconds } = selectedExercise
+  const availableWeights = useUserStore((s) => s.availableWeights)
 
   const repsDisplay = Array.isArray(reps) ? `${reps[0]}-${reps[1]}` : String(reps)
   const representativeImage = exercise.images.find((img) => img.isRepresentative) ?? exercise.images[0]
+
+  // Resolve which equipment weights to use for this exercise
+  const exerciseWeightList: number[] = (() => {
+    for (const eq of exercise.equipment) {
+      if (WEIGHT_EQUIPMENT.includes(eq as WeightEquipment)) {
+        const weights = availableWeights[eq as WeightEquipment]
+        if (weights && weights.length > 0) return weights
+      }
+    }
+    return []
+  })()
+
+  const adjacent = weightKg !== undefined && exerciseWeightList.length > 0
+    ? getAdjacentWeights(weightKg, exerciseWeightList)
+    : null
 
   return (
     <div className="rounded-2xl bg-white p-5 shadow-sm">
@@ -61,7 +84,29 @@ export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises
         {weightKg !== undefined && (
           <div className="rounded-lg bg-gray-50 p-3 text-center">
             <p className="text-xs text-gray-500">{t('common:session.weight_kg')}</p>
-            <p className="text-lg font-bold text-gray-900">{weightKg}</p>
+            <div className="flex items-center justify-center gap-1">
+              {adjacent?.lower != null && onWeightChange && (
+                <button
+                  type="button"
+                  onClick={() => onWeightChange(adjacent.lower!)}
+                  className="rounded p-0.5 text-gray-400 hover:bg-gray-200 hover:text-gray-600 transition-colors"
+                  aria-label={t('common:session.weight_lower')}
+                >
+                  <ChevronDown size={16} />
+                </button>
+              )}
+              <p className="text-lg font-bold text-gray-900">{weightKg}</p>
+              {adjacent?.higher != null && onWeightChange && (
+                <button
+                  type="button"
+                  onClick={() => onWeightChange(adjacent.higher!)}
+                  className="rounded p-0.5 text-gray-400 hover:bg-gray-200 hover:text-gray-600 transition-colors"
+                  aria-label={t('common:session.weight_higher')}
+                >
+                  <ChevronUp size={16} />
+                </button>
+              )}
+            </div>
           </div>
         )}
         {rpe !== undefined && (

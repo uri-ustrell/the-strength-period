@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import type { Equipment } from '@/types/exercise'
 import { useUserStore } from '@/stores/userStore'
+import { WeightSelector } from '@/components/ui/WeightSelector'
 
 const ALL_EQUIPMENT: Equipment[] = [
   'pes_corporal',
@@ -34,6 +35,8 @@ export const Step3Context = () => {
   const setMinutesPerSession = useUserStore((s) => s.setMinutesPerSession)
   const activeRestrictions = useUserStore((s) => s.activeRestrictions)
   const setActiveRestrictions = useUserStore((s) => s.setActiveRestrictions)
+  const availableWeights = useUserStore((s) => s.availableWeights)
+  const setAvailableWeights = useUserStore((s) => s.setAvailableWeights)
 
   const [otherRestrictions, setOtherRestrictions] = useState('')
 
@@ -188,6 +191,22 @@ export const Step3Context = () => {
           />
         </div>
       </div>
+
+      {/* Available Weights */}
+      {(equipment.includes('manueles') || equipment.includes('barra')) && (
+        <div>
+          <h3 className="mb-1 text-sm font-semibold text-gray-700">
+            {t('step3.availableWeights')}
+          </h3>
+          <p className="mb-3 text-xs text-gray-400">{t('step3.availableWeightsHint')}</p>
+          <WeightSelector
+            equipment={equipment}
+            availableWeights={availableWeights}
+            onChange={setAvailableWeights}
+            namespace="onboarding"
+          />
+        </div>
+      )}
     </div>
   )
 }

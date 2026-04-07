@@ -39,6 +39,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const userDays = useUserStore((s) => s.availableDaysPerWeek)
   const userMinutes = useUserStore((s) => s.minutesPerSession)
   const activeRestrictions = useUserStore((s) => s.activeRestrictions)
+  const availableWeightsState = useUserStore((s) => s.availableWeights)
 
   const generate = usePlanningStore((s) => s.generate)
   const saveGenerated = usePlanningStore((s) => s.saveGenerated)
@@ -205,6 +206,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
       activeRestrictions,
       onboardingCompleted: true,
       weeklyProgression,
+      availableWeights: availableWeightsState,
     }
 
     generate(
