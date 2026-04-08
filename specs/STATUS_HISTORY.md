@@ -7,6 +7,40 @@
 
 ## Recent Changes
 
+### Onboarding & UserConfig Refactor (2026-04-09)
+- **Removed**: `UserProfile` type and profile step from onboarding — was only used for preset filtering with minimal impact
+- **Removed**: `weeklyProgression` from UserConfig — was always overridden by PlanCreator slider
+- **Removed**: `availableDaysPerWeek: number` — replaced with `trainingDays: DayOfWeek[]` for specific weekday selection
+- **Removed**: Free-text restriction textarea — moved idea to Step 15 (LLM free-form context)
+- **Fixed**: Restriction key mismatch — old keys (`knee`, `ankle`, `back`, `shoulder`, `hip`, `wrist`) matched nothing in enrichment data. Now uses `RestrictionCondition` type: `rehab_genoll | rehab_lumbar | rehab_turmell | tendinitis_rotuliana`
+- **Fixed**: WeightSelector custom weight UX — custom weights now appear in the toggleable grid after being added
+- **Expanded**: Default weight presets — manueles 1-40kg, barra 20-120kg (was 2-32 / 20-100)
+- **Changed**: Dashboard session logic — from "today by day-of-week" to "next consecutive uncompleted session"
+- **Changed**: PlanCreator — shows all presets (not profile-filtered) with text search and tag filter
+- **Changed**: Onboarding — single step instead of 2 (removed Step1Profile), weekday toggle buttons instead of numeric day count
+- **Updated**: Settings page — removed profile section, added weekday toggles, uses real restriction conditions
+- **Updated**: i18n (ca/es/en) — new restriction labels, weekday names, preset search/tag keys
+- **Files changed**: 20+ files across types, data, services, stores, components, pages, i18n
+
+### Pre-Built Exercise Pipeline (2026-04-08)
+- **Architecture change:** Exercises are now pre-built at development time instead of enriched at runtime.
+- **Added**: `data/raw/free-exercise-db.json` — archived raw source (873 exercises from free-exercise-db)
+- **Added**: `scripts/buildExercises.ts` — build-time pipeline that merges raw data + enrichment map + muscle/equipment mappings → produces `public/exercises/exercises.json` (100 enriched exercises)
+- **Added**: `npm run build:exercises` script
+- **Simplified**: `exerciseLoader.ts` — reduced from 80 lines of runtime processing to 6 lines (fetch + return)
+- **Bundle impact**: `exerciseEnrichment.ts` (~960 lines) and mapping tables from `muscleGroups.ts` are now tree-shaken out of the client bundle (no longer imported at runtime)
+- **Updated**: `verify.cjs` — now validates against the enriched JSON (source of truth) instead of cross-referencing raw + enrichment
+- **Updated**: specs (OVERVIEW.md, STATUS.md, 02-exercises.md) to reflect new data pipeline
+- **Data flow**: `data/raw/free-exercise-db.json` + `src/data/exerciseEnrichment.ts` + `src/data/muscleGroups.ts` → `scripts/buildExercises.ts` → `public/exercises/exercises.json`
+- **Rationale**: Client no longer downloads 873 raw exercises only to keep 100; no runtime muscle/equipment mapping or enrichment merging. Simpler loader, smaller bundle, faster client startup. Our enriched JSON becomes the true source of truth. Future remote source updates go through the build script.
+
+### Decision 7 — Pre-Built Exercise Pipeline
+- **Decided:** `public/exercises/exercises.json` is our source of truth — already enriched, mapped, and ready for client consumption.
+- **Build-time script** (`scripts/buildExercises.ts`) takes raw free-exercise-db + enrichment map + muscle/equipment mappings and produces the final JSON.
+- **Raw remote data** archived at `data/raw/free-exercise-db.json` for rebuild capability and future source updates.
+- **Client loader** is a simple fetch + type assertion — zero processing.
+- **Rationale:** The previous model fetched 873 raw exercises, filtered to ~100, applied muscle mappings, equipment mappings, and enrichment merges on every page load. This is wasteful since the data only changes when developers modify enrichment. Moving processing to build-time eliminates runtime cost, reduces bundle size (enrichment map tree-shaken), and establishes our JSON as the canonical source — important when we add custom exercises or additional remote sources in the future.
+
 ### Skip Set Button (2026-04-07)
 - **Replaced**: `skipExercise` action with `skipSet` in sessionStore — advances one set (not entire exercise), no ExecutedSet record, no rest timer; handles both standard and circuit modes
 - **Updated**: useSession hook — exports `skipSet` instead of `skipExercise`

@@ -4,22 +4,6 @@
   "next": "Siguiente",
   "back": "Atrás",
   "finish": "Empezar",
-  "step1": {
-    "title": "¿Cuál es tu perfil?",
-    "subtitle": "Elige el que mejor te describa",
-    "athlete": {
-      "title": "Atleta autónomo",
-      "description": "Sé lo que hago, quiero control total"
-    },
-    "rehab": {
-      "title": "En rehabilitación",
-      "description": "Tengo una lesión activa o reciente"
-    },
-    "general": {
-      "title": "Deportista general",
-      "description": "Quiero mejorar, necesito guía"
-    }
-  },
   "step3": {
     "title": "Tu contexto de entrenamiento",
     "subtitle": "Personaliza tu plan",
@@ -32,19 +16,24 @@
       "pilates": "Pilates",
       "trx": "TRX"
     },
-    "daysPerWeek": "Días por semana",
+    "trainingDays": "Días de entrenamiento",
+    "dayNames": {
+      "1": "Lu",
+      "2": "Ma",
+      "3": "Mi",
+      "4": "Ju",
+      "5": "Vi",
+      "6": "Sá",
+      "7": "Do"
+    },
     "minutesPerSession": "Minutos por sesión",
     "restrictions": "Restricciones activas",
     "restrictionOptions": {
-      "knee": "Lesión de rodilla",
-      "ankle": "Lesión de tobillo",
-      "back": "Lesión lumbar",
-      "shoulder": "Lesión de hombro",
-      "hip": "Lesión de cadera",
-      "wrist": "Lesión de muñeca"
+      "rehab_genoll": "Lesión de rodilla",
+      "rehab_lumbar": "Lesión lumbar",
+      "rehab_turmell": "Lesión de tobillo",
+      "tendinitis_rotuliana": "Tendinitis rotuliana"
     },
-    "otherRestrictions": "Otras restricciones",
-    "otherRestrictionsPlaceholder": "Describe cualquier otra restricción...",
     "availableWeights": "Pesos disponibles",
     "availableWeightsHint": "Toca para seleccionar los pesos que tienes",
     "dumbbells": "Mancuernas (kg)",

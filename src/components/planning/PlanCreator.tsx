@@ -5,8 +5,8 @@ import { ArrowLeft, Check, X, ChevronDown, ChevronUp } from 'lucide-react'
 import type { Preset } from '@/data/presets'
 import type { CustomPreset } from '@/data/presets'
 import type { UserConfig } from '@/types/user'
-import type { MuscleGroup, Exercise } from '@/types/exercise'
-import { PRESETS, getPresetsForProfile } from '@/data/presets'
+import type { MuscleGroup, Exercise, ExerciseTag, DayOfWeek } from '@/types/exercise'
+import { PRESETS } from '@/data/presets'
 import { getConfig, setConfig } from '@/services/db/configRepository'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
@@ -27,9 +27,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const { t } = useTranslation(['planning', 'common', 'exercises', 'muscles'])
   const { exercises } = useExercises()
 
-  const profile = useUserStore((s) => s.profile)
   const equipment = useUserStore((s) => s.equipment)
-  const userDays = useUserStore((s) => s.availableDaysPerWeek)
+  const userTrainingDays = useUserStore((s) => s.trainingDays)
   const userMinutes = useUserStore((s) => s.minutesPerSession)
   const activeRestrictions = useUserStore((s) => s.activeRestrictions)
   const availableWeightsState = useUserStore((s) => s.availableWeights)
@@ -43,7 +42,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [step, setStep] = useState<Step>('preset')
   const [selectedPreset, setSelectedPreset] = useState<Preset | null>(null)
   const [weeks, setWeeks] = useState(8)
-  const [daysPerWeek, setDaysPerWeek] = useState(userDays)
+  const [daysPerWeek, setDaysPerWeek] = useState(userTrainingDays.length)
   const [minutesPerSess, setMinutesPerSess] = useState(userMinutes)
   const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<Record<MuscleGroup, MuscleGroupPriority | null>>(
     () => {
@@ -65,6 +64,33 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [exerciseSelections, setExerciseSelections] = useState<Record<string, string[]>>({})
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
 
+  // Preset filter state
+  const [presetSearch, setPresetSearch] = useState('')
+  const [selectedTags, setSelectedTags] = useState<ExerciseTag[]>([])
+
+  // Collect all unique tags from presets for the tag filter
+  const allPresetTags = useMemo(() => {
+    const tags = new Set<ExerciseTag>()
+    for (const p of PRESETS) {
+      for (const tag of p.requiredTags) tags.add(tag)
+    }
+    return Array.from(tags)
+  }, [])
+
+  const filteredPresets = useMemo(() => {
+    return PRESETS.filter((p) => {
+      if (presetSearch.trim()) {
+        const name = t(p.nameKey).toLowerCase()
+        const desc = t(p.descriptionKey).toLowerCase()
+        const q = presetSearch.toLowerCase()
+        if (!name.includes(q) && !desc.includes(q)) return false
+      }
+      if (selectedTags.length > 0) {
+        if (!selectedTags.some((tag) => p.requiredTags.includes(tag))) return false
+      }
+      return true
+    })
+  }, [presetSearch, selectedTags, t])
   useEffect(() => {
     const loadCustomPresets = async () => {
       const stored = await getConfig('customPresets') as CustomPreset[] | null
@@ -72,8 +98,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
     loadCustomPresets()
   }, [])
-
-  const presetsForProfile = profile ? getPresetsForProfile(profile) : PRESETS
 
   const activeMuscleGroups = useMemo(() => {
     return Object.entries(muscleGroupPriorities)
@@ -186,19 +210,25 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const handleGenerate = () => {
-    if (!profile) return
-
     const muscleDistribution = buildMuscleDistribution()
 
+    // Build trainingDays from daysPerWeek override
+    let trainingDays: DayOfWeek[] = userTrainingDays
+    if (daysPerWeek !== userTrainingDays.length) {
+      // Generate evenly spaced days
+      const spacing = 7 / daysPerWeek
+      trainingDays = Array.from({ length: daysPerWeek }, (_, i) =>
+        Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek,
+      )
+    }
+
     const config: UserConfig = {
-      profile,
       language: 'ca',
       equipment,
-      availableDaysPerWeek: daysPerWeek,
+      trainingDays,
       minutesPerSession: minutesPerSess,
       activeRestrictions,
       onboardingCompleted: true,
-      weeklyProgression,
       availableWeights: availableWeightsState,
     }
 
@@ -245,8 +275,45 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return (
       <div className="space-y-4">
         <h2 className="text-lg font-semibold text-gray-900">{t('planning:selectPreset')}</h2>
+
+        {/* Search filter */}
+        <input
+          type="text"
+          value={presetSearch}
+          onChange={(e) => setPresetSearch(e.target.value)}
+          placeholder={t('planning:search_presets')}
+          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+
+        {/* Tag filter */}
+        {allPresetTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {allPresetTags.map((tag) => {
+              const active = selectedTags.includes(tag)
+              return (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() =>
+                    setSelectedTags((prev) =>
+                      active ? prev.filter((t) => t !== tag) : [...prev, tag],
+                    )
+                  }
+                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
+                    active
+                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
+                      : 'border-gray-200 text-gray-500 hover:border-indigo-300'
+                  }`}
+                >
+                  {t(`planning:preset_tags.${tag}`)}
+                </button>
+              )
+            })}
+          </div>
+        )}
+
         <div className="grid grid-cols-2 gap-3">
-          {presetsForProfile.map((preset) => (
+          {filteredPresets.map((preset) => (
             <button
               key={preset.id}
               type="button"

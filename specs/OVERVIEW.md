@@ -10,12 +10,20 @@ A zero-backend, local-first fitness web app that generates personalized training
 ```
 User (Browser)
   ├── IndexedDB ──────────────→ Local persistence (plans, executions, config)
-  ├── Vercel Serverless Fn ───→ Gemini 2.5 Flash (project API key, server-side)
-  ├── free-exercise-db ───────→ /public/exercises.json (static)
+  ├── Exercises ──────────────→ /public/exercises/exercises.json (pre-built, enriched)
   └── Export / Import ────────→ JSON file (user backup & portability)
 ```
 
-User data stays local. AI inference goes through a minimal server-side proxy. No user data is stored server-side.
+Exercise data pipeline:
+```
+data/raw/free-exercise-db.json    ← original remote source (873 exercises)
+  + src/data/exerciseEnrichment.ts ← our enrichment map (tags, restrictions, etc.)
+  + src/data/muscleGroups.ts       ← muscle/equipment taxonomy mappings
+  ──→ scripts/buildExercises.ts    ← build-time transformation
+  ──→ public/exercises/exercises.json ← OUR source of truth (100 enriched exercises)
+```
+
+User data stays local. Exercise data is pre-built at development time — zero runtime processing.
 
 ## Stack
 
@@ -29,14 +37,14 @@ User data stays local. AI inference goes through a minimal server-side proxy. No
 | i18n | i18next + react-i18next + browser-languagedetector |
 | Data | IndexedDB (local, via idb wrapper) |
 | AI | Gemini 2.5 Flash via Vercel Serverless Function (project key) |
-| Exercises | free-exercise-db (static JSON in /public) |
+| Exercises | Pre-built enriched JSON in /public (from free-exercise-db via build script) |
 | Charts | Recharts |
 | Icons | Lucide React |
 | Hosting | Vercel |
 
 ## Key Design Decisions
 
-1. **Exercises live in memory, never persisted** — IndexedDB is exclusively for user-generated data
+1. **Exercises are pre-built static data** — enriched at build-time via `npm run build:exercises`, served as static JSON. IndexedDB is exclusively for user-generated data
 2. **No auth required** — zero friction, the user opens the app and starts immediately
 3. **Server-side AI proxy** — AI inference via Vercel Serverless Function with project-owned key. No user API key needed.
 4. **i18n from day 1** — Catalan (ca), Spanish (es), English (en)

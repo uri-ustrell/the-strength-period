@@ -28,7 +28,8 @@
 ## Architecture Notes
 
 - Local-first: IndexedDB for user data, no server-side inference.
-- Static data (exercises, presets, i18n) served from `/public/` or bundled — zero serverless cost.
+- Exercises: pre-built at dev-time via `npm run build:exercises` (raw free-exercise-db → enriched JSON). Client fetches final JSON with zero runtime processing.
+- Static data (presets, i18n) bundled in JS — zero serverless cost.
 - Export/Import via JSON for data portability.
 
 ## Architecture Decisions
@@ -40,6 +41,7 @@
 | 3 | User-Owned LLM Assistant | Prompt + CSV template; user pastes JSON; app validates schema |
 | 4 | Presets | Built-in + user-saved presets as wizard starting points |
 | 5 | Static Data Serving | No serverless endpoints; static CDN only |
+| 7 | Pre-Built Exercise Pipeline | Build-time enrichment; client gets final JSON; zero runtime processing |
 | 6 | Ethical Gamification | Habit-tied achievements; anti-addictive guardrails; optional patronage |
 
 > Full rationale in `specs/STATUS_HISTORY.md`
@@ -52,6 +54,7 @@
 - [ ] Build UI: prompt display + CSV download
 - [ ] Accept pasted JSON; validate against schema; show structured errors
 - [ ] On valid JSON, import plan (reuse existing infrastructure)
+- [ ] **Idea**: Allow free-form personal notes/restrictions (text) to be included in the LLM prompt context, enabling richer personalization than checkbox-only restrictions
 
 ### Step 16 — Ethical Gamification
 - [ ] Define anti-addictive guardrails as acceptance criteria

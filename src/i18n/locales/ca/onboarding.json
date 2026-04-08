@@ -4,22 +4,6 @@
   "next": "Següent",
   "back": "Enrere",
   "finish": "Començar",
-  "step1": {
-    "title": "Quin és el teu perfil?",
-    "subtitle": "Tria el que millor et descrigui",
-    "athlete": {
-      "title": "Atleta autònom",
-      "description": "Sé el que faig, vull control total"
-    },
-    "rehab": {
-      "title": "En rehabilitació",
-      "description": "Tinc una lesió activa o recent"
-    },
-    "general": {
-      "title": "Esportista general",
-      "description": "Vull millorar, necessito guia"
-    }
-  },
   "step3": {
     "title": "El teu context d'entrenament",
     "subtitle": "Personalitza el teu pla",
@@ -32,19 +16,24 @@
       "pilates": "Pilates",
       "trx": "TRX"
     },
-    "daysPerWeek": "Dies per setmana",
+    "trainingDays": "Dies d'entrenament",
+    "dayNames": {
+      "1": "Dl",
+      "2": "Dm",
+      "3": "Dc",
+      "4": "Dj",
+      "5": "Dv",
+      "6": "Ds",
+      "7": "Dg"
+    },
     "minutesPerSession": "Minuts per sessió",
     "restrictions": "Restriccions actives",
     "restrictionOptions": {
-      "knee": "Lesió de genoll",
-      "ankle": "Lesió de turmell",
-      "back": "Lesió lumbar",
-      "shoulder": "Lesió d'espatlla",
-      "hip": "Lesió de maluc",
-      "wrist": "Lesió de canell"
+      "rehab_genoll": "Lesió de genoll",
+      "rehab_lumbar": "Lesió lumbar",
+      "rehab_turmell": "Lesió de turmell",
+      "tendinitis_rotuliana": "Tendinitis rotuliana"
     },
-    "otherRestrictions": "Altres restriccions",
-    "otherRestrictionsPlaceholder": "Descriu qualsevol altra restricció...",
     "availableWeights": "Pesos disponibles",
     "availableWeightsHint": "Toca per seleccionar els pesos que tens",
     "dumbbells": "Manuelles (kg)",

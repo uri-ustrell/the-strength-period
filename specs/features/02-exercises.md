@@ -14,17 +14,19 @@ Step 1 (Scaffold) must be complete.
 - [ ] Exercise names translated to ca/es/en (80 priority exercises)
 - [ ] Muscle group names translated to ca/es/en
 
-## Key Design: Exercises Never Go to IndexedDB
-Exercises are static data loaded from `/public` and enriched in memory. IndexedDB only stores user-generated data (plans, executions, sessions).
+## Key Design: Pre-Built Exercise Data
+Exercises are static data pre-built at development time via `npm run build:exercises`. The build script merges raw free-exercise-db data with our enrichment map and muscle/equipment mappings, producing the final `public/exercises/exercises.json`. The client fetches this file directly — zero runtime processing. IndexedDB only stores user-generated data (plans, executions, sessions).
 
 ## Files to Create
 
 ```
-public/exercises/exercises.json       ← free-exercise-db download
+data/raw/free-exercise-db.json        ← original remote source (archived)
+scripts/buildExercises.ts             ← build-time enrichment pipeline
+public/exercises/exercises.json       ← OUR source of truth (generated)
 src/types/exercise.ts                 ← MuscleGroup, Equipment, ExerciseTag, Restriction, Exercise
-src/data/muscleGroups.ts              ← Full taxonomy with i18n keys
-src/data/exerciseEnrichment.ts        ← Map: exercise ID → tags, restrictions, nameKey
-src/services/exercises/exerciseLoader.ts  ← Load JSON + merge enrichment
+src/data/muscleGroups.ts              ← Full taxonomy with i18n keys + build-time mappings
+src/data/exerciseEnrichment.ts        ← Map: exercise ID → tags, restrictions, nameKey (build-time only)
+src/services/exercises/exerciseLoader.ts  ← Fetch pre-built JSON (no processing)
 src/services/exercises/exerciseFilter.ts  ← Filter by criteria
 src/stores/exerciseStore.ts           ← Zustand store
 src/hooks/useExercises.ts             ← React hook
@@ -48,12 +50,8 @@ Focus on exercises that serve the 5 presets:
 
 ```typescript
 async function loadExercises(): Promise<Exercise[]> {
-  // 1. Fetch /exercises/exercises.json
-  // 2. For each exercise in enrichment map:
-  //    - Merge tags, restrictions, nameKey, category, estimatedDuration
-  //    - Map free-exercise-db muscles to our MuscleGroup taxonomy
-  //    - Map free-exercise-db equipment to our Equipment enum
-  // 3. Return enriched exercises (only those in enrichment map)
+  // Fetch /exercises/exercises.json — already enriched at build time
+  // Return directly, no runtime processing needed
 }
 ```
 

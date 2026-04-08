@@ -79,6 +79,13 @@
   "plan_generated": "Plan generated successfully",
   "algorithm_distributes": "The algorithm will distribute training volume proportionally.",
   "candidates_count": "{{count}} exercises available",
+  "search_presets": "Search presets...",
+  "preset_tags": {
+    "corredor": "Runner",
+    "pujada": "Uphill",
+    "tendinitis_anserina": "Pes anserine tendinitis",
+    "mobilitat": "Mobility"
+  },
   "presets": {
     "corredor_general": "General Runner",
     "corredor_general_desc": "Strength for runners: glutes, quads, hamstrings, calves and core",

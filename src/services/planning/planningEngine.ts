@@ -243,9 +243,9 @@ export function generateMesocycle(
 ): Mesocycle {
   const preset = getPresetById(presetId)
   const progressionType: ProgressionType = options?.progressionType ?? preset?.progressionType ?? 'linear'
-  const weeklyProgression = options?.weeklyProgression ?? config.weeklyProgression ?? 5
+  const weeklyProgression = options?.weeklyProgression ?? 5
   const totalWeeks = options?.weeks ?? 8
-  const daysPerWeek = config.availableDaysPerWeek
+  const daysPerWeek = config.trainingDays.length
   const minutesPerSession = config.minutesPerSession
 
   const rule = PROGRESSION_RULES[progressionType]
@@ -348,7 +348,7 @@ export function generateMesocycle(
         id: generateId(),
         mesocycleId,
         weekNumber: week,
-        dayOfWeek: assignDayOfWeek(day, daysPerWeek),
+        dayOfWeek: config.trainingDays[day % config.trainingDays.length] ?? assignDayOfWeek(day, daysPerWeek),
         durationMinutes: sessionDuration,
         muscleGroupTargets: trimmedTargets,
         progressionType,

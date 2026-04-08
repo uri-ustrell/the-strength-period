@@ -1,5 +1,4 @@
 import type { MuscleGroup, ExerciseTag } from '@/types/exercise'
-import type { UserProfile } from '@/types/user'
 import type { ProgressionType } from '@/types/planning'
 
 export interface CustomPreset {
@@ -19,7 +18,6 @@ export interface Preset {
   requiredTags: ExerciseTag[]
   autoRestrictions: string[]
   progressionType: ProgressionType
-  profiles: UserProfile[]
   notes?: string
 }
 
@@ -33,7 +31,6 @@ export const PRESETS: Preset[] = [
     requiredTags: ['corredor'],
     autoRestrictions: [],
     progressionType: 'linear',
-    profiles: ['athlete', 'general'],
   },
   {
     id: 'pujada',
@@ -44,7 +41,6 @@ export const PRESETS: Preset[] = [
     requiredTags: ['pujada'],
     autoRestrictions: [],
     progressionType: 'linear',
-    profiles: ['athlete'],
   },
   {
     id: 'rehab_tendinitis_anserina',
@@ -55,7 +51,6 @@ export const PRESETS: Preset[] = [
     requiredTags: ['tendinitis_anserina'],
     autoRestrictions: ['tendinitis_anserina'],
     progressionType: 'linear',
-    profiles: ['rehab'],
   },
   {
     id: 'forca_general',
@@ -66,7 +61,6 @@ export const PRESETS: Preset[] = [
     requiredTags: [],
     autoRestrictions: [],
     progressionType: 'undulating',
-    profiles: ['athlete', 'general'],
   },
   {
     id: 'mobilitat_prevencio',
@@ -77,13 +71,8 @@ export const PRESETS: Preset[] = [
     requiredTags: ['mobilitat'],
     autoRestrictions: [],
     progressionType: 'linear',
-    profiles: ['athlete', 'rehab', 'general'],
   },
 ]
-
-export function getPresetsForProfile(profile: UserProfile): Preset[] {
-  return PRESETS.filter((p) => p.profiles.includes(profile))
-}
 
 export function getPresetById(id: string): Preset | undefined {
   return PRESETS.find((p) => p.id === id)

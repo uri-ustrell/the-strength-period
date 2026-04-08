@@ -19,8 +19,23 @@ export type ExerciseTag =
 
 export type ProgressionMetric = 'weight' | 'reps' | 'seconds'
 
+export type DayOfWeek = 1 | 2 | 3 | 4 | 5 | 6 | 7
+
+export type RestrictionCondition =
+  | 'rehab_genoll'
+  | 'rehab_lumbar'
+  | 'rehab_turmell'
+  | 'tendinitis_rotuliana'
+
+export const ALL_RESTRICTION_CONDITIONS: RestrictionCondition[] = [
+  'rehab_genoll',
+  'rehab_lumbar',
+  'rehab_turmell',
+  'tendinitis_rotuliana',
+]
+
 export type Restriction = {
-  condition: string
+  condition: RestrictionCondition
   action: 'avoid' | 'modify'
   note?: string
 }

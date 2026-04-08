@@ -1,10 +1,11 @@
-import type { Exercise, MuscleGroup, Equipment, ExerciseTag } from '@/types/exercise'
+import type { Exercise, MuscleGroup, Equipment, ExerciseTag, RestrictionCondition } from '@/types/exercise'
 
 export type ExerciseFilters = {
   muscleGroups?: MuscleGroup[]
   equipment?: Equipment[]
-  excludeRestrictions?: string[]
+  excludeRestrictions?: RestrictionCondition[]
   tags?: ExerciseTag[]
+
   level?: Exercise['level'][]
   category?: Exercise['category'][]
   excludeIds?: string[]

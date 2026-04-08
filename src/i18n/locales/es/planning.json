@@ -79,6 +79,13 @@
   "plan_generated": "Plan generado correctamente",
   "algorithm_distributes": "El algoritmo distribuirá el volumen de entrenamiento proporcionalmente.",
   "candidates_count": "{{count}} ejercicios disponibles",
+  "search_presets": "Buscar presets...",
+  "preset_tags": {
+    "corredor": "Corredor",
+    "pujada": "Subida",
+    "tendinitis_anserina": "Tendinitis anserina",
+    "mobilitat": "Movilidad"
+  },
   "presets": {
     "corredor_general": "Corredor General",
     "corredor_general_desc": "Fuerza para corredores: glúteos, cuádriceps, isquiotibiales, gemelos y core",

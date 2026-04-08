@@ -79,6 +79,13 @@
   "plan_generated": "Pla generat correctament",
   "algorithm_distributes": "L'algorisme distribuirà el volum d'entrenament proporcionalment.",
   "candidates_count": "{{count}} exercicis disponibles",
+  "search_presets": "Cerca presets...",
+  "preset_tags": {
+    "corredor": "Corredor",
+    "pujada": "Pujada",
+    "tendinitis_anserina": "Tendinitis anserina",
+    "mobilitat": "Mobilitat"
+  },
   "presets": {
     "corredor_general": "Corredor General",
     "corredor_general_desc": "Força per a corredors: glutis, quàdriceps, isquiotibials, bessons i core",

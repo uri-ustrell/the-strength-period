@@ -12,8 +12,8 @@ interface Props {
   namespace?: 'common' | 'onboarding'
 }
 
-const COMMON_DUMBBELL_WEIGHTS = [2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32]
-const COMMON_BARBELL_WEIGHTS = [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100]
+const COMMON_DUMBBELL_WEIGHTS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+const COMMON_BARBELL_WEIGHTS = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]
 
 const EQUIPMENT_CONFIG: { key: WeightEquipment; equipmentMatch: Equipment; presets: number[] }[] = [
   { key: 'manueles', equipmentMatch: 'manueles', presets: COMMON_DUMBBELL_WEIGHTS },
@@ -67,6 +67,9 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
       {EQUIPMENT_CONFIG.map(({ key, equipmentMatch, presets }) => {
         if (!equipment.includes(equipmentMatch)) return null
         const selected = availableWeights[key] ?? []
+        // Merge custom (selected but not in presets) into grid so they can be toggled off
+        const customWeights = selected.filter((w) => !presets.includes(w))
+        const allWeights = [...presets, ...customWeights].sort((a, b) => a - b)
 
         return (
           <div key={key}>
@@ -74,8 +77,9 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
               {t(labelKey(key))}
             </h4>
             <div className="flex flex-wrap gap-1.5">
-              {presets.map((w) => {
+              {allWeights.map((w) => {
                 const isSelected = selected.includes(w)
+                const isCustom = !presets.includes(w)
                 return (
                   <button
                     key={w}
@@ -85,7 +89,7 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
                       isSelected
                         ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
                         : 'border-gray-200 text-gray-500 hover:border-indigo-300'
-                    }`}
+                    } ${isCustom ? 'ring-1 ring-indigo-200' : ''}`}
                   >
                     {w}
                   </button>

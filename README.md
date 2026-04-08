@@ -8,13 +8,16 @@ A local-first fitness web app that generates personalized plans with AI, tracks 
 ```text
 Browser
   ├── IndexedDB ──────────────→ Local persistence (plans, executions, config)
-  ├── /api/generate-plan ─────→ Vercel Serverless Function
-  │                              └── Gemini API (server-side project key)
-  ├── free-exercise-db ───────→ /public/exercises/exercises.json (static)
+  ├── Exercises ──────────────→ /public/exercises/exercises.json (pre-built, enriched)
   └── Export / Import ────────→ JSON file (data portability)
+
+Exercise data pipeline (dev-time):
+  data/raw/free-exercise-db.json + enrichment + mappings
+    → scripts/buildExercises.ts
+    → public/exercises/exercises.json (our source of truth)
 ```
 
-User data remains local. AI inference is proxied through the serverless function.
+User data remains local. Exercise data is pre-built at development time.
 
 ## Prerequisites
 

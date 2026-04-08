@@ -118,16 +118,13 @@ export const Dashboard = () => {
   const todayDow = getTodayDow()
   const currentWeek = activeMesocycle ? getCurrentWeek(activeMesocycle.startDate) : 0
 
-  const todaySession: SessionTemplate | undefined = useMemo(() => {
+  const nextSession: SessionTemplate | undefined = useMemo(() => {
     if (!activeMesocycle) return undefined
-    return activeMesocycle.sessions.find(
-      (s) =>
-        s.weekNumber === currentWeek &&
-        s.dayOfWeek === todayDow &&
-        !s.completed &&
-        !s.skipped,
-    )
-  }, [activeMesocycle, currentWeek, todayDow])
+    // Find first uncompleted, unskipped session (ordered by week then day)
+    return activeMesocycle.sessions
+      .filter((s) => !s.completed && !s.skipped)
+      .sort((a, b) => a.weekNumber - b.weekNumber || a.dayOfWeek - b.dayOfWeek)[0]
+  }, [activeMesocycle])
 
   const thisWeekSessions = useMemo(() => {
     if (!activeMesocycle) return []
@@ -137,9 +134,9 @@ export const Dashboard = () => {
   }, [activeMesocycle, currentWeek])
 
   const handleStartSession = useCallback(() => {
-    if (!todaySession || exercises.length === 0) return
+    if (!nextSession || exercises.length === 0) return
     const generated = generateSession(
-      todaySession,
+      nextSession,
       exercises,
       recentSessions.flatMap((s) => s.sets.map((set) => set.exerciseId)),
       equipment,
@@ -147,7 +144,7 @@ export const Dashboard = () => {
     )
     setPreviewSession(generated)
     navigate('/session')
-  }, [todaySession, exercises, recentSessions, equipment, activeRestrictions, setPreviewSession, navigate])
+  }, [nextSession, exercises, recentSessions, equipment, activeRestrictions, setPreviewSession, navigate])
 
   const handleQuickSession = useCallback(() => {
     if (exercises.length === 0 || selectedMuscleGroups.length === 0) return
@@ -210,14 +207,14 @@ export const Dashboard = () => {
             {t('dashboard.today')}
           </h2>
 
-          {todaySession ? (
+          {nextSession ? (
             <div className="space-y-3">
               <div className="rounded-xl bg-indigo-50 p-3">
                 <p className="text-sm font-medium text-indigo-900 mb-2">
                   {t('dashboard.session_today')}
                 </p>
                 <div className="flex flex-wrap gap-1">
-                  {todaySession.muscleGroupTargets.map((mg) => (
+                  {nextSession.muscleGroupTargets.map((mg) => (
                     <span
                       key={mg.muscleGroup}
                       className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs text-indigo-700"
@@ -227,8 +224,8 @@ export const Dashboard = () => {
                   ))}
                 </div>
                 <p className="mt-2 text-xs text-indigo-600">
-                  {todaySession.durationMinutes} {t('dashboard.minutes')} ·{' '}
-                  {todaySession.muscleGroupTargets.reduce((s, mg) => s + mg.loadTarget.sets, 0)}{' '}
+                  {nextSession.durationMinutes} {t('dashboard.minutes')} ·{' '}
+                  {nextSession.muscleGroupTargets.reduce((s, mg) => s + mg.loadTarget.sets, 0)}{' '}
                   {t('common:session.sets').toLowerCase()}
                 </p>
               </div>

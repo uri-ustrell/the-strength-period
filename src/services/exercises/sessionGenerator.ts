@@ -1,4 +1,4 @@
-import type { Exercise, Equipment } from '@/types/exercise'
+import type { Exercise, Equipment, RestrictionCondition } from '@/types/exercise'
 import type { SessionTemplate, MuscleGroupTarget } from '@/types/planning'
 
 export interface SelectedExercise {
@@ -30,7 +30,7 @@ function filterByEquipment(exercises: Exercise[], userEquipment: Equipment[]): E
   )
 }
 
-function excludeRestrictions(exercises: Exercise[], userRestrictions: string[]): Exercise[] {
+function excludeRestrictions(exercises: Exercise[], userRestrictions: RestrictionCondition[]): Exercise[] {
   return exercises.filter(
     (ex) =>
       !ex.restrictions.some(
@@ -55,14 +55,8 @@ function separateFreshAndRecent(
   return { fresh, recent }
 }
 
-function scoreExercise(exercise: Exercise, template: SessionTemplate): number {
+function scoreExercise(exercise: Exercise, _template: SessionTemplate): number {
   let score = 1
-
-  const templateTags = template.restrictions
-  const matchingTags = exercise.tags.filter((tag) =>
-    templateTags.includes(tag),
-  )
-  score += matchingTags.length * 2
 
   if (exercise.level === 'intermediate') {
     score += 1
@@ -102,7 +96,7 @@ function selectExerciseForTarget(
   allExercises: Exercise[],
   recentExerciseIds: string[],
   userEquipment: Equipment[],
-  userRestrictions: string[],
+  userRestrictions: RestrictionCondition[],
   alreadySelected: string[],
 ): Exercise | undefined {
   let candidates = filterByMuscleGroup(allExercises, target.muscleGroup)
@@ -124,7 +118,7 @@ export function generateSession(
   allExercises: Exercise[],
   recentExerciseIds: string[],
   userEquipment: Equipment[],
-  userRestrictions: string[],
+  userRestrictions: RestrictionCondition[],
 ): GeneratedSession {
   const selectedExercises: SelectedExercise[] = []
   const alreadySelected: string[] = []
