@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Flame, Play, CalendarPlus, Dumbbell, ChevronDown, ChevronUp } from 'lucide-react'
 
-import type { ExecutedSession } from '@/types/session'
 import type { SessionTemplate, MuscleGroupTarget } from '@/types/planning'
+import type { ExecutedSession } from '@/types/session'
 import type { MuscleGroup } from '@/types/exercise'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
@@ -12,6 +12,7 @@ import { useSessionStore } from '@/stores/sessionStore'
 import { useExercises } from '@/hooks/useExercises'
 import { listSessionsByDateRange, listSetsByDateRange } from '@/services/db/sessionRepository'
 import { generateSession } from '@/services/exercises/sessionGenerator'
+import { toDateStr, getTodayDow, getSessionDate, getWeekStart, calculateStreak } from '@/utils/dateHelpers'
 
 const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
   'quadriceps', 'isquiotibials', 'glutis', 'bessons',
@@ -19,60 +20,6 @@ const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
   'biceps', 'triceps',
   'abdominal', 'lumbar',
 ]
-
-function toDateStr(d: Date): string {
-  return d.toISOString().slice(0, 10)
-}
-
-function getTodayDow(): 1 | 2 | 3 | 4 | 5 | 6 | 7 {
-  const js = new Date().getDay()
-  return (js === 0 ? 7 : js) as 1 | 2 | 3 | 4 | 5 | 6 | 7
-}
-
-function getSessionDate(mesocycleStartDate: string, weekNumber: number, dayOfWeek: number): Date {
-  const start = new Date(mesocycleStartDate)
-  // Find the Monday of the week containing startDate
-  const startDow = start.getDay() // 0=Sun, 1=Mon, ..., 6=Sat
-  const mondayOffset = startDow === 0 ? -6 : 1 - startDow
-  const weekOneMonday = new Date(start)
-  weekOneMonday.setDate(weekOneMonday.getDate() + mondayOffset)
-
-  // dayOfWeek: 1=Monday .. 7=Sunday (ISO)
-  const daysOffset = (weekNumber - 1) * 7 + (dayOfWeek - 1)
-  const d = new Date(weekOneMonday)
-  d.setDate(d.getDate() + daysOffset)
-  return d
-}
-
-function getWeekStart(date: Date): Date {
-  const d = new Date(date)
-  const dow = d.getDay()
-  const diff = dow === 0 ? 6 : dow - 1
-  d.setDate(d.getDate() - diff)
-  d.setHours(0, 0, 0, 0)
-  return d
-}
-
-function calculateStreak(sessions: ExecutedSession[]): number {
-  const completedDates = new Set(
-    sessions.filter((s) => !s.skipped && s.completedAt).map((s) => s.date),
-  )
-  let streak = 0
-  const today = new Date()
-  const todayStr = toDateStr(today)
-  const startOffset = completedDates.has(todayStr) ? 0 : 1
-
-  for (let i = startOffset; i < 365; i++) {
-    const d = new Date(today)
-    d.setDate(d.getDate() - i)
-    if (completedDates.has(toDateStr(d))) {
-      streak++
-    } else {
-      break
-    }
-  }
-  return streak
-}
 
 const DAY_KEYS = ['', '1', '2', '3', '4', '5', '6', '7'] as const
 

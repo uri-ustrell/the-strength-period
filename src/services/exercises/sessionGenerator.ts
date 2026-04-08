@@ -12,6 +12,7 @@ export interface SelectedExercise {
 
 export interface GeneratedSession {
   templateId: string
+  mesocycleId: string
   exercises: SelectedExercise[]
   estimatedDurationMinutes: number
 }
@@ -160,6 +161,7 @@ export function generateSession(
 
   return {
     templateId: template.id,
+    mesocycleId: template.mesocycleId,
     exercises: selectedExercises,
     estimatedDurationMinutes,
   }

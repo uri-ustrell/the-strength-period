@@ -15,8 +15,12 @@ import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { SessionPreview } from '@/components/planning/SessionPreview'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
-
-type MuscleGroupPriority = 'high' | 'medium' | 'low'
+import {
+  presetToMuscleGroupPriorities,
+  buildMuscleDistribution,
+  prioritiesToMuscleDistribution,
+} from '@/services/planning/muscleDistribution'
+import type { MuscleGroupPriority } from '@/services/planning/muscleDistribution'
 
 type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview' | 'llm-assistant'
 
@@ -132,23 +136,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return map
   }, [activeMuscleGroups, filteredExercisePool])
 
-  const presetToMuscleGroupPriorities = (preset: Preset | null): Record<MuscleGroup, MuscleGroupPriority | null> => {
-    const priorities: Record<string, MuscleGroupPriority | null> = {}
-    for (const mg of ALL_MUSCLE_GROUPS) {
-      priorities[mg] = preset ? null : 'medium'
-    }
-    if (preset) {
-      for (const [mg, pct] of Object.entries(preset.muscleDistribution)) {
-        if (ALL_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
-          if (pct >= 25) priorities[mg] = 'high'
-          else if (pct >= 10) priorities[mg] = 'medium'
-          else priorities[mg] = 'low'
-        }
-      }
-    }
-    return priorities as Record<MuscleGroup, MuscleGroupPriority | null>
-  }
-
   const handleSelectPreset = (preset: Preset | null) => {
     setSelectedPreset(preset)
     if (preset) {
@@ -187,13 +174,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
     const name = presetName.trim()
     if (!name) return
 
-    const priorityWeights: Record<MuscleGroupPriority, number> = { high: 3, medium: 2, low: 1 }
-    const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [string, MuscleGroupPriority][]
-    const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + priorityWeights[p], 0)
-    const muscleDistribution: Partial<Record<MuscleGroup, number>> = {}
-    for (const [mg, priority] of selectedMuscles) {
-      (muscleDistribution as Record<string, number>)[mg] = Math.round((priorityWeights[priority] / totalWeight) * 100)
-    }
+    const muscleDistribution = prioritiesToMuscleDistribution(muscleGroupPriorities)
 
     const newPreset: CustomPreset = {
       id: `custom_${crypto.randomUUID()}`,
@@ -210,19 +191,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setPresetName('')
   }
 
-  const buildMuscleDistribution = (): Record<string, number> => {
-    const priorityWeights: Record<MuscleGroupPriority, number> = { high: 3, medium: 2, low: 1 }
-    const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [string, MuscleGroupPriority][]
-    const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + priorityWeights[p], 0)
-    const dist: Record<string, number> = {}
-    for (const [mg, priority] of selectedMuscles) {
-      dist[mg] = Math.round((priorityWeights[priority] / totalWeight) * 100)
-    }
-    return dist
-  }
-
   const handleGenerate = () => {
-    const muscleDistribution = buildMuscleDistribution()
+    const muscleDistribution = buildMuscleDistribution(muscleGroupPriorities)
 
     // Build trainingDays from daysPerWeek override
     let trainingDays: DayOfWeek[] = userTrainingDays
@@ -732,7 +702,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
         daysPerWeek={daysPerWeek}
         minutesPerSession={minutesPerSess}
         weeklyProgression={weeklyProgression}
-        exercises={exercises}
         filteredExercises={filteredExercisePool}
         onImport={(mesocycle) => {
           setGeneratedPreview(mesocycle)

@@ -76,3 +76,19 @@
 
 - `trx` Equipment type has 0 exercises in raw data (candidate for future cleanup)
 - `by-active` boolean index in IndexedDB unused (harmless; removing requires DB migration)
+
+## Code Review Fixes (2025-07-16)
+
+### Completed
+- [x] Restored `baseUrl` in tsconfig files (required by `paths` alias)
+- [x] Removed unnecessary `useCallback` wrappers in `useDB.ts`
+- [x] Added `response.ok` check in `exerciseLoader.ts` fetch
+- [x] Fixed misleading `useMemo` dependency in `SessionPreStart.tsx`
+- [x] Fixed critical `mesocycleId` bug in `sessionStore.ts` — sessions are now correctly marked complete
+- [x] Removed unused `exercises` prop from `LLMAssistant`
+- [x] Extracted Dashboard helpers → `src/utils/dateHelpers.ts`
+- [x] Extracted PlanCreator utilities → `src/services/planning/muscleDistribution.ts`
+- [x] Extracted Stats aggregations → `src/services/stats/statsAggregation.ts`
+- [x] Extracted sessionStore navigation → `src/services/session/sessionNavigation.ts`
+- [x] Synced `specs/DATA_MODEL.md` with actual `UserConfig` type
+- [x] Build verification: zero errors

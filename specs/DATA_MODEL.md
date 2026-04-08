@@ -122,16 +122,18 @@ type ExecutedSession = {
 ## User Types (`src/types/user.ts`)
 
 ```typescript
-type UserProfile = 'athlete' | 'rehab' | 'general'
+type WeightEquipment = 'manueles' | 'barra'
+
+type AvailableWeights = Record<WeightEquipment, number[]>
 
 type UserConfig = {
-  profile: UserProfile
   language: 'ca' | 'es' | 'en'
   equipment: Equipment[]
-  availableDaysPerWeek: number
+  trainingDays: DayOfWeek[]
   minutesPerSession: number
-  activeRestrictions: string[]
+  activeRestrictions: RestrictionCondition[]
   onboardingCompleted: boolean
+  availableWeights: AvailableWeights
 }
 ```
 

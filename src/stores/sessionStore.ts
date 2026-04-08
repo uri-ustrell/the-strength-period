@@ -3,10 +3,10 @@ import { create } from 'zustand'
 import type { ExecutedSet, ExecutedSession } from '@/types/session'
 import type { GeneratedSession } from '@/services/exercises/sessionGenerator'
 import { saveSession, markTemplateCompleted } from '@/services/db/sessionRepository'
+import { computeNextAfterLog, computeNextAfterSkip } from '@/services/session/sessionNavigation'
+import type { NavigationInput } from '@/services/session/sessionNavigation'
 
 export type ExecutionMode = 'standard' | 'circuit'
-const CIRCUIT_REST_BETWEEN_EXERCISES = 10
-const CIRCUIT_REST_BETWEEN_ROUNDS = 120
 
 interface SessionStore {
   // Session data
@@ -143,62 +143,27 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
 
     const updatedSets = [...executedSets, newSet]
 
-    if (executionMode === 'circuit') {
-      // Circuit mode: move to next exercise, short rest
-      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
-      const nextRound = currentRound + (isLastExercise ? 1 : 0)
-      const maxSets = Math.max(...generatedSession.exercises.map((e) => e.sets))
-
-      if (isLastExercise && nextRound >= maxSets) {
-        // All rounds complete
-        set({ executedSets: updatedSets, isFinished: true, isResting: false })
-      } else if (isLastExercise) {
-        // End of round → long rest, back to first exercise
-        set({
-          executedSets: updatedSets,
-          currentExerciseIndex: 0,
-          currentSetIndex: nextRound,
-          currentRound: nextRound,
-          isResting: true,
-          restSecondsRemaining: CIRCUIT_REST_BETWEEN_ROUNDS,
-        })
-      } else {
-        // Move to next exercise in round → short rest
-        set({
-          executedSets: updatedSets,
-          currentExerciseIndex: currentExerciseIndex + 1,
-          isResting: true,
-          restSecondsRemaining: CIRCUIT_REST_BETWEEN_EXERCISES,
-        })
-      }
-    } else {
-      // Standard mode: finish all sets of current exercise before moving
-      const isLastSet = currentSetIndex + 1 >= currentExercise.sets
-      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
-
-      if (isLastSet && isLastExercise) {
-        set({
-          executedSets: updatedSets,
-          currentSetIndex: currentSetIndex + 1,
-          isFinished: true,
-          isResting: false,
-        })
-      } else if (isLastSet) {
-        set({
-          executedSets: updatedSets,
-          currentExerciseIndex: currentExerciseIndex + 1,
-          currentSetIndex: 0,
-          isResting: false,
-        })
-      } else {
-        set({
-          executedSets: updatedSets,
-          currentSetIndex: currentSetIndex + 1,
-          isResting: true,
-          restSecondsRemaining: currentExercise.restSeconds,
-        })
-      }
+    const navInput: NavigationInput = {
+      executionMode,
+      currentExerciseIndex,
+      currentSetIndex,
+      currentRound,
+      totalExercises: generatedSession.exercises.length,
+      currentExerciseSets: currentExercise.sets,
+      allExerciseSets: generatedSession.exercises.map((e) => e.sets),
     }
+
+    const nav = computeNextAfterLog(navInput, currentExercise.restSeconds)
+
+    set({
+      executedSets: updatedSets,
+      currentExerciseIndex: nav.currentExerciseIndex,
+      currentSetIndex: nav.currentSetIndex,
+      currentRound: nav.currentRound,
+      isFinished: nav.isFinished,
+      isResting: nav.isResting,
+      restSecondsRemaining: nav.restSecondsRemaining,
+    })
   },
 
   skipSet: () => {
@@ -208,45 +173,26 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
     const currentExercise = generatedSession.exercises[currentExerciseIndex]
     if (!currentExercise) return
 
-    if (executionMode === 'circuit') {
-      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
-      const nextRound = currentRound + (isLastExercise ? 1 : 0)
-      const maxSets = Math.max(...generatedSession.exercises.map((e) => e.sets))
-
-      if (isLastExercise && nextRound >= maxSets) {
-        set({ isFinished: true, isResting: false })
-      } else if (isLastExercise) {
-        set({
-          currentExerciseIndex: 0,
-          currentSetIndex: nextRound,
-          currentRound: nextRound,
-          isResting: false,
-        })
-      } else {
-        set({
-          currentExerciseIndex: currentExerciseIndex + 1,
-          isResting: false,
-        })
-      }
-    } else {
-      const isLastSet = currentSetIndex + 1 >= currentExercise.sets
-      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
-
-      if (isLastSet && isLastExercise) {
-        set({ isFinished: true, isResting: false })
-      } else if (isLastSet) {
-        set({
-          currentExerciseIndex: currentExerciseIndex + 1,
-          currentSetIndex: 0,
-          isResting: false,
-        })
-      } else {
-        set({
-          currentSetIndex: currentSetIndex + 1,
-          isResting: false,
-        })
-      }
+    const navInput: NavigationInput = {
+      executionMode,
+      currentExerciseIndex,
+      currentSetIndex,
+      currentRound,
+      totalExercises: generatedSession.exercises.length,
+      currentExerciseSets: currentExercise.sets,
+      allExerciseSets: generatedSession.exercises.map((e) => e.sets),
     }
+
+    const nav = computeNextAfterSkip(navInput)
+
+    set({
+      currentExerciseIndex: nav.currentExerciseIndex,
+      currentSetIndex: nav.currentSetIndex,
+      currentRound: nav.currentRound,
+      isFinished: nav.isFinished,
+      isResting: nav.isResting,
+      restSecondsRemaining: nav.restSecondsRemaining,
+    })
   },
 
   startRest: (seconds) => {
@@ -293,9 +239,8 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
 
       await saveSession(session, setsWithSessionId)
 
-      const templateId = generatedSession.templateId
-      const mesocycleId = templateId.split('_')[0]
-      if (mesocycleId) {
+      const { templateId, mesocycleId } = generatedSession
+      if (mesocycleId && mesocycleId !== 'quick') {
         await markTemplateCompleted(mesocycleId, templateId)
       }
 

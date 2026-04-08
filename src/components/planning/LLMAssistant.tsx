@@ -23,7 +23,6 @@ interface LLMAssistantProps {
   daysPerWeek: number
   minutesPerSession: number
   weeklyProgression: number
-  exercises: Exercise[]
   filteredExercises: Exercise[]
   onImport: (mesocycle: Mesocycle) => void
   onBack: () => void
@@ -36,7 +35,6 @@ export const LLMAssistant = ({
   daysPerWeek,
   minutesPerSession,
   weeklyProgression,
-  exercises: _exercises,
   filteredExercises,
   onImport,
   onBack,

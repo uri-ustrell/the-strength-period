@@ -1,35 +1,31 @@
-import { useCallback } from 'react'
-
 import * as configRepo from '@/services/db/configRepository'
 import * as mesocycleRepo from '@/services/db/mesocycleRepository'
 import * as sessionRepo from '@/services/db/sessionRepository'
 
 export function useDB() {
-  const config = {
-    get: useCallback(configRepo.getConfig, []),
-    set: useCallback(configRepo.setConfig, []),
-    getAll: useCallback(configRepo.getAllConfig, []),
+  return {
+    config: {
+      get: configRepo.getConfig,
+      set: configRepo.setConfig,
+      getAll: configRepo.getAllConfig,
+    },
+    mesocycles: {
+      save: mesocycleRepo.saveMesocycle,
+      get: mesocycleRepo.getMesocycle,
+      getActive: mesocycleRepo.getActiveMesocycle,
+      list: mesocycleRepo.listMesocycles,
+      update: mesocycleRepo.updateMesocycle,
+    },
+    sessions: {
+      save: sessionRepo.saveSession,
+      get: sessionRepo.getSession,
+      listByDateRange: sessionRepo.listSessionsByDateRange,
+      getSetsBySession: sessionRepo.getSetsBySession,
+      getSetsByExercise: sessionRepo.getSetsByExercise,
+      markTemplateCompleted: sessionRepo.markTemplateCompleted,
+      listSetsByDateRange: sessionRepo.listSetsByDateRange,
+      listAllSessions: sessionRepo.listAllSessions,
+      listAllSets: sessionRepo.listAllSets,
+    },
   }
-
-  const mesocycles = {
-    save: useCallback(mesocycleRepo.saveMesocycle, []),
-    get: useCallback(mesocycleRepo.getMesocycle, []),
-    getActive: useCallback(mesocycleRepo.getActiveMesocycle, []),
-    list: useCallback(mesocycleRepo.listMesocycles, []),
-    update: useCallback(mesocycleRepo.updateMesocycle, []),
-  }
-
-  const sessions = {
-    save: useCallback(sessionRepo.saveSession, []),
-    get: useCallback(sessionRepo.getSession, []),
-    listByDateRange: useCallback(sessionRepo.listSessionsByDateRange, []),
-    getSetsBySession: useCallback(sessionRepo.getSetsBySession, []),
-    getSetsByExercise: useCallback(sessionRepo.getSetsByExercise, []),
-    markTemplateCompleted: useCallback(sessionRepo.markTemplateCompleted, []),
-    listSetsByDateRange: useCallback(sessionRepo.listSetsByDateRange, []),
-    listAllSessions: useCallback(sessionRepo.listAllSessions, []),
-    listAllSets: useCallback(sessionRepo.listAllSets, []),
-  }
-
-  return { config, mesocycles, sessions }
 }

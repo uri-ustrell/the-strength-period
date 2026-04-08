@@ -16,7 +16,7 @@ export const SessionPreStart = () => {
   const orderedExercises = useMemo(() => {
     if (!generatedSession) return []
     return [...generatedSession.exercises]
-  }, [generatedSession, executionMode])
+  }, [generatedSession])
 
   if (!generatedSession) return null
 
