@@ -7,9 +7,10 @@ interface Props {
   selectedExercise: SelectedExercise
   currentSet: number
   onComplete: (repsActual: number, weightActual?: number) => void
+  onSkipSet: () => void
 }
 
-export const SetLogger = ({ selectedExercise, currentSet, onComplete }: Props) => {
+export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet }: Props) => {
   const { t } = useTranslation('common')
   const { reps, weightKg } = selectedExercise
 
@@ -102,6 +103,14 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete }: Props) =
           className="w-full rounded-xl bg-indigo-600 py-3.5 text-base font-semibold text-white active:bg-indigo-700"
         >
           {t('session.complete_set')}
+        </button>
+
+        <button
+          type="button"
+          onClick={onSkipSet}
+          className="w-full py-2 text-sm text-gray-500 active:text-gray-700"
+        >
+          {t('session.skip_set')}
         </button>
       </div>
     </div>

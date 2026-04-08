@@ -18,27 +18,26 @@
 - [x] Run `npm run build` — zero errors
 
 ### Skip Set Button in Active Session
-**Context:** Currently, the session page only has a "skip exercise" button that immediately moves to the next exercise. Users sometimes want to skip only the current set (e.g., due to fatigue mid-set) without losing the commitment to the exercise, and without triggering an automatic rest period. The UX should make "skip set" less prominent than "complete set" to reduce accidental clicks.
-**Goal:** Add a "skip set" button that advances to the next set without recording it as completed and without starting a rest timer. The button should be secondary in visual hierarchy (less prominent than "Complete Set").
+**Context:** Currently, the session page has a "skip exercise" button that immediately moves to the next exercise. Users sometimes want to skip only the current set (e.g., due to fatigue mid-set) without losing the commitment to the exercise, and without triggering an automatic rest period. The UX should make "skip set" less prominent than "complete set" to reduce accidental clicks.
+**Goal:** Replace the existing "skip exercise" button with a "skip set" button that advances to the next set without recording it as completed and without starting a rest timer. The button should be secondary in visual hierarchy (less prominent than "Complete Set"). The "skip exercise" functionality is removed entirely.
 
-- [ ] **i18n keys** — Add `session.skip_set` key to all three languages (ca/es/en) in common.json with translations: "Skip set" (en), "Saltar sèrie" (ca), "Omitir serie" (es)
-- [ ] **SessionStore interface** — Add `skipSet: () => void` action to SessionStore interface in `src/stores/sessionStore.ts`
-- [ ] **SessionStore implementation** — Implement `skipSet` action: advance `currentSetIndex`, do NOT create ExecutedSet, do NOT trigger rest (set `isResting: false`); handle both standard and circuit modes
-- [ ] **useSession hook** — Export `skipSet` from `src/hooks/useSession.ts` to make it available to components
-- [ ] **SetLogger UI** — Add secondary-style button (e.g., smaller, gray, less rounded, less bold) in `src/components/session/SetLogger.tsx` below the "Complete Set" button; wire to `onSkipSet` callback
-- [ ] **Session page integration** — Add `skipSet` to hook destructuring in `src/pages/Session.tsx`, pass it to SetLogger as `onSkipSet` prop, handle click event
-- [ ] **Accessibility** — Ensure skip-set button has clear aria-label distinguishing it from skip-exercise; add visual cue (e.g., text hint or icon) to avoid confusion
-- [ ] Run `npm run build` — zero errors
+- [x] **i18n keys** — Add `session.skip_set` key to all three languages (ca/es/en) in common.json with translations: "Skip set" (en), "Saltar sèrie" (ca), "Omitir serie" (es); remove the existing `session.skip_exercise` key
+- [x] **SessionStore interface** — Add `skipSet: () => void` action and remove `skipExercise: () => void` from the SessionStore interface in `src/stores/sessionStore.ts`
+- [x] **SessionStore implementation** — Implement `skipSet` action: advance `currentSetIndex`, do NOT create ExecutedSet, do NOT trigger rest (set `isResting: false`); handle both standard and circuit modes; remove `skipExercise` implementation
+- [x] **useSession hook** — Export `skipSet` and remove `skipExercise` from `src/hooks/useSession.ts`
+- [x] **SetLogger UI** — Replace the current skip-exercise button with a secondary-style "skip set" button (e.g., smaller, gray, less rounded, less bold) in `src/components/session/SetLogger.tsx`; wire to `onSkipSet` callback
+- [x] **Session page integration** — Replace `skipExercise` with `skipSet` in hook destructuring in `src/pages/Session.tsx`; pass it to SetLogger as `onSkipSet` prop
+- [x] Run `npm run build` — zero errors
 
 ### Muscle Group Selector Completeness (PlanCreator)
 **Context:** `PlanCreator.tsx` defines a hardcoded `MAIN_MUSCLE_GROUPS` list of only 13 groups, while `ALL_MUSCLE_GROUPS` in `src/data/muscleGroups.ts` has the full 23 groups. The filter engine (`exerciseFilter.ts`) already matches on both `primaryMuscles` and `secondaryMuscles`, so showing all groups in the UI is purely a selector change.
 **Goal:** Any user who wants to target a specific muscle (e.g. `avantbras`, `oblics`, `trapezi`, `mobilitat_turmell`) must be able to do so — including groups that only appear as secondary muscles in the enriched exercises.
 
-- [ ] Replace the hardcoded `MAIN_MUSCLE_GROUPS` constant in `PlanCreator.tsx` with `ALL_MUSCLE_GROUPS` imported from `src/data/muscleGroups.ts`
-- [ ] Initialise `muscleGroupPriorities` state from `ALL_MUSCLE_GROUPS` so all 23 groups get a default `'medium'` priority (no functional change, just correct seed)
-- [ ] Verify that preset preselection logic (`presetToMuscleGroupPriorities`) still covers the new groups as `null` / not selected by default and only highlights the preset-relevant ones
-- [ ] Validate the muscle-group selector UI renders all 23 groups correctly on mobile and desktop (grid layout, no overflow)
-- [ ] Run `npm run build` — zero errors
+- [x] Replace the hardcoded `MAIN_MUSCLE_GROUPS` constant in `PlanCreator.tsx` with `ALL_MUSCLE_GROUPS` imported from `src/data/muscleGroups.ts`
+- [x] Initialise `muscleGroupPriorities` state from `ALL_MUSCLE_GROUPS` so all 23 groups get a default `'medium'` priority (no functional change, just correct seed)
+- [x] Verify that preset preselection logic (`presetToMuscleGroupPriorities`) still covers the new groups as `null` / not selected by default and only highlights the preset-relevant ones
+- [x] Validate the muscle-group selector UI renders all 23 groups correctly on mobile and desktop (grid layout, no overflow)
+- [x] Run `npm run build` — zero errors
 
 ### Exercise Data Quality Audit
 **Context:** 83 exercises are enriched (out of 873 in the raw JSON). All 23 MuscleGroup values now have ≥3 enriched exercises. Translations are complete for ca/es/en.

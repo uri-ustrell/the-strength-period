@@ -24,7 +24,7 @@
   "session": {
     "start": "Start session",
     "rest": "Rest",
-    "skip_exercise": "Skip exercise",
+    "skip_set": "Skip set",
     "finish": "Finish session",
     "rpe_prompt": "How did you feel? (1-10)",
     "saved": "Session saved ✓",

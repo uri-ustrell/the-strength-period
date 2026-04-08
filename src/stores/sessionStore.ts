@@ -37,7 +37,7 @@ interface SessionStore {
   startSession: (session?: GeneratedSession) => void
   setExecutionMode: (mode: ExecutionMode) => void
   logSet: (repsActual: number, weightActual?: number) => void
-  skipExercise: () => void
+  skipSet: () => void
   updateCurrentExerciseWeight: (newWeight: number) => void
   startRest: (seconds: number) => void
   tickRest: () => void
@@ -201,21 +201,51 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
     }
   },
 
-  skipExercise: () => {
-    const { generatedSession, currentExerciseIndex } = get()
+  skipSet: () => {
+    const { generatedSession, currentExerciseIndex, currentSetIndex, executionMode, currentRound } = get()
     if (!generatedSession) return
 
-    const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
+    const currentExercise = generatedSession.exercises[currentExerciseIndex]
+    if (!currentExercise) return
 
-    if (isLastExercise) {
-      set({ isFinished: true, isResting: false })
+    if (executionMode === 'circuit') {
+      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
+      const nextRound = currentRound + (isLastExercise ? 1 : 0)
+      const maxSets = Math.max(...generatedSession.exercises.map((e) => e.sets))
+
+      if (isLastExercise && nextRound >= maxSets) {
+        set({ isFinished: true, isResting: false })
+      } else if (isLastExercise) {
+        set({
+          currentExerciseIndex: 0,
+          currentSetIndex: nextRound,
+          currentRound: nextRound,
+          isResting: false,
+        })
+      } else {
+        set({
+          currentExerciseIndex: currentExerciseIndex + 1,
+          isResting: false,
+        })
+      }
     } else {
-      set({
-        currentExerciseIndex: currentExerciseIndex + 1,
-        currentSetIndex: 0,
-        isResting: false,
-        restSecondsRemaining: 0,
-      })
+      const isLastSet = currentSetIndex + 1 >= currentExercise.sets
+      const isLastExercise = currentExerciseIndex + 1 >= generatedSession.exercises.length
+
+      if (isLastSet && isLastExercise) {
+        set({ isFinished: true, isResting: false })
+      } else if (isLastSet) {
+        set({
+          currentExerciseIndex: currentExerciseIndex + 1,
+          currentSetIndex: 0,
+          isResting: false,
+        })
+      } else {
+        set({
+          currentSetIndex: currentSetIndex + 1,
+          isResting: false,
+        })
+      }
     }
   },
 

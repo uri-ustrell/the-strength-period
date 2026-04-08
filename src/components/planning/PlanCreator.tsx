@@ -13,14 +13,7 @@ import { useUserStore } from '@/stores/userStore'
 import { useExercises } from '@/hooks/useExercises'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { SessionPreview } from '@/components/planning/SessionPreview'
-
-const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
-  'quadriceps', 'isquiotibials', 'glutis', 'bessons',
-  'pectoral', 'dorsal', 'deltoides',
-  'biceps', 'triceps',
-  'abdominal', 'lumbar',
-  'adductors', 'psoes',
-]
+import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 
 type MuscleGroupPriority = 'high' | 'medium' | 'low'
 
@@ -55,7 +48,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<Record<MuscleGroup, MuscleGroupPriority | null>>(
     () => {
       const initial: Record<string, MuscleGroupPriority | null> = {}
-      for (const mg of MAIN_MUSCLE_GROUPS) {
+      for (const mg of ALL_MUSCLE_GROUPS) {
         initial[mg] = 'medium'
       }
       return initial as Record<MuscleGroup, MuscleGroupPriority | null>
@@ -105,12 +98,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
   const presetToMuscleGroupPriorities = (preset: Preset | null): Record<MuscleGroup, MuscleGroupPriority | null> => {
     const priorities: Record<string, MuscleGroupPriority | null> = {}
-    for (const mg of MAIN_MUSCLE_GROUPS) {
+    for (const mg of ALL_MUSCLE_GROUPS) {
       priorities[mg] = preset ? null : 'medium'
     }
     if (preset) {
       for (const [mg, pct] of Object.entries(preset.muscleDistribution)) {
-        if (MAIN_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
+        if (ALL_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
           if (pct >= 25) priorities[mg] = 'high'
           else if (pct >= 10) priorities[mg] = 'medium'
           else priorities[mg] = 'low'
@@ -134,11 +127,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setWeeks(cp.durationWeeks)
 
     const priorities: Record<string, MuscleGroupPriority | null> = {}
-    for (const mg of MAIN_MUSCLE_GROUPS) {
+    for (const mg of ALL_MUSCLE_GROUPS) {
       priorities[mg] = null
     }
     for (const [mg, pct] of Object.entries(cp.muscleDistribution)) {
-      if (MAIN_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
+      if (ALL_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
         if (pct >= 25) priorities[mg] = 'high'
         else if (pct >= 10) priorities[mg] = 'medium'
         else priorities[mg] = 'low'
@@ -431,7 +424,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {/* Muscle group grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {MAIN_MUSCLE_GROUPS.map((mg) => {
+          {ALL_MUSCLE_GROUPS.map((mg) => {
             const priority = muscleGroupPriorities[mg]
             return (
               <div key={mg} className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2">

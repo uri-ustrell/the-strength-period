@@ -4,6 +4,13 @@
 
 ## Current Phase: Step 14 Complete + Available Weights Feature — Steps 15–16 Planned
 
+## Skip Set Button (2026-04-07)
+- **Replaced**: `skipExercise` action with `skipSet` in sessionStore — advances one set (not entire exercise), no ExecutedSet record, no rest timer; handles both standard and circuit modes
+- **Updated**: useSession hook — exports `skipSet` instead of `skipExercise`
+- **Updated**: SetLogger component — added `onSkipSet` prop with secondary-style button inside the component
+- **Updated**: Session page — removed standalone skip-exercise button, passes `skipSet` to SetLogger
+- **Updated**: i18n keys in all 3 languages — replaced `session.skip_exercise` with `session.skip_set` (ca: "Saltar sèrie", es: "Omitir serie", en: "Skip set")
+
 ## Exercise Data Quality Audit (2026-04-07)
 - **Added**: `primaryMusclesExtra` and `secondaryMusclesExtra` optional fields to `EnrichmentData` type — allows enrichment to add our custom taxonomy muscles (e.g. `oblics`, `psoes`, `mobilitat_cadera`) that don't exist in free-exercise-db vocabulary
 - **Updated**: `exerciseLoader.ts` merges extra muscles with auto-mapped muscles from raw data (with deduplication)
@@ -48,6 +55,7 @@
 - **Added**: "Let AI decide" toggle for muscle group priorities in plan creation
 - **Added**: Explanation and helper microcopy for muscle group weighting step
 - **Added**: Deterministic preset → muscle group preselection (≥25% → High, 10-24% → Medium, <10% → Low)
+- **Fixed**: Muscle group selector completeness — replaced hardcoded 13-group `MAIN_MUSCLE_GROUPS` with full 23-group `ALL_MUSCLE_GROUPS` from `muscleGroups.ts` so all groups (including secondary-only like `avantbras`, `oblics`, `trapezi`, `mobilitat_turmell`) are selectable in PlanCreator
 - **Added**: Custom presets — save, load, and delete user-created presets from IndexedDB
 - **Added**: Pre-session preview page (SessionPreStart) — shows exercises, sets/reps/weights before session starts
 - **Added**: Delete exercises from pre-session preview

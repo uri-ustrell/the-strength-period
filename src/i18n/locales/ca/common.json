@@ -24,7 +24,7 @@
   "session": {
     "start": "Comença la sessió",
     "rest": "Descans",
-    "skip_exercise": "Saltar exercici",
+    "skip_set": "Saltar sèrie",
     "finish": "Acaba la sessió",
     "rpe_prompt": "Com t'has sentit? (1-10)",
     "saved": "Sessió desada ✓",

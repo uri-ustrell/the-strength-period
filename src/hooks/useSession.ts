@@ -64,7 +64,7 @@ export function useSession() {
     removeExerciseFromPreview: store.removeExerciseFromPreview,
     startSession,
     logSet,
-    skipExercise: store.skipExercise,
+    skipSet: store.skipSet,
     updateCurrentExerciseWeight: store.updateCurrentExerciseWeight,
     tickRest: store.tickRest,
     skipRest,

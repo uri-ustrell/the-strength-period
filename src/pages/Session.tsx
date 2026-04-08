@@ -31,7 +31,7 @@ export const Session = () => {
     error,
     currentExercise,
     logSet,
-    skipExercise,
+    skipSet,
     updateCurrentExerciseWeight,
     tickRest,
     skipRest,
@@ -183,16 +183,9 @@ export const Session = () => {
                 selectedExercise={currentExercise}
                 currentSet={currentSetIndex}
                 onComplete={logSet}
+                onSkipSet={skipSet}
               />
             )}
-
-            <button
-              type="button"
-              onClick={skipExercise}
-              className="w-full rounded-xl border border-gray-300 bg-white py-3 text-sm font-semibold text-gray-700 active:bg-gray-50"
-            >
-              {t('session.skip_exercise')}
-            </button>
           </>
         )}
 
