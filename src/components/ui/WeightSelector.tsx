@@ -20,9 +20,12 @@ const EQUIPMENT_CONFIG: { key: WeightEquipment; equipmentMatch: Equipment; prese
   { key: 'barra', equipmentMatch: 'barra', presets: COMMON_BARBELL_WEIGHTS },
 ]
 
+const sortUniqueWeights = (weights: number[]): number[] => [...new Set(weights)].sort((a, b) => a - b)
+
 export const WeightSelector = ({ equipment, availableWeights, onChange, namespace = 'common' }: Props) => {
   const { t } = useTranslation([namespace, 'common'])
   const [customInputs, setCustomInputs] = useState<Record<string, string>>({})
+  const [initialCascadeApplied, setInitialCascadeApplied] = useState<Partial<Record<WeightEquipment, boolean>>>({})
 
   const hasWeightEquipment = equipment.includes('manueles') || equipment.includes('barra')
 
@@ -32,11 +35,35 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
     )
   }
 
-  const toggleWeight = (equipmentKey: WeightEquipment, weight: number) => {
+  const hasInitialCascadeApplied = (equipmentKey: WeightEquipment): boolean => {
+    if (initialCascadeApplied[equipmentKey] !== undefined) {
+      return initialCascadeApplied[equipmentKey] as boolean
+    }
+
+    return (availableWeights[equipmentKey] ?? []).length > 0
+  }
+
+  const markInitialCascadeApplied = (equipmentKey: WeightEquipment) => {
+    setInitialCascadeApplied((prev) => {
+      if (prev[equipmentKey]) return prev
+      return { ...prev, [equipmentKey]: true }
+    })
+  }
+
+  const toggleWeight = (equipmentKey: WeightEquipment, weight: number, equipmentWeights: number[]) => {
     const current = availableWeights[equipmentKey] ?? []
-    const updated = current.includes(weight)
+    const isSelected = current.includes(weight)
+    const shouldApplyCascade = !isSelected && !hasInitialCascadeApplied(equipmentKey)
+    const updated = isSelected
       ? current.filter((w) => w !== weight)
-      : [...current, weight].sort((a, b) => a - b)
+      : shouldApplyCascade
+        ? sortUniqueWeights([...current, ...equipmentWeights.filter((w) => w <= weight)])
+        : sortUniqueWeights([...current, weight])
+
+    if (shouldApplyCascade) {
+      markInitialCascadeApplied(equipmentKey)
+    }
+
     onChange({ ...availableWeights, [equipmentKey]: updated })
   }
 
@@ -45,13 +72,25 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
     if (!raw) return
     const value = parseFloat(raw)
     if (isNaN(value) || value <= 0 || value > 500) return
+    const equipmentConfig = EQUIPMENT_CONFIG.find((config) => config.key === equipmentKey)
+    if (!equipmentConfig) return
+
     const current = availableWeights[equipmentKey] ?? []
-    if (!current.includes(value)) {
-      onChange({
-        ...availableWeights,
-        [equipmentKey]: [...current, value].sort((a, b) => a - b),
-      })
+    const equipmentWeights = sortUniqueWeights([...equipmentConfig.presets, ...current, value])
+    const shouldApplyCascade = !hasInitialCascadeApplied(equipmentKey)
+    const updated = shouldApplyCascade
+      ? sortUniqueWeights([...current, ...equipmentWeights.filter((w) => w <= value)])
+      : sortUniqueWeights([...current, value])
+
+    if (shouldApplyCascade) {
+      markInitialCascadeApplied(equipmentKey)
     }
+
+    onChange({
+      ...availableWeights,
+      [equipmentKey]: updated,
+    })
+
     setCustomInputs((prev) => ({ ...prev, [equipmentKey]: '' }))
   }
 
@@ -69,7 +108,7 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
         const selected = availableWeights[key] ?? []
         // Merge custom (selected but not in presets) into grid so they can be toggled off
         const customWeights = selected.filter((w) => !presets.includes(w))
-        const allWeights = [...presets, ...customWeights].sort((a, b) => a - b)
+        const allWeights = sortUniqueWeights([...presets, ...customWeights])
 
         return (
           <div key={key}>
@@ -84,7 +123,7 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
                   <button
                     key={w}
                     type="button"
-                    onClick={() => toggleWeight(key, w)}
+                    onClick={() => toggleWeight(key, w, allWeights)}
                     className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-all ${
                       isSelected
                         ? 'border-indigo-600 bg-indigo-50 text-indigo-700'

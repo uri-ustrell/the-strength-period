@@ -99,12 +99,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     loadCustomPresets()
   }, [])
 
-  const activeMuscleGroups = useMemo(() => {
-    return Object.entries(muscleGroupPriorities)
-      .filter(([, p]) => p !== null)
-      .map(([mg]) => mg as MuscleGroup)
-  }, [muscleGroupPriorities])
-
   const filteredExercisePool = useMemo(() => {
     return filterExercises(exercises, {
       equipment,
@@ -112,10 +106,26 @@ export const PlanCreator = ({ onComplete }: Props) => {
     })
   }, [exercises, equipment, activeRestrictions])
 
+  const availableMuscleGroups = useMemo(() => {
+    return ALL_MUSCLE_GROUPS.filter((mg) =>
+      filteredExercisePool.some((ex) =>
+        ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg),
+      ),
+    )
+  }, [filteredExercisePool])
+
+  const activeMuscleGroups = useMemo(() => {
+    return Object.entries(muscleGroupPriorities)
+      .filter(([mg, p]) => p !== null && availableMuscleGroups.includes(mg as MuscleGroup))
+      .map(([mg]) => mg as MuscleGroup)
+  }, [muscleGroupPriorities, availableMuscleGroups])
+
   const exercisesByMuscle = useMemo(() => {
     const map: Record<string, Exercise[]> = {}
     for (const mg of activeMuscleGroups) {
-      map[mg] = filteredExercisePool.filter((ex) => ex.primaryMuscles.includes(mg))
+      map[mg] = filteredExercisePool.filter((ex) =>
+        ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg),
+      )
     }
     return map
   }, [activeMuscleGroups, filteredExercisePool])
@@ -491,7 +501,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {/* Muscle group grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {ALL_MUSCLE_GROUPS.map((mg) => {
+          {availableMuscleGroups.map((mg) => {
             const priority = muscleGroupPriorities[mg]
             return (
               <div key={mg} className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2">

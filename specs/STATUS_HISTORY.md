@@ -7,6 +7,20 @@
 
 ## Recent Changes
 
+### Weight Selector One-Time Cascade Normalization (2026-04-08)
+- **Changed**: Hierarchical inferior-weight auto-selection now triggers only once per equipment group (`manueles`, `barra`) on the first selection-like action.
+- **Changed**: After that first cascade, all chip interactions are normalized to isolated per-weight toggle behavior (select/deselect only the clicked weight).
+- **Changed**: Custom weight add flow follows the same rule: first add can cascade once, later adds are isolated.
+- **Kept**: Defaults remain unselected (`DEFAULT_AVAILABLE_WEIGHTS` empty arrays) and existing i18n usage unchanged.
+- **Verification**: `npm run build` passes with zero errors.
+
+### Weight Selector Hierarchical Selection Update (2026-04-08)
+- **Changed**: `DEFAULT_AVAILABLE_WEIGHTS` now initializes `manueles` and `barra` with empty arrays, so weights are never preselected by default.
+- **Changed**: `WeightSelector` now auto-selects all inferior weights (same equipment) when selecting an unselected weight chip.
+- **Changed**: Custom weight add flow now follows the same hierarchy rule: adding/selecting a custom value also selects all inferior preset/custom weights.
+- **Kept**: Deselection remains non-destructive; tapping a selected chip only deselects that chip.
+- **Verification**: `npm run build` passes with zero errors.
+
 ### Onboarding & UserConfig Refactor (2026-04-09)
 - **Removed**: `UserProfile` type and profile step from onboarding — was only used for preset filtering with minimal impact
 - **Removed**: `weeklyProgression` from UserConfig — was always overridden by PlanCreator slider

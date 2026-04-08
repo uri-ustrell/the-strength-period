@@ -31,6 +31,7 @@
 - Exercises: pre-built at dev-time via `npm run build:exercises` (raw free-exercise-db → enriched JSON). Client fetches final JSON with zero runtime processing.
 - Static data (presets, i18n) bundled in JS — zero serverless cost.
 - Export/Import via JSON for data portability.
+- Available weights start unselected by default; the first selection per equipment auto-selects inferior weights once, then subsequent interactions are isolated per-weight toggles.
 
 ## Architecture Decisions
 

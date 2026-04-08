@@ -5,6 +5,22 @@
 
 ## Active Tasks
 
+### Weight Selector One-Time Cascade Normalization (2026-04-08)
+- [x] Update weight selection behavior so cascade applies only once per equipment group (`manueles`, `barra`) on first selection-like action
+- [x] Keep subsequent select/deselect interactions as isolated per-weight toggles after first cascade
+- [x] Keep custom weight add flow coherent with the same rule (first add can cascade once, then isolated add/toggle)
+- [x] Verify defaults remain unselected (empty arrays) and no i18n regressions
+- [x] Run `npm run build` and confirm zero errors
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md`
+
+### Weight Selector Default + Inferior Auto-Select (2026-04-08)
+- [x] Set available weight defaults to empty arrays (no preselection)
+- [x] Update WeightSelector selection logic to auto-select inferior weights
+- [x] Keep custom weight add flow compatible with inferior auto-selection
+- [x] Verify deselection behavior remains coherent
+- [x] Run `npm run build`
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md`
+
 ### Available Weights Configuration and Snapping
 **Context:** `LoadTarget.weightKg` és un nombre lliure (float). `UserConfig` no té cap camp que descrigui els pesos físicament disponibles de l'usuari (p. ex. parelles de manubles: 4, 6, 8, 10, 12, 16 kg; discos de barra; kettlebells). El motor de planificació (`computeLoadTarget` a `planningEngine.ts`) i el Gemini prompt ignoren completament quines càrregues reals pot muntar l'usuari. Això fa que els objectius de pes generats siguin valors teòrics no adaptats a l'equipament real.
 **Goal:** L'usuari declara els pesos disponibles per tipus d'equipament durant l'onboarding o la configuració; el motor i el prompt els utilitzen per arrodonir els `weightKg` al valor disponible més pròxim per sobre o per sota.
