@@ -380,3 +380,28 @@ src/pages/Onboarding/index.tsx
 - `getActiveMesocycle()` used `IDBKeyRange.only(true)` on the `by-active` index, but IndexedDB does not support boolean values as index keys (valid types: number, string, Date, ArrayBuffer, Array).
 - `IDBKeyRange.only(true)` throws `DataError`, causing `saveGenerated()` to fail silently (caught by try/catch) — nothing saved to IDB and UI never updated.
 - **Fix:** Changed `getActiveMesocycle()` to use `getAll()` + `find()` instead of the boolean index query. The `by-active` index remains in the schema (harmless, removing would require DB migration).
+
+---
+
+## Step 15 — User-Owned LLM Assistant (2026-04-08)
+
+### Summary
+Implemented the full LLM Assistant feature as an alternative plan creation path in the PlanCreator wizard. Users can generate a prompt + CSV exercise catalog, paste it into their own LLM (ChatGPT, Claude, Gemini), and import the resulting JSON plan back into the app.
+
+### Files Created
+- `src/services/planning/llmAssistantService.ts` — Service layer: LLM types, prompt template generation, CSV catalog generation, JSON validation with markdown-fence stripping, conversion to Mesocycle
+- `src/components/planning/LLMAssistant.tsx` — UI component: personal notes (persisted in IndexedDB), prompt display with copy, CSV download, JSON paste textarea, validation results display, import button
+
+### Files Modified
+- `src/stores/planningStore.ts` — Added `setGeneratedPreview` action for direct mesocycle injection
+- `src/components/planning/PlanCreator.tsx` — Added `'llm-assistant'` to Step union, "Use LLM Assistant" button on configure step, LLMAssistant rendering
+- `src/i18n/locales/ca/planning.json` — Added `llm.*` keys (38 keys)
+- `src/i18n/locales/es/planning.json` — Added `llm.*` keys (38 keys)
+- `src/i18n/locales/en/planning.json` — Added `llm.*` keys (38 keys)
+
+### Key Decisions
+- Prompt template is always English (best LLM performance); UI chrome is i18n'd
+- Personal notes persisted via existing `configRepository` KV store (`llmPersonalNotes` key)
+- Validation includes 7 structural error rules and 4 warning rules per spec
+- Markdown code fence stripping handles ```json and plain ``` fences
+- CSV uses RFC 4180 format with proper escaping

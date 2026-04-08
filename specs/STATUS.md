@@ -2,7 +2,7 @@
 
 > Last updated: 2026-04-08
 
-## Current Phase: Step 14 Complete — Steps 15–17 Planned
+## Current Phase: Step 15 Complete — Steps 16–17 Planned
 
 ## Steps Overview
 
@@ -21,7 +21,7 @@
 | 12 | Git Flow + GitHub Push | ✅ | — |
 | 13 | Static Data API | ❌ Reverted | — |
 | 14 | Deterministic Planning | ✅ | Steps 2, 4 |
-| 15 | User-Owned LLM Assistant | 🚧 Planned | Step 14 |
+| 15 | User-Owned LLM Assistant | ✅ | Step 14 |
 | 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
 | 17 | Formatter + Session Hooks | 🚧 Planned | — |
 
@@ -49,13 +49,13 @@
 
 ## Planned Steps
 
-### Step 15 — User-Owned LLM Assistant
-- [ ] Design prompt template with JSON contract and step-by-step instructions
-- [ ] Generate CSV artifact: exercise catalog (filtered), user restrictions, JSON schema
-- [ ] Build UI: prompt display + CSV download
-- [ ] Accept pasted JSON; validate against schema; show structured errors
-- [ ] On valid JSON, import plan (reuse existing infrastructure)
-- [ ] **Idea**: Allow free-form personal notes/restrictions (text) to be included in the LLM prompt context, enabling richer personalization than checkbox-only restrictions
+### Step 15 — User-Owned LLM Assistant ✅
+- [x] Service layer: prompt generation, CSV generation, validation, conversion
+- [x] Store: added `setGeneratedPreview` action to planningStore
+- [x] Component: LLMAssistant with personal notes, prompt display, CSV download, JSON paste, validation, import
+- [x] PlanCreator integration: 'llm-assistant' step, secondary button on configure step
+- [x] i18n keys in ca/es/en (planning namespace, nested under `llm`)
+- [x] Build verification: zero errors
 
 ### Step 16 — Ethical Gamification
 - [ ] Define anti-addictive guardrails as acceptance criteria

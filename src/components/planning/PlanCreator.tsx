@@ -13,11 +13,12 @@ import { useUserStore } from '@/stores/userStore'
 import { useExercises } from '@/hooks/useExercises'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { SessionPreview } from '@/components/planning/SessionPreview'
+import { LLMAssistant } from '@/components/planning/LLMAssistant'
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 
 type MuscleGroupPriority = 'high' | 'medium' | 'low'
 
-type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview'
+type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview' | 'llm-assistant'
 
 interface Props {
   onComplete?: () => void
@@ -37,6 +38,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const saveGenerated = usePlanningStore((s) => s.saveGenerated)
   const discardGenerated = usePlanningStore((s) => s.discardGenerated)
   const generatedPreview = usePlanningStore((s) => s.generatedPreview)
+  const setGeneratedPreview = usePlanningStore((s) => s.setGeneratedPreview)
   const error = usePlanningStore((s) => s.error)
 
   const [step, setStep] = useState<Step>('preset')
@@ -473,6 +475,22 @@ export const PlanCreator = ({ onComplete }: Props) => {
         >
           {t('planning:next')}
         </button>
+
+        <div className="flex items-center gap-3">
+          <hr className="flex-1 border-gray-200" />
+          <span className="text-xs text-gray-400">{t('planning:llm.or_separator')}</span>
+          <hr className="flex-1 border-gray-200" />
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setStep('llm-assistant')}
+          disabled={filteredExercisePool.length === 0}
+          className="flex w-full flex-col items-center gap-1 rounded-xl border-2 border-indigo-200 py-3 text-indigo-700 font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50"
+        >
+          <span>✨ {t('planning:llm.use_llm')}</span>
+          <span className="text-xs font-normal text-gray-500">{t('planning:llm.use_llm_desc')}</span>
+        </button>
       </div>
     )
   }
@@ -683,6 +701,45 @@ export const PlanCreator = ({ onComplete }: Props) => {
           {t('planning:generate_instant')}
         </button>
       </div>
+    )
+  }
+
+  if (step === 'llm-assistant') {
+    // Build trainingDays from daysPerWeek override
+    let trainingDays: DayOfWeek[] = userTrainingDays
+    if (daysPerWeek !== userTrainingDays.length) {
+      const spacing = 7 / daysPerWeek
+      trainingDays = Array.from({ length: daysPerWeek }, (_, i) =>
+        Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek,
+      )
+    }
+
+    const llmConfig: UserConfig = {
+      language: 'ca',
+      equipment,
+      trainingDays,
+      minutesPerSession: minutesPerSess,
+      activeRestrictions,
+      onboardingCompleted: true,
+      availableWeights: availableWeightsState,
+    }
+
+    return (
+      <LLMAssistant
+        preset={selectedPreset}
+        config={llmConfig}
+        weeks={weeks}
+        daysPerWeek={daysPerWeek}
+        minutesPerSession={minutesPerSess}
+        weeklyProgression={weeklyProgression}
+        exercises={exercises}
+        filteredExercises={filteredExercisePool}
+        onImport={(mesocycle) => {
+          setGeneratedPreview(mesocycle)
+          setStep('preview')
+        }}
+        onBack={() => setStep('configure')}
+      />
     )
   }
 

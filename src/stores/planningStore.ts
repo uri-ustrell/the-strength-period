@@ -25,6 +25,7 @@ interface PlanningStore {
   skipSessionAction: (templateId: string) => Promise<void>
   unskipSessionAction: (templateId: string) => Promise<void>
   adjustLoadAction: (templateId: string, muscleGroup: string, loadUpdates: Partial<LoadTarget>) => Promise<void>
+  setGeneratedPreview: (mesocycle: Mesocycle) => void
   deactivate: (id: string) => Promise<void>
   reset: () => void
 }
@@ -64,6 +65,8 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
   },
 
   discardGenerated: () => set({ generatedPreview: null }),
+
+  setGeneratedPreview: (mesocycle) => set({ generatedPreview: mesocycle }),
 
   loadActive: async () => {
     set({ isLoading: true, error: null })
