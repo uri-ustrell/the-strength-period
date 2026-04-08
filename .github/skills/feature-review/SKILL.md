@@ -14,42 +14,21 @@ description: "Review and validate a completed feature implementation. Use when: 
 ## Procedure
 
 ### 1. Load Context
-Read these files:
 1. `specs/CONVENTIONS.md` — expected patterns
 2. `specs/DATA_MODEL.md` — expected types
 3. `specs/features/XX-*.md` — the feature spec being reviewed
 4. `tasks/lessons.md` — known issues to watch for
 
-### 2. Spec Compliance Check
-For each acceptance criterion in the feature spec:
-- [ ] Verify the criterion is met in the code
-- [ ] Verify listed files exist with expected exports
-- [ ] Verify function signatures match
+### 2. Apply Review Checklist
+Use the full checklist from `.github/agents/reviewer.agent.md` — covers spec compliance, conventions, architecture rules, component quality (SRP), and security.
 
-### 3. Convention Check
-Scan all files created/modified:
-- [ ] Named exports only (no default except lazy pages)
-- [ ] `@/` path alias for internal imports
-- [ ] Import order: React → types → services → stores → components
-- [ ] No hardcoded user-facing strings (all via `t()`)
-- [ ] Zustand stores follow documented pattern
-
-### 4. Architecture Check
-- [ ] Exercises never written to IndexedDB
-- [ ] IndexedDB only for user-generated data
-- [ ] No secrets in console.log
-- [ ] API keys encrypted before localStorage
-- [ ] No `any` types
-- [ ] No `eval()` or dangerous `innerHTML`
-
-### 5. Build Verification
+### 3. Build Verification
 Run `npm run build` and confirm zero errors.
 
-### 6. Report
-Output a structured review:
+### 4. Report
 ```
 ## Review: [Feature Name]
 ### ✅ Pass — items that meet spec
-### ❌ Issues — problems with file:line and fix suggestion
+### ❌ Issues — [file:line] problem → fix
 ### ⚠️ Warnings — optional improvements
 ```

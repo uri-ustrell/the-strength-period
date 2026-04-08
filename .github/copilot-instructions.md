@@ -2,7 +2,7 @@
 
 ## Project Context
 Zero-backend, local-first fitness web app. React 18 + TypeScript 5 + Vite 5 + Tailwind CSS v3.
-Data lives in IndexedDB (local). AI plans via Vercel Serverless Function (Gemini, project key, server-side). No auth needed.
+Data lives in IndexedDB (local). Deterministic on-device planning engine. No auth needed.
 
 **Before any task**, read these specs:
 1. `specs/OVERVIEW.md` — product vision + architecture
@@ -10,7 +10,7 @@ Data lives in IndexedDB (local). AI plans via Vercel Serverless Function (Gemini
 3. `specs/STATUS.md` — what's done, what's next
 4. The relevant `specs/features/XX-*.md` for the feature being worked on
 
-**After completing any task**, update `specs/STATUS.md` with what was done.
+**After completing any task**, update `specs/STATUS.md` (mark step status + brief note). Add detailed completion notes to `specs/STATUS_HISTORY.md`.
 
 ## Build & Test
 - `npm run dev` — start dev server (localhost:5173)
@@ -47,49 +47,33 @@ When the user's request matches one of the custom agents below, **invoke it auto
 | `enricher` | Adding/enriching exercise data, translating exercise names, mapping muscles, tagging exercises |
 
 **Routing rules:**
-- If the request is clearly scoped to one agent: invoke it via `runSubagent` immediately, without asking the user
-- If the request spans multiple agents (e.g. implement + review): sequence `runSubagent` calls, starting with the most relevant
-- For pure research/exploration within a task: use `search_subagent` to keep context clean
+- Invoke the matching agent via `runSubagent` immediately, without asking the user
+- Multi-agent requests: sequence `runSubagent` calls, starting with the most relevant
+- For pure research/exploration: use the `Explore` agent via `runSubagent`
 - One subagent per focused task — don't bundle unrelated concerns
-- Only inform the user which agent was invoked and what it was asked to do
-- Preserve development language consistency across all agents: write repository artifacts (code comments, specs, task docs, status notes, and agent-generated documentation) in English unless the user explicitly requests localized product copy.
+- Preserve development language consistency: repository artifacts in English unless user explicitly requests localized copy
 
-**Maintenance rule:** When a new `.agent.md` is created under `.github/agents/`, it MUST be added to the table above with its trigger conditions.
+**Maintenance rule:** When a new `.agent.md` is created under `.github/agents/`, add it to this table.
 
-### 3. Self-Improvement Loop
-- After ANY correction from the user: update `tasks/lessons.md` with the pattern
-- Write rules for yourself that prevent the same mistake
-- Ruthlessly iterate on these lessons until mistake rate drops
-- Review lessons at session start for relevant project
+### 3. Self-Improvement
+- After corrections: update `tasks/lessons.md`. Review lessons at session start.
 
-### 4. Verification Before Done
-- Never mark a task complete without proving it works
-- Diff behavior between main and your changes when relevant
-- Ask yourself: "Would a staff engineer approve this?"
-- Run tests, check logs, demonstrate correctness
+### 4. Verification
+- Never mark done without proving it works: `npm run build`, check logs, demonstrate correctness.
 
-### 5. Demand Elegance (Balanced)
-- For non-trivial changes: pause and ask "is there a more elegant way?"
-- If a fix feels hacky: "Knowing everything I know now, implement the elegant solution"
-- Skip this for simple, obvious fixes — don't over-engineer
-- Challenge your own work before presenting it
+### 5. Elegance
+- Non-trivial changes: "is there a more elegant way?" Skip for simple, obvious fixes.
 
-### 6. Autonomous Bug Fixing
-- When given a bug report: just fix it. Don't ask for hand-holding
-- Point at logs, errors, failing tests — then resolve them
-- Zero context switching required from the user
-- Go fix failing CI tests without being told how
+### 6. Bug Fixing
+- Autonomous: read logs/errors → diagnose → fix. Zero hand-holding from the user.
 
 ## Task Management
-1. **Plan First**: Write plan to `tasks/todo.md` with checkable items
-2. **Verify Plan**: Check in before starting implementation
-3. **Track Progress**: Mark items complete as you go
-4. **Explain Changes**: High-level summary at each step
-5. **Document Results**: Add review section to `tasks/todo.md`
-6. **Capture Lessons**: Update `tasks/lessons.md` after corrections
+1. Write plan to `tasks/todo.md` with checkable items
+2. Track progress: mark items complete as you go
+3. After corrections: update `tasks/lessons.md`
 
 ## Core Principles
-- **Simplicity First**: Make every change as simple as possible. Impact minimal code.
+- **Simplicity First**: Minimal change, minimal impact.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
-- **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
-- **Development Language Consistency**: Keep the development language in English across source-adjacent artifacts and internal project documentation unless a task explicitly targets end-user localization content.
+- **Minimal Impact**: Only touch what's necessary. Avoid introducing bugs.
+- **Development Language Consistency**: English for repository artifacts unless explicitly requested otherwise.
