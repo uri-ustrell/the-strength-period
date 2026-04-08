@@ -7,6 +7,15 @@
 
 ## Recent Changes
 
+### Step 18 Planning — Multi-Source Content Ingestion Pipeline (2026-04-08)
+- **Planned**: New Step 18 to ingest exercises, presets, and media from multiple sources through provider adapters (external APIs + LLM responses).
+- **Planned**: Canonical transformation layer for exercise/preset payloads with strict schema validation before merge.
+- **Planned**: Dedup guardrails combining source IDs, slug checks, title+muscle similarity, and alias mapping to avoid duplicate exercises.
+- **Planned**: Node image pipeline for one representative photo per exercise with provider abstraction (Nanobanana as primary, free-tier fallback option), supporting full regen and incremental generation.
+- **Planned**: Preset-batch generation workflow using Claude prompt-in/preset-JSON-out, constrained to currently available exercise IDs.
+- **Planned**: Operational safeguards (dry-run, ingest reports, manual review queue, rollback-safe merge process).
+- **Added TODO**: Follow-up product item to manually edit LLM-imported plans before import and optionally save them as user presets.
+
 ### Weight Selector One-Time Cascade Normalization (2026-04-08)
 - **Changed**: Hierarchical inferior-weight auto-selection now triggers only once per equipment group (`manueles`, `barra`) on the first selection-like action.
 - **Changed**: After that first cascade, all chip interactions are normalized to isolated per-weight toggle behavior (select/deselect only the clicked weight).

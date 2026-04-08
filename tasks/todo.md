@@ -5,6 +5,21 @@
 
 ## Active Tasks
 
+### Step 18 — Multi-Source Content Ingestion Pipeline (Planned, 2026-04-08)
+- [ ] Define ingestion adapter contract (`sourceId`, fetch, map, validate, score)
+- [ ] Implement source connectors for external exercise APIs and LLM-generated JSON payloads
+- [ ] Build canonical transform layer for exercises and presets (normalize equipment, muscles, tags, restrictions, translations)
+- [ ] Add dedup pipeline (source-id registry + slug collision + title/muscle similarity + alias map)
+- [ ] Create ingestion report artifact with accepted/skipped/duplicate/rejected counts and reasons
+- [ ] Add manual review queue for low-confidence mappings before merge into source-of-truth files
+- [ ] Build `scripts/generateExercisePhotos.ts` with provider abstraction (Nanobanana + free-tier fallback provider)
+- [ ] Support photo generation execution modes: `--all`, `--missing`, `--exercise <id>`, `--from-ingest-report <path>`
+- [ ] Wire ingestion flow to trigger photo creation for each newly accepted exercise
+- [ ] Build `scripts/generatePresetBatch.ts` using Claude API prompt-in flow, constrained to available exercise IDs
+- [ ] Add preset validation and conflict checks before writing to preset catalog
+- [ ] Add dry-run and rollback-safe merge mode for ingestion and preset generation
+- [ ] TODO: Allow manual modification of LLM-imported plan before import and allow saving that edited plan as a user preset
+
 ### Weight Selector One-Time Cascade Normalization (2026-04-08)
 - [x] Update weight selection behavior so cascade applies only once per equipment group (`manueles`, `barra`) on first selection-like action
 - [x] Keep subsequent select/deselect interactions as isolated per-weight toggles after first cascade

@@ -2,7 +2,7 @@
 
 > Last updated: 2026-04-08
 
-## Current Phase: Step 15 Complete — Steps 16–17 Planned
+## Current Phase: Step 15 Complete — Steps 16–18 Planned
 
 ## Steps Overview
 
@@ -24,6 +24,7 @@
 | 15 | User-Owned LLM Assistant | ✅ | Step 14 |
 | 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
 | 17 | Formatter + Session Hooks | 🚧 Planned | — |
+| 18 | Multi-Source Content Ingestion Pipeline | 🚧 Planned | Steps 2, 7, 15 |
 
 ## Architecture Notes
 
@@ -44,6 +45,7 @@
 | 5 | Static Data Serving | No serverless endpoints; static CDN only |
 | 7 | Pre-Built Exercise Pipeline | Build-time enrichment; client gets final JSON; zero runtime processing |
 | 6 | Ethical Gamification | Habit-tied achievements; anti-addictive guardrails; optional patronage |
+| 8 | Multi-Source Ingestion | Adapter-based ingestion, canonical transforms, dedup, and media hooks |
 
 > Full rationale in `specs/STATUS_HISTORY.md`
 
@@ -71,6 +73,19 @@
 - [ ] Create `.agents/hooks/hooks.json` with session-end auto-format hook
 - [ ] Run formatter on entire codebase for initial normalization
 - [ ] Document formatting conventions in `specs/CONVENTIONS.md`
+
+### Step 18 — Multi-Source Content Ingestion Pipeline
+- [ ] Define canonical contracts for ingestion candidates and outputs (exercise, preset, ingestion report)
+- [ ] Build source-adapter architecture for multiple providers (external APIs, LLM JSON outputs)
+- [ ] Implement normalization + schema validation to map source payloads into canonical exercise/preset structures
+- [ ] Add robust dedup strategy before merge (source IDs, slug collisions, title/muscle similarity, alias map)
+- [ ] Add review gates for low-confidence items (reject/accept queue) before appending to source-of-truth datasets
+- [ ] Build Node pipeline for exercise photos with provider abstraction (Nanobanana primary, free-tier fallback such as Pollinations/Hugging Face)
+- [ ] Support image generation modes: full recursive regen, only missing photos, single exercise, and ingestion-driven incremental mode
+- [ ] Wire ingestion success path to trigger photo generation for each newly accepted exercise
+- [ ] Build Node preset-batch generator using Claude API (free-tier-first), with prompt-in → validated preset JSON out constrained to available exercises
+- [ ] Emit ingestion reports with accepted/skipped/duplicate/rejected counts and reasons; include dry-run and rollback-safe workflow
+- [ ] Validate legal/licensing metadata per source before merge (attribution, allowed usage, provenance)
 
 ## Active Known Issues
 
