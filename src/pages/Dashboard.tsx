@@ -29,11 +29,19 @@ function getTodayDow(): 1 | 2 | 3 | 4 | 5 | 6 | 7 {
   return (js === 0 ? 7 : js) as 1 | 2 | 3 | 4 | 5 | 6 | 7
 }
 
-function getCurrentWeek(startDate: string): number {
-  const start = new Date(startDate)
-  const now = new Date()
-  const diff = now.getTime() - start.getTime()
-  return Math.max(1, Math.floor(diff / (7 * 24 * 60 * 60 * 1000)) + 1)
+function getSessionDate(mesocycleStartDate: string, weekNumber: number, dayOfWeek: number): Date {
+  const start = new Date(mesocycleStartDate)
+  // Find the Monday of the week containing startDate
+  const startDow = start.getDay() // 0=Sun, 1=Mon, ..., 6=Sat
+  const mondayOffset = startDow === 0 ? -6 : 1 - startDow
+  const weekOneMonday = new Date(start)
+  weekOneMonday.setDate(weekOneMonday.getDate() + mondayOffset)
+
+  // dayOfWeek: 1=Monday .. 7=Sunday (ISO)
+  const daysOffset = (weekNumber - 1) * 7 + (dayOfWeek - 1)
+  const d = new Date(weekOneMonday)
+  d.setDate(d.getDate() + daysOffset)
+  return d
 }
 
 function getWeekStart(date: Date): Date {
@@ -116,7 +124,6 @@ export const Dashboard = () => {
   const streak = useMemo(() => calculateStreak(recentSessions), [recentSessions])
 
   const todayDow = getTodayDow()
-  const currentWeek = activeMesocycle ? getCurrentWeek(activeMesocycle.startDate) : 0
 
   const nextSession: SessionTemplate | undefined = useMemo(() => {
     if (!activeMesocycle) return undefined
@@ -125,6 +132,19 @@ export const Dashboard = () => {
       .filter((s) => !s.completed && !s.skipped)
       .sort((a, b) => a.weekNumber - b.weekNumber || a.dayOfWeek - b.dayOfWeek)[0]
   }, [activeMesocycle])
+
+  // Current week follows the next pending session, not calendar time
+  const currentWeek = nextSession?.weekNumber ?? (activeMesocycle ? activeMesocycle.durationWeeks : 0)
+
+  const nextSessionDate = useMemo(() => {
+    if (!nextSession || !activeMesocycle) return undefined
+    return getSessionDate(activeMesocycle.startDate, nextSession.weekNumber, nextSession.dayOfWeek)
+  }, [nextSession, activeMesocycle])
+
+  const isNextSessionToday = useMemo(() => {
+    if (!nextSessionDate) return false
+    return toDateStr(nextSessionDate) === toDateStr(new Date())
+  }, [nextSessionDate])
 
   const thisWeekSessions = useMemo(() => {
     if (!activeMesocycle) return []
@@ -177,10 +197,16 @@ export const Dashboard = () => {
     )
   }, [])
 
+  const dateLocale = i18n.language === 'ca' ? 'ca-ES' : i18n.language === 'es' ? 'es-ES' : 'en-US'
+
   const dateStr = new Date().toLocaleDateString(
-    i18n.language === 'ca' ? 'ca-ES' : i18n.language === 'es' ? 'es-ES' : 'en-US',
+    dateLocale,
     { weekday: 'long', day: 'numeric', month: 'long' },
   )
+
+  const nextSessionDateStr = nextSessionDate
+    ? nextSessionDate.toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long' })
+    : ''
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
@@ -201,17 +227,19 @@ export const Dashboard = () => {
       </div>
 
       <div className="space-y-4 px-5 pt-4">
-        {/* Block 1: Today */}
+        {/* Block 1: Today / Next session */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-            {t('dashboard.today')}
+            {nextSession && !isNextSessionToday ? t('dashboard.next_session') : t('dashboard.today')}
           </h2>
 
           {nextSession ? (
             <div className="space-y-3">
               <div className="rounded-xl bg-indigo-50 p-3">
                 <p className="text-sm font-medium text-indigo-900 mb-2">
-                  {t('dashboard.session_today')}
+                  {isNextSessionToday
+                    ? t('dashboard.session_today')
+                    : t('dashboard.session_for_date', { date: nextSessionDateStr })}
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {nextSession.muscleGroupTargets.map((mg) => (

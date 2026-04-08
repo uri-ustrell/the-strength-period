@@ -111,6 +111,8 @@
     "planned": "Planificada",
     "no_plan": "Sense pla actiu",
     "session_today": "Sessió d'avui",
+    "next_session": "Pròxima sessió",
+    "session_for_date": "Sessió de {{date}}",
     "minutes": "min"
   },
   "errors": {

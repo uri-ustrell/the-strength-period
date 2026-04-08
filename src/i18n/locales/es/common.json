@@ -111,6 +111,8 @@
     "planned": "Planificada",
     "no_plan": "Sin plan activo",
     "session_today": "Sesión de hoy",
+    "next_session": "Próxima sesión",
+    "session_for_date": "Sesión del {{date}}",
     "minutes": "min"
   },
   "errors": {
