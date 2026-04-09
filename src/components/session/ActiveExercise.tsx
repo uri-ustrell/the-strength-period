@@ -16,13 +16,20 @@ interface Props {
   onWeightChange?: (newWeight: number) => void
 }
 
-export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises, currentSet, onWeightChange }: Props) => {
+export const ActiveExercise = ({
+  selectedExercise,
+  exerciseIndex,
+  totalExercises,
+  currentSet,
+  onWeightChange,
+}: Props) => {
   const { t } = useTranslation(['common', 'exercises', 'muscles'])
   const { exercise, sets, reps, weightKg, rpe, restSeconds } = selectedExercise
   const availableWeights = useUserStore((s) => s.availableWeights)
 
   const repsDisplay = Array.isArray(reps) ? `${reps[0]}-${reps[1]}` : String(reps)
-  const representativeImage = exercise.images.find((img) => img.isRepresentative) ?? exercise.images[0]
+  const representativeImage =
+    exercise.images.find((img) => img.isRepresentative) ?? exercise.images[0]
 
   // Resolve which equipment weights to use for this exercise
   const exerciseWeightList: number[] = (() => {
@@ -35,9 +42,10 @@ export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises
     return []
   })()
 
-  const adjacent = weightKg !== undefined && exerciseWeightList.length > 0
-    ? getAdjacentWeights(weightKg, exerciseWeightList)
-    : null
+  const adjacent =
+    weightKg !== undefined && exerciseWeightList.length > 0
+      ? getAdjacentWeights(weightKg, exerciseWeightList)
+      : null
 
   return (
     <div className="rounded-2xl bg-white p-5 shadow-sm">
@@ -64,7 +72,10 @@ export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises
           </h2>
           <div className="flex flex-wrap gap-1 mt-1">
             {exercise.primaryMuscles.map((muscle) => (
-              <span key={muscle} className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
+              <span
+                key={muscle}
+                className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-700"
+              >
                 {t(`muscles:${muscle}`)}
               </span>
             ))}
@@ -122,8 +133,12 @@ export const ActiveExercise = ({ selectedExercise, exerciseIndex, totalExercises
       </div>
 
       {(() => {
-        const translated = t(`exercises:instructions.${exercise.id}`, { returnObjects: true, defaultValue: '' })
-        const instructions = Array.isArray(translated) && translated.length > 0 ? translated : exercise.instructions
+        const translated = t(`exercises:instructions.${exercise.id}`, {
+          returnObjects: true,
+          defaultValue: '',
+        })
+        const instructions =
+          Array.isArray(translated) && translated.length > 0 ? translated : exercise.instructions
         if (instructions.length === 0) return null
         return (
           <details className="group">

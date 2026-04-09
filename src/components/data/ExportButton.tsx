@@ -32,9 +32,7 @@ export const ExportButton = () => {
         <Download size={16} />
         {loading ? t('data.exporting') : t('data.export')}
       </button>
-      {error && (
-        <p className="text-xs text-red-500 text-center">{t('data.exportError')}</p>
-      )}
+      {error && <p className="text-xs text-red-500 text-center">{t('data.exportError')}</p>}
     </div>
   )
 }

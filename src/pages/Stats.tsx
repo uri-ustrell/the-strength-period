@@ -47,10 +47,7 @@ export const Stats = () => {
     const fetchData = async () => {
       const now = new Date()
       if (period === 'all') {
-        const [allSessions, allSets] = await Promise.all([
-          listAllSessions(),
-          listAllSets(),
-        ])
+        const [allSessions, allSets] = await Promise.all([listAllSessions(), listAllSets()])
         setSessions(allSessions)
         setSets(allSets)
       } else {
@@ -72,12 +69,12 @@ export const Stats = () => {
 
   const { data: volumeData, muscleGroups } = useMemo(
     () => aggregateVolume(sets, exerciseMap),
-    [sets, exerciseMap],
+    [sets, exerciseMap]
   )
 
   const progressionData = useMemo(
     () => (selectedExerciseId ? aggregateProgression(sets, selectedExerciseId) : []),
-    [sets, selectedExerciseId],
+    [sets, selectedExerciseId]
   )
 
   const plannedPerWeek = useMemo(() => {
@@ -88,7 +85,7 @@ export const Stats = () => {
 
   const adherenceData = useMemo(
     () => aggregateAdherence(sessions, plannedPerWeek),
-    [sessions, plannedPerWeek],
+    [sessions, plannedPerWeek]
   )
 
   const prRecords = useMemo(() => aggregatePRs(sets), [sets])
@@ -206,9 +203,7 @@ export const Stats = () => {
 
         {/* Export / Import */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">
-            {t('stats:export_import')}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-900 mb-3">{t('stats:export_import')}</h3>
           <div className="flex gap-3">
             <ExportButton />
             <ImportButton />
@@ -218,4 +213,3 @@ export const Stats = () => {
     </div>
   )
 }
-

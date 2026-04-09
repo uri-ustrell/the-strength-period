@@ -1,0 +1,10 @@
+{
+  "hooks": [
+    {
+      "event": "session-end",
+      "name": "biome-auto-format",
+      "command": "npm run format",
+      "description": "Normalize repository formatting at the end of each coding session."
+    }
+  ]
+}

@@ -1,12 +1,29 @@
 import type { MuscleGroup } from '@/types/exercise'
 
 export const ALL_MUSCLE_GROUPS: MuscleGroup[] = [
-  'quadriceps', 'isquiotibials', 'glutis', 'bessons',
-  'tibial_anterior', 'adductors', 'abductors', 'psoes',
-  'pectoral', 'dorsal', 'trapezi', 'deltoides',
-  'biceps', 'triceps', 'avantbras',
-  'abdominal', 'oblics', 'lumbar', 'estabilitzadors_cadera',
-  'mobilitat_cadera', 'mobilitat_turmell', 'mobilitat_toracica', 'fascies',
+  'quadriceps',
+  'isquiotibials',
+  'glutis',
+  'bessons',
+  'tibial_anterior',
+  'adductors',
+  'abductors',
+  'psoes',
+  'pectoral',
+  'dorsal',
+  'trapezi',
+  'deltoides',
+  'biceps',
+  'triceps',
+  'avantbras',
+  'abdominal',
+  'oblics',
+  'lumbar',
+  'estabilitzadors_cadera',
+  'mobilitat_cadera',
+  'mobilitat_turmell',
+  'mobilitat_toracica',
+  'fascies',
 ]
 
 export const muscleGroupNameKeys: Record<MuscleGroup, string> = {

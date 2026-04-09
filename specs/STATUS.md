@@ -1,8 +1,8 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-08
+> Last updated: 2026-04-09
 
-## Current Phase: Step 15 Complete — Steps 16–18 Planned
+## Current Phase: Step 17 Complete — Steps 16 & 18 Planned
 
 ## Steps Overview
 
@@ -23,7 +23,7 @@
 | 14 | Deterministic Planning | ✅ | Steps 2, 4 |
 | 15 | User-Owned LLM Assistant | ✅ | Step 14 |
 | 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
-| 17 | Formatter + Session Hooks | 🚧 Planned | — |
+| 17 | Formatter + Session Hooks | ✅ | — |
 | 18 | Multi-Source Content Ingestion Pipeline | 🚧 Planned | Steps 2, 7, 15 |
 
 ## Architecture Notes
@@ -33,6 +33,7 @@
 - Static data (presets, i18n) bundled in JS — zero serverless cost.
 - Export/Import via JSON for data portability.
 - Available weights start unselected by default; the first selection per equipment auto-selects inferior weights once, then subsequent interactions are isolated per-weight toggles.
+- Tooling baseline now uses Biome for formatting/linting with repository-wide normalization and session-end auto-format hooks.
 
 ## Architecture Decisions
 
@@ -68,11 +69,12 @@
 - [ ] Validate every mechanic against guardrails before shipping
 
 ### Step 17 — Formatter + Session Hooks
-- [ ] Evaluate and configure Biome as project formatter/linter
-- [ ] Add format-on-save and Biome settings to `.vscode/settings.json`
-- [ ] Create `.agents/hooks/hooks.json` with session-end auto-format hook
-- [ ] Run formatter on entire codebase for initial normalization
-- [ ] Document formatting conventions in `specs/CONVENTIONS.md`
+- [x] Evaluate and configure Biome as project formatter/linter
+- [x] Add format-on-save and Biome settings to `.vscode/settings.json`
+- [x] Create `.agents/hooks/hooks.json` with session-end auto-format hook
+- [x] Run formatter on entire codebase for initial normalization
+- [x] Document formatting conventions in `specs/CONVENTIONS.md`
+- [x] Build verification: `npm run build` passes with zero errors
 
 ### Step 18 — Multi-Source Content Ingestion Pipeline
 - [ ] Define canonical contracts for ingestion candidates and outputs (exercise, preset, ingestion report)

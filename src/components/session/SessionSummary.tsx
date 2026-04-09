@@ -11,14 +11,23 @@ interface Props {
   onDiscard?: () => void
 }
 
-export const SessionSummary = ({ executedSets, sessionStartedAt, isSaving, onFinish, onDiscard }: Props) => {
+export const SessionSummary = ({
+  executedSets,
+  sessionStartedAt,
+  isSaving,
+  onFinish,
+  onDiscard,
+}: Props) => {
   const { t } = useTranslation(['common', 'exercises'])
   const [globalRpe, setGlobalRpe] = useState(7)
   const [notes, setNotes] = useState('')
 
   const exercisesDone = new Set(executedSets.map((s) => s.exerciseId)).size
   const totalSets = executedSets.length
-  const totalVolume = executedSets.reduce((sum, s) => sum + s.repsActual * (s.weightKgActual ?? 0), 0)
+  const totalVolume = executedSets.reduce(
+    (sum, s) => sum + s.repsActual * (s.weightKgActual ?? 0),
+    0
+  )
 
   const elapsedMs = Date.now() - new Date(sessionStartedAt).getTime()
   const elapsedMinutes = Math.round(elapsedMs / 60000)
@@ -47,7 +56,9 @@ export const SessionSummary = ({ executedSets, sessionStartedAt, isSaving, onFin
           </div>
           <div className="rounded-lg bg-amber-50 p-4 text-center">
             <p className="text-xs text-amber-600">{t('common:session.total_time')}</p>
-            <p className="text-2xl font-bold text-amber-900">{elapsedMinutes} {t('common:session.minutes')}</p>
+            <p className="text-2xl font-bold text-amber-900">
+              {elapsedMinutes} {t('common:session.minutes')}
+            </p>
           </div>
         </div>
       </div>
@@ -66,7 +77,9 @@ export const SessionSummary = ({ executedSets, sessionStartedAt, isSaving, onFin
             onChange={(e) => setGlobalRpe(parseInt(e.target.value))}
             className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-indigo-600"
           />
-          <span className="min-w-[2rem] text-center text-2xl font-bold text-indigo-600">{globalRpe}</span>
+          <span className="min-w-[2rem] text-center text-2xl font-bold text-indigo-600">
+            {globalRpe}
+          </span>
         </div>
       </div>
 

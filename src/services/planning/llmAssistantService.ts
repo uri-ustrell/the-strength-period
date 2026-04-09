@@ -1,5 +1,11 @@
 import type { Exercise, Equipment, MuscleGroup } from '@/types/exercise'
-import type { Mesocycle, SessionTemplate, MuscleGroupTarget, ExerciseAssignment, LoadTarget } from '@/types/planning'
+import type {
+  Mesocycle,
+  SessionTemplate,
+  MuscleGroupTarget,
+  ExerciseAssignment,
+  LoadTarget,
+} from '@/types/planning'
 import type { UserConfig } from '@/types/user'
 
 // --- LLM Response Types ---
@@ -199,7 +205,7 @@ function escapeCsvField(value: string): string {
 
 export function generateExerciseCsv(
   exercises: Exercise[],
-  getEnglishName: (nameKey: string) => string,
+  getEnglishName: (nameKey: string) => string
 ): string {
   const headers = [
     'id',
@@ -224,9 +230,7 @@ export function generateExerciseCsv(
     ex.category,
     ex.progressionMetric,
     String(ex.estimatedSeriesDurationSeconds),
-    escapeCsvField(
-      ex.restrictions.map((r) => `${r.condition}:${r.action}`).join(';'),
-    ),
+    escapeCsvField(ex.restrictions.map((r) => `${r.condition}:${r.action}`).join(';')),
   ])
 
   return [headers.join(','), ...rows.map((r) => r.join(','))].join('\n')
@@ -255,7 +259,7 @@ export function validateLLMResponse(
   jsonString: string,
   validExerciseIds: Set<string>,
   minutesPerSession: number,
-  exerciseMap: Map<string, Exercise>,
+  exerciseMap: Map<string, Exercise>
 ): ValidationResult {
   const errors: ValidationError[] = []
   const warnings: ValidationError[] = []
@@ -277,11 +281,7 @@ export function validateLLMResponse(
   }
 
   // Rule 2: Top-level structure
-  if (
-    typeof parsed !== 'object' ||
-    parsed === null ||
-    Array.isArray(parsed)
-  ) {
+  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
     return { valid: false, errors: [{ key: 'llm.error_missing_fields' }], warnings: [] }
   }
 
@@ -428,7 +428,12 @@ export function validateLLMResponse(
     let estimatedSeconds = 0
     for (const rawEx of exs) {
       const ex = rawEx as Record<string, unknown>
-      if (typeof ex.exerciseId !== 'string' || typeof ex.sets !== 'number' || typeof ex.restSeconds !== 'number') continue
+      if (
+        typeof ex.exerciseId !== 'string' ||
+        typeof ex.sets !== 'number' ||
+        typeof ex.restSeconds !== 'number'
+      )
+        continue
       const catalogEx = exerciseMap.get(ex.exerciseId)
       if (catalogEx) {
         const sets = ex.sets
@@ -464,7 +469,7 @@ export function validateLLMResponse(
   const maxWeek = Math.max(
     ...sessions
       .filter((s): s is Record<string, unknown> => typeof s === 'object' && s !== null)
-      .map((s) => (typeof s.weekNumber === 'number' ? s.weekNumber : 0)),
+      .map((s) => (typeof s.weekNumber === 'number' ? s.weekNumber : 0))
   )
   if (maxWeek !== (obj.durationWeeks as number)) {
     warnings.push({ key: 'llm.warn_weeks_mismatch' })
@@ -502,7 +507,7 @@ export function convertToMesocycle(
   response: LLMPlanResponse,
   presetId: string,
   config: UserConfig,
-  exerciseMap: Map<string, Exercise>,
+  exerciseMap: Map<string, Exercise>
 ): Mesocycle {
   const mesocycleId = crypto.randomUUID()
 

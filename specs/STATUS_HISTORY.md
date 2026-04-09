@@ -7,6 +7,15 @@
 
 ## Recent Changes
 
+### Step 17 — Formatter + Session Hooks (2026-04-09)
+- **Added**: `@biomejs/biome` as the repository formatter/linter baseline.
+- **Added**: Biome scripts in `package.json` (`format`, `format:check`, `lint:biome`).
+- **Added**: `biome.json` generated from Biome v2 and tuned to project style (2-space indentation, single quotes, semicolons as needed, trailing commas, 100-char line width).
+- **Updated**: `.vscode/settings.json` with Biome default formatter + format-on-save and Biome organize-import actions.
+- **Added**: `.agents/hooks/hooks.json` with a `session-end` hook that runs `npm run format`.
+- **Executed**: Initial repository normalization via `npm run format` (104 files scanned, 58 files fixed).
+- **Verification**: `npm run build` passes (TypeScript + Vite production build).
+
 ### Step 18 Planning — Multi-Source Content Ingestion Pipeline (2026-04-08)
 - **Planned**: New Step 18 to ingest exercises, presets, and media from multiple sources through provider adapters (external APIs + LLM responses).
 - **Planned**: Canonical transformation layer for exercise/preset payloads with strict schema validation before merge.

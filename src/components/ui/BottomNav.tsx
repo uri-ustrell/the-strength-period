@@ -1,7 +1,16 @@
 import { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, CalendarDays, Dumbbell, BarChart3, Menu, Globe, Settings, X } from 'lucide-react'
+import {
+  LayoutDashboard,
+  CalendarDays,
+  Dumbbell,
+  BarChart3,
+  Menu,
+  Globe,
+  Settings,
+  X,
+} from 'lucide-react'
 
 const NAV_ITEMS = [
   { path: '/dashboard', labelKey: 'nav.dashboard', icon: LayoutDashboard },
@@ -30,19 +39,16 @@ export const BottomNav = () => {
     <>
       {/* Menu overlay */}
       {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/30"
-          onClick={() => setMenuOpen(false)}
-        />
+        <div className="fixed inset-0 z-40 bg-black/30" onClick={() => setMenuOpen(false)} />
       )}
 
       {/* Slide-up menu */}
       {menuOpen && (
-        <div
-          className="fixed bottom-16 left-0 right-0 z-50 rounded-t-2xl bg-white shadow-xl border-t border-gray-200 p-5 safe-area-bottom animate-slide-up"
-        >
+        <div className="fixed bottom-16 left-0 right-0 z-50 rounded-t-2xl bg-white shadow-xl border-t border-gray-200 p-5 safe-area-bottom animate-slide-up">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">{t('nav.settings')}</h3>
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+              {t('nav.settings')}
+            </h3>
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
@@ -56,7 +62,9 @@ export const BottomNav = () => {
           <div className="mb-4">
             <div className="flex items-center gap-2">
               <Globe size={14} className="text-gray-500" />
-              <label htmlFor="language-select" className="text-sm text-gray-600">{t('nav.language')}</label>
+              <label htmlFor="language-select" className="text-sm text-gray-600">
+                {t('nav.language')}
+              </label>
             </div>
             <select
               id="language-select"
@@ -107,7 +115,9 @@ export const BottomNav = () => {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className={`flex flex-col items-center gap-0.5 py-2 px-3 transition-colors ${
-              menuOpen || location.pathname === '/settings' ? 'text-indigo-600' : 'text-gray-400 hover:text-gray-600'
+              menuOpen || location.pathname === '/settings'
+                ? 'text-indigo-600'
+                : 'text-gray-400 hover:text-gray-600'
             }`}
           >
             <Menu size={20} strokeWidth={menuOpen ? 2.5 : 2} />

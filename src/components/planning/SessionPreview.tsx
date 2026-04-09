@@ -33,10 +33,7 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
     return map
   }, [session.exerciseAssignments, exercises])
 
-  const totalSets = session.muscleGroupTargets.reduce(
-    (sum, mg) => sum + mg.loadTarget.sets,
-    0,
-  )
+  const totalSets = session.muscleGroupTargets.reduce((sum, mg) => sum + mg.loadTarget.sets, 0)
 
   if (compact) {
     return (
@@ -81,17 +78,18 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
                     {t(`muscles:${mg.muscleGroup}`)}
                   </span>
                   <div className="flex gap-2.5 text-[10px] text-gray-500">
-                    <span>{mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)}</span>
+                    <span>
+                      {mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)}
+                    </span>
                     {mg.loadTarget.rpe != null && <span>RPE {mg.loadTarget.rpe}</span>}
                     {mg.loadTarget.weightKg != null && <span>{mg.loadTarget.weightKg}kg</span>}
-                    <span>{mg.loadTarget.restSeconds}s {t('common:session.rest').toLowerCase()}</span>
+                    <span>
+                      {mg.loadTarget.restSeconds}s {t('common:session.rest').toLowerCase()}
+                    </span>
                   </div>
                 </div>
                 {exercisesByMuscle[mg.muscleGroup]?.map((ex) => (
-                  <div
-                    key={ex.id}
-                    className="flex items-center gap-1.5 pl-4 py-0.5"
-                  >
+                  <div key={ex.id} className="flex items-center gap-1.5 pl-4 py-0.5">
                     <Dumbbell size={10} className="text-gray-300 shrink-0" />
                     <span className="text-[10px] text-gray-400">
                       {t(ex.name, { ns: 'exercises', defaultValue: ex.id })}

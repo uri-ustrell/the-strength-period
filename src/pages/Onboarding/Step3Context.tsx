@@ -58,17 +58,13 @@ export const Step3Context = () => {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-900">
-          {t('step3.title')}
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-900">{t('step3.title')}</h2>
         <p className="mt-1 text-gray-500">{t('step3.subtitle')}</p>
       </div>
 
       {/* Equipment */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">
-          {t('step3.equipment')}
-        </h3>
+        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.equipment')}</h3>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {ALL_EQUIPMENT.map((item) => {
             const selected = equipment.includes(item)
@@ -92,9 +88,7 @@ export const Step3Context = () => {
 
       {/* Training days */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">
-          {t('step3.trainingDays')}
-        </h3>
+        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.trainingDays')}</h3>
         <div className="flex gap-2">
           {ALL_DAYS.map((day) => {
             const selected = trainingDays.includes(day)
@@ -118,9 +112,7 @@ export const Step3Context = () => {
 
       {/* Minutes per session */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">
-          {t('step3.minutesPerSession')}
-        </h3>
+        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.minutesPerSession')}</h3>
         <div className="flex flex-wrap gap-2">
           {MINUTES_OPTIONS.map((mins) => (
             <button
@@ -141,9 +133,7 @@ export const Step3Context = () => {
 
       {/* Restrictions */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">
-          {t('step3.restrictions')}
-        </h3>
+        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.restrictions')}</h3>
         <div className="grid grid-cols-2 gap-2">
           {ALL_RESTRICTION_CONDITIONS.map((key) => {
             const selected = activeRestrictions.includes(key)

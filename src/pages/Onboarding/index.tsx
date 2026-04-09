@@ -23,9 +23,7 @@ export const Onboarding = () => {
       <div className="mx-auto max-w-lg">
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-lg font-semibold text-indigo-600">
-            {t('title')}
-          </h1>
+          <h1 className="text-lg font-semibold text-indigo-600">{t('title')}</h1>
         </div>
 
         {/* Step Content */}

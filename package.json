@@ -9,6 +9,9 @@
     "dev:api": "vercel dev",
     "dev:frontend": "VITE_MOCK_API=false vite",
     "build": "tsc -b && vite build",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint:biome": "biome lint .",
     "build:exercises": "tsx scripts/buildExercises.ts",
     "preview": "vite preview",
     "lint": "tsc --noEmit"
@@ -31,6 +34,7 @@
     "zustand": "^4.5.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vercel/node": "^5.1.8",

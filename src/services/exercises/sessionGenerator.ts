@@ -21,28 +21,29 @@ function filterByMuscleGroup(exercises: Exercise[], muscleGroup: string): Exerci
   return exercises.filter(
     (ex) =>
       ex.primaryMuscles.includes(muscleGroup as Exercise['primaryMuscles'][number]) ||
-      ex.secondaryMuscles.includes(muscleGroup as Exercise['secondaryMuscles'][number]),
+      ex.secondaryMuscles.includes(muscleGroup as Exercise['secondaryMuscles'][number])
   )
 }
 
 function filterByEquipment(exercises: Exercise[], userEquipment: Equipment[]): Exercise[] {
   return exercises.filter(
-    (ex) => ex.equipment.length === 0 || ex.equipment.some((eq) => userEquipment.includes(eq)),
+    (ex) => ex.equipment.length === 0 || ex.equipment.some((eq) => userEquipment.includes(eq))
   )
 }
 
-function excludeRestrictions(exercises: Exercise[], userRestrictions: RestrictionCondition[]): Exercise[] {
+function excludeRestrictions(
+  exercises: Exercise[],
+  userRestrictions: RestrictionCondition[]
+): Exercise[] {
   return exercises.filter(
     (ex) =>
-      !ex.restrictions.some(
-        (r) => r.action === 'avoid' && userRestrictions.includes(r.condition),
-      ),
+      !ex.restrictions.some((r) => r.action === 'avoid' && userRestrictions.includes(r.condition))
   )
 }
 
 function separateFreshAndRecent(
   exercises: Exercise[],
-  recentExerciseIds: string[],
+  recentExerciseIds: string[]
 ): { fresh: Exercise[]; recent: Exercise[] } {
   const fresh: Exercise[] = []
   const recent: Exercise[] = []
@@ -70,7 +71,7 @@ function scoreExercise(exercise: Exercise, _template: SessionTemplate): number {
 
 function weightedRandomSelect(
   exercises: Exercise[],
-  template: SessionTemplate,
+  template: SessionTemplate
 ): Exercise | undefined {
   if (exercises.length === 0) return undefined
   if (exercises.length === 1) return exercises[0]
@@ -98,7 +99,7 @@ function selectExerciseForTarget(
   recentExerciseIds: string[],
   userEquipment: Equipment[],
   userRestrictions: RestrictionCondition[],
-  alreadySelected: string[],
+  alreadySelected: string[]
 ): Exercise | undefined {
   let candidates = filterByMuscleGroup(allExercises, target.muscleGroup)
   candidates = filterByEquipment(candidates, userEquipment)
@@ -119,7 +120,7 @@ export function generateSession(
   allExercises: Exercise[],
   recentExerciseIds: string[],
   userEquipment: Equipment[],
-  userRestrictions: RestrictionCondition[],
+  userRestrictions: RestrictionCondition[]
 ): GeneratedSession {
   const selectedExercises: SelectedExercise[] = []
   const alreadySelected: string[] = []
@@ -132,7 +133,7 @@ export function generateSession(
       recentExerciseIds,
       userEquipment,
       userRestrictions,
-      alreadySelected,
+      alreadySelected
     )
 
     if (!exercise) continue

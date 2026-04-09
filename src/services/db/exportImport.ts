@@ -67,10 +67,7 @@ export async function importData(file: File): Promise<{ success: boolean; error?
 
     const db = await getDB()
 
-    const tx = db.transaction(
-      ['config', 'mesocycles', 'sessions', 'executedSets'],
-      'readwrite',
-    )
+    const tx = db.transaction(['config', 'mesocycles', 'sessions', 'executedSets'], 'readwrite')
 
     await Promise.all([
       tx.objectStore('config').clear(),

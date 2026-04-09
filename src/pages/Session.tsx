@@ -45,7 +45,7 @@ export const Session = () => {
       reset()
       navigate('/dashboard')
     },
-    [finishSession, reset, navigate],
+    [finishSession, reset, navigate]
   )
 
   const handleDiscard = useCallback(() => {
@@ -96,9 +96,7 @@ export const Session = () => {
           onFinish={handleFinish}
           onDiscard={handleDiscard}
         />
-        {error && (
-          <p className="mt-3 text-center text-sm text-red-600">{t('errors.db_error')}</p>
-        )}
+        {error && <p className="mt-3 text-center text-sm text-red-600">{t('errors.db_error')}</p>}
       </div>
     )
   }
@@ -113,7 +111,10 @@ export const Session = () => {
             <div className="flex items-center gap-1 rounded-lg bg-indigo-50 px-3 py-1.5">
               <Repeat size={14} className="text-indigo-600" />
               <span className="text-sm font-medium text-indigo-700">
-                {t('execution_mode.circuit_round', { current: currentRound + 1, total: totalRounds })}
+                {t('execution_mode.circuit_round', {
+                  current: currentRound + 1,
+                  total: totalRounds,
+                })}
               </span>
             </div>
           ) : (
@@ -189,9 +190,7 @@ export const Session = () => {
           </>
         )}
 
-        {error && (
-          <p className="text-center text-sm text-red-600">{t('errors.generic')}</p>
-        )}
+        {error && <p className="text-center text-sm text-red-600">{t('errors.generic')}</p>}
       </div>
     </div>
   )

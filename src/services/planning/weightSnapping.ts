@@ -3,7 +3,7 @@ export type SnapDirection = 'up' | 'down' | 'nearest'
 export function snapToAvailableWeight(
   targetKg: number,
   availableWeights: number[],
-  direction: SnapDirection = 'nearest',
+  direction: SnapDirection = 'nearest'
 ): number {
   if (availableWeights.length === 0) return targetKg
 
@@ -36,7 +36,7 @@ export function snapToAvailableWeight(
 
 export function getAdjacentWeights(
   currentKg: number,
-  availableWeights: number[],
+  availableWeights: number[]
 ): { lower: number | null; higher: number | null } {
   if (availableWeights.length === 0) return { lower: null, higher: null }
 

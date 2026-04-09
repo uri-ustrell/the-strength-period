@@ -38,6 +38,6 @@ export const Modal = ({ title, children, onClose }: Props) => {
         {children}
       </div>
     </div>,
-    document.body,
+    document.body
   )
 }

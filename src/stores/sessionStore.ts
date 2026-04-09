@@ -116,7 +116,14 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
 
   logSet: (repsActual, weightActual) => {
     const state = get()
-    const { generatedSession, currentExerciseIndex, currentSetIndex, executedSets, executionMode, currentRound } = state
+    const {
+      generatedSession,
+      currentExerciseIndex,
+      currentSetIndex,
+      executedSets,
+      executionMode,
+      currentRound,
+    } = state
 
     if (!generatedSession) return
 
@@ -167,7 +174,8 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
   },
 
   skipSet: () => {
-    const { generatedSession, currentExerciseIndex, currentSetIndex, executionMode, currentRound } = get()
+    const { generatedSession, currentExerciseIndex, currentSetIndex, executionMode, currentRound } =
+      get()
     if (!generatedSession) return
 
     const currentExercise = generatedSession.exercises[currentExerciseIndex]

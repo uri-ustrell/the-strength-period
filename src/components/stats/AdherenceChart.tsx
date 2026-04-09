@@ -1,5 +1,14 @@
 import { useTranslation } from 'react-i18next'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts'
 
 interface AdherenceDataPoint {
   week: string
@@ -31,15 +40,10 @@ export const AdherenceChart = ({ data }: Props) => {
           <XAxis dataKey="week" tick={{ fontSize: 11 }} />
           <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
           <Tooltip
-            formatter={(value, name) => [
-              value,
-              name === 'planned' ? t('planned') : t('completed'),
-            ]}
+            formatter={(value, name) => [value, name === 'planned' ? t('planned') : t('completed')]}
           />
           <Legend
-            formatter={(value: string) =>
-              value === 'planned' ? t('planned') : t('completed')
-            }
+            formatter={(value: string) => (value === 'planned' ? t('planned') : t('completed'))}
             wrapperStyle={{ fontSize: 11 }}
           />
           <Bar dataKey="planned" fill="#c7d2fe" radius={[4, 4, 0, 0]} />

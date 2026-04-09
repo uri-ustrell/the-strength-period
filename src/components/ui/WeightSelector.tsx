@@ -12,26 +12,40 @@ interface Props {
   namespace?: 'common' | 'onboarding'
 }
 
-const COMMON_DUMBBELL_WEIGHTS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
-const COMMON_BARBELL_WEIGHTS = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]
+const COMMON_DUMBBELL_WEIGHTS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40,
+]
+const COMMON_BARBELL_WEIGHTS = [
+  20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120,
+]
 
 const EQUIPMENT_CONFIG: { key: WeightEquipment; equipmentMatch: Equipment; presets: number[] }[] = [
   { key: 'manueles', equipmentMatch: 'manueles', presets: COMMON_DUMBBELL_WEIGHTS },
   { key: 'barra', equipmentMatch: 'barra', presets: COMMON_BARBELL_WEIGHTS },
 ]
 
-const sortUniqueWeights = (weights: number[]): number[] => [...new Set(weights)].sort((a, b) => a - b)
+const sortUniqueWeights = (weights: number[]): number[] =>
+  [...new Set(weights)].sort((a, b) => a - b)
 
-export const WeightSelector = ({ equipment, availableWeights, onChange, namespace = 'common' }: Props) => {
+export const WeightSelector = ({
+  equipment,
+  availableWeights,
+  onChange,
+  namespace = 'common',
+}: Props) => {
   const { t } = useTranslation([namespace, 'common'])
   const [customInputs, setCustomInputs] = useState<Record<string, string>>({})
-  const [initialCascadeApplied, setInitialCascadeApplied] = useState<Partial<Record<WeightEquipment, boolean>>>({})
+  const [initialCascadeApplied, setInitialCascadeApplied] = useState<
+    Partial<Record<WeightEquipment, boolean>>
+  >({})
 
   const hasWeightEquipment = equipment.includes('manueles') || equipment.includes('barra')
 
   if (!hasWeightEquipment) {
     return (
-      <p className="text-sm text-gray-400 italic">{t('common:available_weights.no_equipment_hint')}</p>
+      <p className="text-sm text-gray-400 italic">
+        {t('common:available_weights.no_equipment_hint')}
+      </p>
     )
   }
 
@@ -50,7 +64,11 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
     })
   }
 
-  const toggleWeight = (equipmentKey: WeightEquipment, weight: number, equipmentWeights: number[]) => {
+  const toggleWeight = (
+    equipmentKey: WeightEquipment,
+    weight: number,
+    equipmentWeights: number[]
+  ) => {
     const current = availableWeights[equipmentKey] ?? []
     const isSelected = current.includes(weight)
     const shouldApplyCascade = !isSelected && !hasInitialCascadeApplied(equipmentKey)
@@ -98,7 +116,9 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
     if (namespace === 'onboarding') {
       return key === 'manueles' ? 'onboarding:step3.dumbbells' : 'onboarding:step3.barbell'
     }
-    return key === 'manueles' ? 'common:available_weights.dumbbells' : 'common:available_weights.barbell'
+    return key === 'manueles'
+      ? 'common:available_weights.dumbbells'
+      : 'common:available_weights.barbell'
   }
 
   return (
@@ -112,9 +132,7 @@ export const WeightSelector = ({ equipment, availableWeights, onChange, namespac
 
         return (
           <div key={key}>
-            <h4 className="mb-2 text-sm font-medium text-gray-600">
-              {t(labelKey(key))}
-            </h4>
+            <h4 className="mb-2 text-sm font-medium text-gray-600">{t(labelKey(key))}</h4>
             <div className="flex flex-wrap gap-1.5">
               {allWeights.map((w) => {
                 const isSelected = selected.includes(w)

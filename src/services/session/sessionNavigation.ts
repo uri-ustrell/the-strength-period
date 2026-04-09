@@ -24,7 +24,7 @@ const CIRCUIT_REST_BETWEEN_ROUNDS = 120
 
 export function computeNextAfterLog(
   input: NavigationInput,
-  restSecondsForExercise: number,
+  restSecondsForExercise: number
 ): NavigationResult {
   const {
     executionMode,

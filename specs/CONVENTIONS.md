@@ -8,6 +8,15 @@
 - **Named exports** — no default exports (except pages for lazy loading)
 - **File naming**: `camelCase.ts` for services/utils, `PascalCase.tsx` for components/pages
 
+## Formatter & Linter (Biome)
+
+- **Biome is the source of truth** for formatting and linting (`biome.json`)
+- **Run formatter before shipping changes**: `npm run format`
+- **Validation commands**: `npm run format:check` and `npm run lint:biome`
+- **Formatting baseline**: 2-space indentation, single quotes, semicolons as needed, trailing commas in ES5 contexts, 100-char line width
+- **Editor integration**: `.vscode/settings.json` uses Biome as default formatter with format-on-save enabled
+- **Session automation**: `.agents/hooks/hooks.json` triggers `npm run format` at session end
+
 ## Import Order
 
 ```typescript

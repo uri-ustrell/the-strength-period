@@ -1,5 +1,12 @@
 import type { Exercise, MuscleGroup, ProgressionMetric } from '@/types/exercise'
-import type { Mesocycle, SessionTemplate, MuscleGroupTarget, LoadTarget, ProgressionType, ExerciseAssignment } from '@/types/planning'
+import type {
+  Mesocycle,
+  SessionTemplate,
+  MuscleGroupTarget,
+  LoadTarget,
+  ProgressionType,
+  ExerciseAssignment,
+} from '@/types/planning'
 import type { UserConfig, WeightEquipment } from '@/types/user'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
 import { PROGRESSION_RULES } from '@/data/progressionRules'
@@ -18,7 +25,7 @@ type MuscleAllocation = {
 
 function resolveMuscleDistribution(
   presetId: string,
-  muscleDistribution?: Record<string, number>,
+  muscleDistribution?: Record<string, number>
 ): Record<string, number> {
   if (muscleDistribution && Object.keys(muscleDistribution).length > 0) {
     return muscleDistribution
@@ -33,7 +40,14 @@ function resolveMuscleDistribution(
     return dist
   }
 
-  const defaultGroups: MuscleGroup[] = ['quadriceps', 'isquiotibials', 'glutis', 'pectoral', 'dorsal', 'abdominal']
+  const defaultGroups: MuscleGroup[] = [
+    'quadriceps',
+    'isquiotibials',
+    'glutis',
+    'pectoral',
+    'dorsal',
+    'abdominal',
+  ]
   const pct = Math.round(100 / defaultGroups.length)
   const dist: Record<string, number> = {}
   for (const mg of defaultGroups) {
@@ -46,7 +60,7 @@ function computeBaseSets(
   minutesPerSession: number,
   muscleDistribution: Record<string, number>,
   avgSetDurationSeconds: number,
-  avgRestSeconds: number,
+  avgRestSeconds: number
 ): MuscleAllocation[] {
   const totalPercentage = Object.values(muscleDistribution).reduce((sum, p) => sum + p, 0)
   const totalAvailableSeconds = minutesPerSession * 60
@@ -74,7 +88,7 @@ function computeLoadTarget(
   isDeload: boolean,
   progressionType: ProgressionType,
   sessionIndex: number,
-  exerciseEquipmentWeights?: number[],
+  exerciseEquipmentWeights?: number[]
 ): LoadTarget {
   const baseRpe = Math.min(10, 6 + (weekNumber - 1) * 0.25)
   const rpe = isDeload ? Math.min(baseRpe, 6) : baseRpe
@@ -145,7 +159,7 @@ function estimateSessionDuration(targets: MuscleGroupTarget[]): number {
 function trimToFitDuration(
   targets: MuscleGroupTarget[],
   assignments: ExerciseAssignment[],
-  maxMinutes: number,
+  maxMinutes: number
 ): { targets: MuscleGroupTarget[]; assignments: ExerciseAssignment[] } {
   let sorted = [...targets].sort((a, b) => a.percentageOfSession - b.percentageOfSession)
   let filteredAssignments = [...assignments]
@@ -176,19 +190,13 @@ function assignDayOfWeek(dayIndex: number, daysPerWeek: number): 1 | 2 | 3 | 4 |
   return Math.min(7, Math.max(1, day)) as 1 | 2 | 3 | 4 | 5 | 6 | 7
 }
 
-function buildCandidatePool(
-  exercises: Exercise[],
-  muscleGroup: MuscleGroup,
-): Exercise[] {
+function buildCandidatePool(exercises: Exercise[], muscleGroup: MuscleGroup): Exercise[] {
   return exercises.filter((ex) => ex.primaryMuscles.includes(muscleGroup))
 }
 
 const WEIGHT_EQUIPMENT: WeightEquipment[] = ['manueles', 'barra']
 
-function resolveExerciseWeights(
-  exercise: Exercise,
-  config: UserConfig,
-): number[] | undefined {
+function resolveExerciseWeights(exercise: Exercise, config: UserConfig): number[] | undefined {
   if (!config.availableWeights) return undefined
 
   for (const eq of exercise.equipment) {
@@ -204,11 +212,11 @@ function resolveExerciseWeights(
 function selectExercise(
   candidates: Exercise[],
   previousSessionExerciseIds: Set<string>,
-  usedInSession: Set<string>,
+  usedInSession: Set<string>
 ): Exercise | null {
   // Prefer exercises not used in previous session and not yet in this session
   const preferred = candidates.filter(
-    (ex) => !previousSessionExerciseIds.has(ex.id) && !usedInSession.has(ex.id),
+    (ex) => !previousSessionExerciseIds.has(ex.id) && !usedInSession.has(ex.id)
   )
 
   if (preferred.length > 0) {
@@ -239,10 +247,11 @@ export function generateMesocycle(
     progressionType?: ProgressionType
     weeklyProgression?: number
     exerciseSelections?: Record<string, string[]>
-  },
+  }
 ): Mesocycle {
   const preset = getPresetById(presetId)
-  const progressionType: ProgressionType = options?.progressionType ?? preset?.progressionType ?? 'linear'
+  const progressionType: ProgressionType =
+    options?.progressionType ?? preset?.progressionType ?? 'linear'
   const weeklyProgression = options?.weeklyProgression ?? 5
   const totalWeeks = options?.weeks ?? 8
   const daysPerWeek = config.trainingDays.length
@@ -276,7 +285,12 @@ export function generateMesocycle(
   // 4. Compute base sets from time budget
   const avgSetDuration = 45
   const avgRest = 75
-  const baseAllocations = computeBaseSets(minutesPerSession, muscleDistribution, avgSetDuration, avgRest)
+  const baseAllocations = computeBaseSets(
+    minutesPerSession,
+    muscleDistribution,
+    avgSetDuration,
+    avgRest
+  )
 
   // 5. Generate sessions
   const mesocycleId = generateId()
@@ -286,9 +300,7 @@ export function generateMesocycle(
   for (let week = 1; week <= totalWeeks; week++) {
     const isDeload = week % rule.deloadWeek === 0
     const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
-    const weekMultiplier = isDeload
-      ? rule.deloadPercentage
-      : 1 + scaledIncrease * (week - 1)
+    const weekMultiplier = isDeload ? rule.deloadPercentage : 1 + scaledIncrease * (week - 1)
 
     for (let day = 0; day < daysPerWeek; day++) {
       const sessionIndex = (week - 1) * daysPerWeek + day
@@ -314,7 +326,7 @@ export function generateMesocycle(
           isDeload,
           progressionType,
           sessionIndex,
-          exerciseWeights,
+          exerciseWeights
         )
 
         const scaledSets = Math.max(1, Math.round(alloc.baseSets * weekMultiplier))
@@ -339,7 +351,7 @@ export function generateMesocycle(
       const { targets: trimmedTargets, assignments: trimmedAssignments } = trimToFitDuration(
         muscleGroupTargets,
         exerciseAssignments,
-        minutesPerSession,
+        minutesPerSession
       )
 
       const sessionDuration = Math.round(estimateSessionDuration(trimmedTargets))
@@ -348,7 +360,9 @@ export function generateMesocycle(
         id: generateId(),
         mesocycleId,
         weekNumber: week,
-        dayOfWeek: config.trainingDays[day % config.trainingDays.length] ?? assignDayOfWeek(day, daysPerWeek),
+        dayOfWeek:
+          config.trainingDays[day % config.trainingDays.length] ??
+          assignDayOfWeek(day, daysPerWeek),
         durationMinutes: sessionDuration,
         muscleGroupTargets: trimmedTargets,
         progressionType,

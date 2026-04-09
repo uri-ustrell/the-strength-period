@@ -2,25 +2,14 @@
   {
     "id": "90_90_Hamstring",
     "nameKey": "exercises:90_90_Hamstring",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "mobilitat_cadera"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["bessons", "mobilitat_cadera"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "corredor", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Lie on your back, with one leg extended straight out.",
@@ -39,22 +28,14 @@
   {
     "id": "Ab_Roller",
     "nameKey": "exercises:Ab_Roller",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abdominal"],
+    "secondaryMuscles": ["deltoides"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -79,23 +60,14 @@
   {
     "id": "Adductor",
     "nameKey": "exercises:Adductor",
-    "primaryMuscles": [
-      "adductors"
-    ],
+    "primaryMuscles": ["adductors"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pilates"
-    ],
+    "equipment": ["pilates"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_genoll",
-      "tendinitis_anserina",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_genoll", "tendinitis_anserina", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Lie face down with one leg on a foam roll.",
@@ -113,22 +85,14 @@
   {
     "id": "Adductor_Groin",
     "nameKey": "exercises:Adductor_Groin",
-    "primaryMuscles": [
-      "adductors",
-      "mobilitat_cadera"
-    ],
+    "primaryMuscles": ["adductors", "mobilitat_cadera"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Lie on your back with your feet raised towards the ceiling.",
@@ -147,23 +111,14 @@
   {
     "id": "Air_Bike",
     "nameKey": "exercises:Air_Bike",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abdominal"],
+    "secondaryMuscles": ["oblics"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [],
     "instructions": [
       "Lie flat on the floor with your lower back pressed to the ground. For this exercise, you will need to put your hands beside your head. Be careful however to not strain with the neck as you perform it. Now lift your shoulders into the crunch position.",
@@ -184,25 +139,14 @@
   {
     "id": "All_Fours_Quad_Stretch",
     "nameKey": "exercises:All_Fours_Quad_Stretch",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "quadriceps",
-      "mobilitat_cadera"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["quadriceps", "mobilitat_cadera"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "corredor", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Start off on your hands and knees, then lift your leg off the floor and hold the foot with your hand.",
@@ -220,22 +164,14 @@
   {
     "id": "Alternate_Heel_Touchers",
     "nameKey": "exercises:Alternate_Heel_Touchers",
-    "primaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
+    "primaryMuscles": ["abdominal", "oblics"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [],
     "instructions": [
       "Lie on the floor with the knees bent and the feet on the floor around 18-24 inches apart. Your arms should be extended by your side. This will be your starting position.",
@@ -255,24 +191,14 @@
   {
     "id": "Ankle_Circles",
     "nameKey": "exercises:Ankle_Circles",
-    "primaryMuscles": [
-      "bessons",
-      "mobilitat_turmell",
-      "tibial_anterior"
-    ],
+    "primaryMuscles": ["bessons", "mobilitat_turmell", "tibial_anterior"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "escalfament",
-      "rehab_turmell"
-    ],
+    "tags": ["mobilitat", "escalfament", "rehab_turmell"],
     "restrictions": [],
     "instructions": [
       "Use a sturdy object like a squat rack to hold yourself.",
@@ -290,27 +216,14 @@
   {
     "id": "Anterior_Tibialis-SMR",
     "nameKey": "exercises:Anterior_Tibialis-SMR",
-    "primaryMuscles": [
-      "bessons",
-      "tibial_anterior",
-      "fascies"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_turmell"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["bessons", "tibial_anterior", "fascies"],
+    "secondaryMuscles": ["mobilitat_turmell"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_turmell",
-      "corredor",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_turmell", "corredor", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Begin seated on the ground with your legs bent and your feet on the floor.",
@@ -327,15 +240,9 @@
   {
     "id": "Arnold_Dumbbell_Press",
     "nameKey": "exercises:Arnold_Dumbbell_Press",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["deltoides"],
+    "secondaryMuscles": ["triceps"],
+    "equipment": ["manueles"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
@@ -360,9 +267,7 @@
   {
     "id": "Balance_Board",
     "nameKey": "exercises:Balance_Board",
-    "primaryMuscles": [
-      "bessons"
-    ],
+    "primaryMuscles": ["bessons"],
     "secondaryMuscles": [
       "isquiotibials",
       "quadriceps",
@@ -370,19 +275,12 @@
       "mobilitat_turmell",
       "tibial_anterior"
     ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_turmell",
-      "rehab_genoll",
-      "equilibri",
-      "corredor"
-    ],
+    "tags": ["rehab_turmell", "rehab_genoll", "equilibri", "corredor"],
     "restrictions": [],
     "instructions": [
       "Place a balance board in front of you.",
@@ -400,25 +298,14 @@
   {
     "id": "Ball_Leg_Curl",
     "nameKey": "exercises:Ball_Leg_Curl",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis"
-    ],
-    "equipment": [
-      "pilates"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["bessons", "glutis"],
+    "equipment": ["pilates"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "corredor",
-      "core_estabilitat"
-    ],
+    "tags": ["rehab_genoll", "corredor", "core_estabilitat"],
     "restrictions": [],
     "instructions": [
       "Begin on the floor laying on your back with your feet on top of the ball.",
@@ -438,25 +325,14 @@
   {
     "id": "Band_Good_Morning",
     "nameKey": "exercises:Band_Good_Morning",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["glutis", "lumbar"],
+    "equipment": ["banda_elastica"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_lumbar",
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["rehab_lumbar", "corredor", "escalfament"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -480,23 +356,14 @@
   {
     "id": "Band_Hip_Adductions",
     "nameKey": "exercises:Band_Hip_Adductions",
-    "primaryMuscles": [
-      "adductors",
-      "estabilitzadors_cadera"
-    ],
+    "primaryMuscles": ["adductors", "estabilitzadors_cadera"],
     "secondaryMuscles": [],
-    "equipment": [
-      "banda_elastica"
-    ],
+    "equipment": ["banda_elastica"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "tendinitis_anserina",
-      "corredor"
-    ],
+    "tags": ["rehab_genoll", "tendinitis_anserina", "corredor"],
     "restrictions": [],
     "instructions": [
       "Anchor a band around a solid post or other object.",
@@ -517,26 +384,14 @@
   {
     "id": "Band_Pull_Apart",
     "nameKey": "exercises:Band_Pull_Apart",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "trapezi",
-      "mobilitat_toracica"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
+    "primaryMuscles": ["deltoides"],
+    "secondaryMuscles": ["dorsal", "trapezi", "mobilitat_toracica"],
+    "equipment": ["banda_elastica"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "escalfament",
-      "rehab_lumbar"
-    ],
+    "tags": ["corredor", "escalfament", "rehab_lumbar"],
     "restrictions": [],
     "instructions": [
       "Begin with your arms extended straight out in front of you, holding the band with both hands.",
@@ -555,16 +410,9 @@
   {
     "id": "Barbell_Bench_Press_-_Medium_Grip",
     "nameKey": "exercises:Barbell_Bench_Press_-_Medium_Grip",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["pectoral"],
+    "secondaryMuscles": ["deltoides", "triceps"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
@@ -589,9 +437,7 @@
   {
     "id": "Barbell_Deadlift",
     "nameKey": "exercises:Barbell_Deadlift",
-    "primaryMuscles": [
-      "lumbar"
-    ],
+    "primaryMuscles": ["lumbar"],
     "secondaryMuscles": [
       "bessons",
       "avantbras",
@@ -601,17 +447,12 @@
       "quadriceps",
       "trapezi"
     ],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada"
-    ],
+    "tags": ["corredor", "pujada"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -637,25 +478,14 @@
   {
     "id": "Barbell_Glute_Bridge",
     "nameKey": "exercises:Barbell_Glute_Bridge",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["glutis"],
+    "secondaryMuscles": ["bessons", "isquiotibials"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "rehab_genoll"
-    ],
+    "tags": ["corredor", "pujada", "rehab_genoll"],
     "restrictions": [],
     "instructions": [
       "Begin seated on the ground with a loaded barbell over your legs. Using a fat bar or having a pad on the bar can greatly reduce the discomfort caused by this exercise. Roll the bar so that it is directly above your hips, and lay down flat on the floor.",
@@ -673,26 +503,14 @@
   {
     "id": "Barbell_Hip_Thrust",
     "nameKey": "exercises:Barbell_Hip_Thrust",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "isquiotibials",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["glutis"],
+    "secondaryMuscles": ["bessons", "isquiotibials", "estabilitzadors_cadera"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "velocitat"
-    ],
+    "tags": ["corredor", "pujada", "velocitat"],
     "restrictions": [],
     "instructions": [
       "Begin seated on the ground with a bench directly behind you. Have a loaded barbell over your legs. Using a fat bar or having a pad on the bar can greatly reduce the discomfort caused by this exercise.",
@@ -710,27 +528,14 @@
   {
     "id": "Barbell_Lunge",
     "nameKey": "exercises:Barbell_Lunge",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "psoes"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "psoes"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "baixada"
-    ],
+    "tags": ["corredor", "pujada", "baixada"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -756,26 +561,14 @@
   {
     "id": "Barbell_Squat",
     "nameKey": "exercises:Barbell_Squat",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "lumbar"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada"
-    ],
+    "tags": ["corredor", "pujada"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -807,27 +600,14 @@
   {
     "id": "Barbell_Step_Ups",
     "nameKey": "exercises:Barbell_Step_Ups",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "quadriceps"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "quadriceps"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "equilibri"
-    ],
+    "tags": ["corredor", "pujada", "equilibri"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -852,23 +632,14 @@
   {
     "id": "Bench_Dips",
     "nameKey": "exercises:Bench_Dips",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "deltoides"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": ["pectoral", "deltoides"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "For this exercise you will need to place a bench behind your back. With the bench perpendicular to your body, and while looking away from it, hold on to the bench on its edge with the hands fully extended, separated at shoulder width. The legs will be extended forward, bent at the waist and perpendicular to your torso. This will be your starting position.",
@@ -887,24 +658,14 @@
   {
     "id": "Bent_Over_Barbell_Row",
     "nameKey": "exercises:Bent_Over_Barbell_Row",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "dorsal",
-      "deltoides"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "dorsal", "deltoides"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -929,24 +690,14 @@
   {
     "id": "Bodyweight_Squat",
     "nameKey": "exercises:Bodyweight_Squat",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["glutis", "isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.",
@@ -964,27 +715,14 @@
   {
     "id": "Bodyweight_Walking_Lunge",
     "nameKey": "exercises:Bodyweight_Walking_Lunge",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "psoes"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "psoes"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "escalfament",
-      "equilibri"
-    ],
+    "tags": ["corredor", "escalfament", "equilibri"],
     "restrictions": [],
     "instructions": [
       "Begin standing with your feet shoulder width apart and your hands on your hips.",
@@ -1003,29 +741,14 @@
   {
     "id": "Box_Jump_Multiple_Response",
     "nameKey": "exercises:Box_Jump_Multiple_Response",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "adductors",
-      "bessons",
-      "glutis",
-      "quadriceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["abductors", "adductors", "bessons", "glutis", "quadriceps"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "plyometrics",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "pliometria",
-      "corredor",
-      "velocitat",
-      "pujada"
-    ],
+    "tags": ["pliometria", "corredor", "velocitat", "pujada"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -1059,25 +782,14 @@
   {
     "id": "Butt_Lift_Bridge",
     "nameKey": "exercises:Butt_Lift_Bridge",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["glutis"],
+    "secondaryMuscles": ["isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_genoll",
-      "rehab_lumbar",
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["rehab_genoll", "rehab_lumbar", "corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Lie flat on the floor on your back with the hands by your side and your knees bent. Your feet should be placed around shoulder width. This will be your starting position.",
@@ -1095,24 +807,14 @@
   {
     "id": "Calf_Raises_-_With_Bands",
     "nameKey": "exercises:Calf_Raises_-_With_Bands",
-    "primaryMuscles": [
-      "bessons"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_turmell"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
+    "primaryMuscles": ["bessons"],
+    "secondaryMuscles": ["mobilitat_turmell"],
+    "equipment": ["banda_elastica"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "rehab_turmell",
-      "escalfament"
-    ],
+    "tags": ["corredor", "rehab_turmell", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Grab an exercise band and stand on it with your toes making sure that the length of the band between the foot and the arms is the same for both sides.",
@@ -1132,26 +834,14 @@
   {
     "id": "Calves-SMR",
     "nameKey": "exercises:Calves-SMR",
-    "primaryMuscles": [
-      "bessons",
-      "fascies"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_turmell"
-    ],
-    "equipment": [
-      "pilates"
-    ],
+    "primaryMuscles": ["bessons", "fascies"],
+    "secondaryMuscles": ["mobilitat_turmell"],
+    "equipment": ["pilates"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_turmell",
-      "corredor",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_turmell", "corredor", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Begin seated on the floor. Place a foam roller underneath your lower leg. Your other leg can either be crossed over the opposite or be placed on the floor, supporting some of your weight. This will be your starting position.",
@@ -1168,26 +858,14 @@
   {
     "id": "Cat_Stretch",
     "nameKey": "exercises:Cat_Stretch",
-    "primaryMuscles": [
-      "lumbar",
-      "mobilitat_toracica"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "trapezi"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["lumbar", "mobilitat_toracica"],
+    "secondaryMuscles": ["dorsal", "trapezi"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "escalfament",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "escalfament", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Position yourself on the floor on your hands and knees.",
@@ -1205,25 +883,14 @@
   {
     "id": "Childs_Pose",
     "nameKey": "exercises:Childs_Pose",
-    "primaryMuscles": [
-      "lumbar"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "dorsal",
-      "mobilitat_toracica"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["lumbar"],
+    "secondaryMuscles": ["glutis", "dorsal", "mobilitat_toracica"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Get on your hands and knees, walk your hands in front of you.",
@@ -1241,24 +908,14 @@
   {
     "id": "Chin-Up",
     "nameKey": "exercises:Chin-Up",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "avantbras",
-      "dorsal"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "avantbras", "dorsal"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "Grab the pull-up bar with the palms facing your torso and a grip closer than the shoulder width.",
@@ -1278,22 +935,14 @@
   {
     "id": "Cross-Body_Crunch",
     "nameKey": "exercises:Cross-Body_Crunch",
-    "primaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
+    "primaryMuscles": ["abdominal", "oblics"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [],
     "instructions": [
       "Lie flat on your back and bend your knees about 60 degrees.",
@@ -1313,9 +962,7 @@
   {
     "id": "Crossover_Reverse_Lunge",
     "nameKey": "exercises:Crossover_Reverse_Lunge",
-    "primaryMuscles": [
-      "lumbar"
-    ],
+    "primaryMuscles": ["lumbar"],
     "secondaryMuscles": [
       "abdominal",
       "abductors",
@@ -1324,18 +971,12 @@
       "quadriceps",
       "estabilitzadors_cadera"
     ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "corredor",
-      "equilibri"
-    ],
+    "tags": ["rehab_genoll", "corredor", "equilibri"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -1359,20 +1000,14 @@
   {
     "id": "Crunches",
     "nameKey": "exercises:Crunches",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [],
     "instructions": [
       "Lie flat on your back with your feet flat on the ground, or resting on a bench with your knees bent at a 90 degree angle. If you are resting your feet on a bench, place them three to four inches apart and point your toes inward so they touch.",
@@ -1393,25 +1028,14 @@
   {
     "id": "Dancers_Stretch",
     "nameKey": "exercises:Dancers_Stretch",
-    "primaryMuscles": [
-      "lumbar",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "glutis"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["lumbar", "mobilitat_cadera"],
+    "secondaryMuscles": ["abductors", "glutis"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Sit up on the floor.",
@@ -1430,23 +1054,14 @@
   {
     "id": "Dead_Bug",
     "nameKey": "exercises:Dead_Bug",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "corredor",
-      "rehab_lumbar",
-      "escalfament"
-    ],
+    "tags": ["core_estabilitat", "corredor", "rehab_lumbar", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Begin lying on your back with your hands extended above you toward the ceiling.",
@@ -1468,20 +1083,14 @@
   {
     "id": "Decline_Crunch",
     "nameKey": "exercises:Decline_Crunch",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -1508,21 +1117,14 @@
   {
     "id": "Decline_Oblique_Crunch",
     "nameKey": "exercises:Decline_Oblique_Crunch",
-    "primaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
+    "primaryMuscles": ["abdominal", "oblics"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -1549,16 +1151,9 @@
   {
     "id": "Dips_-_Chest_Version",
     "nameKey": "exercises:Dips_-_Chest_Version",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["pectoral"],
+    "secondaryMuscles": ["deltoides", "triceps"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
@@ -1582,16 +1177,9 @@
   {
     "id": "Dumbbell_Bench_Press",
     "nameKey": "exercises:Dumbbell_Bench_Press",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["pectoral"],
+    "secondaryMuscles": ["deltoides", "triceps"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
@@ -1616,15 +1204,9 @@
   {
     "id": "Dumbbell_Bicep_Curl",
     "nameKey": "exercises:Dumbbell_Bicep_Curl",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["avantbras"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
@@ -1648,13 +1230,9 @@
   {
     "id": "Dumbbell_Flyes",
     "nameKey": "exercises:Dumbbell_Flyes",
-    "primaryMuscles": [
-      "pectoral"
-    ],
+    "primaryMuscles": ["pectoral"],
     "secondaryMuscles": [],
-    "equipment": [
-      "manueles"
-    ],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
@@ -1679,28 +1257,14 @@
   {
     "id": "Dumbbell_Lunges",
     "nameKey": "exercises:Dumbbell_Lunges",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "psoes"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "psoes"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "baixada",
-      "equilibri"
-    ],
+    "tags": ["corredor", "pujada", "baixada", "equilibri"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -1725,15 +1289,9 @@
   {
     "id": "Dumbbell_Shoulder_Press",
     "nameKey": "exercises:Dumbbell_Shoulder_Press",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["deltoides"],
+    "secondaryMuscles": ["triceps"],
+    "equipment": ["manueles"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
@@ -1759,21 +1317,14 @@
   {
     "id": "Dumbbell_Side_Bend",
     "nameKey": "exercises:Dumbbell_Side_Bend",
-    "primaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
+    "primaryMuscles": ["abdominal", "oblics"],
     "secondaryMuscles": [],
-    "equipment": [
-      "manueles"
-    ],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "weight",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -1798,24 +1349,14 @@
   {
     "id": "Face_Pull",
     "nameKey": "exercises:Face_Pull",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "mobilitat_toracica"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["deltoides"],
+    "secondaryMuscles": ["dorsal", "mobilitat_toracica"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "rehab_lumbar"
-    ],
+    "tags": ["corredor", "rehab_lumbar"],
     "restrictions": [],
     "instructions": [
       "Facing a high pulley with a rope or dual handles attached, pull the weight directly towards your face, separating your hands as you do so. Keep your upper arms parallel to the ground."
@@ -1831,24 +1372,14 @@
   {
     "id": "Flutter_Kicks",
     "nameKey": "exercises:Flutter_Kicks",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "psoes"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["glutis"],
+    "secondaryMuscles": ["isquiotibials", "psoes"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -1874,26 +1405,14 @@
   {
     "id": "Frog_Hops",
     "nameKey": "exercises:Frog_Hops",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "plyometrics",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "pliometria",
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["pliometria", "corredor", "velocitat"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -1921,25 +1440,14 @@
   {
     "id": "Front_Barbell_Squat",
     "nameKey": "exercises:Front_Barbell_Squat",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials"],
+    "equipment": ["barra"],
     "level": "expert",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada"
-    ],
+    "tags": ["corredor", "pujada"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -1966,28 +1474,14 @@
   {
     "id": "Front_Box_Jump",
     "nameKey": "exercises:Front_Box_Jump",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "adductors",
-      "bessons",
-      "glutis",
-      "quadriceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["abductors", "adductors", "bessons", "glutis", "quadriceps"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "plyometrics",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "pliometria",
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["pliometria", "corredor", "velocitat"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -2017,25 +1511,14 @@
   {
     "id": "Glute_Ham_Raise",
     "nameKey": "exercises:Glute_Ham_Raise",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["bessons", "glutis"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "velocitat",
-      "rehab_genoll"
-    ],
+    "tags": ["corredor", "velocitat", "rehab_genoll"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -2059,26 +1542,14 @@
   {
     "id": "Goblet_Squat",
     "nameKey": "exercises:Goblet_Squat",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials",
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials", "deltoides"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Stand holding a light kettlebell by the horns close to your chest. This will be your starting position.",
@@ -2096,24 +1567,14 @@
   {
     "id": "Good_Morning",
     "nameKey": "exercises:Good_Morning",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["abdominal", "glutis", "lumbar"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -2137,22 +1598,14 @@
   {
     "id": "Groin_and_Back_Stretch",
     "nameKey": "exercises:Groin_and_Back_Stretch",
-    "primaryMuscles": [
-      "adductors",
-      "mobilitat_cadera"
-    ],
+    "primaryMuscles": ["adductors", "mobilitat_cadera"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Sit on the floor with your knees bent and feet together.",
@@ -2170,22 +1623,14 @@
   {
     "id": "Hanging_Leg_Raise",
     "nameKey": "exercises:Hanging_Leg_Raise",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "psoes"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abdominal"],
+    "secondaryMuscles": ["psoes"],
+    "equipment": ["pes_corporal"],
     "level": "expert",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -2210,26 +1655,14 @@
   {
     "id": "Hip_Circles_prone",
     "nameKey": "exercises:Hip_Circles_prone",
-    "primaryMuscles": [
-      "abductors",
-      "estabilitzadors_cadera",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "adductors"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abductors", "estabilitzadors_cadera", "mobilitat_cadera"],
+    "secondaryMuscles": ["adductors"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "escalfament",
-      "corredor"
-    ],
+    "tags": ["mobilitat", "escalfament", "corredor"],
     "restrictions": [],
     "instructions": [
       "Position yourself on your hands and knees on the ground. Maintaining good posture, raise one bent knee off of the ground. This will be your starting position.",
@@ -2247,24 +1680,14 @@
   {
     "id": "Hyperextensions_Back_Extensions",
     "nameKey": "exercises:Hyperextensions_Back_Extensions",
-    "primaryMuscles": [
-      "lumbar"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["lumbar"],
+    "secondaryMuscles": ["glutis", "isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_lumbar",
-      "corredor"
-    ],
+    "tags": ["rehab_lumbar", "corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -2291,25 +1714,14 @@
   {
     "id": "IT_Band_and_Glute_Stretch",
     "nameKey": "exercises:IT_Band_and_Glute_Stretch",
-    "primaryMuscles": [
-      "abductors",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "fascies"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abductors", "mobilitat_cadera"],
+    "secondaryMuscles": ["fascies"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "corredor", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Loop a belt, rope, or band around one of your feet, and swing that leg across your body to the opposite side, keeping the leg extended as you lay on the ground. This will be your starting position.",
@@ -2326,24 +1738,14 @@
   {
     "id": "Intermediate_Hip_Flexor_and_Quad_Stretch",
     "nameKey": "exercises:Intermediate_Hip_Flexor_and_Quad_Stretch",
-    "primaryMuscles": [
-      "quadriceps",
-      "psoes",
-      "mobilitat_cadera"
-    ],
+    "primaryMuscles": ["quadriceps", "psoes", "mobilitat_cadera"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "tornada_calma"
-    ],
+    "tags": ["mobilitat", "corredor", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Lie face down on the floor, with a rope, belt, or band looped around one foot.",
@@ -2360,20 +1762,14 @@
   {
     "id": "Jackknife_Sit-Up",
     "nameKey": "exercises:Jackknife_Sit-Up",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat"
-    ],
+    "tags": ["core_estabilitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -2398,28 +1794,14 @@
   {
     "id": "Knee_Tuck_Jump",
     "nameKey": "exercises:Knee_Tuck_Jump",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "adductors",
-      "bessons",
-      "glutis",
-      "quadriceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["abductors", "adductors", "bessons", "glutis", "quadriceps"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "plyometrics",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "pliometria",
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["pliometria", "corredor", "velocitat"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -2448,26 +1830,14 @@
   {
     "id": "Kneeling_Hip_Flexor",
     "nameKey": "exercises:Kneeling_Hip_Flexor",
-    "primaryMuscles": [
-      "quadriceps",
-      "psoes",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "quadriceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps", "psoes", "mobilitat_cadera"],
+    "secondaryMuscles": ["quadriceps"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["mobilitat", "corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Kneel on a mat and bring your right knee up so the bottom of your foot is on the floor and extend your left leg out behind you so the top of your foot is on the floor.",
@@ -2484,21 +1854,14 @@
   {
     "id": "Leg_Extensions",
     "nameKey": "exercises:Leg_Extensions",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
+    "primaryMuscles": ["quadriceps"],
     "secondaryMuscles": [],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "rehab_genoll"
-    ],
+    "tags": ["corredor", "rehab_genoll"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -2523,25 +1886,14 @@
   {
     "id": "Leg_Press",
     "nameKey": "exercises:Leg_Press",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "glutis", "isquiotibials"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada"
-    ],
+    "tags": ["corredor", "pujada"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -2567,24 +1919,14 @@
   {
     "id": "Lower_Back-SMR",
     "nameKey": "exercises:Lower_Back-SMR",
-    "primaryMuscles": [
-      "lumbar",
-      "fascies"
-    ],
+    "primaryMuscles": ["lumbar", "fascies"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pilates"
-    ],
+    "equipment": ["pilates"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_lumbar",
-      "corredor",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_lumbar", "corredor", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "In a seated position, place a foam roll under your lower back. Cross your arms in front of you and protract your shoulders. This will be your starting position.",
@@ -2601,21 +1943,14 @@
   {
     "id": "Lying_Leg_Curls",
     "nameKey": "exercises:Lying_Leg_Curls",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
+    "primaryMuscles": ["isquiotibials"],
     "secondaryMuscles": [],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["corredor", "velocitat"],
     "restrictions": [],
     "instructions": [
       "Adjust the machine lever to fit your height and lie face down on the leg curl machine with the pad of the lever on the back of your legs (just a few inches under the calves). Tip: Preferably use a leg curl machine that is angled as opposed to flat since an angled position is more favorable for hamstrings recruitment.",
@@ -2634,29 +1969,14 @@
   {
     "id": "Mountain_Climbers",
     "nameKey": "exercises:Mountain_Climbers",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "isquiotibials",
-      "deltoides",
-      "oblics",
-      "psoes"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["pectoral", "isquiotibials", "deltoides", "oblics", "psoes"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "cardio",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor",
-      "escalfament",
-      "pliometria"
-    ],
+    "tags": ["core_estabilitat", "corredor", "escalfament", "pliometria"],
     "restrictions": [],
     "instructions": [
       "Begin in a pushup position, with your weight supported by your hands and toes. Flexing the knee and hip, bring one leg until the knee is approximately under the hip. This will be your starting position.",
@@ -2673,24 +1993,14 @@
   {
     "id": "One-Arm_Dumbbell_Row",
     "nameKey": "exercises:One-Arm_Dumbbell_Row",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "dorsal",
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "dorsal", "deltoides"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "Choose a flat bench and place a dumbbell on each side of it.",
@@ -2712,26 +2022,14 @@
   {
     "id": "Pallof_Press",
     "nameKey": "exercises:Pallof_Press",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["abdominal"],
+    "secondaryMuscles": ["pectoral", "deltoides", "triceps"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "corredor",
-      "rehab_lumbar"
-    ],
+    "tags": ["core_estabilitat", "corredor", "rehab_lumbar"],
     "restrictions": [],
     "instructions": [
       "Connect a standard handle to a tower, and—if possible—position the cable to shoulder height. If not, a low pulley will suffice.",
@@ -2752,26 +2050,14 @@
   {
     "id": "Piriformis-SMR",
     "nameKey": "exercises:Piriformis-SMR",
-    "primaryMuscles": [
-      "glutis",
-      "fascies"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_cadera"
-    ],
-    "equipment": [
-      "pilates"
-    ],
+    "primaryMuscles": ["glutis", "fascies"],
+    "secondaryMuscles": ["mobilitat_cadera"],
+    "equipment": ["pilates"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_lumbar",
-      "corredor",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_lumbar", "corredor", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Sit with your buttocks on top of a foam roll. Bend your knees, and then cross one leg so that the ankle is over the knee. This will be your starting position.",
@@ -2788,22 +2074,14 @@
   {
     "id": "Plank",
     "nameKey": "exercises:Plank",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["core_estabilitat", "corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Get into a prone position on the floor, supporting your weight on your toes and your forearms. Your arms are bent and directly below the shoulder.",
@@ -2820,22 +2098,14 @@
   {
     "id": "Prone_Manual_Hamstring",
     "nameKey": "exercises:Prone_Manual_Hamstring",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
+    "primaryMuscles": ["isquiotibials"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["rehab_genoll", "corredor", "velocitat"],
     "restrictions": [],
     "instructions": [
       "You will need a partner for this exercise. Lay face down with your legs straight. Your assistant will place their hand on your heel.",
@@ -2853,23 +2123,14 @@
   {
     "id": "Pullups",
     "nameKey": "exercises:Pullups",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "dorsal"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "dorsal"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "Grab the pull-up bar with the palms facing forward using the prescribed grip. Note on grips: For a wide grip, your hands need to be spaced out at a distance wider than your shoulder width. For a medium grip, your hands need to be spaced out at a distance equal to your shoulder width and for a close grip at a distance smaller than your shoulder width.",
@@ -2889,26 +2150,14 @@
   {
     "id": "Push_Up_to_Side_Plank",
     "nameKey": "exercises:Push_Up_to_Side_Plank",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "deltoides",
-      "triceps",
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["pectoral"],
+    "secondaryMuscles": ["abdominal", "deltoides", "triceps", "oblics"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [],
     "instructions": [
       "Get into pushup position on the toes with your hands just outside of shoulder width.",
@@ -2928,25 +2177,14 @@
   {
     "id": "Pushups",
     "nameKey": "exercises:Pushups",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["pectoral"],
+    "secondaryMuscles": ["deltoides", "triceps"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "escalfament",
-      "core_estabilitat"
-    ],
+    "tags": ["corredor", "escalfament", "core_estabilitat"],
     "restrictions": [],
     "instructions": [
       "Lie on the floor face down and place your hands about 36 inches apart while holding your torso up at arms length.",
@@ -2965,25 +2203,14 @@
   {
     "id": "Quadriceps-SMR",
     "nameKey": "exercises:Quadriceps-SMR",
-    "primaryMuscles": [
-      "quadriceps",
-      "fascies"
-    ],
+    "primaryMuscles": ["quadriceps", "fascies"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pilates"
-    ],
+    "equipment": ["pilates"],
     "level": "intermediate",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_genoll",
-      "tendinitis_rotuliana",
-      "corredor",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_genoll", "tendinitis_rotuliana", "corredor", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Lay facedown on the floor with your weight supported by your hands or forearms. Place a foam roll underneath one leg on the quadriceps, and keep the foot off of the ground. Make sure to relax the leg as much as possible. This will be your starting position.",
@@ -3000,21 +2227,14 @@
   {
     "id": "Reverse_Crunch",
     "nameKey": "exercises:Reverse_Crunch",
-    "primaryMuscles": [
-      "abdominal"
-    ],
+    "primaryMuscles": ["abdominal"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [],
     "instructions": [
       "Lie down on the floor with your legs fully extended and arms to the side of your torso with the palms on the floor. Your arms should be stationary for the entire exercise.",
@@ -3034,25 +2254,14 @@
   {
     "id": "Romanian_Deadlift",
     "nameKey": "exercises:Romanian_Deadlift",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["bessons", "glutis", "lumbar"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada"
-    ],
+    "tags": ["corredor", "pujada"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -3078,24 +2287,14 @@
   {
     "id": "Russian_Twist",
     "nameKey": "exercises:Russian_Twist",
-    "primaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "lumbar"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abdominal", "oblics"],
+    "secondaryMuscles": ["lumbar"],
+    "equipment": ["pes_corporal"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "corredor"
-    ],
+    "tags": ["core_estabilitat", "corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -3121,24 +2320,14 @@
   {
     "id": "Seated_Cable_Rows",
     "nameKey": "exercises:Seated_Cable_Rows",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "dorsal",
-      "deltoides"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "dorsal", "deltoides"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "For this exercise you will need access to a low pulley row machine with a V-bar. Note: The V-bar will enable you to have a neutral grip where the palms of your hands face each other. To get into the starting position, first sit down on the machine and place your feet on the front platform or crossbar provided making sure that your knees are slightly bent and not locked.",
@@ -3158,24 +2347,14 @@
   {
     "id": "Seated_Calf_Raise",
     "nameKey": "exercises:Seated_Calf_Raise",
-    "primaryMuscles": [
-      "bessons"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_turmell",
-      "tibial_anterior"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["bessons"],
+    "secondaryMuscles": ["mobilitat_turmell", "tibial_anterior"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "rehab_turmell"
-    ],
+    "tags": ["corredor", "rehab_turmell"],
     "restrictions": [],
     "instructions": [
       "Sit on the machine and place your toes on the lower portion of the platform provided with the heels extending off. Choose the toe positioning of your choice (forward, in, or out) as per the beginning of this chapter.",
@@ -3196,13 +2375,9 @@
   {
     "id": "Side_Lateral_Raise",
     "nameKey": "exercises:Side_Lateral_Raise",
-    "primaryMuscles": [
-      "deltoides"
-    ],
+    "primaryMuscles": ["deltoides"],
     "secondaryMuscles": [],
-    "equipment": [
-      "manueles"
-    ],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
@@ -3226,26 +2401,14 @@
   {
     "id": "Side_Lying_Groin_Stretch",
     "nameKey": "exercises:Side_Lying_Groin_Stretch",
-    "primaryMuscles": [
-      "adductors",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["adductors", "mobilitat_cadera"],
+    "secondaryMuscles": ["isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "rehab_genoll",
-      "tendinitis_anserina",
-      "mobilitat",
-      "tornada_calma"
-    ],
+    "tags": ["rehab_genoll", "tendinitis_anserina", "mobilitat", "tornada_calma"],
     "restrictions": [],
     "instructions": [
       "Start off by lying on your right side and bend your right knee in front of you to stabilize the torso.",
@@ -3263,25 +2426,14 @@
   {
     "id": "Single_Leg_Glute_Bridge",
     "nameKey": "exercises:Single_Leg_Glute_Bridge",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["glutis"],
+    "secondaryMuscles": ["isquiotibials", "estabilitzadors_cadera"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "reps",
-    "tags": [
-      "corredor",
-      "rehab_genoll",
-      "equilibri"
-    ],
+    "tags": ["corredor", "rehab_genoll", "equilibri"],
     "restrictions": [],
     "instructions": [
       "Lay on the floor with your feet flat and knees bent.",
@@ -3300,27 +2452,14 @@
   {
     "id": "Single_Leg_Push-off",
     "nameKey": "exercises:Single_Leg_Push-off",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "bessons",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["bessons", "isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "plyometrics",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "pliometria",
-      "corredor",
-      "velocitat",
-      "pujada",
-      "equilibri"
-    ],
+    "tags": ["pliometria", "corredor", "velocitat", "pujada", "equilibri"],
     "restrictions": [
       {
         "condition": "rehab_turmell",
@@ -3344,26 +2483,14 @@
   {
     "id": "Split_Squat_with_Dumbbells",
     "nameKey": "exercises:Split_Squat_with_Dumbbells",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "manueles"
-    ],
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["glutis", "isquiotibials"],
+    "equipment": ["manueles"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "baixada",
-      "equilibri"
-    ],
+    "tags": ["corredor", "pujada", "baixada", "equilibri"],
     "restrictions": [
       {
         "condition": "tendinitis_rotuliana",
@@ -3388,25 +2515,14 @@
   {
     "id": "Standing_Calf_Raises",
     "nameKey": "exercises:Standing_Calf_Raises",
-    "primaryMuscles": [
-      "bessons"
-    ],
-    "secondaryMuscles": [
-      "mobilitat_turmell",
-      "tibial_anterior"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["bessons"],
+    "secondaryMuscles": ["mobilitat_turmell", "tibial_anterior"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "pujada",
-      "rehab_turmell"
-    ],
+    "tags": ["corredor", "pujada", "rehab_turmell"],
     "restrictions": [],
     "instructions": [
       "Adjust the padded lever of the calf raise machine to fit your height.",
@@ -3426,26 +2542,14 @@
   {
     "id": "Standing_Hip_Circles",
     "nameKey": "exercises:Standing_Hip_Circles",
-    "primaryMuscles": [
-      "abductors",
-      "estabilitzadors_cadera",
-      "mobilitat_cadera"
-    ],
-    "secondaryMuscles": [
-      "adductors"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["abductors", "estabilitzadors_cadera", "mobilitat_cadera"],
+    "secondaryMuscles": ["adductors"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "escalfament",
-      "corredor"
-    ],
+    "tags": ["mobilitat", "escalfament", "corredor"],
     "restrictions": [],
     "instructions": [
       "Begin standing on one leg, holding to a vertical support.",
@@ -3464,24 +2568,14 @@
   {
     "id": "Standing_Hip_Flexors",
     "nameKey": "exercises:Standing_Hip_Flexors",
-    "primaryMuscles": [
-      "quadriceps",
-      "psoes",
-      "mobilitat_cadera"
-    ],
+    "primaryMuscles": ["quadriceps", "psoes", "mobilitat_cadera"],
     "secondaryMuscles": [],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "mobility",
     "estimatedSeriesDurationSeconds": 30,
     "progressionMetric": "seconds",
-    "tags": [
-      "mobilitat",
-      "corredor",
-      "escalfament"
-    ],
+    "tags": ["mobilitat", "corredor", "escalfament"],
     "restrictions": [],
     "instructions": [
       "Stand up straight with the spine vertical, the left foot slightly in front of the right.",
@@ -3498,21 +2592,14 @@
   {
     "id": "Standing_Leg_Curl",
     "nameKey": "exercises:Standing_Leg_Curl",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
+    "primaryMuscles": ["isquiotibials"],
     "secondaryMuscles": [],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["corredor", "velocitat"],
     "restrictions": [],
     "instructions": [
       "Adjust the machine lever to fit your height and lie with your torso bent at the waist facing forward around 30-45 degrees (since an angled position is more favorable for hamstrings recruitment) with the pad of the lever on the back of your right leg (just a few inches under the calves) and the front of the right leg on top of the machine pad.",
@@ -3532,22 +2619,14 @@
   {
     "id": "Standing_Military_Press",
     "nameKey": "exercises:Standing_Military_Press",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["deltoides"],
+    "secondaryMuscles": ["triceps"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -3574,24 +2653,14 @@
   {
     "id": "Stiff-Legged_Barbell_Deadlift",
     "nameKey": "exercises:Stiff-Legged_Barbell_Deadlift",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["isquiotibials"],
+    "secondaryMuscles": ["glutis", "lumbar"],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor",
-      "velocitat"
-    ],
+    "tags": ["corredor", "velocitat"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -3617,9 +2686,7 @@
   {
     "id": "Sumo_Deadlift",
     "nameKey": "exercises:Sumo_Deadlift",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
+    "primaryMuscles": ["isquiotibials"],
     "secondaryMuscles": [
       "adductors",
       "avantbras",
@@ -3629,16 +2696,12 @@
       "quadriceps",
       "trapezi"
     ],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "intermediate",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 50,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [
       {
         "condition": "rehab_lumbar",
@@ -3663,25 +2726,14 @@
   {
     "id": "Superman",
     "nameKey": "exercises:Superman",
-    "primaryMuscles": [
-      "lumbar"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
+    "primaryMuscles": ["lumbar"],
+    "secondaryMuscles": ["glutis", "isquiotibials"],
+    "equipment": ["pes_corporal"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "corredor",
-      "rehab_lumbar"
-    ],
+    "tags": ["core_estabilitat", "corredor", "rehab_lumbar"],
     "restrictions": [],
     "instructions": [
       "To begin, lie straight and face down on the floor or exercise mat. Your arms should be fully extended in front of you. This is the starting position.",
@@ -3700,25 +2752,14 @@
   {
     "id": "Thigh_Abductor",
     "nameKey": "exercises:Thigh_Abductor",
-    "primaryMuscles": [
-      "abductors",
-      "estabilitzadors_cadera"
-    ],
-    "secondaryMuscles": [
-      "glutis"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["abductors", "estabilitzadors_cadera"],
+    "secondaryMuscles": ["glutis"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "corredor",
-      "equilibri"
-    ],
+    "tags": ["rehab_genoll", "corredor", "equilibri"],
     "restrictions": [],
     "instructions": [
       "To begin, sit down on the abductor machine and select a weight you are comfortable with. When your legs are positioned properly, grip the handles on each side. Your entire upper body (from the waist up) should be stationary. This is the starting position.",
@@ -3737,26 +2778,14 @@
   {
     "id": "Thigh_Adductor",
     "nameKey": "exercises:Thigh_Adductor",
-    "primaryMuscles": [
-      "adductors"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["adductors"],
+    "secondaryMuscles": ["glutis", "isquiotibials", "estabilitzadors_cadera"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "stability",
     "estimatedSeriesDurationSeconds": 35,
     "progressionMetric": "reps",
-    "tags": [
-      "rehab_genoll",
-      "tendinitis_anserina",
-      "corredor"
-    ],
+    "tags": ["rehab_genoll", "tendinitis_anserina", "corredor"],
     "restrictions": [],
     "instructions": [
       "To begin, sit down on the adductor machine and select a weight you are comfortable with. When your legs are positioned properly on the leg pads of the machine, grip the handles on each side. Your entire upper body (from the waist up) should be stationary. This is the starting position.",
@@ -3775,13 +2804,9 @@
   {
     "id": "Triceps_Pushdown",
     "nameKey": "exercises:Triceps_Pushdown",
-    "primaryMuscles": [
-      "triceps"
-    ],
+    "primaryMuscles": ["triceps"],
     "secondaryMuscles": [],
-    "equipment": [
-      "barra"
-    ],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 40,
@@ -3806,24 +2831,14 @@
   {
     "id": "Wide-Grip_Lat_Pulldown",
     "nameKey": "exercises:Wide-Grip_Lat_Pulldown",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "dorsal",
-      "deltoides"
-    ],
-    "equipment": [
-      "barra"
-    ],
+    "primaryMuscles": ["dorsal"],
+    "secondaryMuscles": ["biceps", "dorsal", "deltoides"],
+    "equipment": ["barra"],
     "level": "beginner",
     "category": "strength",
     "estimatedSeriesDurationSeconds": 45,
     "progressionMetric": "weight",
-    "tags": [
-      "corredor"
-    ],
+    "tags": ["corredor"],
     "restrictions": [],
     "instructions": [
       "Sit down on a pull-down machine with a wide bar attached to the top pulley. Make sure that you adjust the knee pad of the machine to fit your height. These pads will prevent your body from being raised by the resistance attached to the bar.",

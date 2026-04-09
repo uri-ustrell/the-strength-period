@@ -29,12 +29,15 @@ export const SessionPreStart = () => {
       <div className="mx-auto max-w-lg space-y-4">
         <h1 className="text-xl font-bold text-gray-900">{t('common:session.preview_title')}</h1>
         <p className="text-sm text-gray-500">
-          {orderedExercises.length} {t('common:session.exercises_count')} · ~{generatedSession.estimatedDurationMinutes} {t('common:session.minutes')}
+          {orderedExercises.length} {t('common:session.exercises_count')} · ~
+          {generatedSession.estimatedDurationMinutes} {t('common:session.minutes')}
         </p>
 
         {/* Execution mode selector */}
         <div className="rounded-xl bg-white p-4 shadow-sm">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">{t('common:session.order_mode')}</h3>
+          <h3 className="text-sm font-semibold text-gray-700 mb-3">
+            {t('common:session.order_mode')}
+          </h3>
           <div className="flex gap-2">
             <button
               type="button"
@@ -48,7 +51,9 @@ export const SessionPreStart = () => {
               <ListOrdered size={16} />
               <div className="text-left">
                 <div>{t('common:execution_mode.standard')}</div>
-                <div className={`text-xs ${executionMode === 'standard' ? 'text-indigo-200' : 'text-gray-400'}`}>
+                <div
+                  className={`text-xs ${executionMode === 'standard' ? 'text-indigo-200' : 'text-gray-400'}`}
+                >
                   {t('common:execution_mode.standard_desc')}
                 </div>
               </div>
@@ -65,7 +70,9 @@ export const SessionPreStart = () => {
               <Repeat size={16} />
               <div className="text-left">
                 <div>{t('common:execution_mode.circuit')}</div>
-                <div className={`text-xs ${executionMode === 'circuit' ? 'text-indigo-200' : 'text-gray-400'}`}>
+                <div
+                  className={`text-xs ${executionMode === 'circuit' ? 'text-indigo-200' : 'text-gray-400'}`}
+                >
                   {t('common:execution_mode.circuit_desc')}
                 </div>
               </div>
@@ -76,8 +83,11 @@ export const SessionPreStart = () => {
         {/* Exercise list */}
         <div className="space-y-2">
           {orderedExercises.map((se, index) => {
-            const repsDisplay = Array.isArray(se.reps) ? `${se.reps[0]}-${se.reps[1]}` : String(se.reps)
-            const representativeImage = se.exercise.images.find((img) => img.isRepresentative) ?? se.exercise.images[0]
+            const repsDisplay = Array.isArray(se.reps)
+              ? `${se.reps[0]}-${se.reps[1]}`
+              : String(se.reps)
+            const representativeImage =
+              se.exercise.images.find((img) => img.isRepresentative) ?? se.exercise.images[0]
             return (
               <div key={`${se.exercise.id}-${index}`} className="rounded-xl bg-white p-4 shadow-sm">
                 <div className="flex items-start justify-between">
@@ -95,16 +105,25 @@ export const SessionPreStart = () => {
                       </h3>
                       <div className="mt-1 flex flex-wrap gap-1">
                         {se.exercise.primaryMuscles.map((m) => (
-                          <span key={m} className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-600">
+                          <span
+                            key={m}
+                            className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-600"
+                          >
                             {t(`muscles:${m}`)}
                           </span>
                         ))}
                       </div>
                       <div className="mt-2 flex gap-3 text-xs text-gray-500">
-                        <span>{se.sets} {t('common:session.sets').toLowerCase()}</span>
-                        <span>{repsDisplay} {t('common:session.reps').toLowerCase()}</span>
+                        <span>
+                          {se.sets} {t('common:session.sets').toLowerCase()}
+                        </span>
+                        <span>
+                          {repsDisplay} {t('common:session.reps').toLowerCase()}
+                        </span>
                         {se.weightKg !== undefined && <span>{se.weightKg}kg</span>}
-                        <span>{se.restSeconds}s {t('common:session.rest').toLowerCase()}</span>
+                        <span>
+                          {se.restSeconds}s {t('common:session.rest').toLowerCase()}
+                        </span>
                       </div>
                     </div>
                   </div>

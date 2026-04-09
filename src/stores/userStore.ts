@@ -83,7 +83,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
 
   loadUserConfig: async () => {
     try {
-      const config = await getConfig('userConfig') as UserConfig | null
+      const config = (await getConfig('userConfig')) as UserConfig | null
       if (config) {
         set({
           equipment: config.equipment,
@@ -98,15 +98,16 @@ export const useUserStore = create<UserStore>((set, get) => ({
     }
   },
 
-  reset: () => set({
-    currentStep: 1,
-    equipment: [],
-    trainingDays: [1, 3, 5],
-    minutesPerSession: 45,
-    activeRestrictions: [],
-    availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
-    onboardingCompleted: false,
-    isLoading: false,
-    error: null,
-  }),
+  reset: () =>
+    set({
+      currentStep: 1,
+      equipment: [],
+      trainingDays: [1, 3, 5],
+      minutesPerSession: 45,
+      activeRestrictions: [],
+      availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
+      onboardingCompleted: false,
+      isLoading: false,
+      error: null,
+    }),
 }))

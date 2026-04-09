@@ -7,7 +7,7 @@ export type MuscleGroupPriority = 'high' | 'medium' | 'low'
 const PRIORITY_WEIGHTS: Record<MuscleGroupPriority, number> = { high: 3, medium: 2, low: 1 }
 
 export function presetToMuscleGroupPriorities(
-  preset: Preset | null,
+  preset: Preset | null
 ): Record<MuscleGroup, MuscleGroupPriority | null> {
   const priorities: Record<string, MuscleGroupPriority | null> = {}
   for (const mg of ALL_MUSCLE_GROUPS) {
@@ -26,11 +26,12 @@ export function presetToMuscleGroupPriorities(
 }
 
 export function buildMuscleDistribution(
-  muscleGroupPriorities: Record<MuscleGroup, MuscleGroupPriority | null>,
+  muscleGroupPriorities: Record<MuscleGroup, MuscleGroupPriority | null>
 ): Record<string, number> {
-  const selectedMuscles = Object.entries(muscleGroupPriorities).filter(
-    ([, p]) => p !== null,
-  ) as [string, MuscleGroupPriority][]
+  const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [
+    string,
+    MuscleGroupPriority,
+  ][]
   const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + PRIORITY_WEIGHTS[p], 0)
   const dist: Record<string, number> = {}
   for (const [mg, priority] of selectedMuscles) {
@@ -40,16 +41,17 @@ export function buildMuscleDistribution(
 }
 
 export function prioritiesToMuscleDistribution(
-  muscleGroupPriorities: Record<MuscleGroup, MuscleGroupPriority | null>,
+  muscleGroupPriorities: Record<MuscleGroup, MuscleGroupPriority | null>
 ): Partial<Record<MuscleGroup, number>> {
-  const selectedMuscles = Object.entries(muscleGroupPriorities).filter(
-    ([, p]) => p !== null,
-  ) as [string, MuscleGroupPriority][]
+  const selectedMuscles = Object.entries(muscleGroupPriorities).filter(([, p]) => p !== null) as [
+    string,
+    MuscleGroupPriority,
+  ][]
   const totalWeight = selectedMuscles.reduce((sum, [, p]) => sum + PRIORITY_WEIGHTS[p], 0)
   const dist: Partial<Record<MuscleGroup, number>> = {}
   for (const [mg, priority] of selectedMuscles) {
-    (dist as Record<string, number>)[mg] = Math.round(
-      (PRIORITY_WEIGHTS[priority] / totalWeight) * 100,
+    ;(dist as Record<string, number>)[mg] = Math.round(
+      (PRIORITY_WEIGHTS[priority] / totalWeight) * 100
     )
   }
   return dist

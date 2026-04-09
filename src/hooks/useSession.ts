@@ -11,21 +11,21 @@ export function useSession() {
     (session: GeneratedSession) => {
       store.setPreviewSession(session)
     },
-    [store.setPreviewSession],
+    [store.setPreviewSession]
   )
 
   const startSession = useCallback(
     (session?: GeneratedSession) => {
       store.startSession(session)
     },
-    [store.startSession],
+    [store.startSession]
   )
 
   const logSet = useCallback(
     (repsActual: number, weightActual?: number) => {
       store.logSet(repsActual, weightActual)
     },
-    [store.logSet],
+    [store.logSet]
   )
 
   const skipRest = useCallback(() => {
@@ -36,11 +36,10 @@ export function useSession() {
     (mode: ExecutionMode) => {
       store.setExecutionMode(mode)
     },
-    [store.setExecutionMode],
+    [store.setExecutionMode]
   )
 
-  const currentExercise =
-    store.generatedSession?.exercises[store.currentExerciseIndex] ?? null
+  const currentExercise = store.generatedSession?.exercises[store.currentExerciseIndex] ?? null
 
   return {
     // State

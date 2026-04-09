@@ -1,4 +1,10 @@
-import type { Exercise, MuscleGroup, Equipment, ExerciseTag, RestrictionCondition } from '@/types/exercise'
+import type {
+  Exercise,
+  MuscleGroup,
+  Equipment,
+  ExerciseTag,
+  RestrictionCondition,
+} from '@/types/exercise'
 
 export type ExerciseFilters = {
   muscleGroups?: MuscleGroup[]
@@ -11,10 +17,7 @@ export type ExerciseFilters = {
   excludeIds?: string[]
 }
 
-export function filterExercises(
-  exercises: Exercise[],
-  filters: ExerciseFilters,
-): Exercise[] {
+export function filterExercises(exercises: Exercise[], filters: ExerciseFilters): Exercise[] {
   return exercises.filter((exercise) => {
     if (filters.muscleGroups?.length) {
       const allMuscles = [...exercise.primaryMuscles, ...exercise.secondaryMuscles]

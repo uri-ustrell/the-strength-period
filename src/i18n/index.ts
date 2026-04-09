@@ -26,9 +26,30 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      ca: { common: commonCa, exercises: exercisesCa, muscles: musclesCa, onboarding: onboardingCa, planning: planningCa, stats: statsCa },
-      es: { common: commonEs, exercises: exercisesEs, muscles: musclesEs, onboarding: onboardingEs, planning: planningEs, stats: statsEs },
-      en: { common: commonEn, exercises: exercisesEn, muscles: musclesEn, onboarding: onboardingEn, planning: planningEn, stats: statsEn },
+      ca: {
+        common: commonCa,
+        exercises: exercisesCa,
+        muscles: musclesCa,
+        onboarding: onboardingCa,
+        planning: planningCa,
+        stats: statsCa,
+      },
+      es: {
+        common: commonEs,
+        exercises: exercisesEs,
+        muscles: musclesEs,
+        onboarding: onboardingEs,
+        planning: planningEs,
+        stats: statsEs,
+      },
+      en: {
+        common: commonEn,
+        exercises: exercisesEn,
+        muscles: musclesEn,
+        onboarding: onboardingEn,
+        planning: planningEn,
+        stats: statsEn,
+      },
     },
     fallbackLng: 'en',
     defaultNS: 'common',

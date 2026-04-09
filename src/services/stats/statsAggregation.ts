@@ -45,7 +45,7 @@ export function buildExerciseMap(exercises: Exercise[]): Map<string, Exercise> {
 
 export function aggregateVolume(
   sets: ExecutedSet[],
-  exerciseMap: Map<string, Exercise>,
+  exerciseMap: Map<string, Exercise>
 ): { data: VolumeDataPoint[]; muscleGroups: string[] } {
   const weekMuscles = new Map<string, Map<string, number>>()
   const allMuscles = new Set<string>()
@@ -81,7 +81,7 @@ export function aggregateVolume(
 
 export function aggregateProgression(
   sets: ExecutedSet[],
-  exerciseId: string,
+  exerciseId: string
 ): ProgressionDataPoint[] {
   const byDate = new Map<string, { maxWeight: number; maxVolume: number }>()
 
@@ -110,7 +110,7 @@ export function aggregateProgression(
 
 export function aggregateAdherence(
   sessions: ExecutedSession[],
-  plannedPerWeek: number,
+  plannedPerWeek: number
 ): AdherenceDataPoint[] {
   const weekCompleted = new Map<string, number>()
 

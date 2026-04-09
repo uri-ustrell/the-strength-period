@@ -14,7 +14,7 @@ export async function getMesocycle(id: string): Promise<Mesocycle | undefined> {
 export async function getActiveMesocycle(): Promise<Mesocycle | undefined> {
   const db = await getDB()
   const all = await db.getAll('mesocycles')
-  return all.find(m => m.active)
+  return all.find((m) => m.active)
 }
 
 export async function listMesocycles(): Promise<Mesocycle[]> {

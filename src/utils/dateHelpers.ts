@@ -9,7 +9,11 @@ export function getTodayDow(): 1 | 2 | 3 | 4 | 5 | 6 | 7 {
   return (js === 0 ? 7 : js) as 1 | 2 | 3 | 4 | 5 | 6 | 7
 }
 
-export function getSessionDate(mesocycleStartDate: string, weekNumber: number, dayOfWeek: number): Date {
+export function getSessionDate(
+  mesocycleStartDate: string,
+  weekNumber: number,
+  dayOfWeek: number
+): Date {
   const start = new Date(mesocycleStartDate)
   // Find the Monday of the week containing startDate
   const startDow = start.getDay() // 0=Sun, 1=Mon, ..., 6=Sat
@@ -35,7 +39,7 @@ export function getWeekStart(date: Date): Date {
 
 export function calculateStreak(sessions: ExecutedSession[]): number {
   const completedDates = new Set(
-    sessions.filter((s) => !s.skipped && s.completedAt).map((s) => s.date),
+    sessions.filter((s) => !s.skipped && s.completedAt).map((s) => s.date)
   )
   let streak = 0
   const today = new Date()

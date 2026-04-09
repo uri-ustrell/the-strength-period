@@ -14,9 +14,7 @@ const DAY_KEYS = ['', '1', '2', '3', '4', '5', '6', '7'] as const
 export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props) => {
   const { t } = useTranslation('planning')
 
-  const weekSessions = mesocycle.sessions.filter(
-    (s) => s.weekNumber === weekNumber,
-  )
+  const weekSessions = mesocycle.sessions.filter((s) => s.weekNumber === weekNumber)
 
   const sessionsByDay = new Map<number, SessionTemplate>()
   for (const s of weekSessions) {
@@ -33,7 +31,8 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
       <div className="flex gap-1">
         {([1, 2, 3, 4, 5, 6, 7] as const).map((day) => {
           const session = sessionsByDay.get(day)
-          const isCompleted = session && (session.completed || completedTemplateIds?.has(session.id))
+          const isCompleted =
+            session && (session.completed || completedTemplateIds?.has(session.id))
           const isSkipped = session?.skipped
 
           let dotColor = 'bg-gray-200'
@@ -62,9 +61,7 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
             ))}
         </div>
       ) : (
-        <p className="text-xs text-gray-400 text-center py-2">
-          {t('no_sessions_week')}
-        </p>
+        <p className="text-xs text-gray-400 text-center py-2">{t('no_sessions_week')}</p>
       )}
     </div>
   )

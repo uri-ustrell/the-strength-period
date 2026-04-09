@@ -67,7 +67,7 @@ export const LLMAssistant = ({
     }
     const spacing = 7 / daysPerWeek
     return Array.from({ length: daysPerWeek }, (_, i) =>
-      Math.min(7, Math.max(1, Math.round(1 + i * spacing))),
+      Math.min(7, Math.max(1, Math.round(1 + i * spacing)))
     )
   }, [daysPerWeek, config.trainingDays])
 
@@ -85,7 +85,17 @@ export const LLMAssistant = ({
       personalNotes: personalNotes.trim() || undefined,
     })
     return generatePromptTemplate(params)
-  }, [preset, weeks, trainingDays, minutesPerSession, config.equipment, config.activeRestrictions, weeklyProgression, personalNotes, t])
+  }, [
+    preset,
+    weeks,
+    trainingDays,
+    minutesPerSession,
+    config.equipment,
+    config.activeRestrictions,
+    weeklyProgression,
+    personalNotes,
+    t,
+  ])
 
   // Exercise map for validation/conversion
   const exerciseMap = useMemo(() => {
@@ -160,7 +170,9 @@ export const LLMAssistant = ({
 
       {/* How to use */}
       <div className="rounded-xl border border-indigo-200 bg-indigo-50 p-4">
-        <h3 className="text-sm font-semibold text-indigo-900 mb-2">{t('planning:llm.how_to_use')}</h3>
+        <h3 className="text-sm font-semibold text-indigo-900 mb-2">
+          {t('planning:llm.how_to_use')}
+        </h3>
         <ol className="list-decimal list-inside space-y-1 text-sm text-indigo-800">
           <li>{t('planning:llm.step_1')}</li>
           <li>{t('planning:llm.step_2')}</li>

@@ -5,6 +5,15 @@
 
 ## Active Tasks
 
+### Step 17 — Formatter + Session Hooks (Complete, 2026-04-09)
+- [x] Evaluate and configure Biome as project formatter/linter (`biome.jsonc`, scripts, dependency)
+- [x] Add format-on-save + Biome VS Code settings in `.vscode/settings.json`
+- [x] Create `.agents/hooks/hooks.json` with a session-end auto-format hook
+- [x] Run Biome formatter on the entire codebase for initial normalization
+- [x] Document formatting conventions in `specs/CONVENTIONS.md`
+- [x] Run `npm run build` and confirm zero errors
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md` for Step 17 completion
+
 ### Step 18 — Multi-Source Content Ingestion Pipeline (Planned, 2026-04-08)
 - [ ] Define ingestion adapter contract (`sourceId`, fetch, map, validate, score)
 - [ ] Implement source connectors for external exercise APIs and LLM-generated JSON payloads

@@ -50,15 +50,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [weeks, setWeeks] = useState(8)
   const [daysPerWeek, setDaysPerWeek] = useState(userTrainingDays.length)
   const [minutesPerSess, setMinutesPerSess] = useState(userMinutes)
-  const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<Record<MuscleGroup, MuscleGroupPriority | null>>(
-    () => {
-      const initial: Record<string, MuscleGroupPriority | null> = {}
-      for (const mg of ALL_MUSCLE_GROUPS) {
-        initial[mg] = 'medium'
-      }
-      return initial as Record<MuscleGroup, MuscleGroupPriority | null>
-    },
-  )
+  const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<
+    Record<MuscleGroup, MuscleGroupPriority | null>
+  >(() => {
+    const initial: Record<string, MuscleGroupPriority | null> = {}
+    for (const mg of ALL_MUSCLE_GROUPS) {
+      initial[mg] = 'medium'
+    }
+    return initial as Record<MuscleGroup, MuscleGroupPriority | null>
+  })
   const [weeklyProgression, setWeeklyProgression] = useState(5)
 
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
@@ -99,7 +99,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }, [presetSearch, selectedTags, t])
   useEffect(() => {
     const loadCustomPresets = async () => {
-      const stored = await getConfig('customPresets') as CustomPreset[] | null
+      const stored = (await getConfig('customPresets')) as CustomPreset[] | null
       if (stored) setCustomPresets(stored)
     }
     loadCustomPresets()
@@ -114,9 +114,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
   const availableMuscleGroups = useMemo(() => {
     return ALL_MUSCLE_GROUPS.filter((mg) =>
-      filteredExercisePool.some((ex) =>
-        ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg),
-      ),
+      filteredExercisePool.some(
+        (ex) => ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg)
+      )
     )
   }, [filteredExercisePool])
 
@@ -129,8 +129,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const exercisesByMuscle = useMemo(() => {
     const map: Record<string, Exercise[]> = {}
     for (const mg of activeMuscleGroups) {
-      map[mg] = filteredExercisePool.filter((ex) =>
-        ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg),
+      map[mg] = filteredExercisePool.filter(
+        (ex) => ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg)
       )
     }
     return map
@@ -199,8 +199,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
     if (daysPerWeek !== userTrainingDays.length) {
       // Generate evenly spaced days
       const spacing = 7 / daysPerWeek
-      trainingDays = Array.from({ length: daysPerWeek }, (_, i) =>
-        Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek,
+      trainingDays = Array.from(
+        { length: daysPerWeek },
+        (_, i) => Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek
       )
     }
 
@@ -214,17 +215,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
       availableWeights: availableWeightsState,
     }
 
-    generate(
-      selectedPreset?.id ?? 'forca_general',
-      config,
-      exercises,
-      {
-        weeks,
-        muscleDistribution,
-        weeklyProgression,
-        exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
-      },
-    )
+    generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
+      weeks,
+      muscleDistribution,
+      weeklyProgression,
+      exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
+    })
     setStep('preview')
   }
 
@@ -242,9 +238,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const toggleExerciseSelection = (mg: string, exId: string) => {
     setExerciseSelections((prev) => {
       const current = prev[mg] ?? []
-      const next = current.includes(exId)
-        ? current.filter((id) => id !== exId)
-        : [...current, exId]
+      const next = current.includes(exId) ? current.filter((id) => id !== exId) : [...current, exId]
       return { ...prev, [mg]: next }
     })
   }
@@ -278,7 +272,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   type="button"
                   onClick={() =>
                     setSelectedTags((prev) =>
-                      active ? prev.filter((t) => t !== tag) : [...prev, tag],
+                      active ? prev.filter((t) => t !== tag) : [...prev, tag]
                     )
                   }
                   className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
@@ -318,7 +312,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {customPresets.length > 0 && (
           <>
-            <h3 className="text-sm font-medium text-gray-500 mt-4">{t('planning:saved_presets')}</h3>
+            <h3 className="text-sm font-medium text-gray-500 mt-4">
+              {t('planning:saved_presets')}
+            </h3>
             <div className="grid grid-cols-2 gap-3">
               {customPresets.map((cp) => (
                 <button
@@ -328,10 +324,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   className="rounded-xl border-2 border-gray-200 p-4 text-left transition-colors hover:border-indigo-400 hover:bg-indigo-50 relative group"
                 >
                   <h3 className="font-medium text-sm text-gray-900">{cp.name}</h3>
-                  <p className="mt-1 text-xs text-gray-500">{cp.durationWeeks} {t('planning:weeks')}</p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    {cp.durationWeeks} {t('planning:weeks')}
+                  </p>
                   <button
                     type="button"
-                    onClick={(e) => { e.stopPropagation(); handleDeleteCustomPreset(cp.id) }}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleDeleteCustomPreset(cp.id)
+                    }}
                     className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50 transition-all"
                     aria-label={t('planning:delete_preset')}
                   >
@@ -351,7 +352,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-2">
-          <button type="button" onClick={() => setStep('preset')} className="text-gray-400 hover:text-gray-600">
+          <button
+            type="button"
+            onClick={() => setStep('preset')}
+            className="text-gray-400 hover:text-gray-600"
+          >
             <ArrowLeft size={20} />
           </button>
           <h2 className="text-lg font-semibold text-gray-900">{t('planning:configure')}</h2>
@@ -359,7 +364,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">{t('planning:selectDuration')}</label>
+            <label className="block text-sm font-medium text-gray-700">
+              {t('planning:selectDuration')}
+            </label>
             <div className="mt-2 flex flex-wrap gap-2">
               {durationOptions.map((w) => (
                 <button
@@ -379,7 +386,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">{t('planning:days_per_week')}</label>
+            <label className="block text-sm font-medium text-gray-700">
+              {t('planning:days_per_week')}
+            </label>
             <div className="mt-2 flex flex-wrap gap-2">
               {[2, 3, 4, 5, 6].map((d) => (
                 <button
@@ -399,7 +408,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">{t('planning:minutes_per_session')}</label>
+            <label className="block text-sm font-medium text-gray-700">
+              {t('planning:minutes_per_session')}
+            </label>
             <div className="mt-2 flex flex-wrap gap-2">
               {[30, 45, 60, 75, 90].map((m) => (
                 <button
@@ -420,10 +431,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">{t('planning:weekly_progression')}</label>
+          <label className="block text-sm font-medium text-gray-700">
+            {t('planning:weekly_progression')}
+          </label>
           <p className="text-xs text-gray-400 mt-0.5">{t('planning:weekly_progression_desc')}</p>
           <div className="mt-2 flex items-center gap-3">
-            <span className="text-xs text-gray-400 w-20">{t('planning:progression_maintenance')}</span>
+            <span className="text-xs text-gray-400 w-20">
+              {t('planning:progression_maintenance')}
+            </span>
             <input
               type="range"
               min={0}
@@ -432,9 +447,13 @@ export const PlanCreator = ({ onComplete }: Props) => {
               onChange={(e) => setWeeklyProgression(Number(e.target.value))}
               className="flex-1 accent-indigo-600"
             />
-            <span className="text-xs text-gray-400 w-16 text-right">{t('planning:progression_aggressive')}</span>
+            <span className="text-xs text-gray-400 w-16 text-right">
+              {t('planning:progression_aggressive')}
+            </span>
           </div>
-          <div className="mt-1 text-center text-sm font-medium text-indigo-600">{weeklyProgression}/10</div>
+          <div className="mt-1 text-center text-sm font-medium text-indigo-600">
+            {weeklyProgression}/10
+          </div>
         </div>
 
         <button
@@ -459,7 +478,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
           className="flex w-full flex-col items-center gap-1 rounded-xl border-2 border-indigo-200 py-3 text-indigo-700 font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50"
         >
           <span>✨ {t('planning:llm.use_llm')}</span>
-          <span className="text-xs font-normal text-gray-500">{t('planning:llm.use_llm_desc')}</span>
+          <span className="text-xs font-normal text-gray-500">
+            {t('planning:llm.use_llm_desc')}
+          </span>
         </button>
       </div>
     )
@@ -469,18 +490,24 @@ export const PlanCreator = ({ onComplete }: Props) => {
     const handlePriorityChange = (mg: MuscleGroup, value: string) => {
       setMuscleGroupPriorities((prev) => ({
         ...prev,
-        [mg]: value === 'off' ? null : value as MuscleGroupPriority,
+        [mg]: value === 'off' ? null : (value as MuscleGroupPriority),
       }))
     }
 
     return (
       <div className="space-y-5">
         <div className="flex items-center gap-2">
-          <button type="button" onClick={() => setStep('configure')} className="text-gray-400 hover:text-gray-600">
+          <button
+            type="button"
+            onClick={() => setStep('configure')}
+            className="text-gray-400 hover:text-gray-600"
+          >
             <ArrowLeft size={20} />
           </button>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">{t('planning:select_muscle_groups')}</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              {t('planning:select_muscle_groups')}
+            </h2>
             <p className="text-xs text-gray-500 mt-0.5">{t('planning:muscle_group_explanation')}</p>
           </div>
         </div>
@@ -492,7 +519,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
           {availableMuscleGroups.map((mg) => {
             const priority = muscleGroupPriorities[mg]
             return (
-              <div key={mg} className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2">
+              <div
+                key={mg}
+                className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2"
+              >
                 <span className="text-sm text-gray-700">{t(`muscles:${mg}`)}</span>
                 <select
                   value={priority ?? 'off'}
@@ -554,18 +584,24 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   if (step === 'exercises') {
-    const canGenerate = autoSelectExercises || activeMuscleGroups.every(
-      (mg) => (exerciseSelections[mg]?.length ?? 0) > 0,
-    )
+    const canGenerate =
+      autoSelectExercises ||
+      activeMuscleGroups.every((mg) => (exerciseSelections[mg]?.length ?? 0) > 0)
 
     return (
       <div className="space-y-5">
         <div className="flex items-center gap-2">
-          <button type="button" onClick={() => setStep('muscles')} className="text-gray-400 hover:text-gray-600">
+          <button
+            type="button"
+            onClick={() => setStep('muscles')}
+            className="text-gray-400 hover:text-gray-600"
+          >
             <ArrowLeft size={20} />
           </button>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">{t('planning:select_exercises')}</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              {t('planning:select_exercises')}
+            </h2>
             <p className="text-xs text-gray-500 mt-0.5">{t('planning:select_exercises_desc')}</p>
           </div>
         </div>
@@ -580,7 +616,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
               className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
             />
             <div>
-              <span className="text-sm font-medium text-gray-900">{t('planning:auto_select_all')}</span>
+              <span className="text-sm font-medium text-gray-900">
+                {t('planning:auto_select_all')}
+              </span>
               <p className="text-xs text-gray-500 mt-0.5">{t('planning:auto_select_all_desc')}</p>
             </div>
           </label>
@@ -593,7 +631,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
               className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
             />
             <div>
-              <span className="text-sm font-medium text-gray-900">{t('planning:manual_select')}</span>
+              <span className="text-sm font-medium text-gray-900">
+                {t('planning:manual_select')}
+              </span>
             </div>
           </label>
         </div>
@@ -614,7 +654,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
                     className="flex w-full items-center justify-between px-3 py-2"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">{t(`muscles:${mg}`)}</span>
+                      <span className="text-sm font-medium text-gray-900">
+                        {t(`muscles:${mg}`)}
+                      </span>
                       <span className="text-xs text-gray-400">
                         {mgExercises.length > 0
                           ? t('planning:candidates_count', { count: mgExercises.length })
@@ -639,7 +681,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
                         </p>
                       ) : (
                         mgExercises.map((ex) => (
-                          <label key={ex.id} className="flex items-center gap-2 py-1 cursor-pointer">
+                          <label
+                            key={ex.id}
+                            className="flex items-center gap-2 py-1 cursor-pointer"
+                          >
                             <input
                               type="checkbox"
                               checked={selected.includes(ex.id)}
@@ -679,8 +724,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
     let trainingDays: DayOfWeek[] = userTrainingDays
     if (daysPerWeek !== userTrainingDays.length) {
       const spacing = 7 / daysPerWeek
-      trainingDays = Array.from({ length: daysPerWeek }, (_, i) =>
-        Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek,
+      trainingDays = Array.from(
+        { length: daysPerWeek },
+        (_, i) => Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek
       )
     }
 

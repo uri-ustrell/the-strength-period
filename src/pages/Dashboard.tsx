@@ -12,13 +12,26 @@ import { useSessionStore } from '@/stores/sessionStore'
 import { useExercises } from '@/hooks/useExercises'
 import { listSessionsByDateRange, listSetsByDateRange } from '@/services/db/sessionRepository'
 import { generateSession } from '@/services/exercises/sessionGenerator'
-import { toDateStr, getTodayDow, getSessionDate, getWeekStart, calculateStreak } from '@/utils/dateHelpers'
+import {
+  toDateStr,
+  getTodayDow,
+  getSessionDate,
+  getWeekStart,
+  calculateStreak,
+} from '@/utils/dateHelpers'
 
 const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
-  'quadriceps', 'isquiotibials', 'glutis', 'bessons',
-  'pectoral', 'dorsal', 'deltoides',
-  'biceps', 'triceps',
-  'abdominal', 'lumbar',
+  'quadriceps',
+  'isquiotibials',
+  'glutis',
+  'bessons',
+  'pectoral',
+  'dorsal',
+  'deltoides',
+  'biceps',
+  'triceps',
+  'abdominal',
+  'lumbar',
 ]
 
 const DAY_KEYS = ['', '1', '2', '3', '4', '5', '6', '7'] as const
@@ -41,7 +54,12 @@ export const Dashboard = () => {
   const [quickMinutes, setQuickMinutes] = useState(minutesPerSession)
   const [quickExpanded, setQuickExpanded] = useState(false)
   const [selectedMuscleGroups, setSelectedMuscleGroups] = useState<MuscleGroup[]>([
-    'quadriceps', 'glutis', 'dorsal', 'abdominal', 'deltoides', 'pectoral',
+    'quadriceps',
+    'glutis',
+    'dorsal',
+    'abdominal',
+    'deltoides',
+    'pectoral',
   ])
 
   useEffect(() => {
@@ -81,7 +99,8 @@ export const Dashboard = () => {
   }, [activeMesocycle])
 
   // Current week follows the next pending session, not calendar time
-  const currentWeek = nextSession?.weekNumber ?? (activeMesocycle ? activeMesocycle.durationWeeks : 0)
+  const currentWeek =
+    nextSession?.weekNumber ?? (activeMesocycle ? activeMesocycle.durationWeeks : 0)
 
   const nextSessionDate = useMemo(() => {
     if (!nextSession || !activeMesocycle) return undefined
@@ -107,11 +126,19 @@ export const Dashboard = () => {
       exercises,
       recentSessions.flatMap((s) => s.sets.map((set) => set.exerciseId)),
       equipment,
-      activeRestrictions,
+      activeRestrictions
     )
     setPreviewSession(generated)
     navigate('/session')
-  }, [nextSession, exercises, recentSessions, equipment, activeRestrictions, setPreviewSession, navigate])
+  }, [
+    nextSession,
+    exercises,
+    recentSessions,
+    equipment,
+    activeRestrictions,
+    setPreviewSession,
+    navigate,
+  ])
 
   const handleQuickSession = useCallback(() => {
     if (exercises.length === 0 || selectedMuscleGroups.length === 0) return
@@ -136,23 +163,37 @@ export const Dashboard = () => {
     const generated = generateSession(template, exercises, [], equipment, activeRestrictions)
     setPreviewSession(generated)
     navigate('/session')
-  }, [exercises, equipment, activeRestrictions, quickMinutes, todayDow, selectedMuscleGroups, setPreviewSession, navigate])
+  }, [
+    exercises,
+    equipment,
+    activeRestrictions,
+    quickMinutes,
+    todayDow,
+    selectedMuscleGroups,
+    setPreviewSession,
+    navigate,
+  ])
 
   const toggleMuscleGroup = useCallback((mg: MuscleGroup) => {
     setSelectedMuscleGroups((prev) =>
-      prev.includes(mg) ? prev.filter((m) => m !== mg) : [...prev, mg],
+      prev.includes(mg) ? prev.filter((m) => m !== mg) : [...prev, mg]
     )
   }, [])
 
   const dateLocale = i18n.language === 'ca' ? 'ca-ES' : i18n.language === 'es' ? 'es-ES' : 'en-US'
 
-  const dateStr = new Date().toLocaleDateString(
-    dateLocale,
-    { weekday: 'long', day: 'numeric', month: 'long' },
-  )
+  const dateStr = new Date().toLocaleDateString(dateLocale, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  })
 
   const nextSessionDateStr = nextSessionDate
-    ? nextSessionDate.toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long' })
+    ? nextSessionDate.toLocaleDateString(dateLocale, {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+      })
     : ''
 
   return (
@@ -177,7 +218,9 @@ export const Dashboard = () => {
         {/* Block 1: Today / Next session */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-            {nextSession && !isNextSessionToday ? t('dashboard.next_session') : t('dashboard.today')}
+            {nextSession && !isNextSessionToday
+              ? t('dashboard.next_session')
+              : t('dashboard.today')}
           </h2>
 
           {nextSession ? (
@@ -254,7 +297,9 @@ export const Dashboard = () => {
 
                   {/* Muscle groups */}
                   <div>
-                    <span className="text-xs text-gray-500 mb-1.5 block">{t('planning:muscleDistribution')}:</span>
+                    <span className="text-xs text-gray-500 mb-1.5 block">
+                      {t('planning:muscleDistribution')}:
+                    </span>
                     <div className="flex flex-wrap gap-1.5">
                       {MAIN_MUSCLE_GROUPS.map((mg) => {
                         const selected = selectedMuscleGroups.includes(mg)
@@ -343,7 +388,9 @@ export const Dashboard = () => {
                         isToday ? 'bg-indigo-50' : ''
                       }`}
                     >
-                      <span className={`text-[10px] font-medium ${isToday ? 'text-indigo-600' : 'text-gray-400'}`}>
+                      <span
+                        className={`text-[10px] font-medium ${isToday ? 'text-indigo-600' : 'text-gray-400'}`}
+                      >
                         {t(`planning:day_short.${DAY_KEYS[day]}`)}
                       </span>
                       <div className={`h-2.5 w-2.5 rounded-full ${dotColor}`} />
@@ -409,4 +456,3 @@ export const Dashboard = () => {
     </div>
   )
 }
-

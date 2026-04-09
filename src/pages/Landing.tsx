@@ -10,12 +10,8 @@ export const Landing = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
       <LanguageSelector />
-      <h1 className="text-4xl font-bold text-gray-900 text-center">
-        {t('landing.title')}
-      </h1>
-      <p className="mt-2 text-xl text-gray-500 text-center">
-        {t('landing.subtitle')}
-      </p>
+      <h1 className="text-4xl font-bold text-gray-900 text-center">{t('landing.title')}</h1>
+      <p className="mt-2 text-xl text-gray-500 text-center">{t('landing.subtitle')}</p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-3 max-w-3xl">
         <div className="flex flex-col items-center text-center p-4">

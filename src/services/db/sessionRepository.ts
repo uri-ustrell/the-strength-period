@@ -17,7 +17,10 @@ export async function getSession(id: string): Promise<ExecutedSession | undefine
   return db.get('sessions', id)
 }
 
-export async function listSessionsByDateRange(from: string, to: string): Promise<ExecutedSession[]> {
+export async function listSessionsByDateRange(
+  from: string,
+  to: string
+): Promise<ExecutedSession[]> {
   const db = await getDB()
   return db.getAllFromIndex('sessions', 'by-date', IDBKeyRange.bound(from, to))
 }
@@ -32,13 +35,16 @@ export async function getSetsByExercise(exerciseId: string): Promise<ExecutedSet
   return db.getAllFromIndex('executedSets', 'by-exerciseId', IDBKeyRange.only(exerciseId))
 }
 
-export async function markTemplateCompleted(mesocycleId: string, templateId: string): Promise<void> {
+export async function markTemplateCompleted(
+  mesocycleId: string,
+  templateId: string
+): Promise<void> {
   const db = await getDB()
   const mesocycle = await db.get('mesocycles', mesocycleId)
   if (!mesocycle) {
     throw new Error(`Mesocycle ${mesocycleId} not found`)
   }
-  const session = mesocycle.sessions.find(s => s.id === templateId)
+  const session = mesocycle.sessions.find((s) => s.id === templateId)
   if (session) {
     session.completed = true
   }

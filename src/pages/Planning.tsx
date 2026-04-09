@@ -37,9 +37,7 @@ export const Planning = () => {
 
   const completedIds = useMemo(() => {
     if (!activeMesocycle) return new Set<string>()
-    return new Set(
-      activeMesocycle.sessions.filter((s) => s.completed).map((s) => s.id),
-    )
+    return new Set(activeMesocycle.sessions.filter((s) => s.completed).map((s) => s.id))
   }, [activeMesocycle])
 
   const handleDeactivate = async () => {
@@ -80,7 +78,8 @@ export const Planning = () => {
           <div>
             <h1 className="text-xl font-bold text-gray-900">{t('planning:active_plan')}</h1>
             <p className="text-sm text-gray-500">
-              {activeMesocycle.name} — {t('planning:week')} {currentWeek}/{activeMesocycle.durationWeeks}
+              {activeMesocycle.name} — {t('planning:week')} {currentWeek}/
+              {activeMesocycle.durationWeeks}
             </p>
           </div>
           <div className="flex gap-2">
@@ -115,4 +114,3 @@ export const Planning = () => {
     </div>
   )
 }
-

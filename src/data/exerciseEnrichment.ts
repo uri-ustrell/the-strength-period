@@ -19,7 +19,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Barbell_Squat',
     tags: ['corredor', 'pujada'],
     restrictions: [
-      { condition: 'tendinitis_rotuliana', action: 'modify', note: 'Limitar profunditat, evitar rebots' },
+      {
+        condition: 'tendinitis_rotuliana',
+        action: 'modify',
+        note: 'Limitar profunditat, evitar rebots',
+      },
       { condition: 'rehab_genoll', action: 'modify', note: 'Reduir càrrega, controlar ROM' },
     ],
     category: 'strength',
@@ -30,7 +34,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Barbell_Deadlift',
     tags: ['corredor', 'pujada'],
     restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Mantenir esquena neutra, reduir càrrega' },
+      {
+        condition: 'rehab_lumbar',
+        action: 'modify',
+        note: 'Mantenir esquena neutra, reduir càrrega',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
@@ -40,7 +48,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Leg_Press',
     tags: ['corredor', 'pujada'],
     restrictions: [
-      { condition: 'tendinitis_rotuliana', action: 'modify', note: 'Evitar flexió profunda de genoll' },
+      {
+        condition: 'tendinitis_rotuliana',
+        action: 'modify',
+        note: 'Evitar flexió profunda de genoll',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
@@ -71,7 +83,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Leg_Extensions',
     tags: ['corredor', 'rehab_genoll'],
     restrictions: [
-      { condition: 'tendinitis_rotuliana', action: 'modify', note: 'Rang parcial, evitar extensió completa amb càrrega' },
+      {
+        condition: 'tendinitis_rotuliana',
+        action: 'modify',
+        note: 'Rang parcial, evitar extensió completa amb càrrega',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 45,
@@ -198,9 +214,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
   Good_Morning: {
     nameKey: 'exercises:Good_Morning',
     tags: ['corredor'],
-    restrictions: [
-      { condition: 'rehab_lumbar', action: 'avoid', note: 'Alt estrès lumbar' },
-    ],
+    restrictions: [{ condition: 'rehab_lumbar', action: 'avoid', note: 'Alt estrès lumbar' }],
     category: 'strength',
     estimatedSeriesDurationSeconds: 45,
     progressionMetric: 'weight',
@@ -218,7 +232,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Stiff-Legged_Barbell_Deadlift',
     tags: ['corredor', 'velocitat'],
     restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Reduir càrrega, mantenir esquena neutra' },
+      {
+        condition: 'rehab_lumbar',
+        action: 'modify',
+        note: 'Reduir càrrega, mantenir esquena neutra',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
@@ -236,7 +254,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Barbell_Lunge',
     tags: ['corredor', 'pujada', 'baixada'],
     restrictions: [
-      { condition: 'tendinitis_rotuliana', action: 'modify', note: 'Passos curts, controlar descens' },
+      {
+        condition: 'tendinitis_rotuliana',
+        action: 'modify',
+        note: 'Passos curts, controlar descens',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 50,
@@ -264,7 +286,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     estimatedSeriesDurationSeconds: 45,
     progressionMetric: 'seconds',
   },
-  'Push_Up_to_Side_Plank': {
+  Push_Up_to_Side_Plank: {
     nameKey: 'exercises:Push_Up_to_Side_Plank',
     tags: ['core_estabilitat', 'corredor'],
     restrictions: [],
@@ -277,7 +299,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Hanging_Leg_Raise',
     tags: ['core_estabilitat'],
     restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Flexionar genolls, evitar extensió excessiva' },
+      {
+        condition: 'rehab_lumbar',
+        action: 'modify',
+        note: 'Flexionar genolls, evitar extensió excessiva',
+      },
     ],
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
@@ -371,9 +397,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
   'Jackknife_Sit-Up': {
     nameKey: 'exercises:Jackknife_Sit-Up',
     tags: ['core_estabilitat'],
-    restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Reduir amplitud' },
-    ],
+    restrictions: [{ condition: 'rehab_lumbar', action: 'modify', note: 'Reduir amplitud' }],
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',
@@ -781,13 +805,17 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Band_Good_Morning',
     tags: ['rehab_lumbar', 'corredor', 'escalfament'],
     restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Usar banda lleugera, control postural' },
+      {
+        condition: 'rehab_lumbar',
+        action: 'modify',
+        note: 'Usar banda lleugera, control postural',
+      },
     ],
     category: 'stability',
     estimatedSeriesDurationSeconds: 35,
     progressionMetric: 'reps',
   },
-  'Hyperextensions_Back_Extensions': {
+  Hyperextensions_Back_Extensions: {
     nameKey: 'exercises:Hyperextensions_Back_Extensions',
     tags: ['rehab_lumbar', 'corredor'],
     restrictions: [
@@ -871,7 +899,11 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
     nameKey: 'exercises:Box_Jump_Multiple_Response',
     tags: ['pliometria', 'corredor', 'velocitat', 'pujada'],
     restrictions: [
-      { condition: 'tendinitis_rotuliana', action: 'avoid', note: 'Impacte alt sobre tendó rotulià' },
+      {
+        condition: 'tendinitis_rotuliana',
+        action: 'avoid',
+        note: 'Impacte alt sobre tendó rotulià',
+      },
       { condition: 'rehab_genoll', action: 'avoid', note: 'Impacte alt sobre articulació' },
       { condition: 'rehab_turmell', action: 'avoid', note: 'Impacte alt sobre turmell' },
     ],
@@ -939,9 +971,7 @@ export const exerciseEnrichment: Record<string, EnrichmentData> = {
   Decline_Oblique_Crunch: {
     nameKey: 'exercises:Decline_Oblique_Crunch',
     tags: ['core_estabilitat'],
-    restrictions: [
-      { condition: 'rehab_lumbar', action: 'modify', note: 'Reduir rang de rotació' },
-    ],
+    restrictions: [{ condition: 'rehab_lumbar', action: 'modify', note: 'Reduir rang de rotació' }],
     category: 'strength',
     estimatedSeriesDurationSeconds: 40,
     progressionMetric: 'reps',

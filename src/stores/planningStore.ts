@@ -4,7 +4,12 @@ import type { Mesocycle, LoadTarget, ProgressionType } from '@/types/planning'
 import type { Exercise } from '@/types/exercise'
 import type { UserConfig } from '@/types/user'
 import { generateMesocycle } from '@/services/planning/planningEngine'
-import { saveMesocycle, getActiveMesocycle, listMesocycles, updateMesocycle } from '@/services/db/mesocycleRepository'
+import {
+  saveMesocycle,
+  getActiveMesocycle,
+  listMesocycles,
+  updateMesocycle,
+} from '@/services/db/mesocycleRepository'
 import { skipSession, adjustLoad, unskipSession } from '@/services/planning/planningAdjuster'
 
 interface PlanningStore {
@@ -17,14 +22,29 @@ interface PlanningStore {
   error: string | null
 
   // Actions
-  generate: (presetId: string, config: UserConfig, exercises: Exercise[], options?: { weeks?: number; muscleDistribution?: Record<string, number>; progressionType?: ProgressionType; weeklyProgression?: number; exerciseSelections?: Record<string, string[]> }) => void
+  generate: (
+    presetId: string,
+    config: UserConfig,
+    exercises: Exercise[],
+    options?: {
+      weeks?: number
+      muscleDistribution?: Record<string, number>
+      progressionType?: ProgressionType
+      weeklyProgression?: number
+      exerciseSelections?: Record<string, string[]>
+    }
+  ) => void
   saveGenerated: () => Promise<void>
   discardGenerated: () => void
   loadActive: () => Promise<void>
   loadAll: () => Promise<void>
   skipSessionAction: (templateId: string) => Promise<void>
   unskipSessionAction: (templateId: string) => Promise<void>
-  adjustLoadAction: (templateId: string, muscleGroup: string, loadUpdates: Partial<LoadTarget>) => Promise<void>
+  adjustLoadAction: (
+    templateId: string,
+    muscleGroup: string,
+    loadUpdates: Partial<LoadTarget>
+  ) => Promise<void>
   setGeneratedPreview: (mesocycle: Mesocycle) => void
   deactivate: (id: string) => Promise<void>
   reset: () => void
@@ -141,12 +161,13 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
     }
   },
 
-  reset: () => set({
-    activeMesocycle: null,
-    allMesocycles: [],
-    generatedPreview: null,
-    isGenerating: false,
-    isLoading: false,
-    error: null,
-  }),
+  reset: () =>
+    set({
+      activeMesocycle: null,
+      allMesocycles: [],
+      generatedPreview: null,
+      isGenerating: false,
+      isLoading: false,
+      error: null,
+    }),
 }))
