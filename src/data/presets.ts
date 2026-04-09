@@ -256,58 +256,35 @@ function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
   }
 }
 
-function buildPresetFromCatalog(options: {
-  parsedPreset: ParsedCatalogPreset
-  fallbackPreset?: Preset
-}): Preset | undefined {
-  const { parsedPreset, fallbackPreset } = options
-
-  const nameKey = parsedPreset.nameKey ?? fallbackPreset?.nameKey
-  const descriptionKey = parsedPreset.descriptionKey ?? fallbackPreset?.descriptionKey
-  const durationOptions =
-    parsedPreset.durationOptions && parsedPreset.durationOptions.length > 0
-      ? parsedPreset.durationOptions
-      : fallbackPreset?.durationOptions
-
-  if (!nameKey || !descriptionKey || !durationOptions || durationOptions.length === 0) {
+function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | undefined {
+  if (
+    !parsedPreset.nameKey ||
+    !parsedPreset.descriptionKey ||
+    !parsedPreset.durationOptions ||
+    parsedPreset.durationOptions.length === 0
+  ) {
     return undefined
   }
 
-  const parsedMuscleDistribution = parsedPreset.muscleDistribution
-  const muscleDistribution =
-    parsedMuscleDistribution && Object.keys(parsedMuscleDistribution).length > 0
-      ? parsedMuscleDistribution
-      : (fallbackPreset?.muscleDistribution ?? {})
-
-  const requiredTags =
-    parsedPreset.requiredTags && parsedPreset.requiredTags.length > 0
-      ? parsedPreset.requiredTags
-      : (fallbackPreset?.requiredTags ?? [])
-
-  const autoRestrictions =
-    parsedPreset.autoRestrictions && parsedPreset.autoRestrictions.length > 0
-      ? parsedPreset.autoRestrictions
-      : (fallbackPreset?.autoRestrictions ?? [])
-
   return {
     id: parsedPreset.id,
-    nameKey,
-    descriptionKey,
-    durationOptions,
-    muscleDistribution,
-    requiredTags,
-    autoRestrictions,
-    progressionType: parsedPreset.progressionType ?? fallbackPreset?.progressionType ?? 'linear',
-    notes: parsedPreset.notes ?? fallbackPreset?.notes,
+    nameKey: parsedPreset.nameKey,
+    descriptionKey: parsedPreset.descriptionKey,
+    durationOptions: parsedPreset.durationOptions,
+    muscleDistribution: parsedPreset.muscleDistribution ?? {},
+    requiredTags: parsedPreset.requiredTags ?? [],
+    autoRestrictions: parsedPreset.autoRestrictions ?? [],
+    progressionType: parsedPreset.progressionType ?? 'linear',
+    notes: parsedPreset.notes,
   }
 }
 
-function buildPresetsFromCatalog(catalog: unknown, fallbackPresets: Preset[]): Preset[] {
+function buildPresetsFromCatalog(catalog: unknown): Preset[] {
   if (!Array.isArray(catalog)) {
-    return fallbackPresets
+    return []
   }
 
-  const presetsById = new Map(fallbackPresets.map((preset) => [preset.id, preset]))
+  const presetsById = new Map<string, Preset>()
 
   for (const rawPreset of catalog) {
     const parsedPreset = parseCatalogPreset(rawPreset)
@@ -315,10 +292,7 @@ function buildPresetsFromCatalog(catalog: unknown, fallbackPresets: Preset[]): P
       continue
     }
 
-    const mergedPreset = buildPresetFromCatalog({
-      parsedPreset,
-      fallbackPreset: presetsById.get(parsedPreset.id),
-    })
+    const mergedPreset = buildPresetFromCatalog(parsedPreset)
 
     if (!mergedPreset) {
       continue
@@ -337,7 +311,7 @@ function buildPresetsFromCatalog(catalog: unknown, fallbackPresets: Preset[]): P
     .filter((preset): preset is Preset => Boolean(preset))
 }
 
-export const PRESETS: Preset[] = buildPresetsFromCatalog(presetCatalog, HARDCODED_PRESETS)
+export const PRESETS: Preset[] = buildPresetsFromCatalog(presetCatalog)
 
 export function getPresetById(id: string): Preset | undefined {
   return PRESETS.find((p) => p.id === id)

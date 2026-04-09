@@ -7,6 +7,16 @@
 
 ## Recent Changes
 
+### Tooling Support — Catalog-Driven Preset + Exercise UI Sources (2026-04-09)
+- **Changed**: `src/data/presets.ts` runtime preset building now renders directly from `data/ingestion/presets/catalog.json` parsed entries, removing hardcoded fallback merges from the UI data path.
+- **Verified**: Existing built-in presets rendered by UI are present in the ingestion preset catalog (`corredor_general`, `pujada`, `rehab_tendinitis_anserina`, `forca_general`, `mobilitat_prevencio`).
+- **Added**: `src/services/exercises/exerciseCatalog.ts` as a minimal adapter for exercise catalog source configuration and payload parsing.
+- **Changed**: `src/services/exercises/exerciseLoader.ts` now consumes the exercise catalog through the adapter (`EXERCISE_CATALOG_URL` + parser) to keep runtime source explicit and catalog-driven.
+- **Changed**: `scripts/buildExercises.ts` now writes using `EXERCISE_CATALOG_PATH` from `scripts/ingestion/paths.ts`, keeping build-time exercise output aligned with ingestion merge targets.
+- **Verification**:
+  - `npm run ingest -- --config data/ingestion/sources.example.json --dry-run` passes (run `ingestion-20260409-203225-5402c6`: accepted 557, skipped 218, duplicate 100, rejected 0)
+  - `npm run build` passes (TypeScript + Vite + PWA generation)
+
 ### Tooling Support — Focused Ingestion Tests + Artifact Hygiene (2026-04-09)
 - **Added**: Minimal deterministic ingestion test command in `package.json` (`test:ingestion`) powered by the existing `tsx` toolchain.
 - **Added**: Focused tests in `scripts/ingestion/i18nMerge.test.ts` covering:

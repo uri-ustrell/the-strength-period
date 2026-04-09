@@ -1,10 +1,11 @@
+import { EXERCISE_CATALOG_URL, parseExerciseCatalog } from '@/services/exercises/exerciseCatalog'
 import type { Exercise } from '@/types/exercise'
 
 export async function loadExercises(): Promise<Exercise[]> {
-  const response = await fetch('/exercises/exercises.json')
+  const response = await fetch(EXERCISE_CATALOG_URL)
   if (!response.ok) {
     throw new Error(`Failed to load exercises: ${response.status} ${response.statusText}`)
   }
-  const exercises: Exercise[] = await response.json()
-  return exercises
+  const payload: unknown = await response.json()
+  return parseExerciseCatalog(payload)
 }

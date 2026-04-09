@@ -35,7 +35,9 @@
 - Available weights start unselected by default; the first selection per equipment auto-selects inferior weights once, then subsequent interactions are isolated per-weight toggles.
 - Step 18 now includes reusable manual LLM chat prompt templates for presets/exercises under `data/ingestion/prompts/`, aligned with ingestion validators.
 - Preset batch ingestion now accepts optional i18n payloads, writes preset translations/tags to locale planning files (`ingested_presets`, `preset_tags`) with locale fallback rules, and auto-seeds hardcoded app presets into the ingestion catalog.
+- UI presets now render from ingestion preset catalog entries (`data/ingestion/presets/catalog.json`) without hardcoded fallback merges, and exercises load through a dedicated catalog adapter targeting `/exercises/exercises.json`.
 - Exercise ingestion `llm-json` path now reuses one loaded payload for both candidate parsing and i18n parsing, validates the prompt i18n contract (`ca/es/en`, localized names, required tag labels) as explicit candidate reasons, and merges names/instructions/tag labels with duplicate-safe canonical i18n refresh using deterministic multi-candidate resolution.
+- `scripts/buildExercises.ts` now writes through the shared ingestion exercise catalog path constant to prevent path drift between build output and ingestion merge targets.
 - Step 18 ingestion now has focused automated tests (`npm run test:ingestion`) covering deterministic grouped i18n merge precedence and LLM i18n contract-validation edge cases.
 - Runtime-generated ingestion report/review-queue artifacts under `data/ingestion/reports/` and `data/ingestion/queues/` are treated as transient outputs, with only `.gitkeep` placeholders tracked.
 - Tooling baseline now uses Biome for formatting/linting with repository-wide normalization and session-end auto-format hooks.

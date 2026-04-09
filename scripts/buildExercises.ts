@@ -10,11 +10,12 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { exerciseEnrichment } from '../src/data/exerciseEnrichment'
-import { freeExerciseDbMuscleMap, freeExerciseDbEquipmentMap } from '../src/data/muscleGroups'
+import { freeExerciseDbEquipmentMap, freeExerciseDbMuscleMap } from '../src/data/muscleGroups'
+import { EXERCISE_CATALOG_PATH } from './ingestion/paths'
 
 // --- Types (mirrored from src/types/exercise.ts to avoid @/ alias) ---
 
@@ -71,7 +72,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 
 const rawPath = resolve(ROOT, 'data/raw/free-exercise-db.json')
-const outPath = resolve(ROOT, 'public/exercises/exercises.json')
+const outPath = EXERCISE_CATALOG_PATH
 
 const rawExercises: RawExercise[] = JSON.parse(readFileSync(rawPath, 'utf-8'))
 
