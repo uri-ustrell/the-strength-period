@@ -7,6 +7,17 @@
 
 ## Recent Changes
 
+### Step 18 — Multi-Source Content Ingestion Pipeline (2026-04-09)
+- **Added**: Core ingestion modules under `scripts/ingestion/` (contracts, adapters, normalizers, validators, dedup, review queue, reports, merge, photo pipeline, preset generator, and shared CLI/path utilities).
+- **Added**: Step 18 CLI entrypoints (`scripts/runIngestion.ts`, `scripts/generateExercisePhotos.ts`, `scripts/generatePresetBatch.ts`) and npm scripts (`ingest`, `photos`, `presets`).
+- **Added**: Ingestion artifacts/config roots (`data/ingestion/*`) and exercise image placeholder root (`public/exercises/images/.gitkeep`).
+- **Implemented**: Deterministic flow with source-license validation, canonical normalization + schema validation, dedup guardrails (registry/slug/similarity/alias map), review gating, dry-run support, and rollback-safe writes.
+- **Implemented**: Photo-generation integration from ingestion accepted IDs plus mode-based photo generation (`all`, `missing`, `single`, `from-report`) with free-tier-first provider selection and one-model-per-run metadata locking.
+- **Implemented**: Claude preset batch generation flow with output validation and available-exercise ID constraints.
+- **Verification**: `npm run build` passes (TypeScript + Vite production build).
+- **Verification**: `npm run ingest -- --config data/ingestion/sources.example.json --dry-run` passes (run `ingestion-20260409-115055-a84a7a`: accepted 557, skipped 218, duplicate 100, rejected 0).
+- **Verification**: `npm run photos -- --help` and `npm run presets -- --help` both pass offline and print expected CLI usage.
+
 ### Step 17 — Formatter + Session Hooks (2026-04-09)
 - **Added**: `@biomejs/biome` as the repository formatter/linter baseline.
 - **Added**: Biome scripts in `package.json` (`format`, `format:check`, `lint:biome`).

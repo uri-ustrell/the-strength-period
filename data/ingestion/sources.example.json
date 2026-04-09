@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "adapter": "free-exercise-db",
+      "sourceId": "free-exercise-db-example",
+      "sourceType": "external-api",
+      "input": "data/raw/free-exercise-db.json",
+      "sourceUrl": "https://github.com/yuhonas/free-exercise-db",
+      "license": {
+        "licenseName": "MIT",
+        "licenseUrl": "https://github.com/yuhonas/free-exercise-db/blob/master/LICENSE",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": true,
+        "attributionText": "Exercise data from free-exercise-db (MIT).",
+        "provenance": "Pinned upstream snapshot used for local ingestion tests.",
+        "verifiedAt": "2026-04-09T00:00:00.000Z",
+        "verifiedBy": "step18-example"
+      },
+      "options": {
+        "defaultSetDurationSeconds": 40,
+        "defaultTags": ["corredor"]
+      }
+    },
+    {
+      "adapter": "llm-json",
+      "sourceId": "llm-json-example",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-example.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-owned LLM output",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "User generated JSON through personal LLM account.",
+        "verifiedAt": "2026-04-09T00:00:00.000Z",
+        "verifiedBy": "step18-example"
+      }
+    }
+  ]
+}

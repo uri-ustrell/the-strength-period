@@ -2,7 +2,7 @@
 
 > Last updated: 2026-04-09
 
-## Current Phase: Step 17 Complete — Steps 16 & 18 Planned
+## Current Phase: Step 18 Complete — Step 16 Planned
 
 ## Steps Overview
 
@@ -24,7 +24,7 @@
 | 15 | User-Owned LLM Assistant | ✅ | Step 14 |
 | 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
 | 17 | Formatter + Session Hooks | ✅ | — |
-| 18 | Multi-Source Content Ingestion Pipeline | 🚧 Planned | Steps 2, 7, 15 |
+| 18 | Multi-Source Content Ingestion Pipeline | ✅ | Steps 2, 7, 15 |
 
 ## Architecture Notes
 
@@ -76,20 +76,20 @@
 - [x] Document formatting conventions in `specs/CONVENTIONS.md`
 - [x] Build verification: `npm run build` passes with zero errors
 
-### Step 18 — Multi-Source Content Ingestion Pipeline
-- [ ] Define canonical contracts for ingestion candidates and outputs (exercise, preset, ingestion report)
-- [ ] Build source-adapter architecture for multiple providers (external APIs, LLM JSON outputs)
-- [ ] Implement normalization + schema validation to map source payloads into canonical exercise/preset structures
-- [ ] Add robust dedup strategy before merge (source IDs, slug collisions, title/muscle similarity, alias map)
-- [ ] Add review gates for low-confidence items (reject/accept queue) before appending to source-of-truth datasets
-- [ ] Build Node pipeline for exercise photos with free-tier-first provider abstraction (use Nanobanana only when free tier is available; otherwise auto-select best free provider such as Pollinations/Hugging Face)
-- [ ] Provide a style reference image in photo-generation prompts so all exercise images follow the same visual language
-- [ ] Lock photo generation to one single model per catalog generation cycle to ensure consistent style across all exercises
-- [ ] Support image generation modes: full recursive regen, only missing photos, single exercise, and ingestion-driven incremental mode
-- [ ] Wire ingestion success path to trigger photo generation for each newly accepted exercise
-- [ ] Build Node preset-batch generator using Claude API (free-tier-first), with prompt-in → validated preset JSON out constrained to available exercises
-- [ ] Emit ingestion reports with accepted/skipped/duplicate/rejected counts and reasons; include dry-run and rollback-safe workflow
-- [ ] Validate legal/licensing metadata per source before merge (attribution, allowed usage, provenance)
+### Step 18 — Multi-Source Content Ingestion Pipeline ✅
+- [x] Define canonical contracts for ingestion candidates and outputs (exercise, preset, ingestion report)
+- [x] Build source-adapter architecture for multiple providers (external APIs, LLM JSON outputs)
+- [x] Implement normalization + schema validation to map source payloads into canonical exercise/preset structures
+- [x] Add robust dedup strategy before merge (source IDs, slug collisions, title/muscle similarity, alias map)
+- [x] Add review gates for low-confidence items (reject/accept queue) before appending to source-of-truth datasets
+- [x] Build Node pipeline for exercise photos with free-tier-first provider abstraction (use Nanobanana only when free tier is available; otherwise auto-select best free provider such as Pollinations/Hugging Face)
+- [x] Provide a style reference image in photo-generation prompts so all exercise images follow the same visual language
+- [x] Lock photo generation to one single model per catalog generation cycle to ensure consistent style across all exercises
+- [x] Support image generation modes: full recursive regen, only missing photos, single exercise, and ingestion-driven incremental mode
+- [x] Wire ingestion success path to trigger photo generation for each newly accepted exercise
+- [x] Build Node preset-batch generator using Claude API (free-tier-first), with prompt-in → validated preset JSON out constrained to available exercises
+- [x] Emit ingestion reports with accepted/skipped/duplicate/rejected counts and reasons; include dry-run and rollback-safe workflow
+- [x] Validate legal/licensing metadata per source before merge (attribution, allowed usage, provenance)
 
 ## Active Known Issues
 

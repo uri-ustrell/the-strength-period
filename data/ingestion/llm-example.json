@@ -1,0 +1,42 @@
+{
+  "exercises": [
+    {
+      "kind": "exercise",
+      "sourceExternalId": "Split_Squat_Iso_Hold",
+      "title": "Split Squat Iso Hold",
+      "aliases": ["split squat hold"],
+      "primaryMuscles": ["quadriceps", "glutes"],
+      "secondaryMuscles": ["abdominals"],
+      "equipment": ["body only"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 45,
+      "progressionMetric": "seconds",
+      "tags": ["core_stability", "mobilitat"],
+      "instructions": [
+        "Stand in split stance.",
+        "Lower until front knee is near 90 degrees.",
+        "Hold while keeping torso upright."
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "kind": "preset",
+      "sourceExternalId": "rehab_knee_stability",
+      "title": "Rehab Knee Stability",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "quadriceps": 35,
+        "glutis": 30,
+        "abdominal": 20,
+        "mobilitat_turmell": 15
+      },
+      "requiredTags": ["rehab_genoll", "core_estabilitat"],
+      "autoRestrictions": ["rehab_genoll"],
+      "progressionType": "linear",
+      "exerciseIds": ["90_90_Hamstring"],
+      "notes": "Low impact baseline preset for controlled load progression."
+    }
+  ]
+}

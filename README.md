@@ -36,6 +36,12 @@ Required:
 Optional:
 - `GEMINI_MODEL`: overrides server default model (`gemini-2.5-flash`)
 - `VITE_MOCK_API`: frontend MSW flag (`true` enables mock response for `/api/generate-plan`)
+- `CLAUDE_API_KEY`: required for live `npm run presets` Claude generation (optional if validating from `--response-file`)
+- `CLAUDE_FREE_TIER_AVAILABLE`: set to `true` to keep preset generation in free-tier mode by default
+- `HUGGINGFACE_API_TOKEN`: optional free-tier provider token for `npm run photos`
+- `NANOBANANA_API_KEY`: optional fallback provider key for `npm run photos`
+- `NANOBANANA_FREE_TIER_AVAILABLE`: set to `true` only when Nanobanana free tier is confirmed
+- `NANOBANANA_ENDPOINT`: optional Nanobanana endpoint override
 
 Example:
 
@@ -43,6 +49,12 @@ Example:
 GEMINI_API_KEY=your-gemini-api-key-here
 # GEMINI_MODEL=gemini-2.5-flash
 VITE_MOCK_API=false
+# CLAUDE_API_KEY=your-claude-api-key
+# CLAUDE_FREE_TIER_AVAILABLE=false
+# HUGGINGFACE_API_TOKEN=hf_xxx
+# NANOBANANA_API_KEY=your-nanobanana-key
+# NANOBANANA_FREE_TIER_AVAILABLE=false
+# NANOBANANA_ENDPOINT=https://api.nanobanana.ai/v1/images
 ```
 
 ## Quick Start
@@ -63,6 +75,29 @@ npm run dev
 - `npm run build`: TypeScript check + Vite production build
 - `npm run preview`: serve production build locally
 - `npm run lint`: TypeScript check only
+- `npm run ingest`: run Step 18 multi-source ingestion (`scripts/runIngestion.ts`)
+- `npm run photos`: run Step 18 exercise photo pipeline (`scripts/generateExercisePhotos.ts`)
+- `npm run presets`: run Step 18 preset batch pipeline (`scripts/generatePresetBatch.ts`)
+
+## Step 18 Ingestion Workflows
+
+Example dry-run ingestion:
+
+```bash
+npm run ingest -- --config data/ingestion/sources.example.json --dry-run
+```
+
+Example missing-photo generation with style reference:
+
+```bash
+npm run photos -- --missing --style-ref public/exercises/placeholder.svg --dry-run
+```
+
+Example preset validation from saved Claude response:
+
+```bash
+npm run presets -- --response-file data/ingestion/claude-response.json --dry-run
+```
 
 ## Build
 

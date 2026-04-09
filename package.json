@@ -13,6 +13,9 @@
     "format:check": "biome format .",
     "lint:biome": "biome lint .",
     "build:exercises": "tsx scripts/buildExercises.ts",
+    "ingest": "tsx scripts/runIngestion.ts",
+    "photos": "tsx scripts/generateExercisePhotos.ts",
+    "presets": "tsx scripts/generatePresetBatch.ts",
     "preview": "vite preview",
     "lint": "tsc --noEmit"
   },
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.10",
+    "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vercel/node": "^5.1.8",
