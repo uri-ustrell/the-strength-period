@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:ingestion",
+    "test:ingestion": "tsx --test scripts/ingestion/**/*.test.ts",
     "dev": "vite",
     "dev:api": "vercel dev",
     "dev:frontend": "VITE_MOCK_API=false vite",

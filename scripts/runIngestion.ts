@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import 'dotenv/config'
 
 import { getAdapterById, listAdapters } from './ingestion/adapters'
+import { buildLlmJsonCandidatesFromPayload } from './ingestion/adapters/llmJsonAdapter'
 import { getArg, getNumberArg, hasFlag, parseArgs } from './ingestion/cli'
 import type {
   IngestionConfigFile,
@@ -16,6 +17,12 @@ import {
   deduplicateCandidate,
   registerAcceptedCandidate,
 } from './ingestion/dedup'
+import type { ExerciseI18nUpdate, ParsedIngestionI18n } from './ingestion/i18nMerge'
+import {
+  mergeExerciseI18nIntoLocales,
+  parseLlmIngestionI18n,
+  validateLlmExerciseI18nContract,
+} from './ingestion/i18nMerge'
 import { applyAcceptedCandidates, loadMergeState, persistMergeState } from './ingestion/merge'
 import { normalizeCandidate } from './ingestion/normalizers'
 import { ROOT_DIR } from './ingestion/paths'
@@ -31,7 +38,7 @@ import {
   loadReviewDecisions,
   writeReviewQueue,
 } from './ingestion/reviewQueue'
-import { readJsonFile, toIsoTimestamp, toRunId } from './ingestion/utils'
+import { loadJsonInput, readJsonFile, toIsoTimestamp, toRunId } from './ingestion/utils'
 import {
   validateLicenseMetadata,
   validateNormalizedCandidate,
@@ -170,7 +177,25 @@ async function run(): Promise<void> {
   const acceptedCandidates: NormalizedCandidate[] = []
   const acceptedExerciseIds: string[] = []
   const acceptedPresetIds: string[] = []
+  const sourceI18nBySourceId = new Map<string, ParsedIngestionI18n>()
+  const exerciseI18nUpdates: ExerciseI18nUpdate[] = []
   const sourceSummaries: Array<{ sourceId: string; adapterId: string; candidateCount: number }> = []
+
+  function registerExerciseI18nUpdate(
+    candidate: Extract<NormalizedCandidate, { kind: 'exercise' }>,
+    canonicalExerciseId: string
+  ): void {
+    if (!sourceI18nBySourceId.has(candidate.source.sourceId)) {
+      return
+    }
+
+    exerciseI18nUpdates.push({
+      sourceId: candidate.source.sourceId,
+      sourceExternalId: candidate.sourceExternalId,
+      canonicalExerciseId,
+      tags: candidate.canonical.tags,
+    })
+  }
 
   function markAccepted(candidate: NormalizedCandidate, reasons: string[]): void {
     acceptedCandidates.push(candidate)
@@ -179,6 +204,7 @@ async function run(): Promise<void> {
     if (candidate.kind === 'exercise') {
       acceptedExerciseIds.push(candidate.canonical.id)
       availableExerciseIds.add(candidate.canonical.id)
+      registerExerciseI18nUpdate(candidate, candidate.canonical.id)
     } else {
       acceptedPresetIds.push(candidate.canonical.id)
     }
@@ -198,7 +224,21 @@ async function run(): Promise<void> {
   for (const rawSource of config.sources) {
     const source = toSourceRunConfig(rawSource)
     const adapter = getAdapterById(source.adapter)
-    const candidates = await adapter.fetchCandidates(source)
+    let llmSourcePayload: unknown | undefined
+
+    if (source.adapter === 'llm-json' || source.sourceType === 'llm-json') {
+      llmSourcePayload = await loadJsonInput<unknown>(source.input, ROOT_DIR)
+      const parsedI18n = parseLlmIngestionI18n(llmSourcePayload)
+
+      if (parsedI18n) {
+        sourceI18nBySourceId.set(source.sourceId, parsedI18n)
+      }
+    }
+
+    const candidates =
+      llmSourcePayload !== undefined
+        ? buildLlmJsonCandidatesFromPayload(source, llmSourcePayload)
+        : await adapter.fetchCandidates(source)
 
     sourceSummaries.push({
       sourceId: source.sourceId,
@@ -231,6 +271,17 @@ async function run(): Promise<void> {
 
       const errors = formatValidationIssues(schemaValidation.errors)
       const warnings = formatValidationIssues(schemaValidation.warnings)
+      const llmI18nReasons =
+        source.sourceType === 'llm-json' && normalized.kind === 'exercise'
+          ? validateLlmExerciseI18nContract({
+              sourceI18n: sourceI18nBySourceId.get(source.sourceId),
+              sourceExternalId: normalized.sourceExternalId,
+              canonicalExerciseId: normalized.canonical.id,
+              tags: normalized.canonical.tags,
+            })
+          : []
+
+      warnings.push(...llmI18nReasons)
 
       if (normalized.kind === 'preset') {
         const presetReferenceValidation = validatePresetExerciseReferences(
@@ -250,7 +301,7 @@ async function run(): Promise<void> {
           sourceExternalId: normalized.sourceExternalId,
           status: 'rejected',
           confidence: normalized.confidence,
-          reasons: errors,
+          reasons: [...errors, ...llmI18nReasons],
           canonicalId: normalized.canonical.id,
         })
         continue
@@ -259,6 +310,10 @@ async function run(): Promise<void> {
       const dedup = deduplicateCandidate(normalized, dedupContext)
 
       if (dedup.status === 'duplicate') {
+        if (normalized.kind === 'exercise' && dedup.duplicateOf) {
+          registerExerciseI18nUpdate(normalized, dedup.duplicateOf)
+        }
+
         reportItems.push({
           candidateId: normalized.candidateId,
           kind: normalized.kind,
@@ -266,7 +321,7 @@ async function run(): Promise<void> {
           sourceExternalId: normalized.sourceExternalId,
           status: 'duplicate',
           confidence: normalized.confidence,
-          reasons: dedup.reasons,
+          reasons: [...dedup.reasons, ...llmI18nReasons],
           canonicalId: normalized.canonical.id,
           duplicateOf: dedup.duplicateOf,
         })
@@ -338,7 +393,16 @@ async function run(): Promise<void> {
     runId: options.runId,
   })
 
-  const filesWritten = writes.filter((write) => write.written).map((write) => write.targetPath)
+  const i18nWrites = await mergeExerciseI18nIntoLocales({
+    updates: exerciseI18nUpdates,
+    sourceI18nBySourceId,
+    runId: options.runId,
+    dryRun: options.dryRun,
+  })
+
+  const filesWritten = [...writes, ...i18nWrites]
+    .filter((write) => write.written)
+    .map((write) => write.targetPath)
 
   let reviewQueuePath: string | undefined
   if (reviewQueueItems.length > 0) {

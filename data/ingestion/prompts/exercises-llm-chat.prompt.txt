@@ -1,0 +1,148 @@
+You are generating exercise candidates for The Strength Period ingestion pipeline.
+Return STRICT JSON only. No markdown. No explanations. No surrounding text.
+
+## About The Strength Period
+The Strength Period is a client-side strength training application that generates and manages
+periodized training plans. All data runs locally in the user's browser (no backend).
+The app focuses on runners and endurance athletes who want to complement their sport with
+structured strength work, including gamification and progress tracking.
+
+## Target user profile
+- Recreational runners and trail runners (corredor, pujada, baixada tags are highly relevant)
+- Athletes with common overuse injuries (tendinitis rotuliana, anserina, rehab_genoll)
+- Users training without a gym: bodyweight and minimal equipment preferred
+  (pes_corporal, manueles, banda_elastica prioritized over machines)
+
+VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
+[CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_START]
+## Exercise type focus for this generation
+- Category: strength (primary), stability and mobility as complements
+- Muscles: lower body focus — quadriceps, isquiotibials, glutis, bessons, estabilitzadors_cadera
+- Level range: beginner to intermediate
+- progressionMetric: prefer reps or seconds (no barbell-based weight progressions)
+- Always include at least one restriction entry for rehab_genoll or tendinitis_rotuliana
+  where clinically relevant, with action: modify or avoid and a descriptive note.
+- Tags must always include at least one of: corredor, core_estabilitat, equilibri, mobilitat
+[CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_END]
+
+MANDATORY RULES
+1) Output must be one JSON object with this top-level shape:
+{
+  "exercises": [ ... ],
+  "i18n": {
+    "ca": { ... },
+    "es": { ... },
+    "en": { ... }
+  }
+}
+2) Do not invent enum values outside the allowed lists.
+3) Do not include null values. Omit optional fields instead.
+4) Ensure sourceExternalId is unique per exercise.
+5) Provide at least one instruction per exercise.
+6) i18n.exercises keys must match each exercise sourceExternalId.
+7) For every tag used in any exercise.tags entry, include i18n tag labels in ca/es/en under
+  i18n.<locale>.preset_tags.<tag>.
+
+ALLOWED ENUMS
+- primaryMuscles / secondaryMuscles values:
+  quadriceps, isquiotibials, glutis, bessons, tibial_anterior, adductors, abductors,
+  psoes, pectoral, dorsal, trapezi, deltoides, biceps, triceps, avantbras, abdominal,
+  oblics, lumbar, estabilitzadors_cadera, mobilitat_cadera, mobilitat_turmell,
+  mobilitat_toracica, fascies
+- equipment values:
+  pes_corporal, manueles, barra, banda_elastica, pilates, trx
+- level values:
+  beginner, intermediate, expert
+- category values:
+  strength, mobility, stability, plyometrics, cardio
+- progressionMetric values:
+  weight, reps, seconds
+- tags values:
+  corredor, pujada, baixada, velocitat, rehab_genoll, rehab_turmell, rehab_lumbar,
+  tendinitis_rotuliana, tendinitis_anserina, core_estabilitat, equilibri, pliometria,
+  mobilitat, escalfament, tornada_calma
+- restrictions[].condition values:
+  rehab_genoll, rehab_lumbar, rehab_turmell, tendinitis_rotuliana
+- restrictions[].action values:
+  avoid, modify
+
+JSON SCHEMA (EXACT FIELD NAMES)
+{
+  "exercises": [
+    {
+      "kind": "exercise",
+      "sourceExternalId": "string, required",
+      "title": "string, required",
+      "aliases": ["string"],
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "estimatedSeriesDurationSeconds": 40,
+      "progressionMetric": "reps",
+      "tags": ["corredor"],
+      "restrictions": [
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "optional string"
+        }
+      ],
+      "instructions": ["Step 1", "Step 2"],
+      "representativeImageUrl": "https://example.com/image.jpg"
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "exercises": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "instructions": ["optional localized step 1", "optional localized step 2"]
+        }
+      },
+      "preset_tags": {
+        "corredor": "string, required when any exercise uses corredor"
+      }
+    },
+    "es": {
+      "exercises": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "instructions": ["optional localized step 1", "optional localized step 2"]
+        }
+      },
+      "preset_tags": {
+        "corredor": "string, required when any exercise uses corredor"
+      }
+    },
+    "en": {
+      "exercises": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "instructions": ["optional localized step 1", "optional localized step 2"]
+        }
+      },
+      "preset_tags": {
+        "corredor": "string, required when any exercise uses corredor"
+      }
+    }
+  }
+}
+
+VALIDATION TARGETS YOU MUST SATISFY
+- primaryMuscles: at least 1 item, all canonical values.
+- equipment: at least 1 item, all canonical values.
+- estimatedSeriesDurationSeconds: integer between 10 and 600.
+- level/category/progressionMetric: must match allowed enums.
+- tags: all values from allowed tags enum.
+- restrictions: each object must have valid condition and action.
+- instructions: non-empty array with meaningful steps.
+- representativeImageUrl: non-empty URL string (or use /exercises/placeholder.svg if no real image).
+- i18n: must include ca/es/en locales.
+- i18n.<locale>.exercises[sourceExternalId].name must exist for each exercise.
+- i18n.<locale>.exercises[sourceExternalId].instructions is optional, but if present must be a non-empty array.
+- i18n.<locale>.preset_tags.<tag> must exist for every tag used by generated exercises.
+
+FINAL OUTPUT REQUIREMENT
+Return only valid JSON with top-level {"exercises": [...], "i18n": {"ca": {...}, "es": {...}, "en": {...}}}.

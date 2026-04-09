@@ -1,0 +1,178 @@
+You are generating preset candidates for The Strength Period ingestion pipeline.
+Return STRICT JSON only. No markdown. No explanations. No surrounding text.
+
+## About The Strength Period
+The Strength Period is a client-side strength training application that generates periodized
+training plans for runners and endurance athletes. All data lives locally in the browser.
+Presets are reusable training plan templates that the app uses to scaffold sessions for a user
+over a defined number of weeks, combining exercises into a coherent, progressive program.
+
+## What a preset represents
+A preset defines the "shape" of a training block: which muscle groups to prioritize, which
+exercise pool to draw from, how long the block runs, and what progression strategy to apply.
+The app uses presets to auto-generate weekly sessions adapted to the user's profile and
+restrictions. One preset may produce very different sessions for a healthy runner vs. one
+recovering from a knee injury, depending on autoRestrictions filtering.
+
+## Target user profile
+- Recreational and trail runners (tags: corredor, pujada, baixada are highly relevant)
+- Athletes complementing running with gym-free strength work
+- Users with common overuse injuries: knee tendinopathies, ankle issues, low back
+- Beginner to intermediate training age
+
+## Preset generation focus for this batch
+
+Generate a varied set of preset combinations covering multiple training profiles for runners.
+Each preset should represent a coherent, purposeful training block. Aim for diversity across
+the following dimensions:
+
+VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
+[CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_START]
+### Surface & discipline specificity
+- Road runners (asphalt): prioritize quadriceps, isquiotibials, bessons, abdominal
+- Trail runners (general): prioritize glutis, estabilitzadors_cadera, abdominal, oblics
+- Climb-focused (pujada): heavy emphasis on glutis, quadriceps, psoes, estabilitzadors_cadera;
+  include pujada in requiredTags
+- Descent-focused (baixada): emphasize eccentric quadriceps, estabilitzadors_cadera, bessons;
+  include baixada in requiredTags
+- Combined climb + descent: balance pujada/baixada tags with mixed lower-body distribution
+
+### Upper body integration
+- Lower-body-only presets: muscleDistribution focused exclusively on legs and core
+- Combined presets: add meaningful upper-body groups (dorsal, pectoral, deltoides, trapezi)
+  at 15–30% total weight, keeping the runner-strength rationale intact
+
+### Weekly session volume
+- Low frequency (1–2 sessions/week): fewer exerciseIds (4–6), simpler progressionType (linear),
+  shorter durationOptions ([4, 6])
+- Moderate frequency (2–3 sessions/week): medium pool (6–9 exercises), durationOptions [6, 8]
+- High frequency (3–4 sessions/week): larger pool (8–12 exercises), undulating progression,
+  durationOptions [8, 12] or [6, 8, 12]
+
+### Progression strategy
+- Beginner-oriented presets: progressionType linear
+- Intermediate presets: progressionType undulating
+- Advanced blocks or peaking phases: progressionType block
+
+### Injury awareness
+- Include autoRestrictions: [rehab_genoll] for presets with significant knee-loading exercises
+- Include autoRestrictions: [rehab_lumbar] for presets with lumbar or heavy hip-hinge loads
+- Include autoRestrictions: [tendinitis_rotuliana] for presets emphasizing eccentric quad work
+
+### Mandatory tag rules
+- Always include corredor in requiredTags
+- Add pujada and/or baixada for terrain-specific presets
+- Add core_estabilitat for any preset with ≥ 25% abdominal + oblics combined
+
+### Notes field
+- Write 1–2 sentences describing the training rationale and target runner profile,
+  suitable for display as a UI tooltip
+[CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_END]
+
+MANDATORY RULES
+1) Output must be one JSON object with this top-level shape:
+{
+  "presets": [ ... ],
+  "i18n": {
+    "ca": { ... },
+    "es": { ... },
+    "en": { ... }
+  }
+}
+2) Use only exercise IDs from the allowed list provided below.
+3) Do not invent enum values.
+4) Do not include null values. Omit optional fields instead.
+5) Ensure sourceExternalId is unique per preset.
+6) Ensure preset id collisions are unlikely by using stable, descriptive sourceExternalId values.
+7) i18n.presets keys must match each preset sourceExternalId.
+8) Include i18n labels for every requiredTags value used across presets.
+
+ALLOWED ENUMS
+- progressionType: linear | undulating | block
+- requiredTags values:
+  corredor, pujada, baixada, velocitat, rehab_genoll, rehab_turmell, rehab_lumbar,
+  tendinitis_rotuliana, tendinitis_anserina, core_estabilitat, equilibri, pliometria,
+  mobilitat, escalfament, tornada_calma
+- autoRestrictions values:
+  rehab_genoll, rehab_lumbar, rehab_turmell, tendinitis_rotuliana
+- muscleDistribution keys (canonical muscle groups):
+  quadriceps, isquiotibials, glutis, bessons, tibial_anterior, adductors, abductors,
+  psoes, pectoral, dorsal, trapezi, deltoides, biceps, triceps, avantbras, abdominal,
+  oblics, lumbar, estabilitzadors_cadera, mobilitat_cadera, mobilitat_turmell,
+  mobilitat_toracica, fascies
+
+EXERCISE IDS ALLOWED IN ATTACHED exercise-catalog.csv
+
+JSON SCHEMA (EXACT FIELD NAMES)
+{
+  "presets": [
+    {
+      "sourceExternalId": "string, required",
+      "title": "string, required",
+      "description": "string, optional",
+      "durationOptions": [4, 6, 8],
+      "muscleDistribution": {
+        "quadriceps": 30,
+        "glutis": 30,
+        "abdominal": 40
+      },
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": ["rehab_genoll"],
+      "progressionType": "linear",
+      "notes": "string, optional",
+      "exerciseIds": ["Exercise_Id_1", "Exercise_Id_2"]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "description": "string, required"
+        }
+      },
+      "preset_tags": {
+        "corredor": "string label, required when used in requiredTags",
+        "core_estabilitat": "string label, required when used in requiredTags"
+      }
+    },
+    "es": {
+      "presets": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "description": "string, required"
+        }
+      },
+      "preset_tags": {
+        "corredor": "string label",
+        "core_estabilitat": "string label"
+      }
+    },
+    "en": {
+      "presets": {
+        "sourceExternalId_1": {
+          "name": "string, required",
+          "description": "string, required"
+        }
+      },
+      "preset_tags": {
+        "corredor": "string label",
+        "core_estabilitat": "string label"
+      }
+    }
+  }
+}
+
+VALIDATION TARGETS YOU MUST SATISFY
+- durationOptions: array of integers, each between 1 and 52.
+- muscleDistribution: at least 1 entry, every value > 0, total should be approximately 100.
+- requiredTags: every value must be in allowed requiredTags enum.
+- autoRestrictions: every value must be in allowed autoRestrictions enum.
+- progressionType: must be one of linear, undulating, block.
+- exerciseIds: every value must exist in ALLOWED_EXERCISE_IDS.
+- i18n: must include ca/es/en.
+- i18n.<locale>.presets[sourceExternalId].name and description must be non-empty for each preset.
+- i18n.<locale>.preset_tags must include labels for every requiredTags value used by any preset.
+
+FINAL OUTPUT REQUIREMENT
+Return only valid JSON with top-level {"presets": [...], "i18n": {"ca": {...}, "es": {...}, "en": {...}}}.

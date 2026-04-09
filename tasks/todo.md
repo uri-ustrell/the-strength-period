@@ -5,6 +5,57 @@
 
 ## Active Tasks
 
+### Ingestion Follow-ups — Focused Tests + Artifact Hygiene (Complete, 2026-04-09)
+- [x] Add deterministic ingestion unit tests for grouped i18n merge precedence and tag ordering in `scripts/ingestion/i18nMerge.test.ts`
+- [x] Add contract validator coverage for missing locale blocks, localized names for `sourceExternalId`/`canonicalExerciseId`, and missing `preset_tags` labels
+- [x] Add minimal deterministic test command for ingestion coverage (`npm run test:ingestion`)
+- [x] Clean runtime-generated ingestion artifacts under `data/ingestion/reports/*` and `data/ingestion/queues/*` while preserving static placeholders
+- [x] Run verification: `npm run test:ingestion`
+- [x] Run verification: `npm run ingest -- --config data/ingestion/sources.example.json --dry-run`
+- [x] Run verification: `npm run build`
+
+### Ingestion Corrections — i18n Merge/Validation + llm-json Payload Reuse (Complete, 2026-04-09)
+- [x] Preserve all exercise i18n update candidates per canonical id with deterministic resolution order
+- [x] Validate llm-json i18n contract (ca/es/en + required localized names/tag labels) and surface failures as explicit ingestion reasons
+- [x] Remove llm-json double-fetch by reusing one loaded payload for candidate parsing and i18n parsing
+- [x] Update llm example fixture to include valid top-level i18n payload that exercises ingestion i18n flow
+- [x] Run required verification: `npm run ingest -- --config data/ingestion/sources.example.json --dry-run`
+- [x] Run required verification: `npm run build`
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md` with completion notes
+
+### Ingestion Automation — Exercise i18n + Tag Localization (Complete, 2026-04-09)
+- [x] Parse optional top-level i18n payloads from llm-json ingestion sources during `npm run ingest`
+- [x] Add rollback-safe locale merge flow for exercise names in `src/i18n/locales/{ca,es,en}/exercises.json` keyed by canonical exercise id
+- [x] Add optional instruction writes to `exercises.instructions.<exerciseId>` in all locales using fallback chain (locale -> en -> existing -> fallback)
+- [x] Merge tag labels from exercise i18n payloads into `src/i18n/locales/{ca,es,en}/planning.json` under `preset_tags.<tag>` with locale fallback chain
+- [x] Keep locale files synchronized for `ca/es/en` and preserve deterministic key sorting
+- [x] Allow duplicate exercise candidates to refresh i18n for the matched canonical id when schema validation succeeds
+- [x] Preserve ingest dedup/report behavior and CLI summary output
+- [x] Update exercise LLM prompt template to require i18n tag labels for all tags used by generated exercises
+- [x] Run required verification: `npm run ingest -- --config data/ingestion/sources.example.json --dry-run`
+- [x] Run required verification: `npm run build`
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md` with completion notes
+
+### Ingestion Automation — LLM i18n Split + Hardcoded Preset Seeding (Complete, 2026-04-09)
+- [x] Update preset and exercise LLM chat prompt templates with strict top-level JSON shapes including i18n payloads (ca/es/en)
+- [x] Extend preset batch parser to support old payload formats and new payload format with i18n block
+- [x] Split preset i18n writes into locale planning files (`src/i18n/locales/{ca,es,en}/planning.json`) under `ingested_presets` and `preset_tags`
+- [x] Implement locale fallback chain for missing i18n values (en -> existing locale value -> humanized fallback)
+- [x] Ensure requiredTags from accepted presets are represented under `planning.preset_tags` for all locales
+- [x] Seed/merge hardcoded presets from `src/data/presets.ts` into `data/ingestion/presets/catalog.json` without duplicate IDs
+- [x] Keep deterministic catalog sorting and preserve ingestionMeta consistency
+- [x] Preserve existing `npm run presets` CLI output behavior
+- [x] Run `npm run build` and confirm zero errors
+- [x] Update `specs/STATUS.md` with brief completion note
+- [x] Update `specs/STATUS_HISTORY.md` with detailed completion notes
+
+### Ingestion Prompt Templates for Manual LLM Chat (Complete, 2026-04-09)
+- [x] Inspect preset flow contracts and validators (`scripts/generatePresetBatch.ts`, `scripts/ingestion/presetGenerator.ts`, `scripts/ingestion/contracts.ts`, `scripts/ingestion/validators.ts`)
+- [x] Inspect exercise flow contracts/adapters/validators (`scripts/runIngestion.ts`, `scripts/ingestion/adapters/llmJsonAdapter.ts`, `scripts/ingestion/contracts.ts`, `scripts/ingestion/validators.ts`)
+- [x] Create copy/paste-ready preset prompt template with strict JSON output contract and custom exercise-type variable section
+- [x] Create copy/paste-ready exercise prompt template with strict JSON output contract and custom exercise-type variable section
+- [x] Run verification command and confirm no regressions
+
 ### Step 18 CLI .env loading fix (Complete, 2026-04-09)
 - [x] Reproduce `CLAUDE_API_KEY` missing failure on `npm run presets`
 - [x] Load `.env` in Step 18 Node CLI entrypoints via `dotenv/config`

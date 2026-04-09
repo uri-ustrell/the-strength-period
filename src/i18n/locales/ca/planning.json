@@ -81,10 +81,13 @@
   "candidates_count": "{{count}} exercicis disponibles",
   "search_presets": "Cerca presets...",
   "preset_tags": {
+    "baixada": "Baixada",
+    "core_estabilitat": "Estabilitat del core",
     "corredor": "Corredor",
+    "mobilitat": "Mobilitat",
     "pujada": "Pujada",
-    "tendinitis_anserina": "Tendinitis anserina",
-    "mobilitat": "Mobilitat"
+    "rehab_lumbar": "Rehabilitació lumbar",
+    "tendinitis_anserina": "Tendinitis anserina"
   },
   "presets": {
     "corredor_general": "Corredor General",
@@ -137,5 +140,31 @@
     "warn_weeks_mismatch": "\"durationWeeks\" no coincideix amb el nombre de setmanes a les sessions.",
     "errors_title": "Errors (cal corregir)",
     "warnings_title": "Avisos"
+  },
+  "ingested_presets": {
+    "tsp_descent_eccentric_linear_04": {
+      "name": "Control de Baixada i Salut de Genoll",
+      "description": "Bloc centrat en el treball excèntric per protegir el tendó rotulià i augmentar la capacitat de frenada."
+    },
+    "tsp_hybrid_all_terrain_undulating_05": {
+      "name": "Rendiment Global: Hybrid Athlete",
+      "description": "Programa complet que combina la força específica de carrera amb un condicionament general del tren superior."
+    },
+    "tsp_lumbar_resilience_linear_06": {
+      "name": "Protector Lumbar i Cintura Pèlvica",
+      "description": "Bloc preventiu i de rehabilitació per a corredors amb historials de lumbàlgia o debilitat a la cadena posterior."
+    },
+    "tsp_road_foundation_linear_01": {
+      "name": "Fonaments d'Asfalt: Força Base",
+      "description": "Bloc d'introducció per a corredors de carretera que busquen una base sòlida de força i prevenció de lesions."
+    },
+    "tsp_trail_stability_undulating_02": {
+      "name": "Trail Tècnic: Estabilitat de Cadera i Core",
+      "description": "Enfocat a la millora del control motor i l'estabilitat necessària per a terrenys irregulars i descensos tècnics."
+    },
+    "tsp_vertical_power_block_03": {
+      "name": "Potència Vertical: Especialista en Pujada",
+      "description": "Dissenyat per a corredors que volen millorar el seu rendiment en desnivells positius forts (Vertical Kilometer)."
+    }
   }
 }

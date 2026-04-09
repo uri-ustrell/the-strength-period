@@ -1,0 +1,253 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "tsp_road_foundation_linear_01",
+      "title": "Fonaments d'Asfalt: Força Base",
+      "description": "Bloc d'introducció per a corredors de carretera que busquen una base sòlida de força i prevenció de lesions.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "quadriceps": 30,
+        "isquiotibials": 25,
+        "bessons": 25,
+        "abdominal": 20
+      },
+      "requiredTags": ["corredor"],
+      "progressionType": "linear",
+      "notes": "Ideal per a corredors que s'inicien en el treball de força, prioritzant la higiene postural i l'enfortiment del tren inferior.",
+      "exerciseIds": [
+        "Bodyweight_Squat",
+        "90_90_Hamstring",
+        "Calf_Raises_-_With_Bands",
+        "Plank",
+        "Reverse_Crunch"
+      ]
+    },
+    {
+      "sourceExternalId": "tsp_trail_stability_undulating_02",
+      "title": "Trail Tècnic: Estabilitat de Cadera i Core",
+      "description": "Enfocat a la millora del control motor i l'estabilitat necessària per a terrenys irregulars i descensos tècnics.",
+      "durationOptions": [6, 8],
+      "muscleDistribution": {
+        "glutis": 30,
+        "estabilitzadors_cadera": 30,
+        "abdominal": 20,
+        "oblics": 20
+      },
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "progressionType": "undulating",
+      "notes": "Aquest programa utilitza una càrrega ondulant per millorar la resiliència del core i la pelvis davant els impactes asimètrics del trail.",
+      "exerciseIds": [
+        "Butt_Lift_Bridge",
+        "Push_Up_to_Side_Plank",
+        "Russian_Twist",
+        "Dead_Bug",
+        "Crossover_Reverse_Lunge",
+        "Ab_Roller"
+      ]
+    },
+    {
+      "sourceExternalId": "tsp_vertical_power_block_03",
+      "title": "Potència Vertical: Especialista en Pujada",
+      "description": "Dissenyat per a corredors que volen millorar el seu rendiment en desnivells positius forts (Vertical Kilometer).",
+      "durationOptions": [8, 12],
+      "muscleDistribution": {
+        "glutis": 35,
+        "quadriceps": 35,
+        "psoes": 15,
+        "estabilitzadors_cadera": 15
+      },
+      "requiredTags": ["corredor", "pujada"],
+      "progressionType": "block",
+      "notes": "Bloc de càrrega d'alta intensitat per maximitzar el triple impuls (cadera-genoll-turmell) i la resistència dels flexors de cadera.",
+      "exerciseIds": [
+        "Front_Box_Jump",
+        "Goblet_Squat",
+        "Kneeling_Hip_Flexor",
+        "Single_Leg_Glute_Bridge",
+        "Dumbbell_Lunges",
+        "Single_Leg_Push-off",
+        "Knee_Tuck_Jump"
+      ]
+    },
+    {
+      "sourceExternalId": "tsp_descent_eccentric_linear_04",
+      "title": "Control de Baixada i Salut de Genoll",
+      "description": "Bloc centrat en el treball excèntric per protegir el tendó rotulià i augmentar la capacitat de frenada.",
+      "durationOptions": [6, 8],
+      "muscleDistribution": {
+        "quadriceps": 40,
+        "estabilitzadors_cadera": 30,
+        "bessons": 30
+      },
+      "requiredTags": ["corredor", "baixada"],
+      "autoRestrictions": ["rehab_genoll", "tendinitis_rotuliana"],
+      "progressionType": "linear",
+      "notes": "Especialment indicat per a corredors que pateixen molèsties al genoll en baixar o que volen guanyar seguretat en descensos ràpids.",
+      "exerciseIds": [
+        "All_Fours_Quad_Stretch",
+        "Bodyweight_Walking_Lunge",
+        "Calf_Raises_-_With_Bands",
+        "Single_Leg_Push-off",
+        "Split_Squat_with_Dumbbells"
+      ]
+    },
+    {
+      "sourceExternalId": "tsp_hybrid_all_terrain_undulating_05",
+      "title": "Rendiment Global: Hybrid Athlete",
+      "description": "Programa complet que combina la força específica de carrera amb un condicionament general del tren superior.",
+      "durationOptions": [6, 8, 12],
+      "muscleDistribution": {
+        "quadriceps": 20,
+        "isquiotibials": 20,
+        "glutis": 20,
+        "abdominal": 15,
+        "dorsal": 15,
+        "pectoral": 10
+      },
+      "requiredTags": ["corredor"],
+      "progressionType": "undulating",
+      "notes": "Manté la potència de les cames mentre enforteix l'esquena i el pit per millorar l'economia de carrera i la postura en fatiga.",
+      "exerciseIds": [
+        "Split_Squat_with_Dumbbells",
+        "Band_Good_Morning",
+        "Butt_Lift_Bridge",
+        "Plank",
+        "Pullups",
+        "Pushups",
+        "One-Arm_Dumbbell_Row",
+        "Dumbbell_Bench_Press",
+        "Frog_Hops"
+      ]
+    },
+    {
+      "sourceExternalId": "tsp_lumbar_resilience_linear_06",
+      "title": "Protector Lumbar i Cintura Pèlvica",
+      "description": "Bloc preventiu i de rehabilitació per a corredors amb historials de lumbàlgia o debilitat a la cadena posterior.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "abdominal": 30,
+        "oblics": 30,
+        "lumbar": 40
+      },
+      "requiredTags": ["corredor", "core_estabilitat", "rehab_lumbar"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "linear",
+      "notes": "Enforteix la musculatura profunda de l'esquena i el core anterior per reduir la càrrega sobre les vèrtebres lumbars durant la carrera.",
+      "exerciseIds": [
+        "Superman",
+        "Dead_Bug",
+        "Alternate_Heel_Touchers",
+        "Cross-Body_Crunch",
+        "Hyperextensions_Back_Extensions",
+        "Plank"
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "tsp_road_foundation_linear_01": {
+          "name": "Fonaments d'Asfalt: Força Base",
+          "description": "Bloc d'introducció per a corredors de carretera que busquen una base sòlida de força i prevenció de lesions."
+        },
+        "tsp_trail_stability_undulating_02": {
+          "name": "Trail Tècnic: Estabilitat de Cadera i Core",
+          "description": "Enfocat a la millora del control motor i l'estabilitat necessària per a terrenys irregulars i descensos tècnics."
+        },
+        "tsp_vertical_power_block_03": {
+          "name": "Potència Vertical: Especialista en Pujada",
+          "description": "Dissenyat per a corredors que volen millorar el seu rendiment en desnivells positius forts (Vertical Kilometer)."
+        },
+        "tsp_descent_eccentric_linear_04": {
+          "name": "Control de Baixada i Salut de Genoll",
+          "description": "Bloc centrat en el treball excèntric per protegir el tendó rotulià i augmentar la capacitat de frenada."
+        },
+        "tsp_hybrid_all_terrain_undulating_05": {
+          "name": "Rendiment Global: Hybrid Athlete",
+          "description": "Programa complet que combina la força específica de carrera amb un condicionament general del tren superior."
+        },
+        "tsp_lumbar_resilience_linear_06": {
+          "name": "Protector Lumbar i Cintura Pèlvica",
+          "description": "Bloc preventiu i de rehabilitació per a corredors amb historials de lumbàlgia o debilitat a la cadena posterior."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Estabilitat del core",
+        "pujada": "Pujada",
+        "baixada": "Baixada",
+        "rehab_lumbar": "Rehabilitació lumbar"
+      }
+    },
+    "es": {
+      "presets": {
+        "tsp_road_foundation_linear_01": {
+          "name": "Base en Asfalto: Fuerza Inicial",
+          "description": "Bloque de introducción para corredores de asfalto que buscan una base sólida de fuerza y prevención de lesiones."
+        },
+        "tsp_trail_stability_undulating_02": {
+          "name": "Trail Técnico: Estabilidad de Cadera y Core",
+          "description": "Enfocado en mejorar el control motor y la estabilidad necesaria para terrenos irregulares y descensos técnicos."
+        },
+        "tsp_vertical_power_block_03": {
+          "name": "Potencia Vertical: Especialista en Subida",
+          "description": "Diseñado para corredores que quieren mejorar su rendimiento en fuertes desniveles positivos (Vertical Kilometer)."
+        },
+        "tsp_descent_eccentric_linear_04": {
+          "name": "Control de Bajada y Salud de Rodilla",
+          "description": "Bloque centrado en trabajo excéntrico para proteger el tendón rotuliano y aumentar la capacidad de frenado."
+        },
+        "tsp_hybrid_all_terrain_undulating_05": {
+          "name": "Rendimiento Global: Atleta Híbrido",
+          "description": "Programa completo que combina la fuerza específica para correr con el acondicionamiento general del tren superior."
+        },
+        "tsp_lumbar_resilience_linear_06": {
+          "name": "Resiliencia Lumbar y Cintura Pélvica",
+          "description": "Bloque preventivo y de rehabilitación para corredores con historial de lumbalgia o debilidad en la cadena posterior."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Estabilidad del core",
+        "pujada": "Subida",
+        "baixada": "Bajada",
+        "rehab_lumbar": "Rehabilitación lumbar"
+      }
+    },
+    "en": {
+      "presets": {
+        "tsp_road_foundation_linear_01": {
+          "name": "Road Foundation: Base Strength",
+          "description": "Introductory block for road runners who want a solid strength base and injury prevention."
+        },
+        "tsp_trail_stability_undulating_02": {
+          "name": "Technical Trail: Hip and Core Stability",
+          "description": "Focused on improving motor control and the stability needed for uneven terrain and technical descents."
+        },
+        "tsp_vertical_power_block_03": {
+          "name": "Vertical Power: Uphill Specialist",
+          "description": "Designed for runners who want to improve performance on steep climbs (Vertical Kilometer)."
+        },
+        "tsp_descent_eccentric_linear_04": {
+          "name": "Downhill Control and Knee Health",
+          "description": "Block centered on eccentric work to protect the patellar tendon and improve braking capacity."
+        },
+        "tsp_hybrid_all_terrain_undulating_05": {
+          "name": "All-Terrain Performance: Hybrid Athlete",
+          "description": "Complete program that combines running-specific leg strength with meaningful upper-body conditioning."
+        },
+        "tsp_lumbar_resilience_linear_06": {
+          "name": "Lumbar Resilience and Pelvic Stability",
+          "description": "Preventive and rehab-focused block for runners with low-back history or posterior-chain weakness."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Runner",
+        "core_estabilitat": "Core Stability",
+        "pujada": "Uphill",
+        "baixada": "Downhill",
+        "rehab_lumbar": "Lumbar Rehab"
+      }
+    }
+  }
+}

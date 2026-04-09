@@ -1,11 +1,15 @@
 import { resolve } from 'node:path'
 
+import { PRESETS } from '../../src/data/presets'
 import type {
   CandidateEnvelope,
+  MergeWriteResult,
   NormalizedCandidate,
   PresetCatalogEntry,
+  RestrictionCondition,
   SourceLicenseMetadata,
 } from './contracts'
+import { CANONICAL_RESTRICTION_CONDITIONS } from './contracts'
 import { normalizeCandidate } from './normalizers'
 import {
   EXERCISE_CATALOG_PATH,
@@ -17,7 +21,6 @@ import {
 import {
   ensureDir,
   parseJsonWithMessage,
-  readJsonFile,
   readJsonFileOrDefault,
   readTextInput,
   toIsoTimestamp,
@@ -27,6 +30,19 @@ import {
 } from './utils'
 import { validateNormalizedCandidate, validatePresetExerciseReferences } from './validators'
 
+const SUPPORTED_LOCALES = ['ca', 'es', 'en'] as const
+
+type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
+
+const PLANNING_LOCALE_PATHS: Record<SupportedLocale, string> = {
+  ca: resolve(ROOT_DIR, 'src/i18n/locales/ca/planning.json'),
+  es: resolve(ROOT_DIR, 'src/i18n/locales/es/planning.json'),
+  en: resolve(ROOT_DIR, 'src/i18n/locales/en/planning.json'),
+}
+
+const CANONICAL_RESTRICTION_SET = new Set<string>(CANONICAL_RESTRICTION_CONDITIONS)
+const HARDCODED_PRESET_INGESTED_AT = '1970-01-01T00:00:00.000Z'
+
 type ClaudeResponse = {
   content?: Array<{
     type: string
@@ -35,6 +51,23 @@ type ClaudeResponse = {
 }
 
 type RawPresetPayload = Record<string, unknown>
+
+type RawPresetTranslation = {
+  name?: string
+  description?: string
+}
+
+type ParsedLocalePresetI18n = {
+  presets: Record<string, RawPresetTranslation>
+  presetTags: Record<string, string>
+}
+
+type ParsedPresetI18n = Partial<Record<SupportedLocale, ParsedLocalePresetI18n>>
+
+type ParsedPresetResponse = {
+  presets: RawPresetPayload[]
+  i18n?: ParsedPresetI18n
+}
 
 type PresetBatchReport = {
   runId: string
@@ -73,6 +106,454 @@ export type PresetBatchResult = {
   backupPath?: string
   acceptedPresetIds: string[]
   rejectedCount: number
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function toTrimmedString(value: unknown): string | undefined {
+  if (typeof value !== 'string') {
+    return undefined
+  }
+
+  const trimmed = value.trim()
+  return trimmed.length > 0 ? trimmed : undefined
+}
+
+function sortRecordByKey<T>(record: Record<string, T>): Record<string, T> {
+  return Object.keys(record)
+    .sort((left, right) => left.localeCompare(right))
+    .reduce<Record<string, T>>((accumulator, key) => {
+      accumulator[key] = record[key]
+      return accumulator
+    }, {})
+}
+
+function humanizeIdentifier(value: string): string {
+  const cleaned = value.trim().replace(/[_-]+/g, ' ').replace(/\s+/g, ' ')
+
+  if (!cleaned) {
+    return value
+  }
+
+  return cleaned
+    .split(' ')
+    .map((segment) =>
+      segment.length === 0 ? segment : `${segment.charAt(0).toUpperCase()}${segment.slice(1)}`
+    )
+    .join(' ')
+}
+
+function getOrCreateRecord(target: Record<string, unknown>, key: string): Record<string, unknown> {
+  const current = target[key]
+  if (isRecord(current)) {
+    return current
+  }
+
+  const created: Record<string, unknown> = {}
+  target[key] = created
+  return created
+}
+
+function readExistingPresetField(
+  planningLocale: Record<string, unknown>,
+  presetId: string,
+  field: 'name' | 'description'
+): string | undefined {
+  const ingestedPresets = planningLocale.ingested_presets
+  if (!isRecord(ingestedPresets)) {
+    return undefined
+  }
+
+  const entry = ingestedPresets[presetId]
+  if (!isRecord(entry)) {
+    return undefined
+  }
+
+  return toTrimmedString(entry[field])
+}
+
+function readExistingTagLabel(
+  planningLocale: Record<string, unknown>,
+  tag: string
+): string | undefined {
+  const presetTags = planningLocale.preset_tags
+  if (!isRecord(presetTags)) {
+    return undefined
+  }
+
+  return toTrimmedString(presetTags[tag])
+}
+
+function parsePresetTranslations(raw: unknown): Record<string, RawPresetTranslation> {
+  if (!isRecord(raw)) {
+    return {}
+  }
+
+  const translations: Record<string, RawPresetTranslation> = {}
+
+  for (const [key, value] of Object.entries(raw)) {
+    if (!isRecord(value)) {
+      continue
+    }
+
+    const name = toTrimmedString(value.name)
+    const description = toTrimmedString(value.description)
+
+    if (!name && !description) {
+      continue
+    }
+
+    translations[key] = {
+      name,
+      description,
+    }
+  }
+
+  return translations
+}
+
+function parsePresetTagTranslations(raw: unknown): Record<string, string> {
+  if (!isRecord(raw)) {
+    return {}
+  }
+
+  const labels: Record<string, string> = {}
+  for (const [key, value] of Object.entries(raw)) {
+    const label = toTrimmedString(value)
+    if (!label) {
+      continue
+    }
+    labels[key] = label
+  }
+
+  return labels
+}
+
+function parsePresetI18n(raw: unknown): ParsedPresetI18n | undefined {
+  if (!isRecord(raw)) {
+    return undefined
+  }
+
+  const parsed: ParsedPresetI18n = {}
+
+  for (const locale of SUPPORTED_LOCALES) {
+    const rawLocale = raw[locale]
+    if (!isRecord(rawLocale)) {
+      continue
+    }
+
+    const presets = parsePresetTranslations(rawLocale.presets)
+    const presetTags = parsePresetTagTranslations(rawLocale.preset_tags)
+
+    if (Object.keys(presets).length === 0 && Object.keys(presetTags).length === 0) {
+      continue
+    }
+
+    parsed[locale] = {
+      presets,
+      presetTags,
+    }
+  }
+
+  return Object.keys(parsed).length > 0 ? parsed : undefined
+}
+
+function extractPresetResponse(parsed: unknown): ParsedPresetResponse {
+  if (Array.isArray(parsed)) {
+    return {
+      presets: parsed.filter((item): item is RawPresetPayload => isRecord(item)),
+    }
+  }
+
+  if (isRecord(parsed) && Array.isArray(parsed.presets)) {
+    return {
+      presets: parsed.presets.filter((item): item is RawPresetPayload => isRecord(item)),
+      i18n: parsePresetI18n(parsed.i18n),
+    }
+  }
+
+  throw new Error('Preset payload must be an array or an object with a presets array.')
+}
+
+function getPayloadPresetField(options: {
+  i18n?: ParsedPresetI18n
+  locale: SupportedLocale
+  keyCandidates: string[]
+  field: 'name' | 'description'
+}): string | undefined {
+  const localePayload = options.i18n?.[options.locale]
+  if (!localePayload) {
+    return undefined
+  }
+
+  for (const key of options.keyCandidates) {
+    const entry = localePayload.presets[key]
+    if (!entry) {
+      continue
+    }
+
+    const value = options.field === 'name' ? entry.name : entry.description
+    if (value) {
+      return value
+    }
+  }
+
+  return undefined
+}
+
+function getPayloadTagLabel(options: {
+  i18n?: ParsedPresetI18n
+  locale: SupportedLocale
+  tag: string
+}): string | undefined {
+  const localePayload = options.i18n?.[options.locale]
+  if (!localePayload) {
+    return undefined
+  }
+
+  return localePayload.presetTags[options.tag]
+}
+
+function getRawPresetField(
+  rawPresetBySourceExternalId: Map<string, RawPresetPayload>,
+  sourceExternalId: string,
+  field: 'title' | 'description'
+): string | undefined {
+  const rawPreset = rawPresetBySourceExternalId.get(sourceExternalId)
+  if (!rawPreset) {
+    return undefined
+  }
+
+  return toTrimmedString(rawPreset[field])
+}
+
+function sortIngestedPresetTranslations(
+  ingestedPresets: Record<string, unknown>
+): Record<string, unknown> {
+  const sorted: Record<string, unknown> = {}
+
+  for (const key of Object.keys(ingestedPresets).sort((left, right) => left.localeCompare(right))) {
+    const value = ingestedPresets[key]
+    if (!isRecord(value)) {
+      sorted[key] = value
+      continue
+    }
+
+    const normalized: Record<string, unknown> = {}
+    const name = toTrimmedString(value.name)
+    const description = toTrimmedString(value.description)
+
+    if (name) {
+      normalized.name = name
+    }
+
+    if (description) {
+      normalized.description = description
+    }
+
+    for (const nestedKey of Object.keys(value).sort((left, right) => left.localeCompare(right))) {
+      if (nestedKey === 'name' || nestedKey === 'description') {
+        continue
+      }
+      normalized[nestedKey] = value[nestedKey]
+    }
+
+    sorted[key] = normalized
+  }
+
+  return sorted
+}
+
+function toCanonicalAutoRestrictions(values: string[]): RestrictionCondition[] {
+  return values.filter((value): value is RestrictionCondition =>
+    CANONICAL_RESTRICTION_SET.has(value)
+  )
+}
+
+function buildHardcodedPresetCatalogEntry(preset: (typeof PRESETS)[number]): PresetCatalogEntry {
+  return {
+    id: preset.id,
+    nameKey: preset.nameKey,
+    descriptionKey: preset.descriptionKey,
+    durationOptions: [...preset.durationOptions].sort((left, right) => left - right),
+    muscleDistribution: { ...preset.muscleDistribution },
+    requiredTags: [...preset.requiredTags],
+    autoRestrictions: toCanonicalAutoRestrictions(preset.autoRestrictions),
+    progressionType: preset.progressionType,
+    exerciseIds: [],
+    ingestionMeta: {
+      sourceRecords: [
+        {
+          sourceId: 'app-hardcoded-presets',
+          sourceExternalId: preset.id,
+          adapterId: 'hardcoded-seed',
+          ingestedAt: HARDCODED_PRESET_INGESTED_AT,
+          licenseName: 'Project-owned preset definitions',
+          provenance: 'Seeded from src/data/presets.ts by preset batch generator.',
+        },
+      ],
+    },
+  }
+}
+
+function seedHardcodedPresets(existingCatalog: PresetCatalogEntry[]): PresetCatalogEntry[] {
+  const byId = new Map(existingCatalog.map((preset) => [preset.id, preset]))
+
+  for (const preset of PRESETS) {
+    if (byId.has(preset.id)) {
+      continue
+    }
+
+    byId.set(preset.id, buildHardcodedPresetCatalogEntry(preset))
+  }
+
+  return [...byId.values()].sort((left, right) => left.id.localeCompare(right.id))
+}
+
+async function mergePresetI18nIntoPlanningLocales(options: {
+  presetsForI18n: Array<Extract<NormalizedCandidate, { kind: 'preset' }>>
+  rawPresetBySourceExternalId: Map<string, RawPresetPayload>
+  i18n?: ParsedPresetI18n
+  runId: string
+  dryRun: boolean
+}): Promise<MergeWriteResult[]> {
+  const presetsForI18n = Object.values(
+    options.presetsForI18n.reduce<Record<string, Extract<NormalizedCandidate, { kind: 'preset' }>>>(
+      (accumulator, preset) => {
+        if (!(preset.canonical.id in accumulator)) {
+          accumulator[preset.canonical.id] = preset
+        }
+        return accumulator
+      },
+      {}
+    )
+  ).sort((left, right) => left.canonical.id.localeCompare(right.canonical.id))
+
+  if (presetsForI18n.length === 0) {
+    return []
+  }
+
+  const localeFiles: Record<SupportedLocale, Record<string, unknown>> = {
+    ca: await readJsonFileOrDefault<Record<string, unknown>>(PLANNING_LOCALE_PATHS.ca, {}),
+    es: await readJsonFileOrDefault<Record<string, unknown>>(PLANNING_LOCALE_PATHS.es, {}),
+    en: await readJsonFileOrDefault<Record<string, unknown>>(PLANNING_LOCALE_PATHS.en, {}),
+  }
+
+  const requiredTags = [
+    ...new Set(presetsForI18n.flatMap((preset) => preset.canonical.requiredTags)),
+  ].sort((left, right) => left.localeCompare(right))
+
+  for (const locale of SUPPORTED_LOCALES) {
+    const planningLocale = localeFiles[locale]
+    const ingestedPresets = getOrCreateRecord(planningLocale, 'ingested_presets')
+    const presetTags = getOrCreateRecord(planningLocale, 'preset_tags')
+
+    for (const preset of presetsForI18n) {
+      const keyCandidates = [preset.sourceExternalId, preset.canonical.id]
+
+      const englishName = getPayloadPresetField({
+        i18n: options.i18n,
+        locale: 'en',
+        keyCandidates,
+        field: 'name',
+      })
+
+      const englishDescription = getPayloadPresetField({
+        i18n: options.i18n,
+        locale: 'en',
+        keyCandidates,
+        field: 'description',
+      })
+
+      const rawName = getRawPresetField(
+        options.rawPresetBySourceExternalId,
+        preset.sourceExternalId,
+        'title'
+      )
+      const rawDescription = getRawPresetField(
+        options.rawPresetBySourceExternalId,
+        preset.sourceExternalId,
+        'description'
+      )
+
+      const existingName = readExistingPresetField(planningLocale, preset.canonical.id, 'name')
+      const existingDescription = readExistingPresetField(
+        planningLocale,
+        preset.canonical.id,
+        'description'
+      )
+
+      const name =
+        getPayloadPresetField({
+          i18n: options.i18n,
+          locale,
+          keyCandidates,
+          field: 'name',
+        }) ??
+        englishName ??
+        existingName ??
+        rawName ??
+        humanizeIdentifier(preset.canonical.id)
+
+      const description =
+        getPayloadPresetField({
+          i18n: options.i18n,
+          locale,
+          keyCandidates,
+          field: 'description',
+        }) ??
+        englishDescription ??
+        existingDescription ??
+        rawDescription ??
+        humanizeIdentifier(preset.canonical.id)
+
+      const presetEntry = getOrCreateRecord(ingestedPresets, preset.canonical.id)
+      presetEntry.name = name
+      presetEntry.description = description
+    }
+
+    for (const tag of requiredTags) {
+      const englishTagLabel = getPayloadTagLabel({
+        i18n: options.i18n,
+        locale: 'en',
+        tag,
+      })
+      const existingTagLabel = readExistingTagLabel(planningLocale, tag)
+
+      const localizedTagLabel =
+        getPayloadTagLabel({
+          i18n: options.i18n,
+          locale,
+          tag,
+        }) ??
+        englishTagLabel ??
+        existingTagLabel ??
+        humanizeIdentifier(tag)
+
+      presetTags[tag] = localizedTagLabel
+    }
+
+    planningLocale.ingested_presets = sortIngestedPresetTranslations(ingestedPresets)
+    planningLocale.preset_tags = sortRecordByKey(presetTags)
+  }
+
+  const writes: MergeWriteResult[] = []
+
+  for (const locale of SUPPORTED_LOCALES) {
+    writes.push(
+      await writeJsonRollbackSafe({
+        targetPath: PLANNING_LOCALE_PATHS[locale],
+        value: localeFiles[locale],
+        backupDir: INGESTION_BACKUPS_DIR,
+        dryRun: options.dryRun,
+        backupPrefix: `${options.runId}-planning-${locale}`,
+      })
+    )
+  }
+
+  return writes
 }
 
 function getSyntheticLicense(): SourceLicenseMetadata {
@@ -149,6 +630,41 @@ async function requestClaudePresets(options: {
         exerciseIds: ['Exercise_Id_1', 'Exercise_Id_2'],
       },
     ],
+    i18n: {
+      ca: {
+        presets: {
+          source_external_id_1: {
+            name: 'string',
+            description: 'string',
+          },
+        },
+        preset_tags: {
+          corredor: 'string',
+        },
+      },
+      es: {
+        presets: {
+          source_external_id_1: {
+            name: 'string',
+            description: 'string',
+          },
+        },
+        preset_tags: {
+          corredor: 'string',
+        },
+      },
+      en: {
+        presets: {
+          source_external_id_1: {
+            name: 'string',
+            description: 'string',
+          },
+        },
+        preset_tags: {
+          corredor: 'string',
+        },
+      },
+    },
   }
 
   const message = [
@@ -189,26 +705,6 @@ async function requestClaudePresets(options: {
 
   const payload = (await response.json()) as ClaudeResponse
   return extractClaudeText(payload)
-}
-
-function extractRawPresets(parsed: unknown): RawPresetPayload[] {
-  if (Array.isArray(parsed)) {
-    return parsed.filter(
-      (item): item is RawPresetPayload => typeof item === 'object' && item !== null
-    )
-  }
-
-  if (
-    typeof parsed === 'object' &&
-    parsed !== null &&
-    Array.isArray((parsed as { presets?: unknown[] }).presets)
-  ) {
-    return (parsed as { presets: unknown[] }).presets.filter(
-      (item): item is RawPresetPayload => typeof item === 'object' && item !== null
-    )
-  }
-
-  throw new Error('Preset payload must be an array or an object with a presets array.')
 }
 
 function toCandidateEnvelope(raw: RawPresetPayload, index: number): CandidateEnvelope {
@@ -293,6 +789,7 @@ export async function runPresetBatchGenerator(
   const validExerciseIds = new Set(exerciseCatalog.map((exercise) => exercise.id))
 
   const existingCatalog = await readJsonFileOrDefault<PresetCatalogEntry[]>(outputPath, [])
+  const seededCatalog = seedHardcodedPresets(existingCatalog)
 
   let rawResponse: string
   if (options.responseFilePath) {
@@ -308,16 +805,24 @@ export async function runPresetBatchGenerator(
   }
 
   const parsed = parseJsonWithMessage<unknown>(rawResponse, 'Claude preset response')
-  const rawPresets = extractRawPresets(parsed).slice(0, options.maxPresets)
+  const parsedResponse = extractPresetResponse(parsed)
+  const rawPresets = parsedResponse.presets.slice(0, options.maxPresets)
+
+  const rawPresetBySourceExternalId = new Map<string, RawPresetPayload>()
 
   const accepted: Array<Extract<NormalizedCandidate, { kind: 'preset' }>> = []
+  const presetsForI18n: Array<Extract<NormalizedCandidate, { kind: 'preset' }>> = []
   const rejected: Array<{ sourceExternalId: string; reasons: string[] }> = []
 
-  const existingIds = new Set(existingCatalog.map((preset) => preset.id))
+  const existingIds = new Set(seededCatalog.map((preset) => preset.id))
   const stagedIds = new Set<string>()
 
   for (const [index, rawPreset] of rawPresets.entries()) {
     const envelope = toCandidateEnvelope(rawPreset, index)
+    if (!rawPresetBySourceExternalId.has(envelope.payload.sourceExternalId)) {
+      rawPresetBySourceExternalId.set(envelope.payload.sourceExternalId, rawPreset)
+    }
+
     const normalized = normalizeCandidate(envelope)
 
     if (normalized.kind !== 'preset') {
@@ -334,10 +839,16 @@ export async function runPresetBatchGenerator(
       validExerciseIds
     )
 
-    const errors = [
+    const baseErrors = [
       ...validation.errors.map((issue) => `${issue.field}: ${issue.message}`),
       ...referenceValidation.errors.map((issue) => `${issue.field}: ${issue.message}`),
     ]
+
+    if (baseErrors.length === 0) {
+      presetsForI18n.push(normalized)
+    }
+
+    const errors = [...baseErrors]
 
     if (existingIds.has(normalized.canonical.id)) {
       errors.push(`Preset id "${normalized.canonical.id}" already exists in catalog.`)
@@ -360,7 +871,7 @@ export async function runPresetBatchGenerator(
   }
 
   const mergedCatalog = [
-    ...existingCatalog,
+    ...seededCatalog,
     ...accepted.map((candidate) => buildPresetCatalogEntry(candidate)),
   ].sort((left, right) => left.id.localeCompare(right.id))
 
@@ -370,6 +881,14 @@ export async function runPresetBatchGenerator(
     backupDir: INGESTION_BACKUPS_DIR,
     dryRun: options.dryRun,
     backupPrefix: `${runId}-preset-catalog`,
+  })
+
+  await mergePresetI18nIntoPlanningLocales({
+    presetsForI18n,
+    rawPresetBySourceExternalId,
+    i18n: parsedResponse.i18n,
+    runId,
+    dryRun: options.dryRun,
   })
 
   await ensureDir(INGESTION_REPORTS_DIR)

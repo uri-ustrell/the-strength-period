@@ -7,6 +7,75 @@
 
 ## Recent Changes
 
+### Tooling Support — Focused Ingestion Tests + Artifact Hygiene (2026-04-09)
+- **Added**: Minimal deterministic ingestion test command in `package.json` (`test:ingestion`) powered by the existing `tsx` toolchain.
+- **Added**: Focused tests in `scripts/ingestion/i18nMerge.test.ts` covering:
+  - grouped update precedence for canonical exercise i18n merges (deterministic source ordering, first non-empty locale value resolution, deterministic tag sorting)
+  - `validateLlmExerciseI18nContract(...)` failures for missing locale blocks, missing localized names (`sourceExternalId`/`canonicalExerciseId`), and missing `preset_tags` labels
+- **Refined**: `mergeExerciseI18nIntoLocales(...)` in `scripts/ingestion/i18nMerge.ts` now accepts optional injected file I/O dependencies (default behavior unchanged) to enable safe unit testing without mutating real locale files.
+- **Cleaned**: Runtime-generated ingestion artifacts removed from `data/ingestion/reports/` and `data/ingestion/queues/`; only `.gitkeep` placeholders remain tracked.
+- **Verification**:
+  - `npm run test:ingestion` passes (3 tests, 0 failures)
+  - `npm run ingest -- --config data/ingestion/sources.example.json --dry-run` passes (run `ingestion-20260409-192431-d638c9`: accepted 557, skipped 218, duplicate 100, rejected 0)
+  - `npm run build` passes (TypeScript + Vite + PWA generation)
+
+### Tooling Support — Exercise i18n Contract Gating + Deterministic Multi-Candidate Merge (2026-04-09)
+- **Fixed**: High-severity i18n merge collapse in `scripts/ingestion/i18nMerge.ts` where updates were reduced to one record per canonical id and could drop valid localized values.
+- **Implemented**: Deterministic grouped merge resolution per canonical exercise id:
+  - preserve all update candidates per canonical id
+  - keep deterministic candidate order (`sourceId` + `sourceExternalId`)
+  - resolve localized name/instructions/tag labels by scanning candidates and taking the first non-empty value
+  - preserve tag union behavior with deterministic sorting
+- **Implemented**: `validateLlmExerciseI18nContract(...)` in `scripts/ingestion/i18nMerge.ts` and wired it into `scripts/runIngestion.ts` for `llm-json` exercise candidates.
+  - enforces visibility of prompt-contract gaps for `ca/es/en` locale blocks, localized exercise names, and required `preset_tags` labels
+  - emits explicit reasons in ingestion items (review/duplicate/rejected paths) instead of relying on silent fallback only
+- **Refactored**: Removed llm-json double-fetch in `scripts/runIngestion.ts`.
+  - payload is now loaded once per source and reused for both candidate parsing (`buildLlmJsonCandidatesFromPayload`) and i18n parsing (`parseLlmIngestionI18n`)
+- **Updated**: `data/ingestion/llm-example.json` now includes top-level `i18n` with valid `ca/es/en` contract values and canonical exercise enum values, ensuring example verification runs exercise the i18n path.
+- **Verification**:
+  - `npm run ingest -- --config data/ingestion/sources.example.json --dry-run` passes (run `ingestion-20260409-191146-256c58`: accepted 557, skipped 218, duplicate 100, rejected 0).
+  - report confirms llm-json source candidates processed (`Split_Squat_Iso_Hold` + `rehab_knee_stability`) with successful ingestion.
+  - `npm run build` passes (TypeScript + Vite build + PWA generation).
+
+### Tooling Support — Exercise Ingestion i18n Automation + Duplicate-Safe Refresh (2026-04-09)
+- **Added**: `scripts/ingestion/i18nMerge.ts` to centralize ingestion-time locale merges for exercises/planning with rollback-safe writes.
+- **Implemented**: Top-level `i18n` payload parsing for `llm-json` source inputs during `npm run ingest`, including localized exercise names/instructions and localized tag labels.
+- **Implemented**: Exercise locale writes to `src/i18n/locales/{ca,es,en}/exercises.json` using canonical exercise id keys.
+  - writes exercise names at `exercises.<canonicalExerciseId>`
+  - writes optional instructions at `exercises.instructions.<canonicalExerciseId>`
+  - keeps deterministic key sorting for stable reruns
+- **Implemented**: Tag localization merge into `src/i18n/locales/{ca,es,en}/planning.json` under `planning.preset_tags.<tag>` using ingested exercise tags.
+- **Implemented**: Locale fallback chain for all ingestion-managed values:
+  - locale payload value -> English payload value -> existing locale value -> humanized fallback
+- **Implemented**: Duplicate-safe rerun behavior in `scripts/runIngestion.ts`:
+  - duplicate exercise candidates still produce i18n refresh updates for the matched canonical exercise id when schema validation succeeds
+  - dedup/report statuses remain unchanged (`duplicate` still reported as duplicate)
+- **Updated**: `scripts/runIngestion.ts` to append i18n write paths to report `filesWritten` while preserving existing console summary format.
+- **Updated**: `data/ingestion/prompts/exercises-llm-chat.prompt.txt` to explicitly require `i18n.<locale>.preset_tags.<tag>` labels for tags used by generated exercises (ca/es/en).
+- **Verification**: `npm run ingest -- --config data/ingestion/sources.example.json --dry-run` passes (run `ingestion-20260409-173248-bf5cbd`: accepted 557, skipped 218, duplicate 100, rejected 0).
+- **Verification**: `npm run build` passes (TypeScript + Vite build + PWA generation).
+
+### Tooling Support — Preset Batch i18n Split + Hardcoded Preset Seeding (2026-04-09)
+- **Updated**: `data/ingestion/prompts/presets-llm-chat.prompt.txt` to require strict top-level JSON with both `presets` and `i18n` payloads, fixed ATTACHED typo, and added explicit schema/validation requirements for `ca/es/en` preset name/description plus `preset_tags` labels.
+- **Updated**: `data/ingestion/prompts/exercises-llm-chat.prompt.txt` to require strict top-level JSON with both `exercises` and `i18n` payloads, including localized exercise names (`ca/es/en`) and optional localized instructions.
+- **Implemented**: `scripts/ingestion/presetGenerator.ts` now supports all response shapes: legacy array, legacy `{ presets: [...] }`, and new `{ presets: [...], i18n: {...} }`.
+- **Implemented**: Preset i18n merge/write flow to `src/i18n/locales/{ca,es,en}/planning.json`:
+  - writes names/descriptions under `planning.ingested_presets.<canonicalPresetId>.name|description`
+  - writes tag labels under `planning.preset_tags.<tag>`
+  - applies fallback chain per locale: locale payload -> English payload -> existing locale value -> humanized id/tag fallback
+  - guarantees `requiredTags` from accepted presets are represented across all 3 locales
+  - allows reruns with duplicate preset IDs to still refresh i18n values when schema validation passes
+- **Implemented**: Automatic hardcoded preset seeding from `src/data/presets.ts` into ingestion catalog output (default `data/ingestion/presets/catalog.json`) without duplicate IDs, preserving existing entries and deterministic id sorting.
+- **Implemented**: Stable ingestion metadata for seeded hardcoded presets to keep repeated runs consistent.
+- **Verification**: `npm run build` passes (TypeScript + Vite production build).
+- **Verification**: `npm run presets -- --response-file <tmp> --output <tmp>` preserves expected summary lines (`Report`, `Accepted presets`, `Rejected presets`, `Catalog updated`) and seeds hardcoded preset IDs.
+
+### Tooling Support — Manual LLM Prompt Templates for Ingestion (2026-04-09)
+- **Added**: `data/ingestion/prompts/presets-llm-chat.prompt.txt` for manual chat usage that targets the preset batch contract consumed by `scripts/generatePresetBatch.ts` / `scripts/ingestion/presetGenerator.ts`.
+- **Added**: `data/ingestion/prompts/exercises-llm-chat.prompt.txt` for manual chat usage that targets the LLM JSON ingestion contract consumed by `scripts/runIngestion.ts` via `scripts/ingestion/adapters/llmJsonAdapter.ts`.
+- **Implemented**: Clearly marked variable sections for custom exercise-type instructions in both templates.
+- **Implemented**: Strict JSON-only output requirement and explicit schema/enums/constraints aligned with ingestion validators.
+
 ### Tooling Maintenance — Step 18 CLI Environment Loading (2026-04-09)
 - **Fixed**: `npm run presets` and related Step 18 CLIs could not read `CLAUDE_API_KEY` (and other provider keys) from `.env` because Node entrypoints did not load dotenv.
 - **Changed**: Added `import 'dotenv/config'` to `scripts/generatePresetBatch.ts`, `scripts/runIngestion.ts`, and `scripts/generateExercisePhotos.ts`.

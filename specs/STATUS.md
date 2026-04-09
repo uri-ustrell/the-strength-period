@@ -33,6 +33,11 @@
 - Static data (presets, i18n) bundled in JS — zero serverless cost.
 - Export/Import via JSON for data portability.
 - Available weights start unselected by default; the first selection per equipment auto-selects inferior weights once, then subsequent interactions are isolated per-weight toggles.
+- Step 18 now includes reusable manual LLM chat prompt templates for presets/exercises under `data/ingestion/prompts/`, aligned with ingestion validators.
+- Preset batch ingestion now accepts optional i18n payloads, writes preset translations/tags to locale planning files (`ingested_presets`, `preset_tags`) with locale fallback rules, and auto-seeds hardcoded app presets into the ingestion catalog.
+- Exercise ingestion `llm-json` path now reuses one loaded payload for both candidate parsing and i18n parsing, validates the prompt i18n contract (`ca/es/en`, localized names, required tag labels) as explicit candidate reasons, and merges names/instructions/tag labels with duplicate-safe canonical i18n refresh using deterministic multi-candidate resolution.
+- Step 18 ingestion now has focused automated tests (`npm run test:ingestion`) covering deterministic grouped i18n merge precedence and LLM i18n contract-validation edge cases.
+- Runtime-generated ingestion report/review-queue artifacts under `data/ingestion/reports/` and `data/ingestion/queues/` are treated as transient outputs, with only `.gitkeep` placeholders tracked.
 - Tooling baseline now uses Biome for formatting/linting with repository-wide normalization and session-end auto-format hooks.
 - Dependency alignment keeps PWA support stable: `vite` pinned to `^7.3.2` with `@vitejs/plugin-react` at `^5.2.0` to satisfy `vite-plugin-pwa@^1.2.0` peer requirements.
 
@@ -94,6 +99,8 @@
 - [x] Load `.env` in ingestion CLI entrypoints (`ingest`, `photos`, `presets`) via `dotenv/config` so API keys are available when running npm scripts
 - [x] Emit ingestion reports with accepted/skipped/duplicate/rejected counts and reasons; include dry-run and rollback-safe workflow
 - [x] Validate legal/licensing metadata per source before merge (attribution, allowed usage, provenance)
+- [x] Add focused automated tests for grouped i18n merge precedence and LLM i18n contract validation
+- [x] Keep runtime-generated report/queue artifacts cleaned before commit (track only static placeholders)
 
 ## Active Known Issues
 

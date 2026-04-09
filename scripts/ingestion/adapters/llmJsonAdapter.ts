@@ -11,13 +11,9 @@ import { loadJsonInput, slugify, toIsoTimestamp } from '../utils'
 
 type CandidateLike = Record<string, unknown>
 
-type LlmJsonShape =
-  | CandidateLike[]
-  | {
-      exercises?: CandidateLike[]
-      presets?: CandidateLike[]
-      candidates?: CandidateLike[]
-    }
+function isCandidateLike(value: unknown): value is CandidateLike {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
 
 function toStringArray(value: unknown): string[] {
   if (!Array.isArray(value)) return []
@@ -122,16 +118,26 @@ function toPresetPayload(raw: CandidateLike, sourceExternalId: string): PresetCa
   }
 }
 
-function normalizeLlmPayloadShape(payload: LlmJsonShape): CandidateLike[] {
+function normalizeLlmPayloadShape(payload: unknown): CandidateLike[] {
   if (Array.isArray(payload)) {
-    return payload
+    return payload.filter(isCandidateLike)
+  }
+
+  if (!isCandidateLike(payload)) {
+    return []
   }
 
   if (Array.isArray(payload.candidates)) {
-    return payload.candidates
+    return payload.candidates.filter(isCandidateLike)
   }
 
-  return [...(payload.exercises ?? []), ...(payload.presets ?? [])]
+  const exercises = Array.isArray(payload.exercises)
+    ? payload.exercises.filter(isCandidateLike)
+    : []
+
+  const presets = Array.isArray(payload.presets) ? payload.presets.filter(isCandidateLike) : []
+
+  return [...exercises, ...presets]
 }
 
 function toCandidatePayload(raw: CandidateLike, sourceExternalId: string): IngestionCandidateInput {
@@ -141,30 +147,37 @@ function toCandidatePayload(raw: CandidateLike, sourceExternalId: string): Inges
     : toPresetPayload(raw, sourceExternalId)
 }
 
+export function buildLlmJsonCandidatesFromPayload(
+  config: SourceRunConfig,
+  payload: unknown,
+  fetchedAt: string = toIsoTimestamp()
+): CandidateEnvelope[] {
+  const rawCandidates = normalizeLlmPayloadShape(payload)
+
+  return rawCandidates.map<CandidateEnvelope>((raw, index) => {
+    const sourceExternalId = createStableSourceExternalId(raw, String(index + 1))
+    const candidateKind = inferKind(raw)
+
+    return {
+      candidateId: `${config.sourceId}:${candidateKind}:${sourceExternalId}`,
+      source: {
+        adapterId: 'llm-json',
+        sourceId: config.sourceId,
+        sourceType: config.sourceType,
+        sourceUrl: config.sourceUrl,
+        fetchedAt,
+      },
+      license: config.license,
+      payload: toCandidatePayload(raw, sourceExternalId),
+    }
+  })
+}
+
 export const llmJsonAdapter: SourceAdapter = {
   id: 'llm-json',
   description: 'Reads LLM JSON artifacts and maps them to exercise/preset candidates.',
   fetchCandidates: async (config: SourceRunConfig) => {
-    const payload = await loadJsonInput<LlmJsonShape>(config.input, ROOT_DIR)
-    const rawCandidates = normalizeLlmPayloadShape(payload)
-    const fetchedAt = toIsoTimestamp()
-
-    return rawCandidates.map<CandidateEnvelope>((raw, index) => {
-      const sourceExternalId = createStableSourceExternalId(raw, String(index + 1))
-      const candidateKind = inferKind(raw)
-
-      return {
-        candidateId: `${config.sourceId}:${candidateKind}:${sourceExternalId}`,
-        source: {
-          adapterId: 'llm-json',
-          sourceId: config.sourceId,
-          sourceType: config.sourceType,
-          sourceUrl: config.sourceUrl,
-          fetchedAt,
-        },
-        license: config.license,
-        payload: toCandidatePayload(raw, sourceExternalId),
-      }
-    })
+    const payload = await loadJsonInput<unknown>(config.input, ROOT_DIR)
+    return buildLlmJsonCandidatesFromPayload(config, payload)
   },
 }

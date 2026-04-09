@@ -5,14 +5,14 @@
       "sourceExternalId": "Split_Squat_Iso_Hold",
       "title": "Split Squat Iso Hold",
       "aliases": ["split squat hold"],
-      "primaryMuscles": ["quadriceps", "glutes"],
-      "secondaryMuscles": ["abdominals"],
-      "equipment": ["body only"],
+      "primaryMuscles": ["quadriceps", "glutis"],
+      "secondaryMuscles": ["abdominal"],
+      "equipment": ["pes_corporal"],
       "level": "beginner",
       "category": "stability",
       "estimatedSeriesDurationSeconds": 45,
       "progressionMetric": "seconds",
-      "tags": ["core_stability", "mobilitat"],
+      "tags": ["core_estabilitat", "mobilitat"],
       "instructions": [
         "Stand in split stance.",
         "Lower until front knee is near 90 degrees.",
@@ -38,5 +38,55 @@
       "exerciseIds": ["90_90_Hamstring"],
       "notes": "Low impact baseline preset for controlled load progression."
     }
-  ]
+  ],
+  "i18n": {
+    "ca": {
+      "exercises": {
+        "Split_Squat_Iso_Hold": {
+          "name": "Split squat isometric",
+          "instructions": [
+            "Comenca en una posicio de split squat.",
+            "Baixa fins apropar el genoll davanter als 90 graus.",
+            "Mantingues el tronc recte durant la isometria."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat"
+      }
+    },
+    "es": {
+      "exercises": {
+        "Split_Squat_Iso_Hold": {
+          "name": "Split squat isometrico",
+          "instructions": [
+            "Empieza en posicion de split squat.",
+            "Desciende hasta acercar la rodilla delantera a 90 grados.",
+            "Mantiene el tronco erguido durante la isometria."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad"
+      }
+    },
+    "en": {
+      "exercises": {
+        "Split_Squat_Iso_Hold": {
+          "name": "Split squat isometric hold",
+          "instructions": [
+            "Start in a split squat stance.",
+            "Lower until your front knee is near 90 degrees.",
+            "Keep your torso tall during the hold."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core stability",
+        "mobilitat": "Mobility"
+      }
+    }
+  }
 }

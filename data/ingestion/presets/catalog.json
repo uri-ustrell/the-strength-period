@@ -1,1 +1,435 @@
-[]
+[
+  {
+    "id": "corredor_general",
+    "nameKey": "planning:presets.corredor_general",
+    "descriptionKey": "planning:presets.corredor_general_desc",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "glutis": 30,
+      "quadriceps": 25,
+      "isquiotibials": 20,
+      "bessons": 10,
+      "abdominal": 15
+    },
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "exerciseIds": [],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "corredor_general",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "forca_general",
+    "nameKey": "planning:presets.forca_general",
+    "descriptionKey": "planning:presets.forca_general_desc",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "quadriceps": 15,
+      "glutis": 15,
+      "isquiotibials": 10,
+      "pectoral": 12,
+      "dorsal": 13,
+      "abdominal": 15,
+      "mobilitat_cadera": 10,
+      "deltoides": 10
+    },
+    "requiredTags": [],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "exerciseIds": [],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "forca_general",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "mobilitat_prevencio",
+    "nameKey": "planning:presets.mobilitat_prevencio",
+    "descriptionKey": "planning:presets.mobilitat_prevencio_desc",
+    "durationOptions": [
+      4,
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "mobilitat_cadera": 25,
+      "mobilitat_toracica": 20,
+      "mobilitat_turmell": 15,
+      "estabilitzadors_cadera": 20,
+      "fascies": 10,
+      "abdominal": 10
+    },
+    "requiredTags": [
+      "mobilitat"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "exerciseIds": [],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "mobilitat_prevencio",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pujada",
+    "nameKey": "planning:presets.pujada",
+    "descriptionKey": "planning:presets.pujada_desc",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "glutis": 35,
+      "quadriceps": 30,
+      "psoes": 10,
+      "bessons": 10,
+      "abdominal": 15
+    },
+    "requiredTags": [
+      "pujada"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "exerciseIds": [],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "pujada",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "rehab_tendinitis_anserina",
+    "nameKey": "planning:presets.rehab_tendinitis_anserina",
+    "descriptionKey": "planning:presets.rehab_tendinitis_anserina_desc",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "isquiotibials": 25,
+      "adductors": 20,
+      "quadriceps": 20,
+      "glutis": 20,
+      "mobilitat_cadera": 15
+    },
+    "requiredTags": [
+      "tendinitis_anserina"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "exerciseIds": [],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "rehab_tendinitis_anserina",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_descent_eccentric_linear_04",
+    "nameKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.name",
+    "descriptionKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "quadriceps": 40,
+      "estabilitzadors_cadera": 30,
+      "bessons": 30
+    },
+    "requiredTags": [
+      "corredor",
+      "baixada"
+    ],
+    "autoRestrictions": [
+      "rehab_genoll",
+      "tendinitis_rotuliana"
+    ],
+    "progressionType": "linear",
+    "notes": "Especialment indicat per a corredors que pateixen molèsties al genoll en baixar o que volen guanyar seguretat en descensos ràpids.",
+    "exerciseIds": [
+      "All_Fours_Quad_Stretch",
+      "Bodyweight_Walking_Lunge",
+      "Calf_Raises_-_With_Bands",
+      "Single_Leg_Push-off",
+      "Split_Squat_with_Dumbbells"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_descent_eccentric_linear_04",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_hybrid_all_terrain_undulating_05",
+    "nameKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.name",
+    "descriptionKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.description",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "quadriceps": 20,
+      "isquiotibials": 20,
+      "glutis": 20,
+      "abdominal": 15,
+      "dorsal": 15,
+      "pectoral": 10
+    },
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "notes": "Manté la potència de les cames mentre enforteix l'esquena i el pit per millorar l'economia de carrera i la postura en fatiga.",
+    "exerciseIds": [
+      "Split_Squat_with_Dumbbells",
+      "Band_Good_Morning",
+      "Butt_Lift_Bridge",
+      "Plank",
+      "Pullups",
+      "Pushups",
+      "One-Arm_Dumbbell_Row",
+      "Dumbbell_Bench_Press",
+      "Frog_Hops"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_hybrid_all_terrain_undulating_05",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_lumbar_resilience_linear_06",
+    "nameKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.name",
+    "descriptionKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "muscleDistribution": {
+      "abdominal": 30,
+      "oblics": 30,
+      "lumbar": 40
+    },
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "rehab_lumbar"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Enforteix la musculatura profunda de l'esquena i el core anterior per reduir la càrrega sobre les vèrtebres lumbars durant la carrera.",
+    "exerciseIds": [
+      "Superman",
+      "Dead_Bug",
+      "Alternate_Heel_Touchers",
+      "Cross-Body_Crunch",
+      "Hyperextensions_Back_Extensions",
+      "Plank"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_lumbar_resilience_linear_06",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_road_foundation_linear_01",
+    "nameKey": "planning:ingested_presets.tsp_road_foundation_linear_01.name",
+    "descriptionKey": "planning:ingested_presets.tsp_road_foundation_linear_01.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "muscleDistribution": {
+      "quadriceps": 30,
+      "isquiotibials": 25,
+      "bessons": 25,
+      "abdominal": 20
+    },
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "notes": "Ideal per a corredors que s'inicien en el treball de força, prioritzant la higiene postural i l'enfortiment del tren inferior.",
+    "exerciseIds": [
+      "Bodyweight_Squat",
+      "90_90_Hamstring",
+      "Calf_Raises_-_With_Bands",
+      "Plank",
+      "Reverse_Crunch"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_road_foundation_linear_01",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.334Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_trail_stability_undulating_02",
+    "nameKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.name",
+    "descriptionKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "glutis": 30,
+      "estabilitzadors_cadera": 30,
+      "abdominal": 20,
+      "oblics": 20
+    },
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "notes": "Aquest programa utilitza una càrrega ondulant per millorar la resiliència del core i la pelvis davant els impactes asimètrics del trail.",
+    "exerciseIds": [
+      "Butt_Lift_Bridge",
+      "Push_Up_to_Side_Plank",
+      "Russian_Twist",
+      "Dead_Bug",
+      "Crossover_Reverse_Lunge",
+      "Ab_Roller"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_trail_stability_undulating_02",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.334Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_vertical_power_block_03",
+    "nameKey": "planning:ingested_presets.tsp_vertical_power_block_03.name",
+    "descriptionKey": "planning:ingested_presets.tsp_vertical_power_block_03.description",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "glutis": 35,
+      "quadriceps": 35,
+      "psoes": 15,
+      "estabilitzadors_cadera": 15
+    },
+    "requiredTags": [
+      "corredor",
+      "pujada"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "block",
+    "notes": "Bloc de càrrega d'alta intensitat per maximitzar el triple impuls (cadera-genoll-turmell) i la resistència dels flexors de cadera.",
+    "exerciseIds": [
+      "Front_Box_Jump",
+      "Goblet_Squat",
+      "Kneeling_Hip_Flexor",
+      "Single_Leg_Glute_Bridge",
+      "Dumbbell_Lunges",
+      "Single_Leg_Push-off",
+      "Knee_Tuck_Jump"
+    ],
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_vertical_power_block_03",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  }
+]
