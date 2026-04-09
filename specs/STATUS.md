@@ -80,7 +80,9 @@
 - [ ] Implement normalization + schema validation to map source payloads into canonical exercise/preset structures
 - [ ] Add robust dedup strategy before merge (source IDs, slug collisions, title/muscle similarity, alias map)
 - [ ] Add review gates for low-confidence items (reject/accept queue) before appending to source-of-truth datasets
-- [ ] Build Node pipeline for exercise photos with provider abstraction (Nanobanana primary, free-tier fallback such as Pollinations/Hugging Face)
+- [ ] Build Node pipeline for exercise photos with free-tier-first provider abstraction (use Nanobanana only when free tier is available; otherwise auto-select best free provider such as Pollinations/Hugging Face)
+- [ ] Provide a style reference image in photo-generation prompts so all exercise images follow the same visual language
+- [ ] Lock photo generation to one single model per catalog generation cycle to ensure consistent style across all exercises
 - [ ] Support image generation modes: full recursive regen, only missing photos, single exercise, and ingestion-driven incremental mode
 - [ ] Wire ingestion success path to trigger photo generation for each newly accepted exercise
 - [ ] Build Node preset-batch generator using Claude API (free-tier-first), with prompt-in → validated preset JSON out constrained to available exercises

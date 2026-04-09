@@ -11,7 +11,8 @@
 - **Planned**: New Step 18 to ingest exercises, presets, and media from multiple sources through provider adapters (external APIs + LLM responses).
 - **Planned**: Canonical transformation layer for exercise/preset payloads with strict schema validation before merge.
 - **Planned**: Dedup guardrails combining source IDs, slug checks, title+muscle similarity, and alias mapping to avoid duplicate exercises.
-- **Planned**: Node image pipeline for one representative photo per exercise with provider abstraction (Nanobanana as primary, free-tier fallback option), supporting full regen and incremental generation.
+- **Planned**: Node image pipeline for one representative photo per exercise with free-tier-first provider abstraction (use Nanobanana only if its free tier is available, otherwise auto-select the best free provider), supporting full regen and incremental generation.
+- **Planned**: Image consistency guardrails include passing a style reference image in prompts and using one single model for all exercise images in a generation cycle.
 - **Planned**: Preset-batch generation workflow using Claude prompt-in/preset-JSON-out, constrained to currently available exercise IDs.
 - **Planned**: Operational safeguards (dry-run, ingest reports, manual review queue, rollback-safe merge process).
 - **Added TODO**: Follow-up product item to manually edit LLM-imported plans before import and optionally save them as user presets.

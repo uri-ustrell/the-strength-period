@@ -12,7 +12,9 @@
 - [ ] Add dedup pipeline (source-id registry + slug collision + title/muscle similarity + alias map)
 - [ ] Create ingestion report artifact with accepted/skipped/duplicate/rejected counts and reasons
 - [ ] Add manual review queue for low-confidence mappings before merge into source-of-truth files
-- [ ] Build `scripts/generateExercisePhotos.ts` with provider abstraction (Nanobanana + free-tier fallback provider)
+- [ ] Build `scripts/generateExercisePhotos.ts` with free-tier-first provider abstraction (use Nanobanana only if free tier exists; otherwise use best free provider)
+- [ ] Add a style-reference image input to `scripts/generateExercisePhotos.ts` so all generated exercise photos follow the same art direction
+- [ ] Enforce one-model-per-run policy in `scripts/generateExercisePhotos.ts` and persist the selected model in the run metadata
 - [ ] Support photo generation execution modes: `--all`, `--missing`, `--exercise <id>`, `--from-ingest-report <path>`
 - [ ] Wire ingestion flow to trigger photo creation for each newly accepted exercise
 - [ ] Build `scripts/generatePresetBatch.ts` using Claude API prompt-in flow, constrained to available exercise IDs
