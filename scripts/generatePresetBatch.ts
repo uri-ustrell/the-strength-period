@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { getArg, getNumberArg, hasFlag, parseArgs } from './ingestion/cli'
 import { runPresetBatchGenerator } from './ingestion/presetGenerator'
 

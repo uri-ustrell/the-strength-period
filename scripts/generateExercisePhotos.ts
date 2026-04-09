@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { getArg, hasFlag, parseArgs } from './ingestion/cli'
 import { type PhotoGenerationMode, runExercisePhotoPipeline } from './ingestion/photoPipeline'
 

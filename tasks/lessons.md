@@ -7,6 +7,7 @@
 - Keep development artifacts in English by default (TODOs, specs, status notes, implementation checklists, and agent-generated repository docs).
 - If a user writes in Catalan/Spanish but does not explicitly ask to localize repository artifacts, keep `tasks/`, specs, and internal docs in English.
 - Use localized language only for explicit end-user copy or when the user directly requests a non-English artifact.
+- For Node/tsx CLI scripts that depend on API keys, load `.env` explicitly (e.g., `import 'dotenv/config'`) instead of assuming frontend env loading.
 
 ## Mistakes to Avoid
 <!-- Add anti-patterns with the context of what went wrong -->

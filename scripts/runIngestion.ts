@@ -1,5 +1,7 @@
 import { resolve } from 'node:path'
 
+import 'dotenv/config'
+
 import { getAdapterById, listAdapters } from './ingestion/adapters'
 import { getArg, getNumberArg, hasFlag, parseArgs } from './ingestion/cli'
 import type {

@@ -5,6 +5,19 @@
 
 ## Active Tasks
 
+### Step 18 CLI .env loading fix (Complete, 2026-04-09)
+- [x] Reproduce `CLAUDE_API_KEY` missing failure on `npm run presets`
+- [x] Load `.env` in Step 18 Node CLI entrypoints via `dotenv/config`
+- [x] Add `dotenv` dependency and regenerate lockfile
+- [x] Verify `npm run presets -- --prompt "test prompt"` advances past missing-key guard
+- [x] Verify `npm run build` passes
+
+### Tooling — npm install peer dependency fix (Complete, 2026-04-09)
+- [x] Confirm compatible versions for `vite`, `@vitejs/plugin-react`, and `vite-plugin-pwa`
+- [x] Update dependency versions in `package.json` and regenerate lockfile
+- [x] Verify `npm i` and `npm run build`
+- [x] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md`
+
 ### Step 16 — Ethical Gamification Documentation Foundation (Complete, 2026-04-09)
 - [x] Recreate `specs/features/16-ethical-gamification.md` with ethical guardrails, forbidden patterns, Duolingo references, pre-execution phases, explicit full UI/UX refactor policy, metrics, and checklist coverage
 - [x] Update Step 16 in `specs/STATUS.md` with source-of-truth requirement before implementation

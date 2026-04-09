@@ -34,6 +34,7 @@
 - Export/Import via JSON for data portability.
 - Available weights start unselected by default; the first selection per equipment auto-selects inferior weights once, then subsequent interactions are isolated per-weight toggles.
 - Tooling baseline now uses Biome for formatting/linting with repository-wide normalization and session-end auto-format hooks.
+- Dependency alignment keeps PWA support stable: `vite` pinned to `^7.3.2` with `@vitejs/plugin-react` at `^5.2.0` to satisfy `vite-plugin-pwa@^1.2.0` peer requirements.
 
 ## Architecture Decisions
 
@@ -90,6 +91,7 @@
 - [x] Support image generation modes: full recursive regen, only missing photos, single exercise, and ingestion-driven incremental mode
 - [x] Wire ingestion success path to trigger photo generation for each newly accepted exercise
 - [x] Build Node preset-batch generator using Claude API (free-tier-first), with prompt-in → validated preset JSON out constrained to available exercises
+- [x] Load `.env` in ingestion CLI entrypoints (`ingest`, `photos`, `presets`) via `dotenv/config` so API keys are available when running npm scripts
 - [x] Emit ingestion reports with accepted/skipped/duplicate/rejected counts and reasons; include dry-run and rollback-safe workflow
 - [x] Validate legal/licensing metadata per source before merge (attribution, allowed usage, provenance)
 

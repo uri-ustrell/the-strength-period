@@ -7,6 +7,21 @@
 
 ## Recent Changes
 
+### Tooling Maintenance — Step 18 CLI Environment Loading (2026-04-09)
+- **Fixed**: `npm run presets` and related Step 18 CLIs could not read `CLAUDE_API_KEY` (and other provider keys) from `.env` because Node entrypoints did not load dotenv.
+- **Changed**: Added `import 'dotenv/config'` to `scripts/generatePresetBatch.ts`, `scripts/runIngestion.ts`, and `scripts/generateExercisePhotos.ts`.
+- **Changed**: Added `dotenv` as a dev dependency in `package.json` and regenerated `package-lock.json`.
+- **Verification**: `npm run presets -- --prompt "test prompt"` now passes the missing-key check and correctly reaches free-tier gating.
+- **Verification**: `npm run build` passes (TypeScript + Vite production build + PWA generation).
+
+### Tooling Maintenance — npm Peer Dependency Resolution (2026-04-09)
+- **Fixed**: `npm i` ERESOLVE conflict between `vite@8` and `vite-plugin-pwa@1.2.0` peer range.
+- **Changed**: Aligned toolchain versions in `package.json` to `vite@^7.3.2` and `@vitejs/plugin-react@^5.2.0`.
+- **Updated**: Regenerated lockfile via successful `npm i`.
+- **Verification**: `npm i` succeeds without peer errors.
+- **Verification**: `npm run build` passes (TypeScript + Vite production build + PWA generation).
+- **Verification**: `npm run lint` passes (`tsc --noEmit`).
+
 ### Step 16 Planning — Ethical Gamification Documentation Foundation (2026-04-09)
 - **Added**: `specs/features/16-ethical-gamification.md` as the Step 16 source-of-truth spec with guardrails, forbidden patterns, Duolingo reference boundaries, pre-execution phases, explicit UI/UX refactor policy, metrics, and completion checklists.
 - **Updated**: `specs/STATUS.md` Step 16 checklist with two prerequisite gates: source-of-truth read requirement and pre-execution UI/UX refactor decision gate.
