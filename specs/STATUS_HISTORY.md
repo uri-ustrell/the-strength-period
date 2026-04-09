@@ -7,6 +7,12 @@
 
 ## Recent Changes
 
+### Step 16 Planning — Ethical Gamification Documentation Foundation (2026-04-09)
+- **Added**: `specs/features/16-ethical-gamification.md` as the Step 16 source-of-truth spec with guardrails, forbidden patterns, Duolingo reference boundaries, pre-execution phases, explicit UI/UX refactor policy, metrics, and completion checklists.
+- **Updated**: `specs/STATUS.md` Step 16 checklist with two prerequisite gates: source-of-truth read requirement and pre-execution UI/UX refactor decision gate.
+- **Updated**: `tasks/todo.md` with a completed Step 16 documentation foundation checklist to track restoration work.
+- **Verification**: `npm run build` passes (TypeScript + Vite production build).
+
 ### Step 18 — Multi-Source Content Ingestion Pipeline (2026-04-09)
 - **Added**: Core ingestion modules under `scripts/ingestion/` (contracts, adapters, normalizers, validators, dedup, review queue, reports, merge, photo pipeline, preset generator, and shared CLI/path utilities).
 - **Added**: Step 18 CLI entrypoints (`scripts/runIngestion.ts`, `scripts/generateExercisePhotos.ts`, `scripts/generatePresetBatch.ts`) and npm scripts (`ingest`, `photos`, `presets`).

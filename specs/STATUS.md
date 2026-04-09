@@ -61,6 +61,8 @@
 - [x] Build verification: zero errors
 
 ### Step 16 — Ethical Gamification
+- [ ] Read and follow `specs/features/16-ethical-gamification.md` as source of truth before implementation
+- [ ] Run pre-execution decision gate; if guardrails cannot be met cleanly, allow and recommend full UI/UX refactor first
 - [ ] Define anti-addictive guardrails as acceptance criteria
 - [ ] Design achievement system tied to sustainable habits
 - [ ] Implement milestones (consistency, deload compliance, warm-up, injury-safe progression)

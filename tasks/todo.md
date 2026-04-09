@@ -5,6 +5,13 @@
 
 ## Active Tasks
 
+### Step 16 — Ethical Gamification Documentation Foundation (Complete, 2026-04-09)
+- [x] Recreate `specs/features/16-ethical-gamification.md` with ethical guardrails, forbidden patterns, Duolingo references, pre-execution phases, explicit full UI/UX refactor policy, metrics, and checklist coverage
+- [x] Update Step 16 in `specs/STATUS.md` with source-of-truth requirement before implementation
+- [x] Update Step 16 in `specs/STATUS.md` with pre-execution decision gate for full UI/UX refactor when needed
+- [x] Add Step 16 planning documentation foundation entry to `specs/STATUS_HISTORY.md`
+- [x] Run `npm run build` and confirm zero errors
+
 ### Step 17 — Formatter + Session Hooks (Complete, 2026-04-09)
 - [x] Evaluate and configure Biome as project formatter/linter (`biome.jsonc`, scripts, dependency)
 - [x] Add format-on-save + Biome VS Code settings in `.vscode/settings.json`
