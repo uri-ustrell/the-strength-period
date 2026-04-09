@@ -114,12 +114,6 @@
 - [x] Run `npm run build` and capture result
 - [x] Add short review/result notes
 
-### Real End-to-End Local API Flow (Pending)
-- [ ] Validate `npm run dev:api` runs Vercel local runtime with `/api/*` endpoints
-- [ ] Verify `/api/generate-plan` works locally with real `GEMINI_API_KEY` from `.env.local`
-- [ ] Add clear developer guidance for when to use browser mock mode vs real E2E mode
-- [ ] Verify `npm run build` still passes after any E2E-flow changes
-
 ### Step 12 — Deploy + CI/CD
 - [ ] Verify git repository state (`main` + `develop`) and baseline branch strategy
 - [ ] Configure GitHub remote with personal SSH alias and validate auth
