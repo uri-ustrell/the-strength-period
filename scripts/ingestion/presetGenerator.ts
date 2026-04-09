@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-import { PRESETS } from '../../src/data/presets'
+import { HARDCODED_PRESETS } from '../../src/data/presets'
 import type {
   CandidateEnvelope,
   MergeWriteResult,
@@ -372,7 +372,59 @@ function toCanonicalAutoRestrictions(values: string[]): RestrictionCondition[] {
   )
 }
 
-function buildHardcodedPresetCatalogEntry(preset: (typeof PRESETS)[number]): PresetCatalogEntry {
+type PresetSourceRecord = NonNullable<PresetCatalogEntry['ingestionMeta']>['sourceRecords'][number]
+
+function sourceRecordKey(record: PresetSourceRecord): string {
+  return [record.sourceId, record.sourceExternalId, record.adapterId, record.ingestedAt].join('::')
+}
+
+function mergePresetSourceRecords(records: PresetSourceRecord[]): PresetSourceRecord[] {
+  return Object.values(
+    records.reduce<Record<string, PresetSourceRecord>>((accumulator, record) => {
+      accumulator[sourceRecordKey(record)] = record
+      return accumulator
+    }, {})
+  ).sort((left, right) => {
+    const sourceComparison = left.sourceId.localeCompare(right.sourceId)
+    if (sourceComparison !== 0) {
+      return sourceComparison
+    }
+
+    const externalComparison = left.sourceExternalId.localeCompare(right.sourceExternalId)
+    if (externalComparison !== 0) {
+      return externalComparison
+    }
+
+    const adapterComparison = left.adapterId.localeCompare(right.adapterId)
+    if (adapterComparison !== 0) {
+      return adapterComparison
+    }
+
+    return left.ingestedAt.localeCompare(right.ingestedAt)
+  })
+}
+
+function mergeHardcodedPresetCatalogEntry(
+  existing: PresetCatalogEntry,
+  hardcoded: PresetCatalogEntry
+): PresetCatalogEntry {
+  const mergedSourceRecords = mergePresetSourceRecords([
+    ...(existing.ingestionMeta?.sourceRecords ?? []),
+    ...(hardcoded.ingestionMeta?.sourceRecords ?? []),
+  ])
+
+  return {
+    ...existing,
+    ...hardcoded,
+    ingestionMeta: {
+      sourceRecords: mergedSourceRecords,
+    },
+  }
+}
+
+function buildHardcodedPresetCatalogEntry(
+  preset: (typeof HARDCODED_PRESETS)[number]
+): PresetCatalogEntry {
   return {
     id: preset.id,
     nameKey: preset.nameKey,
@@ -401,12 +453,16 @@ function buildHardcodedPresetCatalogEntry(preset: (typeof PRESETS)[number]): Pre
 function seedHardcodedPresets(existingCatalog: PresetCatalogEntry[]): PresetCatalogEntry[] {
   const byId = new Map(existingCatalog.map((preset) => [preset.id, preset]))
 
-  for (const preset of PRESETS) {
-    if (byId.has(preset.id)) {
+  for (const preset of HARDCODED_PRESETS) {
+    const hardcodedEntry = buildHardcodedPresetCatalogEntry(preset)
+    const existingEntry = byId.get(preset.id)
+
+    if (existingEntry) {
+      byId.set(preset.id, mergeHardcodedPresetCatalogEntry(existingEntry, hardcodedEntry))
       continue
     }
 
-    byId.set(preset.id, buildHardcodedPresetCatalogEntry(preset))
+    byId.set(preset.id, hardcodedEntry)
   }
 
   return [...byId.values()].sort((left, right) => left.id.localeCompare(right.id))

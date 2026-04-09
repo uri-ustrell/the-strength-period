@@ -5,6 +5,15 @@
 
 ## Active Tasks
 
+### Preset Catalog Alignment + UI Source Switch (In Progress, 2026-04-09)
+- [ ] Verify all currently rendered built-in presets are represented in `data/ingestion/presets/catalog.json`
+- [ ] Update runtime preset source in `src/data/presets.ts` to read from ingestion catalog with safe hardcoded fallback
+- [ ] Ensure deterministic hardcoded preset merge behavior in ingestion tooling (`scripts/ingestion/presetGenerator.ts`)
+- [ ] Keep catalog ordering deterministic and duplicate-safe while preserving required UI fields
+- [ ] Run verification: `npm run test:ingestion`
+- [ ] Run verification: `npm run build`
+- [ ] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md` with concise completion notes
+
 ### Ingestion Follow-ups — Focused Tests + Artifact Hygiene (Complete, 2026-04-09)
 - [x] Add deterministic ingestion unit tests for grouped i18n merge precedence and tag ordering in `scripts/ingestion/i18nMerge.test.ts`
 - [x] Add contract validator coverage for missing locale blocks, localized names for `sourceExternalId`/`canonicalExerciseId`, and missing `preset_tags` labels
