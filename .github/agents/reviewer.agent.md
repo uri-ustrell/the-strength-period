@@ -33,6 +33,12 @@ For each feature implementation, verify:
 - [ ] No hardcoded strings — all user-facing text uses `t('namespace:key')`
 - [ ] Zustand store follows the documented pattern
 
+### Translations
+- [ ] No hardcoded UI strings — all user-facing text must use `t('namespace:key')`
+- [ ] All translation keys referenced in source must exist in `src/i18n/locales/*.json` for `ca`, `es`, and `en`
+- [ ] Locale files must have matching key sets across `ca`/`es`/`en` — report missing keys per locale
+- [ ] Report any hardcoded strings or missing keys as part of the review findings (include file path and missing locales)
+
 ### Architecture Rules
 - [ ] Exercises never written to IndexedDB
 - [ ] IndexedDB only stores user-generated data

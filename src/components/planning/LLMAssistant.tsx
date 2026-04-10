@@ -73,7 +73,7 @@ export const LLMAssistant = ({
 
   // Generate prompt
   const prompt = useMemo(() => {
-    const presetName = preset ? t(preset.nameKey, { lng: 'en' }) : 'Custom'
+    const presetName = preset ? t(preset.nameKey, { lng: 'en' }) : t('planning:custom', { lng: 'en' })
     const params = resolvePromptParams({
       presetName,
       durationWeeks: weeks,

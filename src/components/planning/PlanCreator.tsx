@@ -29,7 +29,7 @@ interface Props {
 }
 
 export const PlanCreator = ({ onComplete }: Props) => {
-  const { t } = useTranslation(['planning', 'common', 'exercises', 'muscles'])
+  const { t, i18n } = useTranslation(['planning', 'common', 'exercises', 'muscles', 'onboarding'])
   const { exercises } = useExercises()
 
   const equipment = useUserStore((s) => s.equipment)
@@ -438,7 +438,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
                       : 'border-gray-200 text-gray-500 hover:border-indigo-300'
                   }`}
                 >
-                  {t(`onboarding:equipment.${eq}`)}
+                  {t(`onboarding:step3.equipmentOptions.${eq}`)}
                 </button>
               )
             })}
@@ -1007,7 +1007,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">{t('planning:preview')}</h2>
           <span className="text-sm text-gray-500">
-            {generatedPreview.name} — {generatedPreview.durationWeeks} {t('planning:weeks')}
+            {i18n?.exists(generatedPreview.name) ? t(generatedPreview.name) : generatedPreview.name}{' '}
+            — {generatedPreview.durationWeeks} {t('planning:weeks')}
           </span>
         </div>
 
