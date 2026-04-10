@@ -5,6 +5,22 @@
 
 ## Active Tasks
 
+### Update Prompts, CSV Generator, and Example for Exercise-Rich Presets
+- [x] Task 1: Rewrite `data/ingestion/prompts/presets-llm-chat.prompt.txt` with sessions[] schema
+- [x] Task 2: Update `data/ingestion/prompts/exercises-llm-chat.prompt.txt` with usage context
+- [x] Task 3: Replace `data/ingestion/prompts/presets-output.json` with sessions[] example
+- [x] Task 4: Create `scripts/generateExerciseCatalogCSV.ts`
+- [x] Verify build (`npm run build`)
+
+### Migrate Ingestion Pipeline to sessions[] (Exercise-Rich Presets)
+- [x] Part 1: contracts.ts — remove exerciseIds, add PresetExerciseEntry/PresetSessionTemplate, add sessions/weeklyProgression
+- [x] Part 2: normalizers.ts — handle sessions[] from input, normalize exercises
+- [x] Part 3: validators.ts — replace exerciseIds validation with sessions validation
+- [x] Part 4: presetGenerator.ts — update catalog entry building, remove exerciseIds
+- [x] Part 5: llmJsonAdapter.ts — replace exerciseIds with sessions in toPresetPayload
+- [x] Part 6: catalog.json — verified no exerciseIds remain (already clean)
+- [x] Verify build (`npm run build`)
+
 ### Exercise-Rich Presets Extension (Feature 14) — Code Review Fixes
 - [ ] CRITICAL #1: Fix wizard navigation skip muscles for faithful mode
 - [ ] CRITICAL #2: Create FaithfulExercisesStep component + wire into PlanCreator

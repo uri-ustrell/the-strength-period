@@ -7,6 +7,16 @@ periodized training plans. All data runs locally in the user's browser (no backe
 The app focuses on runners and endurance athletes who want to complement their sport with
 structured strength work, including gamification and progress tracking.
 
+## How exercises are used
+- Exercises are assigned to training presets and plans. Presets can reference exercises directly
+  (faithful mode with sessions[]) or let the engine pick from a filtered pool (generator mode).
+- `progressionMetric` determines how the engine progresses the exercise over weeks:
+  weight (add load), reps (add reps), seconds (hold longer).
+- `equipment` determines which users can do the exercise (filtered by user's available equipment).
+- `tags` help filter exercises for specific training goals (e.g., corredor, pujada, rehab_genoll).
+- `restrictions` prevent exercises from being assigned to users with certain conditions
+  (e.g., rehab_genoll → avoid/modify exercises that stress the knee).
+
 ## Target user profile
 - Recreational runners and trail runners (corredor, pujada, baixada tags are highly relevant)
 - Athletes with common overuse injuries (tendinitis rotuliana, anserina, rehab_genoll)

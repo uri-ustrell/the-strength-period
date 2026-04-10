@@ -109,17 +109,36 @@ export type CanonicalExercise = {
   images: ExerciseImage[]
 }
 
+// Mirror of src/types/planning.ts — keep in sync when modifying
+export type PresetExerciseEntry = {
+  exerciseId: string
+  sets: number
+  reps: number | [number, number]
+  restSeconds: number
+  tempo?: string
+  rpe?: number
+  notes?: string
+}
+
+// Mirror of src/types/planning.ts — keep in sync when modifying
+export type PresetSessionTemplate = {
+  label?: string
+  exercises: PresetExerciseEntry[]
+  isDeload?: boolean
+}
+
 export type CanonicalPreset = {
   id: string
   nameKey: string
   descriptionKey: string
   durationOptions: number[]
-  muscleDistribution: Partial<Record<MuscleGroup, number>>
+  muscleDistribution?: Partial<Record<MuscleGroup, number>>
   requiredTags: ExerciseTag[]
   autoRestrictions: RestrictionCondition[]
   progressionType: ProgressionType
   notes?: string
-  exerciseIds: string[]
+  sessions?: PresetSessionTemplate[]
+  weeklyProgression?: number
 }
 
 export type SourceLicenseMetadata = {
@@ -175,7 +194,20 @@ export type PresetCandidateInput = {
   autoRestrictions?: string[]
   progressionType?: string | null
   notes?: string
-  exerciseIds?: string[]
+  sessions?: Array<{
+    label?: string
+    exercises: Array<{
+      exerciseId: string
+      sets?: number
+      reps?: number | [number, number]
+      restSeconds?: number
+      tempo?: string
+      rpe?: number
+      notes?: string
+    }>
+    isDeload?: boolean
+  }>
+  weeklyProgression?: number
 }
 
 export type IngestionCandidateInput = ExerciseCandidateInput | PresetCandidateInput

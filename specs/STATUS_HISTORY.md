@@ -7,6 +7,24 @@
 
 ## Recent Changes
 
+### Step 18 Review Fixes — Ingestion Pipeline Consistency (2026-04-10)
+
+**4 issues fixed:**
+1. `data/ingestion/llm-example.json`: Migrated preset from `exerciseIds` array to `sessions[]` format
+2. `scripts/ingestion/presetGenerator.ts`: Split inline Claude contract into two separate examples (generator-mode with muscleDistribution only, faithful-mode with sessions only)
+3. `scripts/ingestion/validators.ts`: Made `muscleDistribution` non-empty check conditional — skipped when `sessions` is present and non-empty
+4. `scripts/ingestion/adapters/llmJsonAdapter.ts`: Enforced reps tuple shape — array with exactly 2 elements becomes `[number, number]`, otherwise falls back to single number
+
+**6 warnings resolved:**
+1. `data/ingestion/prompts/presets-llm-chat.prompt.txt`: Aligned sets (1–10), restSeconds (0–600) ranges with validator
+2. `scripts/ingestion/presetGenerator.ts`: Changed `weeklyProgression: 2.5` to integer `3`
+3. `data/ingestion/prompts/presets-llm-chat.prompt.txt`: Documented reps as integer or `[min, max]` range array
+4. `data/ingestion/prompts/presets-output.json`: Changed Plank `reps: 1` to `reps: 45` (seconds-based)
+5. `scripts/ingestion/presetGenerator.ts`: Added comment referencing prompt file near inline contract
+6. `scripts/ingestion/contracts.ts`: Added sync comments to `PresetExerciseEntry` and `PresetSessionTemplate`
+
+**Build:** `npm run build` passes with zero errors.
+
 ### Tooling Support — Catalog-Driven Preset + Exercise UI Sources (2026-04-09)
 - **Changed**: `src/data/presets.ts` runtime preset building now renders directly from `data/ingestion/presets/catalog.json` parsed entries, removing hardcoded fallback merges from the UI data path.
 - **Verified**: Existing built-in presets rendered by UI are present in the ingestion preset catalog (`corredor_general`, `pujada`, `rehab_tendinitis_anserina`, `forca_general`, `mobilitat_prevencio`).

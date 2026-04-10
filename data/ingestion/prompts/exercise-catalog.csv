@@ -1,0 +1,101 @@
+id,name,primaryMuscles,secondaryMuscles,equipment,level,category,progressionMetric,estimatedSeriesDurationSeconds,restrictions
+90_90_Hamstring,90 90 Hamstring,isquiotibials,"bessons;mobilitat_cadera",pes_corporal,beginner,mobility,seconds,30,
+Ab_Roller,Ab Roller,abdominal,deltoides,pes_corporal,intermediate,strength,reps,40,rehab_lumbar:modify
+Adductor,Adductor,adductors,,pilates,intermediate,mobility,seconds,35,
+Adductor_Groin,Adductor Groin,"adductors;mobilitat_cadera",,pes_corporal,intermediate,mobility,seconds,30,
+Air_Bike,Air Bike,abdominal,oblics,pes_corporal,beginner,strength,reps,40,
+All_Fours_Quad_Stretch,All Fours Quad Stretch,quadriceps,"quadriceps;mobilitat_cadera",pes_corporal,intermediate,mobility,seconds,30,
+Alternate_Heel_Touchers,Alternate Heel Touchers,"abdominal;oblics",,pes_corporal,beginner,strength,reps,35,
+Ankle_Circles,Ankle Circles,"bessons;mobilitat_turmell;tibial_anterior",,pes_corporal,beginner,mobility,seconds,30,
+Anterior_Tibialis-SMR,Anterior Tibialis-SMR,"bessons;tibial_anterior;fascies",mobilitat_turmell,pes_corporal,intermediate,mobility,seconds,35,
+Arnold_Dumbbell_Press,Arnold Dumbbell Press,deltoides,triceps,manueles,intermediate,strength,weight,50,
+Balance_Board,Balance Board,bessons,"isquiotibials;quadriceps;estabilitzadors_cadera;mobilitat_turmell;tibial_anterior",pes_corporal,beginner,stability,seconds,40,
+Ball_Leg_Curl,Ball Leg Curl,isquiotibials,"bessons;glutis",pilates,beginner,stability,reps,40,
+Band_Good_Morning,Band Good Morning,isquiotibials,"glutis;lumbar",banda_elastica,beginner,stability,reps,35,rehab_lumbar:modify
+Band_Hip_Adductions,Band Hip Adductions,"adductors;estabilitzadors_cadera",,banda_elastica,beginner,stability,reps,35,
+Band_Pull_Apart,Band Pull Apart,deltoides,"dorsal;trapezi;mobilitat_toracica",banda_elastica,beginner,strength,reps,35,
+Barbell_Bench_Press_-_Medium_Grip,Barbell Bench Press - Medium Grip,pectoral,"deltoides;triceps",barra,beginner,strength,weight,50,
+Barbell_Deadlift,Barbell Deadlift,lumbar,"bessons;avantbras;glutis;isquiotibials;dorsal;quadriceps;trapezi",barra,intermediate,strength,weight,50,rehab_lumbar:modify
+Barbell_Glute_Bridge,Barbell Glute Bridge,glutis,"bessons;isquiotibials",barra,intermediate,strength,weight,45,
+Barbell_Hip_Thrust,Barbell Hip Thrust,glutis,"bessons;isquiotibials;estabilitzadors_cadera",barra,intermediate,strength,weight,50,
+Barbell_Lunge,Barbell Lunge,quadriceps,"bessons;glutis;isquiotibials;psoes",barra,intermediate,strength,weight,50,tendinitis_rotuliana:modify
+Barbell_Squat,Barbell Squat,quadriceps,"bessons;glutis;isquiotibials;lumbar",barra,beginner,strength,weight,50,"tendinitis_rotuliana:modify;rehab_genoll:modify"
+Barbell_Step_Ups,Barbell Step Ups,quadriceps,"bessons;glutis;isquiotibials;quadriceps",barra,intermediate,strength,weight,50,tendinitis_rotuliana:modify
+Bench_Dips,Bench Dips,triceps,"pectoral;deltoides",pes_corporal,beginner,strength,reps,40,
+Bent_Over_Barbell_Row,Bent Over Barbell Row,dorsal,"biceps;dorsal;deltoides",barra,beginner,strength,weight,50,rehab_lumbar:modify
+Bodyweight_Squat,Bodyweight Squat,quadriceps,"glutis;isquiotibials",pes_corporal,beginner,strength,reps,40,
+Bodyweight_Walking_Lunge,Bodyweight Walking Lunge,quadriceps,"bessons;glutis;isquiotibials;psoes",pes_corporal,beginner,strength,reps,45,
+Box_Jump_Multiple_Response,Box Jump Multiple Response,isquiotibials,"abductors;adductors;bessons;glutis;quadriceps",pes_corporal,beginner,plyometrics,reps,35,"tendinitis_rotuliana:avoid;rehab_genoll:avoid;rehab_turmell:avoid"
+Butt_Lift_Bridge,Butt Lift Bridge,glutis,isquiotibials,pes_corporal,beginner,stability,seconds,35,
+Calf_Raises_-_With_Bands,Calf Raises - With Bands,bessons,mobilitat_turmell,banda_elastica,beginner,strength,reps,35,
+Calves-SMR,Calves-SMR,"bessons;fascies",mobilitat_turmell,pilates,intermediate,mobility,seconds,35,
+Cat_Stretch,Cat Stretch,"lumbar;mobilitat_toracica","dorsal;trapezi",pes_corporal,beginner,mobility,seconds,30,
+Childs_Pose,Childs Pose,lumbar,"glutis;dorsal;mobilitat_toracica",pes_corporal,beginner,mobility,seconds,30,
+Chin-Up,Chin-Up,dorsal,"biceps;avantbras;dorsal",pes_corporal,beginner,strength,reps,45,
+Cross-Body_Crunch,Cross-Body Crunch,"abdominal;oblics",,pes_corporal,beginner,strength,reps,35,
+Crossover_Reverse_Lunge,Crossover Reverse Lunge,lumbar,"abdominal;abductors;glutis;isquiotibials;quadriceps;estabilitzadors_cadera",pes_corporal,intermediate,strength,reps,45,tendinitis_rotuliana:modify
+Crunches,Crunches,abdominal,,pes_corporal,beginner,strength,reps,35,
+Dancers_Stretch,Dancers Stretch,"lumbar;mobilitat_cadera","abductors;glutis",pes_corporal,beginner,mobility,seconds,30,
+Dead_Bug,Dead Bug,abdominal,,pes_corporal,beginner,stability,seconds,40,
+Decline_Crunch,Decline Crunch,abdominal,,pes_corporal,intermediate,strength,reps,40,rehab_lumbar:modify
+Decline_Oblique_Crunch,Decline Oblique Crunch,"abdominal;oblics",,pes_corporal,beginner,strength,reps,40,rehab_lumbar:modify
+Dips_-_Chest_Version,Dips - Chest Version,pectoral,"deltoides;triceps",pes_corporal,intermediate,strength,reps,45,
+Dumbbell_Bench_Press,Dumbbell Bench Press,pectoral,"deltoides;triceps",manueles,beginner,strength,weight,50,
+Dumbbell_Bicep_Curl,Dumbbell Bicep Curl,biceps,avantbras,manueles,beginner,strength,weight,40,
+Dumbbell_Flyes,Dumbbell Flyes,pectoral,,manueles,beginner,strength,weight,45,
+Dumbbell_Lunges,Dumbbell Lunges,quadriceps,"bessons;glutis;isquiotibials;psoes",manueles,beginner,strength,weight,50,tendinitis_rotuliana:modify
+Dumbbell_Shoulder_Press,Dumbbell Shoulder Press,deltoides,triceps,manueles,intermediate,strength,weight,50,
+Dumbbell_Side_Bend,Dumbbell Side Bend,"abdominal;oblics",,manueles,beginner,strength,weight,35,rehab_lumbar:modify
+Face_Pull,Face Pull,deltoides,"dorsal;mobilitat_toracica",barra,intermediate,strength,weight,40,
+Flutter_Kicks,Flutter Kicks,glutis,"isquiotibials;psoes",pes_corporal,beginner,strength,reps,35,rehab_lumbar:modify
+Frog_Hops,Frog Hops,quadriceps,"bessons;glutis;isquiotibials",pes_corporal,intermediate,plyometrics,reps,35,"tendinitis_rotuliana:avoid;rehab_genoll:avoid"
+Front_Barbell_Squat,Front Barbell Squat,quadriceps,"bessons;glutis;isquiotibials",barra,expert,strength,weight,50,tendinitis_rotuliana:modify
+Front_Box_Jump,Front Box Jump,isquiotibials,"abductors;adductors;bessons;glutis;quadriceps",pes_corporal,beginner,plyometrics,reps,35,"tendinitis_rotuliana:avoid;rehab_genoll:avoid"
+Glute_Ham_Raise,Glute Ham Raise,isquiotibials,"bessons;glutis",barra,intermediate,strength,reps,45,tendinitis_rotuliana:modify
+Goblet_Squat,Goblet Squat,quadriceps,"bessons;glutis;isquiotibials;deltoides",manueles,beginner,strength,weight,45,
+Good_Morning,Good Morning,isquiotibials,"abdominal;glutis;lumbar",barra,intermediate,strength,weight,45,rehab_lumbar:avoid
+Groin_and_Back_Stretch,Groin and Back Stretch,"adductors;mobilitat_cadera",,pes_corporal,intermediate,mobility,seconds,30,
+Hanging_Leg_Raise,Hanging Leg Raise,abdominal,psoes,pes_corporal,expert,strength,reps,40,rehab_lumbar:modify
+Hip_Circles_prone,Hip Circles prone,"abductors;estabilitzadors_cadera;mobilitat_cadera",adductors,pes_corporal,beginner,mobility,seconds,30,
+Hyperextensions_Back_Extensions,Hyperextensions Back Extensions,lumbar,"glutis;isquiotibials",pes_corporal,beginner,strength,reps,40,rehab_lumbar:modify
+IT_Band_and_Glute_Stretch,IT Band and Glute Stretch,"abductors;mobilitat_cadera",fascies,pes_corporal,intermediate,mobility,seconds,30,
+Intermediate_Hip_Flexor_and_Quad_Stretch,Intermediate Hip Flexor and Quad Stretch,"quadriceps;psoes;mobilitat_cadera",,pes_corporal,intermediate,mobility,seconds,30,
+Jackknife_Sit-Up,Jackknife Sit-Up,abdominal,,pes_corporal,beginner,strength,reps,40,rehab_lumbar:modify
+Knee_Tuck_Jump,Knee Tuck Jump,isquiotibials,"abductors;adductors;bessons;glutis;quadriceps",pes_corporal,beginner,plyometrics,reps,35,"tendinitis_rotuliana:avoid;rehab_genoll:avoid"
+Kneeling_Hip_Flexor,Kneeling Hip Flexor,"quadriceps;psoes;mobilitat_cadera",quadriceps,pes_corporal,beginner,mobility,seconds,35,
+Leg_Extensions,Leg Extensions,quadriceps,,barra,beginner,strength,weight,45,tendinitis_rotuliana:modify
+Leg_Press,Leg Press,quadriceps,"bessons;glutis;isquiotibials",barra,beginner,strength,weight,50,tendinitis_rotuliana:modify
+Lower_Back-SMR,Lower Back-SMR,"lumbar;fascies",,pilates,beginner,mobility,seconds,35,
+Lying_Leg_Curls,Lying Leg Curls,isquiotibials,,barra,beginner,strength,weight,45,
+Mountain_Climbers,Mountain Climbers,quadriceps,"pectoral;isquiotibials;deltoides;oblics;psoes",pes_corporal,beginner,cardio,reps,35,
+One-Arm_Dumbbell_Row,One-Arm Dumbbell Row,dorsal,"biceps;dorsal;deltoides",manueles,beginner,strength,weight,45,
+Pallof_Press,Pallof Press,abdominal,"pectoral;deltoides;triceps",barra,beginner,stability,seconds,40,
+Piriformis-SMR,Piriformis-SMR,"glutis;fascies",mobilitat_cadera,pilates,intermediate,mobility,seconds,35,
+Plank,Plank,abdominal,,pes_corporal,beginner,stability,seconds,45,
+Prone_Manual_Hamstring,Prone Manual Hamstring,isquiotibials,,pes_corporal,beginner,strength,reps,40,
+Pullups,Pullups,dorsal,"biceps;dorsal",pes_corporal,beginner,strength,reps,45,
+Push_Up_to_Side_Plank,Push Up to Side Plank,pectoral,"abdominal;deltoides;triceps;oblics",pes_corporal,beginner,stability,seconds,45,
+Pushups,Pushups,pectoral,"deltoides;triceps",pes_corporal,beginner,strength,reps,40,
+Quadriceps-SMR,Quadriceps-SMR,"quadriceps;fascies",,pilates,intermediate,mobility,seconds,35,
+Reverse_Crunch,Reverse Crunch,abdominal,,pes_corporal,beginner,strength,reps,35,
+Romanian_Deadlift,Romanian Deadlift,isquiotibials,"bessons;glutis;lumbar",barra,intermediate,strength,weight,50,rehab_lumbar:modify
+Russian_Twist,Russian Twist,"abdominal;oblics",lumbar,pes_corporal,intermediate,strength,reps,40,rehab_lumbar:modify
+Seated_Cable_Rows,Seated Cable Rows,dorsal,"biceps;dorsal;deltoides",barra,beginner,strength,weight,45,
+Seated_Calf_Raise,Seated Calf Raise,bessons,"mobilitat_turmell;tibial_anterior",barra,beginner,strength,weight,40,
+Side_Lateral_Raise,Side Lateral Raise,deltoides,,manueles,beginner,strength,weight,40,
+Side_Lying_Groin_Stretch,Side Lying Groin Stretch,"adductors;mobilitat_cadera",isquiotibials,pes_corporal,beginner,mobility,seconds,30,
+Single_Leg_Glute_Bridge,Single Leg Glute Bridge,glutis,"isquiotibials;estabilitzadors_cadera",pes_corporal,beginner,strength,reps,40,
+Single_Leg_Push-off,Single Leg Push-off,quadriceps,"bessons;isquiotibials",pes_corporal,beginner,plyometrics,reps,35,rehab_turmell:modify
+Split_Squat_with_Dumbbells,Split Squat with Dumbbells,quadriceps,"glutis;isquiotibials",manueles,beginner,strength,weight,50,tendinitis_rotuliana:modify
+Standing_Calf_Raises,Standing Calf Raises,bessons,"mobilitat_turmell;tibial_anterior",barra,beginner,strength,weight,40,
+Standing_Hip_Circles,Standing Hip Circles,"abductors;estabilitzadors_cadera;mobilitat_cadera",adductors,pes_corporal,beginner,mobility,seconds,30,
+Standing_Hip_Flexors,Standing Hip Flexors,"quadriceps;psoes;mobilitat_cadera",,pes_corporal,beginner,mobility,seconds,30,
+Standing_Leg_Curl,Standing Leg Curl,isquiotibials,,barra,beginner,strength,weight,40,
+Standing_Military_Press,Standing Military Press,deltoides,triceps,barra,beginner,strength,weight,50,rehab_lumbar:modify
+Stiff-Legged_Barbell_Deadlift,Stiff-Legged Barbell Deadlift,isquiotibials,"glutis;lumbar",barra,intermediate,strength,weight,50,rehab_lumbar:modify
+Sumo_Deadlift,Sumo Deadlift,isquiotibials,"adductors;avantbras;glutis;lumbar;dorsal;quadriceps;trapezi",barra,intermediate,strength,weight,50,rehab_lumbar:modify
+Superman,Superman,lumbar,"glutis;isquiotibials",pes_corporal,beginner,stability,seconds,35,
+Thigh_Abductor,Thigh Abductor,"abductors;estabilitzadors_cadera",glutis,barra,beginner,stability,reps,35,
+Thigh_Adductor,Thigh Adductor,adductors,"glutis;isquiotibials;estabilitzadors_cadera",barra,beginner,stability,reps,35,
+Triceps_Pushdown,Triceps Pushdown,triceps,,barra,beginner,strength,weight,40,
+Wide-Grip_Lat_Pulldown,Wide-Grip Lat Pulldown,dorsal,"biceps;dorsal;deltoides",barra,beginner,strength,weight,45,

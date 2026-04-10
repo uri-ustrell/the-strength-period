@@ -10,6 +10,8 @@ import type {
   NormalizedExerciseCandidate,
   NormalizedPresetCandidate,
   PresetCandidateInput,
+  PresetExerciseEntry,
+  PresetSessionTemplate,
   ProgressionMetric,
   ProgressionType,
   Restriction,
@@ -463,6 +465,83 @@ function normalizeExerciseCandidate(input: CandidateEnvelope): NormalizedExercis
   }
 }
 
+const TEMPO_PATTERN = /^\d+-\d+-\d+-\d+$/
+
+function normalizeExerciseEntry(raw: Record<string, unknown>): PresetExerciseEntry | undefined {
+  const exerciseId = typeof raw.exerciseId === 'string' ? raw.exerciseId.trim() : ''
+  if (!exerciseId) return undefined
+
+  const sets = clampNumber(typeof raw.sets === 'number' ? Math.round(raw.sets) : 3, 1, 10)
+
+  let reps: number | [number, number] = 10
+  if (Array.isArray(raw.reps) && raw.reps.length === 2) {
+    const [lo, hi] = raw.reps
+    if (typeof lo === 'number' && typeof hi === 'number' && lo > 0 && hi > 0) {
+      reps = [Math.round(Math.min(lo, hi)), Math.round(Math.max(lo, hi))]
+    }
+  } else if (typeof raw.reps === 'number' && raw.reps > 0) {
+    reps = Math.round(raw.reps)
+  }
+
+  const restSeconds = clampNumber(
+    typeof raw.restSeconds === 'number' ? Math.round(raw.restSeconds) : 60,
+    0,
+    600
+  )
+
+  const entry: PresetExerciseEntry = { exerciseId, sets, reps, restSeconds }
+
+  if (typeof raw.tempo === 'string' && TEMPO_PATTERN.test(raw.tempo.trim())) {
+    entry.tempo = raw.tempo.trim()
+  }
+
+  if (typeof raw.rpe === 'number' && raw.rpe >= 1 && raw.rpe <= 10) {
+    entry.rpe = raw.rpe
+  }
+
+  if (typeof raw.notes === 'string' && raw.notes.trim()) {
+    entry.notes = raw.notes.trim()
+  }
+
+  return entry
+}
+
+function normalizeSessions(
+  rawSessions: PresetCandidateInput['sessions']
+): PresetSessionTemplate[] | undefined {
+  if (!Array.isArray(rawSessions) || rawSessions.length === 0) {
+    return undefined
+  }
+
+  const sessions: PresetSessionTemplate[] = []
+
+  for (const rawSession of rawSessions) {
+    if (typeof rawSession !== 'object' || rawSession === null) continue
+    const raw = rawSession as Record<string, unknown>
+    if (!Array.isArray(raw.exercises)) continue
+
+    const exercises = (raw.exercises as Array<Record<string, unknown>>)
+      .map(normalizeExerciseEntry)
+      .filter((entry): entry is PresetExerciseEntry => entry !== undefined)
+
+    if (exercises.length === 0) continue
+
+    const session: PresetSessionTemplate = { exercises }
+
+    if (typeof raw.label === 'string' && raw.label.trim()) {
+      session.label = raw.label.trim()
+    }
+
+    if (raw.isDeload === true) {
+      session.isDeload = true
+    }
+
+    sessions.push(session)
+  }
+
+  return sessions
+}
+
 function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCandidate {
   const payload = input.payload
   if (payload.kind !== 'preset') {
@@ -522,25 +601,33 @@ function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCan
     confidence -= 0.05
   }
 
-  const exerciseIds = uniqueArray(payload.exerciseIds ?? [])
-  if (exerciseIds.length === 0) {
-    reviewReasons.push('Preset has no explicit exercise IDs; this may need manual review.')
+  const sessions = normalizeSessions(payload.sessions)
+  if (sessions && sessions.length === 0) {
+    reviewReasons.push('Preset sessions array was provided but empty after normalization.')
     confidence -= 0.1
   }
 
+  const weeklyProgression =
+    typeof payload.weeklyProgression === 'number' && Number.isFinite(payload.weeklyProgression)
+      ? Math.round(clampNumber(payload.weeklyProgression, 0, 10))
+      : undefined
+
   const aliases = uniqueArray([payload.title, payload.sourceExternalId])
+
+  const hasSessions = sessions && sessions.length > 0
 
   const canonical: CanonicalPreset = {
     id: presetId,
     nameKey: `planning:ingested_presets.${presetId}.name`,
     descriptionKey: `planning:ingested_presets.${presetId}.description`,
     durationOptions,
-    muscleDistribution: normalizedDistribution,
+    ...(hasSessions ? {} : { muscleDistribution: normalizedDistribution }),
     requiredTags,
     autoRestrictions,
     progressionType,
     notes: payload.notes?.trim() || payload.description?.trim() || undefined,
-    exerciseIds,
+    ...(hasSessions ? { sessions } : {}),
+    ...(weeklyProgression !== undefined ? { weeklyProgression } : {}),
   }
 
   return {

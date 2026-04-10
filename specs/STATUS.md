@@ -1,6 +1,6 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-09
+> Last updated: 2026-04-10
 
 ## Current Phase: Step 18 Complete — Step 16 Planned
 
@@ -41,6 +41,7 @@
 - Step 18 ingestion now has focused automated tests (`npm run test:ingestion`) covering deterministic grouped i18n merge precedence and LLM i18n contract-validation edge cases.
 - Runtime-generated ingestion report/review-queue artifacts under `data/ingestion/reports/` and `data/ingestion/queues/` are treated as transient outputs, with only `.gitkeep` placeholders tracked.
 - Tooling baseline now uses Biome for formatting/linting with repository-wide normalization and session-end auto-format hooks.
+- Step 18 review fixes applied: llm-example migrated from exerciseIds to sessions[], Claude inline contract split into generator/faithful examples, validator muscleDistribution check conditional on sessions presence, adapter enforces reps tuple shape, prompt ranges aligned with validator, contracts annotated with sync comments.
 - Dependency alignment keeps PWA support stable: `vite` pinned to `^7.3.2` with `@vitejs/plugin-react` at `^5.2.0` to satisfy `vite-plugin-pwa@^1.2.0` peer requirements.
 
 ## Architecture Decisions

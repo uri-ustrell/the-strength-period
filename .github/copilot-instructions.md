@@ -45,6 +45,7 @@ When the user's request matches one of the custom agents below, **invoke it auto
 | `reviewer` | Code review, validating implementation against specs, auditing conventions and security |
 | `ux-reviewer` | Reviewing UI/UX, accessibility, interaction flows, visual hierarchy, mobile responsiveness |
 | `enricher` | Adding/enriching exercise data, translating exercise names, mapping muscles, tagging exercises |
+| `content-factory` | Bulk generating exercises and presets, creating training plan templates, enriching the catalog |
 
 **Routing rules:**
 - Invoke the matching agent via `runSubagent` immediately, without asking the user

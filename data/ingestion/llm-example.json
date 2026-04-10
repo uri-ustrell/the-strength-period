@@ -26,17 +26,18 @@
       "sourceExternalId": "rehab_knee_stability",
       "title": "Rehab Knee Stability",
       "durationOptions": [4, 6],
-      "muscleDistribution": {
-        "quadriceps": 35,
-        "glutis": 30,
-        "abdominal": 20,
-        "mobilitat_turmell": 15
-      },
       "requiredTags": ["rehab_genoll", "core_estabilitat"],
       "autoRestrictions": ["rehab_genoll"],
       "progressionType": "linear",
-      "exerciseIds": ["90_90_Hamstring"],
-      "notes": "Low impact baseline preset for controlled load progression."
+      "notes": "Low impact baseline preset for controlled load progression.",
+      "sessions": [
+        {
+          "label": "Session A",
+          "exercises": [
+            { "exerciseId": "90_90_Hamstring", "sets": 3, "reps": 12, "restSeconds": 60 }
+          ]
+        }
+      ]
     }
   ],
   "i18n": {

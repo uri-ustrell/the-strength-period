@@ -176,11 +176,6 @@
       6,
       8
     ],
-    "muscleDistribution": {
-      "quadriceps": 40,
-      "estabilitzadors_cadera": 30,
-      "bessons": 30
-    },
     "requiredTags": [
       "corredor",
       "baixada"
@@ -265,14 +260,6 @@
       8,
       12
     ],
-    "muscleDistribution": {
-      "quadriceps": 20,
-      "isquiotibials": 20,
-      "glutis": 20,
-      "abdominal": 15,
-      "dorsal": 15,
-      "pectoral": 10
-    },
     "requiredTags": [
       "corredor"
     ],
@@ -388,11 +375,6 @@
       4,
       6
     ],
-    "muscleDistribution": {
-      "abdominal": 30,
-      "oblics": 30,
-      "lumbar": 40
-    },
     "requiredTags": [
       "corredor",
       "core_estabilitat",
@@ -485,12 +467,6 @@
       4,
       6
     ],
-    "muscleDistribution": {
-      "quadriceps": 30,
-      "isquiotibials": 25,
-      "bessons": 25,
-      "abdominal": 20
-    },
     "requiredTags": [
       "corredor"
     ],
@@ -570,12 +546,6 @@
       6,
       8
     ],
-    "muscleDistribution": {
-      "glutis": 30,
-      "estabilitzadors_cadera": 30,
-      "abdominal": 20,
-      "oblics": 20
-    },
     "requiredTags": [
       "corredor",
       "core_estabilitat"
@@ -665,12 +635,6 @@
       8,
       12
     ],
-    "muscleDistribution": {
-      "glutis": 35,
-      "quadriceps": 35,
-      "psoes": 15,
-      "estabilitzadors_cadera": 15
-    },
     "requiredTags": [
       "corredor",
       "pujada"

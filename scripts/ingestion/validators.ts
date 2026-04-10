@@ -221,40 +221,44 @@ function validateCanonicalPreset(preset: CanonicalPreset): ValidationResult {
     }
   }
 
-  const distributionEntries = Object.entries(preset.muscleDistribution)
-  if (distributionEntries.length === 0) {
-    pushError(
-      result,
-      'preset.muscleDistribution',
-      'Preset requires at least one muscle distribution entry.'
-    )
-  }
+  const hasSessions = preset.sessions && preset.sessions.length > 0
 
-  let distributionTotal = 0
-  for (const [muscle, value] of distributionEntries) {
-    distributionTotal += value
-    if (!MUSCLE_GROUP_SET.has(muscle)) {
+  if (!hasSessions) {
+    const distributionEntries = Object.entries(preset.muscleDistribution ?? {})
+    if (distributionEntries.length === 0) {
       pushError(
         result,
         'preset.muscleDistribution',
-        `Unknown muscle group in distribution: ${muscle}`
+        'Preset requires at least one muscle distribution entry.'
       )
     }
-    if (!Number.isFinite(value) || value <= 0) {
-      pushError(
+
+    let distributionTotal = 0
+    for (const [muscle, value] of distributionEntries) {
+      distributionTotal += value
+      if (!MUSCLE_GROUP_SET.has(muscle)) {
+        pushError(
+          result,
+          'preset.muscleDistribution',
+          `Unknown muscle group in distribution: ${muscle}`
+        )
+      }
+      if (!Number.isFinite(value) || value <= 0) {
+        pushError(
+          result,
+          'preset.muscleDistribution',
+          `Invalid distribution value for ${muscle}: ${value}.`
+        )
+      }
+    }
+
+    if (distributionTotal < 95 || distributionTotal > 105) {
+      pushWarning(
         result,
         'preset.muscleDistribution',
-        `Invalid distribution value for ${muscle}: ${value}.`
+        `Muscle distribution sums to ${distributionTotal}; expected approximately 100.`
       )
     }
-  }
-
-  if (distributionTotal < 95 || distributionTotal > 105) {
-    pushWarning(
-      result,
-      'preset.muscleDistribution',
-      `Muscle distribution sums to ${distributionTotal}; expected approximately 100.`
-    )
   }
 
   for (const tag of preset.requiredTags) {
@@ -277,12 +281,96 @@ function validateCanonicalPreset(preset: CanonicalPreset): ValidationResult {
     )
   }
 
-  if (preset.exerciseIds.length === 0) {
-    pushWarning(
-      result,
-      'preset.exerciseIds',
-      'Preset does not list explicit exerciseIds; review catalog constraints before merge.'
-    )
+  if (preset.weeklyProgression !== undefined) {
+    if (!Number.isInteger(preset.weeklyProgression)) {
+      pushError(
+        result,
+        'preset.weeklyProgression',
+        `weeklyProgression must be an integer, got ${preset.weeklyProgression}.`
+      )
+    }
+    if (preset.weeklyProgression < 0 || preset.weeklyProgression > 10) {
+      pushError(
+        result,
+        'preset.weeklyProgression',
+        `weeklyProgression must be between 0 and 10, got ${preset.weeklyProgression}.`
+      )
+    }
+  }
+
+  if (preset.sessions) {
+    if (preset.sessions.length === 0) {
+      pushWarning(result, 'preset.sessions', 'Preset sessions array is present but empty.')
+    }
+
+    for (const [sessionIndex, session] of preset.sessions.entries()) {
+      const prefix = `preset.sessions[${sessionIndex}]`
+
+      if (session.exercises.length === 0) {
+        pushError(result, `${prefix}.exercises`, 'Session must have at least one exercise.')
+      }
+
+      for (const [exerciseIndex, exercise] of session.exercises.entries()) {
+        const exPrefix = `${prefix}.exercises[${exerciseIndex}]`
+
+        if (!exercise.exerciseId.trim()) {
+          pushError(result, `${exPrefix}.exerciseId`, 'Exercise id must not be empty.')
+        }
+
+        if (!Number.isInteger(exercise.sets) || exercise.sets <= 0 || exercise.sets > 10) {
+          pushError(
+            result,
+            `${exPrefix}.sets`,
+            `Invalid sets: ${exercise.sets}. Expected integer between 1 and 10.`
+          )
+        }
+
+        if (Array.isArray(exercise.reps)) {
+          const [lo, hi] = exercise.reps
+          if (lo <= 0 || hi <= 0 || lo > hi) {
+            pushError(result, `${exPrefix}.reps`, `Invalid rep range: [${lo}, ${hi}].`)
+          }
+          if (lo > 30 || hi > 30) {
+            pushError(result, `${exPrefix}.reps`, `reps exceeds maximum 30`)
+          }
+        } else if (typeof exercise.reps === 'number') {
+          if (!Number.isInteger(exercise.reps) || exercise.reps <= 0) {
+            pushError(
+              result,
+              `${exPrefix}.reps`,
+              `Invalid reps: ${exercise.reps}. Expected positive integer.`
+            )
+          }
+          if (exercise.reps > 30) {
+            pushError(result, `${exPrefix}.reps`, `reps exceeds maximum 30`)
+          }
+        }
+
+        if (exercise.restSeconds < 0) {
+          pushError(
+            result,
+            `${exPrefix}.restSeconds`,
+            `Invalid restSeconds: ${exercise.restSeconds}. Must be >= 0.`
+          )
+        }
+
+        if (exercise.restSeconds > 600) {
+          pushError(result, `${exPrefix}.restSeconds`, `restSeconds exceeds maximum 600`)
+        }
+
+        if (exercise.tempo !== undefined && !/^\d+-\d+-\d+-\d+$/.test(exercise.tempo)) {
+          pushError(
+            result,
+            `${exPrefix}.tempo`,
+            `Invalid tempo format: "${exercise.tempo}". Expected "d-d-d-d" (e.g. "3-1-0-1").`
+          )
+        }
+
+        if (exercise.rpe !== undefined && (exercise.rpe < 1 || exercise.rpe > 10)) {
+          pushError(result, `${exPrefix}.rpe`, `Invalid RPE: ${exercise.rpe}. Expected 1-10.`)
+        }
+      }
+    }
   }
 
   return result
@@ -300,13 +388,17 @@ export function validatePresetExerciseReferences(
 ): ValidationResult {
   const result = createResult()
 
-  for (const exerciseId of preset.exerciseIds) {
-    if (!validExerciseIds.has(exerciseId)) {
-      pushError(
-        result,
-        'preset.exerciseIds',
-        `Preset references unknown exercise id "${exerciseId}".`
-      )
+  if (preset.sessions) {
+    for (const [sessionIndex, session] of preset.sessions.entries()) {
+      for (const [exerciseIndex, exercise] of session.exercises.entries()) {
+        if (!validExerciseIds.has(exercise.exerciseId)) {
+          pushError(
+            result,
+            `preset.sessions[${sessionIndex}].exercises[${exerciseIndex}].exerciseId`,
+            `Preset references unknown exercise id "${exercise.exerciseId}".`
+          )
+        }
+      }
     }
   }
 

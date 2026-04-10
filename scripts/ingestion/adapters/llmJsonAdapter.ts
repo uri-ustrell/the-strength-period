@@ -114,7 +114,36 @@ function toPresetPayload(raw: CandidateLike, sourceExternalId: string): PresetCa
     autoRestrictions: toStringArray(raw.autoRestrictions),
     progressionType: typeof raw.progressionType === 'string' ? raw.progressionType : null,
     notes: typeof raw.notes === 'string' ? raw.notes : undefined,
-    exerciseIds: toStringArray(raw.exerciseIds),
+    sessions: Array.isArray(raw.sessions)
+      ? (raw.sessions as Array<Record<string, unknown>>).map((session) => ({
+          label: typeof session.label === 'string' ? session.label : undefined,
+          exercises: Array.isArray(session.exercises)
+            ? (session.exercises as Array<Record<string, unknown>>).map((ex) => ({
+                exerciseId: typeof ex.exerciseId === 'string' ? ex.exerciseId : '',
+                sets: typeof ex.sets === 'number' ? ex.sets : undefined,
+                reps: Array.isArray(ex.reps)
+                  ? (() => {
+                      const filtered = (ex.reps as Array<unknown>).filter(
+                        (v): v is number => typeof v === 'number'
+                      )
+                      return filtered.length === 2
+                        ? ([filtered[0], filtered[1]] as [number, number])
+                        : (filtered[0] ?? undefined)
+                    })()
+                  : typeof ex.reps === 'number'
+                    ? ex.reps
+                    : undefined,
+                restSeconds: typeof ex.restSeconds === 'number' ? ex.restSeconds : undefined,
+                tempo: typeof ex.tempo === 'string' ? ex.tempo : undefined,
+                rpe: typeof ex.rpe === 'number' ? ex.rpe : undefined,
+                notes: typeof ex.notes === 'string' ? ex.notes : undefined,
+              }))
+            : [],
+          isDeload: session.isDeload === true ? true : undefined,
+        }))
+      : undefined,
+    weeklyProgression:
+      typeof raw.weeklyProgression === 'number' ? raw.weeklyProgression : undefined,
   }
 }
 
