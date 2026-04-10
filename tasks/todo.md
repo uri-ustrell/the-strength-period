@@ -5,6 +5,17 @@
 
 ## Active Tasks
 
+### Exercise-Rich Presets Extension (Feature 14) — Code Review Fixes
+- [ ] CRITICAL #1: Fix wizard navigation skip muscles for faithful mode
+- [ ] CRITICAL #2: Create FaithfulExercisesStep component + wire into PlanCreator
+- [ ] MAJOR #3: Fix deload — remove isAutoDeload in faithful mode
+- [ ] MAJOR #4: Fix handleSaveAsPreset to copy sessions/weeklyProgression/progressionType
+- [ ] MAJOR #5: Add equipment filter to preset browsing step
+- [ ] MAJOR #6: Add create-from-scratch + edit for custom presets
+- [ ] i18n keys in ca/es/en
+- [ ] Verify build (`npm run build`)
+- [ ] Update `specs/STATUS.md` + `specs/STATUS_HISTORY.md`
+
 ### Catalog-Driven Presets + Exercises UI Source (Complete, 2026-04-09)
 - [x] Verify all currently rendered built-in presets are represented in `data/ingestion/presets/catalog.json`
 - [x] Switch runtime preset source in `src/data/presets.ts` to catalog-only parsing for UI rendering

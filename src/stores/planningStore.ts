@@ -1,16 +1,20 @@
 import { create } from 'zustand'
-
-import type { Mesocycle, LoadTarget, ProgressionType } from '@/types/planning'
-import type { Exercise } from '@/types/exercise'
-import type { UserConfig } from '@/types/user'
-import { generateMesocycle } from '@/services/planning/planningEngine'
 import {
-  saveMesocycle,
   getActiveMesocycle,
   listMesocycles,
+  saveMesocycle,
   updateMesocycle,
 } from '@/services/db/mesocycleRepository'
-import { skipSession, adjustLoad, unskipSession } from '@/services/planning/planningAdjuster'
+import { adjustLoad, skipSession, unskipSession } from '@/services/planning/planningAdjuster'
+import { generateMesocycle } from '@/services/planning/planningEngine'
+import type { Exercise } from '@/types/exercise'
+import type {
+  LoadTarget,
+  Mesocycle,
+  PresetSessionTemplate,
+  ProgressionType,
+} from '@/types/planning'
+import type { UserConfig } from '@/types/user'
 
 interface PlanningStore {
   // State
@@ -32,6 +36,7 @@ interface PlanningStore {
       progressionType?: ProgressionType
       weeklyProgression?: number
       exerciseSelections?: Record<string, string[]>
+      presetSessions?: PresetSessionTemplate[]
     }
   ) => void
   saveGenerated: () => Promise<void>

@@ -1,6 +1,6 @@
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 import type { ExerciseTag, MuscleGroup } from '@/types/exercise'
-import type { ProgressionType } from '@/types/planning'
+import type { PresetExerciseEntry, PresetSessionTemplate, ProgressionType } from '@/types/planning'
 import presetCatalog from '../../data/ingestion/presets/catalog.json'
 
 export interface CustomPreset {
@@ -8,6 +8,9 @@ export interface CustomPreset {
   name: string
   durationWeeks: number
   muscleDistribution: Partial<Record<MuscleGroup, number>>
+  sessions?: PresetSessionTemplate[]
+  weeklyProgression?: number
+  progressionType?: ProgressionType
   createdAt: string
 }
 
@@ -21,6 +24,11 @@ export interface Preset {
   autoRestrictions: string[]
   progressionType: ProgressionType
   notes?: string
+  sessions?: PresetSessionTemplate[]
+  weeklyProgression?: number
+  restSecondsDefault?: number
+  defaultTempo?: string
+  maxSetsPerExercise?: number
 }
 
 export const HARDCODED_PRESETS: Preset[] = [
@@ -114,6 +122,11 @@ type ParsedCatalogPreset = {
   autoRestrictions?: string[]
   progressionType?: ProgressionType
   notes?: string
+  sessions?: PresetSessionTemplate[]
+  weeklyProgression?: number
+  restSecondsDefault?: number
+  defaultTempo?: string
+  maxSetsPerExercise?: number
 }
 
 const EXERCISE_TAGS: ExerciseTag[] = [
@@ -225,6 +238,70 @@ function toCatalogProgressionType(value: unknown): ProgressionType | undefined {
     : undefined
 }
 
+function toOptionalNumber(value: unknown, min: number, max: number): number | undefined {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return undefined
+  if (value < min || value > max) return undefined
+  return value
+}
+
+function parsePresetExerciseEntry(value: unknown): PresetExerciseEntry | undefined {
+  if (!isRecord(value)) return undefined
+  const exerciseId = toTrimmedString(value.exerciseId)
+  if (!exerciseId) return undefined
+
+  const sets = typeof value.sets === 'number' && value.sets > 0 ? value.sets : undefined
+  if (!sets) return undefined
+
+  let reps: number | [number, number] | undefined
+  if (Array.isArray(value.reps) && value.reps.length === 2) {
+    const [lo, hi] = value.reps
+    if (typeof lo === 'number' && typeof hi === 'number' && lo > 0 && hi > 0) {
+      reps = [lo, hi]
+    }
+  } else if (typeof value.reps === 'number' && value.reps > 0) {
+    reps = value.reps
+  }
+  if (!reps) return undefined
+
+  const restSeconds =
+    typeof value.restSeconds === 'number' && value.restSeconds >= 0 ? value.restSeconds : undefined
+  if (restSeconds === undefined) return undefined
+
+  const entry: PresetExerciseEntry = { exerciseId, sets, reps, restSeconds }
+  const tempo = toTrimmedString(value.tempo)
+  if (tempo) entry.tempo = tempo
+  const rpe = toOptionalNumber(value.rpe, 1, 10)
+  if (rpe !== undefined) entry.rpe = rpe
+  const notes = toTrimmedString(value.notes)
+  if (notes) entry.notes = notes
+  return entry
+}
+
+function parseCatalogSessions(value: unknown): PresetSessionTemplate[] | undefined {
+  if (!Array.isArray(value) || value.length === 0) return undefined
+
+  const sessions: PresetSessionTemplate[] = []
+  for (const rawSession of value) {
+    if (!isRecord(rawSession)) continue
+    if (!Array.isArray(rawSession.exercises) || rawSession.exercises.length === 0) continue
+
+    const exercises: PresetExerciseEntry[] = []
+    for (const rawEx of rawSession.exercises) {
+      const parsed = parsePresetExerciseEntry(rawEx)
+      if (parsed) exercises.push(parsed)
+    }
+    if (exercises.length === 0) continue
+
+    const session: PresetSessionTemplate = { exercises }
+    const label = toTrimmedString(rawSession.label)
+    if (label) session.label = label
+    if (rawSession.isDeload === true) session.isDeload = true
+    sessions.push(session)
+  }
+
+  return sessions.length > 0 ? sessions : undefined
+}
+
 function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
   if (!isRecord(value)) {
     return undefined
@@ -253,6 +330,11 @@ function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
       : undefined,
     progressionType: toCatalogProgressionType(value.progressionType),
     notes: toTrimmedString(value.notes),
+    sessions: parseCatalogSessions(value.sessions),
+    weeklyProgression: toOptionalNumber(value.weeklyProgression, 0, 10),
+    restSecondsDefault: toOptionalNumber(value.restSecondsDefault, 1, 600),
+    defaultTempo: toTrimmedString(value.defaultTempo),
+    maxSetsPerExercise: toOptionalNumber(value.maxSetsPerExercise, 1, 20),
   }
 }
 
@@ -266,7 +348,7 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     return undefined
   }
 
-  return {
+  const preset: Preset = {
     id: parsedPreset.id,
     nameKey: parsedPreset.nameKey,
     descriptionKey: parsedPreset.descriptionKey,
@@ -277,6 +359,24 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     progressionType: parsedPreset.progressionType ?? 'linear',
     notes: parsedPreset.notes,
   }
+
+  if (parsedPreset.sessions && parsedPreset.sessions.length > 0) {
+    preset.sessions = parsedPreset.sessions
+  }
+  if (parsedPreset.weeklyProgression !== undefined) {
+    preset.weeklyProgression = parsedPreset.weeklyProgression
+  }
+  if (parsedPreset.restSecondsDefault !== undefined) {
+    preset.restSecondsDefault = parsedPreset.restSecondsDefault
+  }
+  if (parsedPreset.defaultTempo !== undefined) {
+    preset.defaultTempo = parsedPreset.defaultTempo
+  }
+  if (parsedPreset.maxSetsPerExercise !== undefined) {
+    preset.maxSetsPerExercise = parsedPreset.maxSetsPerExercise
+  }
+
+  return preset
 }
 
 function buildPresetsFromCatalog(catalog: unknown): Preset[] {
@@ -315,4 +415,8 @@ export const PRESETS: Preset[] = buildPresetsFromCatalog(presetCatalog)
 
 export function getPresetById(id: string): Preset | undefined {
   return PRESETS.find((p) => p.id === id)
+}
+
+export function hasExerciseRichSessions(preset: Preset | null | undefined): boolean {
+  return Boolean(preset?.sessions && preset.sessions.length > 0)
 }

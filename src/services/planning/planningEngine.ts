@@ -1,17 +1,18 @@
+import { getPresetById } from '@/data/presets'
+import { PROGRESSION_RULES } from '@/data/progressionRules'
+import { filterExercises } from '@/services/exercises/exerciseFilter'
+import { snapToAvailableWeight } from '@/services/planning/weightSnapping'
 import type { Exercise, MuscleGroup, ProgressionMetric } from '@/types/exercise'
 import type {
-  Mesocycle,
-  SessionTemplate,
-  MuscleGroupTarget,
-  LoadTarget,
-  ProgressionType,
   ExerciseAssignment,
+  LoadTarget,
+  Mesocycle,
+  MuscleGroupTarget,
+  PresetSessionTemplate,
+  ProgressionType,
+  SessionTemplate,
 } from '@/types/planning'
 import type { UserConfig, WeightEquipment } from '@/types/user'
-import { filterExercises } from '@/services/exercises/exerciseFilter'
-import { PROGRESSION_RULES } from '@/data/progressionRules'
-import { getPresetById } from '@/data/presets'
-import { snapToAvailableWeight } from '@/services/planning/weightSnapping'
 
 function generateId(): string {
   return crypto.randomUUID()
@@ -112,7 +113,7 @@ function computeLoadTarget(
     if (exerciseEquipmentWeights && exerciseEquipmentWeights.length > 0) {
       const sorted = [...exerciseEquipmentWeights].sort((a, b) => a - b)
       const midIndex = Math.floor(sorted.length * 0.3)
-      const baseWeight = sorted[midIndex]!
+      const baseWeight = sorted[midIndex] ?? sorted[0] ?? 0
       const progressedWeight = baseWeight * (1 + (weekNumber - 1) * 0.05)
       const deloadWeight = baseWeight * 0.6
       const targetWeight = isDeload ? deloadWeight : progressedWeight
@@ -165,18 +166,22 @@ function trimToFitDuration(
   let filteredAssignments = [...assignments]
 
   while (sorted.length > 1 && estimateSessionDuration(sorted) > maxMinutes * 1.1) {
-    const removed = sorted.shift()!
-    filteredAssignments = filteredAssignments.filter((a) => a.muscleGroup !== removed.muscleGroup)
+    const removed = sorted.shift()
+    if (removed) {
+      filteredAssignments = filteredAssignments.filter((a) => a.muscleGroup !== removed.muscleGroup)
+    }
   }
 
   // If still over budget with 1 target, reduce sets
   if (sorted.length === 1 && estimateSessionDuration(sorted) > maxMinutes * 1.1) {
-    const original = sorted[0]!
-    const updatedLoad: LoadTarget = {
-      ...original.loadTarget,
-      sets: Math.max(1, original.loadTarget.sets - 1),
+    const original = sorted[0]
+    if (original) {
+      const updatedLoad: LoadTarget = {
+        ...original.loadTarget,
+        sets: Math.max(1, original.loadTarget.sets - 1),
+      }
+      sorted = [{ ...original, loadTarget: updatedLoad }]
     }
-    sorted = [{ ...original, loadTarget: updatedLoad }]
   }
 
   return { targets: sorted, assignments: filteredAssignments }
@@ -238,6 +243,224 @@ function selectExercise(
 }
 
 export function generateMesocycle(
+  presetId: string,
+  config: UserConfig,
+  availableExercises: Exercise[],
+  options?: {
+    weeks?: number
+    muscleDistribution?: Record<string, number>
+    progressionType?: ProgressionType
+    weeklyProgression?: number
+    exerciseSelections?: Record<string, string[]>
+    presetSessions?: PresetSessionTemplate[]
+  }
+): Mesocycle {
+  const preset = getPresetById(presetId)
+
+  // Dual mode detection: if sessions present → faithful mode
+  const presetSessions = options?.presetSessions ?? preset?.sessions
+  if (presetSessions && presetSessions.length > 0) {
+    return generateFaithfulMesocycle(presetId, config, availableExercises, presetSessions, options)
+  }
+
+  return generateGeneratorMesocycle(presetId, config, availableExercises, options)
+}
+
+function validatePresetExercises(
+  presetSessions: PresetSessionTemplate[],
+  exerciseMap: Map<string, Exercise>
+): void {
+  const missing: string[] = []
+  for (const session of presetSessions) {
+    for (const entry of session.exercises) {
+      if (!exerciseMap.has(entry.exerciseId)) {
+        if (!missing.includes(entry.exerciseId)) {
+          missing.push(entry.exerciseId)
+        }
+      }
+    }
+  }
+  if (missing.length > 0) {
+    throw new Error(`Missing exercises in catalog: ${missing.join(', ')}`)
+  }
+}
+
+function generateFaithfulMesocycle(
+  presetId: string,
+  config: UserConfig,
+  availableExercises: Exercise[],
+  presetSessions: PresetSessionTemplate[],
+  options?: {
+    weeks?: number
+    progressionType?: ProgressionType
+    weeklyProgression?: number
+  }
+): Mesocycle {
+  const preset = getPresetById(presetId)
+  const progressionType: ProgressionType =
+    options?.progressionType ?? preset?.progressionType ?? 'linear'
+  const weeklyProgression = options?.weeklyProgression ?? preset?.weeklyProgression ?? 5
+  const totalWeeks = options?.weeks ?? 8
+
+  const rule = PROGRESSION_RULES[progressionType]
+
+  // Build exercise lookup map for validation and metadata
+  const exerciseMap = new Map<string, Exercise>()
+  for (const ex of availableExercises) {
+    exerciseMap.set(ex.id, ex)
+  }
+
+  // Validate all preset exercises exist in the catalog
+  validatePresetExercises(presetSessions, exerciseMap)
+
+  const sessionsPerWeek = presetSessions.length
+  const mesocycleId = generateId()
+  const sessions: SessionTemplate[] = []
+
+  for (let week = 1; week <= totalWeeks; week++) {
+    const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
+
+    for (let dayIdx = 0; dayIdx < sessionsPerWeek; dayIdx++) {
+      const template = presetSessions[dayIdx]
+      if (!template) continue
+      const isDeload = template.isDeload === true
+      const weekMultiplier = isDeload ? rule.deloadPercentage : 1 + scaledIncrease * (week - 1)
+      const sessionIndex = (week - 1) * sessionsPerWeek + dayIdx
+
+      const muscleGroupTargets: MuscleGroupTarget[] = []
+      const exerciseAssignments: ExerciseAssignment[] = []
+      const totalExercises = template.exercises.length
+
+      let undulatingMultiplier = 1
+      if (progressionType === 'undulating' && !isDeload) {
+        undulatingMultiplier = sessionIndex % 2 === 0 ? 1.15 : 0.85
+      }
+
+      const effectiveMultiplier = weekMultiplier * undulatingMultiplier
+
+      for (const entry of template.exercises) {
+        const exercise = exerciseMap.get(entry.exerciseId)
+        if (!exercise) continue
+
+        const metric = exercise.progressionMetric
+        const baseSets = entry.sets
+        const baseReps = entry.reps
+        const baseRest = entry.restSeconds
+        const baseRpe = entry.rpe ?? Math.min(10, 6 + (week - 1) * 0.25)
+        const rpe = isDeload ? Math.min(baseRpe, 6) : baseRpe
+
+        let scaledSets: number
+        let scaledReps: number | [number, number]
+        let weightKg: number | undefined
+
+        if (metric === 'weight') {
+          scaledSets = isDeload
+            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
+            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          scaledReps = baseReps
+
+          const exerciseWeights = resolveExerciseWeights(exercise, config)
+          if (exerciseWeights && exerciseWeights.length > 0) {
+            const sorted = [...exerciseWeights].sort((a, b) => a - b)
+            const midIndex = Math.floor(sorted.length * 0.3)
+            const baseWeight = sorted[midIndex] ?? sorted[0] ?? 0
+            const progressedWeight = baseWeight * (1 + (week - 1) * 0.05)
+            const deloadWeight = baseWeight * 0.6
+            const targetWeight = isDeload ? deloadWeight : progressedWeight
+            weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
+          }
+        } else if (metric === 'reps') {
+          scaledSets = isDeload
+            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
+            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          if (Array.isArray(baseReps)) {
+            const midReps = (baseReps[0] + baseReps[1]) / 2
+            scaledReps = isDeload
+              ? baseReps
+              : Math.max(baseReps[0], Math.round(midReps * effectiveMultiplier))
+          } else {
+            scaledReps = isDeload
+              ? baseReps
+              : Math.max(6, Math.round(baseReps * effectiveMultiplier))
+          }
+        } else {
+          // seconds
+          scaledSets = isDeload
+            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
+            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          if (Array.isArray(baseReps)) {
+            scaledReps = isDeload
+              ? baseReps
+              : Math.max(
+                  baseReps[0],
+                  Math.round(((baseReps[0] + baseReps[1]) / 2) * effectiveMultiplier)
+                )
+          } else {
+            scaledReps = isDeload
+              ? baseReps
+              : Math.max(15, Math.round(baseReps * effectiveMultiplier))
+          }
+        }
+
+        const loadTarget: LoadTarget = {
+          sets: scaledSets,
+          reps: scaledReps,
+          rpe: Math.round(rpe * 10) / 10,
+          restSeconds: isDeload ? Math.round(baseRest * 0.7) : baseRest,
+        }
+        if (weightKg !== undefined) loadTarget.weightKg = weightKg
+
+        const primaryMuscle = exercise.primaryMuscles[0] ?? ('quadriceps' as MuscleGroup)
+        const percentageOfSession = totalExercises > 0 ? Math.round(100 / totalExercises) : 100
+
+        muscleGroupTargets.push({
+          muscleGroup: primaryMuscle,
+          percentageOfSession,
+          loadTarget,
+        })
+
+        exerciseAssignments.push({
+          muscleGroup: primaryMuscle,
+          exerciseId: exercise.id,
+          progressionMetric: metric,
+        })
+      }
+
+      const sessionDuration = Math.round(estimateSessionDuration(muscleGroupTargets))
+
+      sessions.push({
+        id: generateId(),
+        mesocycleId,
+        weekNumber: week,
+        dayOfWeek:
+          config.trainingDays[dayIdx % config.trainingDays.length] ??
+          assignDayOfWeek(dayIdx, sessionsPerWeek),
+        durationMinutes: sessionDuration,
+        muscleGroupTargets,
+        progressionType,
+        restrictions: config.activeRestrictions,
+        exerciseAssignments,
+        completed: false,
+        skipped: false,
+      })
+    }
+  }
+
+  const presetName = preset?.nameKey ?? 'planning:custom'
+
+  return {
+    id: mesocycleId,
+    name: presetName,
+    presetId,
+    startDate: new Date().toISOString().split('T')[0] ?? '',
+    durationWeeks: totalWeeks,
+    sessions,
+    createdAt: new Date().toISOString(),
+    active: true,
+  }
+}
+
+function generateGeneratorMesocycle(
   presetId: string,
   config: UserConfig,
   availableExercises: Exercise[],

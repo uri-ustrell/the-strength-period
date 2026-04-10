@@ -55,6 +55,7 @@
 | 7 | Pre-Built Exercise Pipeline | Build-time enrichment; client gets final JSON; zero runtime processing |
 | 6 | Ethical Gamification | Habit-tied achievements; anti-addictive guardrails; optional patronage |
 | 8 | Multi-Source Ingestion | Adapter-based ingestion, canonical transforms, dedup, and media hooks |
+| 9 | Exercise-Rich Presets | Presets carry sessions with exercises, sets, reps, rest, tempo; dual engine mode (faithful vs generator); see Feature 14 extension |
 
 > Full rationale in `specs/STATUS_HISTORY.md`
 

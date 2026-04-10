@@ -2,6 +2,22 @@ import type { MuscleGroup, ProgressionMetric, RestrictionCondition } from '@/typ
 
 export type ProgressionType = 'linear' | 'undulating' | 'block'
 
+export type PresetExerciseEntry = {
+  exerciseId: string
+  sets: number
+  reps: number | [number, number]
+  restSeconds: number
+  tempo?: string
+  rpe?: number
+  notes?: string
+}
+
+export type PresetSessionTemplate = {
+  label?: string
+  exercises: PresetExerciseEntry[]
+  isDeload?: boolean
+}
+
 export type ExerciseAssignment = {
   muscleGroup: MuscleGroup
   exerciseId: string

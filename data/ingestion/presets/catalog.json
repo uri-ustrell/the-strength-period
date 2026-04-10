@@ -20,7 +20,6 @@
     ],
     "autoRestrictions": [],
     "progressionType": "linear",
-    "exerciseIds": [],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -55,7 +54,6 @@
     "requiredTags": [],
     "autoRestrictions": [],
     "progressionType": "undulating",
-    "exerciseIds": [],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -91,7 +89,6 @@
     ],
     "autoRestrictions": [],
     "progressionType": "linear",
-    "exerciseIds": [],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -125,7 +122,6 @@
     ],
     "autoRestrictions": [],
     "progressionType": "linear",
-    "exerciseIds": [],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -159,7 +155,6 @@
     ],
     "autoRestrictions": [],
     "progressionType": "linear",
-    "exerciseIds": [],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -196,13 +191,6 @@
     ],
     "progressionType": "linear",
     "notes": "Especialment indicat per a corredors que pateixen molèsties al genoll en baixar o que volen guanyar seguretat en descensos ràpids.",
-    "exerciseIds": [
-      "All_Fours_Quad_Stretch",
-      "Bodyweight_Walking_Lunge",
-      "Calf_Raises_-_With_Bands",
-      "Single_Leg_Push-off",
-      "Split_Squat_with_Dumbbells"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -214,7 +202,59 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "All_Fours_Quad_Stretch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "tsp_hybrid_all_terrain_undulating_05",
@@ -239,17 +279,6 @@
     "autoRestrictions": [],
     "progressionType": "undulating",
     "notes": "Manté la potència de les cames mentre enforteix l'esquena i el pit per millorar l'economia de carrera i la postura en fatiga.",
-    "exerciseIds": [
-      "Split_Squat_with_Dumbbells",
-      "Band_Good_Morning",
-      "Butt_Lift_Bridge",
-      "Plank",
-      "Pullups",
-      "Pushups",
-      "One-Arm_Dumbbell_Row",
-      "Dumbbell_Bench_Press",
-      "Frog_Hops"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -261,7 +290,95 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Band_Good_Morning",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pullups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pushups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "tsp_lumbar_resilience_linear_06",
@@ -286,14 +403,6 @@
     ],
     "progressionType": "linear",
     "notes": "Enforteix la musculatura profunda de l'esquena i el core anterior per reduir la càrrega sobre les vèrtebres lumbars durant la carrera.",
-    "exerciseIds": [
-      "Superman",
-      "Dead_Bug",
-      "Alternate_Heel_Touchers",
-      "Cross-Body_Crunch",
-      "Hyperextensions_Back_Extensions",
-      "Plank"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -305,7 +414,68 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Superman",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Alternate_Heel_Touchers",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Cross-Body_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Hyperextensions_Back_Extensions",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "tsp_road_foundation_linear_01",
@@ -327,13 +497,6 @@
     "autoRestrictions": [],
     "progressionType": "linear",
     "notes": "Ideal per a corredors que s'inicien en el treball de força, prioritzant la higiene postural i l'enfortiment del tren inferior.",
-    "exerciseIds": [
-      "Bodyweight_Squat",
-      "90_90_Hamstring",
-      "Calf_Raises_-_With_Bands",
-      "Plank",
-      "Reverse_Crunch"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -345,7 +508,59 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Bodyweight_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "90_90_Hamstring",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Reverse_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "tsp_trail_stability_undulating_02",
@@ -368,14 +583,6 @@
     "autoRestrictions": [],
     "progressionType": "undulating",
     "notes": "Aquest programa utilitza una càrrega ondulant per millorar la resiliència del core i la pelvis davant els impactes asimètrics del trail.",
-    "exerciseIds": [
-      "Butt_Lift_Bridge",
-      "Push_Up_to_Side_Plank",
-      "Russian_Twist",
-      "Dead_Bug",
-      "Crossover_Reverse_Lunge",
-      "Ab_Roller"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -387,7 +594,68 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Push_Up_to_Side_Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Russian_Twist",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Crossover_Reverse_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Ab_Roller",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "tsp_vertical_power_block_03",
@@ -410,15 +678,6 @@
     "autoRestrictions": [],
     "progressionType": "block",
     "notes": "Bloc de càrrega d'alta intensitat per maximitzar el triple impuls (cadera-genoll-turmell) i la resistència dels flexors de cadera.",
-    "exerciseIds": [
-      "Front_Box_Jump",
-      "Goblet_Squat",
-      "Kneeling_Hip_Flexor",
-      "Single_Leg_Glute_Bridge",
-      "Dumbbell_Lunges",
-      "Single_Leg_Push-off",
-      "Knee_Tuck_Jump"
-    ],
     "ingestionMeta": {
       "sourceRecords": [
         {
@@ -430,6 +689,76 @@
           "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
         }
       ]
-    }
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Front_Box_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Kneeling_Hip_Flexor",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Glute_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Lunges",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Knee_Tuck_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
   }
 ]

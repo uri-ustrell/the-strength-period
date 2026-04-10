@@ -1,26 +1,26 @@
-import { useState, useEffect, useMemo } from 'react'
+import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ArrowLeft, Check, X, ChevronDown, ChevronUp } from 'lucide-react'
-
-import type { Preset } from '@/data/presets'
-import type { CustomPreset } from '@/data/presets'
-import type { UserConfig } from '@/types/user'
-import type { MuscleGroup, Exercise, ExerciseTag, DayOfWeek } from '@/types/exercise'
-import { PRESETS } from '@/data/presets'
-import { getConfig, setConfig } from '@/services/db/configRepository'
-import { usePlanningStore } from '@/stores/planningStore'
-import { useUserStore } from '@/stores/userStore'
-import { useExercises } from '@/hooks/useExercises'
-import { filterExercises } from '@/services/exercises/exerciseFilter'
-import { SessionPreview } from '@/components/planning/SessionPreview'
+import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
+import { SessionPreview } from '@/components/planning/SessionPreview'
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
+import type { CustomPreset, Preset } from '@/data/presets'
+import { hasExerciseRichSessions, PRESETS } from '@/data/presets'
+import { useExercises } from '@/hooks/useExercises'
+import { getConfig, setConfig } from '@/services/db/configRepository'
+import { filterExercises } from '@/services/exercises/exerciseFilter'
+import type { MuscleGroupPriority } from '@/services/planning/muscleDistribution'
 import {
-  presetToMuscleGroupPriorities,
   buildMuscleDistribution,
+  presetToMuscleGroupPriorities,
   prioritiesToMuscleDistribution,
 } from '@/services/planning/muscleDistribution'
-import type { MuscleGroupPriority } from '@/services/planning/muscleDistribution'
+import { usePlanningStore } from '@/stores/planningStore'
+import { useUserStore } from '@/stores/userStore'
+import type { DayOfWeek, Equipment, Exercise, ExerciseTag, MuscleGroup } from '@/types/exercise'
+import type { PresetSessionTemplate } from '@/types/planning'
+import type { UserConfig } from '@/types/user'
 
 type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview' | 'llm-assistant'
 
@@ -64,15 +64,35 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
   const [showSavePreset, setShowSavePreset] = useState(false)
   const [presetName, setPresetName] = useState('')
+  const [editingPresetId, setEditingPresetId] = useState<string | null>(null)
 
   // Exercise step state
   const [autoSelectExercises, setAutoSelectExercises] = useState(true)
   const [exerciseSelections, setExerciseSelections] = useState<Record<string, string[]>>({})
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
 
+  // Faithful mode state: editable preset sessions
+  const [editablePresetSessions, setEditablePresetSessions] = useState<PresetSessionTemplate[]>([])
+
+  // Derived: is this preset in faithful mode?
+  const isFaithfulMode = useMemo(
+    () => hasExerciseRichSessions(selectedPreset) || editablePresetSessions.length > 0,
+    [selectedPreset, editablePresetSessions]
+  )
+
   // Preset filter state
   const [presetSearch, setPresetSearch] = useState('')
   const [selectedTags, setSelectedTags] = useState<ExerciseTag[]>([])
+  const [equipmentFilter, setEquipmentFilter] = useState<Equipment[]>(() => [...equipment])
+
+  const ALL_EQUIPMENT: Equipment[] = [
+    'pes_corporal',
+    'manueles',
+    'barra',
+    'banda_elastica',
+    'pilates',
+    'trx',
+  ]
 
   // Collect all unique tags from presets for the tag filter
   const allPresetTags = useMemo(() => {
@@ -84,6 +104,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }, [])
 
   const filteredPresets = useMemo(() => {
+    const eqSet = new Set(equipmentFilter)
     return PRESETS.filter((p) => {
       if (presetSearch.trim()) {
         const name = t(p.nameKey).toLowerCase()
@@ -94,9 +115,23 @@ export const PlanCreator = ({ onComplete }: Props) => {
       if (selectedTags.length > 0) {
         if (!selectedTags.some((tag) => p.requiredTags.includes(tag))) return false
       }
+      // Equipment filter: check if preset exercises use only equipment in the filter
+      if (eqSet.size > 0 && p.sessions && p.sessions.length > 0) {
+        const presetExerciseIds = new Set<string>()
+        for (const s of p.sessions) {
+          for (const e of s.exercises) presetExerciseIds.add(e.exerciseId)
+        }
+        const presetExercises = exercises.filter((ex) => presetExerciseIds.has(ex.id))
+        if (presetExercises.length > 0) {
+          const usesUnavailableEquipment = presetExercises.some((ex) =>
+            ex.equipment.some((eq) => eq !== 'pes_corporal' && !eqSet.has(eq))
+          )
+          if (usesUnavailableEquipment) return false
+        }
+      }
       return true
     })
-  }, [presetSearch, selectedTags, t])
+  }, [presetSearch, selectedTags, equipmentFilter, exercises, t])
   useEffect(() => {
     const loadCustomPresets = async () => {
       const stored = (await getConfig('customPresets')) as CustomPreset[] | null
@@ -140,14 +175,31 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setSelectedPreset(preset)
     if (preset) {
       setWeeks(preset.durationOptions[0] ?? 8)
+      if (preset.weeklyProgression !== undefined) {
+        setWeeklyProgression(preset.weeklyProgression)
+      }
     }
     setMuscleGroupPriorities(presetToMuscleGroupPriorities(preset))
+    // Initialize editable sessions for faithful mode
+    if (preset?.sessions && preset.sessions.length > 0) {
+      setEditablePresetSessions(
+        preset.sessions.map((s) => ({
+          ...s,
+          exercises: s.exercises.map((e) => ({ ...e })),
+        }))
+      )
+    } else {
+      setEditablePresetSessions([])
+    }
     setStep('configure')
   }
 
-  const handleSelectCustomPreset = (cp: CustomPreset) => {
+  const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
     setSelectedPreset(null)
     setWeeks(cp.durationWeeks)
+    if (cp.weeklyProgression !== undefined) {
+      setWeeklyProgression(cp.weeklyProgression)
+    }
 
     const priorities: Record<string, MuscleGroupPriority | null> = {}
     for (const mg of ALL_MUSCLE_GROUPS) {
@@ -161,10 +213,40 @@ export const PlanCreator = ({ onComplete }: Props) => {
       }
     }
     setMuscleGroupPriorities(priorities as Record<MuscleGroup, MuscleGroupPriority | null>)
+
+    // Load sessions for faithful mode
+    if (cp.sessions && cp.sessions.length > 0) {
+      setEditablePresetSessions(
+        cp.sessions.map((s) => ({ ...s, exercises: s.exercises.map((e) => ({ ...e })) }))
+      )
+    } else {
+      setEditablePresetSessions([])
+    }
+
+    if (editing) {
+      setEditingPresetId(cp.id)
+      setPresetName(cp.name)
+      setShowSavePreset(true)
+    } else {
+      setEditingPresetId(null)
+    }
     setStep('configure')
   }
 
+  const handleCreateFromScratch = () => {
+    const id = `custom_${crypto.randomUUID()}`
+    const blankPreset: CustomPreset = {
+      id,
+      name: '',
+      durationWeeks: 8,
+      muscleDistribution: {},
+      createdAt: new Date().toISOString(),
+    }
+    handleSelectCustomPreset(blankPreset, true)
+  }
+
   const handleDeleteCustomPreset = async (id: string) => {
+    if (!window.confirm(t('planning:delete_preset_confirm'))) return
     const updated = customPresets.filter((p) => p.id !== id)
     await setConfig('customPresets', updated)
     setCustomPresets(updated)
@@ -176,19 +258,56 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
     const muscleDistribution = prioritiesToMuscleDistribution(muscleGroupPriorities)
 
-    const newPreset: CustomPreset = {
-      id: `custom_${crypto.randomUUID()}`,
-      name,
-      durationWeeks: weeks,
-      muscleDistribution,
-      createdAt: new Date().toISOString(),
+    const sessionsCopy =
+      editablePresetSessions.length > 0
+        ? editablePresetSessions.map((s) => ({
+            ...s,
+            exercises: s.exercises.map((e) => ({ ...e })),
+          }))
+        : selectedPreset?.sessions
+          ? selectedPreset.sessions.map((s) => ({
+              ...s,
+              exercises: s.exercises.map((e) => ({ ...e })),
+            }))
+          : undefined
+
+    if (editingPresetId) {
+      // Update existing custom preset
+      const updated = customPresets.map((cp) =>
+        cp.id === editingPresetId
+          ? {
+              ...cp,
+              name,
+              durationWeeks: weeks,
+              muscleDistribution,
+              sessions: sessionsCopy,
+              weeklyProgression,
+              progressionType: selectedPreset?.progressionType ?? cp.progressionType ?? 'linear',
+            }
+          : cp
+      )
+      await setConfig('customPresets', updated)
+      setCustomPresets(updated)
+    } else {
+      // Create new custom preset
+      const newPreset: CustomPreset = {
+        id: `custom_${crypto.randomUUID()}`,
+        name,
+        durationWeeks: weeks,
+        muscleDistribution,
+        sessions: sessionsCopy,
+        weeklyProgression,
+        progressionType: selectedPreset?.progressionType ?? 'linear',
+        createdAt: new Date().toISOString(),
+      }
+      const updated = [...customPresets, newPreset]
+      await setConfig('customPresets', updated)
+      setCustomPresets(updated)
     }
 
-    const updated = [...customPresets, newPreset]
-    await setConfig('customPresets', updated)
-    setCustomPresets(updated)
     setShowSavePreset(false)
     setPresetName('')
+    setEditingPresetId(null)
   }
 
   const handleGenerate = () => {
@@ -215,12 +334,20 @@ export const PlanCreator = ({ onComplete }: Props) => {
       availableWeights: availableWeightsState,
     }
 
-    generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
-      weeks,
-      muscleDistribution,
-      weeklyProgression,
-      exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
-    })
+    if (isFaithfulMode && editablePresetSessions.length > 0) {
+      generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
+        weeks,
+        weeklyProgression,
+        presetSessions: editablePresetSessions,
+      })
+    } else {
+      generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
+        weeks,
+        muscleDistribution,
+        weeklyProgression,
+        exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
+      })
+    }
     setStep('preview')
   }
 
@@ -288,6 +415,36 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
         )}
 
+        {/* Equipment filter */}
+        <div>
+          <p className="text-xs font-medium text-gray-500 mb-1.5">
+            {t('planning:equipment_filter')}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {ALL_EQUIPMENT.map((eq) => {
+              const active = equipmentFilter.includes(eq)
+              return (
+                <button
+                  key={eq}
+                  type="button"
+                  onClick={() =>
+                    setEquipmentFilter((prev) =>
+                      active ? prev.filter((e) => e !== eq) : [...prev, eq]
+                    )
+                  }
+                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
+                    active
+                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
+                      : 'border-gray-200 text-gray-500 hover:border-indigo-300'
+                  }`}
+                >
+                  {t(`onboarding:equipment.${eq}`)}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 gap-3">
           {filteredPresets.map((preset) => (
             <button
@@ -327,22 +484,47 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   <p className="mt-1 text-xs text-gray-500">
                     {cp.durationWeeks} {t('planning:weeks')}
                   </p>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleDeleteCustomPreset(cp.id)
-                    }}
-                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50 transition-all"
-                    aria-label={t('planning:delete_preset')}
-                  >
-                    <X size={14} />
-                  </button>
+                  <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleSelectCustomPreset(cp, true)
+                      }}
+                      className="rounded-full p-1 text-gray-300 hover:text-indigo-600 hover:bg-indigo-50"
+                      aria-label={t('planning:edit_preset')}
+                    >
+                      <span className="text-xs font-medium">{t('planning:edit_preset')}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleDeleteCustomPreset(cp.id)
+                      }}
+                      className="rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50"
+                      aria-label={t('planning:delete_preset')}
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
                 </button>
               ))}
             </div>
           </>
         )}
+
+        {/* Create from scratch */}
+        <button
+          type="button"
+          onClick={handleCreateFromScratch}
+          className="w-full rounded-xl border-2 border-dashed border-indigo-300 p-4 text-left transition-colors hover:border-indigo-500 hover:bg-indigo-50"
+        >
+          <h3 className="font-medium text-sm text-indigo-700">
+            {t('planning:create_from_scratch')}
+          </h3>
+          <p className="mt-1 text-xs text-gray-500">{t('planning:create_from_scratch_desc')}</p>
+        </button>
       </div>
     )
   }
@@ -354,12 +536,20 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => setStep('preset')}
+            onClick={() => {
+              setStep('preset')
+              setEditingPresetId(null)
+              setShowSavePreset(false)
+            }}
             className="text-gray-400 hover:text-gray-600"
           >
             <ArrowLeft size={20} />
           </button>
-          <h2 className="text-lg font-semibold text-gray-900">{t('planning:configure')}</h2>
+          <h2 className="text-lg font-semibold text-gray-900">
+            {editingPresetId
+              ? t('planning:editing_preset', { name: presetName })
+              : t('planning:configure')}
+          </h2>
         </div>
 
         <div className="space-y-4">
@@ -458,7 +648,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         <button
           type="button"
-          onClick={() => setStep('muscles')}
+          onClick={() => setStep(isFaithfulMode ? 'exercises' : 'muscles')}
           disabled={exercises.length === 0}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
         >
@@ -584,6 +774,21 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   if (step === 'exercises') {
+    // Faithful mode: render preset exercises editor
+    if (isFaithfulMode && editablePresetSessions.length > 0) {
+      return (
+        <FaithfulExercisesStep
+          editablePresetSessions={editablePresetSessions}
+          onSessionsChange={setEditablePresetSessions}
+          exercises={exercises}
+          filteredExercisePool={filteredExercisePool}
+          onBack={() => setStep('configure')}
+          onGenerate={handleGenerate}
+        />
+      )
+    }
+
+    // Generator mode: auto/manual toggle
     const canGenerate =
       autoSelectExercises ||
       activeMuscleGroups.every((mg) => (exerciseSelections[mg]?.length ?? 0) > 0)
@@ -593,7 +798,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => setStep('muscles')}
+            onClick={() => setStep(isFaithfulMode ? 'configure' : 'muscles')}
             className="text-gray-400 hover:text-gray-600"
           >
             <ArrowLeft size={20} />
