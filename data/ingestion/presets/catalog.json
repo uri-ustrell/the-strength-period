@@ -3,11 +3,7 @@
     "id": "corredor_general",
     "nameKey": "planning:presets.corredor_general",
     "descriptionKey": "planning:presets.corredor_general_desc",
-    "durationOptions": [
-      6,
-      8,
-      12
-    ],
+    "durationOptions": [6, 8, 12],
     "muscleDistribution": {
       "glutis": 30,
       "quadriceps": 25,
@@ -15,9 +11,7 @@
       "bessons": 10,
       "abdominal": 15
     },
-    "requiredTags": [
-      "corredor"
-    ],
+    "requiredTags": ["corredor"],
     "autoRestrictions": [],
     "progressionType": "linear",
     "ingestionMeta": {
@@ -37,10 +31,7 @@
     "id": "forca_general",
     "nameKey": "planning:presets.forca_general",
     "descriptionKey": "planning:presets.forca_general_desc",
-    "durationOptions": [
-      8,
-      12
-    ],
+    "durationOptions": [8, 12],
     "muscleDistribution": {
       "quadriceps": 15,
       "glutis": 15,
@@ -71,11 +62,7 @@
     "id": "mobilitat_prevencio",
     "nameKey": "planning:presets.mobilitat_prevencio",
     "descriptionKey": "planning:presets.mobilitat_prevencio_desc",
-    "durationOptions": [
-      4,
-      6,
-      8
-    ],
+    "durationOptions": [4, 6, 8],
     "muscleDistribution": {
       "mobilitat_cadera": 25,
       "mobilitat_toracica": 20,
@@ -84,9 +71,7 @@
       "fascies": 10,
       "abdominal": 10
     },
-    "requiredTags": [
-      "mobilitat"
-    ],
+    "requiredTags": ["mobilitat"],
     "autoRestrictions": [],
     "progressionType": "linear",
     "ingestionMeta": {
@@ -106,10 +91,7 @@
     "id": "pujada",
     "nameKey": "planning:presets.pujada",
     "descriptionKey": "planning:presets.pujada_desc",
-    "durationOptions": [
-      6,
-      8
-    ],
+    "durationOptions": [6, 8],
     "muscleDistribution": {
       "glutis": 35,
       "quadriceps": 30,
@@ -117,9 +99,7 @@
       "bessons": 10,
       "abdominal": 15
     },
-    "requiredTags": [
-      "pujada"
-    ],
+    "requiredTags": ["pujada"],
     "autoRestrictions": [],
     "progressionType": "linear",
     "ingestionMeta": {
@@ -139,10 +119,7 @@
     "id": "rehab_tendinitis_anserina",
     "nameKey": "planning:presets.rehab_tendinitis_anserina",
     "descriptionKey": "planning:presets.rehab_tendinitis_anserina_desc",
-    "durationOptions": [
-      8,
-      12
-    ],
+    "durationOptions": [8, 12],
     "muscleDistribution": {
       "isquiotibials": 25,
       "adductors": 20,
@@ -150,9 +127,7 @@
       "glutis": 20,
       "mobilitat_cadera": 15
     },
-    "requiredTags": [
-      "tendinitis_anserina"
-    ],
+    "requiredTags": ["tendinitis_anserina"],
     "autoRestrictions": [],
     "progressionType": "linear",
     "ingestionMeta": {
@@ -172,18 +147,9 @@
     "id": "tsp_descent_eccentric_linear_04",
     "nameKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.name",
     "descriptionKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.description",
-    "durationOptions": [
-      6,
-      8
-    ],
-    "requiredTags": [
-      "corredor",
-      "baixada"
-    ],
-    "autoRestrictions": [
-      "rehab_genoll",
-      "tendinitis_rotuliana"
-    ],
+    "durationOptions": [6, 8],
+    "requiredTags": ["corredor", "baixada"],
+    "autoRestrictions": ["rehab_genoll", "tendinitis_rotuliana"],
     "progressionType": "linear",
     "notes": "Especialment indicat per a corredors que pateixen molèsties al genoll en baixar o que volen guanyar seguretat en descensos ràpids.",
     "ingestionMeta": {
@@ -205,46 +171,66 @@
           {
             "exerciseId": "All_Fours_Quad_Stretch",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Bodyweight_Walking_Lunge",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Calf_Raises_-_With_Bands",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Single_Leg_Push-off",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Split_Squat_with_Dumbbells",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "All_Fours_Quad_Stretch",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
@@ -255,14 +241,8 @@
     "id": "tsp_hybrid_all_terrain_undulating_05",
     "nameKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.name",
     "descriptionKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.description",
-    "durationOptions": [
-      6,
-      8,
-      12
-    ],
-    "requiredTags": [
-      "corredor"
-    ],
+    "durationOptions": [6, 8, 12],
+    "requiredTags": ["corredor"],
     "autoRestrictions": [],
     "progressionType": "undulating",
     "notes": "Manté la potència de les cames mentre enforteix l'esquena i el pit per millorar l'economia de carrera i la postura en fatiga.",
@@ -285,82 +265,114 @@
           {
             "exerciseId": "Split_Squat_with_Dumbbells",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Band_Good_Morning",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Butt_Lift_Bridge",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Plank",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Pullups",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Pushups",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "One-Arm_Dumbbell_Row",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Dumbbell_Bench_Press",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Frog_Hops",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Band_Good_Morning",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pullups",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pushups",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
@@ -371,18 +383,9 @@
     "id": "tsp_lumbar_resilience_linear_06",
     "nameKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.name",
     "descriptionKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.description",
-    "durationOptions": [
-      4,
-      6
-    ],
-    "requiredTags": [
-      "corredor",
-      "core_estabilitat",
-      "rehab_lumbar"
-    ],
-    "autoRestrictions": [
-      "rehab_lumbar"
-    ],
+    "durationOptions": [4, 6],
+    "requiredTags": ["corredor", "core_estabilitat", "rehab_lumbar"],
+    "autoRestrictions": ["rehab_lumbar"],
     "progressionType": "linear",
     "notes": "Enforteix la musculatura profunda de l'esquena i el core anterior per reduir la càrrega sobre les vèrtebres lumbars durant la carrera.",
     "ingestionMeta": {
@@ -404,55 +407,78 @@
           {
             "exerciseId": "Superman",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Dead_Bug",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Alternate_Heel_Touchers",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Cross-Body_Crunch",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Hyperextensions_Back_Extensions",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Plank",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Superman",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Alternate_Heel_Touchers",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Cross-Body_Crunch",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Hyperextensions_Back_Extensions",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
@@ -463,13 +489,8 @@
     "id": "tsp_road_foundation_linear_01",
     "nameKey": "planning:ingested_presets.tsp_road_foundation_linear_01.name",
     "descriptionKey": "planning:ingested_presets.tsp_road_foundation_linear_01.description",
-    "durationOptions": [
-      4,
-      6
-    ],
-    "requiredTags": [
-      "corredor"
-    ],
+    "durationOptions": [4, 6],
+    "requiredTags": ["corredor"],
     "autoRestrictions": [],
     "progressionType": "linear",
     "notes": "Ideal per a corredors que s'inicien en el treball de força, prioritzant la higiene postural i l'enfortiment del tren inferior.",
@@ -492,46 +513,66 @@
           {
             "exerciseId": "Bodyweight_Squat",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "90_90_Hamstring",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Calf_Raises_-_With_Bands",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Plank",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Reverse_Crunch",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Bodyweight_Squat",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "90_90_Hamstring",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Reverse_Crunch",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
@@ -542,14 +583,8 @@
     "id": "tsp_trail_stability_undulating_02",
     "nameKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.name",
     "descriptionKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.description",
-    "durationOptions": [
-      6,
-      8
-    ],
-    "requiredTags": [
-      "corredor",
-      "core_estabilitat"
-    ],
+    "durationOptions": [6, 8],
+    "requiredTags": ["corredor", "core_estabilitat"],
     "autoRestrictions": [],
     "progressionType": "undulating",
     "notes": "Aquest programa utilitza una càrrega ondulant per millorar la resiliència del core i la pelvis davant els impactes asimètrics del trail.",
@@ -572,55 +607,78 @@
           {
             "exerciseId": "Butt_Lift_Bridge",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Push_Up_to_Side_Plank",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Russian_Twist",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Dead_Bug",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Crossover_Reverse_Lunge",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Ab_Roller",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Push_Up_to_Side_Plank",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Russian_Twist",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Crossover_Reverse_Lunge",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Ab_Roller",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
@@ -631,14 +689,8 @@
     "id": "tsp_vertical_power_block_03",
     "nameKey": "planning:ingested_presets.tsp_vertical_power_block_03.name",
     "descriptionKey": "planning:ingested_presets.tsp_vertical_power_block_03.description",
-    "durationOptions": [
-      8,
-      12
-    ],
-    "requiredTags": [
-      "corredor",
-      "pujada"
-    ],
+    "durationOptions": [8, 12],
+    "requiredTags": ["corredor", "pujada"],
     "autoRestrictions": [],
     "progressionType": "block",
     "notes": "Bloc de càrrega d'alta intensitat per maximitzar el triple impuls (cadera-genoll-turmell) i la resistència dels flexors de cadera.",
@@ -661,64 +713,90 @@
           {
             "exerciseId": "Front_Box_Jump",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Goblet_Squat",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Kneeling_Hip_Flexor",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Single_Leg_Glute_Bridge",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Dumbbell_Lunges",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Single_Leg_Push-off",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
             "restSeconds": 90
           },
           {
             "exerciseId": "Knee_Tuck_Jump",
             "sets": 3,
-            "reps": [
-              8,
-              12
-            ],
+            "reps": [8, 12],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Front_Box_Jump",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Kneeling_Hip_Flexor",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Glute_Bridge",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Lunges",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [8, 12],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Knee_Tuck_Jump",
+            "sets": 3,
+            "reps": [8, 12],
             "restSeconds": 90
           }
         ]
