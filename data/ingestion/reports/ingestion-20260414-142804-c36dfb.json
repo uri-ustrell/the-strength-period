@@ -1,0 +1,113 @@
+{
+  "runId": "ingestion-20260414-142804-c36dfb",
+  "startedAt": "2026-04-14T14:28:04.154Z",
+  "completedAt": "2026-04-14T14:28:04.197Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 6,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "thread_the_needle_v1",
+    "downward_dog_v1",
+    "pigeon_pose_v1",
+    "seated_spinal_twist_v1",
+    "supine_twist_v1",
+    "world_greatest_stretch_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/planning.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "mobility-yoga-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 6
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:thread_the_needle_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "thread_the_needle_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "thread_the_needle_v1"
+    },
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:downward_dog_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "downward_dog_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "downward_dog_v1"
+    },
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:pigeon_pose_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "pigeon_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pigeon_pose_v1"
+    },
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:seated_spinal_twist_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "seated_spinal_twist_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_spinal_twist_v1"
+    },
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:supine_twist_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "supine_twist_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "supine_twist_v1"
+    },
+    {
+      "candidateId": "mobility-yoga-exercises:exercise:world_greatest_stretch_v1",
+      "kind": "exercise",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceExternalId": "world_greatest_stretch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "world_greatest_stretch_v1"
+    }
+  ]
+}

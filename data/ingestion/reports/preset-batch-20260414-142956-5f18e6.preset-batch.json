@@ -1,0 +1,18 @@
+{
+  "runId": "preset-batch-20260414-142956-5f18e6",
+  "startedAt": "2026-04-14T14:29:56.303Z",
+  "completedAt": "2026-04-14T14:29:56.308Z",
+  "dryRun": true,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 3,
+    "rejected": 0
+  },
+  "acceptedPresetIds": [
+    "mobilitat_tren_inferior_v1",
+    "mobilitat_toracica_espatlles_v1",
+    "rutina_mobilitat_global_v1"
+  ],
+  "rejected": []
+}

@@ -1,0 +1,89 @@
+{
+  "runId": "ingestion-20260414-142135-776628",
+  "startedAt": "2026-04-14T14:21:35.740Z",
+  "completedAt": "2026-04-14T14:21:35.782Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 4,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "sit_to_stand_v1",
+    "wall_push_up_v1",
+    "seated_marching_v1",
+    "resistance_band_row_standing_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/planning.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "absolute-zero-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 4
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "absolute-zero-exercises:exercise:sit_to_stand_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "sit_to_stand_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sit_to_stand_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:wall_push_up_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "wall_push_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wall_push_up_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:seated_marching_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "seated_marching_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_marching_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:resistance_band_row_standing_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "resistance_band_row_standing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "resistance_band_row_standing_v1"
+    }
+  ]
+}

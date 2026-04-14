@@ -1,0 +1,394 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "gent_gran_funcional_v1",
+      "title": "Gent gran — Funcionalitat i equilibri",
+      "description": "Faithful-mode functional training block for adults 60+. 2 sessions/week of 20–25 minutes focusing on movements relevant to daily life: sit-to-stand, balance, step-ups, posture. Conservative progression.",
+      "durationOptions": [6, 8, 12],
+      "requiredTags": ["equilibri", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Designed for adults 60+ or deconditioned individuals; evidence suggests functional exercise may help maintain independence and reduce fall risk. Consult a healthcare professional before starting.",
+      "sessions": [
+        {
+          "label": "Sessió A — Funcional inferior + equilibri",
+          "exercises": [
+            { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "step_up_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "Standing_Calf_Raises", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 20, "restSeconds": 60 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Funcional superior + core",
+          "exercises": [
+            { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Superman", "sets": 2, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "gent_gran_forca_manteniment_v1",
+      "title": "Gent gran — Força i manteniment muscular",
+      "description": "Faithful-mode muscle maintenance strength block for adults 60+. 3 sessions/week with a mix of body-weight and band exercises. Can help counter sarcopenia with consistent practice.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 3,
+      "notes": "Evidence suggests progressive resistance training can help maintain muscle mass and function in older adults; always prioritize technique over load. Consult a professional if any health condition is present.",
+      "sessions": [
+        {
+          "label": "Sessió A — Tren inferior",
+          "exercises": [
+            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "step_up_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "Standing_Calf_Raises", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Tren superior",
+          "exercises": [
+            { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "band_overhead_press_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "band_bicep_curl_v1", "sets": 2, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Cos complet + mobilitat",
+          "exercises": [
+            { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "Dead_Bug", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "Childs_Pose", "sets": 2, "reps": 30, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "gent_gran_equilibri_mobilitat_v1",
+      "title": "Gent gran — Equilibri i mobilitat",
+      "description": "Faithful-mode balance and mobility block for adults 60+. 2 sessions/week of 20 minutes. Combines proprioception exercises with dynamic range of motion work. Ideal as complement to a strength program.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["equilibri", "mobilitat", "tornada_calma"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Balance and proprioceptive training is associated with reduced fall risk in older adults in multiple systematic reviews; individual results may vary.",
+      "sessions": [
+        {
+          "label": "Sessió A — Equilibri i maluc",
+          "exercises": [
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 30 },
+            { "exerciseId": "step_up_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "Standing_Hip_Flexors", "sets": 2, "reps": 12, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Mobilitat i respiració",
+          "exercises": [
+            { "exerciseId": "seated_marching_v1", "sets": 2, "reps": [15, 20], "restSeconds": 30 },
+            { "exerciseId": "thread_the_needle_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "supine_twist_v1", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "downward_dog_v1", "sets": 2, "reps": 20, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "corredor_trail_excentric_baixades_v1",
+      "title": "Trail — Força excèntrica i baixades",
+      "description": "Faithful-mode eccentric strength block for trail runners targeting downhill capacity. 3 sessions/week, 8–10 week duration. Focuses on eccentric quad/hamstring/calf strength to reduce injury risk on descents.",
+      "durationOptions": [8, 10, 12],
+      "requiredTags": ["baixada", "corredor", "rehab_genoll"],
+      "autoRestrictions": [],
+      "progressionType": "block",
+      "weeklyProgression": 6,
+      "notes": "Eccentric strength training is associated with reduced injury rates on descents in trail running literature; results require consistent application over 8+ weeks. May help reduce knee stress on downhills.",
+      "sessions": [
+        {
+          "label": "Sessió A — Excèntrics de genoll",
+          "exercises": [
+            { "exerciseId": "lateral_step_down_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 7, "tempo": "3-1-1-0" },
+            { "exerciseId": "single_leg_squat_v1", "sets": 3, "reps": [5, 8], "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" },
+            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Força isquiotibials i glutis",
+          "exercises": [
+            { "exerciseId": "nordic_curl_v1", "sets": 3, "reps": [5, 8], "restSeconds": 120, "rpe": 8, "tempo": "4-0-1-0" },
+            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Potència i propiocepcó",
+          "exercises": [
+            { "exerciseId": "step_up_v1", "sets": 4, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "lateral_step_down_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "tempo": "3-1-1-0" },
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "corredor_trail_pujada_forca_v1",
+      "title": "Trail — Força per a pujades",
+      "description": "Faithful-mode strength block for trail runners targeting uphill capacity. 3 sessions/week, undulating periodization. Develops hip extension power, single-leg stability and stride push-off strength.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["pujada", "corredor"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Uphill-specific strength work focusing on hip extension and push-off capacity; may help improve power output on climbs and reduce muscular fatigue.",
+      "sessions": [
+        {
+          "label": "Sessió A — Força de cadera i gluti",
+          "exercises": [
+            { "exerciseId": "Goblet_Squat", "sets": 4, "reps": [8, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "step_up_v1", "sets": 4, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Força isquiotibials + core",
+          "exercises": [
+            { "exerciseId": "Romanian_Deadlift", "sets": 4, "reps": [8, 10], "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Pliometria + propiocepcó",
+          "exercises": [
+            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Single_Leg_Push-off", "sets": 3, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" },
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "banda_elastica_cos_complet_v1",
+      "title": "Banda elàstica — Cos complet",
+      "description": "Faithful-mode full-body resistance band program. No weights required. 2 sessions/week. Suitable for home training, travel, or as an introduction to structured resistance work.",
+      "durationOptions": [6, 8],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 4,
+      "notes": "Resistance band training can produce meaningful strength and hypertrophy adaptations when progressive overload is applied; increase band resistance or reps systematically.",
+      "sessions": [
+        {
+          "label": "Sessió A — Push + tren inferior",
+          "exercises": [
+            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "band_overhead_press_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Pull + core",
+          "exercises": [
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "band_bicep_curl_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
+            { "exerciseId": "Band_Good_Morning", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "banda_elastica_forca_progressiva_v1",
+      "title": "Banda elàstica — Força progressiva",
+      "description": "Faithful-mode progressive band strength program. 3 sessions/week, undulating periodization. Suitable for athletes who travel frequently or prefer equipment-free training with structured progression.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 5,
+      "notes": "Progressive band training; increase resistance level or add reps/sets weekly. Day A and B alternate push/pull emphasis; Day C is full-body integration.",
+      "sessions": [
+        {
+          "label": "Sessió A — Forces de push",
+          "exercises": [
+            { "exerciseId": "band_chest_press_standing_v1", "sets": 4, "reps": [10, 15], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "band_overhead_press_v1", "sets": 4, "reps": [10, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "band_squat_v1", "sets": 4, "reps": [12, 15], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Forces de pull",
+          "exercises": [
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 4, "reps": [10, 15], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": [15, 20], "restSeconds": 60 },
+            { "exerciseId": "band_bicep_curl_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
+            { "exerciseId": "Band_Hip_Adductions", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Integració cos complet",
+          "exercises": [
+            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [15, 20], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
+            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [15, 20], "restSeconds": 60 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "gent_gran_funcional_v1": {
+          "name": "Gent gran — Funcionalitat i equilibri",
+          "description": "Bloc de força funcional per a adults de 60+. 2 sessions/setmana de 20–25 minuts centrades en moviments quotidians: aixecar-se, equilibri, pujades, postura."
+        },
+        "gent_gran_forca_manteniment_v1": {
+          "name": "Gent gran — Força i manteniment muscular",
+          "description": "Bloc de manteniment muscular per a adults de 60+. 3 sessions/setmana amb exercicis de pes corporal i banda elàstica. Pot ajudar a contrarestar la sarcopènia amb pràctica consistent."
+        },
+        "gent_gran_equilibri_mobilitat_v1": {
+          "name": "Gent gran — Equilibri i mobilitat",
+          "description": "Bloc d'equilibri i mobilitat per a adults de 60+. 2 sessions/setmana de 20 minuts. Combina exercicis de propiocepcó amb mobilitat dinàmica."
+        },
+        "corredor_trail_excentric_baixades_v1": {
+          "name": "Trail — Força excèntrica i baixades",
+          "description": "Bloc de força excèntrica per a corredors de trail. 3 sessions/setmana, 8–10 setmanes. Centrat en la força excèntrica de quàdriceps, isquiotibials i bessons per a baixades."
+        },
+        "corredor_trail_pujada_forca_v1": {
+          "name": "Trail — Força per a pujades",
+          "description": "Bloc de força per a corredors de trail amb èmfasi en pujades. 3 sessions/setmana, periodització ondulant. Desenvolupa potència d'extensió de maluc i estabilitat monopodal."
+        },
+        "banda_elastica_cos_complet_v1": {
+          "name": "Banda elàstica — Cos complet",
+          "description": "Programa de cos complet amb banda elàstica. Sense pesos. 2 sessions/setmana. Adequat per entrenar a casa, en viatge o com a introducció a l'entrenament de resistència estructurat."
+        },
+        "banda_elastica_forca_progressiva_v1": {
+          "name": "Banda elàstica — Força progressiva",
+          "description": "Programa progressiu de força amb banda elàstica. 3 sessions/setmana, periodització ondulant. Per a atletes que viatgen o prefereixen entrenament sense equipament fix."
+        }
+      },
+      "preset_tags": {
+        "equilibri": "Equilibri",
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "corredor": "Corredor",
+        "core_estabilitat": "Core i estabilitat",
+        "baixada": "Baixada",
+        "rehab_genoll": "Rehabilitació de genoll",
+        "pujada": "Pujada"
+      }
+    },
+    "es": {
+      "presets": {
+        "gent_gran_funcional_v1": {
+          "name": "Mayores — Funcionalidad y equilibrio",
+          "description": "Bloque de fuerza funcional para adultos de 60+. 2 sesiones/semana de 20–25 minutos centradas en movimientos cotidianos: levantarse, equilibrio, subidas, postura."
+        },
+        "gent_gran_forca_manteniment_v1": {
+          "name": "Mayores — Fuerza y mantenimiento muscular",
+          "description": "Bloque de mantenimiento muscular para adultos de 60+. 3 sesiones/semana con ejercicios de peso corporal y banda elástica."
+        },
+        "gent_gran_equilibri_mobilitat_v1": {
+          "name": "Mayores — Equilibrio y movilidad",
+          "description": "Bloque de equilibrio y movilidad para adultos de 60+. 2 sesiones/semana de 20 minutos. Combina ejercicios de propiocepción con movilidad dinámica."
+        },
+        "corredor_trail_excentric_baixades_v1": {
+          "name": "Trail — Fuerza excéntrica y bajadas",
+          "description": "Bloque de fuerza excéntrica para corredores de trail. 3 sesiones/semana, 8–10 semanas. Centrado en la fuerza excéntrica de cuádriceps, isquiotibiales y gemelos para bajadas."
+        },
+        "corredor_trail_pujada_forca_v1": {
+          "name": "Trail — Fuerza para subidas",
+          "description": "Bloque de fuerza para corredores de trail con énfasis en subidas. 3 sesiones/semana, periodización ondulante."
+        },
+        "banda_elastica_cos_complet_v1": {
+          "name": "Banda elástica — Cuerpo completo",
+          "description": "Programa de cuerpo completo con banda elástica. Sin pesos. 2 sesiones/semana. Adecuado para entrenar en casa, de viaje o como introducción al entrenamiento de resistencia."
+        },
+        "banda_elastica_forca_progressiva_v1": {
+          "name": "Banda elástica — Fuerza progresiva",
+          "description": "Programa progresivo de fuerza con banda elástica. 3 sesiones/semana, periodización ondulante."
+        }
+      },
+      "preset_tags": {
+        "equilibri": "Equilibrio",
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "corredor": "Corredor",
+        "core_estabilitat": "Core y estabilidad",
+        "baixada": "Bajada",
+        "rehab_genoll": "Rehabilitación de rodilla",
+        "pujada": "Subida"
+      }
+    },
+    "en": {
+      "presets": {
+        "gent_gran_funcional_v1": {
+          "name": "Seniors — Functionality & balance",
+          "description": "Functional strength block for adults 60+. 2 sessions/week of 20–25 minutes focusing on daily-life movements: sit-to-stand, balance, step-ups, posture."
+        },
+        "gent_gran_forca_manteniment_v1": {
+          "name": "Seniors — Strength & muscle maintenance",
+          "description": "Muscle maintenance block for adults 60+. 3 sessions/week with body-weight and band exercises. May help counter sarcopenia with consistent practice."
+        },
+        "gent_gran_equilibri_mobilitat_v1": {
+          "name": "Seniors — Balance & mobility",
+          "description": "Balance and mobility block for adults 60+. 2 sessions/week of 20 minutes. Combines proprioception exercises with dynamic range of motion work."
+        },
+        "corredor_trail_excentric_baixades_v1": {
+          "name": "Trail — Eccentric strength for descents",
+          "description": "Eccentric strength block for trail runners targeting downhill capacity. 3 sessions/week, 8–10 weeks. Focuses on eccentric quad/hamstring/calf strength for descents."
+        },
+        "corredor_trail_pujada_forca_v1": {
+          "name": "Trail — Uphill strength",
+          "description": "Strength block for trail runners targeting uphill capacity. 3 sessions/week, undulating periodization. Develops hip extension power and single-leg stability."
+        },
+        "banda_elastica_cos_complet_v1": {
+          "name": "Resistance band — Full body",
+          "description": "Full-body resistance band program. No weights required. 2 sessions/week. Suitable for home, travel, or as an introduction to structured resistance training."
+        },
+        "banda_elastica_forca_progressiva_v1": {
+          "name": "Resistance band — Progressive strength",
+          "description": "Progressive band strength program. 3 sessions/week, undulating periodization. For athletes who travel or prefer equipment-free training."
+        }
+      },
+      "preset_tags": {
+        "equilibri": "Balance",
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cool-down",
+        "corredor": "Runner",
+        "core_estabilitat": "Core & stability",
+        "baixada": "Descent",
+        "rehab_genoll": "Knee rehab",
+        "pujada": "Uphill"
+      }
+    }
+  }
+}

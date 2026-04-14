@@ -1,0 +1,103 @@
+{
+  "runId": "ingestion-20260414-105408-d0437c",
+  "startedAt": "2026-04-14T10:54:08.079Z",
+  "completedAt": "2026-04-14T10:54:08.103Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 0,
+    "skipped": 5,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-105408-d0437c.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-105408-d0437c.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "postpartum-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 5
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_pelvic_tilt_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_pelvic_tilt_supine_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "canonicalId": "postpp_pelvic_tilt_supine_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_ta_bracing_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_ta_bracing_supine_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "canonicalId": "postpp_ta_bracing_supine_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_heel_slides_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_heel_slides_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "canonicalId": "postpp_heel_slides_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_standing_pelvic_tilt_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_standing_pelvic_tilt_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "canonicalId": "postpp_standing_pelvic_tilt_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_modified_plank_knees_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_modified_plank_knees_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "canonicalId": "postpp_modified_plank_knees_v1"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "postpart_rehab_conservative_v1",
+      "title": "Postpartum — Gentle rehab (conservative)",
+      "description": "A cautious 4–6 week block focused on pelvic stability, core re-education, mobility and gentle return-to-activity. Recommend healthcare clearance before starting.",
+      "durationOptions": [4, 6],
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat", "tornada_calma"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Conservative progression designed for early postpartum return to activity; consult a healthcare professional before starting.",
+      "sessions": [
+        {
+          "label": "Session A",
+          "exercises": [
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [8, 12], "restSeconds": 60 },
+            { "exerciseId": "Butt_Lift_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 60 },
+            { "exerciseId": "Ankle_Circles", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "Alternate_Heel_Touchers", "sets": 3, "reps": [8, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Session B",
+          "exercises": [
+            { "exerciseId": "Plank", "sets": 3, "reps": 20, "restSeconds": 60 },
+            { "exerciseId": "Band_Hip_Adductions", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "postpart_return_strength_v1",
+      "title": "Postpartum — Return to strength (progressive)",
+      "description": "Progressive 6–12 week block to rebuild lower-body strength, hip stability and core control, suitable for later postpartum phases once cleared.",
+      "durationOptions": [6, 8, 12],
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Progressive strength focus with mobility and stability; increase load conservatively and stop if symptoms arise.",
+      "sessions": [
+        {
+          "label": "Session A",
+          "exercises": [
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Butt_Lift_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Session B",
+          "exercises": [
+            { "exerciseId": "Dumbbell_Bench_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 90 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [10, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Session C",
+          "exercises": [
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "Band_Good_Morning", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [6, 10], "restSeconds": 90 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "postpart_generator_core_strength_v1",
+      "title": "Postpartum — Generator: core to strength",
+      "description": "Generator-mode preset that prioritizes pelvic stability, glute and hip stabilizers and core; the engine will auto-select suitable exercises from the user's filtered catalog.",
+      "durationOptions": [6, 8],
+      "muscleDistribution": {
+        "glutis": 30,
+        "estabilitzadors_cadera": 20,
+        "abdominal": 20,
+        "oblics": 10,
+        "quadriceps": 10,
+        "mobilitat_cadera": 10
+      },
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 4,
+      "notes": "Generator preset for gradual reintroduction to strength; defaults are conservative."
+    },
+    {
+      "sourceExternalId": "postpart_return_to_running_v1",
+      "title": "Postpartum — Return to running (progressive)",
+      "description": "An 8–12 week block bridging strength, stability and cautious plyometrics to prepare for return to running. Include medical clearance and progress conservatively.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["corredor", "core_estabilitat", "pliometria"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "block",
+      "weeklyProgression": 6,
+      "notes": "Progression includes controlled plyometrics once strength and load tolerance are established; always monitor symptoms.",
+      "sessions": [
+        {
+          "label": "Session A",
+          "exercises": [
+            { "exerciseId": "Butt_Lift_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [6, 10], "restSeconds": 90 },
+            { "exerciseId": "Frog_Hops", "sets": 3, "reps": [5, 8], "restSeconds": 120 },
+            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Session B",
+          "exercises": [
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Dumbbell_Bench_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 90 },
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Session C",
+          "exercises": [
+            { "exerciseId": "Box_Jump_Multiple_Response", "sets": 3, "reps": [5, 8], "restSeconds": 120 },
+            { "exerciseId": "Frog_Hops", "sets": 3, "reps": [6, 10], "restSeconds": 120 },
+            { "exerciseId": "Single_Leg_Push-off", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "postpart_rehab_conservative_v1": {
+          "name": "Postpart — Rehabilitació suau",
+          "description": "Bloc conservador de 4–6 setmanes centrat en estabilitat pèlvica, reeducació del core i mobilitat. Consulteu un professional de la salut."
+        },
+        "postpart_return_strength_v1": {
+          "name": "Postpart — Retorn de força (progressiu)",
+          "description": "Bloc progressiu de 6–12 setmanes per reconstruir força i estabilitat de malucs i core. Augmenteu càrrega de manera conservadora."
+        },
+        "postpart_generator_core_strength_v1": {
+          "name": "Postpart — Generador: core → força",
+          "description": "Preset en mode generador que prioritza estabilitat pèlvica, glutis i estabilitzadors de maluc; l'algorisme triarà exercicis adequats."
+        },
+        "postpart_return_to_running_v1": {
+          "name": "Postpart — Retorn a la cursa (progressiu)",
+          "description": "Bloc de 8–12 setmanes que integra força, estabilitat i pliometria controlada per preparar el retorn a la cursa. Cal alta prudència i aprovació mèdica."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "pliometria": "Pliometria"
+      }
+    },
+    "es": {
+      "presets": {
+        "postpart_rehab_conservative_v1": {
+          "name": "Postparto — Rehabilitación suave",
+          "description": "Bloque conservador de 4–6 semanas centrado en estabilidad pélvica, reeducación del core y movilidad. Consulte con un profesional de la salud."
+        },
+        "postpart_return_strength_v1": {
+          "name": "Postparto — Retorno de fuerza (progresivo)",
+          "description": "Bloque progresivo de 6–12 semanas para reconstruir fuerza y estabilidad de cadera y core. Aumente la carga de forma conservadora."
+        },
+        "postpart_generator_core_strength_v1": {
+          "name": "Postparto — Generador: core → fuerza",
+          "description": "Preset en modo generador que prioriza estabilidad pélvica, glúteos y estabilizadores de cadera; el algoritmo seleccionará ejercicios adecuados."
+        },
+        "postpart_return_to_running_v1": {
+          "name": "Postparto — Retorno a la carrera (progresivo)",
+          "description": "Bloque de 8–12 semanas que integra fuerza, estabilidad y pliometría controlada para preparar el retorno a la carrera. Precaución y aprobación médica recomendadas."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "pliometria": "Pliometría"
+      }
+    },
+    "en": {
+      "presets": {
+        "postpart_rehab_conservative_v1": {
+          "name": "Postpartum — Gentle rehab",
+          "description": "A cautious 4–6 week block focused on pelvic stability, core re-education and mobility. Consult a healthcare professional before starting."
+        },
+        "postpart_return_strength_v1": {
+          "name": "Postpartum — Return to strength (progressive)",
+          "description": "Progressive 6–12 week block to rebuild hip and core strength and stability. Increase load conservatively."
+        },
+        "postpart_generator_core_strength_v1": {
+          "name": "Postpartum — Generator: core → strength",
+          "description": "Generator-mode preset prioritizing pelvic stability, glutes and hip stabilizers; the engine will select suitable exercises from your catalog."
+        },
+        "postpart_return_to_running_v1": {
+          "name": "Postpartum — Return to running (progressive)",
+          "description": "An 8–12 week block combining strength, stability and cautious plyometrics to prepare for return to running. Seek medical clearance and progress conservatively."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Runner",
+        "core_estabilitat": "Core & stability",
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cooldown",
+        "pliometria": "Plyometrics"
+      }
+    }
+  }
+}

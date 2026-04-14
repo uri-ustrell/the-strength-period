@@ -1,0 +1,163 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "principianta_descoberta_v1",
+      "title": "Principianta — Descoberta del moviment",
+      "description": "Generator-mode introductory block for women with no prior training history. Very conservative distribution, mobility and stability emphasis, and very slow progression. Ideal as a first 4–6 week program.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "mobilitat_cadera": 20,
+        "estabilitzadors_cadera": 20,
+        "abdominal": 20,
+        "glutis": 20,
+        "lumbar": 10,
+        "mobilitat_toracica": 10
+      },
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Designed as a first contact with structured training; may help build movement confidence and body awareness before progressing to loaded exercises."
+    },
+    {
+      "sourceExternalId": "principianta_forca_base_v1",
+      "title": "Principianta — Força base (iniciació)",
+      "description": "Faithful-mode foundational strength block for women with no prior training history. 2 sessions/week, all beginner exercises, body-weight or light resistance only. 6–8 week recommended duration.",
+      "durationOptions": [6, 8],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 3,
+      "notes": "Introductory full-body strength block; focuses on technique and movement patterns before progression. Increase load only when form is consistently correct.",
+      "sessions": [
+        {
+          "label": "Sessió A — Cos complet",
+          "exercises": [
+            { "exerciseId": "Bodyweight_Squat", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "Butt_Lift_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "Pushups", "sets": 3, "reps": [5, 10], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 20, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Cos complet",
+          "exercises": [
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 12, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "principianta_forca_progressiva_v1",
+      "title": "Principianta — Força progressiva (2a etapa)",
+      "description": "Faithful-mode intermediate progression for women who have completed a foundational block. 3 sessions/week with light dumbbells, undulating periodization. Recommended after 6+ weeks of the introductory block.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 5,
+      "notes": "Second-stage block that may help consolidate movement patterns and introduce progressive overload; recommended after completing a foundations block.",
+      "sessions": [
+        {
+          "label": "Sessió A — Tren inferior + core",
+          "exercises": [
+            { "exerciseId": "Goblet_Squat", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "Romanian_Deadlift", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Tren superior + isquitibials",
+          "exercises": [
+            { "exerciseId": "Dumbbell_Bench_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "Band_Good_Morning", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Cos complet actiu",
+          "exercises": [
+            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Standing_Military_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "principianta_descoberta_v1": {
+          "name": "Principianta — Descoberta del moviment",
+          "description": "Bloc introductori en mode generador per a dones sense historial esportiu previ. Distribució molt conservadora, èmfasi en mobilitat i estabilitat. Ideal com a primer programa de 4–6 setmanes."
+        },
+        "principianta_forca_base_v1": {
+          "name": "Principianta — Força base (iniciació)",
+          "description": "Bloc fidel de força fonamental per a principiantes. 2 sessions/setmana, exercicis bàsics amb pes corporal o resistència mínima. Prioritza tècnica i aprenentatge del patró de moviment."
+        },
+        "principianta_forca_progressiva_v1": {
+          "name": "Principianta — Força progressiva (2a etapa)",
+          "description": "Bloc fidel de progressió per a dones que han completat el bloc de bases. 3 sessions/setmana amb manuelles lleugeres, periodització ondulant. Recomanat a partir de les 6+ setmanes del bloc introductori."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat"
+      }
+    },
+    "es": {
+      "presets": {
+        "principianta_descoberta_v1": {
+          "name": "Principiante — Descubrimiento del movimiento",
+          "description": "Bloque introductorio en modo generador para mujeres sin historial deportivo previo. Distribución muy conservadora, énfasis en movilidad y estabilidad. Ideal como primer programa de 4–6 semanas."
+        },
+        "principianta_forca_base_v1": {
+          "name": "Principiante — Fuerza base (iniciación)",
+          "description": "Bloque fiel de fuerza fundamental para principiantes. 2 sesiones/semana, ejercicios básicos con peso corporal o resistencia mínima. Prioriza técnica y aprendizaje del patrón de movimiento."
+        },
+        "principianta_forca_progressiva_v1": {
+          "name": "Principiante — Fuerza progresiva (2a etapa)",
+          "description": "Bloque fiel de progresión para mujeres que han completado el bloque de bases. 3 sesiones/semana con mancuernas ligeras, periodización ondulante. Recomendado a partir de las 6+ semanas del bloque introductorio."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad"
+      }
+    },
+    "en": {
+      "presets": {
+        "principianta_descoberta_v1": {
+          "name": "Beginner — Movement discovery",
+          "description": "Generator-mode introductory block for women with no prior training history. Very conservative distribution, mobility and stability emphasis. Ideal as a first 4–6 week program."
+        },
+        "principianta_forca_base_v1": {
+          "name": "Beginner — Foundation strength",
+          "description": "Faithful-mode foundational strength block for beginners. 2 sessions/week, basic body-weight or light resistance exercises. Prioritizes technique and movement pattern learning."
+        },
+        "principianta_forca_progressiva_v1": {
+          "name": "Beginner — Progressive strength (stage 2)",
+          "description": "Faithful-mode progression block for women who have completed a foundations block. 3 sessions/week with light dumbbells, undulating periodization. Recommended after 6+ weeks of the introductory block."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Runner",
+        "core_estabilitat": "Core & stability",
+        "mobilitat": "Mobility"
+      }
+    }
+  }
+}

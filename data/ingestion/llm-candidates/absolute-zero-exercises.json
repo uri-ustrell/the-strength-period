@@ -1,0 +1,197 @@
+{
+  "exercises": [
+    {
+      "sourceExternalId": "sit_to_stand_v1",
+      "name": "Sit to Stand",
+      "primaryMuscles": ["quadriceps", "glutis"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Seu en una cadira amb els peus a l'amplada dels malucs i plans a terra.",
+        "Inclina lleugerament el tronc cap endavant, empeny els talons contra el terra i aixeca't fins a quedar totalment dret.",
+        "Controla el descens tornant a seure lentament, sense caure sobre la cadira."
+      ]
+    },
+    {
+      "sourceExternalId": "wall_push_up_v1",
+      "name": "Wall Push-Up",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["deltoides", "triceps", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Posa't de peu davant d'una paret a uns 60 cm de distància, amb les mans a l'alçada dels muscles i lleugerament separades.",
+        "Flexiona els colzes fins que el pit s'acosti a la paret mantenint el cos recte com una planxa.",
+        "Empeny la paret per tornar a la posició inicial controlant el moviment en tot moment."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_marching_v1",
+      "name": "Seated Marching",
+      "primaryMuscles": ["psoes", "abdominal"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "mobilitat_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Seu ben dret en una cadira amb els peus a terra i les mans sobre les cuixes o als costats.",
+        "Aixeca alternativament cada genoll cap al pit fins a la altura del maluc, com si marxessis assegut.",
+        "Mantén el tronc estable i la columna allargada durant tot el moviment."
+      ]
+    },
+    {
+      "sourceExternalId": "resistance_band_row_standing_v1",
+      "name": "Resistance Band Row (Standing)",
+      "primaryMuscles": ["dorsal", "trapezi"],
+      "secondaryMuscles": ["biceps", "deltoides", "lumbar"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Subjecta una banda elàstica ancorada a l'altura del maluc o estira cap a tu mentre la aguantes amb els dos extrems.",
+        "Dempeus amb els genolls lleugerament flexionats, treu els colzes cap enrere portant les mans cap als costats del tronc i ajuntant les escàpules.",
+        "Retorna lentament a la posició inicial amb control durant 2 segons."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "preset_tags": {
+        "escalfament": "Escalfament",
+        "mobilitat": "Mobilitat",
+        "corredor": "Corredor"
+      },
+      "exercises": {
+        "sit_to_stand_v1": {
+          "name": "Aixecar-se de la cadira",
+          "instructions": [
+            "Seu en una cadira amb els peus a l'amplada dels malucs i plans a terra.",
+            "Inclina lleugerament el tronc cap endavant, empeny els talons contra el terra i aixeca't fins a quedar totalment dret.",
+            "Controla el descens tornant a seure lentament, sense caure sobre la cadira."
+          ]
+        },
+        "wall_push_up_v1": {
+          "name": "Flexió de braços a la paret",
+          "instructions": [
+            "Posa't de peu davant d'una paret a uns 60 cm, amb les mans a l'alçada dels muscles i lleugerament separades.",
+            "Flexiona els colzes fins que el pit s'acosti a la paret mantenint el cos recte com una planxa.",
+            "Empeny la paret per tornar a la posició inicial controlant el moviment en tot moment."
+          ]
+        },
+        "seated_marching_v1": {
+          "name": "Marxa asseguda",
+          "instructions": [
+            "Seu ben dret en una cadira amb els peus a terra i les mans sobre les cuixes o als costats.",
+            "Aixeca alternativament cada genoll cap al pit fins a l'altura del maluc, com si marxessis assegut.",
+            "Mantén el tronc estable i la columna allargada durant tot el moviment."
+          ]
+        },
+        "resistance_band_row_standing_v1": {
+          "name": "Rem amb banda elàstica (dempeus)",
+          "instructions": [
+            "Subjecta una banda elàstica ancorada a l'altura del maluc o amb els dos extrems a les mans.",
+            "Dempeus amb genolls lleugerament flexionats, treu els colzes cap enrere portant las mans als costats del tronc i ajuntant les escàpules.",
+            "Retorna lentament a la posició inicial amb 2 segons de control."
+          ]
+        }
+      }
+    },
+    "es": {
+      "preset_tags": {
+        "escalfament": "Calentamiento",
+        "mobilitat": "Movilidad",
+        "corredor": "Corredor"
+      },
+      "exercises": {
+        "sit_to_stand_v1": {
+          "name": "Levantarse de la silla",
+          "instructions": [
+            "Siéntate en una silla con los pies a la anchura de las caderas y planos en el suelo.",
+            "Inclina ligeramente el tronco hacia adelante, empuja los talones contra el suelo y levántate hasta quedar completamente erguido.",
+            "Controla el descenso volviendo a sentarte lentamente, sin caer sobre la silla."
+          ]
+        },
+        "wall_push_up_v1": {
+          "name": "Flexiones en la pared",
+          "instructions": [
+            "Colócate de pie frente a una pared a unos 60 cm, con las manos a la altura de los hombros y ligeramente separadas.",
+            "Flexiona los codos hasta que el pecho se acerque a la pared manteniendo el cuerpo recto como una tabla.",
+            "Empuja la pared para volver a la posición inicial controlando el movimiento en todo momento."
+          ]
+        },
+        "seated_marching_v1": {
+          "name": "Marcha sentada",
+          "instructions": [
+            "Siéntate erguido en una silla con los pies en el suelo y las manos sobre los muslos o a los lados.",
+            "Levanta alternadamente cada rodilla hacia el pecho hasta la altura de la cadera, como si marcharas sentado.",
+            "Mantén el tronco estable y la columna alargada durante todo el movimiento."
+          ]
+        },
+        "resistance_band_row_standing_v1": {
+          "name": "Remo con banda elástica (de pie)",
+          "instructions": [
+            "Sujeta una banda elástica anclada a la altura de la cadera o con ambos extremos en las manos.",
+            "De pie con rodillas ligeramente flexionadas, lleva los codos hacia atrás acercando las manos a los costados del tronco y juntando las escápulas.",
+            "Regresa lentamente a la posición inicial con 2 segundos de control."
+          ]
+        }
+      }
+    },
+    "en": {
+      "preset_tags": {
+        "escalfament": "Warm-up",
+        "mobilitat": "Mobility",
+        "corredor": "Runner"
+      },
+      "exercises": {
+        "sit_to_stand_v1": {
+          "name": "Sit to Stand",
+          "instructions": [
+            "Sit in a chair with feet hip-width apart and flat on the floor.",
+            "Lean your torso slightly forward, push through your heels and stand up until fully erect.",
+            "Control the descent by sitting back down slowly without dropping onto the chair."
+          ]
+        },
+        "wall_push_up_v1": {
+          "name": "Wall Push-Up",
+          "instructions": [
+            "Stand facing a wall about 60 cm away, hands at shoulder height and slightly wider than shoulder-width.",
+            "Bend your elbows until your chest nearly touches the wall, keeping your body straight like a plank.",
+            "Push the wall to return to the start position, controlling the movement throughout."
+          ]
+        },
+        "seated_marching_v1": {
+          "name": "Seated Marching",
+          "instructions": [
+            "Sit tall in a chair with feet flat on the floor and hands resting on thighs or at your sides.",
+            "Alternately lift each knee toward your chest to hip height, as if marching while seated.",
+            "Keep your torso stable and spine long throughout the movement."
+          ]
+        },
+        "resistance_band_row_standing_v1": {
+          "name": "Resistance Band Row (Standing)",
+          "instructions": [
+            "Hold a resistance band anchored at hip height or grip both ends in your hands.",
+            "Stand with knees slightly bent, drive elbows back bringing hands alongside your torso and squeezing shoulder blades together.",
+            "Return slowly to the start position under 2 seconds of control."
+          ]
+        }
+      }
+    }
+  }
+}

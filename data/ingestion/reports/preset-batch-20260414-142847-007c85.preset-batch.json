@@ -1,0 +1,32 @@
+{
+  "runId": "preset-batch-20260414-142847-007c85",
+  "startedAt": "2026-04-14T14:28:47.505Z",
+  "completedAt": "2026-04-14T14:28:47.511Z",
+  "dryRun": true,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 1,
+    "rejected": 2
+  },
+  "acceptedPresetIds": [
+    "mobilitat_tren_inferior_v1"
+  ],
+  "rejected": [
+    {
+      "sourceExternalId": "mobilitat_toracica_espatlles_v1",
+      "reasons": [
+        "preset.sessions[0].exercises[4].reps: reps exceeds maximum 30",
+        "preset.sessions[1].exercises[3].reps: reps exceeds maximum 30"
+      ]
+    },
+    {
+      "sourceExternalId": "rutina_mobilitat_global_v1",
+      "reasons": [
+        "preset.sessions[0].exercises[1].reps: reps exceeds maximum 30",
+        "preset.sessions[1].exercises[4].reps: reps exceeds maximum 30",
+        "preset.sessions[2].exercises[2].reps: reps exceeds maximum 30"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "embaras_1r_trimestre_v1",
+      "title": "Embaras — 1r trimestre (conservador)",
+      "description": "Generator-mode preset for first trimester. Conservative distribution prioritizing pelvic stability, hip mobility and gentle core. Always consult a healthcare professional.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "estabilitzadors_cadera": 25,
+        "mobilitat_cadera": 20,
+        "abdominal": 20,
+        "glutis": 20,
+        "lumbar": 15
+      },
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Conservative first-trimester block; may help maintain baseline fitness. Consult a healthcare professional before and throughout pregnancy."
+    },
+    {
+      "sourceExternalId": "embaras_2n_trimestre_v1",
+      "title": "Embaras — 2n trimestre (força moderada)",
+      "description": "Faithful-mode preset for second trimester. Moderate strength focus: glutes, hip stabilizers and upper body. Conservative progression. Always consult a healthcare professional.",
+      "durationOptions": [6, 8],
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "linear",
+      "weeklyProgression": 3,
+      "notes": "Second-trimester block that may help maintain strength and posture. Avoid supine positions after 20 weeks if discomfort arises. Always consult a healthcare professional.",
+      "sessions": [
+        {
+          "label": "Sessió A",
+          "exercises": [
+            { "exerciseId": "Goblet_Squat", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "Romanian_Deadlift", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "Band_Hip_Adductions", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B",
+          "exercises": [
+            { "exerciseId": "Dumbbell_Bench_Press", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C",
+          "exercises": [
+            { "exerciseId": "Bodyweight_Squat", "sets": 3, "reps": [12, 15], "restSeconds": 60, "rpe": 5 },
+            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Cat_Stretch", "sets": 3, "reps": 12, "restSeconds": 30 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 20, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "embaras_3r_trimestre_v1",
+      "title": "Embaras — 3r trimestre (manteniment suau)",
+      "description": "Generator-mode preset for third trimester. Very gentle maintenance: mobility, hip stabilizers and low-impact core. Always consult a healthcare professional.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "mobilitat_cadera": 30,
+        "estabilitzadors_cadera": 25,
+        "abdominal": 20,
+        "lumbar": 15,
+        "bessons": 10
+      },
+      "requiredTags": ["corredor", "core_estabilitat", "mobilitat", "tornada_calma"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "linear",
+      "weeklyProgression": 1,
+      "notes": "Very gentle maintenance block for the third trimester. Movement may help manage common discomforts; always consult a midwife or physiotherapist."
+    },
+    {
+      "sourceExternalId": "postpart_retorn_trail_v1",
+      "title": "Postpart — Retorn al trail (progressiu)",
+      "description": "Progressive 8–12 week block bridging postpartum strength to trail-specific demands: eccentric control on descents, reactive stability and hip power. Full medical clearance required before starting.",
+      "durationOptions": [8, 12],
+      "requiredTags": ["corredor", "core_estabilitat", "pliometria", "baixada"],
+      "autoRestrictions": ["rehab_lumbar", "rehab_genoll"],
+      "progressionType": "block",
+      "weeklyProgression": 6,
+      "notes": "Aimed at postpartum runners returning to trail; may help rebuild eccentric strength and reactive stability. Progress conservatively and monitor symptoms throughout.",
+      "sessions": [
+        {
+          "label": "Sessió A — Força excèntrica",
+          "exercises": [
+            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [6, 10], "restSeconds": 90, "tempo": "3-1-1-0", "rpe": 7 },
+            { "exerciseId": "Romanian_Deadlift", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Estabilitat reactiva",
+          "exercises": [
+            { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "Single_Leg_Push-off", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C — Potència + pliometria",
+          "exercises": [
+            { "exerciseId": "Frog_Hops", "sets": 3, "reps": [6, 8], "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "postpp_wall_sit_isometric_v1", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "Dead_Bug", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "postpart_corredora_general_v1",
+      "title": "Postpart — Corredora general (força base)",
+      "description": "Progressive 6–12 week block for postpartum runners: rebuilds lower-body strength, core stability and running-specific resilience. Medical clearance required.",
+      "durationOptions": [6, 8, 12],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": ["rehab_lumbar"],
+      "progressionType": "undulating",
+      "weeklyProgression": 5,
+      "notes": "General-purpose postpartum running strength block; may contribute to restoring load tolerance for running. Increase intensity conservatively.",
+      "sessions": [
+        {
+          "label": "Sessió A — Tren inferior",
+          "exercises": [
+            { "exerciseId": "Goblet_Squat", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [10, 14], "restSeconds": 90 },
+            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            { "exerciseId": "Thigh_Abductor", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B — Tren superior i core",
+          "exercises": [
+            { "exerciseId": "Pushups", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "embaras_1r_trimestre_v1": {
+          "name": "Embaràs — 1r trimestre (conservador)",
+          "description": "Bloc conservador en mode generador per al primer trimestre. Prioritza l'estabilitat pèlvica, la mobilitat de maluc i el core suau. Consulteu un professional sanitari."
+        },
+        "embaras_2n_trimestre_v1": {
+          "name": "Embaràs — 2n trimestre (força moderada)",
+          "description": "Bloc fidel de força moderada per al segon trimestre: glutis, estabilitzadors i tren superior. Progressió conservadora. Consulteu un professional sanitari."
+        },
+        "embaras_3r_trimestre_v1": {
+          "name": "Embaràs — 3r trimestre (manteniment suau)",
+          "description": "Bloc de manteniment molt suau per al tercer trimestre: mobilitat, estabilitzadors i core de baix impacte. Consulteu una llevadora o fisioterapeuta."
+        },
+        "postpart_retorn_trail_v1": {
+          "name": "Postpart — Retorn al trail (progressiu)",
+          "description": "Bloc de 8–12 setmanes que connecta la força postpart amb les demandes del trail: control excèntric en baixades, estabilitat reactiva i potència de maluc. Cal alta mèdica."
+        },
+        "postpart_corredora_general_v1": {
+          "name": "Postpart — Corredora general (força base)",
+          "description": "Bloc de 6–12 setmanes per a corredores postpart: reconstrueix la força del tren inferior, l'estabilitat del core i la resistència específica per córrer. Cal alta mèdica."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "pliometria": "Pliometria",
+        "baixada": "Baixada"
+      }
+    },
+    "es": {
+      "presets": {
+        "embaras_1r_trimestre_v1": {
+          "name": "Embarazo — 1er trimestre (conservador)",
+          "description": "Bloque conservador en modo generador para el primer trimestre. Prioriza estabilidad pélvica, movilidad de cadera y core suave. Consulte con un profesional sanitario."
+        },
+        "embaras_2n_trimestre_v1": {
+          "name": "Embarazo — 2º trimestre (fuerza moderada)",
+          "description": "Bloque fiel de fuerza moderada para el segundo trimestre: glúteos, estabilizadores y tren superior. Progresión conservadora. Consulte con un profesional sanitario."
+        },
+        "embaras_3r_trimestre_v1": {
+          "name": "Embarazo — 3er trimestre (mantenimiento suave)",
+          "description": "Bloque de mantenimiento muy suave para el tercer trimestre: movilidad, estabilizadores y core de bajo impacto. Consulte con una matrona o fisioterapeuta."
+        },
+        "postpart_retorn_trail_v1": {
+          "name": "Postparto — Retorno al trail (progresivo)",
+          "description": "Bloque de 8–12 semanas que conecta la fuerza posparto con las demandas del trail: control excéntrico en bajadas, estabilidad reactiva y potencia de cadera. Se requiere alta médica."
+        },
+        "postpart_corredora_general_v1": {
+          "name": "Postparto — Corredora general (fuerza base)",
+          "description": "Bloque de 6–12 semanas para corredoras posparto: reconstruye fuerza de tren inferior, estabilidad del core y resistencia específica para correr. Se requiere alta médica."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "pliometria": "Pliometría",
+        "baixada": "Bajada"
+      }
+    },
+    "en": {
+      "presets": {
+        "embaras_1r_trimestre_v1": {
+          "name": "Pregnancy — 1st trimester (conservative)",
+          "description": "Generator-mode conservative block for the first trimester. Prioritizes pelvic stability, hip mobility and gentle core. Always consult a healthcare professional."
+        },
+        "embaras_2n_trimestre_v1": {
+          "name": "Pregnancy — 2nd trimester (moderate strength)",
+          "description": "Faithful-mode moderate strength block for the second trimester: glutes, stabilizers and upper body. Conservative progression. Always consult a healthcare professional."
+        },
+        "embaras_3r_trimestre_v1": {
+          "name": "Pregnancy — 3rd trimester (gentle maintenance)",
+          "description": "Very gentle generator-mode maintenance block for the third trimester: mobility, hip stabilizers and low-impact core. Consult a midwife or physiotherapist."
+        },
+        "postpart_retorn_trail_v1": {
+          "name": "Postpartum — Return to trail (progressive)",
+          "description": "An 8–12 week block bridging postpartum strength to trail-specific demands: eccentric control on descents, reactive stability and hip power. Full medical clearance required."
+        },
+        "postpart_corredora_general_v1": {
+          "name": "Postpartum — General runner (strength base)",
+          "description": "A 6–12 week block for postpartum runners: rebuilds lower-body strength, core stability and running-specific resilience. Medical clearance required."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Runner",
+        "core_estabilitat": "Core & stability",
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cooldown",
+        "pliometria": "Plyometrics",
+        "baixada": "Descent"
+      }
+    }
+  }
+}

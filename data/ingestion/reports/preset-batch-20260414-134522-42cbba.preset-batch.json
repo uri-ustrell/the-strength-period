@@ -1,0 +1,18 @@
+{
+  "runId": "preset-batch-20260414-134522-42cbba",
+  "startedAt": "2026-04-14T13:45:22.273Z",
+  "completedAt": "2026-04-14T13:45:22.287Z",
+  "dryRun": true,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 3,
+    "rejected": 0
+  },
+  "acceptedPresetIds": [
+    "principianta_descoberta_v1",
+    "principianta_forca_base_v1",
+    "principianta_forca_progressiva_v1"
+  ],
+  "rejected": []
+}

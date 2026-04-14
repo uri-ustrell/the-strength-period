@@ -1,0 +1,20 @@
+{
+  "runId": "preset-batch-20260414-132533-b0079a",
+  "startedAt": "2026-04-14T13:25:33.758Z",
+  "completedAt": "2026-04-14T13:25:33.801Z",
+  "dryRun": true,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 5,
+    "rejected": 0
+  },
+  "acceptedPresetIds": [
+    "embaras_1r_trimestre_v1",
+    "embaras_2n_trimestre_v1",
+    "embaras_3r_trimestre_v1",
+    "postpart_retorn_trail_v1",
+    "postpart_corredora_general_v1"
+  ],
+  "rejected": []
+}

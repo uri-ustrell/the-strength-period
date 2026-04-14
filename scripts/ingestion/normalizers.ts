@@ -264,8 +264,11 @@ function mapCategory(raw: string | null | undefined): ExerciseCategory | undefin
 }
 
 function normalizeDistribution(
-  input: Record<string, number>
+  input?: Record<string, number> | null
 ): Partial<Record<MuscleGroup, number>> {
+  if (!input || typeof input !== 'object') {
+    return {}
+  }
   const mappedEntries: Array<[MuscleGroup, number]> = []
 
   for (const [rawMuscle, rawWeight] of Object.entries(input)) {
@@ -555,9 +558,12 @@ function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCan
     payload.sourceExternalId,
     `ingested_preset_${Date.now()}`
   ).toLowerCase()
+
+  const hasSessions = Array.isArray(payload.sessions) && payload.sessions.length > 0
+
   const normalizedDistribution = normalizeDistribution(payload.muscleDistribution)
 
-  if (Object.keys(normalizedDistribution).length === 0) {
+  if (!hasSessions && Object.keys(normalizedDistribution).length === 0) {
     reviewReasons.push('No canonical muscle distribution mapped; defaulted to abdominal=100.')
     normalizedDistribution.abdominal = 100
     confidence -= 0.45
@@ -613,8 +619,6 @@ function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCan
       : undefined
 
   const aliases = uniqueArray([payload.title, payload.sourceExternalId])
-
-  const hasSessions = sessions && sessions.length > 0
 
   const canonical: CanonicalPreset = {
     id: presetId,

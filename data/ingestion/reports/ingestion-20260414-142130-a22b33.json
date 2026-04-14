@@ -1,0 +1,78 @@
+{
+  "runId": "ingestion-20260414-142130-a22b33",
+  "startedAt": "2026-04-14T14:21:30.594Z",
+  "completedAt": "2026-04-14T14:21:30.649Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 4,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "sit_to_stand_v1",
+    "wall_push_up_v1",
+    "seated_marching_v1",
+    "resistance_band_row_standing_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [],
+  "sources": [
+    {
+      "sourceId": "absolute-zero-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 4
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "absolute-zero-exercises:exercise:sit_to_stand_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "sit_to_stand_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sit_to_stand_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:wall_push_up_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "wall_push_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wall_push_up_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:seated_marching_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "seated_marching_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_marching_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:resistance_band_row_standing_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "resistance_band_row_standing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "resistance_band_row_standing_v1"
+    }
+  ]
+}

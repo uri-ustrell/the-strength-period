@@ -1,0 +1,71 @@
+{
+  "runId": "ingestion-20260414-105408-d0437c",
+  "createdAt": "2026-04-14T10:54:08.102Z",
+  "items": [
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_pelvic_tilt_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "canonicalId": "postpp_pelvic_tilt_supine_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_ta_bracing_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "canonicalId": "postpp_ta_bracing_supine_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_heel_slides_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "canonicalId": "postpp_heel_slides_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_standing_pelvic_tilt_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "canonicalId": "postpp_standing_pelvic_tilt_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_modified_plank_knees_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "canonicalId": "postpp_modified_plank_knees_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca block.",
+        "LLM i18n contract missing i18n.en block.",
+        "LLM i18n contract missing i18n.es block."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

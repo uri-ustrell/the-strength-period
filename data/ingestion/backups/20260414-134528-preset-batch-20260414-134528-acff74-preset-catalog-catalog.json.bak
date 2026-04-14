@@ -1,0 +1,2042 @@
+[
+  {
+    "id": "corredor_general",
+    "nameKey": "planning:presets.corredor_general",
+    "descriptionKey": "planning:presets.corredor_general_desc",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "glutis": 30,
+      "quadriceps": 25,
+      "isquiotibials": 20,
+      "bessons": 10,
+      "abdominal": 15
+    },
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "corredor_general",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "embaras_1r_trimestre_v1",
+    "nameKey": "planning:ingested_presets.embaras_1r_trimestre_v1.name",
+    "descriptionKey": "planning:ingested_presets.embaras_1r_trimestre_v1.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "muscleDistribution": {
+      "estabilitzadors_cadera": 25,
+      "mobilitat_cadera": 20,
+      "abdominal": 20,
+      "glutis": 20,
+      "lumbar": 15
+    },
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Conservative first-trimester block; may help maintain baseline fitness. Consult a healthcare professional before and throughout pregnancy.",
+    "weeklyProgression": 2,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "embaras_1r_trimestre_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T13:25:41.175Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "embaras_2n_trimestre_v1",
+    "nameKey": "planning:ingested_presets.embaras_2n_trimestre_v1.name",
+    "descriptionKey": "planning:ingested_presets.embaras_2n_trimestre_v1.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Second-trimester block that may help maintain strength and posture. Avoid supine positions after 20 weeks if discomfort arises. Always consult a healthcare professional.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 6
+          },
+          {
+            "exerciseId": "Romanian_Deadlift",
+            "sets": 3,
+            "reps": [
+              8,
+              10
+            ],
+            "restSeconds": 90,
+            "rpe": 6
+          },
+          {
+            "exerciseId": "Band_Hip_Adductions",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Pallof_Press",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió A"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 6
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 6
+          },
+          {
+            "exerciseId": "postpp_bird_dog_v1",
+            "sets": 3,
+            "reps": [
+              8,
+              10
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "postpp_clamshell_band_v1",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió B"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Bodyweight_Squat",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60,
+            "rpe": 5
+          },
+          {
+            "exerciseId": "postpp_glute_bridge_march_v1",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Cat_Stretch",
+            "sets": 3,
+            "reps": 12,
+            "restSeconds": 30
+          },
+          {
+            "exerciseId": "Standing_Hip_Circles",
+            "sets": 2,
+            "reps": 20,
+            "restSeconds": 30
+          }
+        ],
+        "label": "Sessió C"
+      }
+    ],
+    "weeklyProgression": 3,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "embaras_2n_trimestre_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T13:25:41.175Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "embaras_3r_trimestre_v1",
+    "nameKey": "planning:ingested_presets.embaras_3r_trimestre_v1.name",
+    "descriptionKey": "planning:ingested_presets.embaras_3r_trimestre_v1.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "muscleDistribution": {
+      "mobilitat_cadera": 30,
+      "estabilitzadors_cadera": 25,
+      "abdominal": 20,
+      "lumbar": 15,
+      "bessons": 10
+    },
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat",
+      "tornada_calma"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Very gentle maintenance block for the third trimester. Movement may help manage common discomforts; always consult a midwife or physiotherapist.",
+    "weeklyProgression": 1,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "embaras_3r_trimestre_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T13:25:41.175Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "forca_general",
+    "nameKey": "planning:presets.forca_general",
+    "descriptionKey": "planning:presets.forca_general_desc",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "quadriceps": 15,
+      "glutis": 15,
+      "isquiotibials": 10,
+      "pectoral": 12,
+      "dorsal": 13,
+      "abdominal": 15,
+      "mobilitat_cadera": 10,
+      "deltoides": 10
+    },
+    "requiredTags": [],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "forca_general",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "mobilitat_prevencio",
+    "nameKey": "planning:presets.mobilitat_prevencio",
+    "descriptionKey": "planning:presets.mobilitat_prevencio_desc",
+    "durationOptions": [
+      4,
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "mobilitat_cadera": 25,
+      "mobilitat_toracica": 20,
+      "mobilitat_turmell": 15,
+      "estabilitzadors_cadera": 20,
+      "fascies": 10,
+      "abdominal": 10
+    },
+    "requiredTags": [
+      "mobilitat"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "mobilitat_prevencio",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_corredora_general_v1",
+    "nameKey": "planning:ingested_presets.postpart_corredora_general_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_corredora_general_v1.description",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "undulating",
+    "notes": "General-purpose postpartum running strength block; may contribute to restoring load tolerance for running. Increase intensity conservatively.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 7
+          },
+          {
+            "exerciseId": "postpp_glute_bridge_march_v1",
+            "sets": 3,
+            "reps": [
+              10,
+              14
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Thigh_Abductor",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió A — Tren inferior"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Pushups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 7
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90,
+            "rpe": 7
+          },
+          {
+            "exerciseId": "postpp_bird_dog_v1",
+            "sets": 3,
+            "reps": [
+              8,
+              10
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió B — Tren superior i core"
+      }
+    ],
+    "weeklyProgression": 5,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_corredora_general_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T13:25:41.176Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_generator_core_strength_v1",
+    "nameKey": "planning:ingested_presets.postpart_generator_core_strength_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_generator_core_strength_v1.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "glutis": 30,
+      "estabilitzadors_cadera": 20,
+      "abdominal": 20,
+      "oblics": 10,
+      "quadriceps": 10,
+      "mobilitat_cadera": 10
+    },
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "notes": "Generator preset for gradual reintroduction to strength; defaults are conservative.",
+    "weeklyProgression": 4,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_generator_core_strength_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T11:00:27.794Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_rehab_conservative_v1",
+    "nameKey": "planning:ingested_presets.postpart_rehab_conservative_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_rehab_conservative_v1.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat",
+      "tornada_calma"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Conservative progression designed for early postpartum return to activity; consult a healthcare professional before starting.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Ankle_Circles",
+            "sets": 2,
+            "reps": 30,
+            "restSeconds": 30
+          },
+          {
+            "exerciseId": "Alternate_Heel_Touchers",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session A"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": 20,
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Band_Hip_Adductions",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Band_Pull_Apart",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session B"
+      }
+    ],
+    "weeklyProgression": 2,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_rehab_conservative_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T11:00:27.794Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_retorn_trail_v1",
+    "nameKey": "planning:ingested_presets.postpart_retorn_trail_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_retorn_trail_v1.description",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "pliometria",
+      "baixada"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar",
+      "rehab_genoll"
+    ],
+    "progressionType": "block",
+    "notes": "Aimed at postpartum runners returning to trail; may help rebuild eccentric strength and reactive stability. Progress conservatively and monitor symptoms throughout.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              6,
+              10
+            ],
+            "restSeconds": 90,
+            "tempo": "3-1-1-0",
+            "rpe": 7
+          },
+          {
+            "exerciseId": "Romanian_Deadlift",
+            "sets": 3,
+            "reps": [
+              8,
+              10
+            ],
+            "restSeconds": 90,
+            "rpe": 7
+          },
+          {
+            "exerciseId": "postpp_clamshell_band_v1",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió A — Força excèntrica"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Balance_Board",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pallof_Press",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió B — Estabilitat reactiva"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              6,
+              8
+            ],
+            "restSeconds": 120,
+            "rpe": 7
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [
+              10,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "postpp_wall_sit_isometric_v1",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Sessió C — Potència + pliometria"
+      }
+    ],
+    "weeklyProgression": 6,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_retorn_trail_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T13:25:41.175Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_return_strength_v1",
+    "nameKey": "planning:ingested_presets.postpart_return_strength_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_return_strength_v1.description",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "mobilitat"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "undulating",
+    "notes": "Progressive strength focus with mobility and stability; increase load conservatively and stop if symptoms arise.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session A"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              10,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session B"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Balance_Board",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 60
+          },
+          {
+            "exerciseId": "Band_Good_Morning",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              6,
+              10
+            ],
+            "restSeconds": 90
+          }
+        ],
+        "label": "Session C"
+      }
+    ],
+    "weeklyProgression": 6,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_return_strength_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T11:00:27.794Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "postpart_return_to_running_v1",
+    "nameKey": "planning:ingested_presets.postpart_return_to_running_v1.name",
+    "descriptionKey": "planning:ingested_presets.postpart_return_to_running_v1.description",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "pliometria"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "block",
+    "notes": "Progression includes controlled plyometrics once strength and load tolerance are established; always monitor symptoms.",
+    "sessions": [
+      {
+        "exercises": [
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              6,
+              10
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              5,
+              8
+            ],
+            "restSeconds": 120
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session A"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Balance_Board",
+            "sets": 3,
+            "reps": 30,
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session B"
+      },
+      {
+        "exercises": [
+          {
+            "exerciseId": "Box_Jump_Multiple_Response",
+            "sets": 3,
+            "reps": [
+              5,
+              8
+            ],
+            "restSeconds": 120
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              6,
+              10
+            ],
+            "restSeconds": 120
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              12,
+              15
+            ],
+            "restSeconds": 60
+          }
+        ],
+        "label": "Session C"
+      }
+    ],
+    "weeklyProgression": 6,
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "postpart_return_to_running_v1",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-14T11:00:27.795Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pujada",
+    "nameKey": "planning:presets.pujada",
+    "descriptionKey": "planning:presets.pujada_desc",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "muscleDistribution": {
+      "glutis": 35,
+      "quadriceps": 30,
+      "psoes": 10,
+      "bessons": 10,
+      "abdominal": 15
+    },
+    "requiredTags": [
+      "pujada"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "pujada",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "rehab_tendinitis_anserina",
+    "nameKey": "planning:presets.rehab_tendinitis_anserina",
+    "descriptionKey": "planning:presets.rehab_tendinitis_anserina_desc",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "muscleDistribution": {
+      "isquiotibials": 25,
+      "adductors": 20,
+      "quadriceps": 20,
+      "glutis": 20,
+      "mobilitat_cadera": 15
+    },
+    "requiredTags": [
+      "tendinitis_anserina"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "app-hardcoded-presets",
+          "sourceExternalId": "rehab_tendinitis_anserina",
+          "adapterId": "hardcoded-seed",
+          "ingestedAt": "1970-01-01T00:00:00.000Z",
+          "licenseName": "Project-owned preset definitions",
+          "provenance": "Seeded from src/data/presets.ts by preset batch generator."
+        }
+      ]
+    }
+  },
+  {
+    "id": "tsp_descent_eccentric_linear_04",
+    "nameKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.name",
+    "descriptionKey": "planning:ingested_presets.tsp_descent_eccentric_linear_04.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "requiredTags": [
+      "corredor",
+      "baixada"
+    ],
+    "autoRestrictions": [
+      "rehab_genoll",
+      "tendinitis_rotuliana"
+    ],
+    "progressionType": "linear",
+    "notes": "Especialment indicat per a corredors que pateixen molèsties al genoll en baixar o que volen guanyar seguretat en descensos ràpids.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_descent_eccentric_linear_04",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "All_Fours_Quad_Stretch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "All_Fours_Quad_Stretch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Bodyweight_Walking_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsp_hybrid_all_terrain_undulating_05",
+    "nameKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.name",
+    "descriptionKey": "planning:ingested_presets.tsp_hybrid_all_terrain_undulating_05.description",
+    "durationOptions": [
+      6,
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "notes": "Manté la potència de les cames mentre enforteix l'esquena i el pit per millorar l'economia de carrera i la postura en fatiga.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_hybrid_all_terrain_undulating_05",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Band_Good_Morning",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pullups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pushups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Split_Squat_with_Dumbbells",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Band_Good_Morning",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pullups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Pushups",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "One-Arm_Dumbbell_Row",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Bench_Press",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Frog_Hops",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsp_lumbar_resilience_linear_06",
+    "nameKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.name",
+    "descriptionKey": "planning:ingested_presets.tsp_lumbar_resilience_linear_06.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat",
+      "rehab_lumbar"
+    ],
+    "autoRestrictions": [
+      "rehab_lumbar"
+    ],
+    "progressionType": "linear",
+    "notes": "Enforteix la musculatura profunda de l'esquena i el core anterior per reduir la càrrega sobre les vèrtebres lumbars durant la carrera.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_lumbar_resilience_linear_06",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Superman",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Alternate_Heel_Touchers",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Cross-Body_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Hyperextensions_Back_Extensions",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Superman",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Alternate_Heel_Touchers",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Cross-Body_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Hyperextensions_Back_Extensions",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsp_road_foundation_linear_01",
+    "nameKey": "planning:ingested_presets.tsp_road_foundation_linear_01.name",
+    "descriptionKey": "planning:ingested_presets.tsp_road_foundation_linear_01.description",
+    "durationOptions": [
+      4,
+      6
+    ],
+    "requiredTags": [
+      "corredor"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "linear",
+    "notes": "Ideal per a corredors que s'inicien en el treball de força, prioritzant la higiene postural i l'enfortiment del tren inferior.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_road_foundation_linear_01",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.334Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Bodyweight_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "90_90_Hamstring",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Reverse_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Bodyweight_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "90_90_Hamstring",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Calf_Raises_-_With_Bands",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Reverse_Crunch",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsp_trail_stability_undulating_02",
+    "nameKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.name",
+    "descriptionKey": "planning:ingested_presets.tsp_trail_stability_undulating_02.description",
+    "durationOptions": [
+      6,
+      8
+    ],
+    "requiredTags": [
+      "corredor",
+      "core_estabilitat"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "undulating",
+    "notes": "Aquest programa utilitza una càrrega ondulant per millorar la resiliència del core i la pelvis davant els impactes asimètrics del trail.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_trail_stability_undulating_02",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.334Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Push_Up_to_Side_Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Russian_Twist",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Crossover_Reverse_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Ab_Roller",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Butt_Lift_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Push_Up_to_Side_Plank",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Russian_Twist",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dead_Bug",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Crossover_Reverse_Lunge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Ab_Roller",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsp_vertical_power_block_03",
+    "nameKey": "planning:ingested_presets.tsp_vertical_power_block_03.name",
+    "descriptionKey": "planning:ingested_presets.tsp_vertical_power_block_03.description",
+    "durationOptions": [
+      8,
+      12
+    ],
+    "requiredTags": [
+      "corredor",
+      "pujada"
+    ],
+    "autoRestrictions": [],
+    "progressionType": "block",
+    "notes": "Bloc de càrrega d'alta intensitat per maximitzar el triple impuls (cadera-genoll-turmell) i la resistència dels flexors de cadera.",
+    "ingestionMeta": {
+      "sourceRecords": [
+        {
+          "sourceId": "claude-preset-batch",
+          "sourceExternalId": "tsp_vertical_power_block_03",
+          "adapterId": "llm-json",
+          "ingestedAt": "2026-04-09T16:20:14.335Z",
+          "licenseName": "User-owned Claude output",
+          "provenance": "Generated from user-provided prompt through Step 18 preset batch CLI."
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "label": "Session A",
+        "exercises": [
+          {
+            "exerciseId": "Front_Box_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Kneeling_Hip_Flexor",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Glute_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Lunges",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Knee_Tuck_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      },
+      {
+        "label": "Session B",
+        "exercises": [
+          {
+            "exerciseId": "Front_Box_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Goblet_Squat",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Kneeling_Hip_Flexor",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Glute_Bridge",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Dumbbell_Lunges",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Single_Leg_Push-off",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          },
+          {
+            "exerciseId": "Knee_Tuck_Jump",
+            "sets": 3,
+            "reps": [
+              8,
+              12
+            ],
+            "restSeconds": 90
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -108,12 +108,18 @@
   },
   "preset_tags": {
     "baixada": "Baixada",
-    "core_estabilitat": "Estabilitat del core",
+    "core_estabilitat": "Core i estabilitat",
     "corredor": "Corredor",
+    "equilibri": "Equilibri",
+    "escalfament": "Escalfament",
     "mobilitat": "Mobilitat",
+    "pliometria": "Pliometria",
     "pujada": "Pujada",
+    "rehab_genoll": "Rehabilitació de genoll",
     "rehab_lumbar": "Rehabilitació lumbar",
-    "tendinitis_anserina": "Tendinitis anserina"
+    "rehab_turmell": "Rehabilitació de turmell",
+    "tendinitis_anserina": "Tendinitis anserina",
+    "tornada_calma": "Tornada a la calma"
   },
   "presets": {
     "corredor_general": "Corredor General",
@@ -168,6 +174,94 @@
     "warnings_title": "Avisos"
   },
   "ingested_presets": {
+    "banda_elastica_cos_complet_v1": {
+      "name": "Banda elàstica — Cos complet",
+      "description": "Programa de cos complet amb banda elàstica. Sense pesos. 2 sessions/setmana. Adequat per entrenar a casa, en viatge o com a introducció a l'entrenament de resistència estructurat."
+    },
+    "banda_elastica_forca_progressiva_v1": {
+      "name": "Banda elàstica — Força progressiva",
+      "description": "Programa progressiu de força amb banda elàstica. 3 sessions/setmana, periodització ondulant. Per a atletes que viatgen o prefereixen entrenament sense equipament fix."
+    },
+    "corredor_trail_excentric_baixades_v1": {
+      "name": "Trail — Força excèntrica i baixades",
+      "description": "Bloc de força excèntrica per a corredors de trail. 3 sessions/setmana, 8–10 setmanes. Centrat en la força excèntrica de quàdriceps, isquiotibials i bessons per a baixades."
+    },
+    "corredor_trail_pujada_forca_v1": {
+      "name": "Trail — Força per a pujades",
+      "description": "Bloc de força per a corredors de trail amb èmfasi en pujades. 3 sessions/setmana, periodització ondulant. Desenvolupa potència d'extensió de maluc i estabilitat monopodal."
+    },
+    "embaras_1r_trimestre_v1": {
+      "name": "Embaràs — 1r trimestre (conservador)",
+      "description": "Bloc conservador en mode generador per al primer trimestre. Prioritza l'estabilitat pèlvica, la mobilitat de maluc i el core suau. Consulteu un professional sanitari."
+    },
+    "embaras_2n_trimestre_v1": {
+      "name": "Embaràs — 2n trimestre (força moderada)",
+      "description": "Bloc fidel de força moderada per al segon trimestre: glutis, estabilitzadors i tren superior. Progressió conservadora. Consulteu un professional sanitari."
+    },
+    "embaras_3r_trimestre_v1": {
+      "name": "Embaràs — 3r trimestre (manteniment suau)",
+      "description": "Bloc de manteniment molt suau per al tercer trimestre: mobilitat, estabilitzadors i core de baix impacte. Consulteu una llevadora o fisioterapeuta."
+    },
+    "gent_gran_equilibri_mobilitat_v1": {
+      "name": "Gent gran — Equilibri i mobilitat",
+      "description": "Bloc d'equilibri i mobilitat per a adults de 60+. 2 sessions/setmana de 20 minuts. Combina exercicis de propiocepcó amb mobilitat dinàmica."
+    },
+    "gent_gran_forca_manteniment_v1": {
+      "name": "Gent gran — Força i manteniment muscular",
+      "description": "Bloc de manteniment muscular per a adults de 60+. 3 sessions/setmana amb exercicis de pes corporal i banda elàstica. Pot ajudar a contrarestar la sarcopènia amb pràctica consistent."
+    },
+    "gent_gran_funcional_v1": {
+      "name": "Gent gran — Funcionalitat i equilibri",
+      "description": "Bloc de força funcional per a adults de 60+. 2 sessions/setmana de 20–25 minuts centrades en moviments quotidians: aixecar-se, equilibri, pujades, postura."
+    },
+    "mobilitat_toracica_espatlles_v1": {
+      "name": "Mobilitat toràcica i espatlles",
+      "description": "Rutina fidel de mobilitat toràcica i d'espatlles inspirada en yoga/pilates. 2 sessions/setmana de 15–20 minuts. Aborda la rigidesa de la cadena anterior habitual en poblacions sedentàries."
+    },
+    "mobilitat_tren_inferior_v1": {
+      "name": "Mobilitat de maluc i tren inferior",
+      "description": "Rutina de mobilitat en mode generador per al tren inferior: flexors de maluc, rotadors externs, isquiotibials i turmell. Adequada post-cursa o com a sessió independent de 20 minuts."
+    },
+    "postpart_corredora_general_v1": {
+      "name": "Postpart — Corredora general (força base)",
+      "description": "Bloc de 6–12 setmanes per a corredores postpart: reconstrueix la força del tren inferior, l'estabilitat del core i la resistència específica per córrer. Cal alta mèdica."
+    },
+    "postpart_generator_core_strength_v1": {
+      "name": "Postpart — Generador: core → força",
+      "description": "Preset en mode generador que prioritza estabilitat pèlvica, glutis i estabilitzadors de maluc; l'algorisme triarà exercicis adequats."
+    },
+    "postpart_rehab_conservative_v1": {
+      "name": "Postpart — Rehabilitació suau",
+      "description": "Bloc conservador de 4–6 setmanes centrat en estabilitat pèlvica, reeducació del core i mobilitat. Consulteu un professional de la salut."
+    },
+    "postpart_retorn_trail_v1": {
+      "name": "Postpart — Retorn al trail (progressiu)",
+      "description": "Bloc de 8–12 setmanes que connecta la força postpart amb les demandes del trail: control excèntric en baixades, estabilitat reactiva i potència de maluc. Cal alta mèdica."
+    },
+    "postpart_return_strength_v1": {
+      "name": "Postpart — Retorn de força (progressiu)",
+      "description": "Bloc progressiu de 6–12 setmanes per reconstruir força i estabilitat de malucs i core. Augmenteu càrrega de manera conservadora."
+    },
+    "postpart_return_to_running_v1": {
+      "name": "Postpart — Retorn a la cursa (progressiu)",
+      "description": "Bloc de 8–12 setmanes que integra força, estabilitat i pliometria controlada per preparar el retorn a la cursa. Cal alta prudència i aprovació mèdica."
+    },
+    "principianta_descoberta_v1": {
+      "name": "Principianta — Descoberta del moviment",
+      "description": "Bloc introductori en mode generador per a dones sense historial esportiu previ. Distribució molt conservadora, èmfasi en mobilitat i estabilitat. Ideal com a primer programa de 4–6 setmanes."
+    },
+    "principianta_forca_base_v1": {
+      "name": "Principianta — Força base (iniciació)",
+      "description": "Bloc fidel de força fonamental per a principiantes. 2 sessions/setmana, exercicis bàsics amb pes corporal o resistència mínima. Prioritza tècnica i aprenentatge del patró de moviment."
+    },
+    "principianta_forca_progressiva_v1": {
+      "name": "Principianta — Força progressiva (2a etapa)",
+      "description": "Bloc fidel de progressió per a dones que han completat el bloc de bases. 3 sessions/setmana amb manuelles lleugeres, periodització ondulant. Recomanat a partir de les 6+ setmanes del bloc introductori."
+    },
+    "rutina_mobilitat_global_v1": {
+      "name": "Rutina de mobilitat global",
+      "description": "Rutina fidel de mobilitat de cos complet per a qualsevol nivell. 3 sessions/setmana de 20 minuts alternant mobilitat de tren inferior, tren superior i integrada."
+    },
     "tsp_descent_eccentric_linear_04": {
       "name": "Control de Baixada i Salut de Genoll",
       "description": "Bloc centrat en el treball excèntric per protegir el tendó rotulià i augmentar la capacitat de frenada."
@@ -191,6 +285,18 @@
     "tsp_vertical_power_block_03": {
       "name": "Potència Vertical: Especialista en Pujada",
       "description": "Dissenyat per a corredors que volen millorar el seu rendiment en desnivells positius forts (Vertical Kilometer)."
+    },
+    "zero_descoberta_v1": {
+      "name": "Zero — Descoberta del moviment",
+      "description": "Preset en mode generador per a persones que mai han fet exercici. Molt conservador, centrat en aprendre a moure's correctament. Recomanat per a les primeres 4 setmanes."
+    },
+    "zero_fonaments_setmana01_04_v1": {
+      "name": "Zero → Fonaments (Setmanes 1–4)",
+      "description": "Bloc fidel per a absolute principiants. 2 sessions/setmana de 15–20 minuts amb exercicis bàsics de pes corporal. Prioritza aprendre patrons de moviment per sobre de la intensitat."
+    },
+    "zero_progressio_setmana05_10_v1": {
+      "name": "Zero → Progressió (Setmanes 5–10)",
+      "description": "Segon bloc per a persones que han completat les 4 setmanes inicials. 2–3 sessions/setmana de 20–25 minuts. Introdueix exercicis compostos bàsics amb càrrega molt lleugera."
     }
   }
 }

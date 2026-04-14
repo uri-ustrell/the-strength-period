@@ -1,0 +1,83 @@
+{
+  "runId": "ingestion-20260414-110524-bacb29",
+  "startedAt": "2026-04-14T11:05:24.675Z",
+  "completedAt": "2026-04-14T11:05:24.696Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 3,
+    "skipped": 1,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "postpp_clamshell_band_v1",
+    "postpp_glute_bridge_march_v1",
+    "postpp_wall_sit_isometric_v1"
+  ],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-110524-bacb29.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-110524-bacb29.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "pregnancy-postpartum-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 4
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "pregnancy-postpartum-exercises:exercise:postpp_bird_dog_v1",
+      "kind": "exercise",
+      "sourceId": "pregnancy-postpartum-exercises",
+      "sourceExternalId": "postpp_bird_dog_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.rehab_lumbar.",
+        "LLM i18n contract missing i18n.en.preset_tags.rehab_lumbar.",
+        "LLM i18n contract missing i18n.es.preset_tags.rehab_lumbar."
+      ],
+      "canonicalId": "postpp_bird_dog_v1"
+    },
+    {
+      "candidateId": "pregnancy-postpartum-exercises:exercise:postpp_clamshell_band_v1",
+      "kind": "exercise",
+      "sourceId": "pregnancy-postpartum-exercises",
+      "sourceExternalId": "postpp_clamshell_band_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_clamshell_band_v1"
+    },
+    {
+      "candidateId": "pregnancy-postpartum-exercises:exercise:postpp_glute_bridge_march_v1",
+      "kind": "exercise",
+      "sourceId": "pregnancy-postpartum-exercises",
+      "sourceExternalId": "postpp_glute_bridge_march_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_glute_bridge_march_v1"
+    },
+    {
+      "candidateId": "pregnancy-postpartum-exercises:exercise:postpp_wall_sit_isometric_v1",
+      "kind": "exercise",
+      "sourceId": "pregnancy-postpartum-exercises",
+      "sourceExternalId": "postpp_wall_sit_isometric_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_wall_sit_isometric_v1"
+    }
+  ]
+}

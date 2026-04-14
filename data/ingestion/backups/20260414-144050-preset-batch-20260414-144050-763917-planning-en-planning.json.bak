@@ -1,0 +1,274 @@
+{
+  "title": "Planning",
+  "generate": "Generate plan",
+  "generating": "Generating plan...",
+  "preview": "Preview",
+  "save": "Save plan",
+  "discard": "Discard",
+  "noActivePlan": "You don't have an active plan",
+  "createFirst": "Create your first training plan",
+  "selectPreset": "Select a plan",
+  "selectDuration": "Duration (weeks)",
+  "weeks": "weeks",
+  "sessions": "Sessions",
+  "skipSession": "Skip session",
+  "unskipSession": "Restore session",
+  "adjustLoad": "Adjust load",
+  "deactivate": "Deactivate plan",
+  "errorGenerating": "Error generating the plan",
+  "errorSaving": "Error saving the plan",
+  "retry": "Retry",
+  "planSaved": "Plan saved successfully",
+  "muscleDistribution": "Muscle distribution",
+  "progression": "Progression",
+  "day": "Day",
+  "week": "Week",
+  "custom": "Custom",
+  "custom_desc": "Create a fully custom plan",
+  "configure": "Configure plan",
+  "days_per_week": "Days per week",
+  "minutes_per_session": "Minutes per session",
+  "restrictions": "Restrictions",
+  "generate_plan": "Generate plan",
+  "save_plan": "Save plan",
+  "select_muscle_groups": "Select muscle groups",
+  "muscle_weight": "Relative weight",
+  "muscle_priority_high": "High",
+  "muscle_priority_medium": "Medium",
+  "muscle_priority_low": "Low",
+  "muscle_priority_off": "Off",
+  "muscle_group_explanation": "Set the relative importance of each muscle group. The algorithm will distribute training volume accordingly.",
+  "muscle_group_helper": "Choose 'High' for focus areas, 'Medium' for maintenance, 'Low' for light work, or disable groups you want to skip.",
+  "ai_decides_muscles": "Let the algorithm organize muscle priorities",
+  "ai_decides_muscles_desc": "The algorithm will automatically balance muscle group distribution based on your plan and profile.",
+  "week_view": "Week view",
+  "month_view": "Month view",
+  "load_progression": "Load progression",
+  "session_preview": "Session preview",
+  "back": "Back",
+  "next": "Next",
+  "load_percent": "{{percent}}% load",
+  "active_plan": "Active plan",
+  "no_sessions_week": "No sessions this week",
+  "day_short": {
+    "1": "Mo",
+    "2": "Tu",
+    "3": "We",
+    "4": "Th",
+    "5": "Fr",
+    "6": "Sa",
+    "7": "Su"
+  },
+  "saved_presets": "Your saved plans",
+  "save_as_preset": "Save plan",
+  "preset_name_placeholder": "Plan name...",
+  "delete_preset": "Delete plan",
+  "weekly_progression": "Weekly progression",
+  "weekly_progression_desc": "Progression intensity: 0 = maintenance, 10 = aggressive",
+  "progression_maintenance": "Maintenance",
+  "progression_aggressive": "Aggressive",
+  "select_exercises": "Select exercises",
+  "select_exercises_desc": "Pick exercises for each muscle group, or let the algorithm choose.",
+  "auto_select_all": "Auto-select all",
+  "auto_select_all_desc": "The algorithm will pick varied exercises from your filtered catalog.",
+  "manual_select": "Manual selection",
+  "no_exercises_for_muscle": "No exercises available for {{muscle}}",
+  "exercises_selected": "{{count}} exercises selected",
+  "min_one_exercise": "Select at least 1 exercise per group",
+  "generate_instant": "Generate plan",
+  "plan_generated": "Plan generated successfully",
+  "algorithm_distributes": "The algorithm will distribute training volume proportionally.",
+  "candidates_count": "{{count}} exercises available",
+  "search_presets": "Search plans...",
+  "equipment_filter": "Equipment filter",
+  "all_equipment": "All equipment",
+  "create_from_scratch": "Create from scratch",
+  "create_from_scratch_desc": "Start a plan from scratch",
+  "edit_preset": "Edit",
+  "delete_preset_confirm": "Are you sure you want to delete this plan?",
+  "editing_preset": "Editing: {{name}}",
+  "update_preset": "Update plan",
+  "add_session": "Add session",
+  "remove_session": "Remove session",
+  "add_exercise": "Add exercise",
+  "remove_exercise": "Remove exercise",
+  "faithful": {
+    "exercises_title": "Review exercises",
+    "exercises_desc": "Review and adjust the plan's exercises. You can modify sets, reps, rest or swap exercises.",
+    "session_label": "Session {{index}}",
+    "swap_exercise": "Swap",
+    "search_exercise": "Search exercise...",
+    "sets": "Sets",
+    "reps": "Reps",
+    "rest": "Rest (s)",
+    "tempo": "Tempo",
+    "rpe": "RPE",
+    "no_results": "No matching exercises",
+    "deload_session": "Deload"
+  },
+  "preset_tags": {
+    "baixada": "Descent",
+    "core_estabilitat": "Core & stability",
+    "corredor": "Runner",
+    "equilibri": "Balance",
+    "escalfament": "Warm-up",
+    "mobilitat": "Mobility",
+    "pliometria": "Plyometrics",
+    "pujada": "Uphill",
+    "rehab_genoll": "Knee rehab",
+    "rehab_lumbar": "Lumbar rehab",
+    "rehab_turmell": "Ankle rehab",
+    "tendinitis_anserina": "Pes anserine tendinitis",
+    "tornada_calma": "Cool-down"
+  },
+  "presets": {
+    "corredor_general": "General Runner",
+    "corredor_general_desc": "Strength for runners: glutes, quads, hamstrings, calves and core",
+    "pujada": "Uphill",
+    "pujada_desc": "Uphill-specific training: glutes, quads, hip flexors and core",
+    "rehab_tendinitis_anserina": "Rehab Pes Anserine Tendinitis",
+    "rehab_tendinitis_anserina_desc": "Pes anserine tendinitis rehab: hamstrings, adductors, quads and mobility",
+    "forca_general": "General Strength",
+    "forca_general_desc": "Balanced strength: lower body, upper body, core and mobility",
+    "mobilitat_prevencio": "Mobility & Prevention",
+    "mobilitat_prevencio_desc": "Hip, thoracic, ankle mobility, stability and fascia work"
+  },
+  "llm": {
+    "title": "LLM Assistant",
+    "use_llm": "Use LLM Assistant",
+    "use_llm_desc": "Generate the plan with your own LLM (ChatGPT, Claude, Gemini...)",
+    "how_to_use": "How to use",
+    "step_1": "(Optional) Add personal notes below",
+    "step_2": "Copy the prompt",
+    "step_3": "Download the exercise catalog (CSV)",
+    "step_4": "Open your LLM (ChatGPT, Claude, Gemini...)",
+    "step_5": "Paste the prompt and attach the CSV",
+    "step_6": "Copy the LLM's JSON response",
+    "step_7": "Paste it below and click Validate",
+    "personal_notes": "Personal notes (optional)",
+    "personal_notes_placeholder": "e.g. \"I have a weak left knee, prefer unilateral exercises for quads\"",
+    "prompt_section": "Prompt",
+    "copy_prompt": "Copy prompt",
+    "copied": "Copied!",
+    "catalog_section": "Exercise catalog",
+    "catalog_count": "{{count}} exercises matching your equipment",
+    "download_csv": "Download CSV",
+    "paste_section": "Paste LLM response",
+    "paste_placeholder": "Paste the LLM-generated JSON here...",
+    "validate": "Validate",
+    "import_plan": "Import plan",
+    "valid_plan": "Valid plan! {{weeks}} weeks, {{sessions}} sessions",
+    "or_separator": "or",
+    "error_invalid_json": "Invalid JSON. Make sure to copy the LLM's response exactly.",
+    "error_missing_fields": "Missing required fields: need \"name\" (string), \"durationWeeks\" (number), and \"sessions\" (array).",
+    "error_invalid_session": "Session {{index}}: invalid or missing fields (weekNumber, dayOfWeek, durationMinutes, exercises).",
+    "error_invalid_exercise": "Exercise {{index}} in session {{session}}: invalid fields (sets, reps, restSeconds).",
+    "error_unknown_exercise": "Exercise \"{{exerciseId}}\" not found in catalog. Use only IDs from the CSV.",
+    "error_invalid_weight": "Invalid weight for \"{{exerciseId}}\": must be a positive number.",
+    "error_invalid_rpe": "Invalid RPE for \"{{exerciseId}}\": must be between 1 and 10.",
+    "warn_consecutive_exercise": "\"{{exerciseId}}\" appears in two consecutive sessions.",
+    "warn_duplicate_muscle": "Muscle \"{{muscle}}\" repeated in session {{session}}.",
+    "warn_duration_mismatch": "Session {{session}}: estimated {{estimated}} min vs target {{target}} min.",
+    "warn_weeks_mismatch": "\"durationWeeks\" doesn't match the number of weeks in sessions.",
+    "errors_title": "Errors (must fix)",
+    "warnings_title": "Warnings"
+  },
+  "ingested_presets": {
+    "embaras_1r_trimestre_v1": {
+      "name": "Pregnancy — 1st trimester (conservative)",
+      "description": "Generator-mode conservative block for the first trimester. Prioritizes pelvic stability, hip mobility and gentle core. Always consult a healthcare professional."
+    },
+    "embaras_2n_trimestre_v1": {
+      "name": "Pregnancy — 2nd trimester (moderate strength)",
+      "description": "Faithful-mode moderate strength block for the second trimester: glutes, stabilizers and upper body. Conservative progression. Always consult a healthcare professional."
+    },
+    "embaras_3r_trimestre_v1": {
+      "name": "Pregnancy — 3rd trimester (gentle maintenance)",
+      "description": "Very gentle generator-mode maintenance block for the third trimester: mobility, hip stabilizers and low-impact core. Consult a midwife or physiotherapist."
+    },
+    "mobilitat_toracica_espatlles_v1": {
+      "name": "Thoracic spine & shoulder mobility",
+      "description": "Faithful-mode thoracic and shoulder mobility routine inspired by yoga/pilates. 2 sessions/week of 15–20 minutes. Addresses anterior chain tightness common in sedentary or desk-work populations."
+    },
+    "mobilitat_tren_inferior_v1": {
+      "name": "Hip & lower body mobility",
+      "description": "Generator-mode lower body mobility routine targeting hip flexors, external rotators, hamstrings and ankle. Suitable post-run or as a standalone 20-minute session."
+    },
+    "postpart_corredora_general_v1": {
+      "name": "Postpartum — General runner (strength base)",
+      "description": "A 6–12 week block for postpartum runners: rebuilds lower-body strength, core stability and running-specific resilience. Medical clearance required."
+    },
+    "postpart_generator_core_strength_v1": {
+      "name": "Postpartum — Generator: core → strength",
+      "description": "Generator-mode preset prioritizing pelvic stability, glutes and hip stabilizers; the engine will select suitable exercises from your catalog."
+    },
+    "postpart_rehab_conservative_v1": {
+      "name": "Postpartum — Gentle rehab",
+      "description": "A cautious 4–6 week block focused on pelvic stability, core re-education and mobility. Consult a healthcare professional before starting."
+    },
+    "postpart_retorn_trail_v1": {
+      "name": "Postpartum — Return to trail (progressive)",
+      "description": "An 8–12 week block bridging postpartum strength to trail-specific demands: eccentric control on descents, reactive stability and hip power. Full medical clearance required."
+    },
+    "postpart_return_strength_v1": {
+      "name": "Postpartum — Return to strength (progressive)",
+      "description": "Progressive 6–12 week block to rebuild hip and core strength and stability. Increase load conservatively."
+    },
+    "postpart_return_to_running_v1": {
+      "name": "Postpartum — Return to running (progressive)",
+      "description": "An 8–12 week block combining strength, stability and cautious plyometrics to prepare for return to running. Seek medical clearance and progress conservatively."
+    },
+    "principianta_descoberta_v1": {
+      "name": "Beginner — Movement discovery",
+      "description": "Generator-mode introductory block for women with no prior training history. Very conservative distribution, mobility and stability emphasis. Ideal as a first 4–6 week program."
+    },
+    "principianta_forca_base_v1": {
+      "name": "Beginner — Foundation strength",
+      "description": "Faithful-mode foundational strength block for beginners. 2 sessions/week, basic body-weight or light resistance exercises. Prioritizes technique and movement pattern learning."
+    },
+    "principianta_forca_progressiva_v1": {
+      "name": "Beginner — Progressive strength (stage 2)",
+      "description": "Faithful-mode progression block for women who have completed a foundations block. 3 sessions/week with light dumbbells, undulating periodization. Recommended after 6+ weeks of the introductory block."
+    },
+    "rutina_mobilitat_global_v1": {
+      "name": "Global mobility routine",
+      "description": "Faithful-mode full-body mobility routine for any level. 3 sessions/week of 20 minutes alternating lower body, upper body, and integrated mobility."
+    },
+    "tsp_descent_eccentric_linear_04": {
+      "name": "Downhill Control and Knee Health",
+      "description": "Block centered on eccentric work to protect the patellar tendon and improve braking capacity."
+    },
+    "tsp_hybrid_all_terrain_undulating_05": {
+      "name": "All-Terrain Performance: Hybrid Athlete",
+      "description": "Complete program that combines running-specific leg strength with meaningful upper-body conditioning."
+    },
+    "tsp_lumbar_resilience_linear_06": {
+      "name": "Lumbar Resilience and Pelvic Stability",
+      "description": "Preventive and rehab-focused block for runners with low-back history or posterior-chain weakness."
+    },
+    "tsp_road_foundation_linear_01": {
+      "name": "Road Foundation: Base Strength",
+      "description": "Introductory block for road runners who want a solid strength base and injury prevention."
+    },
+    "tsp_trail_stability_undulating_02": {
+      "name": "Technical Trail: Hip and Core Stability",
+      "description": "Focused on improving motor control and the stability needed for uneven terrain and technical descents."
+    },
+    "tsp_vertical_power_block_03": {
+      "name": "Vertical Power: Uphill Specialist",
+      "description": "Designed for runners who want to improve performance on steep climbs (Vertical Kilometer)."
+    },
+    "zero_descoberta_v1": {
+      "name": "Zero — Movement discovery",
+      "description": "Generator-mode preset for people who have never exercised. Very conservative, focused on learning to move correctly. Recommended for the first 4 weeks."
+    },
+    "zero_fonaments_setmana01_04_v1": {
+      "name": "Zero → Foundations (Weeks 1–4)",
+      "description": "Faithful-mode block for absolute beginners. 2 sessions/week of 15–20 minutes using basic body-weight exercises. Prioritizes learning movement patterns over intensity."
+    },
+    "zero_progressio_setmana05_10_v1": {
+      "name": "Zero → Progression (Weeks 5–10)",
+      "description": "Second block for people who have completed the initial 4 weeks. 2–3 sessions/week of 20–25 minutes. Introduces basic compound exercises with very light load."
+    }
+  }
+}

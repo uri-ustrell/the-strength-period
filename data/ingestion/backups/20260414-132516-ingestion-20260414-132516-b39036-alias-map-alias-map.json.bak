@@ -1,0 +1,20 @@
+{
+  "aliases": {
+    "pelvic tilt supine": "postpp_pelvic_tilt_supine_v1",
+    "postpp pelvic tilt supine v1": "postpp_pelvic_tilt_supine_v1",
+    "pelvic tilt": "postpp_pelvic_tilt_supine_v1",
+    "transverse abdominis bracing supine": "postpp_ta_bracing_supine_v1",
+    "postpp ta bracing supine v1": "postpp_ta_bracing_supine_v1",
+    "ta bracing": "postpp_ta_bracing_supine_v1",
+    "deep core activation": "postpp_ta_bracing_supine_v1",
+    "heel slides supine": "postpp_heel_slides_v1",
+    "postpp heel slides v1": "postpp_heel_slides_v1",
+    "supine heel slides": "postpp_heel_slides_v1",
+    "standing pelvic tilt": "postpp_standing_pelvic_tilt_v1",
+    "postpp standing pelvic tilt v1": "postpp_standing_pelvic_tilt_v1",
+    "pelvic tilt standing": "postpp_standing_pelvic_tilt_v1",
+    "modified plank knees": "postpp_modified_plank_knees_v1",
+    "postpp modified plank knees v1": "postpp_modified_plank_knees_v1",
+    "knee plank": "postpp_modified_plank_knees_v1"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "runId": "preset-batch-20260414-132454-4caffd",
+  "startedAt": "2026-04-14T13:24:54.359Z",
+  "completedAt": "2026-04-14T13:24:54.367Z",
+  "dryRun": true,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 2,
+    "rejected": 3
+  },
+  "acceptedPresetIds": [
+    "embaras_1r_trimestre_v1",
+    "embaras_3r_trimestre_v1"
+  ],
+  "rejected": [
+    {
+      "sourceExternalId": "embaras_2n_trimestre_v1",
+      "reasons": [
+        "preset.sessions[1].exercises[2].exerciseId: Preset references unknown exercise id \"postpp_bird_dog_v1\".",
+        "preset.sessions[1].exercises[3].exerciseId: Preset references unknown exercise id \"postpp_clamshell_band_v1\".",
+        "preset.sessions[2].exercises[1].exerciseId: Preset references unknown exercise id \"postpp_glute_bridge_march_v1\"."
+      ]
+    },
+    {
+      "sourceExternalId": "postpart_retorn_trail_v1",
+      "reasons": [
+        "preset.sessions[1].exercises[0].reps: reps exceeds maximum 30",
+        "preset.sessions[2].exercises[2].reps: reps exceeds maximum 30",
+        "preset.sessions[0].exercises[2].exerciseId: Preset references unknown exercise id \"postpp_clamshell_band_v1\".",
+        "preset.sessions[2].exercises[2].exerciseId: Preset references unknown exercise id \"postpp_wall_sit_isometric_v1\"."
+      ]
+    },
+    {
+      "sourceExternalId": "postpart_corredora_general_v1",
+      "reasons": [
+        "preset.sessions[0].exercises[1].exerciseId: Preset references unknown exercise id \"postpp_glute_bridge_march_v1\".",
+        "preset.sessions[1].exercises[2].exerciseId: Preset references unknown exercise id \"postpp_bird_dog_v1\"."
+      ]
+    }
+  ]
+}

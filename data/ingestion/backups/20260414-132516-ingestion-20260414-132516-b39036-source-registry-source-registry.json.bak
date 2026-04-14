@@ -1,0 +1,10 @@
+{
+  "exercises": {
+    "postpartum-exercises::postpp_pelvic_tilt_supine_v1": "postpp_pelvic_tilt_supine_v1",
+    "postpartum-exercises::postpp_ta_bracing_supine_v1": "postpp_ta_bracing_supine_v1",
+    "postpartum-exercises::postpp_heel_slides_v1": "postpp_heel_slides_v1",
+    "postpartum-exercises::postpp_standing_pelvic_tilt_v1": "postpp_standing_pelvic_tilt_v1",
+    "postpartum-exercises::postpp_modified_plank_knees_v1": "postpp_modified_plank_knees_v1"
+  },
+  "presets": {}
+}

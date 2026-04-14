@@ -1,0 +1,17 @@
+{
+  "runId": "ingestion-20260414-143830-dd06b7",
+  "createdAt": "2026-04-14T14:38:30.949Z",
+  "items": [
+    {
+      "candidateId": "trail-band-exercises:exercise:depth_jump_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "canonicalId": "depth_jump_v1",
+      "confidence": 0.97,
+      "reasons": [
+        "1 tag(s) were dropped because they are not canonical."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

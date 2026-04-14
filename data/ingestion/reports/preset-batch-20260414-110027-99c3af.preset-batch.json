@@ -1,0 +1,20 @@
+{
+  "runId": "preset-batch-20260414-110027-99c3af",
+  "startedAt": "2026-04-14T11:00:27.791Z",
+  "completedAt": "2026-04-14T11:00:27.801Z",
+  "dryRun": false,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 4,
+    "rejected": 0
+  },
+  "acceptedPresetIds": [
+    "postpart_rehab_conservative_v1",
+    "postpart_return_strength_v1",
+    "postpart_generator_core_strength_v1",
+    "postpart_return_to_running_v1"
+  ],
+  "rejected": [],
+  "backupPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/backups/20260414-110027-preset-batch-20260414-110027-99c3af-preset-catalog-catalog.json.bak"
+}

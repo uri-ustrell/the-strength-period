@@ -53,9 +53,21 @@ You generate the JSON yourself — no external LLM calls. You ARE the generator.
 - Ask via `askQuestions`: "Ingest now? / Review JSON first? / Generate more?"
 
 ### 5. Ingest
-- Write exercises to a temporary JSON file and run the ingestion pipeline
-- Write presets to `data/ingestion/prompts/presets-output.json` and run `npx tsx scripts/generatePresetBatch.ts --from-file`
-- Or write directly to catalog files if the pipeline is not needed for the specific output
+
+**Exercises:**
+1. Write to `data/ingestion/llm-candidates/<name>.json` — format: `{ "exercises": [...], "i18n": { "ca": {...}, "es": {...}, "en": {...} } }`
+2. Write the source config to `data/ingestion/sources.<name>.json` (adapter: `llm-json`, sourceType: `llm-json`)
+3. Run dry-run: `npm run ingest -- --config data/ingestion/sources.<name>.json --dry-run`
+4. Check report: all candidates must be `Accepted`, zero `Skipped` (Skipped means missing i18n)
+5. If accepted, run real: `npm run ingest -- --config data/ingestion/sources.<name>.json`
+
+**Presets:**
+1. Write to `data/ingestion/presets/<name>.json` — format: `{ "presets": [...], "i18n": { "ca": {...}, "es": {...}, "en": {...} } }` — must end with closing `}`
+2. Run dry-run: `npm run presets -- --response-file data/ingestion/presets/<name>.json --dry-run`
+3. If accepted, run real: `npm run presets -- --response-file data/ingestion/presets/<name>.json`
+4. Run `npm run build` to verify no TypeScript errors.
+
+**CRITICAL: i18n is mandatory for exercises** — missing i18n causes `Skipped` (not `Rejected`) with warning `LLM i18n contract missing i18n.ca/en/es block`. Always include the `i18n` block with `exercises.<sourceExternalId>.name` + `instructions` for each exercise in all 3 locales.
 
 ## Generation Guidelines
 
@@ -91,6 +103,34 @@ You generate the JSON yourself — no external LLM calls. You ARE the generator.
 - NEVER generate exercises that duplicate existing ones (check names, muscles, equipment combo)
 - NEVER generate presets that duplicate existing catalog entries (check themes, muscle distributions)
 - All text in ca/es/en (Catalan primary, Spanish and English translations)
+- **Faithful-mode presets** (`sessions[]` present) must NOT include `muscleDistribution` — use one mode only
+- **Generator-mode presets** (`muscleDistribution` present) must NOT include `sessions[]`
+- Exercise `llm-json` files MUST include the `i18n` block at the root level with `ca/es/en` translations for every exercise — missing i18n causes the exercise to be silently skipped during ingestion
+- Preset JSON files MUST be valid JSON with a closing `}` at the end of the root object
 
 ## Output Format
-Write generated content as JSON matching the ingestion input format from `presets-output.json` or `contracts.ts`.
+Write generated content as JSON matching the ingestion input format.
+
+**Exercise file format** (`data/ingestion/llm-candidates/<name>.json`):
+```json
+{
+  "exercises": [ ...ExerciseCandidateInput ],
+  "i18n": {
+    "ca": { "exercises": { "<sourceExternalId>": { "name": "...", "instructions": ["..."] } } },
+    "es": { "exercises": { "<sourceExternalId>": { "name": "...", "instructions": ["..."] } } },
+    "en": { "exercises": { "<sourceExternalId>": { "name": "...", "instructions": ["..."] } } }
+  }
+}
+```
+
+**Preset file format** (`data/ingestion/presets/<name>.json`):
+```json
+{
+  "presets": [ ...PresetCandidateInput ],
+  "i18n": {
+    "ca": { "presets": { "<sourceExternalId>": { "name": "...", "description": "..." } }, "preset_tags": {} },
+    "es": { "presets": { ... }, "preset_tags": {} },
+    "en": { "presets": { ... }, "preset_tags": {} }
+  }
+}
+```

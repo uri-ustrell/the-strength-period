@@ -1,0 +1,23 @@
+{
+  "runId": "preset-batch-20260414-144050-763917",
+  "startedAt": "2026-04-14T14:40:50.551Z",
+  "completedAt": "2026-04-14T14:40:50.566Z",
+  "dryRun": false,
+  "model": "claude-3-5-haiku-latest",
+  "outputPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+  "counts": {
+    "accepted": 7,
+    "rejected": 0
+  },
+  "acceptedPresetIds": [
+    "gent_gran_funcional_v1",
+    "gent_gran_forca_manteniment_v1",
+    "gent_gran_equilibri_mobilitat_v1",
+    "corredor_trail_excentric_baixades_v1",
+    "corredor_trail_pujada_forca_v1",
+    "banda_elastica_cos_complet_v1",
+    "banda_elastica_forca_progressiva_v1"
+  ],
+  "rejected": [],
+  "backupPath": "/Users/03761952/oriol/the-strength-period/data/ingestion/backups/20260414-144050-preset-batch-20260414-144050-763917-preset-catalog-catalog.json.bak"
+}

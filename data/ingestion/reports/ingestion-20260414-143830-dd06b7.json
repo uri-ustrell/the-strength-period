@@ -1,0 +1,172 @@
+{
+  "runId": "ingestion-20260414-143830-dd06b7",
+  "startedAt": "2026-04-14T14:38:30.910Z",
+  "completedAt": "2026-04-14T14:38:30.950Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 10,
+    "skipped": 1,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "lateral_step_down_v1",
+    "nordic_curl_v1",
+    "eccentric_calf_raise_v1",
+    "step_up_v1",
+    "single_leg_squat_v1",
+    "band_squat_v1",
+    "band_chest_press_standing_v1",
+    "band_overhead_press_v1",
+    "band_bicep_curl_v1",
+    "band_lateral_walk_v1"
+  ],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-143830-dd06b7.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-143830-dd06b7.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "trail-band-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 11
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "trail-band-exercises:exercise:lateral_step_down_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "lateral_step_down_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "lateral_step_down_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:nordic_curl_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "nordic_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "nordic_curl_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:eccentric_calf_raise_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "eccentric_calf_raise_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "eccentric_calf_raise_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:step_up_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "step_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "step_up_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:single_leg_squat_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "single_leg_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "single_leg_squat_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:depth_jump_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "depth_jump_v1",
+      "status": "skipped",
+      "confidence": 0.97,
+      "reasons": [
+        "Pending manual review.",
+        "1 tag(s) were dropped because they are not canonical."
+      ],
+      "canonicalId": "depth_jump_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:band_squat_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "band_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_squat_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:band_chest_press_standing_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "band_chest_press_standing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_chest_press_standing_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:band_overhead_press_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "band_overhead_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_overhead_press_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:band_bicep_curl_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "band_bicep_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_bicep_curl_v1"
+    },
+    {
+      "candidateId": "trail-band-exercises:exercise:band_lateral_walk_v1",
+      "kind": "exercise",
+      "sourceId": "trail-band-exercises",
+      "sourceExternalId": "band_lateral_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_lateral_walk_v1"
+    }
+  ]
+}

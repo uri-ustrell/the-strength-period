@@ -1,0 +1,102 @@
+{
+  "runId": "ingestion-20260414-105939-d3032a",
+  "startedAt": "2026-04-14T10:59:39.689Z",
+  "completedAt": "2026-04-14T10:59:39.734Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 5,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "postpp_pelvic_tilt_supine_v1",
+    "postpp_ta_bracing_supine_v1",
+    "postpp_heel_slides_v1",
+    "postpp_standing_pelvic_tilt_v1",
+    "postpp_modified_plank_knees_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/planning.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "postpartum-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 5
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_pelvic_tilt_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_pelvic_tilt_supine_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_pelvic_tilt_supine_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_ta_bracing_supine_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_ta_bracing_supine_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_ta_bracing_supine_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_heel_slides_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_heel_slides_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_heel_slides_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_standing_pelvic_tilt_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_standing_pelvic_tilt_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_standing_pelvic_tilt_v1"
+    },
+    {
+      "candidateId": "postpartum-exercises:exercise:postpp_modified_plank_knees_v1",
+      "kind": "exercise",
+      "sourceId": "postpartum-exercises",
+      "sourceExternalId": "postpp_modified_plank_knees_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpp_modified_plank_knees_v1"
+    }
+  ]
+}

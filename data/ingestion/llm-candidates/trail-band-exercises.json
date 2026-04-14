@@ -1,0 +1,510 @@
+{
+  "exercises": [
+    {
+      "sourceExternalId": "lateral_step_down_v1",
+      "name": "Lateral Step Down",
+      "primaryMuscles": ["quadriceps", "glutis"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "abductors"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["baixada", "corredor", "rehab_genoll", "equilibri"],
+      "restrictions": [
+        { "condition": "rehab_genoll", "action": "modify", "note": "Reduce range of motion or perform on flat surface if knee symptoms appear during loading." }
+      ],
+      "instructions": [
+        "Dret sobre un escaló o caixa (10–20 cm), amb el peu controlador al costat del costat del pis.",
+        "Flexiona lentament el genoll de recolzament per baixar l'altre peu cap al terra en 3–4 segons, mantenint el genoll alineat sobre el segon dit del peu.",
+        "Toca el terra però sense transferir el pes; empeny per tornar a la posició inicial. Controla que el maluc no caigui cap al costat."
+      ]
+    },
+    {
+      "sourceExternalId": "nordic_curl_v1",
+      "name": "Nordic Hamstring Curl",
+      "primaryMuscles": ["isquiotibials"],
+      "secondaryMuscles": ["glutis", "lumbar"],
+      "equipment": ["pes_corporal"],
+      "level": "expert",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "rehab_genoll", "baixada"],
+      "restrictions": [],
+      "instructions": [
+        "Agenolla't amb els turmells subjectats sota un banc, una barra, o per un company.",
+        "Mantenint el cos recte des dels genolls fins al cap, inclina't cap endavant de forma lenta i controlada (3–5 seg), cedint la resistència dels isquiotibials.",
+        "Quan ja no puguis controlar la caiguda, usa les mans per aturar-te i empenys per tornar. Progressa des de moviments parcials fins a complets."
+      ]
+    },
+    {
+      "sourceExternalId": "eccentric_calf_raise_v1",
+      "name": "Eccentric Calf Raise (Heel Drop)",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["tibial_anterior", "mobilitat_turmell"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "rehab_turmell", "baixada"],
+      "restrictions": [
+        { "condition": "rehab_turmell", "action": "modify", "note": "Reduce range of motion or perform on flat surface initially; progress depth over weeks." }
+      ],
+      "instructions": [
+        "Dret al canell d'un escaló amb les sabates a la meitat, agafant-se a una paret o barana per equilibrar.",
+        "Puja als punts de peus amb totes dues cames (concèntric) i baixa lentament en 4–5 seg amb una sola cama, deixant que el taló caigui per sota del nivell de l'escaló.",
+        "Retorna amb les dues cames i repeteix. Progressa la càrrega afegint pes o augmentant el nombre de reps."
+      ]
+    },
+    {
+      "sourceExternalId": "step_up_v1",
+      "name": "Step-Up",
+      "primaryMuscles": ["glutis", "quadriceps"],
+      "secondaryMuscles": ["isquiotibials", "estabilitzadors_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "pujada", "equilibri"],
+      "restrictions": [],
+      "instructions": [
+        "Col·loca un peu complet sobre un escaló o caixa a una altura adequada (~ 20–30 cm).",
+        "Empeny el taló del peu de l'escaló per aixecar el cos, portant l'altre peu fins al nivell de l'escaló.",
+        "Baixa controlant el descens en 2 seg amb el peu que tenia al terra; alterna les cames o fes totes les reps d'un costat abans de canviar."
+      ]
+    },
+    {
+      "sourceExternalId": "single_leg_squat_v1",
+      "name": "Single-Leg Squat",
+      "primaryMuscles": ["quadriceps", "glutis"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "abductors", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "equilibri", "baixada"],
+      "restrictions": [
+        { "condition": "rehab_genoll", "action": "modify", "note": "Limit depth to pain-free range; may be contraindicated in acute knee conditions." }
+      ],
+      "instructions": [
+        "Dret sobre una cama, l'altra cama lleugera davant o al costat, braços estesos per a l'equilibri.",
+        "Flexiona lentament el genoll de recolzament fins on sigui possible sense que el genoll col·lapsi cap a dins o el maluc caigui al costat.",
+        "Retorna a la posició inicial empenyent pel taló. Progressa amb la mà al costat d'una paret fins dominar el moviment lliure."
+      ]
+    },
+    {
+      "sourceExternalId": "depth_jump_v1",
+      "name": "Depth Jump",
+      "primaryMuscles": ["quadriceps", "glutis", "bessons"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "expert",
+      "category": "plyometrics",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "pliometria", "baixada"],
+      "restrictions": [
+        { "condition": "rehab_genoll", "action": "avoid", "note": "Avoid until the knee has been cleared for high-impact loading by a physiotherapist." },
+        { "condition": "rehab_turmell", "action": "avoid", "note": "Avoid until cleared for plyometric loading." }
+      ],
+      "instructions": [
+        "Dret sobre una caixa (20–40 cm), passos cap endavant i cau al terra amb tots dos peus al mateix temps.",
+        "En contactar, amorteix la caiguda flexionant genolls i malucs fins a parar completament; immediatament salta cap amunt per maximitzar la potència de reactivitat.",
+        "Mantén el temps de contacte amb el terra el mínim possible. Atura l'exercici si el contacte és rígid o una articulació dóna senyals."
+      ]
+    },
+    {
+      "sourceExternalId": "band_squat_v1",
+      "name": "Band Squat",
+      "primaryMuscles": ["quadriceps", "glutis"],
+      "secondaryMuscles": ["abductors", "estabilitzadors_cadera", "abdominal"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Col·loca una banda elàstica just per sobre dels genolls; dempeus amb els peus a l'amplada dels malucs.",
+        "Empeny activament els genolls cap a fora per oposar resistència a la banda mentre fas la sentadella.",
+        "Baixa fins que les cuixes quedin paral·leles al terra o més avall si la mobilitat ho permet; puja empenyent per talons."
+      ]
+    },
+    {
+      "sourceExternalId": "band_chest_press_standing_v1",
+      "name": "Band Chest Press (Standing)",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["deltoides", "triceps", "abdominal"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Ancora la banda elàstica darrere teu a l'alçada del pit (porta, columna o pes estable).",
+        "Agafa un extrem amb cada mà, peus a l'amplada dels malucs, un peu lleugerament davant per estabilitat.",
+        "Empeny les mans cap endavant de manera controlada fins que els braços quedin gairebé estesos; torna lentament a la posició inicial en 2 seg."
+      ]
+    },
+    {
+      "sourceExternalId": "band_overhead_press_v1",
+      "name": "Band Overhead Press",
+      "primaryMuscles": ["deltoides"],
+      "secondaryMuscles": ["triceps", "trapezi", "abdominal"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Trepitja la banda elàstica al centre amb tots dos peus a l'amplada dels malucs; agafa els extrems a l'alçada de les espatlles.",
+        "Empeny les mans cap amunt fins que els braços quedin gairebé estesos, mantenint el core activat i els malucs neutres.",
+        "Baixa lentament fins a l'alçada de les espatlles i repeteix."
+      ]
+    },
+    {
+      "sourceExternalId": "band_bicep_curl_v1",
+      "name": "Band Bicep Curl",
+      "primaryMuscles": ["biceps"],
+      "secondaryMuscles": ["avantbras", "deltoides"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Trepitja la banda al centre amb tots dos peus, agafa els extrems amb les palmes cap amunt i braços al costat del cos.",
+        "Flexiona els colzes portant les mans cap als muscles, mantenint els colzes fixes al costat del cos i sense balancejar el tronc.",
+        "Baixa de forma controlada en 2 seg i repeteix."
+      ]
+    },
+    {
+      "sourceExternalId": "band_lateral_walk_v1",
+      "name": "Band Lateral Walk",
+      "primaryMuscles": ["abductors", "glutis"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "quadriceps"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["corredor", "rehab_genoll", "core_estabilitat"],
+      "restrictions": [
+        { "condition": "rehab_genoll", "action": "modify", "note": "Reduce band tension and amplitude of steps if knee discomfort arises." }
+      ],
+      "instructions": [
+        "Col·loca una banda elàstica just per sobre dels turmells o genolls; posa't dret amb les cames a l'amplada dels malucs i genolls lleugerament flexionats.",
+        "Fes passos laterals controlats, mantenint tensió constant a la banda i el core estable; avança 10–15 passos cap a un costat i torna.",
+        "No deixis que els peus es juntin del tot per mantenir la tensió de la banda durant tot el moviment."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "preset_tags": {
+        "baixada": "Baixada",
+        "corredor": "Corredor",
+        "rehab_genoll": "Rehabilitació de genoll",
+        "rehab_turmell": "Rehabilitació de turmell",
+        "equilibri": "Equilibri",
+        "pliometria": "Pliometria",
+        "pujada": "Pujada",
+        "core_estabilitat": "Core i estabilitat"
+      },
+      "exercises": {
+        "lateral_step_down_v1": {
+          "name": "Descens lateral en escaló",
+          "instructions": [
+            "Dret sobre un escaló o caixa (10–20 cm), amb el peu controlador al costat del pis.",
+            "Flexiona lentament el genoll de recolzament per baixar l'altre peu cap al terra en 3–4 segons, mantenint el genoll alineat sobre el segon dit del peu.",
+            "Toca el terra però sense transferir el pes; empeny per tornar a la posició inicial. Controla que el maluc no caigui cap al costat."
+          ]
+        },
+        "nordic_curl_v1": {
+          "name": "Curl nòrdic d'isquiotibials",
+          "instructions": [
+            "Agenolla't amb els turmells subjectats sota un banc, barra o per un company.",
+            "Mantenint el cos recte des dels genolls fins al cap, inclina't cap endavant de forma lenta i controlada (3–5 seg), cedint la resistència dels isquiotibials.",
+            "Quan ja no puguis controlar la caiguda, usa les mans per aturar-te i empenys per tornar. Progressa des de moviments parcials fins a complets."
+          ]
+        },
+        "eccentric_calf_raise_v1": {
+          "name": "Punteta excèntrica en escaló (heel drop)",
+          "instructions": [
+            "Dret al canell d'un escaló a la meitat de peu, agafant-se a una paret per equilibrar.",
+            "Puja als punts de peus amb totes dues cames (concèntric) i baixa lentament en 4–5 seg amb una sola cama, deixant que el taló caigui per sota del nivell.",
+            "Retorna amb les dues cames i repeteix. Progressa la càrrega afegint pes o augmentant reps."
+          ]
+        },
+        "step_up_v1": {
+          "name": "Pujada a l'escaló",
+          "instructions": [
+            "Col·loca un peu complet sobre un escaló o caixa a uns 20–30 cm d'altura.",
+            "Empeny el taló del peu de l'escaló per aixecar el cos, portant l'altre peu al nivell de l'escaló.",
+            "Baixa controlant el descens en 2 seg; alterna les cames o fes totes les reps d'un costat primer."
+          ]
+        },
+        "single_leg_squat_v1": {
+          "name": "Sentadella monopodal",
+          "instructions": [
+            "Dret sobre una cama, l'altra lleugera davant o al costat, braços estesos per a l'equilibri.",
+            "Flexiona lentament el genoll de recolzament fins on sigui possible sense que col·lapsi cap a dins o el maluc caigui.",
+            "Retorna a la posició inicial empenyent pel taló. Progressa amb la mà a la paret fins dominar el moviment lliure."
+          ]
+        },
+        "depth_jump_v1": {
+          "name": "Salt de profunditat (depth jump)",
+          "instructions": [
+            "Dret sobre una caixa (20–40 cm), passos cap endavant i cau al terra amb tots dos peus.",
+            "En contactar, amorteix la caiguda flexionant genolls i malucs; immediatament salta cap amunt per maximitzar la potència.",
+            "Mantén el temps de contacte amb el terra el mínim possible. Atura si el contacte és rígid o l'articulació dóna senyals."
+          ]
+        },
+        "band_squat_v1": {
+          "name": "Sentadella amb banda elàstica",
+          "instructions": [
+            "Col·loca una banda elàstica just per sobre dels genolls; dempeus amb els peus a l'amplada dels malucs.",
+            "Empeny els genolls cap a fora per oposar resistència a la banda mentre fas la sentadella.",
+            "Baixa fins paral·lel o més avall; puja empenyent per talons."
+          ]
+        },
+        "band_chest_press_standing_v1": {
+          "name": "Press de pit amb banda (dempeus)",
+          "instructions": [
+            "Ancora la banda darrere teu a l'alçada del pit (porta o pes estable).",
+            "Agafa un extrem amb cada mà, un peu lleugerament davant per estabilitat.",
+            "Empeny les mans cap endavant fins gairebé estesos; torna lentament en 2 seg."
+          ]
+        },
+        "band_overhead_press_v1": {
+          "name": "Press de dalt amb banda elàstica",
+          "instructions": [
+            "Trepitja la banda al centre amb els peus a l'amplada dels malucs; agafa els extrems a l'alçada de les espatlles.",
+            "Empeny les mans cap amunt fins gairebé estesos, mantenint el core activat.",
+            "Baixa lentament fins a l'alçada de les espatlles i repeteix."
+          ]
+        },
+        "band_bicep_curl_v1": {
+          "name": "Curl de bíceps amb banda",
+          "instructions": [
+            "Trepitja la banda al centre; agafa els extrems amb les palmes cap amunt i braços al costat del cos.",
+            "Flexiona els colzes portant les mans cap als muscles sense balancejar el tronc.",
+            "Baixa de forma controlada en 2 seg."
+          ]
+        },
+        "band_lateral_walk_v1": {
+          "name": "Passeig lateral amb banda elàstica",
+          "instructions": [
+            "Col·loca una banda elàstica per sobre dels turmells o genolls; genolls lleugerament flexionats.",
+            "Fes passos laterals controlats mantenint tensió constant a la banda i el core estable.",
+            "No deixis que els peus es juntin del tot per mantenir la tensió durant tot el moviment."
+          ]
+        }
+      }
+    },
+    "es": {
+      "preset_tags": {
+        "baixada": "Bajada",
+        "corredor": "Corredor",
+        "rehab_genoll": "Rehabilitación de rodilla",
+        "rehab_turmell": "Rehabilitación de tobillo",
+        "equilibri": "Equilibrio",
+        "pliometria": "Pliometría",
+        "pujada": "Subida",
+        "core_estabilitat": "Core y estabilidad"
+      },
+      "exercises": {
+        "lateral_step_down_v1": {
+          "name": "Descenso lateral en escalón",
+          "instructions": [
+            "De pie sobre un escalón o caja (10–20 cm), con el pie de control al lado del suelo.",
+            "Flexiona lentamente la rodilla de apoyo para bajar el otro pie hacia el suelo en 3–4 segundos, manteniendo la rodilla alineada sobre el segundo dedo.",
+            "Toca el suelo sin transferir el peso; empuja para volver. Controla que la cadera no caiga al lado."
+          ]
+        },
+        "nordic_curl_v1": {
+          "name": "Curl nórdico de isquiotibiales",
+          "instructions": [
+            "Arrodíllate con los tobillos sujetos bajo un banco, barra o por un compañero.",
+            "Manteniendo el cuerpo recto desde las rodillas hasta la cabeza, inclínate hacia adelante lentamente (3–5 seg), cediendo la resistencia de los isquiotibiales.",
+            "Cuando no puedas controlar la caída, usa las manos para frenarte y empuja para volver. Progresa desde movimientos parciales a completos."
+          ]
+        },
+        "eccentric_calf_raise_v1": {
+          "name": "Elevación de talón excéntrica en escalón (heel drop)",
+          "instructions": [
+            "De pie en el borde de un escalón con la mitad del pie, agarrándose a una pared para equilibrarse.",
+            "Sube de puntillas con ambas piernas y baja lentamente en 4–5 seg con una sola pierna, dejando que el talón caiga por debajo del nivel del escalón.",
+            "Vuelve con ambas piernas y repite. Progresa añadiendo carga o aumentando repeticiones."
+          ]
+        },
+        "step_up_v1": {
+          "name": "Subida al escalón",
+          "instructions": [
+            "Coloca un pie completo sobre un escalón o caja a unos 20–30 cm de altura.",
+            "Empuja el talón del pie en el escalón para levantarte, llevando el otro pie al nivel del escalón.",
+            "Baja controlando el descenso en 2 seg; alterna piernas o haz todas las reps de un lado primero."
+          ]
+        },
+        "single_leg_squat_v1": {
+          "name": "Sentadilla monopodal",
+          "instructions": [
+            "De pie sobre una pierna, la otra ligeramente al frente o al lado, brazos extendidos para el equilibrio.",
+            "Flexiona lentamente la rodilla de apoyo hasta donde sea posible sin que colapse hacia dentro o la cadera caiga.",
+            "Vuelve a la posición inicial empujando por el talón. Progresa con la mano en la pared hasta dominar el movimiento libre."
+          ]
+        },
+        "depth_jump_v1": {
+          "name": "Salto de profundidad (depth jump)",
+          "instructions": [
+            "De pie sobre una caja (20–40 cm), da un paso al frente y cae al suelo con ambos pies.",
+            "Al contactar, amortigua la caída flexionando rodillas y caderas; inmediatamente salta hacia arriba para maximizar la potencia.",
+            "Mantén el tiempo de contacto con el suelo al mínimo. Para el ejercicio si el contacto es rígido o una articulación da señales."
+          ]
+        },
+        "band_squat_v1": {
+          "name": "Sentadilla con banda elástica",
+          "instructions": [
+            "Coloca una banda elástica justo por encima de las rodillas; de pie con los pies a la anchura de las caderas.",
+            "Empuja las rodillas hacia afuera para oponer resistencia a la banda mientras haces la sentadilla.",
+            "Baja hasta paralelo o más abajo; sube empujando por talones."
+          ]
+        },
+        "band_chest_press_standing_v1": {
+          "name": "Press de pecho con banda (de pie)",
+          "instructions": [
+            "Ancla la banda detrás de ti a la altura del pecho (puerta o peso estable).",
+            "Agarra un extremo con cada mano, un pie ligeramente adelante para estabilidad.",
+            "Empuja las manos hacia adelante hasta casi extendidos; vuelve lentamente en 2 seg."
+          ]
+        },
+        "band_overhead_press_v1": {
+          "name": "Press por encima con banda elástica",
+          "instructions": [
+            "Pisa la banda en el centro con los pies a la anchura de las caderas; agarra los extremos a la altura de los hombros.",
+            "Empuja las manos hacia arriba hasta casi extendidos, manteniendo el core activado.",
+            "Baja lentamente hasta la altura de los hombros y repite."
+          ]
+        },
+        "band_bicep_curl_v1": {
+          "name": "Curl de bíceps con banda",
+          "instructions": [
+            "Pisa la banda en el centro; agarra los extremos con las palmas hacia arriba y brazos al lado del cuerpo.",
+            "Flexiona los codos llevando las manos hacia los hombros sin balancear el tronco.",
+            "Baja de forma controlada en 2 seg."
+          ]
+        },
+        "band_lateral_walk_v1": {
+          "name": "Marcha lateral con banda elástica",
+          "instructions": [
+            "Coloca una banda elástica sobre los tobillos o rodillas; rodillas ligeramente flexionadas.",
+            "Da pasos laterales controlados manteniendo tensión constante en la banda y el core estable.",
+            "No dejes que los pies se junten del todo para mantener la tensión durante todo el movimiento."
+          ]
+        }
+      }
+    },
+    "en": {
+      "preset_tags": {
+        "baixada": "Descent",
+        "corredor": "Runner",
+        "rehab_genoll": "Knee rehab",
+        "rehab_turmell": "Ankle rehab",
+        "equilibri": "Balance",
+        "pliometria": "Plyometrics",
+        "pujada": "Uphill",
+        "core_estabilitat": "Core & stability"
+      },
+      "exercises": {
+        "lateral_step_down_v1": {
+          "name": "Lateral Step Down",
+          "instructions": [
+            "Stand on a step or box (10–20 cm) with the control foot near the edge.",
+            "Slowly flex the support knee to lower the other foot toward the floor in 3–4 sec, keeping the knee aligned over the second toe.",
+            "Touch the floor without transferring weight; push back up. Control the hip not dropping to the side."
+          ]
+        },
+        "nordic_curl_v1": {
+          "name": "Nordic Hamstring Curl",
+          "instructions": [
+            "Kneel with ankles secured under a bench, bar, or held by a partner.",
+            "Keeping your body straight from knees to head, lean forward slowly (3–5 sec) under eccentric hamstring control.",
+            "When you can no longer control the fall, use your hands to brake, then push back. Progress from partial to full range of motion."
+          ]
+        },
+        "eccentric_calf_raise_v1": {
+          "name": "Eccentric Calf Raise (Heel Drop)",
+          "instructions": [
+            "Stand on the edge of a step with the ball of your foot, holding a wall for balance.",
+            "Rise on both toes (concentric), then slowly lower on one leg over 4–5 sec, letting the heel drop below the step level.",
+            "Return with both legs and repeat. Progress by adding load or increasing reps."
+          ]
+        },
+        "step_up_v1": {
+          "name": "Step-Up",
+          "instructions": [
+            "Place one full foot on a step or box about 20–30 cm high.",
+            "Drive through the heel of the elevated foot to lift your body, bringing the other foot up to level.",
+            "Control the descent over 2 sec; alternate legs or complete all reps on one side before switching."
+          ]
+        },
+        "single_leg_squat_v1": {
+          "name": "Single-Leg Squat",
+          "instructions": [
+            "Stand on one leg, the other slightly in front or to the side, arms extended for balance.",
+            "Slowly flex the support knee as far as possible without it collapsing inward or the hip dropping.",
+            "Return to start by pushing through the heel. Use wall support to progress toward freestanding."
+          ]
+        },
+        "depth_jump_v1": {
+          "name": "Depth Jump",
+          "instructions": [
+            "Stand on a box (20–40 cm), step off and land on both feet simultaneously.",
+            "Upon landing, absorb into a squat and immediately jump upward to maximize reactive power.",
+            "Minimize ground contact time. Stop the exercise if landing feels stiff or a joint signals pain."
+          ]
+        },
+        "band_squat_v1": {
+          "name": "Band Squat",
+          "instructions": [
+            "Place a resistance band just above your knees; stand with feet hip-width apart.",
+            "Push your knees out against the band resistance throughout the squat.",
+            "Lower to parallel or below; drive up through your heels."
+          ]
+        },
+        "band_chest_press_standing_v1": {
+          "name": "Band Chest Press (Standing)",
+          "instructions": [
+            "Anchor a resistance band behind you at chest height (door or stable weight).",
+            "Grip one end in each hand, one foot slightly forward for stability.",
+            "Press handles forward until arms are nearly extended; return slowly over 2 sec."
+          ]
+        },
+        "band_overhead_press_v1": {
+          "name": "Band Overhead Press",
+          "instructions": [
+            "Stand on the center of the band with feet hip-width apart; grip ends at shoulder height.",
+            "Press handles overhead until arms are nearly extended, keeping core braced.",
+            "Lower slowly back to shoulder height and repeat."
+          ]
+        },
+        "band_bicep_curl_v1": {
+          "name": "Band Bicep Curl",
+          "instructions": [
+            "Stand on the center of the band; grip ends with palms up and arms at your sides.",
+            "Curl the handles toward your shoulders, keeping elbows fixed at your sides without swinging.",
+            "Lower under control over 2 sec."
+          ]
+        },
+        "band_lateral_walk_v1": {
+          "name": "Band Lateral Walk",
+          "instructions": [
+            "Place a resistance band around your ankles or just above knees; stand with knees slightly bent.",
+            "Take controlled lateral steps, maintaining constant band tension and a stable core.",
+            "Do not let feet come together fully to keep the band under tension throughout."
+          ]
+        }
+      }
+    }
+  }
+}

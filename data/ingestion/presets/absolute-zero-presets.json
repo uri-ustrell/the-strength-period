@@ -1,0 +1,167 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "zero_descoberta_v1",
+      "title": "Zero — Descoberta del moviment",
+      "description": "Generator-mode preset for people who have never exercised. Extremely conservative, emphasizes learning to move with correct technique rather than training loads. Recommended for the first 4 weeks of any fitness journey.",
+      "durationOptions": [4, 6],
+      "muscleDistribution": {
+        "glutis": 20,
+        "quadriceps": 20,
+        "abdominal": 20,
+        "estabilitzadors_cadera": 15,
+        "mobilitat_cadera": 15,
+        "mobilitat_toracica": 10
+      },
+      "requiredTags": ["escalfament", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 1,
+      "notes": "This block is designed for people with no prior training experience; may help build foundational movement patterns and body awareness. Focus entirely on technique — progression load is secondary."
+    },
+    {
+      "sourceExternalId": "zero_fonaments_setmana01_04_v1",
+      "title": "Zero → Fonaments (Setmanes 1–4)",
+      "description": "Faithful-mode foundational block for people starting from absolute zero. 2 sessions/week of 15–20 minutes, using only the simplest body-weight exercises. Prioritizes learning movement patterns over intensity.",
+      "durationOptions": [4],
+      "requiredTags": ["escalfament", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "First 4-week block for absolute beginners: each session should feel achievable and confidence-building. Stop if any movement causes pain. Consult a healthcare professional before starting if you have any medical condition.",
+      "sessions": [
+        {
+          "label": "Sessió A — Moviments fonamentals",
+          "exercises": [
+            { "exerciseId": "seated_marching_v1", "sets": 2, "reps": [10, 15], "restSeconds": 60 },
+            { "exerciseId": "sit_to_stand_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "wall_push_up_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "postpp_pelvic_tilt_supine_v1", "sets": 2, "reps": 12, "restSeconds": 60 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Cos complet suau",
+          "exercises": [
+            { "exerciseId": "seated_marching_v1", "sets": 2, "reps": [10, 15], "restSeconds": 60 },
+            { "exerciseId": "Butt_Lift_Bridge", "sets": 2, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 2, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "postpp_ta_bracing_supine_v1", "sets": 2, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "Childs_Pose", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "zero_progressio_setmana05_10_v1",
+      "title": "Zero → Progressió (Setmanes 5–10)",
+      "description": "Faithful-mode second block for people who have completed the first 4-week foundational block. 2–3 sessions/week of 20–25 minutes. Introduces basic compound exercises with very light load. Linear progression.",
+      "durationOptions": [6, 8],
+      "requiredTags": ["corredor", "core_estabilitat"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 3,
+      "notes": "Second block — continue only after completing 4 weeks of the foundational block. Increase reps or resistance only when all sets feel controlled and pain-free. This block may help consolidate motor learning and introduce progressive overload.",
+      "sessions": [
+        {
+          "label": "Sessió A — Tren inferior + core",
+          "exercises": [
+            { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 60 },
+            { "exerciseId": "Dead_Bug", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Standing_Hip_Flexors", "sets": 2, "reps": 12, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Tren superior + estabilitat",
+          "exercises": [
+            { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            { "exerciseId": "postpp_bird_dog_v1", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
+            { "exerciseId": "Plank", "sets": 2, "reps": 20, "restSeconds": 60 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió C opcional — Cos complet + mobilitat",
+          "exercises": [
+            { "exerciseId": "Bodyweight_Squat", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
+            { "exerciseId": "postpp_clamshell_band_v1", "sets": 2, "reps": [10, 12], "restSeconds": 60 },
+            { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 30 },
+            { "exerciseId": "Childs_Pose", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "zero_descoberta_v1": {
+          "name": "Zero — Descoberta del moviment",
+          "description": "Preset en mode generador per a persones que mai han fet exercici. Molt conservador, centrat en aprendre a moure's correctament. Recomanat per a les primeres 4 setmanes."
+        },
+        "zero_fonaments_setmana01_04_v1": {
+          "name": "Zero → Fonaments (Setmanes 1–4)",
+          "description": "Bloc fidel per a absolute principiants. 2 sessions/setmana de 15–20 minuts amb exercicis bàsics de pes corporal. Prioritza aprendre patrons de moviment per sobre de la intensitat."
+        },
+        "zero_progressio_setmana05_10_v1": {
+          "name": "Zero → Progressió (Setmanes 5–10)",
+          "description": "Segon bloc per a persones que han completat les 4 setmanes inicials. 2–3 sessions/setmana de 20–25 minuts. Introdueix exercicis compostos bàsics amb càrrega molt lleugera."
+        }
+      },
+      "preset_tags": {
+        "escalfament": "Escalfament",
+        "mobilitat": "Mobilitat",
+        "corredor": "Corredor",
+        "core_estabilitat": "Core i estabilitat"
+      }
+    },
+    "es": {
+      "presets": {
+        "zero_descoberta_v1": {
+          "name": "Cero — Descubrimiento del movimiento",
+          "description": "Preset en modo generador para personas que nunca han hecho ejercicio. Muy conservador, centrado en aprender a moverse correctamente. Recomendado para las primeras 4 semanas."
+        },
+        "zero_fonaments_setmana01_04_v1": {
+          "name": "Cero → Fundamentos (Semanas 1–4)",
+          "description": "Bloque fiel para principiantes absolutos. 2 sesiones/semana de 15–20 minutos con ejercicios básicos de peso corporal. Prioriza aprender patrones de movimiento sobre la intensidad."
+        },
+        "zero_progressio_setmana05_10_v1": {
+          "name": "Cero → Progresión (Semanas 5–10)",
+          "description": "Segundo bloque para personas que han completado las 4 semanas iniciales. 2–3 sesiones/semana de 20–25 minutos. Introduce ejercicios compuestos básicos con carga muy ligera."
+        }
+      },
+      "preset_tags": {
+        "escalfament": "Calentamiento",
+        "mobilitat": "Movilidad",
+        "corredor": "Corredor",
+        "core_estabilitat": "Core y estabilidad"
+      }
+    },
+    "en": {
+      "presets": {
+        "zero_descoberta_v1": {
+          "name": "Zero — Movement discovery",
+          "description": "Generator-mode preset for people who have never exercised. Very conservative, focused on learning to move correctly. Recommended for the first 4 weeks."
+        },
+        "zero_fonaments_setmana01_04_v1": {
+          "name": "Zero → Foundations (Weeks 1–4)",
+          "description": "Faithful-mode block for absolute beginners. 2 sessions/week of 15–20 minutes using basic body-weight exercises. Prioritizes learning movement patterns over intensity."
+        },
+        "zero_progressio_setmana05_10_v1": {
+          "name": "Zero → Progression (Weeks 5–10)",
+          "description": "Second block for people who have completed the initial 4 weeks. 2–3 sessions/week of 20–25 minutes. Introduces basic compound exercises with very light load."
+        }
+      },
+      "preset_tags": {
+        "escalfament": "Warm-up",
+        "mobilitat": "Mobility",
+        "corredor": "Runner",
+        "core_estabilitat": "Core & stability"
+      }
+    }
+  }
+}

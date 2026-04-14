@@ -107,13 +107,19 @@
     "deload_session": "Deload"
   },
   "preset_tags": {
-    "baixada": "Downhill",
-    "core_estabilitat": "Core Stability",
+    "baixada": "Descent",
+    "core_estabilitat": "Core & stability",
     "corredor": "Runner",
+    "equilibri": "Balance",
+    "escalfament": "Warm-up",
     "mobilitat": "Mobility",
+    "pliometria": "Plyometrics",
     "pujada": "Uphill",
-    "rehab_lumbar": "Lumbar Rehab",
-    "tendinitis_anserina": "Pes anserine tendinitis"
+    "rehab_genoll": "Knee rehab",
+    "rehab_lumbar": "Lumbar rehab",
+    "rehab_turmell": "Ankle rehab",
+    "tendinitis_anserina": "Pes anserine tendinitis",
+    "tornada_calma": "Cool-down"
   },
   "presets": {
     "corredor_general": "General Runner",
@@ -168,6 +174,94 @@
     "warnings_title": "Warnings"
   },
   "ingested_presets": {
+    "banda_elastica_cos_complet_v1": {
+      "name": "Resistance band — Full body",
+      "description": "Full-body resistance band program. No weights required. 2 sessions/week. Suitable for home, travel, or as an introduction to structured resistance training."
+    },
+    "banda_elastica_forca_progressiva_v1": {
+      "name": "Resistance band — Progressive strength",
+      "description": "Progressive band strength program. 3 sessions/week, undulating periodization. For athletes who travel or prefer equipment-free training."
+    },
+    "corredor_trail_excentric_baixades_v1": {
+      "name": "Trail — Eccentric strength for descents",
+      "description": "Eccentric strength block for trail runners targeting downhill capacity. 3 sessions/week, 8–10 weeks. Focuses on eccentric quad/hamstring/calf strength for descents."
+    },
+    "corredor_trail_pujada_forca_v1": {
+      "name": "Trail — Uphill strength",
+      "description": "Strength block for trail runners targeting uphill capacity. 3 sessions/week, undulating periodization. Develops hip extension power and single-leg stability."
+    },
+    "embaras_1r_trimestre_v1": {
+      "name": "Pregnancy — 1st trimester (conservative)",
+      "description": "Generator-mode conservative block for the first trimester. Prioritizes pelvic stability, hip mobility and gentle core. Always consult a healthcare professional."
+    },
+    "embaras_2n_trimestre_v1": {
+      "name": "Pregnancy — 2nd trimester (moderate strength)",
+      "description": "Faithful-mode moderate strength block for the second trimester: glutes, stabilizers and upper body. Conservative progression. Always consult a healthcare professional."
+    },
+    "embaras_3r_trimestre_v1": {
+      "name": "Pregnancy — 3rd trimester (gentle maintenance)",
+      "description": "Very gentle generator-mode maintenance block for the third trimester: mobility, hip stabilizers and low-impact core. Consult a midwife or physiotherapist."
+    },
+    "gent_gran_equilibri_mobilitat_v1": {
+      "name": "Seniors — Balance & mobility",
+      "description": "Balance and mobility block for adults 60+. 2 sessions/week of 20 minutes. Combines proprioception exercises with dynamic range of motion work."
+    },
+    "gent_gran_forca_manteniment_v1": {
+      "name": "Seniors — Strength & muscle maintenance",
+      "description": "Muscle maintenance block for adults 60+. 3 sessions/week with body-weight and band exercises. May help counter sarcopenia with consistent practice."
+    },
+    "gent_gran_funcional_v1": {
+      "name": "Seniors — Functionality & balance",
+      "description": "Functional strength block for adults 60+. 2 sessions/week of 20–25 minutes focusing on daily-life movements: sit-to-stand, balance, step-ups, posture."
+    },
+    "mobilitat_toracica_espatlles_v1": {
+      "name": "Thoracic spine & shoulder mobility",
+      "description": "Faithful-mode thoracic and shoulder mobility routine inspired by yoga/pilates. 2 sessions/week of 15–20 minutes. Addresses anterior chain tightness common in sedentary or desk-work populations."
+    },
+    "mobilitat_tren_inferior_v1": {
+      "name": "Hip & lower body mobility",
+      "description": "Generator-mode lower body mobility routine targeting hip flexors, external rotators, hamstrings and ankle. Suitable post-run or as a standalone 20-minute session."
+    },
+    "postpart_corredora_general_v1": {
+      "name": "Postpartum — General runner (strength base)",
+      "description": "A 6–12 week block for postpartum runners: rebuilds lower-body strength, core stability and running-specific resilience. Medical clearance required."
+    },
+    "postpart_generator_core_strength_v1": {
+      "name": "Postpartum — Generator: core → strength",
+      "description": "Generator-mode preset prioritizing pelvic stability, glutes and hip stabilizers; the engine will select suitable exercises from your catalog."
+    },
+    "postpart_rehab_conservative_v1": {
+      "name": "Postpartum — Gentle rehab",
+      "description": "A cautious 4–6 week block focused on pelvic stability, core re-education and mobility. Consult a healthcare professional before starting."
+    },
+    "postpart_retorn_trail_v1": {
+      "name": "Postpartum — Return to trail (progressive)",
+      "description": "An 8–12 week block bridging postpartum strength to trail-specific demands: eccentric control on descents, reactive stability and hip power. Full medical clearance required."
+    },
+    "postpart_return_strength_v1": {
+      "name": "Postpartum — Return to strength (progressive)",
+      "description": "Progressive 6–12 week block to rebuild hip and core strength and stability. Increase load conservatively."
+    },
+    "postpart_return_to_running_v1": {
+      "name": "Postpartum — Return to running (progressive)",
+      "description": "An 8–12 week block combining strength, stability and cautious plyometrics to prepare for return to running. Seek medical clearance and progress conservatively."
+    },
+    "principianta_descoberta_v1": {
+      "name": "Beginner — Movement discovery",
+      "description": "Generator-mode introductory block for women with no prior training history. Very conservative distribution, mobility and stability emphasis. Ideal as a first 4–6 week program."
+    },
+    "principianta_forca_base_v1": {
+      "name": "Beginner — Foundation strength",
+      "description": "Faithful-mode foundational strength block for beginners. 2 sessions/week, basic body-weight or light resistance exercises. Prioritizes technique and movement pattern learning."
+    },
+    "principianta_forca_progressiva_v1": {
+      "name": "Beginner — Progressive strength (stage 2)",
+      "description": "Faithful-mode progression block for women who have completed a foundations block. 3 sessions/week with light dumbbells, undulating periodization. Recommended after 6+ weeks of the introductory block."
+    },
+    "rutina_mobilitat_global_v1": {
+      "name": "Global mobility routine",
+      "description": "Faithful-mode full-body mobility routine for any level. 3 sessions/week of 20 minutes alternating lower body, upper body, and integrated mobility."
+    },
     "tsp_descent_eccentric_linear_04": {
       "name": "Downhill Control and Knee Health",
       "description": "Block centered on eccentric work to protect the patellar tendon and improve braking capacity."
@@ -191,6 +285,18 @@
     "tsp_vertical_power_block_03": {
       "name": "Vertical Power: Uphill Specialist",
       "description": "Designed for runners who want to improve performance on steep climbs (Vertical Kilometer)."
+    },
+    "zero_descoberta_v1": {
+      "name": "Zero — Movement discovery",
+      "description": "Generator-mode preset for people who have never exercised. Very conservative, focused on learning to move correctly. Recommended for the first 4 weeks."
+    },
+    "zero_fonaments_setmana01_04_v1": {
+      "name": "Zero → Foundations (Weeks 1–4)",
+      "description": "Faithful-mode block for absolute beginners. 2 sessions/week of 15–20 minutes using basic body-weight exercises. Prioritizes learning movement patterns over intensity."
+    },
+    "zero_progressio_setmana05_10_v1": {
+      "name": "Zero → Progression (Weeks 5–10)",
+      "description": "Second block for people who have completed the initial 4 weeks. 2–3 sessions/week of 20–25 minutes. Introduces basic compound exercises with very light load."
     }
   }
 }

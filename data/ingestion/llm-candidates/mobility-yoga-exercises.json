@@ -1,0 +1,290 @@
+{
+  "exercises": [
+    {
+      "sourceExternalId": "thread_the_needle_v1",
+      "name": "Thread the Needle",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["lumbar", "deltoides", "oblics"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "tornada_calma", "rehab_lumbar", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Comença en quadrupèdia amb els malucs sobre els genolls i les espatlles sobre els canells.",
+        "Llisca un braç per sota del cos, girant el tronc, fins que l'espatlla i el costat del cap arribin al terra.",
+        "Mantén la posició 2–3 segons sentint l'estirament toràcic, torna a la posició inicial i repeteix a l'altre costat."
+      ]
+    },
+    {
+      "sourceExternalId": "downward_dog_v1",
+      "name": "Downward-Facing Dog",
+      "primaryMuscles": ["isquiotibials", "bessons", "mobilitat_toracica"],
+      "secondaryMuscles": ["lumbar", "deltoides", "dorsal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "tornada_calma", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Des de la posició de planxa, empeny els malucs amunt i enrere formant una V invertida, amb les mans i peus a terra.",
+        "Allarga la columna tractant de portar els talons al terra i el cap entre els braços mirant els peus.",
+        "Manté de 20 a 40 segons respirant profundament; pots alternar flexions de genolls per aprofundir l'estirament dels isquiotibials."
+      ]
+    },
+    {
+      "sourceExternalId": "pigeon_pose_v1",
+      "name": "Pigeon Pose",
+      "primaryMuscles": ["mobilitat_cadera", "glutis"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "psoes", "adductors"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "tornada_calma", "corredor"],
+      "restrictions": [
+        { "condition": "rehab_genoll", "action": "modify", "note": "May aggravate the knee under load; use the supine figure-four stretch instead if comfortable floor position cannot be maintained." }
+      ],
+      "instructions": [
+        "Des de quadrupèdia, porta el genoll dret cap endavant i deixa-lo caure cap a l'exterior de la mà dreta; estén la cama esquerra cap enrere.",
+        "Baixa el maluc dret cap al terra o aproxima't tant com puguis sense dolor; pot ajudar un bloc o una manta doblada sota el maluc.",
+        "Mantén de 30 a 60 segons de cada costat, respirant lentament; evita compensar inclinant el tronc cap a un costat."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_spinal_twist_v1",
+      "name": "Seated Spinal Twist",
+      "primaryMuscles": ["mobilitat_toracica", "oblics"],
+      "secondaryMuscles": ["lumbar", "estabilitzadors_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "tornada_calma"],
+      "restrictions": [],
+      "instructions": [
+        "Seu al terra amb les cames esteses. Flexiona el genoll dret i col·loca el peu pla al terra a fora del genoll esquerre.",
+        "Posa la mà esquerra al genoll dret i gira el tronc cap a la dreta, col·locant la mà dreta darrere l'esquena com a suport.",
+        "Mantén 30 segons girant una mica més amb cada exhalació; torna al centre i repeteix a l'altre costat."
+      ]
+    },
+    {
+      "sourceExternalId": "supine_twist_v1",
+      "name": "Supine Spinal Twist",
+      "primaryMuscles": ["lumbar", "mobilitat_toracica"],
+      "secondaryMuscles": ["oblics", "glutis", "mobilitat_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "tornada_calma", "rehab_lumbar"],
+      "restrictions": [],
+      "instructions": [
+        "Estira't d'esquena; porta els dos genolls al pit i deixa'ls caure suaument cap a un costat mentre estens els braços en creu.",
+        "Gira el cap cap al costat contrari als genolls si és còmode, per augmentar la rotació toràcica.",
+        "Mantén 30–45 segons de cada costat; és normal sentir un alleugeriment de tensió lumbar progressiu."
+      ]
+    },
+    {
+      "sourceExternalId": "world_greatest_stretch_v1",
+      "name": "World Greatest Stretch",
+      "primaryMuscles": ["mobilitat_cadera", "mobilitat_toracica", "psoes"],
+      "secondaryMuscles": ["adductors", "isquiotibials", "estabilitzadors_cadera", "oblics"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament", "corredor", "pujada"],
+      "restrictions": [],
+      "instructions": [
+        "Fes un pas llarg cap endavant amb el peu dret fins a una postura de llunada baixa; col·loca la mà esquerra a terra just al costat del peu dret.",
+        "Gira el tronc cap a la dreta portant el braç dret cap amunt fins al cel, obrint el pit i mirant el dit polze.",
+        "Torna la mà al terra, estén la cama davantera per sentir l'estirament dels isquiotibials, i torna a la posició de llunada. Fes 3–5 reps per costat."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "preset_tags": {
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "rehab_lumbar": "Rehabilitació lumbar",
+        "corredor": "Corredor",
+        "escalfament": "Escalfament",
+        "pujada": "Pujada"
+      },
+      "exercises": {
+        "thread_the_needle_v1": {
+          "name": "Thread the Needle (rotació toràcica)",
+          "instructions": [
+            "Comença en quadrupèdia amb els malucs sobre els genolls i les espatlles sobre els canells.",
+            "Llisca un braç per sota del cos, girant el tronc, fins que l'espatlla i el costat del cap arribin al terra.",
+            "Mantén la posició 2–3 segons sentint l'estirament toràcic, torna a la posició inicial i repeteix a l'altre costat."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Postura del gos cap avall",
+          "instructions": [
+            "Des de la posició de planxa, empeny els malucs amunt i enrere formant una V invertida, amb les mans i peus a terra.",
+            "Allarga la columna tractant de portar els talons al terra i el cap entre els braços mirant els peus.",
+            "Manté de 20 a 40 segons respirant profundament; pots alternar flexions de genolls per aprofundir l'estirament dels isquiotibials."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Postura del colom",
+          "instructions": [
+            "Des de quadrupèdia, porta el genoll dret cap endavant i deixa-lo caure cap a l'exterior de la mà dreta; estén la cama esquerra cap enrere.",
+            "Baixa el maluc dret cap al terra o aproxima't tant com puguis sense dolor; pot ajudar un bloc o una manta doblada sota el maluc.",
+            "Mantén de 30 a 60 segons de cada costat, respirant lentament; evita compensar inclinant el tronc cap a un costat."
+          ]
+        },
+        "seated_spinal_twist_v1": {
+          "name": "Rotació espinal asseguda",
+          "instructions": [
+            "Seu al terra amb les cames esteses. Flexiona el genoll dret i col·loca el peu pla al terra a fora del genoll esquerre.",
+            "Posa la mà esquerra al genoll dret i gira el tronc cap a la dreta, col·locant la mà dreta darrere l'esquena com a suport.",
+            "Mantén 30 segons girant una mica més amb cada exhalació; torna al centre i repeteix a l'altre costat."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Rotació espinal en decúbit supí",
+          "instructions": [
+            "Estira't d'esquena; porta els dos genolls al pit i deixa'ls caure suaument cap a un costat mentre estens els braços en creu.",
+            "Gira el cap cap al costat contrari als genolls si és còmode, per augmentar la rotació toràcica.",
+            "Mantén 30–45 segons de cada costat; és normal sentir un alleugeriment de tensió lumbar progressiu."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "El millor estirament del món",
+          "instructions": [
+            "Fes un pas llarg cap endavant amb el peu dret fins a una postura de llunada baixa; col·loca la mà esquerra a terra just al costat del peu dret.",
+            "Gira el tronc cap a la dreta portant el braç dret cap amunt fins al cel, obrint el pit i mirant el dit polze.",
+            "Torna la mà al terra, estén la cama davantera per sentir l'estirament dels isquiotibials, i torna a la posició de llunada. Fes 3–5 reps per costat."
+          ]
+        }
+      }
+    },
+    "es": {
+      "preset_tags": {
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "rehab_lumbar": "Rehabilitación lumbar",
+        "corredor": "Corredor",
+        "escalfament": "Calentamiento",
+        "pujada": "Subida"
+      },
+      "exercises": {
+        "thread_the_needle_v1": {
+          "name": "Thread the Needle (rotación torácica)",
+          "instructions": [
+            "Comienza en cuadrupedia con las caderas sobre las rodillas y los hombros sobre las muñecas.",
+            "Desliza un brazo por debajo del cuerpo, girando el tronco, hasta que el hombro y el lado de la cabeza lleguen al suelo.",
+            "Mantén 2–3 segundos sintiendo el estiramiento torácico, vuelve a la posición inicial y repite al otro lado."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Perro mirando hacia abajo",
+          "instructions": [
+            "Desde la posición de plancha, empuja las caderas hacia arriba y atrás formando una V invertida, con manos y pies en el suelo.",
+            "Alarga la columna intentando llevar los talones al suelo y la cabeza entre los brazos mirando los pies.",
+            "Mantén de 20 a 40 segundos respirando profundamente; puedes alternar flexiones de rodillas para profundizar el estiramiento de isquiotibiales."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Postura del palomo",
+          "instructions": [
+            "Desde cuadrupedia, lleva la rodilla derecha hacia adelante y déjala caer hacia el exterior de la mano derecha; extiende la pierna izquierda hacia atrás.",
+            "Baja la cadera derecha hacia el suelo o aproximate tanto como puedas sin dolor; puede ayudar un bloque o una manta doblada bajo la cadera.",
+            "Mantén de 30 a 60 segundos de cada lado, respirando lentamente; evita compensar inclinando el tronco hacia un lado."
+          ]
+        },
+        "seated_spinal_twist_v1": {
+          "name": "Torsión espinal sentada",
+          "instructions": [
+            "Siéntate en el suelo con las piernas extendidas. Flexiona la rodilla derecha y coloca el pie plano en el suelo fuera de la rodilla izquierda.",
+            "Pon la mano izquierda en la rodilla derecha y gira el tronco hacia la derecha, colocando la mano derecha detrás de la espalda como apoyo.",
+            "Mantén 30 segundos girando un poco más con cada exhalación; vuelve al centro y repite al otro lado."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Torsión espinal en decúbito supino",
+          "instructions": [
+            "Estírate boca arriba; lleva ambas rodillas al pecho y déjalas caer suavemente hacia un lado mientras extiendes los brazos en cruz.",
+            "Gira la cabeza hacia el lado contrario a las rodillas si es cómodo, para aumentar la rotación torácica.",
+            "Mantén 30–45 segundos de cada lado; es normal sentir un progresivo alivio de la tensión lumbar."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "El mejor estiramiento del mundo",
+          "instructions": [
+            "Da un paso largo hacia adelante con el pie derecho hasta una postura de zancada baja; coloca la mano izquierda en el suelo justo al lado del pie derecho.",
+            "Gira el tronco hacia la derecha llevando el brazo derecho hacia arriba al cielo, abriendo el pecho y mirando el pulgar.",
+            "Vuelve la mano al suelo, extiende la pierna delantera para sentir el estiramiento de isquiotibiales, y vuelve a la postura de zancada. Haz 3–5 reps por lado."
+          ]
+        }
+      }
+    },
+    "en": {
+      "preset_tags": {
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cool-down",
+        "rehab_lumbar": "Lumbar rehab",
+        "corredor": "Runner",
+        "escalfament": "Warm-up",
+        "pujada": "Uphill"
+      },
+      "exercises": {
+        "thread_the_needle_v1": {
+          "name": "Thread the Needle",
+          "instructions": [
+            "Start on all fours with hips over knees and shoulders over wrists.",
+            "Slide one arm underneath your body, rotating your torso, until the shoulder and side of the head reach the floor.",
+            "Hold 2–3 seconds feeling the thoracic stretch, return to start, and repeat on the other side."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Downward-Facing Dog",
+          "instructions": [
+            "From a plank position, push your hips up and back to form an inverted V with hands and feet on the ground.",
+            "Lengthen your spine, trying to bring your heels to the floor and your head between your arms.",
+            "Hold for 20–40 seconds breathing deeply; alternating knee bends can deepen the hamstring stretch."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Pigeon Pose",
+          "instructions": [
+            "From all fours, bring your right knee forward and let it fall to the outside of your right hand; extend your left leg back.",
+            "Lower your right hip toward the floor as much as comfortable without pain; a block or folded blanket under the hip can help.",
+            "Hold 30–60 seconds on each side, breathing slowly; avoid compensating by leaning the torso to one side."
+          ]
+        },
+        "seated_spinal_twist_v1": {
+          "name": "Seated Spinal Twist",
+          "instructions": [
+            "Sit on the floor with legs extended. Bend your right knee and place the foot flat on the floor outside your left knee.",
+            "Place your left hand on your right knee and rotate your torso to the right, placing your right hand behind you for support.",
+            "Hold 30 seconds, rotating a little further with each exhale; return to center and repeat on the other side."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Supine Spinal Twist",
+          "instructions": [
+            "Lie on your back; bring both knees to your chest and let them fall gently to one side while extending arms out in a T.",
+            "Turn your head to the opposite side from your knees if comfortable, to increase thoracic rotation.",
+            "Hold 30–45 seconds on each side; a gradual release of lumbar tension is normal."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "World's Greatest Stretch",
+          "instructions": [
+            "Step your right foot forward into a deep lunge; place your left hand on the floor just inside your right foot.",
+            "Rotate your torso to the right, sweeping your right arm up toward the ceiling, opening your chest and tracking your thumb.",
+            "Return the hand to the floor, extend the front leg to feel the hamstring stretch, then return to lunge. Do 3–5 reps per side."
+          ]
+        }
+      }
+    }
+  }
+}

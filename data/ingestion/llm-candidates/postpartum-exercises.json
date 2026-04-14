@@ -1,0 +1,254 @@
+{
+  "exercises": [
+    {
+      "sourceExternalId": "postpp_pelvic_tilt_supine_v1",
+      "title": "Pelvic Tilt (supine)",
+      "aliases": ["Pelvic Tilt"],
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["mobilitat_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "estimatedSeriesDurationSeconds": 30,
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "core_estabilitat", "tornada_calma"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on your back with knees bent and feet flat on the floor.",
+        "Gently tilt the pelvis to flatten the lower back against the floor by engaging the lower abdominals.",
+        "Hold the tilted position for the prescribed time, breathing steadily. Repeat for the set."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_ta_bracing_supine_v1",
+      "title": "Transverse Abdominis Bracing (supine)",
+      "aliases": ["TA bracing", "Deep core activation"],
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["estabilitzadors_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 30,
+      "progressionMetric": "seconds",
+      "tags": ["core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on your back with knees bent and feet on the floor. Palms can rest on the pelvis to feel subtle movement.",
+        "Gently draw the lower abdomen towards the spine (short, subtle contraction) without holding the breath.",
+        "Hold the gentle brace for the prescribed duration and breathe normally. Repeat for the set."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_heel_slides_v1",
+      "title": "Heel Slides (supine)",
+      "aliases": ["Supine heel slides"],
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["isquiotibials"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 30,
+      "progressionMetric": "reps",
+      "tags": ["core_estabilitat", "tornada_calma"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on your back with knees bent and feet flat. Engage the lower abdominals lightly.",
+        "Slowly slide one heel away until the leg straightens partially, then slide it back under control.",
+        "Alternate sides for the prescribed repetitions, maintaining core engagement."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_standing_pelvic_tilt_v1",
+      "title": "Standing Pelvic Tilt",
+      "aliases": ["Pelvic tilt standing"],
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["lumbar"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "estimatedSeriesDurationSeconds": 20,
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "tornada_calma"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet hip-width and a neutral spine. Soften the knees slightly.",
+        "Tilt the pelvis under by engaging the lower abdominals, reducing lumbar lordosis slightly.",
+        "Hold briefly and return to neutral. Use small, controlled repetitions."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_modified_plank_knees_v1",
+      "title": "Modified Plank (knees)",
+      "aliases": ["Knee plank"],
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 30,
+      "progressionMetric": "seconds",
+      "tags": ["core_estabilitat"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Reduce duration and keep neutral spine; stop if pain increases."
+        }
+      ],
+      "instructions": [
+        "Start on forearms and knees with a straight line from shoulders to knees.",
+        "Gently engage the core and hold the position with normal breathing for the prescribed duration.",
+        "Progress by increasing hold time or moving to toes when appropriate and cleared."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "exercises": {
+        "postpp_pelvic_tilt_supine_v1": {
+          "name": "Basculació pèlvica (decúbit supí)",
+          "instructions": [
+            "Estirat/ada de esquena amb els genolls flexionats i els peus plans a terra.",
+            "Inclina suaument la pelvis per aplanar l'esquena lumbar contra el terra activant l'abdomen inferior.",
+            "Mantén la posició el temps indicat respirant regularment. Repeteix la sèrie."
+          ]
+        },
+        "postpp_ta_bracing_supine_v1": {
+          "name": "Activació transvers abdominal (decúbit supí)",
+          "instructions": [
+            "Estirat/ada de esquena amb els genolls flexionats. Les mans poden reposar sobre la pelvis per sentir el moviment subtil.",
+            "Duu suaument l'abdomen inferior cap a la columna (contracció curta i subtil) sense retenir l'alè.",
+            "Mantén la contracció lleugera el temps indicat respirant normalment. Repeteix la sèrie."
+          ]
+        },
+        "postpp_heel_slides_v1": {
+          "name": "Lliscament de taló (decúbit supí)",
+          "instructions": [
+            "Estirat/ada de esquena amb els genolls flexionats i els peus plans. Activa lleugerament l'abdomen inferior.",
+            "Llisca lentament un taló fins estirar parcialment la cama i torna a la posició inicial sota control.",
+            "Alterna costat pel nombre de repeticions indicades, mantenint l'activació del core."
+          ]
+        },
+        "postpp_standing_pelvic_tilt_v1": {
+          "name": "Basculació pèlvica de peu",
+          "instructions": [
+            "De peu amb els peus a l'amplada dels malucs i columna neutra. Suavitza lleugerament els genolls.",
+            "Inclina la pelvis sota activant l'abdomen inferior, reduint lleugerament la lordosi lumbar.",
+            "Mantén breument i retorna a neutre. Fes repeticions petites i controlades."
+          ]
+        },
+        "postpp_modified_plank_knees_v1": {
+          "name": "Planxa modificada (de genolls)",
+          "instructions": [
+            "Recolzat/ada sobre els avantbraços i els genolls formant una línia recta des de les espatlles fins als genolls.",
+            "Activa suaument el core i mantén la posició respirant normalment el temps indicat.",
+            "Progressa augmentant el temps de manteniment o passant a la punta dels peus quan sigui adequat i s'hagi autoritzat."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma"
+      }
+    },
+    "es": {
+      "exercises": {
+        "postpp_pelvic_tilt_supine_v1": {
+          "name": "Basculación pélvica (decúbito supino)",
+          "instructions": [
+            "Tumbado/a boca arriba con rodillas flexionadas y pies planos en el suelo.",
+            "Inclina suavemente la pelvis para aplanar la espalda lumbar contra el suelo activando el abdomen inferior.",
+            "Mantén la posición el tiempo indicado respirando regularmente. Repite la serie."
+          ]
+        },
+        "postpp_ta_bracing_supine_v1": {
+          "name": "Activación transverso abdominal (decúbito supino)",
+          "instructions": [
+            "Tumbado/a boca arriba con rodillas flexionadas. Las manos pueden reposar sobre la pelvis.",
+            "Lleva suavemente el abdomen inferior hacia la columna (contracción corta y sutil) sin retener el aliento.",
+            "Mantén la contracción ligera el tiempo indicado respirando normalmente. Repite la serie."
+          ]
+        },
+        "postpp_heel_slides_v1": {
+          "name": "Deslizamiento de talón (decúbito supino)",
+          "instructions": [
+            "Tumbado/a boca arriba con rodillas flexionadas y pies planos. Activa ligeramente el abdomen inferior.",
+            "Desliza lentamente un talón hasta estirar parcialmente la pierna y vuelve a la posición inicial con control.",
+            "Alterna lado por el número de repeticiones indicadas, manteniendo la activación del core."
+          ]
+        },
+        "postpp_standing_pelvic_tilt_v1": {
+          "name": "Basculación pélvica de pie",
+          "instructions": [
+            "De pie con los pies a la anchura de las caderas y columna neutra. Suaviza ligeramente las rodillas.",
+            "Inclina la pelvis hacia abajo activando el abdomen inferior, reduciendo ligeramente la lordosis lumbar.",
+            "Mantén brevemente y vuelve a neutro. Haz repeticiones pequeñas y controladas."
+          ]
+        },
+        "postpp_modified_plank_knees_v1": {
+          "name": "Plancha modificada (de rodillas)",
+          "instructions": [
+            "Apoyado/a sobre los antebrazos y rodillas formando una línea recta desde los hombros hasta las rodillas.",
+            "Activa suavemente el core y mantén la posición respirando normalmente el tiempo indicado.",
+            "Progresa aumentando el tiempo de mantenimiento o pasando a la punta de los pies cuando sea adecuado y esté autorizado."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma"
+      }
+    },
+    "en": {
+      "exercises": {
+        "postpp_pelvic_tilt_supine_v1": {
+          "name": "Pelvic Tilt (supine)",
+          "instructions": [
+            "Lie on your back with knees bent and feet flat on the floor.",
+            "Gently tilt the pelvis to flatten the lower back against the floor by engaging the lower abdominals.",
+            "Hold the tilted position for the prescribed time, breathing steadily. Repeat for the set."
+          ]
+        },
+        "postpp_ta_bracing_supine_v1": {
+          "name": "Transverse Abdominis Bracing (supine)",
+          "instructions": [
+            "Lie on your back with knees bent and feet on the floor. Palms can rest on the pelvis to feel subtle movement.",
+            "Gently draw the lower abdomen towards the spine (short, subtle contraction) without holding the breath.",
+            "Hold the gentle brace for the prescribed duration and breathe normally. Repeat for the set."
+          ]
+        },
+        "postpp_heel_slides_v1": {
+          "name": "Heel Slides (supine)",
+          "instructions": [
+            "Lie on your back with knees bent and feet flat. Engage the lower abdominals lightly.",
+            "Slowly slide one heel away until the leg straightens partially, then slide it back under control.",
+            "Alternate sides for the prescribed repetitions, maintaining core engagement."
+          ]
+        },
+        "postpp_standing_pelvic_tilt_v1": {
+          "name": "Standing Pelvic Tilt",
+          "instructions": [
+            "Stand with feet hip-width and a neutral spine. Soften the knees slightly.",
+            "Tilt the pelvis under by engaging the lower abdominals, reducing lumbar lordosis slightly.",
+            "Hold briefly and return to neutral. Use small, controlled repetitions."
+          ]
+        },
+        "postpp_modified_plank_knees_v1": {
+          "name": "Modified Plank (knees)",
+          "instructions": [
+            "Start on forearms and knees with a straight line from shoulders to knees.",
+            "Gently engage the core and hold the position with normal breathing for the prescribed duration.",
+            "Progress by increasing hold time or moving to toes when appropriate and cleared."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core & stability",
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cooldown"
+      }
+    }
+  }
+}

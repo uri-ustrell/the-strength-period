@@ -1,0 +1,19 @@
+{
+  "runId": "ingestion-20260414-110524-bacb29",
+  "createdAt": "2026-04-14T11:05:24.695Z",
+  "items": [
+    {
+      "candidateId": "pregnancy-postpartum-exercises:exercise:postpp_bird_dog_v1",
+      "kind": "exercise",
+      "sourceId": "pregnancy-postpartum-exercises",
+      "canonicalId": "postpp_bird_dog_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca.preset_tags.rehab_lumbar.",
+        "LLM i18n contract missing i18n.en.preset_tags.rehab_lumbar.",
+        "LLM i18n contract missing i18n.es.preset_tags.rehab_lumbar."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

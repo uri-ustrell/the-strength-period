@@ -189,6 +189,130 @@ Trigger full refactor if one or more are true:
 - Missing one day should not erase prior achievement history.
 - Recovery and safety milestones must be as visible as intensity milestones.
 
+## Long Journey And Totem System
+
+### Design Philosophy
+
+Training is a long, non-linear journey that unfolds over months and years. The system represents this metaphorically through permanent totemic markers placed along the path — not points, not streaks, not levels that expire.
+
+Totems are earned once and kept forever. They cannot be lost, revoked, or reset. They accumulate silently and are discovered naturally as the user progresses. The journey has no finish line: new totems become reachable as the user's history deepens.
+
+Rest and recovery are first-class segments of the journey, not gaps or silences. A totem for honoring a deload week is as prominent as a totem for a training milestone.
+
+### Totem Visual Language
+
+- Each totem is a distinct sculptural marker on the user's path: a carved stone, a standing figure, a stacked landmark — culturally neutral, non-gendered, and non-hierarchical in visual weight.
+- Totems belonging to the same milestone family share a visual motif (e.g., carved lines for consistency, water forms for recovery, roots for foundations).
+- No totem is brighter, larger, or more visually prominent than another based solely on training intensity — recovery totems receive equal visual treatment.
+- Locked totems are not shown as missing or empty: the path ahead is simply unexplored, not visually punishing.
+
+### Journey Stages
+
+Stages are descriptive, not gating. Reaching a new stage does not unlock access; it provides narrative context for where the user is on their journey. Skipping stages or regressing to an earlier one after a break carries no penalty.
+
+| Stage | Approximate timeframe | Narrative framing |
+|---|---|---|
+| Foundation | Months 1–3 | Learning to show up and listen to your body |
+| Building | Months 3–9 | Developing a rhythm that fits your life |
+| Endurance | Months 9–18 | Sustaining through plateaus, seasons, and unexpected pauses |
+| Mastery | 18+ months | Deep self-knowledge, autonomous adjustment, and long-term ownership |
+
+Timeframes are approximate and non-blocking. A user who pauses for 4 months and returns is welcomed back at their existing stage.
+
+### Totem Taxonomy (Representative, Not Exhaustive)
+
+Each totem maps to one milestone family and has a deterministic, explainable eligibility rule.
+
+**Consistency totems**
+- First Session — complete any single session.
+- Three Weeks Present — complete at least one session per week for 3 consecutive weeks.
+- Return After Break — log a session after a gap of 14+ days.
+- Eight-Week Rhythm — complete at least one session per week for 8 consecutive weeks (any session type counts).
+
+**Recovery and Deload totems**
+- First Rest Day Honored — follow a planned rest day without logging an unplanned session.
+- Deload Completed — complete a full planned deload week.
+- Five Deloads Honored — complete 5 deload weeks over the training history.
+- Recovery Read — use the volume-based recovery indicator before scheduling a session 3 different times.
+
+**Preparation totems**
+- Warm-Up Habit — complete the warm-up block before the work sets in 10 sessions.
+- Triple Preparation — complete warm-up in 3 consecutive sessions.
+
+**Injury-safe progression totems**
+- Measured Step — advance load conservatively (within progression rule bounds) for 4 consecutive weeks.
+- RPE Awareness — log RPE on every set in 5 sessions.
+- Pain Signal Respected — log a pain flag and adjust or abort the session as a result.
+
+**Reflection totems**
+- First Note — log any session note.
+- Honest Check-In — report RPE ≥ 9 and choose to reduce next session load.
+- Consistent Logger — add session notes in 10 sessions.
+
+### Copy Guardrails For Totem Discovery
+
+- Totem discovery is framed as acknowledgment, not reward: "You honored your rest. That counts."
+- Never: "You earned X points." "You unlocked a reward." "Don't lose your streak."
+- Copy must be specific to the behavior: state what the user did, not how the app feels about it.
+- No superlatives or enthusiasm inflation: calm, matter-of-fact, respectful.
+
+---
+
+## Volume-Based Recovery Estimation
+
+### Purpose
+
+Recovery time between sessions is not fixed. It depends on the actual training load accumulated. The system provides an advisory recovery estimate based on real data from the user's sessions.
+
+This estimate helps users plan the next session without guessing — and without pressure. It surfaces the signal that rest accelerates progress, not just prevents injury.
+
+### Inputs
+
+| Input | Source |
+|---|---|
+| Weekly volume load | Sum of (sets × reps × load) for each session in the rolling 7-day window, per muscle group |
+| Session RPE trend | Mean RPE logged across the last 3 sessions |
+| Deload compliance | Whether the most recent planned deload week was followed |
+| Pain flags | Any pain or discomfort flags logged in the last 3 sessions |
+| Muscle group overlap | Degree of overlap between last session and proposed next session (primary + secondary groups) |
+
+### Output States
+
+The recovery indicator has three states, always framed positively.
+
+| State | Display copy | Condition |
+|---|---|---|
+| Consolidating | "Your muscles are consolidating. A rest today makes the next session stronger." | < 48h since last session targeting same primary muscle group |
+| Ready | "You appear ready. Trust your body and train when it feels right." | ≥ 48h rest, volume within threshold, RPE trend ≤ 8.0, no pain flags |
+| Extended recovery suggested | "Your recent load was significant. An extra rest day may accelerate your next block." | Volume above individual rolling threshold OR RPE ≥ 8.5 for 2+ consecutive sessions OR pain flags in last 3 sessions |
+
+### Conservative Defaults
+
+- Minimum rest between sessions targeting the same primary muscle group: **48h**.
+- If weekly volume for a muscle group exceeds the individual rolling average by more than 25%: suggest **72h+**.
+- If RPE trend ≥ 8.5 for 2 or more consecutive sessions: surface a deload suggestion in the next session planning view.
+- If any pain flag logged in the last 3 sessions: always show extended recovery state regardless of volume.
+
+When no load history exists (new user or data gap), the system defaults to the most conservative state and never suggests the user is "overdue" to train.
+
+### Safety And Autonomy Rules
+
+- Recovery estimates are **advisory only**. The user can always log a session regardless of recovery state.
+- No blocking UI, no confirmation dialogs, no repeated warnings after the first view.
+- No guilt copy if the user trains during a Consolidating or Extended recovery period.
+- The recovery indicator is visible in the session planning view and dashboard. It is not surfaced as a notification.
+- The calculation formula is documented in the app's help section so users can understand and verify it.
+
+### Forbidden Implementation Patterns
+
+- No countdown timer to "when you can train."
+- No "You trained too hard" shame copy.
+- No "Warning: rest required" alarming language.
+- No pairing of recovery state with paid content or premium unlock.
+- No using recovery state to push notification frequency.
+
+---
+
 ## Patronage Model Constraints
 
 - Supporter badges and tips are optional and clearly separated from training progress.
@@ -227,6 +351,11 @@ Metrics are split into positive outcomes and anti-addiction safety checks.
 - [ ] Streak recovery policy avoids punitive loss framing.
 - [ ] Optional patronage flow is non-pressuring and non-blocking.
 - [ ] UI copy avoids guilt and fear framing.
+- [ ] Totem system uses permanent, non-revocable milestones with neutral copy.
+- [ ] Recovery totems have equal visual weight to intensity totems.
+- [ ] Volume-based recovery indicator is advisory only and never blocks a session.
+- [ ] Recovery copy passes forbidden-pattern audit (no countdown, no shame, no urgency).
+- [ ] Recovery estimation formula is publicly documented in the app.
 - [ ] Full UI/UX refactor gate is executed and documented before implementation.
 - [ ] Metrics instrumentation exists for outcomes and safety checks.
 - [ ] QA checklist is completed before merge.
@@ -245,16 +374,24 @@ Metrics are split into positive outcomes and anti-addiction safety checks.
 ### Design Checklist
 
 - [ ] Define milestone taxonomy with deterministic rules.
-- [ ] Write neutral, supportive copy for all reward states.
+- [ ] Define totem visual language: motif families, neutral aesthetics, equal visual weight for recovery totems.
+- [ ] Write neutral, supportive copy for all reward states following totem copy guardrails.
 - [ ] Define user controls for notification and celebration intensity.
 - [ ] Document patronage flow with non-pressure constraints.
+- [ ] Design volume-based recovery indicator states and copy.
+- [ ] Validate recovery copy against forbidden patterns (no countdown, no shame, no urgency).
 
 ### Engineering Checklist
 
 - [ ] Implement milestone computation with traceable logic.
+- [ ] Implement totem eligibility rules: deterministic, auditable, non-revocable.
+- [ ] Implement volume-based recovery estimation (sets × reps × load, rolling 7-day window, per muscle group).
+- [ ] Implement conservative recovery defaults (48h minimum, pain flag override).
+- [ ] Expose recovery formula in app help section for transparency.
 - [ ] Implement safeguards for missed-session recovery.
 - [ ] Instrument required telemetry events.
 - [ ] Add tests for forbidden-pattern regressions.
+- [ ] Add unit tests for recovery estimation: thresholds, pain flag override, no-history default.
 - [ ] Add accessibility checks for all new UI surfaces.
 
 ### Release Checklist

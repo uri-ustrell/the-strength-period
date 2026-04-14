@@ -1,0 +1,226 @@
+{
+  "exercises": [
+    {
+      "sourceExternalId": "postpp_bird_dog_v1",
+      "title": "Bird Dog (quadruped contralateral)",
+      "aliases": ["Bird Dog", "Quadruped arm-leg raise"],
+      "primaryMuscles": ["lumbar", "abdominal"],
+      "secondaryMuscles": ["glutis", "estabilitzadors_cadera", "deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 40,
+      "progressionMetric": "reps",
+      "tags": ["core_estabilitat", "rehab_lumbar"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Keep range of motion small and avoid lumbar hyperextension."
+        }
+      ],
+      "instructions": [
+        "Start on hands and knees with wrists under shoulders and knees under hips (neutral spine).",
+        "Gently engage the core, then simultaneously extend the opposite arm and leg until parallel to the floor.",
+        "Hold for 2 seconds, return with control, and alternate sides for the prescribed repetitions."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_clamshell_band_v1",
+      "title": "Clamshell with Band",
+      "aliases": ["Clamshell", "Side-lying hip abduction"],
+      "primaryMuscles": ["abductors", "estabilitzadors_cadera"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 35,
+      "progressionMetric": "reps",
+      "tags": ["core_estabilitat", "rehab_genoll", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on your side with hips and knees bent at approximately 45 degrees. Place a resistance band just above the knees.",
+        "Keeping the feet together and pelvis stable, rotate the top knee upward as far as comfortable without rolling the hip back.",
+        "Lower the knee with control and repeat for the prescribed repetitions. Switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_glute_bridge_march_v1",
+      "title": "Glute Bridge March",
+      "aliases": ["Bridge march", "Alternating leg lift in bridge"],
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["abdominal", "estabilitzadors_cadera", "isquiotibials"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 40,
+      "progressionMetric": "reps",
+      "tags": ["core_estabilitat", "mobilitat"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Reduce range and ensure pelvis stays level throughout."
+        }
+      ],
+      "instructions": [
+        "Lie on your back with knees bent and feet flat. Push through both heels to lift the hips into a bridge position.",
+        "Keeping hips level and core engaged, slowly lift one foot an inch off the floor (marching motion), then lower it.",
+        "Alternate feet for the prescribed repetitions while maintaining a steady bridge height."
+      ]
+    },
+    {
+      "sourceExternalId": "postpp_wall_sit_isometric_v1",
+      "title": "Wall Sit (isometric)",
+      "aliases": ["Wall squat", "Isometric wall sit"],
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "isquiotibials"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "estimatedSeriesDurationSeconds": 45,
+      "progressionMetric": "seconds",
+      "tags": ["core_estabilitat", "rehab_genoll"],
+      "restrictions": [
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "Avoid if knee angle produces pain; limit depth to a comfortable range."
+        }
+      ],
+      "instructions": [
+        "Stand with your back flat against a wall and feet hip-width, about 60 cm from the wall.",
+        "Slide down until thighs are near parallel (or to a comfortable angle), keeping knees above ankles.",
+        "Hold the position for the prescribed duration breathing normally, then slide back up."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "exercises": {
+        "postpp_bird_dog_v1": {
+          "name": "Bird Dog (quadrúpede contralateral)",
+          "instructions": [
+            "Comença a quatre grapes amb els canells sota les espatlles i els genolls sota els malucs (columna neutra).",
+            "Activa suaument el core i estén simultàniament el braç i la cama oposats fins que siguin paral·lels al terra.",
+            "Mantén 2 segons, torna amb control i alterna costats pel nombre de repeticions indicades."
+          ]
+        },
+        "postpp_clamshell_band_v1": {
+          "name": "Cloïssa amb banda (abducció de maluc lateral)",
+          "instructions": [
+            "Estirat/ada de costat amb els malucs i els genolls flexionats a uns 45 graus. Col·loca una banda elàstica just per sobre dels genolls.",
+            "Mantenint els peus junts i la pelvis estable, gira el genoll superior cap amunt fins on sigui còmode sense bolcar el maluc.",
+            "Baixa el genoll amb control i repeteix. Canvia de costat."
+          ]
+        },
+        "postpp_glute_bridge_march_v1": {
+          "name": "Pont de glutis amb marxa alternant",
+          "instructions": [
+            "Estirat/ada de esquena amb els genolls flexionats i els peus plans. Empeny amb els talons per elevar els malucs en posició de pont.",
+            "Mantenint els malucs anivellats i el core activat, aixeca lentament un peu un centímetre del terra (moviment de marxa) i torna a baixar-lo.",
+            "Alterna peus pel nombre de repeticions indicades mantenint l'altura del pont constant."
+          ]
+        },
+        "postpp_wall_sit_isometric_v1": {
+          "name": "Sentadella de paret (isomètrica)",
+          "instructions": [
+            "Dret/a amb l'esquena plana contra la paret i els peus a l'amplada dels malucs, a uns 60 cm de la paret.",
+            "Llisca cap avall fins que els cuixes quedin quasi paral·lels (o fins a un angle còmode), mantenint els genolls sobre els turmells.",
+            "Mantén la posició el temps indicat respirant normalment i torna a pujar lliscant."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat": "Mobilitat",
+        "rehab_genoll": "Rehabilitació genoll",
+        "rehab_lumbar": "Rehabilitació lumbar"
+      }
+    },
+    "es": {
+      "exercises": {
+        "postpp_bird_dog_v1": {
+          "name": "Bird Dog (cuadrúpedo contralateral)",
+          "instructions": [
+            "Empieza a cuatro patas con muñecas bajo hombros y rodillas bajo caderas (columna neutra).",
+            "Activa suavemente el core y extiende simultáneamente el brazo y la pierna opuestos hasta quedar paralelos al suelo.",
+            "Mantén 2 segundos, vuelve con control y alterna lados por las repeticiones indicadas."
+          ]
+        },
+        "postpp_clamshell_band_v1": {
+          "name": "Almeja con banda (abducción lateral de cadera)",
+          "instructions": [
+            "Túmbate de lado con caderas y rodillas flexionadas a unos 45 grados. Coloca una banda elástica justo por encima de las rodillas.",
+            "Manteniendo los pies juntos y la pelvis estable, rota la rodilla superior hacia arriba sin volcar la cadera.",
+            "Baja la rodilla con control y repite. Cambia de lado."
+          ]
+        },
+        "postpp_glute_bridge_march_v1": {
+          "name": "Puente de glúteos con marcha alterna",
+          "instructions": [
+            "Tumbado/a boca arriba con rodillas flexionadas y pies planos. Empuja con los talones para elevar las caderas en posición de puente.",
+            "Manteniendo las caderas niveladas y el core activo, levanta lentamente un pie un centímetro del suelo (movimiento de marcha) y bájalo.",
+            "Alterna pies por las repeticiones indicadas manteniendo la altura del puente constante."
+          ]
+        },
+        "postpp_wall_sit_isometric_v1": {
+          "name": "Sentadilla de pared (isométrica)",
+          "instructions": [
+            "De pie con la espalda plana contra la pared y pies a la anchura de las caderas, a unos 60 cm de la pared.",
+            "Deslízate hacia abajo hasta que los muslos queden casi paralelos (o a un ángulo cómodo), manteniendo las rodillas sobre los tobillos.",
+            "Mantén la posición el tiempo indicado respirando normalmente y vuelve a subir deslizando."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat": "Movilidad",
+        "rehab_genoll": "Rehabilitación rodilla",
+        "rehab_lumbar": "Rehabilitación lumbar"
+      }
+    },
+    "en": {
+      "exercises": {
+        "postpp_bird_dog_v1": {
+          "name": "Bird Dog (quadruped contralateral)",
+          "instructions": [
+            "Start on hands and knees with wrists under shoulders and knees under hips (neutral spine).",
+            "Gently engage the core, then simultaneously extend the opposite arm and leg until parallel to the floor.",
+            "Hold for 2 seconds, return with control, and alternate sides for the prescribed repetitions."
+          ]
+        },
+        "postpp_clamshell_band_v1": {
+          "name": "Clamshell with Band",
+          "instructions": [
+            "Lie on your side with hips and knees bent at approximately 45 degrees. Place a resistance band just above the knees.",
+            "Keeping the feet together and pelvis stable, rotate the top knee upward as far as comfortable without rolling the hip back.",
+            "Lower the knee with control and repeat for the prescribed repetitions. Switch sides."
+          ]
+        },
+        "postpp_glute_bridge_march_v1": {
+          "name": "Glute Bridge March",
+          "instructions": [
+            "Lie on your back with knees bent and feet flat. Push through both heels to lift the hips into a bridge position.",
+            "Keeping hips level and core engaged, slowly lift one foot an inch off the floor (marching motion), then lower it.",
+            "Alternate feet for the prescribed repetitions while maintaining a steady bridge height."
+          ]
+        },
+        "postpp_wall_sit_isometric_v1": {
+          "name": "Wall Sit (isometric)",
+          "instructions": [
+            "Stand with your back flat against a wall and feet hip-width, about 60 cm from the wall.",
+            "Slide down until thighs are near parallel (or to a comfortable angle), keeping knees above ankles.",
+            "Hold the position for the prescribed duration breathing normally, then slide back up."
+          ]
+        }
+      },
+      "preset_tags": {
+        "core_estabilitat": "Core & stability",
+        "mobilitat": "Mobility",
+        "rehab_genoll": "Knee rehab",
+        "rehab_lumbar": "Lumbar rehab"
+      }
+    }
+  }
+}

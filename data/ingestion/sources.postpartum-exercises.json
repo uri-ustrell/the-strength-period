@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "adapter": "llm-json",
+      "sourceId": "postpartum-exercises",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-candidates/postpartum-exercises.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-generated candidates",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "Generated during interactive session: postpartum exercise candidates.",
+        "verifiedAt": "2026-04-14T00:00:00.000Z",
+        "verifiedBy": "copilot-session"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "exercises": {
+    "postpartum-exercises::postpp_pelvic_tilt_supine_v1": "postpp_pelvic_tilt_supine_v1",
+    "postpartum-exercises::postpp_ta_bracing_supine_v1": "postpp_ta_bracing_supine_v1",
+    "postpartum-exercises::postpp_heel_slides_v1": "postpp_heel_slides_v1",
+    "postpartum-exercises::postpp_standing_pelvic_tilt_v1": "postpp_standing_pelvic_tilt_v1",
+    "postpartum-exercises::postpp_modified_plank_knees_v1": "postpp_modified_plank_knees_v1",
+    "pregnancy-postpartum-exercises::postpp_bird_dog_v1": "postpp_bird_dog_v1",
+    "pregnancy-postpartum-exercises::postpp_clamshell_band_v1": "postpp_clamshell_band_v1",
+    "pregnancy-postpartum-exercises::postpp_glute_bridge_march_v1": "postpp_glute_bridge_march_v1",
+    "pregnancy-postpartum-exercises::postpp_wall_sit_isometric_v1": "postpp_wall_sit_isometric_v1",
+    "absolute-zero-exercises::sit_to_stand_v1": "sit_to_stand_v1",
+    "absolute-zero-exercises::wall_push_up_v1": "wall_push_up_v1",
+    "absolute-zero-exercises::seated_marching_v1": "seated_marching_v1",
+    "absolute-zero-exercises::resistance_band_row_standing_v1": "resistance_band_row_standing_v1"
+  },
+  "presets": {}
+}

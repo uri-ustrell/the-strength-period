@@ -1,0 +1,163 @@
+{
+  "presets": [
+    {
+      "sourceExternalId": "mobilitat_tren_inferior_v1",
+      "title": "Mobilitat de maluc i tren inferior",
+      "description": "Generator-mode lower body mobility routine focusing on hip flexors, hip external rotators, hamstrings and ankle mobility. Suitable post-run or as a standalone 20-minute session.",
+      "durationOptions": [4, 6, 8],
+      "muscleDistribution": {
+        "mobilitat_cadera": 30,
+        "isquiotibials": 20,
+        "glutis": 20,
+        "psoes": 15,
+        "mobilitat_turmell": 15
+      },
+      "requiredTags": ["mobilitat", "tornada_calma"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Static and dynamic stretches for post-run recovery or dedicated mobility work; may help improve hip range of motion with consistent practice."
+    },
+    {
+      "sourceExternalId": "mobilitat_toracica_espatlles_v1",
+      "title": "Mobilitat toràcica i espatlles",
+      "description": "Faithful-mode thoracic spine and shoulder mobility routine inspired by yoga/pilates. 2 sessions/week of 15–20 minutes. Addresses the anterior chain tightness common in sedentary or desk-work populations.",
+      "durationOptions": [4, 6],
+      "requiredTags": ["mobilitat", "tornada_calma"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Consistent thoracic mobility work is associated with improved posture and reduced neck/shoulder tension in evidence-based literature; results may vary.",
+      "sessions": [
+        {
+          "label": "Sessió A — Rotació toràcica + apertura de pit",
+          "exercises": [
+            { "exerciseId": "thread_the_needle_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 12, "restSeconds": 30 },
+            { "exerciseId": "downward_dog_v1", "sets": 2, "reps": 30, "restSeconds": 45 },
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 45 },
+            { "exerciseId": "supine_twist_v1", "sets": 2, "reps": 30, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Columna + maluc",
+          "exercises": [
+            { "exerciseId": "Childs_Pose", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "thread_the_needle_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "seated_spinal_twist_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "pigeon_pose_v1", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "supine_twist_v1", "sets": 2, "reps": 30, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceExternalId": "rutina_mobilitat_global_v1",
+      "title": "Rutina de mobilitat global",
+      "description": "Faithful-mode full-body mobility routine suitable for any level. 3 sessions/week, 20 minutes each, alternating lower body, upper body, and integrated mobility. Can be used as a standalone program or added after training.",
+      "durationOptions": [4, 6, 8, 12],
+      "requiredTags": ["mobilitat", "tornada_calma", "corredor"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Full-body mobility program; evidence suggests consistent multi-week mobility work can improve joint range of motion and may contribute to injury risk reduction.",
+      "sessions": [
+        {
+          "label": "Sessió A — Tren inferior + malucs",
+          "exercises": [
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "pigeon_pose_v1", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "Kneeling_Hip_Flexor", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "90_90_Hamstring", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "Ankle_Circles", "sets": 2, "reps": 12, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B — Columna + espatlles",
+          "exercises": [
+            { "exerciseId": "thread_the_needle_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 12, "restSeconds": 30 },
+            { "exerciseId": "downward_dog_v1", "sets": 2, "reps": 30, "restSeconds": 45 },
+            { "exerciseId": "seated_spinal_twist_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "supine_twist_v1", "sets": 2, "reps": 30, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió C — Mobilitat integrada",
+          "exercises": [
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "downward_dog_v1", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "pigeon_pose_v1", "sets": 2, "reps": 30, "restSeconds": 30 },
+            { "exerciseId": "thread_the_needle_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "Childs_Pose", "sets": 2, "reps": 30, "restSeconds": 30 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "mobilitat_tren_inferior_v1": {
+          "name": "Mobilitat de maluc i tren inferior",
+          "description": "Rutina de mobilitat en mode generador per al tren inferior: flexors de maluc, rotadors externs, isquiotibials i turmell. Adequada post-cursa o com a sessió independent de 20 minuts."
+        },
+        "mobilitat_toracica_espatlles_v1": {
+          "name": "Mobilitat toràcica i espatlles",
+          "description": "Rutina fidel de mobilitat toràcica i d'espatlles inspirada en yoga/pilates. 2 sessions/setmana de 15–20 minuts. Aborda la rigidesa de la cadena anterior habitual en poblacions sedentàries."
+        },
+        "rutina_mobilitat_global_v1": {
+          "name": "Rutina de mobilitat global",
+          "description": "Rutina fidel de mobilitat de cos complet per a qualsevol nivell. 3 sessions/setmana de 20 minuts alternant mobilitat de tren inferior, tren superior i integrada."
+        }
+      },
+      "preset_tags": {
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "corredor": "Corredor"
+      }
+    },
+    "es": {
+      "presets": {
+        "mobilitat_tren_inferior_v1": {
+          "name": "Movilidad de cadera y tren inferior",
+          "description": "Rutina de movilidad en modo generador para el tren inferior: flexores de cadera, rotadores externos, isquiotibiales y tobillo. Adecuada post-carrera o como sesión independiente de 20 minutos."
+        },
+        "mobilitat_toracica_espatlles_v1": {
+          "name": "Movilidad torácica y hombros",
+          "description": "Rutina fiel de movilidad torácica y de hombros inspirada en yoga/pilates. 2 sesiones/semana de 15–20 minutos. Aborda la rigidez de la cadena anterior habitual en poblaciones sedentarias."
+        },
+        "rutina_mobilitat_global_v1": {
+          "name": "Rutina de movilidad global",
+          "description": "Rutina fiel de movilidad de cuerpo completo para cualquier nivel. 3 sesiones/semana de 20 minutos alternando movilidad de tren inferior, tren superior e integrada."
+        }
+      },
+      "preset_tags": {
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "corredor": "Corredor"
+      }
+    },
+    "en": {
+      "presets": {
+        "mobilitat_tren_inferior_v1": {
+          "name": "Hip & lower body mobility",
+          "description": "Generator-mode lower body mobility routine targeting hip flexors, external rotators, hamstrings and ankle. Suitable post-run or as a standalone 20-minute session."
+        },
+        "mobilitat_toracica_espatlles_v1": {
+          "name": "Thoracic spine & shoulder mobility",
+          "description": "Faithful-mode thoracic and shoulder mobility routine inspired by yoga/pilates. 2 sessions/week of 15–20 minutes. Addresses anterior chain tightness common in sedentary or desk-work populations."
+        },
+        "rutina_mobilitat_global_v1": {
+          "name": "Global mobility routine",
+          "description": "Faithful-mode full-body mobility routine for any level. 3 sessions/week of 20 minutes alternating lower body, upper body, and integrated mobility."
+        }
+      },
+      "preset_tags": {
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cool-down",
+        "corredor": "Runner"
+      }
+    }
+  }
+}

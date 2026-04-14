@@ -1,0 +1,97 @@
+{
+  "runId": "ingestion-20260414-142054-7860d0",
+  "startedAt": "2026-04-14T14:20:54.637Z",
+  "completedAt": "2026-04-14T14:20:54.673Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 0,
+    "skipped": 4,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-142054-7860d0.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260414-142054-7860d0.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "absolute-zero-exercises",
+      "adapterId": "llm-json",
+      "candidateCount": 4
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "absolute-zero-exercises:exercise:sit_to_stand_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "sit_to_stand_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat."
+      ],
+      "canonicalId": "sit_to_stand_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:wall_push_up_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "wall_push_up_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament."
+      ],
+      "canonicalId": "wall_push_up_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:seated_marching_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "seated_marching_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat."
+      ],
+      "canonicalId": "seated_marching_v1"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:resistance_band_row_standing_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "sourceExternalId": "resistance_band_row_standing_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament."
+      ],
+      "canonicalId": "resistance_band_row_standing_v1"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "adapter": "llm-json",
+      "sourceId": "mobility-yoga-exercises",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-candidates/mobility-yoga-exercises.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-generated candidates",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "Generated during interactive session: yoga/pilates inspired mobility exercises.",
+        "verifiedAt": "2026-04-14T00:00:00.000Z",
+        "verifiedBy": "copilot-session"
+      }
+    }
+  ]
+}

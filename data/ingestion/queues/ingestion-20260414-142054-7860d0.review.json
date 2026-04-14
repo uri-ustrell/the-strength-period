@@ -1,0 +1,67 @@
+{
+  "runId": "ingestion-20260414-142054-7860d0",
+  "createdAt": "2026-04-14T14:20:54.672Z",
+  "items": [
+    {
+      "candidateId": "absolute-zero-exercises:exercise:sit_to_stand_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "canonicalId": "sit_to_stand_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:wall_push_up_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "canonicalId": "wall_push_up_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:seated_marching_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "canonicalId": "seated_marching_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "absolute-zero-exercises:exercise:resistance_band_row_standing_v1",
+      "kind": "exercise",
+      "sourceId": "absolute-zero-exercises",
+      "canonicalId": "resistance_band_row_standing_v1",
+      "confidence": 1,
+      "reasons": [
+        "LLM i18n contract missing i18n.ca.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.corredor.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

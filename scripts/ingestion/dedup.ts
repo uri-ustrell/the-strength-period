@@ -67,7 +67,7 @@ function buildPresetSnapshot(entry: PresetCatalogEntry): PresetSnapshot {
     id: entry.id,
     slug: normalizeText(entry.id).replace(/\s+/g, '-'),
     titleTokens: tokenize(presetTitleFromCatalog(entry)),
-    muscleKeys: Object.keys(entry.muscleDistribution),
+    muscleKeys: Object.keys(entry.muscleDistribution ?? {}),
   }
 }
 
