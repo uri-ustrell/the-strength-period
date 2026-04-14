@@ -60,6 +60,13 @@ Scale from 1 to 10. Optional. Include when the preset targets specific intensity
 - Users with common overuse injuries: knee tendinopathies, ankle issues, low back
 - Beginner to intermediate training age
 
+## Scientific rigor & scope
+- This tool provides general strength training programming for runners. It is NOT a medical device, therapeutic tool, or substitute for professional medical advice.
+- All training rationale must be grounded in established exercise science (progressive overload, specificity, recovery, periodization). No bro-science or unsubstantiated claims.
+- Preset descriptions and notes MUST use conditional/conservative language: "may help improve", "evidence suggests", "can contribute to", "is associated with".
+- NEVER use absolute terms: "cures", "fixes", "eliminates pain", "guarantees". NEVER promise therapeutic outcomes.
+- Rehab-tagged presets must be especially conservative — recommend consulting a healthcare professional (physiotherapist, sports medicine doctor) when restrictions exceed the scope of general strength training.
+
 ## Preset generation focus for this batch
 
 Generate a varied set of preset combinations covering multiple training profiles for runners.
@@ -98,6 +105,9 @@ VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
 - Include autoRestrictions: [rehab_genoll] for presets with significant knee-loading exercises
 - Include autoRestrictions: [rehab_lumbar] for presets with lumbar or heavy hip-hinge loads
 - Include autoRestrictions: [tendinitis_rotuliana] for presets emphasizing eccentric quad work
+- When in doubt about whether an exercise is safe for a restriction, err on the side of caution — include the restriction
+- Rehab/maintenance presets must use conservative progression (≤5% weekly volume increase) and prioritize mobility/stability before strength
+- Rehab preset descriptions must avoid therapeutic promises; use language like "may support recovery" instead of "fixes" or "rehabilitates"
 
 ### Mandatory tag rules
 - Always include corredor in requiredTags
@@ -107,6 +117,8 @@ VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
 ### Notes field
 - Write 1–2 sentences describing the training rationale and target runner profile,
   suitable for display as a UI tooltip
+- Use evidence-based language grounded in exercise science principles
+- Avoid therapeutic claims; describe training benefits in conditional terms ("may help", "can contribute to")
 [CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_END]
 
 MANDATORY RULES

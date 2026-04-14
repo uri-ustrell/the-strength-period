@@ -23,6 +23,14 @@ structured strength work, including gamification and progress tracking.
 - Users training without a gym: bodyweight and minimal equipment preferred
   (pes_corporal, manueles, banda_elastica prioritized over machines)
 
+## Scientific rigor & scope
+- This tool provides general strength training programming for runners. It is NOT a medical device, therapeutic tool, or substitute for professional medical advice.
+- Exercise descriptions, instructions, and notes must use evidence-based language grounded in biomechanical and exercise science principles. No bro-science or unsubstantiated claims.
+- NEVER use absolute terms: "cures", "fixes", "eliminates pain", "guarantees". Use conditional language: "may help improve", "evidence suggests", "can contribute to".
+- NEVER promise therapeutic outcomes. Exercises adapt training based on user-declared restrictions, not diagnose conditions.
+- Exercise categorization (muscles, level, restrictions) must be based on established biomechanical principles.
+- When there is doubt about whether an exercise should have a restriction, err on the side of caution — add the restriction with action "avoid" or "modify".
+
 VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
 [CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_START]
 ## Exercise type focus for this generation
@@ -33,6 +41,8 @@ VARIABLE SECTION FOR CUSTOM EXERCISE-TYPE INSTRUCTIONS (EDIT THIS BLOCK)
 - Always include at least one restriction entry for rehab_genoll or tendinitis_rotuliana
   where clinically relevant, with action: modify or avoid and a descriptive note.
 - Tags must always include at least one of: corredor, core_estabilitat, equilibri, mobilitat
+- Restriction notes should use conservative language (e.g., "may aggravate knee tendon under load" rather than "causes knee pain")
+- When classifying exercise difficulty or muscle targets, base decisions on established biomechanical analysis, not anecdotal evidence
 [CUSTOM_EXERCISE_TYPE_INSTRUCTIONS_END]
 
 MANDATORY RULES

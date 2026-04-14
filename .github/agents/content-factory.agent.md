@@ -2,7 +2,7 @@
 name: 🏭 content-factory
 description: "Use when: generating exercises and presets in bulk, enriching the exercise catalog, creating training plan templates. Generates JSON output, validates via pipeline, asks before ingesting."
 argument-hint: Describe what exercises or presets to generate
-tools: [read, edit, search, terminal, askQuestions]
+tools: ["*"] # You can use any tool, but you are the generator — no external LLM calls for content generation
 user-invocable: true
 ---
 
@@ -63,7 +63,11 @@ You generate the JSON yourself — no external LLM calls. You ARE the generator.
 - Exercises must be real, established exercises (no invented ones)
 - Include at least 2 instructions per exercise
 - Restrictions: always add clinically relevant restrictions (e.g., knee exercises → rehab_genoll)
+- When in doubt about whether a restriction applies, err on the side of caution — add it
 - Tags: always include at least one thematic tag (corredor, pliometria, mobilitat, etc.)
+- Exercise descriptions and instructions must use evidence-based language grounded in biomechanical principles
+- NEVER use absolute terms in exercise notes: "cures", "fixes", "eliminates pain". Use conditional language: "may help improve", "can contribute to", "is associated with"
+- Restriction notes should be conservative (e.g., "may aggravate under load" not "causes pain")
 
 ### Preset Quality
 - Each preset should represent a coherent, purposeful training block
@@ -71,6 +75,10 @@ You generate the JSON yourself — no external LLM calls. You ARE the generator.
 - Include notes explaining the training rationale
 - Deload sessions: 60% volume, lower RPE, same exercises
 - Tempo: use when the exercise type benefits from it (eccentrics, isometrics, plyometrics)
+- All training rationale must be grounded in established exercise science (progressive overload, specificity, recovery, periodization). No bro-science or unsubstantiated claims.
+- Preset descriptions and notes MUST use conditional/conservative language: "may help improve", "evidence suggests", "can contribute to". NEVER use "cures", "fixes", "eliminates pain", "guarantees".
+- Rehab-tagged presets must be especially conservative: ≤5% weekly volume increase, prioritize mobility/stability before strength, start with beginner-level exercises for the first 2 weeks, and include a note recommending consultation with a healthcare professional.
+- This tool is NOT a medical device or substitute for professional medical advice — generated content must never promise therapeutic outcomes.
 
 ### Diversity
 - Vary: surfaces (road/trail), disciplines (climb/descent), goals (strength/rehab/mobility)

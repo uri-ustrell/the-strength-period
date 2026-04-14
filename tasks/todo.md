@@ -5,6 +5,12 @@
 
 ## Active Tasks
 
+### Technical Glossary for UI
+- [ ] TODO: Create a glossary of technical terms (mesocicle, deload, RPE, sèries, repeticions, tempo, etc.)
+- [ ] Add glossary to a dedicated section/page in the app
+- [ ] Use glossary entries as `title` attributes on technical terms and abbreviations throughout the UI
+- [ ] Add i18n keys for all glossary terms (ca/es/en)
+
 ### Update Prompts, CSV Generator, and Example for Exercise-Rich Presets
 - [x] Task 1: Rewrite `data/ingestion/prompts/presets-llm-chat.prompt.txt` with sessions[] schema
 - [x] Task 2: Update `data/ingestion/prompts/exercises-llm-chat.prompt.txt` with usage context
