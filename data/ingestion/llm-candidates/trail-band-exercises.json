@@ -11,7 +11,11 @@
       "progressionMetric": "reps",
       "tags": ["baixada", "corredor", "rehab_genoll", "equilibri"],
       "restrictions": [
-        { "condition": "rehab_genoll", "action": "modify", "note": "Reduce range of motion or perform on flat surface if knee symptoms appear during loading." }
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "Reduce range of motion or perform on flat surface if knee symptoms appear during loading."
+        }
       ],
       "instructions": [
         "Dret sobre un escaló o caixa (10–20 cm), amb el peu controlador al costat del costat del pis.",
@@ -47,7 +51,11 @@
       "progressionMetric": "reps",
       "tags": ["corredor", "rehab_turmell", "baixada"],
       "restrictions": [
-        { "condition": "rehab_turmell", "action": "modify", "note": "Reduce range of motion or perform on flat surface initially; progress depth over weeks." }
+        {
+          "condition": "rehab_turmell",
+          "action": "modify",
+          "note": "Reduce range of motion or perform on flat surface initially; progress depth over weeks."
+        }
       ],
       "instructions": [
         "Dret al canell d'un escaló amb les sabates a la meitat, agafant-se a una paret o barana per equilibrar.",
@@ -83,7 +91,11 @@
       "progressionMetric": "reps",
       "tags": ["corredor", "equilibri", "baixada"],
       "restrictions": [
-        { "condition": "rehab_genoll", "action": "modify", "note": "Limit depth to pain-free range; may be contraindicated in acute knee conditions." }
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "Limit depth to pain-free range; may be contraindicated in acute knee conditions."
+        }
       ],
       "instructions": [
         "Dret sobre una cama, l'altra cama lleugera davant o al costat, braços estesos per a l'equilibri.",
@@ -102,8 +114,16 @@
       "progressionMetric": "reps",
       "tags": ["corredor", "pliometria", "baixada"],
       "restrictions": [
-        { "condition": "rehab_genoll", "action": "avoid", "note": "Avoid until the knee has been cleared for high-impact loading by a physiotherapist." },
-        { "condition": "rehab_turmell", "action": "avoid", "note": "Avoid until cleared for plyometric loading." }
+        {
+          "condition": "rehab_genoll",
+          "action": "avoid",
+          "note": "Avoid until the knee has been cleared for high-impact loading by a physiotherapist."
+        },
+        {
+          "condition": "rehab_turmell",
+          "action": "avoid",
+          "note": "Avoid until cleared for plyometric loading."
+        }
       ],
       "instructions": [
         "Dret sobre una caixa (20–40 cm), passos cap endavant i cau al terra amb tots dos peus al mateix temps.",
@@ -190,7 +210,11 @@
       "progressionMetric": "reps",
       "tags": ["corredor", "rehab_genoll", "core_estabilitat"],
       "restrictions": [
-        { "condition": "rehab_genoll", "action": "modify", "note": "Reduce band tension and amplitude of steps if knee discomfort arises." }
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "Reduce band tension and amplitude of steps if knee discomfort arises."
+        }
       ],
       "instructions": [
         "Col·loca una banda elàstica just per sobre dels turmells o genolls; posa't dret amb les cames a l'amplada dels malucs i genolls lleugerament flexionats.",

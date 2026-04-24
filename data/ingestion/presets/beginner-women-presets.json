@@ -33,8 +33,20 @@
         {
           "label": "Sessió A — Cos complet",
           "exercises": [
-            { "exerciseId": "Bodyweight_Squat", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "Butt_Lift_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            {
+              "exerciseId": "Bodyweight_Squat",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
+            {
+              "exerciseId": "Butt_Lift_Bridge",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
             { "exerciseId": "Pushups", "sets": 3, "reps": [5, 10], "restSeconds": 90, "rpe": 5 },
             { "exerciseId": "Dead_Bug", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Plank", "sets": 3, "reps": 20, "restSeconds": 60 }
@@ -43,9 +55,26 @@
         {
           "label": "Sessió B — Cos complet",
           "exercises": [
-            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
-            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
+            {
+              "exerciseId": "Split_Squat_with_Dumbbells",
+              "sets": 3,
+              "reps": [8, 10],
+              "restSeconds": 90,
+              "rpe": 5
+            },
+            {
+              "exerciseId": "postpp_glute_bridge_march_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "One-Arm_Dumbbell_Row",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
             { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 12, "restSeconds": 30 }
           ]
@@ -66,9 +95,26 @@
         {
           "label": "Sessió A — Tren inferior + core",
           "exercises": [
-            { "exerciseId": "Goblet_Squat", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "Romanian_Deadlift", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            {
+              "exerciseId": "Goblet_Squat",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "Romanian_Deadlift",
+              "sets": 3,
+              "reps": [8, 10],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "postpp_clamshell_band_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            },
             { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
             { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
           ]
@@ -76,8 +122,20 @@
         {
           "label": "Sessió B — Tren superior + isquitibials",
           "exercises": [
-            { "exerciseId": "Dumbbell_Bench_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "One-Arm_Dumbbell_Row", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            {
+              "exerciseId": "Dumbbell_Bench_Press",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "One-Arm_Dumbbell_Row",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
             { "exerciseId": "Band_Good_Morning", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
             { "exerciseId": "Dead_Bug", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
           ]
@@ -85,11 +143,33 @@
         {
           "label": "Sessió C — Cos complet actiu",
           "exercises": [
-            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
-            { "exerciseId": "Standing_Military_Press", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 6 },
+            {
+              "exerciseId": "Bodyweight_Walking_Lunge",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "Single_Leg_Glute_Bridge",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "Standing_Military_Press",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
             { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
-            { "exerciseId": "Calf_Raises_-_With_Bands", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+            {
+              "exerciseId": "Calf_Raises_-_With_Bands",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            }
           ]
         }
       ]

@@ -36,7 +36,12 @@
             { "exerciseId": "seated_marching_v1", "sets": 2, "reps": [10, 15], "restSeconds": 60 },
             { "exerciseId": "sit_to_stand_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
             { "exerciseId": "wall_push_up_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
-            { "exerciseId": "postpp_pelvic_tilt_supine_v1", "sets": 2, "reps": 12, "restSeconds": 60 },
+            {
+              "exerciseId": "postpp_pelvic_tilt_supine_v1",
+              "sets": 2,
+              "reps": 12,
+              "restSeconds": 60
+            },
             { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
           ]
         },
@@ -45,8 +50,18 @@
           "exercises": [
             { "exerciseId": "seated_marching_v1", "sets": 2, "reps": [10, 15], "restSeconds": 60 },
             { "exerciseId": "Butt_Lift_Bridge", "sets": 2, "reps": [8, 12], "restSeconds": 90 },
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 2, "reps": [8, 12], "restSeconds": 90 },
-            { "exerciseId": "postpp_ta_bracing_supine_v1", "sets": 2, "reps": 10, "restSeconds": 60 },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 2,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "postpp_ta_bracing_supine_v1",
+              "sets": 2,
+              "reps": 10,
+              "restSeconds": 60
+            },
             { "exerciseId": "Childs_Pose", "sets": 2, "reps": 10, "restSeconds": 30 }
           ]
         }
@@ -67,7 +82,12 @@
           "label": "Sessió A — Tren inferior + core",
           "exercises": [
             { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
-            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "postpp_glute_bridge_march_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 60 },
             { "exerciseId": "Dead_Bug", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Standing_Hip_Flexors", "sets": 2, "reps": 12, "restSeconds": 30 }
@@ -77,7 +97,12 @@
           "label": "Sessió B — Tren superior + estabilitat",
           "exercises": [
             { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "postpp_bird_dog_v1", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Plank", "sets": 2, "reps": 20, "restSeconds": 60 },
             { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
@@ -87,8 +112,18 @@
           "label": "Sessió C opcional — Cos complet + mobilitat",
           "exercises": [
             { "exerciseId": "Bodyweight_Squat", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
-            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
-            { "exerciseId": "postpp_clamshell_band_v1", "sets": 2, "reps": [10, 12], "restSeconds": 60 },
+            {
+              "exerciseId": "Single_Leg_Glute_Bridge",
+              "sets": 2,
+              "reps": [8, 10],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "postpp_clamshell_band_v1",
+              "sets": 2,
+              "reps": [10, 12],
+              "restSeconds": 60
+            },
             { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 30 },
             { "exerciseId": "Childs_Pose", "sets": 2, "reps": 10, "restSeconds": 30 }
           ]

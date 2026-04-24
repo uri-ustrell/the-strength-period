@@ -45,7 +45,11 @@
       "progressionMetric": "seconds",
       "tags": ["mobilitat", "tornada_calma", "corredor"],
       "restrictions": [
-        { "condition": "rehab_genoll", "action": "modify", "note": "May aggravate the knee under load; use the supine figure-four stretch instead if comfortable floor position cannot be maintained." }
+        {
+          "condition": "rehab_genoll",
+          "action": "modify",
+          "note": "May aggravate the knee under load; use the supine figure-four stretch instead if comfortable floor position cannot be maintained."
+        }
       ],
       "instructions": [
         "Des de quadrupèdia, porta el genoll dret cap endavant i deixa-lo caure cap a l'exterior de la mà dreta; estén la cama esquerra cap enrere.",

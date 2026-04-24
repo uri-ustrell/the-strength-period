@@ -16,7 +16,12 @@
           "exercises": [
             { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
             { "exerciseId": "step_up_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "Standing_Calf_Raises", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            {
+              "exerciseId": "Standing_Calf_Raises",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            },
             { "exerciseId": "Balance_Board", "sets": 3, "reps": 20, "restSeconds": 60 },
             { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 10, "restSeconds": 30 }
           ]
@@ -24,8 +29,19 @@
         {
           "label": "Sessió B — Funcional superior + core",
           "exercises": [
-            { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "wall_push_up_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Superman", "sets": 2, "reps": [10, 12], "restSeconds": 60 },
             { "exerciseId": "Cat_Stretch", "sets": 2, "reps": 10, "restSeconds": 30 }
@@ -47,18 +63,45 @@
         {
           "label": "Sessió A — Tren inferior",
           "exercises": [
-            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 5 },
+            {
+              "exerciseId": "band_squat_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
             { "exerciseId": "step_up_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "postpp_glute_bridge_march_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "postpp_glute_bridge_march_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "Standing_Calf_Raises", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
           ]
         },
         {
           "label": "Sessió B — Tren superior",
           "exercises": [
-            { "exerciseId": "wall_push_up_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90, "rpe": 5 },
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
-            { "exerciseId": "band_overhead_press_v1", "sets": 3, "reps": [8, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "wall_push_up_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 5
+            },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "band_overhead_press_v1",
+              "sets": 3,
+              "reps": [8, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "band_bicep_curl_v1", "sets": 2, "reps": [10, 12], "restSeconds": 60 }
           ]
         },
@@ -66,7 +109,12 @@
           "label": "Sessió C — Cos complet + mobilitat",
           "exercises": [
             { "exerciseId": "sit_to_stand_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
-            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "band_chest_press_standing_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "Dead_Bug", "sets": 2, "reps": [8, 10], "restSeconds": 60 },
             { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 10, "restSeconds": 30 },
             { "exerciseId": "Childs_Pose", "sets": 2, "reps": 30, "restSeconds": 30 }
@@ -89,7 +137,12 @@
           "label": "Sessió A — Equilibri i maluc",
           "exercises": [
             { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
-            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
+            {
+              "exerciseId": "band_lateral_walk_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 60
+            },
             { "exerciseId": "Standing_Hip_Circles", "sets": 2, "reps": 12, "restSeconds": 30 },
             { "exerciseId": "step_up_v1", "sets": 2, "reps": [8, 10], "restSeconds": 90 },
             { "exerciseId": "Standing_Hip_Flexors", "sets": 2, "reps": 12, "restSeconds": 30 }
@@ -121,18 +174,59 @@
         {
           "label": "Sessió A — Excèntrics de genoll",
           "exercises": [
-            { "exerciseId": "lateral_step_down_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 7, "tempo": "3-1-1-0" },
-            { "exerciseId": "single_leg_squat_v1", "sets": 3, "reps": [5, 8], "restSeconds": 120, "rpe": 7 },
-            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" },
-            { "exerciseId": "postpp_clamshell_band_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
+            {
+              "exerciseId": "lateral_step_down_v1",
+              "sets": 3,
+              "reps": [8, 10],
+              "restSeconds": 90,
+              "rpe": 7,
+              "tempo": "3-1-1-0"
+            },
+            {
+              "exerciseId": "single_leg_squat_v1",
+              "sets": 3,
+              "reps": [5, 8],
+              "restSeconds": 120,
+              "rpe": 7
+            },
+            {
+              "exerciseId": "eccentric_calf_raise_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "tempo": "4-0-1-0"
+            },
+            {
+              "exerciseId": "postpp_clamshell_band_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            }
           ]
         },
         {
           "label": "Sessió B — Força isquiotibials i glutis",
           "exercises": [
-            { "exerciseId": "nordic_curl_v1", "sets": 3, "reps": [5, 8], "restSeconds": 120, "rpe": 8, "tempo": "4-0-1-0" },
-            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
-            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            {
+              "exerciseId": "nordic_curl_v1",
+              "sets": 3,
+              "reps": [5, 8],
+              "restSeconds": 120,
+              "rpe": 8,
+              "tempo": "4-0-1-0"
+            },
+            {
+              "exerciseId": "Single_Leg_Glute_Bridge",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "band_lateral_walk_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            },
             { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
           ]
         },
@@ -140,9 +234,21 @@
           "label": "Sessió C — Potència i propiocepcó",
           "exercises": [
             { "exerciseId": "step_up_v1", "sets": 4, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
-            { "exerciseId": "lateral_step_down_v1", "sets": 3, "reps": [8, 10], "restSeconds": 90, "tempo": "3-1-1-0" },
+            {
+              "exerciseId": "lateral_step_down_v1",
+              "sets": 3,
+              "reps": [8, 10],
+              "restSeconds": 90,
+              "tempo": "3-1-1-0"
+            },
             { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 },
-            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" }
+            {
+              "exerciseId": "eccentric_calf_raise_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "tempo": "4-0-1-0"
+            }
           ]
         }
       ]
@@ -161,17 +267,40 @@
         {
           "label": "Sessió A — Força de cadera i gluti",
           "exercises": [
-            { "exerciseId": "Goblet_Squat", "sets": 4, "reps": [8, 12], "restSeconds": 90, "rpe": 7 },
+            {
+              "exerciseId": "Goblet_Squat",
+              "sets": 4,
+              "reps": [8, 12],
+              "restSeconds": 90,
+              "rpe": 7
+            },
             { "exerciseId": "step_up_v1", "sets": 4, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
-            { "exerciseId": "Single_Leg_Glute_Bridge", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
+            {
+              "exerciseId": "Single_Leg_Glute_Bridge",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90
+            },
             { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 }
           ]
         },
         {
           "label": "Sessió B — Força isquiotibials + core",
           "exercises": [
-            { "exerciseId": "Romanian_Deadlift", "sets": 4, "reps": [8, 10], "restSeconds": 120, "rpe": 7 },
-            { "exerciseId": "Split_Squat_with_Dumbbells", "sets": 3, "reps": [8, 10], "restSeconds": 90, "rpe": 7 },
+            {
+              "exerciseId": "Romanian_Deadlift",
+              "sets": 4,
+              "reps": [8, 10],
+              "restSeconds": 120,
+              "rpe": 7
+            },
+            {
+              "exerciseId": "Split_Squat_with_Dumbbells",
+              "sets": 3,
+              "reps": [8, 10],
+              "restSeconds": 90,
+              "rpe": 7
+            },
             { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 },
             { "exerciseId": "postpp_bird_dog_v1", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
           ]
@@ -179,9 +308,21 @@
         {
           "label": "Sessió C — Pliometria + propiocepcó",
           "exercises": [
-            { "exerciseId": "Bodyweight_Walking_Lunge", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 7 },
+            {
+              "exerciseId": "Bodyweight_Walking_Lunge",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90,
+              "rpe": 7
+            },
             { "exerciseId": "Single_Leg_Push-off", "sets": 3, "reps": [8, 10], "restSeconds": 90 },
-            { "exerciseId": "eccentric_calf_raise_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "tempo": "4-0-1-0" },
+            {
+              "exerciseId": "eccentric_calf_raise_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "tempo": "4-0-1-0"
+            },
             { "exerciseId": "Balance_Board", "sets": 3, "reps": 30, "restSeconds": 60 }
           ]
         }
@@ -201,17 +342,46 @@
         {
           "label": "Sessió A — Push + tren inferior",
           "exercises": [
-            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "band_overhead_press_v1", "sets": 3, "reps": [10, 12], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
+            {
+              "exerciseId": "band_squat_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "band_chest_press_standing_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "band_overhead_press_v1",
+              "sets": 3,
+              "reps": [10, 12],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "band_lateral_walk_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 60
+            },
             { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
           ]
         },
         {
           "label": "Sessió B — Pull + core",
           "exercises": [
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90, "rpe": 6 },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "rpe": 6
+            },
             { "exerciseId": "band_bicep_curl_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
             { "exerciseId": "Band_Good_Morning", "sets": 3, "reps": [10, 12], "restSeconds": 90 },
             { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
@@ -234,16 +404,40 @@
         {
           "label": "Sessió A — Forces de push",
           "exercises": [
-            { "exerciseId": "band_chest_press_standing_v1", "sets": 4, "reps": [10, 15], "restSeconds": 90, "rpe": 7 },
-            { "exerciseId": "band_overhead_press_v1", "sets": 4, "reps": [10, 12], "restSeconds": 90, "rpe": 7 },
-            { "exerciseId": "band_squat_v1", "sets": 4, "reps": [12, 15], "restSeconds": 90, "rpe": 7 },
+            {
+              "exerciseId": "band_chest_press_standing_v1",
+              "sets": 4,
+              "reps": [10, 15],
+              "restSeconds": 90,
+              "rpe": 7
+            },
+            {
+              "exerciseId": "band_overhead_press_v1",
+              "sets": 4,
+              "reps": [10, 12],
+              "restSeconds": 90,
+              "rpe": 7
+            },
+            {
+              "exerciseId": "band_squat_v1",
+              "sets": 4,
+              "reps": [12, 15],
+              "restSeconds": 90,
+              "rpe": 7
+            },
             { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
           ]
         },
         {
           "label": "Sessió B — Forces de pull",
           "exercises": [
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 4, "reps": [10, 15], "restSeconds": 90, "rpe": 7 },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 4,
+              "reps": [10, 15],
+              "restSeconds": 90,
+              "rpe": 7
+            },
             { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": [15, 20], "restSeconds": 60 },
             { "exerciseId": "band_bicep_curl_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
             { "exerciseId": "Band_Hip_Adductions", "sets": 3, "reps": [12, 15], "restSeconds": 60 },
@@ -253,10 +447,31 @@
         {
           "label": "Sessió C — Integració cos complet",
           "exercises": [
-            { "exerciseId": "band_squat_v1", "sets": 3, "reps": [15, 20], "restSeconds": 90, "rpe": 6 },
-            { "exerciseId": "band_chest_press_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
-            { "exerciseId": "resistance_band_row_standing_v1", "sets": 3, "reps": [12, 15], "restSeconds": 90 },
-            { "exerciseId": "band_lateral_walk_v1", "sets": 3, "reps": [15, 20], "restSeconds": 60 },
+            {
+              "exerciseId": "band_squat_v1",
+              "sets": 3,
+              "reps": [15, 20],
+              "restSeconds": 90,
+              "rpe": 6
+            },
+            {
+              "exerciseId": "band_chest_press_standing_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "resistance_band_row_standing_v1",
+              "sets": 3,
+              "reps": [12, 15],
+              "restSeconds": 90
+            },
+            {
+              "exerciseId": "band_lateral_walk_v1",
+              "sets": 3,
+              "reps": [15, 20],
+              "restSeconds": 60
+            },
             { "exerciseId": "Pallof_Press", "sets": 3, "reps": [10, 12], "restSeconds": 60 }
           ]
         }
