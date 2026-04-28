@@ -128,6 +128,7 @@
   "back_to_presets": "Back to presets",
   "start_plan": "Start plan",
   "modify_plan": "Modify plan",
+  "days_per_week_locked": "This preset has {{count}} fixed templates; days per week is tied to that value.",
   "progression_sparkline_aria": "Weekly progression sparkline",
   "preset_name_label": "Preset name",
   "preset_name_required": "Name is required to save",

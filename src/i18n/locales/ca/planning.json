@@ -128,6 +128,7 @@
   "back_to_presets": "Torna a presets",
   "start_plan": "Comença el pla",
   "modify_plan": "Modifica el pla",
+  "days_per_week_locked": "Aquest preset té {{count}} plantilles fixes; els dies/setmana queden lligats a aquest valor.",
   "progression_sparkline_aria": "Gràfica de progressió setmanal",
   "preset_name_label": "Nom de la planificació",
   "preset_name_required": "Cal un nom per desar",

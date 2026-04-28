@@ -168,6 +168,17 @@ export const PlanCreator = ({ onComplete }: Props) => {
     })
   }, [weeks])
 
+  // Lock days/week to the number of preset templates while in faithful mode.
+  // Faithful presets define exactly N templates (today: 4) and the engine
+  // generates one session per template per week, so any other value would be
+  // silently ignored. Snap the user's choice to the only compatible option.
+  useEffect(() => {
+    const len = editablePresetSessions.length
+    if (len > 0 && daysPerWeek !== len) {
+      setDaysPerWeek(len)
+    }
+  }, [editablePresetSessions.length, daysPerWeek])
+
   // Mark working copy as dirty whenever a tracked field changes.
   useEffect(() => {
     if (suppressDirtyRef.current) {
@@ -684,21 +695,35 @@ export const PlanCreator = ({ onComplete }: Props) => {
               {t('planning:days_per_week')}
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
-              {[2, 3, 4, 5, 6].map((d) => (
-                <button
-                  key={d}
-                  type="button"
-                  onClick={() => setDaysPerWeek(d)}
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    daysPerWeek === d
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {d}
-                </button>
-              ))}
+              {(() => {
+                // In faithful mode, only the exact number of templates is selectable.
+                // Built-in & custom presets are always length-4 today, so users will
+                // see a single 4-day chip. The copy below explains why.
+                const sessionsPerWeek = editablePresetSessions.length
+                const allOptions = [2, 3, 4, 5, 6]
+                const options =
+                  sessionsPerWeek > 0 ? allOptions.filter((d) => d === sessionsPerWeek) : allOptions
+                return options.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    onClick={() => setDaysPerWeek(d)}
+                    className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                      daysPerWeek === d
+                        ? 'bg-indigo-600 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {d}
+                  </button>
+                ))
+              })()}
             </div>
+            {editablePresetSessions.length > 0 && (
+              <p className="mt-1 text-xs text-gray-400">
+                {t('planning:days_per_week_locked', { count: editablePresetSessions.length })}
+              </p>
+            )}
           </div>
 
           <div>
