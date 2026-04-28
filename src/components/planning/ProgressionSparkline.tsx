@@ -40,9 +40,9 @@ export const ProgressionSparkline = ({ rates, height = 60, className }: Props) =
       role="img"
       aria-label={t('progression_sparkline_aria')}
       viewBox={`0 0 ${width} ${height}`}
-      preserveAspectRatio="none"
-      className={`w-full ${className ?? ''}`}
-      style={{ height }}
+      preserveAspectRatio="xMidYMid meet"
+      className={`block mx-auto max-w-full ${className ?? ''}`}
+      style={{ height, maxHeight: height }}
     >
       <line
         x1={padX}
