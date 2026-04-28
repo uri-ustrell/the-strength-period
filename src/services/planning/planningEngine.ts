@@ -328,7 +328,7 @@ function generateFaithfulMesocycle(
     options?.progressionType ?? preset?.progressionType ?? 'linear'
   const weeklyProgression = options?.weeklyProgression ?? preset?.weeklyProgression ?? 5
   const weeklyProgressionRates = options?.weeklyProgressionRates ?? preset?.weeklyProgressionRates
-  const totalWeeks = options?.weeks ?? 8
+  const totalWeeks = options?.weeks ?? 4
 
   const rule = PROGRESSION_RULES[progressionType]
 
@@ -349,7 +349,7 @@ function generateFaithfulMesocycle(
     for (let dayIdx = 0; dayIdx < sessionsPerWeek; dayIdx++) {
       const template = presetSessions[dayIdx]
       if (!template) continue
-      const isDeload = template.isDeload === true
+      const isDeload = template.isDeload === true || week === totalWeeks
       const weekMultiplier = resolveWeekMultiplier(
         week,
         isDeload,
@@ -523,7 +523,7 @@ function generateGeneratorMesocycle(
     options?.progressionType ?? preset?.progressionType ?? 'linear'
   const weeklyProgression = options?.weeklyProgression ?? 5
   const weeklyProgressionRates = options?.weeklyProgressionRates ?? preset?.weeklyProgressionRates
-  const totalWeeks = options?.weeks ?? 8
+  const totalWeeks = options?.weeks ?? 4
   const daysPerWeek = config.trainingDays.length
   const minutesPerSession = config.minutesPerSession
 
@@ -567,7 +567,8 @@ function generateGeneratorMesocycle(
   let previousSessionExerciseIds = new Set<string>()
 
   for (let week = 1; week <= totalWeeks; week++) {
-    const isDeload = week % rule.deloadWeek === 0
+    // Deload convention: the last week of the cycle is the deload week.
+    const isDeload = week === totalWeeks
     const weekMultiplier = resolveWeekMultiplier(
       week,
       isDeload,

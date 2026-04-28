@@ -1,8 +1,15 @@
-import { ArrowDown, ArrowLeft, ArrowUp, Copy, Plus, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowUp, Copy, Plus, Trash2, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { blankExerciseEntry, TEMPLATE_KEYS } from '@/services/planning/presetTemplates'
+import {
+  blankExerciseEntry,
+  blankSessionTemplate,
+  MAX_TEMPLATES,
+  MIN_TEMPLATES,
+  nextAvailableTemplateKey,
+  TEMPLATE_KEYS,
+} from '@/services/planning/presetTemplates'
 import type { Exercise } from '@/types/exercise'
 import type { PresetExerciseEntry, PresetSessionTemplate, TemplateKey } from '@/types/planning'
 
@@ -13,7 +20,7 @@ interface Props {
   filteredExercisePool: Exercise[]
   onBack: () => void
   onGenerate: () => void
-  /** When provided, parent is notified whenever the "all 4 templates have ≥1 exercise" status changes. */
+  /** When provided, parent is notified whenever the "all templates have ≥1 exercise" status changes. */
   onCompleteChange?: (isComplete: boolean) => void
   /** When provided, replaces the default "Generate" CTA with this label. */
   generateLabelKey?: string
@@ -39,7 +46,8 @@ export const FaithfulExercisesStep = ({
 }: Props) => {
   const { t } = useTranslation(['planning', 'exercises'])
 
-  const [activeKey, setActiveKey] = useState<TemplateKey>('A')
+  const firstKey = editablePresetSessions[0]?.templateKey ?? 'A'
+  const [activeKey, setActiveKey] = useState<TemplateKey>(firstKey)
   const [pickerForRow, setPickerForRow] = useState<number | null>(null)
   const [pickerSearch, setPickerSearch] = useState('')
   const [copyMenuOpen, setCopyMenuOpen] = useState(false)
@@ -48,7 +56,7 @@ export const FaithfulExercisesStep = ({
 
   const isComplete = useMemo(
     () =>
-      editablePresetSessions.length === 4 &&
+      editablePresetSessions.length >= MIN_TEMPLATES &&
       editablePresetSessions.every((s) => s.exercises.length > 0),
     [editablePresetSessions]
   )
@@ -56,6 +64,16 @@ export const FaithfulExercisesStep = ({
   useEffect(() => {
     onCompleteChange?.(isComplete)
   }, [isComplete, onCompleteChange])
+
+  // If the active tab is no longer present (deletion), snap to the first remaining tab.
+  useEffect(() => {
+    const exists = editablePresetSessions.some((s) => s.templateKey === activeKey)
+    if (!exists && editablePresetSessions[0]) {
+      setActiveKey(editablePresetSessions[0].templateKey)
+      setCopyMenuOpen(false)
+      setPickerForRow(null)
+    }
+  }, [editablePresetSessions, activeKey])
 
   const tabHasMissing = (key: TemplateKey): boolean => {
     const session = editablePresetSessions.find((s) => s.templateKey === key)
@@ -121,6 +139,32 @@ export const FaithfulExercisesStep = ({
     })
   }
 
+  const canDeleteTemplate = editablePresetSessions.length > MIN_TEMPLATES
+  const canAddTemplate = editablePresetSessions.length < MAX_TEMPLATES
+
+  const handleDeleteActiveTemplate = () => {
+    if (!canDeleteTemplate || !activeSession) return
+    const confirmed = window.confirm(
+      t('planning:delete_template_confirm', {
+        name: activeSession.name || activeSession.templateKey,
+      })
+    )
+    if (!confirmed) return
+    const updated = editablePresetSessions.filter(
+      (s) => s.templateKey !== activeSession.templateKey
+    )
+    onSessionsChange(updated)
+  }
+
+  const handleAddTemplate = () => {
+    if (!canAddTemplate) return
+    const nextKey = nextAvailableTemplateKey(editablePresetSessions)
+    if (!nextKey) return
+    const updated = [...editablePresetSessions, blankSessionTemplate(nextKey)]
+    onSessionsChange(updated)
+    setActiveKey(nextKey)
+  }
+
   const handleCopyTo = (targetKey: TemplateKey) => {
     if (!activeSession) return
     const cloned = activeSession.exercises.map((e) => ({ ...e }))
@@ -142,7 +186,11 @@ export const FaithfulExercisesStep = ({
     updateActiveSession((s) => ({ ...s, name: newName }))
   }
 
-  const otherKeys = TEMPLATE_KEYS.filter((k) => k !== activeKey)
+  const otherKeys = editablePresetSessions.map((s) => s.templateKey).filter((k) => k !== activeKey)
+  // Render tabs in canonical A→D order so deleting a middle tab does not reorder the rest.
+  const visibleTabKeys = TEMPLATE_KEYS.filter((k) =>
+    editablePresetSessions.some((s) => s.templateKey === k)
+  )
 
   return (
     <div className="space-y-5">
@@ -160,8 +208,8 @@ export const FaithfulExercisesStep = ({
 
       {headerExtra}
 
-      <div className="flex border-b border-gray-200">
-        {TEMPLATE_KEYS.map((key) => {
+      <div className="flex items-stretch border-b border-gray-200">
+        {visibleTabKeys.map((key) => {
           const session = editablePresetSessions.find((s) => s.templateKey === key)
           const label = session?.name || key
           const active = key === activeKey
@@ -194,6 +242,16 @@ export const FaithfulExercisesStep = ({
             </button>
           )
         })}
+        <button
+          type="button"
+          onClick={handleAddTemplate}
+          disabled={!canAddTemplate}
+          title={canAddTemplate ? t('planning:add_template') : t('planning:max_templates_warning')}
+          aria-label={t('planning:add_template')}
+          className="px-3 py-2 text-sm font-medium text-indigo-600 hover:text-indigo-800 disabled:text-gray-300 disabled:cursor-not-allowed"
+        >
+          <Plus size={16} />
+        </button>
       </div>
 
       {activeSession && (
@@ -207,33 +265,49 @@ export const FaithfulExercisesStep = ({
               className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
               aria-label={t('planning:template_name')}
             />
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setCopyMenuOpen((o) => !o)}
-                className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-              >
-                <Copy size={14} />
-                {t('planning:copy_to')}
-              </button>
-              {copyMenuOpen && (
-                <div className="absolute right-0 mt-1 z-10 rounded-lg border border-gray-200 bg-white shadow-md py-1 min-w-[100px]">
-                  {otherKeys.map((k) => {
-                    const target = editablePresetSessions.find((s) => s.templateKey === k)
-                    return (
-                      <button
-                        key={k}
-                        type="button"
-                        onClick={() => handleCopyTo(k)}
-                        className="block w-full px-3 py-1.5 text-left text-sm text-gray-700 hover:bg-gray-50"
-                      >
-                        {target?.name || k}
-                      </button>
-                    )
-                  })}
-                </div>
-              )}
-            </div>
+            {otherKeys.length > 0 && (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setCopyMenuOpen((o) => !o)}
+                  className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  <Copy size={14} />
+                  {t('planning:copy_to')}
+                </button>
+                {copyMenuOpen && (
+                  <div className="absolute right-0 mt-1 z-10 rounded-lg border border-gray-200 bg-white shadow-md py-1 min-w-[100px]">
+                    {otherKeys.map((k) => {
+                      const target = editablePresetSessions.find((s) => s.templateKey === k)
+                      return (
+                        <button
+                          key={k}
+                          type="button"
+                          onClick={() => handleCopyTo(k)}
+                          className="block w-full px-3 py-1.5 text-left text-sm text-gray-700 hover:bg-gray-50"
+                        >
+                          {target?.name || k}
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={handleDeleteActiveTemplate}
+              disabled={!canDeleteTemplate}
+              title={
+                canDeleteTemplate
+                  ? t('planning:delete_template')
+                  : t('planning:min_templates_warning')
+              }
+              aria-label={t('planning:delete_template')}
+              className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-500 hover:bg-red-50 hover:text-red-600 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-gray-500"
+            >
+              <Trash2 size={14} />
+            </button>
           </div>
 
           <div className="space-y-2 max-h-[50vh] overflow-y-auto">

@@ -20,8 +20,11 @@ import {
 } from '@/services/planning/muscleDistribution'
 import {
   buildDefaultProgressionRates,
+  DEFAULT_CYCLE_WEEKS,
+  MAX_CYCLE_WEEKS,
+  MIN_CYCLE_WEEKS,
   migrateSliderToRates,
-  normalizeFourTemplates,
+  normalizeTemplates,
   resizeProgressionRates,
 } from '@/services/planning/presetTemplates'
 import { validatePresetExercises } from '@/services/planning/presetValidation'
@@ -56,7 +59,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
   const [step, setStep] = useState<Step>('preset')
   const [selectedPreset, setSelectedPreset] = useState<Preset | null>(null)
-  const [weeks, setWeeks] = useState(8)
+  const [weeks, setWeeks] = useState(DEFAULT_CYCLE_WEEKS)
   const [daysPerWeek, setDaysPerWeek] = useState(userTrainingDays.length)
   const [minutesPerSess, setMinutesPerSess] = useState(userMinutes)
   const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<
@@ -69,7 +72,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return initial as Record<MuscleGroup, MuscleGroupPriority | null>
   })
   const [weeklyProgressionRates, setWeeklyProgressionRates] = useState<WeekProgressionRate[]>(() =>
-    buildDefaultProgressionRates(8)
+    buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS)
   )
 
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
@@ -249,7 +252,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const enterWizardWithPreset = (preset: Preset) => {
     suppressDirtyRef.current = true
     setSelectedPreset(preset)
-    const initialWeeks = preset.durationOptions[0] ?? 8
+    const rawInitialWeeks = preset.durationOptions[0] ?? DEFAULT_CYCLE_WEEKS
+    const initialWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, rawInitialWeeks))
     setWeeks(initialWeeks)
     if (preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0) {
       setWeeklyProgressionRates(resizeProgressionRates(preset.weeklyProgressionRates, initialWeeks))
@@ -260,9 +264,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
     setMuscleGroupPriorities(presetToMuscleGroupPriorities(preset))
     if (preset.sessions && preset.sessions.length > 0) {
-      setEditablePresetSessions(normalizeFourTemplates(preset.sessions))
+      setEditablePresetSessions(normalizeTemplates(preset.sessions))
     } else {
-      setEditablePresetSessions(normalizeFourTemplates(undefined))
+      setEditablePresetSessions(normalizeTemplates(undefined))
     }
     setEditingPresetId(null)
     setSourceIsBuiltIn(true)
@@ -274,7 +278,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
   const handleStartNow = (preset: Preset) => {
     // QA-4 "Comença ara": generate + save with zero extra steps using UserConfig defaults.
-    const initialWeeks = preset.durationOptions[0] ?? 8
+    const rawInitialWeeks = preset.durationOptions[0] ?? DEFAULT_CYCLE_WEEKS
+    const initialWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, rawInitialWeeks))
     const ratesSource =
       preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0
         ? preset.weeklyProgressionRates
@@ -282,7 +287,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           ? migrateSliderToRates(preset.weeklyProgression, initialWeeks)
           : buildDefaultProgressionRates(initialWeeks)
     const rates = resizeProgressionRates(ratesSource, initialWeeks)
-    const sessions = normalizeFourTemplates(preset.sessions)
+    const sessions = normalizeTemplates(preset.sessions)
 
     // Validate before launching
     const validation = validatePresetExercises(sessions, exercises)
@@ -320,13 +325,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
     suppressDirtyRef.current = true
     setSelectedPreset(null)
-    setWeeks(cp.durationWeeks)
+    // Clamp legacy CustomPreset durations (could be > 4 from older app versions) to the new 1..4 range.
+    const clampedWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, cp.durationWeeks))
+    setWeeks(clampedWeeks)
     if (cp.weeklyProgressionRates && cp.weeklyProgressionRates.length > 0) {
-      setWeeklyProgressionRates(resizeProgressionRates(cp.weeklyProgressionRates, cp.durationWeeks))
+      setWeeklyProgressionRates(resizeProgressionRates(cp.weeklyProgressionRates, clampedWeeks))
     } else if (cp.weeklyProgression !== undefined) {
-      setWeeklyProgressionRates(migrateSliderToRates(cp.weeklyProgression, cp.durationWeeks))
+      setWeeklyProgressionRates(migrateSliderToRates(cp.weeklyProgression, clampedWeeks))
     } else {
-      setWeeklyProgressionRates(buildDefaultProgressionRates(cp.durationWeeks))
+      setWeeklyProgressionRates(buildDefaultProgressionRates(clampedWeeks))
     }
 
     const priorities: Record<string, MuscleGroupPriority | null> = {}
@@ -342,7 +349,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
     setMuscleGroupPriorities(priorities as Record<MuscleGroup, MuscleGroupPriority | null>)
 
-    setEditablePresetSessions(normalizeFourTemplates(cp.sessions))
+    setEditablePresetSessions(normalizeTemplates(cp.sessions))
 
     setSourceIsBuiltIn(false)
     if (editing) {
@@ -363,9 +370,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
     const blankPreset: CustomPreset = {
       id,
       name: '',
-      durationWeeks: 8,
+      durationWeeks: DEFAULT_CYCLE_WEEKS,
       muscleDistribution: {},
-      weeklyProgressionRates: buildDefaultProgressionRates(8),
+      weeklyProgressionRates: buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS),
       createdAt: new Date().toISOString(),
     }
     handleSelectCustomPreset(blankPreset, true)
@@ -392,7 +399,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
             exercises: s.exercises.map((e) => ({ ...e })),
           }))
         : selectedPreset?.sessions
-          ? normalizeFourTemplates(selectedPreset.sessions)
+          ? normalizeTemplates(selectedPreset.sessions)
           : undefined
 
     if (editingPresetId && !sourceIsBuiltIn) {
@@ -670,7 +677,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   if (step === 'configure') {
-    const durationOptions = selectedPreset?.durationOptions ?? [4, 6, 8, 12]
+    // Cycle length is now constrained to 1..4 weeks regardless of legacy preset.durationOptions.
+    const cycleWeekOptions = Array.from(
+      { length: MAX_CYCLE_WEEKS - MIN_CYCLE_WEEKS + 1 },
+      (_, i) => MIN_CYCLE_WEEKS + i
+    )
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-2">
@@ -708,10 +719,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              {t('planning:selectDuration')}
+              {t('planning:weeks_per_cycle_label')}
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
-              {durationOptions.map((w) => (
+              {cycleWeekOptions.map((w) => (
                 <button
                   key={w}
                   type="button"
@@ -726,6 +737,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
                 </button>
               ))}
             </div>
+            <p className="mt-1 text-xs text-gray-400">
+              {weeks === 1
+                ? t('planning:weeks_per_cycle_only_deload')
+                : t('planning:weeks_per_cycle_hint')}
+            </p>
           </div>
 
           <div>

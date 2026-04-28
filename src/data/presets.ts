@@ -30,13 +30,8 @@ export interface Preset {
   autoRestrictions: string[]
   progressionType: ProgressionType
   notes?: string
-  /** Required: every preset ships exactly 4 faithful A/B/C/D sessions with non-empty exercises. */
-  sessions: [
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-  ]
+  /** Required: 1–4 faithful session templates with non-empty exercises (length === sessionsPerWeek). */
+  sessions: PresetSessionTemplate[]
   /** Required: per-week progression rates; length === durationOptions[0]. */
   weeklyProgressionRates: WeekProgressionRate[]
   weeklyProgression?: number
@@ -325,7 +320,7 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     return undefined
   }
 
-  // QA-7: Preset.sessions is required, length-4, non-empty exercises.
+  // QA-7: Preset.sessions is required (1–4 entries), with non-empty exercises.
   if (!parsedPreset.sessions || parsedPreset.sessions.length === 0) {
     if (typeof console !== 'undefined') {
       // eslint-disable-next-line no-console
@@ -334,31 +329,15 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     return undefined
   }
 
-  const TEMPLATE_KEYS: ('A' | 'B' | 'C' | 'D')[] = ['A', 'B', 'C', 'D']
-  const padded: PresetSessionTemplate[] = []
-  for (let i = 0; i < 4; i++) {
-    const key = TEMPLATE_KEYS[i] as 'A' | 'B' | 'C' | 'D'
-    const existing = parsedPreset.sessions[i]
-    if (existing) {
-      padded.push(existing)
-    } else {
-      padded.push({ templateKey: key, name: key, exercises: [] })
-    }
-  }
-  const sessionsTuple = padded as [
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-    PresetSessionTemplate,
-  ]
+  const sessions: PresetSessionTemplate[] = parsedPreset.sessions.slice(0, 4)
 
-  const firstDuration = parsedPreset.durationOptions[0] ?? 8
+  const firstDuration = parsedPreset.durationOptions[0] ?? 4
   const weeklyProgressionRates: WeekProgressionRate[] =
     parsedPreset.weeklyProgressionRates && parsedPreset.weeklyProgressionRates.length > 0
       ? parsedPreset.weeklyProgressionRates
       : Array.from({ length: firstDuration }, (_, i) => {
           const week = i + 1
-          return { week, progressionPct: week % 4 === 0 ? -40 : 5 }
+          return { week, progressionPct: week === firstDuration ? -40 : 5 }
         })
 
   const preset: Preset = {
@@ -371,7 +350,7 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     autoRestrictions: parsedPreset.autoRestrictions ?? [],
     progressionType: parsedPreset.progressionType ?? 'linear',
     notes: parsedPreset.notes,
-    sessions: sessionsTuple,
+    sessions,
     weeklyProgressionRates,
   }
 
