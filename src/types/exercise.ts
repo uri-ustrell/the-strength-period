@@ -75,6 +75,24 @@ export type ExerciseTag =
   | 'mobilitat'
   | 'escalfament'
   | 'tornada_calma'
+  // Strength & hypertrophy
+  | 'forca'
+  | 'hipertrofia'
+  | 'potencia'
+  | 'resistencia'
+  // Mobility / yoga / breath
+  | 'iogues'
+  | 'respiracio'
+  | 'mobilitat_toracica'
+  | 'anti_rotacio'
+  // Pre/postnatal
+  | 'gestacio'
+  | 'postpart'
+  | 'sol_pelvic'
+  // Other
+  | 'prehab'
+  | 'unilateral'
+  | 'isometric'
 
 export type ProgressionMetric = 'weight' | 'reps' | 'seconds'
 
@@ -85,12 +103,24 @@ export type RestrictionCondition =
   | 'rehab_lumbar'
   | 'rehab_turmell'
   | 'tendinitis_rotuliana'
+  | 'tendinitis_aquilea'
+  | 'lesio_lumbar_aguda'
+  | 'embaras'
+  | 'postpart'
+  | 'diastasi'
+  | 'hipertensio'
 
 export const ALL_RESTRICTION_CONDITIONS: RestrictionCondition[] = [
   'rehab_genoll',
   'rehab_lumbar',
   'rehab_turmell',
   'tendinitis_rotuliana',
+  'tendinitis_aquilea',
+  'lesio_lumbar_aguda',
+  'embaras',
+  'postpart',
+  'diastasi',
+  'hipertensio',
 ]
 
 export type Restriction = {

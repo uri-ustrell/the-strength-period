@@ -71,36 +71,72 @@ const MUSCLE_ALIASES: Record<string, MuscleGroup> = {
 }
 
 const EQUIPMENT_ALIASES: Record<string, Equipment> = {
+  // Bodyweight
   body_only: 'pes_corporal',
   bodyweight: 'pes_corporal',
   pes_corporal: 'pes_corporal',
+  // Free weights
   dumbbell: 'manueles',
   dumbbells: 'manueles',
-  kettlebell: 'manueles',
-  kettlebells: 'manueles',
   manuelles: 'manueles',
   mancuernas: 'manueles',
-  manuelleses: 'manueles',
-  manuelleses_kg: 'manueles',
-  manuelles_kg: 'manueles',
-  manuelles_pair: 'manueles',
-  manuelleses_pair: 'manueles',
-  manuelles_pair_kg: 'manueles',
-  manuelles_kg_pair: 'manueles',
-  manuelles_set: 'manueles',
-  manuelleses_set: 'manueles',
-  manuelles_set_kg: 'manueles',
+  manueles: 'manueles',
+  kettlebell: 'kettlebell',
+  kettlebells: 'kettlebell',
+  kb: 'kettlebell',
   barbell: 'barra',
   barra: 'barra',
-  cable: 'barra',
-  machine: 'barra',
+  discos: 'discos',
+  plates: 'discos',
+  weight_vest: 'weight_vest',
+  weighted_vest: 'weight_vest',
+  // Bands
   bands: 'banda_elastica',
   resistance_band: 'banda_elastica',
   banda_elastica: 'banda_elastica',
-  pilates: 'pilates',
-  foam_roll: 'pilates',
-  exercise_ball: 'pilates',
+  mini_band: 'mini_band',
+  mini_bands: 'mini_band',
+  banda_tubular: 'banda_tubular',
+  // Suspension & bars
   trx: 'trx',
+  suspension: 'trx',
+  pull_up_bar: 'barra_dominades',
+  barra_dominades: 'barra_dominades',
+  rings: 'anelles',
+  anelles: 'anelles',
+  // Cardio
+  rope: 'corda',
+  corda: 'corda',
+  jump_rope: 'comba',
+  comba: 'comba',
+  step: 'step',
+  bicicleta: 'bicicleta',
+  bike: 'bicicleta',
+  cinta: 'cinta',
+  treadmill: 'cinta',
+  // Mobility & recovery
+  foam_roller: 'foam_roller',
+  foam_roll: 'foam_roller',
+  pilota_massatge: 'pilota_massatge',
+  massage_ball: 'pilota_massatge',
+  mat: 'mat',
+  yoga_mat: 'mat',
+  // Stability
+  fitball: 'fitball',
+  exercise_ball: 'fitball',
+  swiss_ball: 'fitball',
+  bosu: 'bosu',
+  plataforma_inestable: 'plataforma_inestable',
+  // Other
+  paralettes: 'paralettes',
+  plyo_box: 'plyo_box',
+  box: 'plyo_box',
+  sandbag: 'sandbag',
+  // Legacy
+  pilates: 'pilates',
+  // Cable / machines: no canonical match yet — fall back to barra to retain a load metric
+  cable: 'barra',
+  machine: 'barra',
 }
 
 const TAG_ALIASES: Record<string, ExerciseTag> = {
@@ -129,6 +165,36 @@ const TAG_ALIASES: Record<string, ExerciseTag> = {
   warmup: 'escalfament',
   tornada_calma: 'tornada_calma',
   cooldown: 'tornada_calma',
+  // Strength
+  forca: 'forca',
+  strength: 'forca',
+  hipertrofia: 'hipertrofia',
+  hypertrophy: 'hipertrofia',
+  potencia: 'potencia',
+  power: 'potencia',
+  resistencia: 'resistencia',
+  endurance: 'resistencia',
+  // Mobility / yoga / breath
+  iogues: 'iogues',
+  yoga: 'iogues',
+  respiracio: 'respiracio',
+  breathing: 'respiracio',
+  mobilitat_toracica: 'mobilitat_toracica',
+  thoracic_mobility: 'mobilitat_toracica',
+  anti_rotacio: 'anti_rotacio',
+  anti_rotation: 'anti_rotacio',
+  // Pre/postnatal
+  gestacio: 'gestacio',
+  pregnancy: 'gestacio',
+  prenatal: 'gestacio',
+  postpart: 'postpart',
+  postpartum: 'postpart',
+  sol_pelvic: 'sol_pelvic',
+  pelvic_floor: 'sol_pelvic',
+  // Other
+  prehab: 'prehab',
+  unilateral: 'unilateral',
+  isometric: 'isometric',
 }
 
 const RESTRICTION_ALIASES: Record<string, RestrictionCondition> = {
@@ -139,6 +205,18 @@ const RESTRICTION_ALIASES: Record<string, RestrictionCondition> = {
   rehab_turmell: 'rehab_turmell',
   ankle_rehab: 'rehab_turmell',
   tendinitis_rotuliana: 'tendinitis_rotuliana',
+  tendinitis_aquilea: 'tendinitis_aquilea',
+  achilles_tendinopathy: 'tendinitis_aquilea',
+  lesio_lumbar_aguda: 'lesio_lumbar_aguda',
+  acute_lumbar_injury: 'lesio_lumbar_aguda',
+  embaras: 'embaras',
+  pregnancy: 'embaras',
+  postpart: 'postpart',
+  postpartum: 'postpart',
+  diastasi: 'diastasi',
+  diastasis: 'diastasi',
+  hipertensio: 'hipertensio',
+  hypertension: 'hipertensio',
 }
 
 const CATEGORY_ALIASES: Record<string, ExerciseCategory> = {

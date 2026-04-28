@@ -25,12 +25,42 @@ export const CANONICAL_MUSCLE_GROUPS = [
 ] as const
 
 export const CANONICAL_EQUIPMENT = [
+  // Bodyweight
   'pes_corporal',
+  // Free weights
   'manueles',
+  'kettlebell',
   'barra',
+  'discos',
+  'weight_vest',
+  // Bands & elastics
   'banda_elastica',
-  'pilates',
+  'mini_band',
+  'banda_tubular',
+  // Suspension & bars
   'trx',
+  'barra_dominades',
+  'anelles',
+  // Cardio
+  'corda',
+  'comba',
+  'step',
+  'bicicleta',
+  'cinta',
+  // Mobility & recovery
+  'foam_roller',
+  'pilota_massatge',
+  'mat',
+  // Stability
+  'fitball',
+  'bosu',
+  'plataforma_inestable',
+  // Calisthenics / other
+  'paralettes',
+  'plyo_box',
+  'sandbag',
+  // Legacy keys still present in catalog
+  'pilates',
 ] as const
 
 export const CANONICAL_EXERCISE_TAGS = [
@@ -49,6 +79,24 @@ export const CANONICAL_EXERCISE_TAGS = [
   'mobilitat',
   'escalfament',
   'tornada_calma',
+  // Strength & hypertrophy
+  'forca',
+  'hipertrofia',
+  'potencia',
+  'resistencia',
+  // Mobility / yoga / breath
+  'iogues',
+  'respiracio',
+  'mobilitat_toracica',
+  'anti_rotacio',
+  // Pre/postnatal
+  'gestacio',
+  'postpart',
+  'sol_pelvic',
+  // Other
+  'prehab',
+  'unilateral',
+  'isometric',
 ] as const
 
 export const CANONICAL_RESTRICTION_CONDITIONS = [
@@ -56,6 +104,12 @@ export const CANONICAL_RESTRICTION_CONDITIONS = [
   'rehab_lumbar',
   'rehab_turmell',
   'tendinitis_rotuliana',
+  'tendinitis_aquilea',
+  'lesio_lumbar_aguda',
+  'embaras',
+  'postpart',
+  'diastasi',
+  'hipertensio',
 ] as const
 
 export const CANONICAL_LEVELS = ['beginner', 'intermediate', 'expert'] as const
