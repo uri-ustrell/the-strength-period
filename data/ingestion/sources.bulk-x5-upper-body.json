@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "adapter": "llm-json",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-candidates/bulk-x5-upper-body.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-generated candidates",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias.",
+        "verifiedAt": "2026-04-20T00:00:00.000Z",
+        "verifiedBy": "copilot-session"
+      }
+    }
+  ]
+}

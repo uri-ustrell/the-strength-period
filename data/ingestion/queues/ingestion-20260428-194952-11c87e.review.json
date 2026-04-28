@@ -1,0 +1,17 @@
+{
+  "runId": "ingestion-20260428-194952-11c87e",
+  "createdAt": "2026-04-28T19:49:52.097Z",
+  "items": [
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_pull_apart_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "canonicalId": "band_pull_apart_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

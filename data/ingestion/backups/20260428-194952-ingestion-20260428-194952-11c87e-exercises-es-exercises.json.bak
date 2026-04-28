@@ -13,14 +13,12 @@
   "Ball_Leg_Curl": "Curl de piernas con pelota",
   "band_bicep_curl_v1": "Curl de bíceps con banda",
   "band_chest_press_standing_v1": "Press de pecho con banda (de pie)",
-  "band_face_pull_v1": "Face pull con banda",
   "Band_Good_Morning": "Good morning con banda",
   "Band_Hip_Adductions": "Aducción de cadera con banda",
   "band_lateral_walk_v1": "Marcha lateral con banda elástica",
   "band_overhead_press_v1": "Press por encima con banda elástica",
   "Band_Pull_Apart": "Pull apart con banda",
   "band_squat_v1": "Sentadilla con banda elástica",
-  "band_tricep_pushdown_v1": "Extensión de tríceps con banda",
   "Barbell_Bench_Press_-_Medium_Grip": "Press de banca con barra - agarre medio",
   "Barbell_Deadlift": "Peso muerto con barra",
   "Barbell_Glute_Bridge": "Puente de glúteos con barra",
@@ -28,11 +26,6 @@
   "Barbell_Lunge": "Zancada con barra",
   "Barbell_Squat": "Sentadilla con barra",
   "Barbell_Step_Ups": "Step up con barra",
-  "bb_bent_over_row_v1": "Remo con barra inclinado",
-  "bb_bicep_curl_v1": "Curl de bíceps con barra",
-  "bb_close_grip_bench_v1": "Press de banca agarre cerrado",
-  "bb_overhead_press_v1": "Press militar con barra",
-  "bb_shrug_v1": "Encogimiento de hombros con barra",
   "Bench_Dips": "Fondos en banco",
   "Bent_Over_Barbell_Row": "Remo con barra inclinado",
   "Bodyweight_Squat": "Sentadilla con peso corporal",
@@ -48,18 +41,6 @@
   "Crossover_Reverse_Lunge": "Zancada inversa cruzada",
   "Crunches": "Abdominales",
   "Dancers_Stretch": "Estiramiento del bailarín",
-  "db_arnold_press_v1": "Press Arnold",
-  "db_chest_supported_row_v1": "Remo con mancuernas con apoyo en el pecho",
-  "db_concentration_curl_v1": "Curl de concentración",
-  "db_hammer_curl_v1": "Curl martillo con mancuernas",
-  "db_incline_bench_press_v1": "Press de banca inclinado con mancuernas",
-  "db_lateral_raise_v1": "Elevación lateral con mancuernas",
-  "db_pullover_v1": "Pullover con mancuerna",
-  "db_rear_delt_fly_v1": "Apertura posterior con mancuernas",
-  "db_renegade_row_v1": "Renegade row",
-  "db_single_arm_row_v1": "Remo a una mano con mancuerna",
-  "db_skullcrusher_v1": "Skullcrusher con mancuernas",
-  "db_zottman_curl_v1": "Curl Zottman",
   "Dead_Bug": "Dead bug",
   "Decline_Crunch": "Crunch declinado",
   "Decline_Oblique_Crunch": "Crunch declinado oblicuo",
@@ -88,14 +69,6 @@
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estiramiento de flexor de cadera y cuádriceps",
   "IT_Band_and_Glute_Stretch": "Estiramiento de banda iliotibial y glúteos",
   "Jackknife_Sit-Up": "Sit-up en V",
-  "kb_clean_v1": "Clean con kettlebell",
-  "kb_farmer_carry_v1": "Farmer carry con kettlebells",
-  "kb_goblet_squat_v1": "Sentadilla goblet con kettlebell",
-  "kb_halo_v1": "Halo con kettlebell",
-  "kb_press_v1": "Press a una mano con kettlebell",
-  "kb_swing_v1": "Kettlebell swing",
-  "kb_turkish_get_up_v1": "Turkish get-up",
-  "kb_windmill_v1": "Windmill con kettlebell",
   "Knee_Tuck_Jump": "Salto con rodillas al pecho",
   "Kneeling_Hip_Flexor": "Estiramiento de flexor de cadera arrodillado",
   "lateral_step_down_v1": "Descenso lateral en escalón",
@@ -120,14 +93,12 @@
   "postpp_ta_bracing_supine_v1": "Activación transverso abdominal (decúbito supino)",
   "postpp_wall_sit_isometric_v1": "Sentadilla de pared (isométrica)",
   "Prone_Manual_Hamstring": "Isquiotibiales manual en pronación",
-  "pullup_neutral_grip_v1": "Dominada con agarre neutro",
   "Pullups": "Dominadas",
   "Push_Up_to_Side_Plank": "Flexión a plancha lateral",
   "Pushups": "Flexiones",
   "Quadriceps-SMR": "Cuádriceps - Liberación miofascial",
   "resistance_band_row_standing_v1": "Remo con banda elástica (de pie)",
   "Reverse_Crunch": "Crunch inverso",
-  "ring_row_v1": "Remo con anillas",
   "Romanian_Deadlift": "Peso muerto rumano",
   "Russian_Twist": "Giro ruso",
   "Seated_Cable_Rows": "Remo con cable sentado",
@@ -169,11 +140,6 @@
       "Agarra un extremo con cada mano, un pie ligeramente adelante para estabilidad.",
       "Empuja las manos hacia adelante hasta casi extendidos; vuelve lentamente en 2 seg."
     ],
-    "band_face_pull_v1": [
-      "Ancla una banda a la altura de la cara y da un paso atrás para tensarla, sosteniendo los extremos con palmas abajo.",
-      "Tira de la banda hacia la cara guiando con los codos abiertos y haciendo rotación externa del hombro.",
-      "Vuelve en 2 segundos sin perder tensión."
-    ],
     "band_lateral_walk_v1": [
       "Coloca una banda elástica sobre los tobillos o rodillas; rodillas ligeramente flexionadas.",
       "Da pasos laterales controlados manteniendo tensión constante en la banda y el core estable.",
@@ -189,11 +155,6 @@
       "Empuja las rodillas hacia afuera para oponer resistencia a la banda mientras haces la sentadilla.",
       "Baja hasta paralelo o más abajo; sube empujando por talones."
     ],
-    "band_tricep_pushdown_v1": [
-      "Ancla una banda en alto y agarra los extremos con los codos pegados al cuerpo.",
-      "Empuja la banda hacia abajo extendiendo completamente los codos sin mover los brazos.",
-      "Vuelve en 2 segundos a la posición inicial."
-    ],
     "Barbell_Deadlift": [
       "Sitúate frente a la barra con los pies al ancho de las caderas.",
       "Flexiona las caderas y agarra la barra con las manos al ancho de los hombros.",
@@ -207,91 +168,6 @@
       "Mantén la espalda recta y el pecho erguido durante todo el movimiento.",
       "Baja hasta que las caderas estén por debajo de las rodillas (o hasta donde la movilidad permita).",
       "Empuja con los talones para volver a la posición inicial."
-    ],
-    "bb_bent_over_row_v1": [
-      "Inclínate por las caderas hasta unos 45° de torso, sosteniendo la barra con agarre prono por fuera de las rodillas.",
-      "Tira de la barra hacia las costillas inferiores guiando con los codos y juntando las escápulas.",
-      "Baja en 2 segundos al inicio sin redondear la espalda."
-    ],
-    "bb_bicep_curl_v1": [
-      "De pie con la barra a longitud de brazo, manos al ancho de hombros, palmas hacia delante.",
-      "Flexiona los codos para subir la barra hacia los hombros sin balancear el torso.",
-      "Baja en 2–3 segundos hasta la extensión completa del codo."
-    ],
-    "bb_close_grip_bench_v1": [
-      "Túmbate en un banco con la barra agarrada al ancho de los hombros, codos ligeramente pegados.",
-      "Baja la barra al pecho bajo en 2 segundos manteniendo los codos pegados a unos 30°.",
-      "Empuja la barra hacia arriba hasta la extensión sin abrir los codos."
-    ],
-    "bb_overhead_press_v1": [
-      "De pie con pies al ancho de cadera y la barra en posición rack en los hombros, manos justo por fuera del ancho de hombros.",
-      "Empuja la barra recta hacia arriba moviendo la cabeza ligeramente hacia delante cuando pasa por delante de la cara.",
-      "Baja en 2–3 segundos al rack frontal con los codos flexionados."
-    ],
-    "bb_shrug_v1": [
-      "De pie con la barra a longitud de brazo frente a los muslos, manos al ancho de hombros.",
-      "Eleva los hombros directamente hacia las orejas sin rotarlos.",
-      "Pausa breve arriba y baja los hombros de forma controlada."
-    ],
-    "db_arnold_press_v1": [
-      "Siéntate en un banco con respaldo con dos mancuernas frente a los hombros y las palmas hacia el cuerpo.",
-      "Empuja las mancuernas hacia arriba mientras rotas las palmas hacia fuera hasta extender los brazos.",
-      "Invierte el movimiento en 2 segundos hasta la posición inicial."
-    ],
-    "db_chest_supported_row_v1": [
-      "Túmbate boca abajo en un banco inclinado a unos 30° con una mancuerna en cada mano y brazos colgando.",
-      "Tira de ambas mancuernas hacia las costillas juntando las escápulas.",
-      "Baja en 2 segundos hasta la extensión completa."
-    ],
-    "db_concentration_curl_v1": [
-      "Siéntate en un banco con las piernas abiertas sosteniendo una mancuerna y apoyando ese codo contra la cara interna del muslo.",
-      "Flexiona el codo para subir la mancuerna hasta el hombro manteniendo el codo fijo.",
-      "Baja en 2 segundos; completa las repeticiones antes de cambiar de brazo."
-    ],
-    "db_hammer_curl_v1": [
-      "De pie con una mancuerna en cada mano a los lados del cuerpo, palmas enfrentadas (agarre neutro).",
-      "Flexiona los codos para llevar las mancuernas hacia los hombros sin rotar las muñecas.",
-      "Baja en 2–3 segundos de forma controlada."
-    ],
-    "db_incline_bench_press_v1": [
-      "Coloca un banco reclinable a 30–45° y túmbate con una mancuerna en cada mano a la altura del hombro, palmas hacia delante.",
-      "Empuja ambas mancuernas hacia arriba y ligeramente hacia dentro hasta extender los brazos sin bloquear los codos.",
-      "Baja las mancuernas en 2–3 segundos hasta que los codos lleguen al nivel del pecho, manteniendo las escápulas retraídas."
-    ],
-    "db_lateral_raise_v1": [
-      "De pie con una mancuerna en cada mano, brazos relajados a los lados y ligera flexión de codo.",
-      "Eleva ambos brazos a los lados hasta la altura de los hombros, guiando con el codo.",
-      "Baja en 2–3 segundos hasta la posición inicial sin balanceo."
-    ],
-    "db_pullover_v1": [
-      "Túmbate sobre un banco sosteniendo una mancuerna con ambas manos sobre el pecho y los codos ligeramente flexionados.",
-      "Baja la mancuerna en arco hacia detrás de la cabeza hasta sentir un estiramiento en el dorsal y pecho, manteniendo la zona lumbar en contacto con el banco.",
-      "Vuelve a llevar la mancuerna sobre el pecho de forma controlada."
-    ],
-    "db_rear_delt_fly_v1": [
-      "Inclínate por las caderas con la espalda recta, mancuernas ligeras y brazos colgando, palmas enfrentadas.",
-      "Eleva los brazos a los lados juntando las escápulas hasta que el brazo alcance el nivel del torso.",
-      "Baja en 2 segundos al inicio de forma controlada."
-    ],
-    "db_renegade_row_v1": [
-      "Colócate en posición de flexión con las manos sobre dos mancuernas separadas al ancho de los hombros, pies más abiertos que las caderas.",
-      "Tira de una mancuerna hacia el costado del torso manteniendo las caderas paralelas al suelo.",
-      "Baja controlado y alterna lados durante las repeticiones."
-    ],
-    "db_single_arm_row_v1": [
-      "Apoya una rodilla y la mano del mismo lado sobre un banco; el otro pie en el suelo y la mancuerna en la mano libre.",
-      "Tira de la mancuerna hacia el costado del torso guiando con el codo.",
-      "Baja en 2 segundos; completa todas las repeticiones antes de cambiar de lado."
-    ],
-    "db_skullcrusher_v1": [
-      "Túmbate en un banco con dos mancuernas extendidas sobre el pecho, palmas enfrentadas.",
-      "Flexiona los codos para bajar las mancuernas hacia las sienes manteniendo los brazos verticales.",
-      "Extiende los codos para volver sin abrirlos."
-    ],
-    "db_zottman_curl_v1": [
-      "De pie con una mancuerna en cada mano a los lados del cuerpo, palmas hacia delante.",
-      "Flexiona los codos hasta los hombros, luego rota las muñecas para que las palmas queden abajo arriba.",
-      "Baja en 3 segundos con las palmas abajo y rota a palmas arriba al final del recorrido."
     ],
     "depth_jump_v1": [
       "De pie sobre una caja (20–40 cm), da un paso al frente y cae al suelo con ambos pies.",
@@ -328,46 +204,6 @@
       "De pie en el borde de un escalón con la mitad del pie, agarrándose a una pared para equilibrarse.",
       "Sube de puntillas con ambas piernas y baja lentamente en 4–5 seg con una sola pierna, dejando que el talón caiga por debajo del nivel del escalón.",
       "Vuelve con ambas piernas y repite. Progresa añadiendo carga o aumentando repeticiones."
-    ],
-    "kb_clean_v1": [
-      "Empieza con la kettlebell en el suelo entre los pies, flexiona las caderas y agárrala con una mano.",
-      "Empuja las caderas hacia delante para subir la kettlebell, guiando el codo hacia atrás mientras la campana rota alrededor de la muñeca.",
-      "Recibe la kettlebell en posición rack en el hombro y vuelve al suelo."
-    ],
-    "kb_farmer_carry_v1": [
-      "Sostén una kettlebell pesada en cada mano a los lados, hombros fijos y costillas hacia abajo.",
-      "Camina hacia delante con pasos controlados durante la distancia o tiempo prescritos.",
-      "Deja las kettlebells en el suelo con una flexión de caderas, no las dejes caer."
-    ],
-    "kb_goblet_squat_v1": [
-      "Sostén una kettlebell a la altura del pecho con ambas manos sujetando la campana.",
-      "Realiza la sentadilla manteniendo el pecho alto y los codos siguiendo por dentro de las rodillas.",
-      "Levántate empujando por la planta del pie."
-    ],
-    "kb_halo_v1": [
-      "Sostén una kettlebell ligera invertida por los cuernos a la altura del pecho.",
-      "Haz círculos con la kettlebell alrededor de la cabeza pegada al cráneo con los codos flexionados.",
-      "Invierte la dirección a mitad de la serie."
-    ],
-    "kb_press_v1": [
-      "De pie con la kettlebell en posición rack en el hombro, codo pegado al cuerpo y la otra mano al costado.",
-      "Empuja la kettlebell hacia arriba hasta extender completamente el brazo con el bíceps cerca de la oreja.",
-      "Baja en 2–3 segundos al rack y completa las repeticiones antes de cambiar."
-    ],
-    "kb_swing_v1": [
-      "De pie con los pies al ancho de hombros y la kettlebell en el suelo a un pie de distancia delante.",
-      "Flexiona las caderas, agarra la kettlebell con ambas manos y pásala entre las piernas.",
-      "Empuja las caderas hacia delante explosivamente para columpiar la kettlebell hasta la altura del pecho y deja que vuelva a la siguiente repetición."
-    ],
-    "kb_turkish_get_up_v1": [
-      "Túmbate boca arriba con un brazo sosteniendo una kettlebell sobre la cabeza, misma rodilla flexionada y pie apoyado.",
-      "Levántate hasta el codo, luego hasta la mano, y pasa la pierna recta por debajo hasta arrodillarte, manteniendo la kettlebell sobre el hombro.",
-      "Ponte de pie controlado y revierte todos los pasos hasta el suelo; alterna lados."
-    ],
-    "kb_windmill_v1": [
-      "De pie con los pies más abiertos que los hombros y una kettlebell ligera presionada sobre la cabeza con una mano.",
-      "Rota los pies 45° hacia el lado de la mano libre y desliza esa mano por la cara interna de la pierna mientras empujas la cadera hacia el lado cargado.",
-      "Vuelve al inicio contrayendo oblicuos y glúteos; cambia de lado."
     ],
     "Lat_Pulldown": [
       "Siéntate en la máquina de polea alta con los muslos fijados bajo las almohadillas.",
@@ -450,11 +286,6 @@
       "Deslízate hacia abajo hasta que los muslos queden casi paralelos (o a un ángulo cómodo), manteniendo las rodillas sobre los tobillos.",
       "Mantén la posición el tiempo indicado respirando normalmente y vuelve a subir deslizando."
     ],
-    "pullup_neutral_grip_v1": [
-      "Cuélgate de mangos paralelos de dominadas con palmas enfrentadas, brazos completamente extendidos.",
-      "Tira del pecho hacia la barra empujando los codos abajo y atrás.",
-      "Baja en 2–3 segundos hasta la suspensión muerta de forma controlada."
-    ],
     "Pushups": [
       "Sitúate en posición de plancha con las manos al ancho de los hombros.",
       "Baja el cuerpo flexionando los codos hasta que el pecho casi toque el suelo.",
@@ -466,11 +297,6 @@
       "Sujeta una banda elástica anclada a la altura de la cadera o con ambos extremos en las manos.",
       "De pie con rodillas ligeramente flexionadas, lleva los codos hacia atrás acercando las manos a los costados del tronco y juntando las escápulas.",
       "Regresa lentamente a la posición inicial con 2 segundos de control."
-    ],
-    "ring_row_v1": [
-      "Coloca las anillas a la altura de la cadera y agárralas con brazos extendidos, cuerpo en línea recta y talones en el suelo.",
-      "Tira del pecho hacia las anillas retrayendo las escápulas y flexionando los codos.",
-      "Baja en 2 segundos a la extensión completa; eleva los pies sobre un cajón para mayor dificultad."
     ],
     "seated_marching_v1": [
       "Siéntate erguido en una silla con los pies en el suelo y las manos sobre los muslos o a los lados.",

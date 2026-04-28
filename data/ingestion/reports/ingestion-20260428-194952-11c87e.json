@@ -1,0 +1,430 @@
+{
+  "runId": "ingestion-20260428-194952-11c87e",
+  "startedAt": "2026-04-28T19:49:52.005Z",
+  "completedAt": "2026-04-28T19:49:52.097Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 29,
+    "skipped": 1,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "db_incline_bench_press_v1",
+    "db_pullover_v1",
+    "db_arnold_press_v1",
+    "db_lateral_raise_v1",
+    "db_rear_delt_fly_v1",
+    "db_renegade_row_v1",
+    "db_single_arm_row_v1",
+    "db_skullcrusher_v1",
+    "db_hammer_curl_v1",
+    "db_concentration_curl_v1",
+    "kb_swing_v1",
+    "kb_goblet_squat_v1",
+    "kb_clean_v1",
+    "kb_press_v1",
+    "kb_turkish_get_up_v1",
+    "kb_farmer_carry_v1",
+    "kb_halo_v1",
+    "kb_windmill_v1",
+    "bb_overhead_press_v1",
+    "bb_bent_over_row_v1",
+    "bb_close_grip_bench_v1",
+    "bb_bicep_curl_v1",
+    "bb_shrug_v1",
+    "band_face_pull_v1",
+    "band_tricep_pushdown_v1",
+    "ring_row_v1",
+    "pullup_neutral_grip_v1",
+    "db_chest_supported_row_v1",
+    "db_zottman_curl_v1"
+  ],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-194952-11c87e.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/planning.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/planning.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-194952-11c87e.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x5-upper-body",
+      "adapterId": "llm-json",
+      "candidateCount": 30
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_incline_bench_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_incline_bench_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_incline_bench_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_pullover_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_pullover_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_pullover_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_arnold_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_arnold_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_arnold_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_lateral_raise_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_lateral_raise_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_lateral_raise_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_rear_delt_fly_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_rear_delt_fly_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_rear_delt_fly_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_renegade_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_renegade_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_renegade_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_single_arm_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_single_arm_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_single_arm_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_skullcrusher_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_skullcrusher_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_skullcrusher_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_hammer_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_hammer_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_hammer_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_concentration_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_concentration_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_concentration_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_swing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_swing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_swing_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_goblet_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_goblet_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_goblet_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_clean_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_clean_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_turkish_get_up_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_turkish_get_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_turkish_get_up_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_farmer_carry_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_farmer_carry_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_farmer_carry_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_halo_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_halo_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_halo_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_windmill_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_windmill_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_windmill_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_overhead_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_overhead_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_overhead_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_bent_over_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_bent_over_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_bent_over_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_close_grip_bench_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_close_grip_bench_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_close_grip_bench_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_bicep_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_bicep_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_bicep_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_shrug_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_shrug_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_shrug_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_pull_apart_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_pull_apart_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "band_pull_apart_v1",
+      "duplicateOf": "Band_Pull_Apart"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_face_pull_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_face_pull_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_face_pull_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_tricep_pushdown_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_tricep_pushdown_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_tricep_pushdown_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:ring_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "ring_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "ring_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:pullup_neutral_grip_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "pullup_neutral_grip_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pullup_neutral_grip_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_chest_supported_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_chest_supported_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_chest_supported_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_zottman_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_zottman_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_zottman_curl_v1"
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "runId": "ingestion-20260428-194526-920a65",
+  "startedAt": "2026-04-28T19:45:26.357Z",
+  "completedAt": "2026-04-28T19:45:26.381Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 0,
+    "skipped": 30,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-194526-920a65.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-194526-920a65.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x5-upper-body",
+      "adapterId": "llm-json",
+      "candidateCount": 30
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_incline_bench_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_incline_bench_press_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "db_incline_bench_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_pullover_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_pullover_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat_toracica.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat_toracica.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat_toracica."
+      ],
+      "canonicalId": "db_pullover_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_arnold_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_arnold_press_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "db_arnold_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_lateral_raise_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_lateral_raise_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "db_lateral_raise_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_rear_delt_fly_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_rear_delt_fly_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "db_rear_delt_fly_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_renegade_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_renegade_row_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.ca.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.en.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.es.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca."
+      ],
+      "canonicalId": "db_renegade_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_single_arm_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_single_arm_row_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.unilateral."
+      ],
+      "canonicalId": "db_single_arm_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_skullcrusher_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_skullcrusher_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.isometric.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.isometric.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.isometric."
+      ],
+      "canonicalId": "db_skullcrusher_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_hammer_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_hammer_curl_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "db_hammer_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_concentration_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_concentration_curl_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "db_concentration_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_swing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_swing_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.potencia.",
+        "LLM i18n contract missing i18n.en.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.potencia.",
+        "LLM i18n contract missing i18n.es.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.potencia."
+      ],
+      "canonicalId": "kb_swing_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_goblet_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_goblet_squat_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "kb_goblet_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_clean_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.potencia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.potencia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.potencia."
+      ],
+      "canonicalId": "kb_clean_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_press_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.en.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.es.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.unilateral."
+      ],
+      "canonicalId": "kb_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_turkish_get_up_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_turkish_get_up_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.ca.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.en.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.en.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.unilateral.",
+        "LLM i18n contract missing i18n.es.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.es.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.unilateral."
+      ],
+      "canonicalId": "kb_turkish_get_up_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_farmer_carry_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_farmer_carry_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.ca.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.en.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.es.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca."
+      ],
+      "canonicalId": "kb_farmer_carry_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_halo_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_halo_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "kb_halo_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:kb_windmill_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "kb_windmill_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.ca.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.en.preset_tags.mobilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.anti_rotacio.",
+        "LLM i18n contract missing i18n.es.preset_tags.mobilitat."
+      ],
+      "canonicalId": "kb_windmill_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_overhead_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_overhead_press_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "bb_overhead_press_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_bent_over_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_bent_over_row_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "bb_bent_over_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_close_grip_bench_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_close_grip_bench_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "bb_close_grip_bench_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_bicep_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_bicep_curl_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "bb_bicep_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:bb_shrug_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "bb_shrug_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "bb_shrug_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_pull_apart_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_pull_apart_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "band_pull_apart_v1",
+      "duplicateOf": "Band_Pull_Apart"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_face_pull_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_face_pull_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.escalfament.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "band_face_pull_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:band_tricep_pushdown_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "band_tricep_pushdown_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "band_tricep_pushdown_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:ring_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "ring_row_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.core_estabilitat.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca."
+      ],
+      "canonicalId": "ring_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:pullup_neutral_grip_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "pullup_neutral_grip_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca."
+      ],
+      "canonicalId": "pullup_neutral_grip_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_chest_supported_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_chest_supported_row_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.forca.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.ca.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.en.preset_tags.forca.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.prehab.",
+        "LLM i18n contract missing i18n.es.preset_tags.forca.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.prehab."
+      ],
+      "canonicalId": "db_chest_supported_row_v1"
+    },
+    {
+      "candidateId": "bulk-x5-upper-body:exercise:db_zottman_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x5-upper-body",
+      "sourceExternalId": "db_zottman_curl_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "LLM i18n contract missing i18n.ca.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.en.preset_tags.hipertrofia.",
+        "LLM i18n contract missing i18n.es.preset_tags.hipertrofia."
+      ],
+      "canonicalId": "db_zottman_curl_v1"
+    }
+  ]
+}
