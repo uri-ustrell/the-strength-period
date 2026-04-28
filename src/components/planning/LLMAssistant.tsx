@@ -15,6 +15,7 @@ import {
 import type { Exercise } from '@/types/exercise'
 import type { Mesocycle } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
+import { FEEDBACK_TOAST_MS } from '@/utils/uiTiming'
 
 interface LLMAssistantProps {
   preset: Preset | null
@@ -115,7 +116,7 @@ export const LLMAssistant = ({
     try {
       await navigator.clipboard.writeText(prompt)
       setCopyFeedback(true)
-      setTimeout(() => setCopyFeedback(false), 2000)
+      setTimeout(() => setCopyFeedback(false), FEEDBACK_TOAST_MS)
     } catch {
       // Fallback: select the text area content
       const textarea = document.getElementById('llm-prompt-display') as HTMLTextAreaElement | null

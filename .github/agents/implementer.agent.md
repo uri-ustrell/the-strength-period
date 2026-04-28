@@ -17,6 +17,7 @@ You are the **Implementer** for The Strength Period. Implement one feature at a 
 - DO NOT modify specs — flag issues and stop
 - DO NOT skip dependency checks (verify in STATUS.md)
 - DO NOT hardcode user-facing strings — use i18next (ca/es/en)
+- DO NOT hardcode UI feedback timings (e.g. `setTimeout(..., 700)`) — import from `@/utils/uiTiming` (`FEEDBACK_CONFIRM_MS`, `FEEDBACK_TOAST_MS`, `FEEDBACK_MICRO_MS`). Add a new constant there if a different rhythm is genuinely needed.
 - DO NOT add features beyond spec
 - ALWAYS use `@/` path alias and named exports (except lazy pages)
 

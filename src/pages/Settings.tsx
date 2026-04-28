@@ -6,6 +6,7 @@ import { EquipmentChipSelector } from '@/components/onboarding/EquipmentChipSele
 import { WeightSelector } from '@/components/ui/WeightSelector'
 import { useUserStore } from '@/stores/userStore'
 import type { DayOfWeek } from '@/types/exercise'
+import { FEEDBACK_CONFIRM_MS } from '@/utils/uiTiming'
 
 const MINUTES_OPTIONS = [15, 30, 45, 60, 90]
 
@@ -43,8 +44,10 @@ export const SettingsPage = () => {
   const handleSave = useCallback(async () => {
     await completeOnboarding()
     setSaved(true)
-    setTimeout(() => setSaved(false), 2000)
-  }, [completeOnboarding])
+    setTimeout(() => {
+      navigate(-1)
+    }, FEEDBACK_CONFIRM_MS)
+  }, [completeOnboarding, navigate])
 
   return (
     <div className="min-h-screen bg-gray-50 pb-24">

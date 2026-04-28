@@ -402,6 +402,194 @@ Metrics are split into positive outcomes and anti-addiction safety checks.
 - [ ] Update `specs/STATUS.md` and `specs/STATUS_HISTORY.md`.
 - [ ] Update `tasks/todo.md` with completion and verification notes.
 
+## Aesthetic Layer — Retro Platformer UI/UX
+
+### Intent
+
+The training surfaces of the app must feel like a retro platformer game, not like another generic Tailwind dashboard. The metaphor is deliberate: a workout is a level, a week is a world, a mesocycle is a quest. Aesthetic identity reinforces consistency motivation **without** introducing any pattern banned by the guardrails above.
+
+This section is purely additive. It does **not** replace, weaken or contradict any rule from the Non-Negotiable Guardrails or Forbidden Patterns sections. If a visual idea ever conflicts with those, the guardrails win and the visual idea is dropped.
+
+### Visual Language
+
+- **Style direction:** 8/16-bit pixel art (NES/SNES era — Mega Man, Super Mario World, Metroid). Crisp pixels, limited palette per scene, deliberate dithering allowed.
+- **Palette:** scene-scoped 16-32 color sub-palettes derived from a master palette. Each "world" (week) gets a dominant hue family; sessions inherit it. Master palette and sub-palettes are tokens (CSS variables) so they can be themed without code changes.
+- **Typography:** one bitmap/pixel display face for game surfaces (titles, level names, HUD numbers); the existing system font is retained for any body copy that demands legibility (long instructions, transparency disclosures, accessibility text).
+- **Iconography:** existing Lucide icons stay in tool surfaces; game surfaces use pixel-sprite icons (SVG-based, no PNG raster required at v1).
+- **Motion:** deliberate, low-frequency, easing-stepped (no smooth tweens for HUD numbers — count up in steps). Respect `prefers-reduced-motion` everywhere — when set, all game motion degrades to instant state changes with no parallax.
+
+### Surface Classification
+
+| Surface | Class | Treatment |
+|---|---|---|
+| Dashboard | `game` | World map (see Navigation Metaphor) |
+| Session execution (`/session`) | `game` | Side-scroll level run with checkpoints per exercise |
+| Stats / progress | `game` | Inventory + HUD-style readout |
+| Plan creator | `tool` | Tailwind clean (current style) |
+| Settings | `tool` | Tailwind clean |
+| Onboarding | `tool` | Tailwind clean (consider a single pixel-art mascot intro card as bridge) |
+| Data import/export | `tool` | Tailwind clean |
+
+Tool surfaces must remain frictionless and high-readability. The aesthetic separation is intentional: configuration is a contract, training is a quest.
+
+### Navigation Metaphor — World Map
+
+- **Mesocycle = quest** — overall horizontal/vertical scroll map. Title above (preset name + cycle index).
+- **Week = world** — a self-contained map region with its own dominant palette, parallax background and ambient micro-anims.
+- **Session = level node** — a clickable node on the world's path. Visual states: locked (silhouetted), available (subtle highlight pulse, NEVER aggressive), in-progress (animated marker), completed (checkpoint flag with deterministic stamp), skipped (path branch greyed out, never visually shamed).
+- **Routing:** map state derives from the existing `Mesocycle` data (no new persistence required for the aesthetic layer). Order matches `weekNumber` then `dayOfWeek`.
+- **Lock/unlock rule:** the "lock" is **purely visual storytelling**, not a behavior gate. Users keep all current freedoms (skip session, jump session, restart). Locked appearance only signals "future" — never blocks the user from navigating to it.
+
+### Session Execution Surface
+
+- **Layout:** horizontal level strip (or vertical climb, decided per session). Each exercise is a visual checkpoint platform. Reps are coins, sets are sub-goals, RPE is a colored gem.
+- **HUD:** energy / volume / time-remaining as pixel meters. Numbers count in stepped increments to feel arcade. Honest readouts only — no inflated counters.
+- **Rest timer:** retro-styled pixel countdown with a chime SFX option (off by default). The timer never visually pressures (no flashing red urgency states).
+- **Completion:** end-of-session "level clear" frame: deterministic recap (sets done, RPE summary, recovery suggestion). No randomized rewards. No surprise loot. Dynamic copy from a curated pool is allowed only if every line passes the forbidden-pattern review.
+
+### Stats / Inventory Surface
+
+- Earned milestones display as inventory items / pixel sprites organised by deterministic categories (consistency, recovery, technique, longevity).
+- Each item has a tap-to-inspect detail card showing the exact rule that granted it (transparency requirement reused from existing Guardrail #5).
+- No "rare" or "legendary" tiers driven by chance. Tiers, if any, are purely volume-of-evidence based and explicitly explained.
+
+### Sound (Optional Layer)
+
+- All audio is **opt-in**. Default state is muted across the entire app.
+- Two channels: `sfx` (button presses, level clear, checkpoint) and `music` (ambient world loop). Each independently togglable.
+- Files must be small (chiptune `.ogg`/`.mp3` <= 60 KB total per world). Music loops are optional per world; SFX is shared.
+- Reduced-motion preference does **not** auto-mute audio (separate preference) but the Settings tool surface offers a single "Calm mode" master toggle that disables both motion-heavy effects and audio loops.
+
+### Accessibility Requirements (additive)
+
+- Pixel art must pass WCAG AA contrast for any text overlaid on it. Decorative pixel scenes do not need to pass contrast in isolation, but all functional text/icons rendered on top of them must.
+- Every game surface must have an equivalent `aria-label` description. Map nodes expose `role="link"` with name "Week N · Session M · {state}".
+- A "Classic mode" toggle in Settings switches all `game` surfaces to their Tailwind equivalent. Implementation order can ship game-only first if the Tailwind fallback is preserved for the same data.
+- Keyboard navigation: world map nodes are tab-focusable in chronological order. Arrow keys can move focus along the path.
+- All animation respects `prefers-reduced-motion`. No essential information is conveyed by motion alone.
+
+### Internationalization
+
+- All in-game copy (level names, world titles, HUD labels, level-clear messages) flows through `i18next` keys in ca/es/en, same as the rest of the app.
+- Pixel font must include extended Latin glyphs to support `à á è é í ï ó ò ú ü ç ñ`. If the chosen face does not, fall back to system font for those glyphs and document the limitation.
+
+### Technical Strategy
+
+- **Primary stack:** CSS + SVG + Tailwind utilities. Keyframe animations for parallax, sprite cycling, and node pulses. No additional runtime engine is added by default.
+- **Optional secondary:** Lottie or Rive can be introduced **only** for high-impact micro-animations (e.g. level-clear celebration, totem reveal). Bundle impact must stay under +60 KB gzipped for the entire aesthetic layer including all assets.
+- **No game engine** (Phaser/PixiJS) at v1. The metaphor is achieved by static composition + CSS motion, not real-time rendering.
+- **Asset pipeline:** all sprites authored as SVG with explicit pixel grid (`shape-rendering: crispEdges`); raster fallback only if a particular sprite cannot be expressed cleanly in SVG.
+- **Code splitting:** game surfaces lazy-loaded as a single chunk so tool surfaces (Settings/Onboarding/Plan creator) keep their current load cost.
+- **Persistence:** the aesthetic layer adds **zero new IndexedDB stores**. All game state derives from existing `Mesocycle`, `Session`, milestone, and config data. Aesthetic preferences (sound on/off, classic mode, reduced motion override) live under existing `UserConfig`.
+
+### Tokens & Theming
+
+- Introduce a `theme.game.*` namespace in CSS variables (palette, sprite scale, parallax depth). Each world resolves its sub-palette via a single CSS variable swap on the world container.
+- Tailwind continues to be the base utility layer; game surfaces consume tokens through CSS variables defined alongside Tailwind, **not** by replacing Tailwind.
+
+### Guardrail Cross-Check (must remain true)
+
+| Guardrail | Aesthetic layer compliance |
+|---|---|
+| Health over engagement | Map progression mirrors recovery state; no nudges to skip rest |
+| No punishment loops | Skipped levels are visually neutral (greyed path), never shamed |
+| No artificial urgency | Locked nodes show "future" framing, never countdowns |
+| No exploitative monetization | No paid skins, no paid worlds, no cosmetic gating behind donation |
+| Transparency first | Tap any node, badge or HUD readout to inspect the deterministic rule |
+| Autonomy and control | Calm mode + Classic mode + per-channel audio toggles |
+| Accessibility and inclusion | Reduced motion, classic fallback, AA contrast, aria descriptions |
+| Balanced copy | Level names and clear-screen messages reviewed against forbidden patterns |
+| Protect cognitive load | Stepped HUD, no reward spam, max 1 celebration per session end |
+| Data minimization | Zero new persisted events; aesthetic is derived state |
+
+### Out of Scope for the Aesthetic Layer (v1)
+
+- Real-time multiplayer or live leaderboards in any form.
+- Procedurally generated worlds.
+- 3D rendering or WebGL.
+- Heavy game engines (Phaser, PixiJS) — revisit only if v1 metrics justify it.
+- Custom sound editor or user-uploaded music.
+- Paid cosmetic packs.
+
+### Implementation Phasing (high-level — no estimates)
+
+1. **Phase A — Tokens & primitives.** Master palette, world sub-palettes, pixel font, base sprite primitives, Calm mode + Classic mode toggles wired to existing `UserConfig`.
+2. **Phase B — World map for Dashboard.** Render existing mesocycle as map nodes; lock/unlock states; tap node opens current session view.
+3. **Phase C — Session execution skin.** Side-scroll layout, pixel HUD, rest timer styling, level-clear frame.
+4. **Phase D — Stats inventory skin.** Milestones rendered as collectible sprites with inspect cards.
+5. **Phase E — Optional polish.** Lottie/Rive micro-anims (level clear, totem reveal). Sound layer (off by default).
+
+Each phase ships with: Classic-mode parity, zero new persisted state, full i18n coverage, accessibility audit, guardrail cross-check sign-off.
+
+### Extended Aesthetic Concepts
+
+The following concepts extend the base aesthetic layer. Each has been validated against the Non-Negotiable Guardrails and Forbidden Patterns. None of them introduce randomness in rewards, progress loss, paid cosmetics, or social pressure.
+
+#### 1. Mascot / Avatar Guide
+
+- A single recurring pixel character (working name TBD) appears on game surfaces as a companion. Performs idle animations on the world map and matches the active exercise on the session screen with a contextual sprite (e.g. squat, push-up, bridge).
+- Tone is **supportive, never instructive or judgmental**. Lines are pulled from a curated, reviewed copy pool that passes the forbidden-pattern review. No pop-up advice during exercises.
+- Fully mutable: a single Settings toggle hides the mascot across the entire app. When hidden, no functional information is lost.
+- The mascot is never used as a notification vector, never used to push the user to act, and never displays sad/disappointed states triggered by missed sessions.
+- Implementation as a self-contained sprite primitive that respects `prefers-reduced-motion` (becomes a static portrait when set).
+
+#### 2. Biome System (per Week)
+
+- Each `world` (week) inherits a thematic biome (e.g. Forest, Cave, Sky, Volcano, Lab). The biome maps deterministically to the week's training character — for instance:
+  - **Volcano** → high-intensity weeks
+  - **Sky** → deload / recovery weeks
+  - **Forest** → baseline / hypertrophy
+  - **Cave** → technique / accessory focus
+  - **Lab** → testing / reassessment weeks (when the engine introduces them)
+- Biome assignment is computed from existing `Mesocycle.weeks[].sessions` characteristics (no new persistence). Mapping rules are documented and exposed via the same transparency surface as milestones.
+- Biome influences only: background art, parallax layers, sub-palette, ambient SFX (when enabled). Biome **does not** change session difficulty, available exercises, or any functional behavior.
+- A biome is never used to imply the user is "in trouble" (e.g. no Underworld biome triggered by missed sessions). Skipped or rescheduled weeks keep their original biome.
+
+#### 3. Palette Swap Themes
+
+- The user can choose between several master palettes that re-skin all game surfaces:
+  - **Default** — full-color SNES style
+  - **Game Boy** — 4-shade green monochrome
+  - **NES** — limited 54-color subset
+  - **Famicom** — alternate Japanese hue tilt
+  - **CGA** — high-contrast 4-color
+  - **High-Contrast** — accessibility-first palette guaranteed AA on all overlays
+- Setting lives in `UserConfig.aestheticTheme`. Default value is `default`. No palette is gated behind any condition (no completion requirement, no payment, no streak).
+- The High-Contrast variant is recommended (and surfaced as a hint) when the user enables Classic Mode, but the user always has the final choice.
+- All palettes ship as static CSS variable bundles; no runtime color conversion. Tailwind tokens for tool surfaces remain unchanged across themes.
+
+#### 5. Pixel Achievements / Sticker Book
+
+- A dedicated stats sub-surface displays one-off recognitions (first time completing a given exercise, first deload, first full week, longest gap-recovery, etc.) as collectible pixel stickers.
+- Every sticker is **deterministically earned** from existing event data — no probability, no hidden criteria. Tap any sticker to inspect the exact rule that granted it (transparency requirement reused from Guardrail #5).
+- Stickers are personal-only by default. There is no leaderboard, no public profile, no share-by-default behavior.
+- Sticker book never displays empty/locked silhouettes that imply scarcity or pressure ("collect them all!"). It only shows what the user has actually earned, with an optional "What can I earn?" link that explains all rules in plain text.
+
+#### 6. Living World Map
+
+- The world map evolves visually as sessions are completed. Completed nodes acquire a checkpoint flag and a small environmental detail (e.g. a tree fully grown, a torch lit, a fish in the pond). Skipped or rescheduled sessions do **not** trigger a negative visual change — they remain in their default state, never "wilted" or "broken".
+- Visual evolution is purely additive and derived from existing `Session.completed` events (no new persistence).
+- The map cap is reached at 100% completion of the mesocycle. Past mesocycles are archived as static map snapshots in the existing stats surface.
+- Reduced-motion users see a static "completed" overlay instead of growth animations.
+
+#### 9. Deload-Week Aesthetic Treatment
+
+- Deload weeks (already a deterministic engine concept) get a deliberate, distinct aesthetic: muted palette, slower parallax, calm ambient music (when enabled), mascot in a resting/stretching idle.
+- This is **active reinforcement that rest is part of the quest**, not a downgrade. Copy and visual cues frame deload as "the world breathes" rather than "you can't fight here".
+- Deload sprites are never lower-fidelity than training sprites — they are **alternative**, not lesser.
+- All other guardrails apply: no urgency to skip the deload, no shortcut to "unlock" intensity, no shaming if a deload is rescheduled.
+
+### Extended Concepts — Guardrail Cross-Check
+
+| Concept | Critical risk | Mitigation built in |
+|---|---|---|
+| Mascot | Could become a guilt vector | No sad states, single mute toggle, copy-pool review |
+| Biome | Could imply punishment biomes | Skipped/missed weeks keep original biome; mapping is documented |
+| Palette swap | Could become paid skin pack | No gating; all palettes free, deterministic, no completion requirement |
+| Pixel achievements | Could trigger collect-em-all compulsion | No locked silhouettes; rules transparent; personal-only by default |
+| Living world map | Could shame missed sessions | Skipped nodes never visually degrade; only additive growth |
+| Deload aesthetic | Could read as "lower fidelity" | Deload sprites are equal-fidelity alternatives, not stripped versions |
+
 ## Out Of Scope For Step 16
 
 - Competitive social ranking systems.
