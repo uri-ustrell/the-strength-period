@@ -126,6 +126,8 @@
   "empty_template_title": "Empty session",
   "empty_template_body": "Add exercises for this template.",
   "back_to_presets": "Back to presets",
+  "start_plan": "Start plan",
+  "modify_plan": "Modify plan",
   "progression_sparkline_aria": "Weekly progression sparkline",
   "preset_name_label": "Preset name",
   "preset_name_required": "Name is required to save",

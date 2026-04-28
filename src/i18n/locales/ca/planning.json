@@ -126,6 +126,8 @@
   "empty_template_title": "Sessió buida",
   "empty_template_body": "Afegeix exercicis per a aquesta plantilla.",
   "back_to_presets": "Torna a presets",
+  "start_plan": "Comença el pla",
+  "modify_plan": "Modifica el pla",
   "progression_sparkline_aria": "Gràfica de progressió setmanal",
   "preset_name_label": "Nom de la planificació",
   "preset_name_required": "Cal un nom per desar",

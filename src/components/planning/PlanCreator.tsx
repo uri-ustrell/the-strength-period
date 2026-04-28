@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
-import { PresetPreviewModal } from '@/components/planning/PresetPreviewModal'
+import { ProgressionSparkline } from '@/components/planning/ProgressionSparkline'
 import { SessionPreview } from '@/components/planning/SessionPreview'
 import { WeekProgressionTable } from '@/components/planning/WeekProgressionTable'
 import { ALL_EQUIPMENT } from '@/data/equipmentCatalog'
@@ -78,9 +78,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [sourceIsBuiltIn, setSourceIsBuiltIn] = useState(false)
   const [dirty, setDirty] = useState(false)
   const suppressDirtyRef = useRef(false)
-
-  // Preview modal (built-in preset selection)
-  const [previewPreset, setPreviewPreset] = useState<Preset | null>(null)
 
   // Faithful mode state: editable preset sessions
   const [editablePresetSessions, setEditablePresetSessions] = useState<PresetSessionTemplate[]>([])
@@ -232,9 +229,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
   void availableMuscleGroups
 
   const handleSelectPreset = (preset: Preset) => {
-    // Open the preview modal first (QA-4). The modal's two CTAs decide whether
-    // we run "Start now" (zero extra steps) or "Personalitza" (enter wizard).
-    setPreviewPreset(preset)
+    // Run the deterministic generator immediately and route to preview.
+    // The preview screen now exposes "Modificar el pla" so users can still
+    // jump back into the wizard without an intermediate modal.
+    handleStartNow(preset)
   }
 
   const enterWizardWithPreset = (preset: Preset) => {
@@ -282,7 +280,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
       // Fall back to opening the wizard so user can fix the missing IDs
       enterWizardWithPreset(preset)
       setStep('exercises')
-      setPreviewPreset(null)
       return
     }
 
@@ -300,7 +297,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
       weeklyProgressionRates: rates,
       presetSessions: sessions,
     })
-    setPreviewPreset(null)
     // Move to preview step so the generated mesocycle is visible; user can save from there.
     setSelectedPreset(preset)
     setEditablePresetSessions(sessions)
@@ -308,11 +304,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setWeeklyProgressionRates(rates)
     setSourceIsBuiltIn(true)
     setStep('preview')
-  }
-
-  const handleCustomize = (preset: Preset) => {
-    setPreviewPreset(null)
-    enterWizardWithPreset(preset)
   }
 
   const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
@@ -485,16 +476,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   if (step === 'preset') {
     return (
       <div className="space-y-4">
-        {previewPreset && (
-          <PresetPreviewModal
-            preset={previewPreset}
-            exercises={exercises}
-            estimatedMinutesPerSession={userMinutes}
-            onStartNow={() => handleStartNow(previewPreset)}
-            onCustomize={() => handleCustomize(previewPreset)}
-            onClose={() => setPreviewPreset(null)}
-          />
-        )}
         <h2 className="text-lg font-semibold text-gray-900">{t('planning:selectPreset')}</h2>
 
         {/* Search filter */}
@@ -910,6 +891,18 @@ export const PlanCreator = ({ onComplete }: Props) => {
       weekMap.get(w)!.push(session)
     }
 
+    // Equipment chips: collect unique equipment used by all assigned exercises
+    const exerciseMap = new Map(exercises.map((e) => [e.id, e]))
+    const equipmentSet = new Set<string>()
+    for (const session of generatedPreview.sessions) {
+      for (const a of session.exerciseAssignments ?? []) {
+        const ex = exerciseMap.get(a.exerciseId)
+        if (!ex) continue
+        for (const eq of ex.equipment) equipmentSet.add(eq)
+      }
+    }
+    const requiredEquipment = Array.from(equipmentSet).sort()
+
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
@@ -933,7 +926,34 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
         )}
 
-        <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+        {weeklyProgressionRates.length > 0 && (
+          <div className="rounded-xl border border-gray-200 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+              {t('planning:weeklyProgression')}
+            </p>
+            <ProgressionSparkline rates={weeklyProgressionRates} />
+          </div>
+        )}
+
+        {requiredEquipment.length > 0 && (
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+              {t('planning:preview_required_equipment')}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {requiredEquipment.map((eq) => (
+                <span
+                  key={eq}
+                  className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700"
+                >
+                  {t(`onboarding:equipment.${eq}`)}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="space-y-4 max-h-[50vh] overflow-y-auto">
           {Array.from(weekMap.entries())
             .sort(([a], [b]) => a - b)
             .map(([weekNum, sessions]) => (
@@ -950,7 +970,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
             ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2">
           <button
             type="button"
             onClick={handleDiscard}
@@ -960,11 +980,18 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </button>
           <button
             type="button"
+            onClick={() => setStep('exercises')}
+            className="flex-1 rounded-xl border border-indigo-200 py-3 text-sm font-medium text-indigo-700 hover:bg-indigo-50 transition-colors"
+          >
+            {t('planning:modify_plan')}
+          </button>
+          <button
+            type="button"
             onClick={handleSave}
             className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-indigo-600 py-3 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
           >
             <Check size={16} />
-            {t('planning:save_plan')}
+            {t('planning:start_plan')}
           </button>
         </div>
       </div>
