@@ -1,23 +1,22 @@
-import { useEffect, useState, useMemo, useCallback } from 'react'
+import { CalendarPlus, ChevronDown, ChevronUp, Dumbbell, Flame, Play } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { Flame, Play, CalendarPlus, Dumbbell, ChevronDown, ChevronUp } from 'lucide-react'
-
-import type { SessionTemplate, MuscleGroupTarget } from '@/types/planning'
-import type { ExecutedSession } from '@/types/session'
-import type { MuscleGroup } from '@/types/exercise'
-import { usePlanningStore } from '@/stores/planningStore'
-import { useUserStore } from '@/stores/userStore'
-import { useSessionStore } from '@/stores/sessionStore'
 import { useExercises } from '@/hooks/useExercises'
 import { listSessionsByDateRange, listSetsByDateRange } from '@/services/db/sessionRepository'
 import { generateSession } from '@/services/exercises/sessionGenerator'
+import { usePlanningStore } from '@/stores/planningStore'
+import { useSessionStore } from '@/stores/sessionStore'
+import { useUserStore } from '@/stores/userStore'
+import type { MuscleGroup } from '@/types/exercise'
+import type { MuscleGroupTarget, SessionTemplate } from '@/types/planning'
+import type { ExecutedSession } from '@/types/session'
 import {
-  toDateStr,
-  getTodayDow,
-  getSessionDate,
-  getWeekStart,
   calculateStreak,
+  getSessionDate,
+  getTodayDow,
+  getWeekStart,
+  toDateStr,
 } from '@/utils/dateHelpers'
 
 const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
@@ -45,7 +44,6 @@ export const Dashboard = () => {
   const activeMesocycle = usePlanningStore((s) => s.activeMesocycle)
   const loadUserConfig = useUserStore((s) => s.loadUserConfig)
   const equipment = useUserStore((s) => s.equipment)
-  const activeRestrictions = useUserStore((s) => s.activeRestrictions)
   const minutesPerSession = useUserStore((s) => s.minutesPerSession)
   const setPreviewSession = useSessionStore((s) => s.setPreviewSession)
 
@@ -125,20 +123,11 @@ export const Dashboard = () => {
       nextSession,
       exercises,
       recentSessions.flatMap((s) => s.sets.map((set) => set.exerciseId)),
-      equipment,
-      activeRestrictions
+      equipment
     )
     setPreviewSession(generated)
     navigate('/session')
-  }, [
-    nextSession,
-    exercises,
-    recentSessions,
-    equipment,
-    activeRestrictions,
-    setPreviewSession,
-    navigate,
-  ])
+  }, [nextSession, exercises, recentSessions, equipment, setPreviewSession, navigate])
 
   const handleQuickSession = useCallback(() => {
     if (exercises.length === 0 || selectedMuscleGroups.length === 0) return
@@ -160,13 +149,12 @@ export const Dashboard = () => {
       completed: false,
       skipped: false,
     }
-    const generated = generateSession(template, exercises, [], equipment, activeRestrictions)
+    const generated = generateSession(template, exercises, [], equipment)
     setPreviewSession(generated)
     navigate('/session')
   }, [
     exercises,
     equipment,
-    activeRestrictions,
     quickMinutes,
     todayDow,
     selectedMuscleGroups,

@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowLeft, ArrowUp, Copy, Plus, X } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { blankExerciseEntry, TEMPLATE_KEYS } from '@/services/planning/presetTemplates'
@@ -13,6 +13,14 @@ interface Props {
   filteredExercisePool: Exercise[]
   onBack: () => void
   onGenerate: () => void
+  /** When provided, parent is notified whenever the "all 4 templates have ≥1 exercise" status changes. */
+  onCompleteChange?: (isComplete: boolean) => void
+  /** When provided, replaces the default "Generate" CTA with this label. */
+  generateLabelKey?: string
+  /** Disable the generate CTA from the parent (used when save validation fails). */
+  generateDisabled?: boolean
+  /** Exercise IDs that no longer exist in the catalog. Highlights affected rows + tabs. */
+  missingExerciseIds?: string[]
   headerExtra?: React.ReactNode
 }
 
@@ -23,6 +31,10 @@ export const FaithfulExercisesStep = ({
   filteredExercisePool,
   onBack,
   onGenerate,
+  onCompleteChange,
+  generateLabelKey,
+  generateDisabled,
+  missingExerciseIds,
   headerExtra,
 }: Props) => {
   const { t } = useTranslation(['planning', 'exercises'])
@@ -31,6 +43,25 @@ export const FaithfulExercisesStep = ({
   const [pickerForRow, setPickerForRow] = useState<number | null>(null)
   const [pickerSearch, setPickerSearch] = useState('')
   const [copyMenuOpen, setCopyMenuOpen] = useState(false)
+
+  const missingSet = useMemo(() => new Set(missingExerciseIds ?? []), [missingExerciseIds])
+
+  const isComplete = useMemo(
+    () =>
+      editablePresetSessions.length === 4 &&
+      editablePresetSessions.every((s) => s.exercises.length > 0),
+    [editablePresetSessions]
+  )
+
+  useEffect(() => {
+    onCompleteChange?.(isComplete)
+  }, [isComplete, onCompleteChange])
+
+  const tabHasMissing = (key: TemplateKey): boolean => {
+    const session = editablePresetSessions.find((s) => s.templateKey === key)
+    if (!session) return false
+    return session.exercises.some((e) => missingSet.has(e.exerciseId))
+  }
 
   const exerciseMap = useMemo(() => {
     const map = new Map<string, Exercise>()
@@ -134,18 +165,32 @@ export const FaithfulExercisesStep = ({
           const session = editablePresetSessions.find((s) => s.templateKey === key)
           const label = session?.name || key
           const active = key === activeKey
+          const isEmpty = (session?.exercises.length ?? 0) === 0
+          const hasMissing = tabHasMissing(key)
           return (
             <button
               key={key}
               type="button"
               onClick={() => setActiveKey(key)}
-              className={`flex-1 px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
+              className={`flex-1 px-3 py-2 text-sm font-medium border-b-2 transition-colors flex items-center justify-center gap-1.5 ${
                 active
                   ? 'border-indigo-600 text-indigo-700'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              {label}
+              <span>{label}</span>
+              {hasMissing && (
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-red-500"
+                  aria-label="missing exercises"
+                />
+              )}
+              {!hasMissing && isEmpty && (
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-amber-400"
+                  aria-label="empty template"
+                />
+              )}
             </button>
           )
         })}
@@ -193,18 +238,31 @@ export const FaithfulExercisesStep = ({
 
           <div className="space-y-2 max-h-[50vh] overflow-y-auto">
             {activeSession.exercises.length === 0 && (
-              <p className="text-sm text-gray-400 text-center py-4">{t('planning:add_exercise')}</p>
+              <div className="rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 px-4 py-6 text-center">
+                <p className="text-sm font-medium text-gray-600">
+                  {t('planning:empty_template_title')}
+                </p>
+                <p className="mt-1 text-xs text-gray-400">{t('planning:empty_template_body')}</p>
+              </div>
             )}
             {activeSession.exercises.map((entry, rowIdx) => {
               const exercise = exerciseMap.get(entry.exerciseId)
               const isPicking = pickerForRow === rowIdx
               const repsIsRange = Array.isArray(entry.reps)
+              const isMissing = missingSet.has(entry.exerciseId)
 
               return (
                 <div
                   key={`row-${rowIdx}-${entry.exerciseId}`}
-                  className="rounded-lg border border-gray-100 bg-gray-50 p-3 space-y-2"
+                  className={`rounded-lg border p-3 space-y-2 ${
+                    isMissing ? 'border-red-300 bg-red-50' : 'border-gray-100 bg-gray-50'
+                  }`}
                 >
+                  {isMissing && (
+                    <p className="text-xs font-medium text-red-700">
+                      {t('planning:error_missing_exercises_row')}
+                    </p>
+                  )}
                   <div className="flex items-center justify-between gap-2">
                     <button
                       type="button"
@@ -431,9 +489,10 @@ export const FaithfulExercisesStep = ({
       <button
         type="button"
         onClick={onGenerate}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors"
+        disabled={!isComplete || generateDisabled}
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {t('planning:generate_instant')}
+        {t(generateLabelKey ?? 'planning:next')}
       </button>
     </div>
   )

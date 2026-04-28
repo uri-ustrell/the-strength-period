@@ -23,7 +23,41 @@ export type MuscleGroup =
   | 'mobilitat_toracica'
   | 'fascies'
 
-export type Equipment = 'pes_corporal' | 'manueles' | 'barra' | 'banda_elastica' | 'pilates' | 'trx'
+export type Equipment =
+  // Bodyweight
+  | 'pes_corporal'
+  // Free weights
+  | 'manueles'
+  | 'kettlebell'
+  | 'barra'
+  | 'discos'
+  | 'weight_vest'
+  // Bands & elastics
+  | 'banda_elastica'
+  | 'mini_band'
+  | 'banda_tubular'
+  // Suspension & bars
+  | 'trx'
+  | 'barra_dominades'
+  | 'anelles'
+  // Cardio
+  | 'corda'
+  | 'comba'
+  | 'step'
+  | 'bicicleta'
+  | 'cinta'
+  // Mobility & recovery
+  | 'foam_roller'
+  | 'pilota_massatge'
+  | 'mat'
+  // Stability
+  | 'fitball'
+  | 'bosu'
+  | 'plataforma_inestable'
+  // Calisthenics / other
+  | 'paralettes'
+  | 'plyo_box'
+  | 'sandbag'
 
 export type ExerciseTag =
   | 'corredor'

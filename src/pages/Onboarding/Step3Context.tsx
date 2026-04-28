@@ -1,18 +1,8 @@
 import { useTranslation } from 'react-i18next'
-
-import type { Equipment, DayOfWeek, RestrictionCondition } from '@/types/exercise'
-import { ALL_RESTRICTION_CONDITIONS } from '@/types/exercise'
-import { useUserStore } from '@/stores/userStore'
+import { EquipmentChipSelector } from '@/components/onboarding/EquipmentChipSelector'
 import { WeightSelector } from '@/components/ui/WeightSelector'
-
-const ALL_EQUIPMENT: Equipment[] = [
-  'pes_corporal',
-  'manueles',
-  'barra',
-  'banda_elastica',
-  'pilates',
-  'trx',
-]
+import { useUserStore } from '@/stores/userStore'
+import type { DayOfWeek } from '@/types/exercise'
 
 const MINUTES_OPTIONS = [15, 30, 45, 60, 90]
 
@@ -26,32 +16,14 @@ export const Step3Context = () => {
   const setTrainingDays = useUserStore((s) => s.setTrainingDays)
   const minutesPerSession = useUserStore((s) => s.minutesPerSession)
   const setMinutesPerSession = useUserStore((s) => s.setMinutesPerSession)
-  const activeRestrictions = useUserStore((s) => s.activeRestrictions)
-  const setActiveRestrictions = useUserStore((s) => s.setActiveRestrictions)
   const availableWeights = useUserStore((s) => s.availableWeights)
   const setAvailableWeights = useUserStore((s) => s.setAvailableWeights)
-
-  const toggleEquipment = (item: Equipment) => {
-    if (equipment.includes(item)) {
-      setEquipment(equipment.filter((e) => e !== item))
-    } else {
-      setEquipment([...equipment, item])
-    }
-  }
 
   const toggleDay = (day: DayOfWeek) => {
     if (trainingDays.includes(day)) {
       setTrainingDays(trainingDays.filter((d) => d !== day))
     } else {
       setTrainingDays([...trainingDays, day].sort((a, b) => a - b))
-    }
-  }
-
-  const toggleRestriction = (key: RestrictionCondition) => {
-    if (activeRestrictions.includes(key)) {
-      setActiveRestrictions(activeRestrictions.filter((r) => r !== key))
-    } else {
-      setActiveRestrictions([...activeRestrictions, key])
     }
   }
 
@@ -65,25 +37,7 @@ export const Step3Context = () => {
       {/* Equipment */}
       <div>
         <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.equipment')}</h3>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {ALL_EQUIPMENT.map((item) => {
-            const selected = equipment.includes(item)
-            return (
-              <button
-                key={item}
-                type="button"
-                onClick={() => toggleEquipment(item)}
-                className={`rounded-lg border-2 px-3 py-2 text-sm font-medium transition-all ${
-                  selected
-                    ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                    : 'border-gray-200 text-gray-600 hover:border-indigo-300'
-                }`}
-              >
-                {t(`step3.equipmentOptions.${item}`)}
-              </button>
-            )
-          })}
-        </div>
+        <EquipmentChipSelector selected={equipment} onChange={setEquipment} />
       </div>
 
       {/* Training days */}
@@ -128,30 +82,6 @@ export const Step3Context = () => {
               {mins}′
             </button>
           ))}
-        </div>
-      </div>
-
-      {/* Restrictions */}
-      <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.restrictions')}</h3>
-        <div className="grid grid-cols-2 gap-2">
-          {ALL_RESTRICTION_CONDITIONS.map((key) => {
-            const selected = activeRestrictions.includes(key)
-            return (
-              <button
-                key={key}
-                type="button"
-                onClick={() => toggleRestriction(key)}
-                className={`rounded-lg border-2 px-3 py-2 text-sm font-medium transition-all ${
-                  selected
-                    ? 'border-red-500 bg-red-50 text-red-700'
-                    : 'border-gray-200 text-gray-600 hover:border-red-300'
-                }`}
-              >
-                {t(`step3.restrictionOptions.${key}`)}
-              </button>
-            )
-          })}
         </div>
       </div>
 

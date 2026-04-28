@@ -1,12 +1,11 @@
-import type { Exercise, Equipment, MuscleGroup } from '@/types/exercise'
+import type { Equipment, Exercise, MuscleGroup } from '@/types/exercise'
 import type {
-  Mesocycle,
-  SessionTemplate,
-  MuscleGroupTarget,
   ExerciseAssignment,
   LoadTarget,
+  Mesocycle,
+  MuscleGroupTarget,
+  SessionTemplate,
 } from '@/types/planning'
-import type { UserConfig } from '@/types/user'
 
 // --- LLM Response Types ---
 
@@ -51,10 +50,30 @@ export type ValidationResult = {
 const EQUIPMENT_LABELS: Record<Equipment, string> = {
   pes_corporal: 'Bodyweight',
   manueles: 'Dumbbells',
+  kettlebell: 'Kettlebell',
   barra: 'Barbell',
-  banda_elastica: 'Resistance bands',
-  pilates: 'Pilates ball',
+  discos: 'Weight plates',
+  weight_vest: 'Weight vest',
+  banda_elastica: 'Resistance band',
+  mini_band: 'Mini band',
+  banda_tubular: 'Tubular band',
   trx: 'TRX / Suspension',
+  barra_dominades: 'Pull-up bar',
+  anelles: 'Gymnastic rings',
+  corda: 'Climbing rope',
+  comba: 'Jump rope',
+  step: 'Step platform',
+  bicicleta: 'Stationary bike',
+  cinta: 'Treadmill',
+  foam_roller: 'Foam roller',
+  pilota_massatge: 'Massage ball',
+  mat: 'Mat',
+  fitball: 'Stability ball',
+  bosu: 'BOSU',
+  plataforma_inestable: 'Balance pad',
+  paralettes: 'Parallettes',
+  plyo_box: 'Plyo box',
+  sandbag: 'Sandbag',
 }
 
 const DAY_NAMES: Record<number, string> = {
@@ -65,13 +84,6 @@ const DAY_NAMES: Record<number, string> = {
   5: 'Friday',
   6: 'Saturday',
   7: 'Sunday',
-}
-
-const RESTRICTION_LABELS: Record<string, string> = {
-  rehab_genoll: 'Knee rehab',
-  rehab_lumbar: 'Lumbar rehab',
-  rehab_turmell: 'Ankle rehab',
-  tendinitis_rotuliana: 'Patellar tendinitis',
 }
 
 // --- Prompt Generation ---
@@ -174,7 +186,6 @@ export function resolvePromptParams(params: {
   trainingDays: number[]
   minutesPerSession: number
   equipment: Equipment[]
-  activeRestrictions: string[]
   weeklyProgression: number
   personalNotes?: string
 }): Parameters<typeof generatePromptTemplate>[0] {
@@ -185,10 +196,7 @@ export function resolvePromptParams(params: {
     dayNames: params.trainingDays.map((d) => DAY_NAMES[d] ?? `Day ${d}`).join(', '),
     minutesPerSession: params.minutesPerSession,
     equipmentList: params.equipment.map((e) => EQUIPMENT_LABELS[e]).join(', '),
-    restrictionsList:
-      params.activeRestrictions.length > 0
-        ? params.activeRestrictions.map((r) => RESTRICTION_LABELS[r] ?? r).join(', ')
-        : 'None',
+    restrictionsList: 'None',
     weeklyProgression: params.weeklyProgression,
     personalNotes: params.personalNotes,
   }
@@ -506,7 +514,6 @@ export function validateLLMResponse(
 export function convertToMesocycle(
   response: LLMPlanResponse,
   presetId: string,
-  config: UserConfig,
   exerciseMap: Map<string, Exercise>
 ): Mesocycle {
   const mesocycleId = crypto.randomUUID()
@@ -549,7 +556,7 @@ export function convertToMesocycle(
       durationMinutes: s.durationMinutes,
       muscleGroupTargets,
       progressionType: 'linear',
-      restrictions: [...config.activeRestrictions],
+      restrictions: [],
       exerciseAssignments,
       completed: false,
       skipped: false,

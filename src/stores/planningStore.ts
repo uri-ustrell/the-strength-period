@@ -25,6 +25,7 @@ interface PlanningStore {
   isGenerating: boolean
   isLoading: boolean
   error: string | null
+  missingExerciseIds: string[]
 
   // Actions
   generate: (
@@ -41,7 +42,7 @@ interface PlanningStore {
       presetSessions?: PresetSessionTemplate[]
     }
   ) => void
-  saveGenerated: () => Promise<void>
+  saveGenerated: (exercises: Exercise[]) => Promise<void>
   discardGenerated: () => void
   loadActive: () => Promise<void>
   loadAll: () => Promise<void>
@@ -64,6 +65,7 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
   isGenerating: false,
   isLoading: false,
   error: null,
+  missingExerciseIds: [],
 
   generate: (presetId, config, exercises, options) => {
     set({ isGenerating: true, error: null, generatedPreview: null })
@@ -75,10 +77,24 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
     }
   },
 
-  saveGenerated: async () => {
+  saveGenerated: async (exercises) => {
     const { generatedPreview } = get()
     if (!generatedPreview) return
-    set({ isLoading: true, error: null })
+    // Validate every exerciseId referenced is still in the catalog
+    const known = new Set(exercises.map((e) => e.id))
+    const missing: string[] = []
+    for (const session of generatedPreview.sessions) {
+      for (const assignment of session.exerciseAssignments ?? []) {
+        if (!known.has(assignment.exerciseId) && !missing.includes(assignment.exerciseId)) {
+          missing.push(assignment.exerciseId)
+        }
+      }
+    }
+    if (missing.length > 0) {
+      set({ error: 'PRESET_EXERCISES_MISSING', missingExerciseIds: missing })
+      return
+    }
+    set({ isLoading: true, error: null, missingExerciseIds: [] })
     try {
       const current = await getActiveMesocycle()
       if (current) {
@@ -176,5 +192,6 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
       isGenerating: false,
       isLoading: false,
       error: null,
+      missingExerciseIds: [],
     }),
 }))

@@ -1,4 +1,4 @@
-import type { Equipment, DayOfWeek, RestrictionCondition } from '@/types/exercise'
+import type { DayOfWeek, Equipment } from '@/types/exercise'
 
 export type WeightEquipment = 'manueles' | 'barra'
 
@@ -14,7 +14,6 @@ export type UserConfig = {
   equipment: Equipment[]
   trainingDays: DayOfWeek[]
   minutesPerSession: number
-  activeRestrictions: RestrictionCondition[]
   onboardingCompleted: boolean
   availableWeights: AvailableWeights
 }

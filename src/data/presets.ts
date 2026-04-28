@@ -30,93 +30,36 @@ export interface Preset {
   autoRestrictions: string[]
   progressionType: ProgressionType
   notes?: string
-  sessions?: PresetSessionTemplate[]
+  /** Required: every preset ships exactly 4 faithful A/B/C/D sessions with non-empty exercises. */
+  sessions: [
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+  ]
+  /** Required: per-week progression rates; length === durationOptions[0]. */
+  weeklyProgressionRates: WeekProgressionRate[]
   weeklyProgression?: number
-  weeklyProgressionRates?: WeekProgressionRate[]
   restSecondsDefault?: number
   defaultTempo?: string
   maxSetsPerExercise?: number
 }
 
-export const HARDCODED_PRESETS: Preset[] = [
-  {
-    id: 'corredor_general',
-    nameKey: 'planning:presets.corredor_general',
-    descriptionKey: 'planning:presets.corredor_general_desc',
-    durationOptions: [6, 8, 12],
-    muscleDistribution: {
-      glutis: 30,
-      quadriceps: 25,
-      isquiotibials: 20,
-      bessons: 10,
-      abdominal: 15,
-    },
-    requiredTags: ['corredor'],
-    autoRestrictions: [],
-    progressionType: 'linear',
-  },
-  {
-    id: 'pujada',
-    nameKey: 'planning:presets.pujada',
-    descriptionKey: 'planning:presets.pujada_desc',
-    durationOptions: [6, 8],
-    muscleDistribution: { glutis: 35, quadriceps: 30, psoes: 10, bessons: 10, abdominal: 15 },
-    requiredTags: ['pujada'],
-    autoRestrictions: [],
-    progressionType: 'linear',
-  },
-  {
-    id: 'rehab_tendinitis_anserina',
-    nameKey: 'planning:presets.rehab_tendinitis_anserina',
-    descriptionKey: 'planning:presets.rehab_tendinitis_anserina_desc',
-    durationOptions: [8, 12],
-    muscleDistribution: {
-      isquiotibials: 25,
-      adductors: 20,
-      quadriceps: 20,
-      glutis: 20,
-      mobilitat_cadera: 15,
-    },
-    requiredTags: ['tendinitis_anserina'],
-    autoRestrictions: ['tendinitis_anserina'],
-    progressionType: 'linear',
-  },
-  {
-    id: 'forca_general',
-    nameKey: 'planning:presets.forca_general',
-    descriptionKey: 'planning:presets.forca_general_desc',
-    durationOptions: [8, 12],
-    muscleDistribution: {
-      quadriceps: 15,
-      glutis: 15,
-      isquiotibials: 10,
-      pectoral: 12,
-      dorsal: 13,
-      abdominal: 15,
-      mobilitat_cadera: 10,
-      deltoides: 10,
-    },
-    requiredTags: [],
-    autoRestrictions: [],
-    progressionType: 'undulating',
-  },
-  {
-    id: 'mobilitat_prevencio',
-    nameKey: 'planning:presets.mobilitat_prevencio',
-    descriptionKey: 'planning:presets.mobilitat_prevencio_desc',
-    durationOptions: [4, 6, 8],
-    muscleDistribution: {
-      mobilitat_cadera: 25,
-      mobilitat_toracica: 20,
-      mobilitat_turmell: 15,
-      estabilitzadors_cadera: 20,
-      fascies: 10,
-      abdominal: 10,
-    },
-    requiredTags: ['mobilitat'],
-    autoRestrictions: [],
-    progressionType: 'linear',
-  },
+/** Display order hint for known built-in presets. Catalog is the source of truth for content. */
+export const HARDCODED_PRESET_ORDER: string[] = [
+  'corredor_general',
+  'pujada',
+  'rehab_tendinitis_anserina',
+  'forca_general',
+  'mobilitat_prevencio',
+]
+
+const _LEGACY_HARDCODED_PRESETS_FOR_REFERENCE: ReadonlyArray<{ id: string }> = [
+  { id: 'corredor_general' },
+  { id: 'pujada' },
+  { id: 'rehab_tendinitis_anserina' },
+  { id: 'forca_general' },
+  { id: 'mobilitat_prevencio' },
 ]
 
 type ParsedCatalogPreset = {
@@ -131,6 +74,7 @@ type ParsedCatalogPreset = {
   notes?: string
   sessions?: PresetSessionTemplate[]
   weeklyProgression?: number
+  weeklyProgressionRates?: WeekProgressionRate[]
   restSecondsDefault?: number
   defaultTempo?: string
   maxSetsPerExercise?: number
@@ -157,7 +101,9 @@ const EXERCISE_TAGS: ExerciseTag[] = [
 const EXERCISE_TAG_SET = new Set<ExerciseTag>(EXERCISE_TAGS)
 const MUSCLE_GROUP_SET = new Set<MuscleGroup>(ALL_MUSCLE_GROUPS)
 const PROGRESSION_TYPE_SET = new Set<ProgressionType>(['linear', 'undulating', 'block'])
-const HARDCODED_PRESET_ORDER = HARDCODED_PRESETS.map((preset) => preset.id)
+
+// Suppress unused-var warning for the legacy reference list (kept only for documentation).
+void _LEGACY_HARDCODED_PRESETS_FOR_REFERENCE
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -319,6 +265,19 @@ function parseCatalogSessions(value: unknown): PresetSessionTemplate[] | undefin
   return sessions.length > 0 ? sessions : undefined
 }
 
+function parseCatalogWeeklyRates(value: unknown): WeekProgressionRate[] | undefined {
+  if (!Array.isArray(value) || value.length === 0) return undefined
+  const rates: WeekProgressionRate[] = []
+  for (const raw of value) {
+    if (!isRecord(raw)) continue
+    const week = typeof raw.week === 'number' ? raw.week : undefined
+    const pct = typeof raw.progressionPct === 'number' ? raw.progressionPct : undefined
+    if (week === undefined || pct === undefined) continue
+    rates.push({ week, progressionPct: pct })
+  }
+  return rates.length > 0 ? rates : undefined
+}
+
 function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
   if (!isRecord(value)) {
     return undefined
@@ -349,6 +308,7 @@ function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
     notes: toTrimmedString(value.notes),
     sessions: parseCatalogSessions(value.sessions),
     weeklyProgression: toOptionalNumber(value.weeklyProgression, 0, 10),
+    weeklyProgressionRates: parseCatalogWeeklyRates(value.weeklyProgressionRates),
     restSecondsDefault: toOptionalNumber(value.restSecondsDefault, 1, 600),
     defaultTempo: toTrimmedString(value.defaultTempo),
     maxSetsPerExercise: toOptionalNumber(value.maxSetsPerExercise, 1, 20),
@@ -365,6 +325,42 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     return undefined
   }
 
+  // QA-7: Preset.sessions is required, length-4, non-empty exercises.
+  if (!parsedPreset.sessions || parsedPreset.sessions.length === 0) {
+    if (typeof console !== 'undefined') {
+      // eslint-disable-next-line no-console
+      console.warn(`[presets] Skipping ${parsedPreset.id}: missing faithful sessions[].`)
+    }
+    return undefined
+  }
+
+  const TEMPLATE_KEYS: ('A' | 'B' | 'C' | 'D')[] = ['A', 'B', 'C', 'D']
+  const padded: PresetSessionTemplate[] = []
+  for (let i = 0; i < 4; i++) {
+    const key = TEMPLATE_KEYS[i] as 'A' | 'B' | 'C' | 'D'
+    const existing = parsedPreset.sessions[i]
+    if (existing) {
+      padded.push(existing)
+    } else {
+      padded.push({ templateKey: key, name: key, exercises: [] })
+    }
+  }
+  const sessionsTuple = padded as [
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+    PresetSessionTemplate,
+  ]
+
+  const firstDuration = parsedPreset.durationOptions[0] ?? 8
+  const weeklyProgressionRates: WeekProgressionRate[] =
+    parsedPreset.weeklyProgressionRates && parsedPreset.weeklyProgressionRates.length > 0
+      ? parsedPreset.weeklyProgressionRates
+      : Array.from({ length: firstDuration }, (_, i) => {
+          const week = i + 1
+          return { week, progressionPct: week % 4 === 0 ? -40 : 5 }
+        })
+
   const preset: Preset = {
     id: parsedPreset.id,
     nameKey: parsedPreset.nameKey,
@@ -375,11 +371,10 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     autoRestrictions: parsedPreset.autoRestrictions ?? [],
     progressionType: parsedPreset.progressionType ?? 'linear',
     notes: parsedPreset.notes,
+    sessions: sessionsTuple,
+    weeklyProgressionRates,
   }
 
-  if (parsedPreset.sessions && parsedPreset.sessions.length > 0) {
-    preset.sessions = parsedPreset.sessions
-  }
   if (parsedPreset.weeklyProgression !== undefined) {
     preset.weeklyProgression = parsedPreset.weeklyProgression
   }

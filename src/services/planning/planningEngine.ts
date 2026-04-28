@@ -211,11 +211,17 @@ function resolveWeekMultiplier(
 ): number {
   if (isDeload) return rule.deloadPercentage
 
-  if (weeklyProgressionRates && weeklyProgressionRates.length >= week) {
-    const rate = weeklyProgressionRates[week - 1]
-    if (rate) return 1 + rate.progressionPct / 100
+  // QA-1: cumulative-vs-previous-week semantics. Each week's effective multiplier is
+  // the product of (1 + pct/100) across all weeks up to and including the current week.
+  if (weeklyProgressionRates && weeklyProgressionRates.length > 0) {
+    let mult = 1
+    for (let i = 0; i < week && i < weeklyProgressionRates.length; i++) {
+      mult *= 1 + (weeklyProgressionRates[i]?.progressionPct ?? 0) / 100
+    }
+    return mult
   }
 
+  // Backward compat: cumulative slider formula (legacy presets).
   const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
   return 1 + scaledIncrease * (week - 1)
 }
@@ -477,7 +483,7 @@ function generateFaithfulMesocycle(
         durationMinutes: sessionDuration,
         muscleGroupTargets,
         progressionType,
-        restrictions: config.activeRestrictions,
+        restrictions: [],
         exerciseAssignments,
         completed: false,
         skipped: false,
@@ -526,10 +532,9 @@ function generateGeneratorMesocycle(
   // 1. Resolve muscle distribution
   const muscleDistribution = resolveMuscleDistribution(presetId, options?.muscleDistribution)
 
-  // 2. Pre-filter exercise pool by user equipment + restrictions
+  // 2. Pre-filter exercise pool by user equipment.
   const filteredPool = filterExercises(availableExercises, {
     equipment: config.equipment,
-    excludeRestrictions: config.activeRestrictions,
   })
 
   // 3. Build candidate pool per muscle group
@@ -635,7 +640,7 @@ function generateGeneratorMesocycle(
         durationMinutes: sessionDuration,
         muscleGroupTargets: trimmedTargets,
         progressionType,
-        restrictions: config.activeRestrictions,
+        restrictions: [],
         exerciseAssignments: trimmedAssignments,
         completed: false,
         skipped: false,

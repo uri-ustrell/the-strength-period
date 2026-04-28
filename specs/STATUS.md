@@ -88,6 +88,18 @@
 - [x] Auto-fork built-in presets → CustomPreset on "Save as preset" with required inline name field
 - [x] Legacy `weeklyProgression` write-back migration on first IndexedDB load
 - [x] Unsaved-changes confirmation guard for built-in working copies
+- [x] QA Pass / UX Refinements (Round 2) — see `specs/features/17-preset-sessions-redesign.md`
+  - [x] QA-5: `Equipment` enum extended; `'pilates'` removed; `EquipmentChipSelector` + `equipmentCatalog`
+  - [x] QA-6: `activeRestrictions` removed from `UserConfig`, store, onboarding, settings, `exerciseFilter`, `llmAssistantService`
+  - [x] Build green after QA fix-up (`npm run build`, `npm run lint`)
+  - [x] QA-1: `WeekProgressionTable` long-description copy + tooltip + verified `resolveWeekMultiplier` cumulative semantics
+  - [x] QA-2: translated blocking save errors via `validatePresetExercises` (PlanCreator + planningStore.saveGenerated)
+  - [x] QA-3: wizard step reorder (preset → exercises → configure → preview); Next-disabled gating via `templatesComplete`
+  - [x] QA-4: `PresetPreviewModal` wired into `PlanCreator` with "Comença ara" / "Personalitza" CTAs (focus trap, ESC, backdrop click)
+  - [x] QA-5: i18n keys for new equipment values (`onboarding:equipment.*`, `equipment_category_*`, `equipment_show_more/less`) in ca/es/en
+  - [x] QA-7: faithful-only preset path; generator/muscles step removed from preset flow; empty-state on FaithfulExercisesStep
+  - [x] Polish: sparkline aria-label i18n; chip 44px tap target + aria-pressed; preview 2-col on `lg:`; templatesComplete gate
+  - [ ] Faithful regeneration of `data/ingestion/presets/catalog.json`
 - [ ] Run pre-execution decision gate; if guardrails cannot be met cleanly, allow and recommend full UI/UX refactor first
 - [ ] Define anti-addictive guardrails as acceptance criteria
 - [ ] Design achievement system tied to sustainable habits

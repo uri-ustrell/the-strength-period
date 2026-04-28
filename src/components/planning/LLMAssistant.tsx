@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { AlertTriangle, ArrowLeft, Check, CheckCircle, Copy, Download, XCircle } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ArrowLeft, Copy, Check, Download, AlertTriangle, XCircle, CheckCircle } from 'lucide-react'
 
 import type { Preset } from '@/data/presets'
-import type { UserConfig } from '@/types/user'
-import type { Exercise } from '@/types/exercise'
-import type { Mesocycle } from '@/types/planning'
-import type { ValidationResult } from '@/services/planning/llmAssistantService'
 import { getConfig, setConfig } from '@/services/db/configRepository'
+import type { ValidationResult } from '@/services/planning/llmAssistantService'
 import {
+  convertToMesocycle,
+  generateExerciseCsv,
   generatePromptTemplate,
   resolvePromptParams,
-  generateExerciseCsv,
   validateLLMResponse,
-  convertToMesocycle,
 } from '@/services/planning/llmAssistantService'
+import type { Exercise } from '@/types/exercise'
+import type { Mesocycle } from '@/types/planning'
+import type { UserConfig } from '@/types/user'
 
 interface LLMAssistantProps {
   preset: Preset | null
@@ -73,14 +73,15 @@ export const LLMAssistant = ({
 
   // Generate prompt
   const prompt = useMemo(() => {
-    const presetName = preset ? t(preset.nameKey, { lng: 'en' }) : t('planning:custom', { lng: 'en' })
+    const presetName = preset
+      ? t(preset.nameKey, { lng: 'en' })
+      : t('planning:custom', { lng: 'en' })
     const params = resolvePromptParams({
       presetName,
       durationWeeks: weeks,
       trainingDays,
       minutesPerSession,
       equipment: config.equipment,
-      activeRestrictions: config.activeRestrictions,
       weeklyProgression,
       personalNotes: personalNotes.trim() || undefined,
     })
@@ -91,7 +92,6 @@ export const LLMAssistant = ({
     trainingDays,
     minutesPerSession,
     config.equipment,
-    config.activeRestrictions,
     weeklyProgression,
     personalNotes,
     t,
@@ -150,7 +150,7 @@ export const LLMAssistant = ({
   const handleImport = useCallback(() => {
     if (!validationResult?.parsed) return
     const presetId = preset?.id ?? 'llm_custom'
-    const mesocycle = convertToMesocycle(validationResult.parsed, presetId, config, exerciseMap)
+    const mesocycle = convertToMesocycle(validationResult.parsed, presetId, exerciseMap)
     onImport(mesocycle)
   }, [validationResult, preset, config, exerciseMap, onImport])
 

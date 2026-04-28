@@ -1,15 +1,8 @@
-import type {
-  Exercise,
-  MuscleGroup,
-  Equipment,
-  ExerciseTag,
-  RestrictionCondition,
-} from '@/types/exercise'
+import type { Equipment, Exercise, ExerciseTag, MuscleGroup } from '@/types/exercise'
 
 export type ExerciseFilters = {
   muscleGroups?: MuscleGroup[]
   equipment?: Equipment[]
-  excludeRestrictions?: RestrictionCondition[]
   tags?: ExerciseTag[]
 
   level?: Exercise['level'][]
@@ -28,12 +21,6 @@ export function filterExercises(exercises: Exercise[], filters: ExerciseFilters)
 
     if (filters.equipment?.length) {
       if (!filters.equipment.some((eq) => exercise.equipment.includes(eq))) {
-        return false
-      }
-    }
-
-    if (filters.excludeRestrictions?.length) {
-      if (exercise.restrictions.some((r) => filters.excludeRestrictions!.includes(r.condition))) {
         return false
       }
     }

@@ -1,9 +1,8 @@
 import { create } from 'zustand'
-
-import type { UserConfig, AvailableWeights } from '@/types/user'
-import { DEFAULT_AVAILABLE_WEIGHTS } from '@/types/user'
-import type { Equipment, DayOfWeek, RestrictionCondition } from '@/types/exercise'
 import { getConfig, setConfig } from '@/services/db/configRepository'
+import type { DayOfWeek, Equipment } from '@/types/exercise'
+import type { AvailableWeights, UserConfig } from '@/types/user'
+import { DEFAULT_AVAILABLE_WEIGHTS } from '@/types/user'
 
 interface UserStore {
   // State
@@ -11,7 +10,6 @@ interface UserStore {
   equipment: Equipment[]
   trainingDays: DayOfWeek[]
   minutesPerSession: number
-  activeRestrictions: RestrictionCondition[]
   availableWeights: AvailableWeights
   onboardingCompleted: boolean
   isLoading: boolean
@@ -22,7 +20,6 @@ interface UserStore {
   setEquipment: (equipment: Equipment[]) => void
   setTrainingDays: (days: DayOfWeek[]) => void
   setMinutesPerSession: (minutes: number) => void
-  setActiveRestrictions: (restrictions: RestrictionCondition[]) => void
   setAvailableWeights: (weights: AvailableWeights) => void
   completeOnboarding: () => Promise<void>
   loadOnboardingStatus: () => Promise<void>
@@ -35,7 +32,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
   equipment: [],
   trainingDays: [1, 3, 5],
   minutesPerSession: 45,
-  activeRestrictions: [],
   availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
   onboardingCompleted: false,
   isLoading: true,
@@ -45,7 +41,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
   setEquipment: (equipment) => set({ equipment }),
   setTrainingDays: (days) => set({ trainingDays: days }),
   setMinutesPerSession: (minutes) => set({ minutesPerSession: minutes }),
-  setActiveRestrictions: (restrictions) => set({ activeRestrictions: restrictions }),
   setAvailableWeights: (weights) => set({ availableWeights: weights }),
 
   completeOnboarding: async () => {
@@ -57,7 +52,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
         equipment: state.equipment,
         trainingDays: state.trainingDays,
         minutesPerSession: state.minutesPerSession,
-        activeRestrictions: state.activeRestrictions,
         availableWeights: state.availableWeights,
         onboardingCompleted: true,
       }
@@ -89,7 +83,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
           equipment: config.equipment,
           trainingDays: config.trainingDays ?? [1, 3, 5],
           minutesPerSession: config.minutesPerSession,
-          activeRestrictions: config.activeRestrictions,
           availableWeights: config.availableWeights ?? { ...DEFAULT_AVAILABLE_WEIGHTS },
         })
       }
@@ -104,7 +97,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
       equipment: [],
       trainingDays: [1, 3, 5],
       minutesPerSession: 45,
-      activeRestrictions: [],
       availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
       onboardingCompleted: false,
       isLoading: false,

@@ -7,6 +7,39 @@
 
 ## Recent Changes
 
+### Step 19 — QA Pass Build Repair (2026-04-28)
+
+A previous implementer began the Round-2 QA Pass for Feature 17 but left the
+TypeScript build with 20 errors. Restored a green build and finished the two
+QA tracks that were already mid-flight:
+
+- **QA-5 (equipment overhaul, partial)**: removed every `'pilates'` literal
+  from runtime code (`PlanCreator`'s local `ALL_EQUIPMENT`, `Settings.tsx`,
+  `Onboarding/Step3Context.tsx`, `llmAssistantService` `EQUIPMENT_LABELS`
+  map). `PlanCreator`, `Settings`, and `Step3Context` now consume
+  `EQUIPMENT_CATALOG`/`ALL_EQUIPMENT` from `src/data/equipmentCatalog.ts`
+  via the existing `EquipmentChipSelector`. Equipment label map now covers
+  the full extended `Equipment` enum.
+- **QA-6 (remove user restrictions)**: dropped `activeRestrictions` from all
+  call sites — `UserConfig` literals in `PlanCreator`, store selectors in
+  `PlanCreator`/`Dashboard`/`Settings`/`Step3Context`, `LLMAssistant`
+  prompt params, `convertToMesocycle` (parameter removed), and
+  `exerciseFilter`'s `excludeRestrictions` field removed from filter calls.
+  Removed the restrictions UI section in both `Step3Context.tsx` and
+  `Settings.tsx`. Removed obsolete `step3.restrictions` and
+  `step3.restrictionOptions` keys from `ca/es/en` `onboarding.json`.
+  `Dashboard.tsx` `generateSession(...)` call sites trimmed to the
+  4-argument signature.
+
+Verified: `npm run build` and `npm run lint` both green.
+
+Outstanding QA items (still open after this fix-up): QA-1 sparkline copy
++ tooltip, QA-2 translated save errors, QA-3 wizard reorder, QA-4
+`PresetPreviewModal` wiring (component file exists but is not yet
+imported by `PlanCreator`), QA-5 i18n keys for new equipment values,
+QA-7 faithful-only enforcement + runtime validator + autofill CTA,
+and faithful regeneration of `data/ingestion/presets/catalog.json`.
+
 ### Step 19 — Preset & Session Template Redesign (2026-04-24)
 
 Implementation of Feature 17 (`specs/features/17-preset-sessions-redesign.md`), tracked as Step 19 in STATUS.md.

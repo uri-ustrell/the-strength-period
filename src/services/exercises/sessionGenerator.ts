@@ -1,5 +1,5 @@
-import type { Exercise, Equipment, RestrictionCondition } from '@/types/exercise'
-import type { SessionTemplate, MuscleGroupTarget } from '@/types/planning'
+import type { Equipment, Exercise } from '@/types/exercise'
+import type { MuscleGroupTarget, SessionTemplate } from '@/types/planning'
 
 export interface SelectedExercise {
   exercise: Exercise
@@ -28,16 +28,6 @@ function filterByMuscleGroup(exercises: Exercise[], muscleGroup: string): Exerci
 function filterByEquipment(exercises: Exercise[], userEquipment: Equipment[]): Exercise[] {
   return exercises.filter(
     (ex) => ex.equipment.length === 0 || ex.equipment.some((eq) => userEquipment.includes(eq))
-  )
-}
-
-function excludeRestrictions(
-  exercises: Exercise[],
-  userRestrictions: RestrictionCondition[]
-): Exercise[] {
-  return exercises.filter(
-    (ex) =>
-      !ex.restrictions.some((r) => r.action === 'avoid' && userRestrictions.includes(r.condition))
   )
 }
 
@@ -98,12 +88,10 @@ function selectExerciseForTarget(
   allExercises: Exercise[],
   recentExerciseIds: string[],
   userEquipment: Equipment[],
-  userRestrictions: RestrictionCondition[],
   alreadySelected: string[]
 ): Exercise | undefined {
   let candidates = filterByMuscleGroup(allExercises, target.muscleGroup)
   candidates = filterByEquipment(candidates, userEquipment)
-  candidates = excludeRestrictions(candidates, userRestrictions)
   candidates = candidates.filter((ex) => !alreadySelected.includes(ex.id))
 
   if (candidates.length === 0) return undefined
@@ -119,8 +107,7 @@ export function generateSession(
   template: SessionTemplate,
   allExercises: Exercise[],
   recentExerciseIds: string[],
-  userEquipment: Equipment[],
-  userRestrictions: RestrictionCondition[]
+  userEquipment: Equipment[]
 ): GeneratedSession {
   const selectedExercises: SelectedExercise[] = []
   const alreadySelected: string[] = []
@@ -132,7 +119,6 @@ export function generateSession(
       allExercises,
       recentExerciseIds,
       userEquipment,
-      userRestrictions,
       alreadySelected
     )
 

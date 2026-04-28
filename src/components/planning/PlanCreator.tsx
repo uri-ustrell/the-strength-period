@@ -1,10 +1,12 @@
-import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
+import { ArrowLeft, Check, X } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
+import { PresetPreviewModal } from '@/components/planning/PresetPreviewModal'
 import { SessionPreview } from '@/components/planning/SessionPreview'
 import { WeekProgressionTable } from '@/components/planning/WeekProgressionTable'
+import { ALL_EQUIPMENT } from '@/data/equipmentCatalog'
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 import type { CustomPreset, Preset } from '@/data/presets'
 import { hasExerciseRichSessions, PRESETS } from '@/data/presets'
@@ -13,7 +15,6 @@ import { getConfig, setConfig } from '@/services/db/configRepository'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
 import type { MuscleGroupPriority } from '@/services/planning/muscleDistribution'
 import {
-  buildMuscleDistribution,
   presetToMuscleGroupPriorities,
   prioritiesToMuscleDistribution,
 } from '@/services/planning/muscleDistribution'
@@ -23,13 +24,14 @@ import {
   normalizeFourTemplates,
   resizeProgressionRates,
 } from '@/services/planning/presetTemplates'
+import { validatePresetExercises } from '@/services/planning/presetValidation'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
-import type { DayOfWeek, Equipment, Exercise, ExerciseTag, MuscleGroup } from '@/types/exercise'
+import type { DayOfWeek, Equipment, ExerciseTag, MuscleGroup } from '@/types/exercise'
 import type { PresetSessionTemplate, WeekProgressionRate } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
 
-type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview' | 'llm-assistant'
+type Step = 'preset' | 'exercises' | 'configure' | 'preview' | 'llm-assistant'
 
 interface Props {
   onComplete?: () => void
@@ -42,7 +44,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const equipment = useUserStore((s) => s.equipment)
   const userTrainingDays = useUserStore((s) => s.trainingDays)
   const userMinutes = useUserStore((s) => s.minutesPerSession)
-  const activeRestrictions = useUserStore((s) => s.activeRestrictions)
   const availableWeightsState = useUserStore((s) => s.availableWeights)
 
   const generate = usePlanningStore((s) => s.generate)
@@ -51,6 +52,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const generatedPreview = usePlanningStore((s) => s.generatedPreview)
   const setGeneratedPreview = usePlanningStore((s) => s.setGeneratedPreview)
   const error = usePlanningStore((s) => s.error)
+  const storeMissingIds = usePlanningStore((s) => s.missingExerciseIds)
 
   const [step, setStep] = useState<Step>('preset')
   const [selectedPreset, setSelectedPreset] = useState<Preset | null>(null)
@@ -77,15 +79,17 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [dirty, setDirty] = useState(false)
   const suppressDirtyRef = useRef(false)
 
-  // Exercise step state
-  const [autoSelectExercises, setAutoSelectExercises] = useState(true)
-  const [exerciseSelections, setExerciseSelections] = useState<Record<string, string[]>>({})
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
+  // Preview modal (built-in preset selection)
+  const [previewPreset, setPreviewPreset] = useState<Preset | null>(null)
 
   // Faithful mode state: editable preset sessions
   const [editablePresetSessions, setEditablePresetSessions] = useState<PresetSessionTemplate[]>([])
 
-  // Derived: is this preset in faithful mode?
+  // Gates for the new wizard order (preset → exercises → configure → preview)
+  const [templatesComplete, setTemplatesComplete] = useState(false)
+  const [missingExerciseIds, setMissingExerciseIds] = useState<string[]>([])
+
+  // Derived: is this preset in faithful mode? (always true now for built-in & custom presets)
   const isFaithfulMode = useMemo(
     () => hasExerciseRichSessions(selectedPreset) || editablePresetSessions.length > 0,
     [selectedPreset, editablePresetSessions]
@@ -95,15 +99,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [presetSearch, setPresetSearch] = useState('')
   const [selectedTags, setSelectedTags] = useState<ExerciseTag[]>([])
   const [equipmentFilter, setEquipmentFilter] = useState<Equipment[]>(() => [...equipment])
-
-  const ALL_EQUIPMENT: Equipment[] = [
-    'pes_corporal',
-    'manueles',
-    'barra',
-    'banda_elastica',
-    'pilates',
-    'trx',
-  ]
 
   // Collect all unique tags from presets for the tag filter
   const allPresetTags = useMemo(() => {
@@ -215,13 +210,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setEditablePresetSessions([])
     setDirty(false)
   }
+  // Reserved for future exit-with-confirmation hooks (Feature 17 QA polish)
+  void guardedNavigate
+  void resetWizard
 
   const filteredExercisePool = useMemo(() => {
     return filterExercises(exercises, {
       equipment,
-      excludeRestrictions: activeRestrictions,
     })
-  }, [exercises, equipment, activeRestrictions])
+  }, [exercises, equipment])
 
   const availableMuscleGroups = useMemo(() => {
     return ALL_MUSCLE_GROUPS.filter((mg) =>
@@ -231,23 +228,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
     )
   }, [filteredExercisePool])
 
-  const activeMuscleGroups = useMemo(() => {
-    return Object.entries(muscleGroupPriorities)
-      .filter(([mg, p]) => p !== null && availableMuscleGroups.includes(mg as MuscleGroup))
-      .map(([mg]) => mg as MuscleGroup)
-  }, [muscleGroupPriorities, availableMuscleGroups])
-
-  const exercisesByMuscle = useMemo(() => {
-    const map: Record<string, Exercise[]> = {}
-    for (const mg of activeMuscleGroups) {
-      map[mg] = filteredExercisePool.filter(
-        (ex) => ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg)
-      )
-    }
-    return map
-  }, [activeMuscleGroups, filteredExercisePool])
+  // Reserve hook for future autofill from distribution (Feature 17 QA-7 B7)
+  void availableMuscleGroups
 
   const handleSelectPreset = (preset: Preset) => {
+    // Open the preview modal first (QA-4). The modal's two CTAs decide whether
+    // we run "Start now" (zero extra steps) or "Personalitza" (enter wizard).
+    setPreviewPreset(preset)
+  }
+
+  const enterWizardWithPreset = (preset: Preset) => {
     suppressDirtyRef.current = true
     setSelectedPreset(preset)
     const initialWeeks = preset.durationOptions[0] ?? 8
@@ -268,8 +258,61 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setEditingPresetId(null)
     setSourceIsBuiltIn(true)
     setPresetName('')
+    setMissingExerciseIds([])
     setDirty(false)
-    setStep('configure')
+    setStep('exercises')
+  }
+
+  const handleStartNow = (preset: Preset) => {
+    // QA-4 "Comença ara": generate + save with zero extra steps using UserConfig defaults.
+    const initialWeeks = preset.durationOptions[0] ?? 8
+    const ratesSource =
+      preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0
+        ? preset.weeklyProgressionRates
+        : preset.weeklyProgression !== undefined
+          ? migrateSliderToRates(preset.weeklyProgression, initialWeeks)
+          : buildDefaultProgressionRates(initialWeeks)
+    const rates = resizeProgressionRates(ratesSource, initialWeeks)
+    const sessions = normalizeFourTemplates(preset.sessions)
+
+    // Validate before launching
+    const validation = validatePresetExercises(sessions, exercises)
+    if (!validation.ok) {
+      setMissingExerciseIds(validation.missingIds)
+      // Fall back to opening the wizard so user can fix the missing IDs
+      enterWizardWithPreset(preset)
+      setStep('exercises')
+      setPreviewPreset(null)
+      return
+    }
+
+    const trainingDays = userTrainingDays.length > 0 ? userTrainingDays : ([1, 3, 5] as DayOfWeek[])
+    const config: UserConfig = {
+      language: i18n.language as 'ca' | 'es' | 'en',
+      equipment,
+      trainingDays,
+      minutesPerSession: userMinutes,
+      onboardingCompleted: true,
+      availableWeights: availableWeightsState,
+    }
+    generate(preset.id, config, exercises, {
+      weeks: initialWeeks,
+      weeklyProgressionRates: rates,
+      presetSessions: sessions,
+    })
+    setPreviewPreset(null)
+    // Move to preview step so the generated mesocycle is visible; user can save from there.
+    setSelectedPreset(preset)
+    setEditablePresetSessions(sessions)
+    setWeeks(initialWeeks)
+    setWeeklyProgressionRates(rates)
+    setSourceIsBuiltIn(true)
+    setStep('preview')
+  }
+
+  const handleCustomize = (preset: Preset) => {
+    setPreviewPreset(null)
+    enterWizardWithPreset(preset)
   }
 
   const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
@@ -307,8 +350,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
       setEditingPresetId(cp.id)
       setPresetName(cp.name)
     }
+    setMissingExerciseIds([])
     setDirty(false)
-    setStep('configure')
+    setStep('exercises')
   }
 
   const handleCreateFromScratch = () => {
@@ -391,12 +435,18 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const handleGenerate = () => {
-    const muscleDistribution = buildMuscleDistribution(muscleGroupPriorities)
+    // Faithful-only path now that built-in & custom presets always carry sessions.
+    const validation = validatePresetExercises(editablePresetSessions, exercises)
+    if (!validation.ok) {
+      setMissingExerciseIds(validation.missingIds)
+      // Stay on exercises so the user can fix the offending rows
+      setStep('exercises')
+      return
+    }
+    setMissingExerciseIds([])
 
-    // Build trainingDays from daysPerWeek override
     let trainingDays: DayOfWeek[] = userTrainingDays
     if (daysPerWeek !== userTrainingDays.length) {
-      // Generate evenly spaced days
       const spacing = 7 / daysPerWeek
       trainingDays = Array.from(
         { length: daysPerWeek },
@@ -405,34 +455,24 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
 
     const config: UserConfig = {
-      language: 'ca',
+      language: i18n.language as 'ca' | 'es' | 'en',
       equipment,
       trainingDays,
       minutesPerSession: minutesPerSess,
-      activeRestrictions,
       onboardingCompleted: true,
       availableWeights: availableWeightsState,
     }
 
-    if (isFaithfulMode && editablePresetSessions.length > 0) {
-      generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
-        weeks,
-        weeklyProgressionRates,
-        presetSessions: editablePresetSessions,
-      })
-    } else {
-      generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
-        weeks,
-        muscleDistribution,
-        weeklyProgressionRates,
-        exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
-      })
-    }
+    generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
+      weeks,
+      weeklyProgressionRates,
+      presetSessions: editablePresetSessions,
+    })
     setStep('preview')
   }
 
   const handleSave = async () => {
-    await saveGenerated()
+    await saveGenerated(exercises)
     onComplete?.()
   }
 
@@ -442,21 +482,19 @@ export const PlanCreator = ({ onComplete }: Props) => {
     setSelectedPreset(null)
   }
 
-  const toggleExerciseSelection = (mg: string, exId: string) => {
-    setExerciseSelections((prev) => {
-      const current = prev[mg] ?? []
-      const next = current.includes(exId) ? current.filter((id) => id !== exId) : [...current, exId]
-      return { ...prev, [mg]: next }
-    })
-  }
-
-  const toggleGroupExpanded = (mg: string) => {
-    setExpandedGroups((prev) => ({ ...prev, [mg]: !prev[mg] }))
-  }
-
   if (step === 'preset') {
     return (
       <div className="space-y-4">
+        {previewPreset && (
+          <PresetPreviewModal
+            preset={previewPreset}
+            exercises={exercises}
+            estimatedMinutesPerSession={userMinutes}
+            onStartNow={() => handleStartNow(previewPreset)}
+            onCustomize={() => handleCustomize(previewPreset)}
+            onClose={() => setPreviewPreset(null)}
+          />
+        )}
         <h2 className="text-lg font-semibold text-gray-900">{t('planning:selectPreset')}</h2>
 
         {/* Search filter */}
@@ -518,7 +556,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
                       : 'border-gray-200 text-gray-500 hover:border-indigo-300'
                   }`}
                 >
-                  {t(`onboarding:step3.equipmentOptions.${eq}`)}
+                  {t(`onboarding:equipment.${eq}`)}
                 </button>
               )
             })}
@@ -608,7 +646,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => guardedNavigate(resetWizard)}
+            onClick={() => setStep(isFaithfulMode ? 'exercises' : 'preset')}
             className="text-gray-400 hover:text-gray-600"
           >
             <ArrowLeft size={20} />
@@ -726,11 +764,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         <button
           type="button"
-          onClick={() => setStep(isFaithfulMode ? 'exercises' : 'muscles')}
+          onClick={handleGenerate}
           disabled={exercises.length === 0}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
         >
-          {t('planning:next')}
+          {t('planning:generate_instant')}
         </button>
 
         <div className="flex items-center gap-3">
@@ -754,235 +792,35 @@ export const PlanCreator = ({ onComplete }: Props) => {
     )
   }
 
-  if (step === 'muscles') {
-    const handlePriorityChange = (mg: MuscleGroup, value: string) => {
-      setMuscleGroupPriorities((prev) => ({
-        ...prev,
-        [mg]: value === 'off' ? null : (value as MuscleGroupPriority),
-      }))
-    }
-
-    return (
-      <div className="space-y-5">
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setStep('configure')}
-            className="text-gray-400 hover:text-gray-600"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900">
-              {t('planning:select_muscle_groups')}
-            </h2>
-            <p className="text-xs text-gray-500 mt-0.5">{t('planning:muscle_group_explanation')}</p>
-          </div>
-        </div>
-
-        <p className="text-xs text-gray-400">{t('planning:muscle_group_helper')}</p>
-
-        {/* Muscle group grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {availableMuscleGroups.map((mg) => {
-            const priority = muscleGroupPriorities[mg]
-            return (
-              <div
-                key={mg}
-                className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2"
-              >
-                <span className="text-sm text-gray-700">{t(`muscles:${mg}`)}</span>
-                <select
-                  value={priority ?? 'off'}
-                  onChange={(e) => handlePriorityChange(mg, e.target.value)}
-                  className="rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                >
-                  <option value="high">{t('planning:muscle_priority_high')}</option>
-                  <option value="medium">{t('planning:muscle_priority_medium')}</option>
-                  <option value="low">{t('planning:muscle_priority_low')}</option>
-                  <option value="off">{t('planning:muscle_priority_off')}</option>
-                </select>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="space-y-2">
-          <button
-            type="button"
-            onClick={handleSaveAsPreset}
-            disabled={!presetName.trim()}
-            className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
-          >
-            {t('planning:save_as_preset')}
-          </button>
-          {!presetName.trim() && (
-            <p className="text-xs text-gray-400">{t('planning:preset_name_required')}</p>
-          )}
-        </div>
-
-        <p className="text-xs text-gray-400">{t('planning:algorithm_distributes')}</p>
-
-        <button
-          type="button"
-          onClick={() => setStep('exercises')}
-          disabled={exercises.length === 0 || !Object.values(muscleGroupPriorities).some(Boolean)}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
-        >
-          {t('planning:next')}
-        </button>
-      </div>
-    )
-  }
-
   if (step === 'exercises') {
-    // Faithful mode: render preset exercises editor
-    if (isFaithfulMode && editablePresetSessions.length > 0) {
+    if (editablePresetSessions.length === 0) {
+      // Empty state: no preset selected (e.g. orphan navigation). Send back to preset.
       return (
-        <FaithfulExercisesStep
-          editablePresetSessions={editablePresetSessions}
-          onSessionsChange={setEditablePresetSessions}
-          exercises={exercises}
-          filteredExercisePool={filteredExercisePool}
-          onBack={() => setStep('configure')}
-          onGenerate={handleGenerate}
-        />
+        <div className="space-y-4">
+          <p className="text-sm text-gray-500">{t('planning:empty_template_body')}</p>
+          <button
+            type="button"
+            onClick={() => setStep('preset')}
+            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+          >
+            {t('planning:back_to_presets')}
+          </button>
+        </div>
       )
     }
-
-    // Generator mode: auto/manual toggle
-    const canGenerate =
-      autoSelectExercises ||
-      activeMuscleGroups.every((mg) => (exerciseSelections[mg]?.length ?? 0) > 0)
-
     return (
-      <div className="space-y-5">
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setStep(isFaithfulMode ? 'configure' : 'muscles')}
-            className="text-gray-400 hover:text-gray-600"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900">
-              {t('planning:select_exercises')}
-            </h2>
-            <p className="text-xs text-gray-500 mt-0.5">{t('planning:select_exercises_desc')}</p>
-          </div>
-        </div>
-
-        {/* Auto/Manual toggle */}
-        <div className="space-y-2">
-          <label className="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3 cursor-pointer">
-            <input
-              type="radio"
-              checked={autoSelectExercises}
-              onChange={() => setAutoSelectExercises(true)}
-              className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
-            />
-            <div>
-              <span className="text-sm font-medium text-gray-900">
-                {t('planning:auto_select_all')}
-              </span>
-              <p className="text-xs text-gray-500 mt-0.5">{t('planning:auto_select_all_desc')}</p>
-            </div>
-          </label>
-
-          <label className="flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3 cursor-pointer">
-            <input
-              type="radio"
-              checked={!autoSelectExercises}
-              onChange={() => setAutoSelectExercises(false)}
-              className="mt-0.5 h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
-            />
-            <div>
-              <span className="text-sm font-medium text-gray-900">
-                {t('planning:manual_select')}
-              </span>
-            </div>
-          </label>
-        </div>
-
-        {/* Manual exercise selection */}
-        {!autoSelectExercises && (
-          <div className="space-y-2 max-h-[50vh] overflow-y-auto">
-            {activeMuscleGroups.map((mg) => {
-              const mgExercises = exercisesByMuscle[mg] ?? []
-              const selected = exerciseSelections[mg] ?? []
-              const isExpanded = expandedGroups[mg] ?? false
-
-              return (
-                <div key={mg} className="rounded-lg border border-gray-200">
-                  <button
-                    type="button"
-                    onClick={() => toggleGroupExpanded(mg)}
-                    className="flex w-full items-center justify-between px-3 py-2"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">
-                        {t(`muscles:${mg}`)}
-                      </span>
-                      <span className="text-xs text-gray-400">
-                        {mgExercises.length > 0
-                          ? t('planning:candidates_count', { count: mgExercises.length })
-                          : t('planning:no_exercises_for_muscle', { muscle: t(`muscles:${mg}`) })}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {selected.length > 0 && (
-                        <span className="text-xs text-indigo-600 font-medium">
-                          {t('planning:exercises_selected', { count: selected.length })}
-                        </span>
-                      )}
-                      {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                    </div>
-                  </button>
-
-                  {isExpanded && (
-                    <div className="border-t border-gray-100 px-3 py-2 space-y-1">
-                      {mgExercises.length === 0 ? (
-                        <p className="text-xs text-gray-400 py-1">
-                          {t('planning:no_exercises_for_muscle', { muscle: t(`muscles:${mg}`) })}
-                        </p>
-                      ) : (
-                        mgExercises.map((ex) => (
-                          <label
-                            key={ex.id}
-                            className="flex items-center gap-2 py-1 cursor-pointer"
-                          >
-                            <input
-                              type="checkbox"
-                              checked={selected.includes(ex.id)}
-                              onChange={() => toggleExerciseSelection(mg, ex.id)}
-                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                            />
-                            <span className="text-sm text-gray-700">{t(ex.nameKey)}</span>
-                          </label>
-                        ))
-                      )}
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        )}
-
-        {!autoSelectExercises && !canGenerate && (
-          <p className="text-xs text-amber-600">{t('planning:min_one_exercise')}</p>
-        )}
-
-        <button
-          type="button"
-          onClick={handleGenerate}
-          disabled={!canGenerate}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
-        >
-          {t('planning:generate_instant')}
-        </button>
-      </div>
+      <FaithfulExercisesStep
+        editablePresetSessions={editablePresetSessions}
+        onSessionsChange={setEditablePresetSessions}
+        exercises={exercises}
+        filteredExercisePool={filteredExercisePool}
+        onBack={() => setStep('preset')}
+        onGenerate={() => setStep('configure')}
+        onCompleteChange={setTemplatesComplete}
+        generateLabelKey="planning:next"
+        generateDisabled={!templatesComplete}
+        missingExerciseIds={missingExerciseIds}
+      />
     )
   }
 
@@ -1002,7 +840,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
       equipment,
       trainingDays,
       minutesPerSession: minutesPerSess,
-      activeRestrictions,
       onboardingCompleted: true,
       availableWeights: availableWeightsState,
     }
@@ -1082,6 +919,19 @@ export const PlanCreator = ({ onComplete }: Props) => {
             — {generatedPreview.durationWeeks} {t('planning:weeks')}
           </span>
         </div>
+
+        {error === 'PRESET_EXERCISES_MISSING' && storeMissingIds.length > 0 && (
+          <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+            <p className="text-sm font-medium text-red-800">
+              {t('planning:error_missing_exercises', { count: storeMissingIds.length })}
+            </p>
+            <ul className="mt-2 list-disc pl-5 text-xs text-red-700">
+              {storeMissingIds.map((id) => (
+                <li key={id}>{id}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="space-y-4 max-h-[60vh] overflow-y-auto">
           {Array.from(weekMap.entries())
