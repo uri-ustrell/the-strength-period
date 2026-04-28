@@ -1,9 +1,10 @@
 import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
 import { SessionPreview } from '@/components/planning/SessionPreview'
+import { WeekProgressionTable } from '@/components/planning/WeekProgressionTable'
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 import type { CustomPreset, Preset } from '@/data/presets'
 import { hasExerciseRichSessions, PRESETS } from '@/data/presets'
@@ -16,10 +17,16 @@ import {
   presetToMuscleGroupPriorities,
   prioritiesToMuscleDistribution,
 } from '@/services/planning/muscleDistribution'
+import {
+  buildDefaultProgressionRates,
+  migrateSliderToRates,
+  normalizeFourTemplates,
+  resizeProgressionRates,
+} from '@/services/planning/presetTemplates'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
 import type { DayOfWeek, Equipment, Exercise, ExerciseTag, MuscleGroup } from '@/types/exercise'
-import type { PresetSessionTemplate } from '@/types/planning'
+import type { PresetSessionTemplate, WeekProgressionRate } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
 
 type Step = 'preset' | 'configure' | 'muscles' | 'exercises' | 'preview' | 'llm-assistant'
@@ -59,12 +66,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
     return initial as Record<MuscleGroup, MuscleGroupPriority | null>
   })
-  const [weeklyProgression, setWeeklyProgression] = useState(5)
+  const [weeklyProgressionRates, setWeeklyProgressionRates] = useState<WeekProgressionRate[]>(() =>
+    buildDefaultProgressionRates(8)
+  )
 
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
-  const [showSavePreset, setShowSavePreset] = useState(false)
   const [presetName, setPresetName] = useState('')
   const [editingPresetId, setEditingPresetId] = useState<string | null>(null)
+  const [sourceIsBuiltIn, setSourceIsBuiltIn] = useState(false)
+  const [dirty, setDirty] = useState(false)
+  const suppressDirtyRef = useRef(false)
 
   // Exercise step state
   const [autoSelectExercises, setAutoSelectExercises] = useState(true)
@@ -135,10 +146,75 @@ export const PlanCreator = ({ onComplete }: Props) => {
   useEffect(() => {
     const loadCustomPresets = async () => {
       const stored = (await getConfig('customPresets')) as CustomPreset[] | null
-      if (stored) setCustomPresets(stored)
+      if (!stored) return
+      let mutated = false
+      const migrated: CustomPreset[] = stored.map((cp) => {
+        if (!cp.weeklyProgressionRates && cp.weeklyProgression !== undefined) {
+          mutated = true
+          const rates = migrateSliderToRates(cp.weeklyProgression, cp.durationWeeks)
+          // eslint-disable-next-line no-console
+          console.info(
+            `[migration] CustomPreset ${cp.id} migrated weeklyProgression → weeklyProgressionRates`
+          )
+          return { ...cp, weeklyProgressionRates: rates }
+        }
+        return cp
+      })
+      if (mutated) {
+        await setConfig('customPresets', migrated)
+      }
+      setCustomPresets(migrated)
     }
     loadCustomPresets()
   }, [])
+
+  // Resize progression rates when `weeks` changes (preserve edited values).
+  useEffect(() => {
+    setWeeklyProgressionRates((prev) => {
+      if (prev.length === weeks) return prev
+      return resizeProgressionRates(prev, weeks)
+    })
+  }, [weeks])
+
+  // Mark working copy as dirty whenever a tracked field changes.
+  useEffect(() => {
+    if (suppressDirtyRef.current) {
+      suppressDirtyRef.current = false
+      return
+    }
+    if (step === 'preset' || step === 'preview') return
+    setDirty(true)
+  }, [
+    editablePresetSessions,
+    weeklyProgressionRates,
+    presetName,
+    weeks,
+    daysPerWeek,
+    minutesPerSess,
+    muscleGroupPriorities,
+    step,
+  ])
+
+  const guardedNavigate = (action: () => void) => {
+    if (dirty) {
+      const confirmed = window.confirm(
+        `${t('planning:preset_unsaved_changes_title')}\n\n${t('planning:preset_unsaved_changes_body')}`
+      )
+      if (!confirmed) return
+    }
+    action()
+  }
+
+  const resetWizard = () => {
+    suppressDirtyRef.current = true
+    setStep('preset')
+    setSelectedPreset(null)
+    setEditingPresetId(null)
+    setSourceIsBuiltIn(false)
+    setPresetName('')
+    setEditablePresetSessions([])
+    setDirty(false)
+  }
 
   const filteredExercisePool = useMemo(() => {
     return filterExercises(exercises, {
@@ -171,34 +247,41 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return map
   }, [activeMuscleGroups, filteredExercisePool])
 
-  const handleSelectPreset = (preset: Preset | null) => {
+  const handleSelectPreset = (preset: Preset) => {
+    suppressDirtyRef.current = true
     setSelectedPreset(preset)
-    if (preset) {
-      setWeeks(preset.durationOptions[0] ?? 8)
-      if (preset.weeklyProgression !== undefined) {
-        setWeeklyProgression(preset.weeklyProgression)
-      }
+    const initialWeeks = preset.durationOptions[0] ?? 8
+    setWeeks(initialWeeks)
+    if (preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0) {
+      setWeeklyProgressionRates(resizeProgressionRates(preset.weeklyProgressionRates, initialWeeks))
+    } else if (preset.weeklyProgression !== undefined) {
+      setWeeklyProgressionRates(migrateSliderToRates(preset.weeklyProgression, initialWeeks))
+    } else {
+      setWeeklyProgressionRates(buildDefaultProgressionRates(initialWeeks))
     }
     setMuscleGroupPriorities(presetToMuscleGroupPriorities(preset))
-    // Initialize editable sessions for faithful mode
-    if (preset?.sessions && preset.sessions.length > 0) {
-      setEditablePresetSessions(
-        preset.sessions.map((s) => ({
-          ...s,
-          exercises: s.exercises.map((e) => ({ ...e })),
-        }))
-      )
+    if (preset.sessions && preset.sessions.length > 0) {
+      setEditablePresetSessions(normalizeFourTemplates(preset.sessions))
     } else {
-      setEditablePresetSessions([])
+      setEditablePresetSessions(normalizeFourTemplates(undefined))
     }
+    setEditingPresetId(null)
+    setSourceIsBuiltIn(true)
+    setPresetName('')
+    setDirty(false)
     setStep('configure')
   }
 
   const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
+    suppressDirtyRef.current = true
     setSelectedPreset(null)
     setWeeks(cp.durationWeeks)
-    if (cp.weeklyProgression !== undefined) {
-      setWeeklyProgression(cp.weeklyProgression)
+    if (cp.weeklyProgressionRates && cp.weeklyProgressionRates.length > 0) {
+      setWeeklyProgressionRates(resizeProgressionRates(cp.weeklyProgressionRates, cp.durationWeeks))
+    } else if (cp.weeklyProgression !== undefined) {
+      setWeeklyProgressionRates(migrateSliderToRates(cp.weeklyProgression, cp.durationWeeks))
+    } else {
+      setWeeklyProgressionRates(buildDefaultProgressionRates(cp.durationWeeks))
     }
 
     const priorities: Record<string, MuscleGroupPriority | null> = {}
@@ -214,35 +297,33 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
     setMuscleGroupPriorities(priorities as Record<MuscleGroup, MuscleGroupPriority | null>)
 
-    // Load sessions for faithful mode
-    if (cp.sessions && cp.sessions.length > 0) {
-      setEditablePresetSessions(
-        cp.sessions.map((s) => ({ ...s, exercises: s.exercises.map((e) => ({ ...e })) }))
-      )
-    } else {
-      setEditablePresetSessions([])
-    }
+    setEditablePresetSessions(normalizeFourTemplates(cp.sessions))
 
+    setSourceIsBuiltIn(false)
     if (editing) {
       setEditingPresetId(cp.id)
       setPresetName(cp.name)
-      setShowSavePreset(true)
     } else {
-      setEditingPresetId(null)
+      setEditingPresetId(cp.id)
+      setPresetName(cp.name)
     }
+    setDirty(false)
     setStep('configure')
   }
 
   const handleCreateFromScratch = () => {
+    suppressDirtyRef.current = true
     const id = `custom_${crypto.randomUUID()}`
     const blankPreset: CustomPreset = {
       id,
       name: '',
       durationWeeks: 8,
       muscleDistribution: {},
+      weeklyProgressionRates: buildDefaultProgressionRates(8),
       createdAt: new Date().toISOString(),
     }
     handleSelectCustomPreset(blankPreset, true)
+    setEditingPresetId(null) // not yet persisted
   }
 
   const handleDeleteCustomPreset = async (id: string) => {
@@ -265,14 +346,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
             exercises: s.exercises.map((e) => ({ ...e })),
           }))
         : selectedPreset?.sessions
-          ? selectedPreset.sessions.map((s) => ({
-              ...s,
-              exercises: s.exercises.map((e) => ({ ...e })),
-            }))
+          ? normalizeFourTemplates(selectedPreset.sessions)
           : undefined
 
-    if (editingPresetId) {
-      // Update existing custom preset
+    if (editingPresetId && !sourceIsBuiltIn) {
+      // Update existing custom preset (edit-in-place)
       const updated = customPresets.map((cp) =>
         cp.id === editingPresetId
           ? {
@@ -281,33 +359,35 @@ export const PlanCreator = ({ onComplete }: Props) => {
               durationWeeks: weeks,
               muscleDistribution,
               sessions: sessionsCopy,
-              weeklyProgression,
+              weeklyProgressionRates,
               progressionType: selectedPreset?.progressionType ?? cp.progressionType ?? 'linear',
+              weeklyProgression: undefined,
             }
           : cp
       )
       await setConfig('customPresets', updated)
       setCustomPresets(updated)
     } else {
-      // Create new custom preset
+      // Auto-fork built-in preset OR create from scratch -> new CustomPreset
       const newPreset: CustomPreset = {
         id: `custom_${crypto.randomUUID()}`,
         name,
         durationWeeks: weeks,
         muscleDistribution,
         sessions: sessionsCopy,
-        weeklyProgression,
+        weeklyProgressionRates,
         progressionType: selectedPreset?.progressionType ?? 'linear',
         createdAt: new Date().toISOString(),
       }
       const updated = [...customPresets, newPreset]
       await setConfig('customPresets', updated)
       setCustomPresets(updated)
+      setEditingPresetId(newPreset.id)
+      setSourceIsBuiltIn(false)
+      setSelectedPreset(null)
     }
 
-    setShowSavePreset(false)
-    setPresetName('')
-    setEditingPresetId(null)
+    setDirty(false)
   }
 
   const handleGenerate = () => {
@@ -337,14 +417,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
     if (isFaithfulMode && editablePresetSessions.length > 0) {
       generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
         weeks,
-        weeklyProgression,
+        weeklyProgressionRates,
         presetSessions: editablePresetSessions,
       })
     } else {
       generate(selectedPreset?.id ?? 'forca_general', config, exercises, {
         weeks,
         muscleDistribution,
-        weeklyProgression,
+        weeklyProgressionRates,
         exerciseSelections: autoSelectExercises ? undefined : exerciseSelections,
       })
     }
@@ -457,14 +537,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
               <p className="mt-1 text-xs text-gray-500">{t(preset.descriptionKey)}</p>
             </button>
           ))}
-          <button
-            type="button"
-            onClick={() => handleSelectPreset(null)}
-            className="rounded-xl border-2 border-dashed border-gray-300 p-4 text-left transition-colors hover:border-indigo-400 hover:bg-indigo-50"
-          >
-            <h3 className="font-medium text-sm text-gray-900">{t('planning:custom')}</h3>
-            <p className="mt-1 text-xs text-gray-500">{t('planning:custom_desc')}</p>
-          </button>
         </div>
 
         {customPresets.length > 0 && (
@@ -536,20 +608,33 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => {
-              setStep('preset')
-              setEditingPresetId(null)
-              setShowSavePreset(false)
-            }}
+            onClick={() => guardedNavigate(resetWizard)}
             className="text-gray-400 hover:text-gray-600"
           >
             <ArrowLeft size={20} />
           </button>
           <h2 className="text-lg font-semibold text-gray-900">
             {editingPresetId
-              ? t('planning:editing_preset', { name: presetName })
+              ? t('planning:editing_preset', { name: presetName || '…' })
               : t('planning:configure')}
           </h2>
+        </div>
+
+        {/* Inline preset name (working copy) */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            {t('planning:preset_name_label')}
+          </label>
+          <input
+            type="text"
+            value={presetName}
+            onChange={(e) => setPresetName(e.target.value)}
+            placeholder={t('planning:preset_name_placeholder')}
+            className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+          {!presetName.trim() && (
+            <p className="mt-1 text-xs text-gray-400">{t('planning:preset_name_required')}</p>
+          )}
         </div>
 
         <div className="space-y-4">
@@ -621,29 +706,22 @@ export const PlanCreator = ({ onComplete }: Props) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            {t('planning:weekly_progression')}
-          </label>
-          <p className="text-xs text-gray-400 mt-0.5">{t('planning:weekly_progression_desc')}</p>
-          <div className="mt-2 flex items-center gap-3">
-            <span className="text-xs text-gray-400 w-20">
-              {t('planning:progression_maintenance')}
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={10}
-              value={weeklyProgression}
-              onChange={(e) => setWeeklyProgression(Number(e.target.value))}
-              className="flex-1 accent-indigo-600"
-            />
-            <span className="text-xs text-gray-400 w-16 text-right">
-              {t('planning:progression_aggressive')}
-            </span>
-          </div>
-          <div className="mt-1 text-center text-sm font-medium text-indigo-600">
-            {weeklyProgression}/10
-          </div>
+          <WeekProgressionTable
+            weeks={weeks}
+            rates={weeklyProgressionRates}
+            onChange={setWeeklyProgressionRates}
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          <button
+            type="button"
+            onClick={handleSaveAsPreset}
+            disabled={!presetName.trim()}
+            className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
+          >
+            {t('planning:save_as_preset')}
+          </button>
         </div>
 
         <button
@@ -730,32 +808,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
         </div>
 
         <div className="space-y-2">
-          {!showSavePreset ? (
-            <button
-              type="button"
-              onClick={() => setShowSavePreset(true)}
-              className="text-sm text-indigo-600 hover:text-indigo-800 font-medium"
-            >
-              {t('planning:save_as_preset')}
-            </button>
-          ) : (
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={presetName}
-                onChange={(e) => setPresetName(e.target.value)}
-                placeholder={t('planning:preset_name_placeholder')}
-                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-              />
-              <button
-                type="button"
-                onClick={handleSaveAsPreset}
-                disabled={!presetName.trim()}
-                className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
-              >
-                {t('planning:save')}
-              </button>
-            </div>
+          <button
+            type="button"
+            onClick={handleSaveAsPreset}
+            disabled={!presetName.trim()}
+            className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
+          >
+            {t('planning:save_as_preset')}
+          </button>
+          {!presetName.trim() && (
+            <p className="text-xs text-gray-400">{t('planning:preset_name_required')}</p>
           )}
         </div>
 
@@ -945,6 +1007,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
       availableWeights: availableWeightsState,
     }
 
+    const positives = weeklyProgressionRates.map((r) => r.progressionPct).filter((p) => p >= 0)
+    const llmWeeklyProgression =
+      positives.length > 0
+        ? Math.max(
+            0,
+            Math.min(10, Math.round(positives.reduce((a, b) => a + b, 0) / positives.length))
+          )
+        : 5
+
     return (
       <LLMAssistant
         preset={selectedPreset}
@@ -952,7 +1023,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
         weeks={weeks}
         daysPerWeek={daysPerWeek}
         minutesPerSession={minutesPerSess}
-        weeklyProgression={weeklyProgression}
+        weeklyProgression={llmWeeklyProgression}
         filteredExercises={filteredExercisePool}
         onImport={(mesocycle) => {
           setGeneratedPreview(mesocycle)

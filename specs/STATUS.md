@@ -1,8 +1,8 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-10
+> Last updated: 2026-04-24
 
-## Current Phase: Step 18 Complete — Step 16 Planned
+## Current Phase: Step 19 Complete — Step 16 Planned
 
 ## Steps Overview
 
@@ -25,6 +25,7 @@
 | 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
 | 17 | Formatter + Session Hooks | ✅ | — |
 | 18 | Multi-Source Content Ingestion Pipeline | ✅ | Steps 2, 7, 15 |
+| 19 | Preset & Session Template Redesign | ✅ | Steps 7, 14, 18 |
 
 ## Architecture Notes
 
@@ -72,6 +73,21 @@
 
 ### Step 16 — Ethical Gamification
 - [ ] Read and follow `specs/features/16-ethical-gamification.md` as source of truth before implementation
+
+### Step 19 — Preset & Session Template Redesign ✅ (spec: `specs/features/17-preset-sessions-redesign.md`)
+- [x] Read `specs/features/17-preset-sessions-redesign.md` end-to-end before starting
+- [x] Type changes: `TemplateKey`, `WeekProgressionRate`, updated `PresetSessionTemplate` (add `templateKey`+`name`, remove `label?`), `initialLoadKg` on `PresetExerciseEntry`
+- [x] Add `weeklyProgressionRates` to `CustomPreset` and `Preset` interfaces in `src/data/presets.ts`
+- [x] Planning engine: `resolveWeekMultiplier` helper; thread `weeklyProgressionRates`; use `initialLoadKg` as base weight in faithful mode
+- [x] Create `WeekProgressionTable` component (`src/components/planning/WeekProgressionTable.tsx`)
+- [x] `PlanCreator.tsx`: remove "Custom" grid card; A/B/C/D normalisation in `handleCreateFromScratch` and `handleSelectCustomPreset`; replace `weeklyProgression` slider with `WeekProgressionTable`
+- [x] `FaithfulExercisesStep.tsx`: A/B/C/D tabs; template rename field; copy-to mechanic; `initialLoadKg` input per exercise
+- [x] i18n: add new keys to ca/es/en; remove `planning:custom` and `planning:custom_desc`
+- [x] Update `specs/DATA_MODEL.md` with new and changed types
+- [x] Build verification: `npm run build` zero errors
+- [x] Auto-fork built-in presets → CustomPreset on "Save as preset" with required inline name field
+- [x] Legacy `weeklyProgression` write-back migration on first IndexedDB load
+- [x] Unsaved-changes confirmation guard for built-in working copies
 - [ ] Run pre-execution decision gate; if guardrails cannot be met cleanly, allow and recommend full UI/UX refactor first
 - [ ] Define anti-addictive guardrails as acceptance criteria
 - [ ] Design achievement system tied to sustainable habits

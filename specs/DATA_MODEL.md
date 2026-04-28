@@ -46,8 +46,40 @@ type Exercise = {
 
 ## Planning Types (`src/types/planning.ts`)
 
+> **Note (Feature 17 / Step 19):** Updated by the Preset & Session Template Redesign.
+> New types `TemplateKey`, `WeekProgressionRate`; `PresetSessionTemplate` now has
+> required `templateKey` + `name` (replaces `label?`); `PresetExerciseEntry` has
+> optional `initialLoadKg`; `CustomPreset` and `Preset` carry
+> `weeklyProgressionRates`. Legacy `weeklyProgression` is migrated to per-week
+> rates on first IndexedDB load.
+
 ```typescript
 type ProgressionType = 'linear' | 'undulating' | 'block'
+
+type TemplateKey = 'A' | 'B' | 'C' | 'D'
+
+type WeekProgressionRate = {
+  week: number            // 1-indexed week within the mesocycle
+  progressionPct: number  // signed integer: +5 = +5%, -40 = -40%
+}
+
+type PresetExerciseEntry = {
+  exerciseId: string
+  sets: number
+  reps: number | [number, number]
+  restSeconds: number
+  initialLoadKg?: number  // optional starting load; undefined = auto-derive
+  tempo?: string
+  rpe?: number
+  notes?: string
+}
+
+type PresetSessionTemplate = {
+  templateKey: TemplateKey  // immutable slot identifier
+  name: string              // display name; defaults to templateKey value
+  exercises: PresetExerciseEntry[]
+  isDeload?: boolean
+}
 
 type LoadTarget = {
   sets: number
@@ -85,6 +117,34 @@ type Mesocycle = {
   sessions: SessionTemplate[]
   createdAt: string
   active: boolean
+}
+```
+
+### `CustomPreset` (`src/data/presets.ts`)
+
+```typescript
+interface CustomPreset {
+  id: string
+  name: string
+  durationWeeks: number
+  muscleDistribution: Partial<Record<MuscleGroup, number>>
+  sessions?: PresetSessionTemplate[]              // when set, always exactly 4 entries (A/B/C/D)
+  weeklyProgression?: number                      // DEPRECATED — migrated on load
+  weeklyProgressionRates?: WeekProgressionRate[]  // length === durationWeeks
+  progressionType?: ProgressionType
+  createdAt: string
+}
+```
+
+### `Preset` (built-in, `src/data/presets.ts`)
+
+```typescript
+interface Preset {
+  id: string
+  nameKey: string
+  descriptionKey: string
+  // …existing built-in fields…
+  weeklyProgressionRates?: WeekProgressionRate[]  // optional per-week override
 }
 ```
 

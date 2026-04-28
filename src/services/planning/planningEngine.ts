@@ -11,6 +11,7 @@ import type {
   PresetSessionTemplate,
   ProgressionType,
   SessionTemplate,
+  WeekProgressionRate,
 } from '@/types/planning'
 import type { UserConfig, WeightEquipment } from '@/types/user'
 
@@ -201,6 +202,24 @@ function buildCandidatePool(exercises: Exercise[], muscleGroup: MuscleGroup): Ex
 
 const WEIGHT_EQUIPMENT: WeightEquipment[] = ['manueles', 'barra']
 
+function resolveWeekMultiplier(
+  week: number,
+  isDeload: boolean,
+  rule: { deloadPercentage: number; weeklyVolumeIncrease: number },
+  weeklyProgressionRates: WeekProgressionRate[] | undefined,
+  weeklyProgression: number
+): number {
+  if (isDeload) return rule.deloadPercentage
+
+  if (weeklyProgressionRates && weeklyProgressionRates.length >= week) {
+    const rate = weeklyProgressionRates[week - 1]
+    if (rate) return 1 + rate.progressionPct / 100
+  }
+
+  const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
+  return 1 + scaledIncrease * (week - 1)
+}
+
 function resolveExerciseWeights(exercise: Exercise, config: UserConfig): number[] | undefined {
   if (!config.availableWeights) return undefined
 
@@ -251,6 +270,7 @@ export function generateMesocycle(
     muscleDistribution?: Record<string, number>
     progressionType?: ProgressionType
     weeklyProgression?: number
+    weeklyProgressionRates?: WeekProgressionRate[]
     exerciseSelections?: Record<string, string[]>
     presetSessions?: PresetSessionTemplate[]
   }
@@ -294,12 +314,14 @@ function generateFaithfulMesocycle(
     weeks?: number
     progressionType?: ProgressionType
     weeklyProgression?: number
+    weeklyProgressionRates?: WeekProgressionRate[]
   }
 ): Mesocycle {
   const preset = getPresetById(presetId)
   const progressionType: ProgressionType =
     options?.progressionType ?? preset?.progressionType ?? 'linear'
   const weeklyProgression = options?.weeklyProgression ?? preset?.weeklyProgression ?? 5
+  const weeklyProgressionRates = options?.weeklyProgressionRates ?? preset?.weeklyProgressionRates
   const totalWeeks = options?.weeks ?? 8
 
   const rule = PROGRESSION_RULES[progressionType]
@@ -318,13 +340,17 @@ function generateFaithfulMesocycle(
   const sessions: SessionTemplate[] = []
 
   for (let week = 1; week <= totalWeeks; week++) {
-    const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
-
     for (let dayIdx = 0; dayIdx < sessionsPerWeek; dayIdx++) {
       const template = presetSessions[dayIdx]
       if (!template) continue
       const isDeload = template.isDeload === true
-      const weekMultiplier = isDeload ? rule.deloadPercentage : 1 + scaledIncrease * (week - 1)
+      const weekMultiplier = resolveWeekMultiplier(
+        week,
+        isDeload,
+        rule,
+        weeklyProgressionRates,
+        weeklyProgression
+      )
       const sessionIndex = (week - 1) * sessionsPerWeek + dayIdx
 
       const muscleGroupTargets: MuscleGroupTarget[] = []
@@ -359,15 +385,28 @@ function generateFaithfulMesocycle(
             : Math.max(1, Math.round(baseSets * effectiveMultiplier))
           scaledReps = baseReps
 
-          const exerciseWeights = resolveExerciseWeights(exercise, config)
-          if (exerciseWeights && exerciseWeights.length > 0) {
-            const sorted = [...exerciseWeights].sort((a, b) => a - b)
-            const midIndex = Math.floor(sorted.length * 0.3)
-            const baseWeight = sorted[midIndex] ?? sorted[0] ?? 0
-            const progressedWeight = baseWeight * (1 + (week - 1) * 0.05)
-            const deloadWeight = baseWeight * 0.6
-            const targetWeight = isDeload ? deloadWeight : progressedWeight
-            weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
+          let baseWeight = 0
+          if (entry.initialLoadKg && entry.initialLoadKg > 0) {
+            baseWeight = entry.initialLoadKg
+          } else {
+            const exerciseWeights = resolveExerciseWeights(exercise, config)
+            if (exerciseWeights && exerciseWeights.length > 0) {
+              const sorted = [...exerciseWeights].sort((a, b) => a - b)
+              const midIndex = Math.floor(sorted.length * 0.3)
+              baseWeight = sorted[midIndex] ?? sorted[0] ?? 0
+            }
+          }
+
+          if (baseWeight > 0) {
+            const exerciseWeights = resolveExerciseWeights(exercise, config)
+            const progressedWeight = baseWeight * weekMultiplier
+            const targetWeight = isDeload ? baseWeight * rule.deloadPercentage : progressedWeight
+            if (exerciseWeights && exerciseWeights.length > 0) {
+              const sorted = [...exerciseWeights].sort((a, b) => a - b)
+              weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
+            } else {
+              weightKg = Math.round(targetWeight * 10) / 10
+            }
           }
         } else if (metric === 'reps') {
           scaledSets = isDeload
@@ -469,6 +508,7 @@ function generateGeneratorMesocycle(
     muscleDistribution?: Record<string, number>
     progressionType?: ProgressionType
     weeklyProgression?: number
+    weeklyProgressionRates?: WeekProgressionRate[]
     exerciseSelections?: Record<string, string[]>
   }
 ): Mesocycle {
@@ -476,6 +516,7 @@ function generateGeneratorMesocycle(
   const progressionType: ProgressionType =
     options?.progressionType ?? preset?.progressionType ?? 'linear'
   const weeklyProgression = options?.weeklyProgression ?? 5
+  const weeklyProgressionRates = options?.weeklyProgressionRates ?? preset?.weeklyProgressionRates
   const totalWeeks = options?.weeks ?? 8
   const daysPerWeek = config.trainingDays.length
   const minutesPerSession = config.minutesPerSession
@@ -522,8 +563,13 @@ function generateGeneratorMesocycle(
 
   for (let week = 1; week <= totalWeeks; week++) {
     const isDeload = week % rule.deloadWeek === 0
-    const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
-    const weekMultiplier = isDeload ? rule.deloadPercentage : 1 + scaledIncrease * (week - 1)
+    const weekMultiplier = resolveWeekMultiplier(
+      week,
+      isDeload,
+      rule,
+      weeklyProgressionRates,
+      weeklyProgression
+    )
 
     for (let day = 0; day < daysPerWeek; day++) {
       const sessionIndex = (week - 1) * daysPerWeek + day

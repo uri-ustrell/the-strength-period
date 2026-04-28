@@ -2,18 +2,27 @@ import type { MuscleGroup, ProgressionMetric, RestrictionCondition } from '@/typ
 
 export type ProgressionType = 'linear' | 'undulating' | 'block'
 
+export type TemplateKey = 'A' | 'B' | 'C' | 'D'
+
+export type WeekProgressionRate = {
+  week: number
+  progressionPct: number
+}
+
 export type PresetExerciseEntry = {
   exerciseId: string
   sets: number
   reps: number | [number, number]
   restSeconds: number
+  initialLoadKg?: number
   tempo?: string
   rpe?: number
   notes?: string
 }
 
 export type PresetSessionTemplate = {
-  label?: string
+  templateKey: TemplateKey
+  name: string
   exercises: PresetExerciseEntry[]
   isDeload?: boolean
 }

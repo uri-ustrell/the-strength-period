@@ -1,9 +1,10 @@
-import { ArrowLeft, ArrowRightLeft, ChevronDown, ChevronUp, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowUp, Copy, Plus, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { blankExerciseEntry, TEMPLATE_KEYS } from '@/services/planning/presetTemplates'
 import type { Exercise } from '@/types/exercise'
-import type { PresetExerciseEntry, PresetSessionTemplate } from '@/types/planning'
+import type { PresetExerciseEntry, PresetSessionTemplate, TemplateKey } from '@/types/planning'
 
 interface Props {
   editablePresetSessions: PresetSessionTemplate[]
@@ -12,6 +13,7 @@ interface Props {
   filteredExercisePool: Exercise[]
   onBack: () => void
   onGenerate: () => void
+  headerExtra?: React.ReactNode
 }
 
 export const FaithfulExercisesStep = ({
@@ -21,84 +23,95 @@ export const FaithfulExercisesStep = ({
   filteredExercisePool,
   onBack,
   onGenerate,
+  headerExtra,
 }: Props) => {
   const { t } = useTranslation(['planning', 'exercises'])
 
-  const [expandedSessions, setExpandedSessions] = useState<Record<number, boolean>>(() => {
-    const initial: Record<number, boolean> = {}
-    for (let i = 0; i < editablePresetSessions.length; i++) {
-      initial[i] = i === 0
-    }
-    return initial
-  })
-
-  const [swappingExercise, setSwappingExercise] = useState<{
-    sessionIdx: number
-    exerciseIdx: number
-  } | null>(null)
-  const [swapSearch, setSwapSearch] = useState('')
+  const [activeKey, setActiveKey] = useState<TemplateKey>('A')
+  const [pickerForRow, setPickerForRow] = useState<number | null>(null)
+  const [pickerSearch, setPickerSearch] = useState('')
+  const [copyMenuOpen, setCopyMenuOpen] = useState(false)
 
   const exerciseMap = useMemo(() => {
     const map = new Map<string, Exercise>()
-    for (const ex of exercises) {
-      map.set(ex.id, ex)
-    }
+    for (const ex of exercises) map.set(ex.id, ex)
     return map
   }, [exercises])
 
-  const swapCandidates = useMemo(() => {
-    if (!swappingExercise) return []
-    const q = swapSearch.toLowerCase().trim()
+  const activeIdx = useMemo(
+    () => editablePresetSessions.findIndex((s) => s.templateKey === activeKey),
+    [editablePresetSessions, activeKey]
+  )
+  const activeSession = activeIdx >= 0 ? editablePresetSessions[activeIdx] : undefined
+
+  const pickerCandidates = useMemo(() => {
+    const q = pickerSearch.toLowerCase().trim()
     return filteredExercisePool.filter((ex) => {
       if (!q) return true
-      const name = t(ex.nameKey).toLowerCase()
-      return name.includes(q)
+      return t(ex.nameKey).toLowerCase().includes(q)
     })
-  }, [swappingExercise, swapSearch, filteredExercisePool, t])
+  }, [pickerSearch, filteredExercisePool, t])
 
-  const toggleSession = (idx: number) => {
-    setExpandedSessions((prev) => ({ ...prev, [idx]: !prev[idx] }))
-  }
-
-  const updateExerciseField = (
-    sessionIdx: number,
-    exerciseIdx: number,
-    field: keyof Pick<PresetExerciseEntry, 'sets' | 'restSeconds' | 'reps'>,
-    value: number
-  ) => {
-    const updated = editablePresetSessions.map((session, si) => {
-      if (si !== sessionIdx) return session
-      return {
-        ...session,
-        exercises: session.exercises.map((ex, ei) => {
-          if (ei !== exerciseIdx) return ex
-          return { ...ex, [field]: value }
-        }),
-      }
-    })
+  const updateActiveSession = (mut: (s: PresetSessionTemplate) => PresetSessionTemplate) => {
+    if (activeIdx < 0) return
+    const updated = editablePresetSessions.map((s, i) => (i === activeIdx ? mut(s) : s))
     onSessionsChange(updated)
   }
 
-  const handleSwapExercise = (newExerciseId: string) => {
-    if (!swappingExercise) return
-    const { sessionIdx, exerciseIdx } = swappingExercise
-    const newExercise = exerciseMap.get(newExerciseId)
-    if (!newExercise) return
-
-    const updated = editablePresetSessions.map((session, si) => {
-      if (si !== sessionIdx) return session
-      return {
-        ...session,
-        exercises: session.exercises.map((ex, ei) => {
-          if (ei !== exerciseIdx) return ex
-          return { ...ex, exerciseId: newExerciseId }
-        }),
-      }
-    })
-    onSessionsChange(updated)
-    setSwappingExercise(null)
-    setSwapSearch('')
+  const updateExercise = (rowIdx: number, mut: (e: PresetExerciseEntry) => PresetExerciseEntry) => {
+    updateActiveSession((s) => ({
+      ...s,
+      exercises: s.exercises.map((e, i) => (i === rowIdx ? mut(e) : e)),
+    }))
   }
+
+  const handleAddExercise = () => {
+    updateActiveSession((s) => ({ ...s, exercises: [...s.exercises, blankExerciseEntry()] }))
+  }
+
+  const handleRemoveExercise = (rowIdx: number) => {
+    updateActiveSession((s) => ({
+      ...s,
+      exercises: s.exercises.filter((_, i) => i !== rowIdx),
+    }))
+  }
+
+  const handleMoveExercise = (rowIdx: number, dir: -1 | 1) => {
+    updateActiveSession((s) => {
+      const next = [...s.exercises]
+      const target = rowIdx + dir
+      if (target < 0 || target >= next.length) return s
+      const a = next[rowIdx]
+      const b = next[target]
+      if (!a || !b) return s
+      next[rowIdx] = b
+      next[target] = a
+      return { ...s, exercises: next }
+    })
+  }
+
+  const handleCopyTo = (targetKey: TemplateKey) => {
+    if (!activeSession) return
+    const cloned = activeSession.exercises.map((e) => ({ ...e }))
+    const updated = editablePresetSessions.map((s) =>
+      s.templateKey === targetKey ? { ...s, exercises: cloned } : s
+    )
+    onSessionsChange(updated)
+    setCopyMenuOpen(false)
+  }
+
+  const handleSelectFromPicker = (exerciseId: string) => {
+    if (pickerForRow === null) return
+    updateExercise(pickerForRow, (e) => ({ ...e, exerciseId }))
+    setPickerForRow(null)
+    setPickerSearch('')
+  }
+
+  const handleNameChange = (newName: string) => {
+    updateActiveSession((s) => ({ ...s, name: newName }))
+  }
+
+  const otherKeys = TEMPLATE_KEYS.filter((k) => k !== activeKey)
 
   return (
     <div className="space-y-5">
@@ -114,211 +127,306 @@ export const FaithfulExercisesStep = ({
         </div>
       </div>
 
-      <div className="space-y-3 max-h-[60vh] overflow-y-auto">
-        {editablePresetSessions.map((session, sessionIdx) => {
-          const isExpanded = expandedSessions[sessionIdx] ?? false
-          const label =
-            session.label ?? t('planning:faithful.session_label', { index: sessionIdx + 1 })
+      {headerExtra}
 
+      <div className="flex border-b border-gray-200">
+        {TEMPLATE_KEYS.map((key) => {
+          const session = editablePresetSessions.find((s) => s.templateKey === key)
+          const label = session?.name || key
+          const active = key === activeKey
           return (
-            <div
-              key={session.label ?? `session-${sessionIdx}`}
-              className="rounded-xl border border-gray-200 bg-white"
+            <button
+              key={key}
+              type="button"
+              onClick={() => setActiveKey(key)}
+              className={`flex-1 px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
+                active
+                  ? 'border-indigo-600 text-indigo-700'
+                  : 'border-transparent text-gray-500 hover:text-gray-700'
+              }`}
             >
+              {label}
+            </button>
+          )
+        })}
+      </div>
+
+      {activeSession && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="text"
+              value={activeSession.name}
+              onChange={(e) => handleNameChange(e.target.value)}
+              placeholder={activeSession.templateKey}
+              className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              aria-label={t('planning:template_name')}
+            />
+            <div className="relative">
               <button
                 type="button"
-                onClick={() => toggleSession(sessionIdx)}
-                className="flex w-full items-center justify-between px-4 py-3"
+                onClick={() => setCopyMenuOpen((o) => !o)}
+                className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-900">{label}</span>
-                  {session.isDeload && (
-                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
-                      {t('planning:faithful.deload_session')}
-                    </span>
-                  )}
-                  <span className="text-xs text-gray-400">
-                    {session.exercises.length} {t('planning:select_exercises').toLowerCase()}
-                  </span>
-                </div>
-                {isExpanded ? (
-                  <ChevronUp size={16} className="text-gray-400" />
-                ) : (
-                  <ChevronDown size={16} className="text-gray-400" />
-                )}
+                <Copy size={14} />
+                {t('planning:copy_to')}
               </button>
-
-              {isExpanded && (
-                <div className="border-t border-gray-100 px-4 py-3 space-y-3">
-                  {session.exercises.map((entry, exerciseIdx) => {
-                    const exercise = exerciseMap.get(entry.exerciseId)
-                    const exerciseKey = `${sessionIdx}-${entry.exerciseId}-${exerciseIdx}`
-                    const isSwapping =
-                      swappingExercise?.sessionIdx === sessionIdx &&
-                      swappingExercise?.exerciseIdx === exerciseIdx
-
+              {copyMenuOpen && (
+                <div className="absolute right-0 mt-1 z-10 rounded-lg border border-gray-200 bg-white shadow-md py-1 min-w-[100px]">
+                  {otherKeys.map((k) => {
+                    const target = editablePresetSessions.find((s) => s.templateKey === k)
                     return (
-                      <div
-                        key={exerciseKey}
-                        className="rounded-lg border border-gray-100 bg-gray-50 p-3 space-y-2"
+                      <button
+                        key={k}
+                        type="button"
+                        onClick={() => handleCopyTo(k)}
+                        className="block w-full px-3 py-1.5 text-left text-sm text-gray-700 hover:bg-gray-50"
                       >
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-gray-800">
-                            {exercise ? t(exercise.nameKey) : entry.exerciseId}
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (isSwapping) {
-                                setSwappingExercise(null)
-                                setSwapSearch('')
-                              } else {
-                                setSwappingExercise({ sessionIdx, exerciseIdx })
-                              }
-                            }}
-                            className="flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-indigo-600 hover:bg-indigo-50 transition-colors"
-                          >
-                            {isSwapping ? <X size={12} /> : <ArrowRightLeft size={12} />}
-                            {t('planning:faithful.swap_exercise')}
-                          </button>
-                        </div>
-
-                        {/* Editable fields */}
-                        <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
-                          <div>
-                            <label
-                              htmlFor={`sets-${sessionIdx}-${exerciseIdx}`}
-                              className="block text-xs text-gray-500"
-                            >
-                              {t('planning:faithful.sets')}
-                            </label>
-                            <input
-                              id={`sets-${sessionIdx}-${exerciseIdx}`}
-                              type="number"
-                              min={1}
-                              max={10}
-                              value={entry.sets}
-                              onChange={(e) =>
-                                updateExerciseField(
-                                  sessionIdx,
-                                  exerciseIdx,
-                                  'sets',
-                                  Math.max(1, Number(e.target.value) || 1)
-                                )
-                              }
-                              className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm text-gray-700 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            />
-                          </div>
-                          <div>
-                            <label
-                              htmlFor={`reps-${sessionIdx}-${exerciseIdx}`}
-                              className="block text-xs text-gray-500"
-                            >
-                              {t('planning:faithful.reps')}
-                            </label>
-                            <input
-                              id={`reps-${sessionIdx}-${exerciseIdx}`}
-                              type="number"
-                              min={1}
-                              max={100}
-                              value={Array.isArray(entry.reps) ? entry.reps[0] : entry.reps}
-                              onChange={(e) =>
-                                updateExerciseField(
-                                  sessionIdx,
-                                  exerciseIdx,
-                                  'reps',
-                                  Math.max(1, Number(e.target.value) || 1)
-                                )
-                              }
-                              className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm text-gray-700 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            />
-                          </div>
-                          <div>
-                            <label
-                              htmlFor={`rest-${sessionIdx}-${exerciseIdx}`}
-                              className="block text-xs text-gray-500"
-                            >
-                              {t('planning:faithful.rest')}
-                            </label>
-                            <input
-                              id={`rest-${sessionIdx}-${exerciseIdx}`}
-                              type="number"
-                              min={0}
-                              max={600}
-                              step={5}
-                              value={entry.restSeconds}
-                              onChange={(e) =>
-                                updateExerciseField(
-                                  sessionIdx,
-                                  exerciseIdx,
-                                  'restSeconds',
-                                  Math.max(0, Number(e.target.value) || 0)
-                                )
-                              }
-                              className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm text-gray-700 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            />
-                          </div>
-                          {entry.tempo && (
-                            <div>
-                              <span className="block text-xs text-gray-500">
-                                {t('planning:faithful.tempo')}
-                              </span>
-                              <span className="mt-0.5 block text-sm text-gray-600">
-                                {entry.tempo}
-                              </span>
-                            </div>
-                          )}
-                          {entry.rpe !== undefined && (
-                            <div>
-                              <span className="block text-xs text-gray-500">
-                                {t('planning:faithful.rpe')}
-                              </span>
-                              <span className="mt-0.5 block text-sm text-gray-600">
-                                {entry.rpe}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Swap panel */}
-                        {isSwapping && (
-                          <div className="mt-2 rounded-lg border border-indigo-200 bg-indigo-50 p-2 space-y-2">
-                            <input
-                              type="text"
-                              value={swapSearch}
-                              onChange={(e) => setSwapSearch(e.target.value)}
-                              placeholder={t('planning:faithful.search_exercise')}
-                              className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                            />
-                            <div className="max-h-32 overflow-y-auto space-y-0.5">
-                              {swapCandidates.length === 0 ? (
-                                <p className="text-xs text-gray-400 py-1">
-                                  {t('planning:faithful.no_results')}
-                                </p>
-                              ) : (
-                                swapCandidates.slice(0, 20).map((candidate) => (
-                                  <button
-                                    key={candidate.id}
-                                    type="button"
-                                    onClick={() => handleSwapExercise(candidate.id)}
-                                    className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-left text-sm text-gray-700 hover:bg-indigo-100 transition-colors"
-                                  >
-                                    {t(candidate.nameKey)}
-                                  </button>
-                                ))
-                              )}
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                        {target?.name || k}
+                      </button>
                     )
                   })}
                 </div>
               )}
             </div>
-          )
-        })}
-      </div>
+          </div>
+
+          <div className="space-y-2 max-h-[50vh] overflow-y-auto">
+            {activeSession.exercises.length === 0 && (
+              <p className="text-sm text-gray-400 text-center py-4">{t('planning:add_exercise')}</p>
+            )}
+            {activeSession.exercises.map((entry, rowIdx) => {
+              const exercise = exerciseMap.get(entry.exerciseId)
+              const isPicking = pickerForRow === rowIdx
+              const repsIsRange = Array.isArray(entry.reps)
+
+              return (
+                <div
+                  key={`row-${rowIdx}-${entry.exerciseId}`}
+                  className="rounded-lg border border-gray-100 bg-gray-50 p-3 space-y-2"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPickerForRow(isPicking ? null : rowIdx)
+                        setPickerSearch('')
+                      }}
+                      className="flex-1 text-left text-sm font-medium text-gray-800 hover:text-indigo-700 truncate"
+                    >
+                      {exercise
+                        ? t(exercise.nameKey)
+                        : entry.exerciseId || t('planning:add_exercise')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleMoveExercise(rowIdx, -1)}
+                      disabled={rowIdx === 0}
+                      className="rounded p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                      aria-label="up"
+                    >
+                      <ArrowUp size={14} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleMoveExercise(rowIdx, 1)}
+                      disabled={rowIdx === activeSession.exercises.length - 1}
+                      className="rounded p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                      aria-label="down"
+                    >
+                      <ArrowDown size={14} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveExercise(rowIdx)}
+                      className="rounded p-1 text-gray-400 hover:text-red-600"
+                      aria-label={t('planning:remove_exercise')}
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+
+                  {isPicking && (
+                    <div className="rounded-lg border border-indigo-200 bg-white p-2 space-y-2">
+                      <input
+                        type="text"
+                        value={pickerSearch}
+                        onChange={(e) => setPickerSearch(e.target.value)}
+                        placeholder={t('planning:faithful.search_exercise')}
+                        className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      />
+                      <div className="max-h-32 overflow-y-auto space-y-0.5">
+                        {pickerCandidates.length === 0 ? (
+                          <p className="text-xs text-gray-400 py-1">
+                            {t('planning:faithful.no_results')}
+                          </p>
+                        ) : (
+                          pickerCandidates.slice(0, 20).map((cand) => (
+                            <button
+                              key={cand.id}
+                              type="button"
+                              onClick={() => handleSelectFromPicker(cand.id)}
+                              className="block w-full text-left rounded-md px-2 py-1 text-sm text-gray-700 hover:bg-indigo-50"
+                            >
+                              {t(cand.nameKey)}
+                            </button>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                    <div>
+                      <label className="block text-xs text-gray-500">
+                        {t('planning:faithful.sets')}
+                      </label>
+                      <input
+                        type="number"
+                        min={1}
+                        max={20}
+                        value={entry.sets}
+                        onChange={(e) =>
+                          updateExercise(rowIdx, (x) => ({
+                            ...x,
+                            sets: Math.max(1, Math.min(20, Number(e.target.value) || 1)),
+                          }))
+                        }
+                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <div className="flex items-center justify-between">
+                        <span className="block text-xs text-gray-500">
+                          {t('planning:faithful.reps')}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            updateExercise(rowIdx, (x) => {
+                              if (Array.isArray(x.reps)) {
+                                return { ...x, reps: x.reps[0] }
+                              }
+                              return { ...x, reps: [x.reps, x.reps + 2] as [number, number] }
+                            })
+                          }
+                          className="text-[10px] uppercase tracking-wide text-indigo-600 hover:text-indigo-800"
+                        >
+                          {repsIsRange ? t('planning:reps_fixed') : t('planning:reps_range')}
+                        </button>
+                      </div>
+                      {repsIsRange && Array.isArray(entry.reps) ? (
+                        <div className="mt-0.5 flex items-center gap-1">
+                          <input
+                            type="number"
+                            min={1}
+                            max={100}
+                            value={entry.reps[0]}
+                            onChange={(e) => {
+                              const lo = Math.max(1, Number(e.target.value) || 1)
+                              updateExercise(rowIdx, (x) => {
+                                const cur = Array.isArray(x.reps) ? x.reps : [lo, lo + 2]
+                                const hi = Math.max(lo, cur[1] ?? lo)
+                                return { ...x, reps: [lo, hi] as [number, number] }
+                              })
+                            }}
+                            className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          />
+                          <span className="text-xs text-gray-400">–</span>
+                          <input
+                            type="number"
+                            min={1}
+                            max={100}
+                            value={entry.reps[1]}
+                            onChange={(e) => {
+                              const hi = Math.max(1, Number(e.target.value) || 1)
+                              updateExercise(rowIdx, (x) => {
+                                const cur = Array.isArray(x.reps) ? x.reps : [hi, hi]
+                                const lo = Math.min(hi, cur[0] ?? hi)
+                                return { ...x, reps: [lo, hi] as [number, number] }
+                              })
+                            }}
+                            className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          />
+                        </div>
+                      ) : (
+                        <input
+                          type="number"
+                          min={1}
+                          max={100}
+                          value={typeof entry.reps === 'number' ? entry.reps : entry.reps[0]}
+                          onChange={(e) =>
+                            updateExercise(rowIdx, (x) => ({
+                              ...x,
+                              reps: Math.max(1, Number(e.target.value) || 1),
+                            }))
+                          }
+                          className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        />
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-gray-500">
+                        {t('planning:faithful.rest')}
+                      </label>
+                      <input
+                        type="number"
+                        min={0}
+                        max={600}
+                        step={5}
+                        value={entry.restSeconds}
+                        onChange={(e) =>
+                          updateExercise(rowIdx, (x) => ({
+                            ...x,
+                            restSeconds: Math.max(0, Number(e.target.value) || 0),
+                          }))
+                        }
+                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-gray-500">kg</label>
+                      <input
+                        type="number"
+                        min={0}
+                        step={0.5}
+                        value={entry.initialLoadKg ?? ''}
+                        placeholder={t('planning:initial_load_auto')}
+                        onChange={(e) => {
+                          const raw = e.target.value
+                          updateExercise(rowIdx, (x) => {
+                            if (raw === '') {
+                              const next: PresetExerciseEntry = { ...x }
+                              delete next.initialLoadKg
+                              return next
+                            }
+                            const v = Number(raw)
+                            if (!Number.isFinite(v) || v <= 0) return x
+                            return { ...x, initialLoadKg: v }
+                          })
+                        }}
+                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={handleAddExercise}
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-indigo-300 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-50"
+          >
+            <Plus size={14} />
+            {t('planning:add_exercise')}
+          </button>
+        </div>
+      )}
 
       <button
         type="button"

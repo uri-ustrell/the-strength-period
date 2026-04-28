@@ -13,6 +13,7 @@ import type {
   Mesocycle,
   PresetSessionTemplate,
   ProgressionType,
+  WeekProgressionRate,
 } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
 
@@ -35,6 +36,7 @@ interface PlanningStore {
       muscleDistribution?: Record<string, number>
       progressionType?: ProgressionType
       weeklyProgression?: number
+      weeklyProgressionRates?: WeekProgressionRate[]
       exerciseSelections?: Record<string, string[]>
       presetSessions?: PresetSessionTemplate[]
     }

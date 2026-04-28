@@ -7,6 +7,49 @@
 
 ## Recent Changes
 
+### Step 19 — Preset & Session Template Redesign (2026-04-24)
+
+Implementation of Feature 17 (`specs/features/17-preset-sessions-redesign.md`), tracked as Step 19 in STATUS.md.
+
+**Phases completed:**
+1. Types + DATA_MODEL stub — `TemplateKey`, `WeekProgressionRate`, updated `PresetSessionTemplate` (`templateKey` + `name`, no `label`), `initialLoadKg` on `PresetExerciseEntry`, `weeklyProgressionRates` on `CustomPreset` and `Preset`.
+2. Planning engine — `resolveWeekMultiplier` helper; both `generateFaithfulMesocycle` and `generateGeneratorMesocycle` consume per-week rates with absolute multiplier semantics; faithful mode uses `entry.initialLoadKg` when defined and > 0.
+3. A/B/C/D tabs in `FaithfulExercisesStep.tsx` — always-4 templates, inline name field, copy-to dropdown, reps fixed/range toggle, initial load input, up/down reorder.
+4. `WeekProgressionTable` component + PlanCreator configure step — slider replaced by per-week table; gray dashed "Custom" grid card removed; `weeks` change preserves edited rows and pads with defaults.
+5. Auto-fork built-in presets → CustomPreset on "Save as preset" only; inline name field in wizard header (required, non-empty); legacy `weeklyProgression` write-back migration on first IndexedDB load; unsaved-changes guard via `dirty` flag and confirmation prompt on `guardedNavigate`.
+6. i18n — added template/preset keys to `ca/es/en` planning namespace; removed `planning:custom` and `planning:custom_desc`; all three locales synced (107 keys each); DATA_MODEL.md updated with full final type definitions.
+
+**Key decisions baked in:**
+- Auto-fork is explicit-only: triggered by "Save as preset", never on intermediate edits.
+- Required inline name field gates the save action for built-in working copies and from-scratch presets.
+- Legacy `weeklyProgression` is migrated by writing back per-week rates (`progressionPct = weeklyProgression`, `-40` for `week % 4 === 0`) to IndexedDB on first load — no further reliance on the slider.
+- Default rates: `+5%` per week, `-40%` for `week % 4 === 0`.
+- `weeklyProgressionRates` semantics are absolute per week (`1 + pct/100`), not cumulative — explicit per-week control.
+- Reps stored as `number | [number, number]` with a UI toggle for fixed vs range.
+- Reorder via up/down arrow buttons only (no drag-and-drop).
+- Existing exercise picker reused as-is from `FaithfulExercisesStep`.
+- Unsaved-changes confirmation uses `window.confirm` with i18n strings (minimal footprint; can be upgraded to a Tailwind modal as a future polish).
+
+**Files created:**
+- `src/components/planning/WeekProgressionTable.tsx`
+- `src/services/planning/presetTemplates.ts`
+
+**Files modified:**
+- `src/types/planning.ts`
+- `src/data/presets.ts`
+- `src/services/planning/planningEngine.ts`
+- `src/stores/planningStore.ts`
+- `src/components/planning/PlanCreator.tsx`
+- `src/components/planning/FaithfulExercisesStep.tsx`
+- `src/i18n/locales/{ca,es,en}/planning.json`
+- `specs/STATUS.md`, `specs/STATUS_HISTORY.md`, `specs/DATA_MODEL.md`
+
+**Verification:** `npm run build` passes (TypeScript + Vite + PWA generation). i18n key parity confirmed across `ca/es/en` (107 keys). Removed legacy keys (`custom`, `custom_desc`) absent from all locale files.
+
+**Out of scope (intentional):** Step 16 (Ethical Gamification) deferred per user request.
+
+---
+
 ### Step 18 Review Fixes — Ingestion Pipeline Consistency (2026-04-10)
 
 **4 issues fixed:**

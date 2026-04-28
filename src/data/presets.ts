@@ -1,6 +1,11 @@
 import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
 import type { ExerciseTag, MuscleGroup } from '@/types/exercise'
-import type { PresetExerciseEntry, PresetSessionTemplate, ProgressionType } from '@/types/planning'
+import type {
+  PresetExerciseEntry,
+  PresetSessionTemplate,
+  ProgressionType,
+  WeekProgressionRate,
+} from '@/types/planning'
 import presetCatalog from '../../data/ingestion/presets/catalog.json'
 
 export interface CustomPreset {
@@ -10,6 +15,7 @@ export interface CustomPreset {
   muscleDistribution: Partial<Record<MuscleGroup, number>>
   sessions?: PresetSessionTemplate[]
   weeklyProgression?: number
+  weeklyProgressionRates?: WeekProgressionRate[]
   progressionType?: ProgressionType
   createdAt: string
 }
@@ -26,6 +32,7 @@ export interface Preset {
   notes?: string
   sessions?: PresetSessionTemplate[]
   weeklyProgression?: number
+  weeklyProgressionRates?: WeekProgressionRate[]
   restSecondsDefault?: number
   defaultTempo?: string
   maxSetsPerExercise?: number
@@ -274,12 +281,16 @@ function parsePresetExerciseEntry(value: unknown): PresetExerciseEntry | undefin
   if (rpe !== undefined) entry.rpe = rpe
   const notes = toTrimmedString(value.notes)
   if (notes) entry.notes = notes
+  if (typeof value.initialLoadKg === 'number' && value.initialLoadKg > 0) {
+    entry.initialLoadKg = value.initialLoadKg
+  }
   return entry
 }
 
 function parseCatalogSessions(value: unknown): PresetSessionTemplate[] | undefined {
   if (!Array.isArray(value) || value.length === 0) return undefined
 
+  const TEMPLATE_KEYS: ('A' | 'B' | 'C' | 'D')[] = ['A', 'B', 'C', 'D']
   const sessions: PresetSessionTemplate[] = []
   for (const rawSession of value) {
     if (!isRecord(rawSession)) continue
@@ -292,11 +303,17 @@ function parseCatalogSessions(value: unknown): PresetSessionTemplate[] | undefin
     }
     if (exercises.length === 0) continue
 
-    const session: PresetSessionTemplate = { exercises }
+    const idx = sessions.length
+    const templateKey = TEMPLATE_KEYS[idx] ?? 'D'
     const label = toTrimmedString(rawSession.label)
-    if (label) session.label = label
+    const session: PresetSessionTemplate = {
+      templateKey,
+      name: label || templateKey,
+      exercises,
+    }
     if (rawSession.isDeload === true) session.isDeload = true
     sessions.push(session)
+    if (sessions.length >= 4) break
   }
 
   return sessions.length > 0 ? sessions : undefined
