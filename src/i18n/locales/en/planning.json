@@ -129,6 +129,8 @@
   "start_plan": "Start plan",
   "modify_plan": "Modify plan",
   "days_per_week_locked": "This preset has {{count}} fixed templates; days per week is tied to that value.",
+  "incompatible_days_badge": "Requires {{count}} days/wk",
+  "incompatible_days_tooltip": "This preset needs {{count}} days per week. Extend your training days in Settings to use it.",
   "progression_sparkline_aria": "Weekly progression sparkline",
   "preset_name_label": "Preset name",
   "preset_name_required": "Name is required to save",

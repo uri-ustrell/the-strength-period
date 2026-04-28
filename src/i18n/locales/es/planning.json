@@ -129,6 +129,8 @@
   "start_plan": "Empezar el plan",
   "modify_plan": "Modificar el plan",
   "days_per_week_locked": "Este preset tiene {{count}} plantillas fijas; los días/semana quedan ligados a ese valor.",
+  "incompatible_days_badge": "Requiere {{count}} días/sem",
+  "incompatible_days_tooltip": "Este preset necesita {{count}} días/semana. Amplía tus días en Ajustes si quieres usarlo.",
   "progression_sparkline_aria": "Gráfico de progresión semanal",
   "preset_name_label": "Nombre de la planificación",
   "preset_name_required": "Se requiere un nombre para guardar",

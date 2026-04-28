@@ -556,17 +556,36 @@ export const PlanCreator = ({ onComplete }: Props) => {
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          {filteredPresets.map((preset) => (
-            <button
-              key={preset.id}
-              type="button"
-              onClick={() => handleSelectPreset(preset)}
-              className="rounded-xl border-2 border-gray-200 p-4 text-left transition-colors hover:border-indigo-400 hover:bg-indigo-50"
-            >
-              <h3 className="font-medium text-sm text-gray-900">{t(preset.nameKey)}</h3>
-              <p className="mt-1 text-xs text-gray-500">{t(preset.descriptionKey)}</p>
-            </button>
-          ))}
+          {filteredPresets.map((preset) => {
+            const required = preset.sessions?.length ?? 0
+            const incompatible = required > userTrainingDays.length
+            return (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => handleSelectPreset(preset)}
+                disabled={incompatible}
+                title={
+                  incompatible
+                    ? t('planning:incompatible_days_tooltip', { count: required })
+                    : undefined
+                }
+                className={`rounded-xl border-2 p-4 text-left transition-colors ${
+                  incompatible
+                    ? 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
+                    : 'border-gray-200 hover:border-indigo-400 hover:bg-indigo-50'
+                }`}
+              >
+                <h3 className="font-medium text-sm text-gray-900">{t(preset.nameKey)}</h3>
+                <p className="mt-1 text-xs text-gray-500">{t(preset.descriptionKey)}</p>
+                {incompatible && (
+                  <span className="mt-2 inline-block rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
+                    {t('planning:incompatible_days_badge', { count: required })}
+                  </span>
+                )}
+              </button>
+            )
+          })}
         </div>
 
         {customPresets.length > 0 && (
@@ -575,43 +594,62 @@ export const PlanCreator = ({ onComplete }: Props) => {
               {t('planning:saved_presets')}
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              {customPresets.map((cp) => (
-                <button
-                  key={cp.id}
-                  type="button"
-                  onClick={() => handleSelectCustomPreset(cp)}
-                  className="rounded-xl border-2 border-gray-200 p-4 text-left transition-colors hover:border-indigo-400 hover:bg-indigo-50 relative group"
-                >
-                  <h3 className="font-medium text-sm text-gray-900">{cp.name}</h3>
-                  <p className="mt-1 text-xs text-gray-500">
-                    {cp.durationWeeks} {t('planning:weeks')}
-                  </p>
-                  <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-all">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleSelectCustomPreset(cp, true)
-                      }}
-                      className="rounded-full p-1 text-gray-300 hover:text-indigo-600 hover:bg-indigo-50"
-                      aria-label={t('planning:edit_preset')}
-                    >
-                      <span className="text-xs font-medium">{t('planning:edit_preset')}</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleDeleteCustomPreset(cp.id)
-                      }}
-                      className="rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50"
-                      aria-label={t('planning:delete_preset')}
-                    >
-                      <X size={14} />
-                    </button>
-                  </div>
-                </button>
-              ))}
+              {customPresets.map((cp) => {
+                const required = cp.sessions?.length ?? 0
+                const incompatible = required > userTrainingDays.length
+                return (
+                  <button
+                    key={cp.id}
+                    type="button"
+                    onClick={() => handleSelectCustomPreset(cp)}
+                    disabled={incompatible}
+                    title={
+                      incompatible
+                        ? t('planning:incompatible_days_tooltip', { count: required })
+                        : undefined
+                    }
+                    className={`rounded-xl border-2 p-4 text-left transition-colors relative group ${
+                      incompatible
+                        ? 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
+                        : 'border-gray-200 hover:border-indigo-400 hover:bg-indigo-50'
+                    }`}
+                  >
+                    <h3 className="font-medium text-sm text-gray-900">{cp.name}</h3>
+                    <p className="mt-1 text-xs text-gray-500">
+                      {cp.durationWeeks} {t('planning:weeks')}
+                    </p>
+                    {incompatible && (
+                      <span className="mt-2 inline-block rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
+                        {t('planning:incompatible_days_badge', { count: required })}
+                      </span>
+                    )}
+                    <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-all">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleSelectCustomPreset(cp, true)
+                        }}
+                        className="rounded-full p-1 text-gray-300 hover:text-indigo-600 hover:bg-indigo-50"
+                        aria-label={t('planning:edit_preset')}
+                      >
+                        <span className="text-xs font-medium">{t('planning:edit_preset')}</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleDeleteCustomPreset(cp.id)
+                        }}
+                        className="rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50"
+                        aria-label={t('planning:delete_preset')}
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
+                  </button>
+                )
+              })}
             </div>
           </>
         )}
