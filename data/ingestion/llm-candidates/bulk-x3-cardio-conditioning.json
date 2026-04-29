@@ -2,184 +2,1723 @@
   "_meta": {
     "purpose": "Bulk x3 batch 7: Cardio & conditioning - jump rope, running, bike, bodyweight HIIT, KB complexes, recovery (40 exercises)",
     "session": "2026-04 expansion",
-    "distribution": {"jump_rope":8,"running":6,"bike":4,"bw_hiit":8,"kb_complex":5,"crawl_carry":4,"recovery_zone2":5}
+    "distribution": {
+      "jump_rope": 8,
+      "running": 6,
+      "bike": 4,
+      "bw_hiit": 8,
+      "kb_complex": 5,
+      "crawl_carry": 4,
+      "recovery_zone2": 5
+    }
   },
   "exercises": [
-    {"sourceExternalId":"jumprope_basic_v1","name":"Basic Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps","avantbras"],"equipment":["comba"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","escalfament"],"restrictions":[{"condition":"tendinitis_aquilea","action":"modify","note":"Reduce volume and use soft surface."}],"instructions":["Hold a jump rope handle in each hand with the rope behind the heels.","Spin the rope using the wrists and hop with both feet over it at a steady cadence.","Continue for the prescribed time keeping landings soft."]},
-    {"sourceExternalId":"jumprope_double_under_v1","name":"Jump Rope Double Under","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps","avantbras"],"equipment":["comba"],"level":"expert","category":"cardio","progressionMetric":"reps","tags":["resistencia","potencia"],"restrictions":[],"instructions":["Hold the jump rope handles with the rope behind the heels.","Jump higher than usual and spin the rope twice under the feet in a single jump.","Land softly and continue for the prescribed reps."]},
-    {"sourceExternalId":"jumprope_alternating_foot_v1","name":"Alternating Foot Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps"],"equipment":["comba"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","unilateral"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","Skip alternating one foot at a time as the rope passes under, like running in place.","Continue at a steady cadence for the prescribed time."]},
-    {"sourceExternalId":"jumprope_high_knee_v1","name":"High Knee Jump Rope","primaryMuscles":["quadriceps"],"secondaryMuscles":["bessons","abdominal"],"equipment":["comba"],"level":"intermediate","category":"cardio","progressionMetric":"seconds","tags":["resistencia"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","Jump alternating legs while driving the knees up to hip height with each pass.","Continue for the prescribed time."]},
-    {"sourceExternalId":"jumprope_boxer_skip_v1","name":"Boxer Skip Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps"],"equipment":["comba"],"level":"intermediate","category":"cardio","progressionMetric":"seconds","tags":["resistencia"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","Shift the weight from one foot to the other in a small bounce as the rope passes under.","Continue at a relaxed cadence for the prescribed time."]},
-    {"sourceExternalId":"jumprope_criss_cross_v1","name":"Criss-Cross Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["avantbras"],"equipment":["comba"],"level":"expert","category":"cardio","progressionMetric":"reps","tags":["resistencia"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","On each pass, cross the arms in front of the body and uncross on the next jump.","Continue for the prescribed reps."]},
-    {"sourceExternalId":"jumprope_side_to_side_v1","name":"Side-to-Side Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["abductors","adductors"],"equipment":["comba"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","Jump the feet a few inches to one side as the rope passes, then back to the other side on the next jump.","Continue for the prescribed time."]},
-    {"sourceExternalId":"jumprope_single_leg_v1","name":"Single-Leg Jump Rope","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps","estabilitzadors_cadera"],"equipment":["comba"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","unilateral"],"restrictions":[],"instructions":["Hold the rope handles with the rope behind the heels.","Hop on one foot keeping the other slightly lifted as the rope passes under.","Continue for the prescribed reps before switching legs."]},
-    {"sourceExternalId":"hill_sprint_v1","name":"Hill Sprint","primaryMuscles":["glutis"],"secondaryMuscles":["quadriceps","bessons","isquiotibials"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["potencia","corredor","pujada"],"restrictions":[{"condition":"tendinitis_aquilea","action":"avoid","note":"Avoid maximal sprints while symptomatic."}],"instructions":["Find a hill of moderate gradient (6–10%).","Sprint hard up the hill for 10–20 seconds focusing on driving the knees.","Walk back down for full recovery before the next rep."]},
-    {"sourceExternalId":"shuttle_run_v1","name":"Shuttle Run","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","bessons"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","potencia"],"restrictions":[],"instructions":["Mark two cones 10–25 metres apart.","Sprint to the far cone, touch the ground and sprint back to the start.","Repeat for the prescribed reps with short recoveries."]},
-    {"sourceExternalId":"interval_400m_v1","name":"400m Interval","primaryMuscles":["quadriceps"],"secondaryMuscles":["isquiotibials","bessons"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","corredor"],"restrictions":[],"instructions":["Run 400 metres at a hard but sustainable pace.","Recover with 60–120 seconds of slow walking or jogging.","Repeat for the prescribed number of reps."]},
-    {"sourceExternalId":"fartlek_run_v1","name":"Fartlek Run","primaryMuscles":["quadriceps"],"secondaryMuscles":["isquiotibials","bessons"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","corredor"],"restrictions":[],"instructions":["Start with an easy jog to warm up.","Alternate spontaneous bouts of fast running (30–90 s) with easy jogging recoveries based on perceived effort.","Continue for the prescribed total time, finishing with an easy cool-down jog."]},
-    {"sourceExternalId":"tempo_run_v1","name":"Tempo Run","primaryMuscles":["quadriceps"],"secondaryMuscles":["isquiotibials","bessons"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"seconds","tags":["resistencia","corredor"],"restrictions":[],"instructions":["Warm up with 10 minutes of easy jogging.","Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.","Cool down with 5–10 minutes of easy jogging."]},
-    {"sourceExternalId":"treadmill_intervals_v1","name":"Treadmill Intervals","primaryMuscles":["quadriceps"],"secondaryMuscles":["isquiotibials","bessons"],"equipment":["cinta"],"level":"beginner","category":"cardio","progressionMetric":"reps","tags":["resistencia","corredor"],"restrictions":[],"instructions":["Warm up with 5 minutes of easy walking on the treadmill.","Alternate 60 seconds of hard running with 60 seconds of slow walking for the prescribed reps.","Cool down with 5 minutes of walking."]},
-    {"sourceExternalId":"bike_sprint_v1","name":"Bike Sprint","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","bessons"],"equipment":["bicicleta"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["potencia","resistencia"],"restrictions":[],"instructions":["Warm up at an easy pace for 5 minutes.","Sprint hard for 20–30 seconds at maximum effort.","Recover at an easy pace for 60–90 seconds; repeat for the prescribed reps."]},
-    {"sourceExternalId":"bike_tabata_v1","name":"Bike Tabata Intervals","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","bessons"],"equipment":["bicicleta"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","potencia"],"restrictions":[],"instructions":["Warm up at an easy pace for 5 minutes.","Alternate 20 seconds of all-out effort with 10 seconds of recovery for 8 rounds.","Cool down at an easy pace for 5 minutes."]},
-    {"sourceExternalId":"bike_zone2_v1","name":"Zone 2 Bike Ride","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","bessons"],"equipment":["bicicleta"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia"],"restrictions":[],"instructions":["Maintain a steady, conversational pace where speaking in short sentences is possible.","Hold the effort for the prescribed duration without spikes in intensity.","Cool down for the last 5 minutes at an easier pace."]},
-    {"sourceExternalId":"bike_hill_simulation_v1","name":"Bike Hill Simulation","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","isquiotibials"],"equipment":["bicicleta"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","forca"],"restrictions":[],"instructions":["Warm up for 5 minutes at an easy pace.","Increase resistance to simulate a steep climb and pedal hard for 2–4 minutes.","Recover at low resistance for 2 minutes; repeat for the prescribed reps."]},
-    {"sourceExternalId":"jumping_jack_v1","name":"Jumping Jack","primaryMuscles":["bessons"],"secondaryMuscles":["abductors","deltoides"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"reps","tags":["resistencia","escalfament"],"restrictions":[],"instructions":["Stand tall with feet together and arms at the sides.","Jump the feet wide and the arms overhead simultaneously, then jump back to the start.","Continue at a steady cadence for the prescribed reps or time."]},
-    {"sourceExternalId":"high_knee_run_v1","name":"High Knee Run","primaryMuscles":["quadriceps"],"secondaryMuscles":["abdominal","bessons"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","escalfament"],"restrictions":[],"instructions":["Stand tall with feet hip-width apart.","Run in place driving the knees to hip height with each step.","Continue at a fast cadence for the prescribed time."]},
-    {"sourceExternalId":"butt_kicker_v1","name":"Butt Kicker","primaryMuscles":["isquiotibials"],"secondaryMuscles":["bessons","glutis"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","escalfament"],"restrictions":[],"instructions":["Stand tall with feet hip-width apart.","Run in place kicking the heels up to the glutes with each step.","Continue at a fast cadence for the prescribed time."]},
-    {"sourceExternalId":"sprawl_v1","name":"Sprawl","primaryMuscles":["quadriceps"],"secondaryMuscles":["abdominal","pectoral"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","potencia"],"restrictions":[],"instructions":["Stand with feet shoulder-width apart.","Drop the hands to the floor and kick the legs straight back into a plank.","Jump the feet back to the hands and stand tall; repeat at a fast cadence."]},
-    {"sourceExternalId":"mountain_climber_tempo_v1","name":"Tempo Mountain Climber","primaryMuscles":["abdominal"],"secondaryMuscles":["quadriceps","deltoides"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","core_estabilitat"],"restrictions":[],"instructions":["Set up in a high plank with hands under the shoulders.","Drive one knee toward the chest at a controlled tempo, then alternate.","Continue at a steady cadence for the prescribed time."]},
-    {"sourceExternalId":"lateral_shuffle_v1","name":"Lateral Shuffle","primaryMuscles":["abductors"],"secondaryMuscles":["quadriceps","glutis"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","escalfament"],"restrictions":[],"instructions":["Adopt an athletic stance with knees bent and feet shoulder-width apart.","Shuffle laterally without crossing the feet for several metres, then change direction.","Continue alternating direction for the prescribed time."]},
-    {"sourceExternalId":"fast_feet_v1","name":"Fast Feet","primaryMuscles":["bessons"],"secondaryMuscles":["quadriceps","abdominal"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","escalfament","potencia"],"restrictions":[],"instructions":["Stand in an athletic stance with knees slightly bent.","Tap the balls of the feet on the floor as fast as possible without lifting the knees high.","Continue at maximum cadence for the prescribed time."]},
-    {"sourceExternalId":"scissor_lunge_v1","name":"Scissor Lunge","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","abductors"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["resistencia","unilateral","potencia"],"restrictions":[],"instructions":["Step into a split stance with one foot forward and one back.","Jump up switching legs in mid-air and land in the opposite split stance.","Continue alternating at a fast cadence."]},
-    {"sourceExternalId":"kb_swing_one_handed_v1","name":"One-Handed Kettlebell Swing","primaryMuscles":["glutis"],"secondaryMuscles":["isquiotibials","lumbar","dorsal"],"equipment":["kettlebell"],"level":"intermediate","category":"strength","progressionMetric":"reps","tags":["potencia","forca","unilateral"],"restrictions":[{"condition":"rehab_lumbar","action":"modify","note":"Reduce load and amplitude until symptoms resolve."}],"instructions":["Stand with feet shoulder-width apart and the kettlebell on the floor in front.","Hinge to grip the bell with one hand, hike it back between the legs and snap the hips to swing it to chest height.","Let it fall back between the legs in a controlled hinge; switch hands as scheduled."]},
-    {"sourceExternalId":"kb_clean_press_v1","name":"Kettlebell Clean and Press","primaryMuscles":["deltoides"],"secondaryMuscles":["glutis","triceps","trapezi"],"equipment":["kettlebell"],"level":"intermediate","category":"strength","progressionMetric":"reps","tags":["potencia","forca","unilateral"],"restrictions":[],"instructions":["Clean the kettlebell to the rack position at the shoulder.","Press the bell overhead until the arm is fully extended.","Lower to the rack and back to the floor; complete reps before switching sides."]},
-    {"sourceExternalId":"kb_thruster_v1","name":"Kettlebell Thruster","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","deltoides","triceps"],"equipment":["kettlebell"],"level":"intermediate","category":"strength","progressionMetric":"reps","tags":["potencia","forca","resistencia"],"restrictions":[],"instructions":["Hold a kettlebell racked at each shoulder (or one in goblet) and squat to parallel.","Drive up explosively pressing the bells overhead in one motion.","Lower to the rack and repeat."]},
-    {"sourceExternalId":"kb_snatch_continuous_v1","name":"Continuous Kettlebell Snatch","primaryMuscles":["glutis"],"secondaryMuscles":["dorsal","deltoides","trapezi"],"equipment":["kettlebell"],"level":"expert","category":"cardio","progressionMetric":"reps","tags":["potencia","resistencia","unilateral"],"restrictions":[],"instructions":["Start with the kettlebell hanging between the legs.","Snatch the bell overhead and lower it back to the swing position without touching the floor.","Continue at a steady cadence for the prescribed reps; switch hands."]},
-    {"sourceExternalId":"kb_complex_simple_v1","name":"Simple Kettlebell Complex","primaryMuscles":["glutis"],"secondaryMuscles":["dorsal","quadriceps","deltoides"],"equipment":["kettlebell"],"level":"intermediate","category":"cardio","progressionMetric":"reps","tags":["potencia","resistencia","forca"],"restrictions":[],"instructions":["Perform 5 swings, 5 cleans and 5 presses with one kettlebell on one side without setting it down.","Switch hands and repeat the complex on the other side.","Rest as needed and complete the prescribed rounds."]},
-    {"sourceExternalId":"bear_crawl_v1","name":"Bear Crawl","primaryMuscles":["abdominal"],"secondaryMuscles":["deltoides","quadriceps"],"equipment":["pes_corporal"],"level":"intermediate","category":"cardio","progressionMetric":"seconds","tags":["resistencia","core_estabilitat"],"restrictions":[],"instructions":["Set up on hands and toes with knees hovering an inch off the floor.","Crawl forward moving the opposite hand and foot at the same time keeping the hips low.","Continue for the prescribed distance or time."]},
-    {"sourceExternalId":"crab_walk_v1","name":"Crab Walk","primaryMuscles":["glutis"],"secondaryMuscles":["triceps","deltoides","abdominal"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","mobilitat_toracica"],"restrictions":[],"instructions":["Sit on the floor with hands behind the hips and feet flat.","Lift the hips into a reverse tabletop and walk forward or sideways using opposite hand and foot.","Continue for the prescribed distance or time."]},
-    {"sourceExternalId":"sandbag_sled_push_v1","name":"Sandbag Sled Push","primaryMuscles":["quadriceps"],"secondaryMuscles":["glutis","bessons","deltoides"],"equipment":["sandbag"],"level":"intermediate","category":"cardio","progressionMetric":"seconds","tags":["forca","resistencia"],"restrictions":[],"instructions":["Place a heavy sandbag on a smooth surface and lean forward with hands on top of it.","Drive forward with short, powerful steps pushing the sandbag along the floor.","Continue for the prescribed distance or time."]},
-    {"sourceExternalId":"farmer_carry_interval_v1","name":"Farmer's Carry Interval","primaryMuscles":["avantbras"],"secondaryMuscles":["trapezi","glutis","abdominal"],"equipment":["manueles","kettlebell"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["forca","resistencia","core_estabilitat"],"restrictions":[],"instructions":["Pick up a heavy weight in each hand and stand tall.","Walk for 30–60 seconds at a steady pace, then rest for an equal interval.","Repeat for the prescribed rounds."]},
-    {"sourceExternalId":"walking_incline_v1","name":"Incline Walk","primaryMuscles":["bessons"],"secondaryMuscles":["glutis","quadriceps"],"equipment":["cinta"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","tornada_calma"],"restrictions":[],"instructions":["Set the treadmill to a moderate incline (5–10%) and a comfortable walking speed.","Maintain an upright posture without holding the rails.","Continue for the prescribed time."]},
-    {"sourceExternalId":"spin_easy_v1","name":"Easy Spin Bike","primaryMuscles":["quadriceps"],"secondaryMuscles":["bessons","glutis"],"equipment":["bicicleta"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["tornada_calma","escalfament","resistencia"],"restrictions":[],"instructions":["Pedal at a very easy resistance and conversational pace.","Focus on relaxed breathing and smooth pedaling.","Continue for the prescribed time."]},
-    {"sourceExternalId":"row_zone2_v1","name":"Zone 2 Row","primaryMuscles":["dorsal"],"secondaryMuscles":["quadriceps","glutis","biceps"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia"],"restrictions":[],"instructions":["Sit on a rower with feet strapped and a relaxed grip on the handle.","Maintain a steady, conversational pace driving with the legs first then pulling with the arms.","Continue for the prescribed time."]},
-    {"sourceExternalId":"brisk_walk_v1","name":"Brisk Walk","primaryMuscles":["bessons"],"secondaryMuscles":["glutis","quadriceps"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"seconds","tags":["resistencia","tornada_calma","escalfament"],"restrictions":[],"instructions":["Walk at a pace where speaking in short sentences is comfortable.","Maintain an upright posture and a steady cadence.","Continue for the prescribed time."]},
-    {"sourceExternalId":"circuit_complex_basic_v1","name":"Basic Conditioning Circuit","primaryMuscles":["quadriceps"],"secondaryMuscles":["pectoral","abdominal","glutis"],"equipment":["pes_corporal"],"level":"beginner","category":"cardio","progressionMetric":"reps","tags":["resistencia","forca","escalfament"],"restrictions":[],"instructions":["Perform 10 squats, 10 push-ups and 10 sit-ups back to back.","Rest 60 seconds.","Complete the prescribed number of rounds."]}
+    {
+      "sourceExternalId": "jumprope_basic_v1",
+      "name": "Basic Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps", "avantbras"],
+      "equipment": ["comba"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "escalfament"],
+      "restrictions": [
+        {
+          "condition": "tendinitis_aquilea",
+          "action": "modify",
+          "note": "Reduce volume and use soft surface."
+        }
+      ],
+      "instructions": [
+        "Hold a jump rope handle in each hand with the rope behind the heels.",
+        "Spin the rope using the wrists and hop with both feet over it at a steady cadence.",
+        "Continue for the prescribed time keeping landings soft."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_double_under_v1",
+      "name": "Jump Rope Double Under",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps", "avantbras"],
+      "equipment": ["comba"],
+      "level": "expert",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the jump rope handles with the rope behind the heels.",
+        "Jump higher than usual and spin the rope twice under the feet in a single jump.",
+        "Land softly and continue for the prescribed reps."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_alternating_foot_v1",
+      "name": "Alternating Foot Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps"],
+      "equipment": ["comba"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "unilateral"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "Skip alternating one foot at a time as the rope passes under, like running in place.",
+        "Continue at a steady cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_high_knee_v1",
+      "name": "High Knee Jump Rope",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["bessons", "abdominal"],
+      "equipment": ["comba"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "Jump alternating legs while driving the knees up to hip height with each pass.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_boxer_skip_v1",
+      "name": "Boxer Skip Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps"],
+      "equipment": ["comba"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "Shift the weight from one foot to the other in a small bounce as the rope passes under.",
+        "Continue at a relaxed cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_criss_cross_v1",
+      "name": "Criss-Cross Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["avantbras"],
+      "equipment": ["comba"],
+      "level": "expert",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "On each pass, cross the arms in front of the body and uncross on the next jump.",
+        "Continue for the prescribed reps."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_side_to_side_v1",
+      "name": "Side-to-Side Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["abductors", "adductors"],
+      "equipment": ["comba"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "Jump the feet a few inches to one side as the rope passes, then back to the other side on the next jump.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "jumprope_single_leg_v1",
+      "name": "Single-Leg Jump Rope",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps", "estabilitzadors_cadera"],
+      "equipment": ["comba"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "unilateral"],
+      "restrictions": [],
+      "instructions": [
+        "Hold the rope handles with the rope behind the heels.",
+        "Hop on one foot keeping the other slightly lifted as the rope passes under.",
+        "Continue for the prescribed reps before switching legs."
+      ]
+    },
+    {
+      "sourceExternalId": "hill_sprint_v1",
+      "name": "Hill Sprint",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["quadriceps", "bessons", "isquiotibials"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "corredor", "pujada"],
+      "restrictions": [
+        {
+          "condition": "tendinitis_aquilea",
+          "action": "avoid",
+          "note": "Avoid maximal sprints while symptomatic."
+        }
+      ],
+      "instructions": [
+        "Find a hill of moderate gradient (6–10%).",
+        "Sprint hard up the hill for 10–20 seconds focusing on driving the knees.",
+        "Walk back down for full recovery before the next rep."
+      ]
+    },
+    {
+      "sourceExternalId": "shuttle_run_v1",
+      "name": "Shuttle Run",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Mark two cones 10–25 metres apart.",
+        "Sprint to the far cone, touch the ground and sprint back to the start.",
+        "Repeat for the prescribed reps with short recoveries."
+      ]
+    },
+    {
+      "sourceExternalId": "interval_400m_v1",
+      "name": "400m Interval",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["isquiotibials", "bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Run 400 metres at a hard but sustainable pace.",
+        "Recover with 60–120 seconds of slow walking or jogging.",
+        "Repeat for the prescribed number of reps."
+      ]
+    },
+    {
+      "sourceExternalId": "fartlek_run_v1",
+      "name": "Fartlek Run",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["isquiotibials", "bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Start with an easy jog to warm up.",
+        "Alternate spontaneous bouts of fast running (30–90 s) with easy jogging recoveries based on perceived effort.",
+        "Continue for the prescribed total time, finishing with an easy cool-down jog."
+      ]
+    },
+    {
+      "sourceExternalId": "tempo_run_v1",
+      "name": "Tempo Run",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["isquiotibials", "bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Warm up with 10 minutes of easy jogging.",
+        "Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.",
+        "Cool down with 5–10 minutes of easy jogging."
+      ]
+    },
+    {
+      "sourceExternalId": "treadmill_intervals_v1",
+      "name": "Treadmill Intervals",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["isquiotibials", "bessons"],
+      "equipment": ["cinta"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "corredor"],
+      "restrictions": [],
+      "instructions": [
+        "Warm up with 5 minutes of easy walking on the treadmill.",
+        "Alternate 60 seconds of hard running with 60 seconds of slow walking for the prescribed reps.",
+        "Cool down with 5 minutes of walking."
+      ]
+    },
+    {
+      "sourceExternalId": "bike_sprint_v1",
+      "name": "Bike Sprint",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons"],
+      "equipment": ["bicicleta"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Warm up at an easy pace for 5 minutes.",
+        "Sprint hard for 20–30 seconds at maximum effort.",
+        "Recover at an easy pace for 60–90 seconds; repeat for the prescribed reps."
+      ]
+    },
+    {
+      "sourceExternalId": "bike_tabata_v1",
+      "name": "Bike Tabata Intervals",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons"],
+      "equipment": ["bicicleta"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Warm up at an easy pace for 5 minutes.",
+        "Alternate 20 seconds of all-out effort with 10 seconds of recovery for 8 rounds.",
+        "Cool down at an easy pace for 5 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "bike_zone2_v1",
+      "name": "Zone 2 Bike Ride",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons"],
+      "equipment": ["bicicleta"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Maintain a steady, conversational pace where speaking in short sentences is possible.",
+        "Hold the effort for the prescribed duration without spikes in intensity.",
+        "Cool down for the last 5 minutes at an easier pace."
+      ]
+    },
+    {
+      "sourceExternalId": "bike_hill_simulation_v1",
+      "name": "Bike Hill Simulation",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "isquiotibials"],
+      "equipment": ["bicicleta"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Warm up for 5 minutes at an easy pace.",
+        "Increase resistance to simulate a steep climb and pedal hard for 2–4 minutes.",
+        "Recover at low resistance for 2 minutes; repeat for the prescribed reps."
+      ]
+    },
+    {
+      "sourceExternalId": "jumping_jack_v1",
+      "name": "Jumping Jack",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["abductors", "deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Stand tall with feet together and arms at the sides.",
+        "Jump the feet wide and the arms overhead simultaneously, then jump back to the start.",
+        "Continue at a steady cadence for the prescribed reps or time."
+      ]
+    },
+    {
+      "sourceExternalId": "high_knee_run_v1",
+      "name": "High Knee Run",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["abdominal", "bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Stand tall with feet hip-width apart.",
+        "Run in place driving the knees to hip height with each step.",
+        "Continue at a fast cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "butt_kicker_v1",
+      "name": "Butt Kicker",
+      "primaryMuscles": ["isquiotibials"],
+      "secondaryMuscles": ["bessons", "glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Stand tall with feet hip-width apart.",
+        "Run in place kicking the heels up to the glutes with each step.",
+        "Continue at a fast cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "sprawl_v1",
+      "name": "Sprawl",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["abdominal", "pectoral"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet shoulder-width apart.",
+        "Drop the hands to the floor and kick the legs straight back into a plank.",
+        "Jump the feet back to the hands and stand tall; repeat at a fast cadence."
+      ]
+    },
+    {
+      "sourceExternalId": "mountain_climber_tempo_v1",
+      "name": "Tempo Mountain Climber",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["quadriceps", "deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Set up in a high plank with hands under the shoulders.",
+        "Drive one knee toward the chest at a controlled tempo, then alternate.",
+        "Continue at a steady cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "lateral_shuffle_v1",
+      "name": "Lateral Shuffle",
+      "primaryMuscles": ["abductors"],
+      "secondaryMuscles": ["quadriceps", "glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Adopt an athletic stance with knees bent and feet shoulder-width apart.",
+        "Shuffle laterally without crossing the feet for several metres, then change direction.",
+        "Continue alternating direction for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "fast_feet_v1",
+      "name": "Fast Feet",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["quadriceps", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "escalfament", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Stand in an athletic stance with knees slightly bent.",
+        "Tap the balls of the feet on the floor as fast as possible without lifting the knees high.",
+        "Continue at maximum cadence for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "scissor_lunge_v1",
+      "name": "Scissor Lunge",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "abductors"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "unilateral", "potencia"],
+      "restrictions": [],
+      "instructions": [
+        "Step into a split stance with one foot forward and one back.",
+        "Jump up switching legs in mid-air and land in the opposite split stance.",
+        "Continue alternating at a fast cadence."
+      ]
+    },
+    {
+      "sourceExternalId": "kb_swing_one_handed_v1",
+      "name": "One-Handed Kettlebell Swing",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["isquiotibials", "lumbar", "dorsal"],
+      "equipment": ["kettlebell"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "forca", "unilateral"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Reduce load and amplitude until symptoms resolve."
+        }
+      ],
+      "instructions": [
+        "Stand with feet shoulder-width apart and the kettlebell on the floor in front.",
+        "Hinge to grip the bell with one hand, hike it back between the legs and snap the hips to swing it to chest height.",
+        "Let it fall back between the legs in a controlled hinge; switch hands as scheduled."
+      ]
+    },
+    {
+      "sourceExternalId": "kb_clean_press_v1",
+      "name": "Kettlebell Clean and Press",
+      "primaryMuscles": ["deltoides"],
+      "secondaryMuscles": ["glutis", "triceps", "trapezi"],
+      "equipment": ["kettlebell"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "forca", "unilateral"],
+      "restrictions": [],
+      "instructions": [
+        "Clean the kettlebell to the rack position at the shoulder.",
+        "Press the bell overhead until the arm is fully extended.",
+        "Lower to the rack and back to the floor; complete reps before switching sides."
+      ]
+    },
+    {
+      "sourceExternalId": "kb_thruster_v1",
+      "name": "Kettlebell Thruster",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "deltoides", "triceps"],
+      "equipment": ["kettlebell"],
+      "level": "intermediate",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "forca", "resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Hold a kettlebell racked at each shoulder (or one in goblet) and squat to parallel.",
+        "Drive up explosively pressing the bells overhead in one motion.",
+        "Lower to the rack and repeat."
+      ]
+    },
+    {
+      "sourceExternalId": "kb_snatch_continuous_v1",
+      "name": "Continuous Kettlebell Snatch",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["dorsal", "deltoides", "trapezi"],
+      "equipment": ["kettlebell"],
+      "level": "expert",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "resistencia", "unilateral"],
+      "restrictions": [],
+      "instructions": [
+        "Start with the kettlebell hanging between the legs.",
+        "Snatch the bell overhead and lower it back to the swing position without touching the floor.",
+        "Continue at a steady cadence for the prescribed reps; switch hands."
+      ]
+    },
+    {
+      "sourceExternalId": "kb_complex_simple_v1",
+      "name": "Simple Kettlebell Complex",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["dorsal", "quadriceps", "deltoides"],
+      "equipment": ["kettlebell"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["potencia", "resistencia", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Perform 5 swings, 5 cleans and 5 presses with one kettlebell on one side without setting it down.",
+        "Switch hands and repeat the complex on the other side.",
+        "Rest as needed and complete the prescribed rounds."
+      ]
+    },
+    {
+      "sourceExternalId": "bear_crawl_v1",
+      "name": "Bear Crawl",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["deltoides", "quadriceps"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Set up on hands and toes with knees hovering an inch off the floor.",
+        "Crawl forward moving the opposite hand and foot at the same time keeping the hips low.",
+        "Continue for the prescribed distance or time."
+      ]
+    },
+    {
+      "sourceExternalId": "crab_walk_v1",
+      "name": "Crab Walk",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["triceps", "deltoides", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "mobilitat_toracica"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on the floor with hands behind the hips and feet flat.",
+        "Lift the hips into a reverse tabletop and walk forward or sideways using opposite hand and foot.",
+        "Continue for the prescribed distance or time."
+      ]
+    },
+    {
+      "sourceExternalId": "sandbag_sled_push_v1",
+      "name": "Sandbag Sled Push",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons", "deltoides"],
+      "equipment": ["sandbag"],
+      "level": "intermediate",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["forca", "resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Place a heavy sandbag on a smooth surface and lean forward with hands on top of it.",
+        "Drive forward with short, powerful steps pushing the sandbag along the floor.",
+        "Continue for the prescribed distance or time."
+      ]
+    },
+    {
+      "sourceExternalId": "farmer_carry_interval_v1",
+      "name": "Farmer's Carry Interval",
+      "primaryMuscles": ["avantbras"],
+      "secondaryMuscles": ["trapezi", "glutis", "abdominal"],
+      "equipment": ["manueles", "kettlebell"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["forca", "resistencia", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Pick up a heavy weight in each hand and stand tall.",
+        "Walk for 30–60 seconds at a steady pace, then rest for an equal interval.",
+        "Repeat for the prescribed rounds."
+      ]
+    },
+    {
+      "sourceExternalId": "walking_incline_v1",
+      "name": "Incline Walk",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["glutis", "quadriceps"],
+      "equipment": ["cinta"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "tornada_calma"],
+      "restrictions": [],
+      "instructions": [
+        "Set the treadmill to a moderate incline (5–10%) and a comfortable walking speed.",
+        "Maintain an upright posture without holding the rails.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "spin_easy_v1",
+      "name": "Easy Spin Bike",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["bessons", "glutis"],
+      "equipment": ["bicicleta"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["tornada_calma", "escalfament", "resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Pedal at a very easy resistance and conversational pace.",
+        "Focus on relaxed breathing and smooth pedaling.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "row_zone2_v1",
+      "name": "Zone 2 Row",
+      "primaryMuscles": ["dorsal"],
+      "secondaryMuscles": ["quadriceps", "glutis", "biceps"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a rower with feet strapped and a relaxed grip on the handle.",
+        "Maintain a steady, conversational pace driving with the legs first then pulling with the arms.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "brisk_walk_v1",
+      "name": "Brisk Walk",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["glutis", "quadriceps"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["resistencia", "tornada_calma", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Walk at a pace where speaking in short sentences is comfortable.",
+        "Maintain an upright posture and a steady cadence.",
+        "Continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "circuit_complex_basic_v1",
+      "name": "Basic Conditioning Circuit",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["pectoral", "abdominal", "glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "reps",
+      "tags": ["resistencia", "forca", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Perform 10 squats, 10 push-ups and 10 sit-ups back to back.",
+        "Rest 60 seconds.",
+        "Complete the prescribed number of rounds."
+      ]
+    }
   ],
   "i18n": {
     "ca": {
-      "preset_tags": {"resistencia":"Resistència","potencia":"Potència","forca":"Força","escalfament":"Escalfament","tornada_calma":"Tornada a la calma","corredor":"Corredor","pujada":"Pujada","unilateral":"Unilateral","core_estabilitat":"Core i estabilitat","mobilitat_toracica":"Mobilitat toràcica"},
+      "preset_tags": {
+        "resistencia": "Resistència",
+        "potencia": "Potència",
+        "forca": "Força",
+        "escalfament": "Escalfament",
+        "tornada_calma": "Tornada a la calma",
+        "corredor": "Corredor",
+        "pujada": "Pujada",
+        "unilateral": "Unilateral",
+        "core_estabilitat": "Core i estabilitat",
+        "mobilitat_toracica": "Mobilitat toràcica"
+      },
       "exercises": {
-        "jumprope_basic_v1":{"name":"Salt amb corda bàsic","instructions":["Sostén una nansa de la corda a cada mà amb la corda darrere els talons.","Fes girar la corda amb els canells i salta amb els dos peus per sobre a cadència constant.","Continua el temps prescrit amb aterratges suaus."]},
-        "jumprope_double_under_v1":{"name":"Double under amb corda","instructions":["Sostén les nanses amb la corda darrere els talons.","Salta més alt del normal i fes girar la corda dues vegades sota els peus en un sol salt.","Aterra suau i continua les reps prescrites."]},
-        "jumprope_alternating_foot_v1":{"name":"Salt amb corda alternant peu","instructions":["Sostén les nanses amb la corda darrere els talons.","Salta alternant un peu cada vegada que passa la corda, com córrer al lloc.","Continua a cadència constant el temps prescrit."]},
-        "jumprope_high_knee_v1":{"name":"Salt amb corda amb genolls alts","instructions":["Sostén les nanses amb la corda darrere els talons.","Salta alternant cames pujant els genolls a l'altura del maluc a cada passada.","Continua el temps prescrit."]},
-        "jumprope_boxer_skip_v1":{"name":"Boxer skip amb corda","instructions":["Sostén les nanses amb la corda darrere els talons.","Desplaça el pes d'un peu a l'altre en un petit rebot mentre passa la corda.","Continua a cadència relaxada el temps prescrit."]},
-        "jumprope_criss_cross_v1":{"name":"Criss-cross amb corda","instructions":["Sostén les nanses amb la corda darrere els talons.","A cada passada, creua els braços davant del cos i descreua al següent salt.","Continua les reps prescrites."]},
-        "jumprope_side_to_side_v1":{"name":"Salt amb corda lateral","instructions":["Sostén les nanses amb la corda darrere els talons.","Salta els peus uns centímetres a un costat mentre passa la corda, després al costat oposat al següent salt.","Continua el temps prescrit."]},
-        "jumprope_single_leg_v1":{"name":"Salt amb corda a una cama","instructions":["Sostén les nanses amb la corda darrere els talons.","Salta a una cama mantenint l'altra lleugerament aixecada mentre passa la corda.","Continua les reps prescrites abans de canviar."]},
-        "hill_sprint_v1":{"name":"Sprint en pujada","instructions":["Troba un pendent moderat (6–10%).","Esprinta dur per la pujada 10–20 segons centrant-te en empènyer els genolls.","Camina avall per recuperació completa abans del següent."]},
-        "shuttle_run_v1":{"name":"Shuttle run","instructions":["Marca dos cons separats 10–25 metres.","Esprinta al con llunyà, toca el terra i esprinta de tornada.","Repeteix les reps amb recuperacions curtes."]},
-        "interval_400m_v1":{"name":"Interval 400m","instructions":["Corre 400 metres a un ritme dur però sostenible.","Recupera amb 60–120 segons de caminada o trot lent.","Repeteix les reps prescrites."]},
-        "fartlek_run_v1":{"name":"Fartlek","instructions":["Comença amb trot suau per escalfar.","Alterna sèries espontànies de carrera ràpida (30–90 s) amb recuperacions de trot suau segons percepció.","Continua el temps total prescrit, acaba amb trot suau."]},
-        "tempo_run_v1":{"name":"Cursa a ritme tempo","instructions":["Escalfa amb 10 minuts de trot suau.","Mantén un ritme còmodament dur (al voltant del llindar) durant la durada prescrita.","Refreda amb 5–10 minuts de trot suau."]},
-        "treadmill_intervals_v1":{"name":"Intervals a la cinta","instructions":["Escalfa amb 5 minuts de caminada suau a la cinta.","Alterna 60 segons de carrera dura amb 60 segons de caminada lenta les reps prescrites.","Refreda amb 5 minuts de caminada."]},
-        "bike_sprint_v1":{"name":"Sprint en bicicleta","instructions":["Escalfa a ritme suau 5 minuts.","Esprinta dur 20–30 segons a màxim esforç.","Recupera a ritme suau 60–90 segons; repeteix les reps prescrites."]},
-        "bike_tabata_v1":{"name":"Tabata en bicicleta","instructions":["Escalfa a ritme suau 5 minuts.","Alterna 20 segons d'esforç màxim amb 10 segons de recuperació, 8 rondes.","Refreda a ritme suau 5 minuts."]},
-        "bike_zone2_v1":{"name":"Sortida en bici zona 2","instructions":["Mantén un ritme constant i conversacional on parlar en frases curtes és possible.","Mantén l'esforç durant la durada prescrita sense pics d'intensitat.","Refreda els últims 5 minuts a ritme més suau."]},
-        "bike_hill_simulation_v1":{"name":"Simulació de pujada en bici","instructions":["Escalfa 5 minuts a ritme suau.","Augmenta resistència per simular pujada forta i pedaleja dur 2–4 minuts.","Recupera a baixa resistència 2 minuts; repeteix les reps prescrites."]},
-        "jumping_jack_v1":{"name":"Jumping jack","instructions":["Dret amb peus junts i braços als costats.","Salta els peus oberts i els braços sobre el cap simultàniament, després torna.","Continua a cadència constant les reps o temps prescrits."]},
-        "high_knee_run_v1":{"name":"Cursa amb genolls alts","instructions":["Dret amb peus a l'amplada del maluc.","Corre al lloc empenyent els genolls a l'altura del maluc a cada pas.","Continua a cadència ràpida el temps prescrit."]},
-        "butt_kicker_v1":{"name":"Butt kicker","instructions":["Dret amb peus a l'amplada del maluc.","Corre al lloc apartant els talons fins als glutis a cada pas.","Continua a cadència ràpida el temps prescrit."]},
-        "sprawl_v1":{"name":"Sprawl","instructions":["Dret amb peus a l'amplada de l'espatlla.","Baixa les mans al terra i tira les cames enrere a planxa.","Salta els peus a les mans i posa't dret; repeteix a cadència ràpida."]},
-        "mountain_climber_tempo_v1":{"name":"Mountain climber a tempo","instructions":["Planxa alta amb mans sota les espatlles.","Porta un genoll cap al pit a tempo controlat, després alterna.","Continua a cadència constant el temps prescrit."]},
-        "lateral_shuffle_v1":{"name":"Shuffle lateral","instructions":["Postura atlètica amb genolls flexionats i peus a l'amplada de l'espatlla.","Shuffle lateralment sense creuar els peus uns metres, després canvia direcció.","Continua alternant direcció el temps prescrit."]},
-        "fast_feet_v1":{"name":"Fast feet","instructions":["Postura atlètica amb genolls lleugerament flexionats.","Toca el terra amb les puntes dels peus el més ràpid possible sense pujar genolls.","Continua a cadència màxima el temps prescrit."]},
-        "scissor_lunge_v1":{"name":"Llunja tisora","instructions":["Posició de split amb un peu davant i l'altre darrere.","Salta canviant cames a l'aire i aterra a la posició oposada.","Continua alternant a cadència ràpida."]},
-        "kb_swing_one_handed_v1":{"name":"Swing amb kettlebell a una mà","instructions":["Dret amb peus a l'amplada de l'espatlla i la kettlebell al terra davant.","Hinge per agafar la bola amb una mà, balanceja-la enrere entre les cames i fes snap de malucs perquè pugi a l'altura del pit.","Deixa-la caure entre les cames en hinge controlat; canvia mans segons la programació."]},
-        "kb_clean_press_v1":{"name":"Clean and press amb kettlebell","instructions":["Cleaneja la kettlebell a posició rack a l'espatlla.","Pressiona-la sobre el cap fins extensió completa.","Baixa al rack i al terra; fes les reps abans de canviar."]},
-        "kb_thruster_v1":{"name":"Thruster amb kettlebell","instructions":["Sostén una kettlebell racked a cada espatlla (o una en goblet) i sentadella a paral·lel.","Empeny amunt explosiu pressionant les boles sobre el cap en un sol moviment.","Baixa al rack i repeteix."]},
-        "kb_snatch_continuous_v1":{"name":"Snatch continu amb kettlebell","instructions":["Comença amb la kettlebell penjant entre les cames.","Snatch la bola sobre el cap i baixa-la a la posició de swing sense tocar el terra.","Continua a cadència constant les reps prescrites; canvia mans."]},
-        "kb_complex_simple_v1":{"name":"Complex simple de kettlebell","instructions":["Fes 5 swings, 5 cleans i 5 presses amb una kettlebell a un costat sense deixar-la.","Canvia mans i repeteix el complex a l'altre costat.","Descansa segons necessitat i completa les rondes prescrites."]},
-        "bear_crawl_v1":{"name":"Bear crawl","instructions":["Posició de mans i puntes dels peus amb genolls a un dit del terra.","Avança movent la mà i el peu oposats alhora mantenint els malucs baixos.","Continua per la distància o temps prescrits."]},
-        "crab_walk_v1":{"name":"Crab walk","instructions":["Asseu-te al terra amb mans darrere els malucs i peus plans.","Aixeca els malucs en taula invertida i camina endavant o lateralment usant mà i peu oposats.","Continua per la distància o temps prescrits."]},
-        "sandbag_sled_push_v1":{"name":"Empenta de sandbag (sled)","instructions":["Posa un sandbag pesat en superfície llisa i inclina't endavant amb mans a sobre.","Empeny endavant amb passos curts i potents arrossegant el sandbag pel terra.","Continua per la distància o temps prescrits."]},
-        "farmer_carry_interval_v1":{"name":"Intervals de farmer's carry","instructions":["Agafa un pes pesat a cada mà i posa't dret.","Camina 30–60 segons a ritme constant, després descansa interval igual.","Repeteix les rondes prescrites."]},
-        "walking_incline_v1":{"name":"Caminada inclinada","instructions":["Configura la cinta a inclinació moderada (5–10%) i velocitat de caminada còmoda.","Mantén postura dreta sense agafar les baranes.","Continua el temps prescrit."]},
-        "spin_easy_v1":{"name":"Bicicleta suau","instructions":["Pedaleja a resistència molt baixa i ritme conversacional.","Centra't en respiració relaxada i pedaleig suau.","Continua el temps prescrit."]},
-        "row_zone2_v1":{"name":"Rem zona 2","instructions":["Asseu-te al rem amb peus subjectes i agafada relaxada.","Mantén ritme constant i conversacional empenyent primer amb les cames i tirant amb els braços.","Continua el temps prescrit."]},
-        "brisk_walk_v1":{"name":"Caminada ràpida","instructions":["Camina a un ritme on parlar en frases curtes és còmode.","Mantén postura dreta i cadència constant.","Continua el temps prescrit."]},
-        "circuit_complex_basic_v1":{"name":"Circuit de condicionament bàsic","instructions":["Fes 10 sentadelles, 10 flexions i 10 abdominals seguides.","Descansa 60 segons.","Completa les rondes prescrites."]}
+        "jumprope_basic_v1": {
+          "name": "Salt amb corda bàsic",
+          "instructions": [
+            "Sostén una nansa de la corda a cada mà amb la corda darrere els talons.",
+            "Fes girar la corda amb els canells i salta amb els dos peus per sobre a cadència constant.",
+            "Continua el temps prescrit amb aterratges suaus."
+          ]
+        },
+        "jumprope_double_under_v1": {
+          "name": "Double under amb corda",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Salta més alt del normal i fes girar la corda dues vegades sota els peus en un sol salt.",
+            "Aterra suau i continua les reps prescrites."
+          ]
+        },
+        "jumprope_alternating_foot_v1": {
+          "name": "Salt amb corda alternant peu",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Salta alternant un peu cada vegada que passa la corda, com córrer al lloc.",
+            "Continua a cadència constant el temps prescrit."
+          ]
+        },
+        "jumprope_high_knee_v1": {
+          "name": "Salt amb corda amb genolls alts",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Salta alternant cames pujant els genolls a l'altura del maluc a cada passada.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "jumprope_boxer_skip_v1": {
+          "name": "Boxer skip amb corda",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Desplaça el pes d'un peu a l'altre en un petit rebot mentre passa la corda.",
+            "Continua a cadència relaxada el temps prescrit."
+          ]
+        },
+        "jumprope_criss_cross_v1": {
+          "name": "Criss-cross amb corda",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "A cada passada, creua els braços davant del cos i descreua al següent salt.",
+            "Continua les reps prescrites."
+          ]
+        },
+        "jumprope_side_to_side_v1": {
+          "name": "Salt amb corda lateral",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Salta els peus uns centímetres a un costat mentre passa la corda, després al costat oposat al següent salt.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "jumprope_single_leg_v1": {
+          "name": "Salt amb corda a una cama",
+          "instructions": [
+            "Sostén les nanses amb la corda darrere els talons.",
+            "Salta a una cama mantenint l'altra lleugerament aixecada mentre passa la corda.",
+            "Continua les reps prescrites abans de canviar."
+          ]
+        },
+        "hill_sprint_v1": {
+          "name": "Sprint en pujada",
+          "instructions": [
+            "Troba un pendent moderat (6–10%).",
+            "Esprinta dur per la pujada 10–20 segons centrant-te en empènyer els genolls.",
+            "Camina avall per recuperació completa abans del següent."
+          ]
+        },
+        "shuttle_run_v1": {
+          "name": "Shuttle run",
+          "instructions": [
+            "Marca dos cons separats 10–25 metres.",
+            "Esprinta al con llunyà, toca el terra i esprinta de tornada.",
+            "Repeteix les reps amb recuperacions curtes."
+          ]
+        },
+        "interval_400m_v1": {
+          "name": "Interval 400m",
+          "instructions": [
+            "Corre 400 metres a un ritme dur però sostenible.",
+            "Recupera amb 60–120 segons de caminada o trot lent.",
+            "Repeteix les reps prescrites."
+          ]
+        },
+        "fartlek_run_v1": {
+          "name": "Fartlek",
+          "instructions": [
+            "Comença amb trot suau per escalfar.",
+            "Alterna sèries espontànies de carrera ràpida (30–90 s) amb recuperacions de trot suau segons percepció.",
+            "Continua el temps total prescrit, acaba amb trot suau."
+          ]
+        },
+        "tempo_run_v1": {
+          "name": "Cursa a ritme tempo",
+          "instructions": [
+            "Escalfa amb 10 minuts de trot suau.",
+            "Mantén un ritme còmodament dur (al voltant del llindar) durant la durada prescrita.",
+            "Refreda amb 5–10 minuts de trot suau."
+          ]
+        },
+        "treadmill_intervals_v1": {
+          "name": "Intervals a la cinta",
+          "instructions": [
+            "Escalfa amb 5 minuts de caminada suau a la cinta.",
+            "Alterna 60 segons de carrera dura amb 60 segons de caminada lenta les reps prescrites.",
+            "Refreda amb 5 minuts de caminada."
+          ]
+        },
+        "bike_sprint_v1": {
+          "name": "Sprint en bicicleta",
+          "instructions": [
+            "Escalfa a ritme suau 5 minuts.",
+            "Esprinta dur 20–30 segons a màxim esforç.",
+            "Recupera a ritme suau 60–90 segons; repeteix les reps prescrites."
+          ]
+        },
+        "bike_tabata_v1": {
+          "name": "Tabata en bicicleta",
+          "instructions": [
+            "Escalfa a ritme suau 5 minuts.",
+            "Alterna 20 segons d'esforç màxim amb 10 segons de recuperació, 8 rondes.",
+            "Refreda a ritme suau 5 minuts."
+          ]
+        },
+        "bike_zone2_v1": {
+          "name": "Sortida en bici zona 2",
+          "instructions": [
+            "Mantén un ritme constant i conversacional on parlar en frases curtes és possible.",
+            "Mantén l'esforç durant la durada prescrita sense pics d'intensitat.",
+            "Refreda els últims 5 minuts a ritme més suau."
+          ]
+        },
+        "bike_hill_simulation_v1": {
+          "name": "Simulació de pujada en bici",
+          "instructions": [
+            "Escalfa 5 minuts a ritme suau.",
+            "Augmenta resistència per simular pujada forta i pedaleja dur 2–4 minuts.",
+            "Recupera a baixa resistència 2 minuts; repeteix les reps prescrites."
+          ]
+        },
+        "jumping_jack_v1": {
+          "name": "Jumping jack",
+          "instructions": [
+            "Dret amb peus junts i braços als costats.",
+            "Salta els peus oberts i els braços sobre el cap simultàniament, després torna.",
+            "Continua a cadència constant les reps o temps prescrits."
+          ]
+        },
+        "high_knee_run_v1": {
+          "name": "Cursa amb genolls alts",
+          "instructions": [
+            "Dret amb peus a l'amplada del maluc.",
+            "Corre al lloc empenyent els genolls a l'altura del maluc a cada pas.",
+            "Continua a cadència ràpida el temps prescrit."
+          ]
+        },
+        "butt_kicker_v1": {
+          "name": "Butt kicker",
+          "instructions": [
+            "Dret amb peus a l'amplada del maluc.",
+            "Corre al lloc apartant els talons fins als glutis a cada pas.",
+            "Continua a cadència ràpida el temps prescrit."
+          ]
+        },
+        "sprawl_v1": {
+          "name": "Sprawl",
+          "instructions": [
+            "Dret amb peus a l'amplada de l'espatlla.",
+            "Baixa les mans al terra i tira les cames enrere a planxa.",
+            "Salta els peus a les mans i posa't dret; repeteix a cadència ràpida."
+          ]
+        },
+        "mountain_climber_tempo_v1": {
+          "name": "Mountain climber a tempo",
+          "instructions": [
+            "Planxa alta amb mans sota les espatlles.",
+            "Porta un genoll cap al pit a tempo controlat, després alterna.",
+            "Continua a cadència constant el temps prescrit."
+          ]
+        },
+        "lateral_shuffle_v1": {
+          "name": "Shuffle lateral",
+          "instructions": [
+            "Postura atlètica amb genolls flexionats i peus a l'amplada de l'espatlla.",
+            "Shuffle lateralment sense creuar els peus uns metres, després canvia direcció.",
+            "Continua alternant direcció el temps prescrit."
+          ]
+        },
+        "fast_feet_v1": {
+          "name": "Fast feet",
+          "instructions": [
+            "Postura atlètica amb genolls lleugerament flexionats.",
+            "Toca el terra amb les puntes dels peus el més ràpid possible sense pujar genolls.",
+            "Continua a cadència màxima el temps prescrit."
+          ]
+        },
+        "scissor_lunge_v1": {
+          "name": "Llunja tisora",
+          "instructions": [
+            "Posició de split amb un peu davant i l'altre darrere.",
+            "Salta canviant cames a l'aire i aterra a la posició oposada.",
+            "Continua alternant a cadència ràpida."
+          ]
+        },
+        "kb_swing_one_handed_v1": {
+          "name": "Swing amb kettlebell a una mà",
+          "instructions": [
+            "Dret amb peus a l'amplada de l'espatlla i la kettlebell al terra davant.",
+            "Hinge per agafar la bola amb una mà, balanceja-la enrere entre les cames i fes snap de malucs perquè pugi a l'altura del pit.",
+            "Deixa-la caure entre les cames en hinge controlat; canvia mans segons la programació."
+          ]
+        },
+        "kb_clean_press_v1": {
+          "name": "Clean and press amb kettlebell",
+          "instructions": [
+            "Cleaneja la kettlebell a posició rack a l'espatlla.",
+            "Pressiona-la sobre el cap fins extensió completa.",
+            "Baixa al rack i al terra; fes les reps abans de canviar."
+          ]
+        },
+        "kb_thruster_v1": {
+          "name": "Thruster amb kettlebell",
+          "instructions": [
+            "Sostén una kettlebell racked a cada espatlla (o una en goblet) i sentadella a paral·lel.",
+            "Empeny amunt explosiu pressionant les boles sobre el cap en un sol moviment.",
+            "Baixa al rack i repeteix."
+          ]
+        },
+        "kb_snatch_continuous_v1": {
+          "name": "Snatch continu amb kettlebell",
+          "instructions": [
+            "Comença amb la kettlebell penjant entre les cames.",
+            "Snatch la bola sobre el cap i baixa-la a la posició de swing sense tocar el terra.",
+            "Continua a cadència constant les reps prescrites; canvia mans."
+          ]
+        },
+        "kb_complex_simple_v1": {
+          "name": "Complex simple de kettlebell",
+          "instructions": [
+            "Fes 5 swings, 5 cleans i 5 presses amb una kettlebell a un costat sense deixar-la.",
+            "Canvia mans i repeteix el complex a l'altre costat.",
+            "Descansa segons necessitat i completa les rondes prescrites."
+          ]
+        },
+        "bear_crawl_v1": {
+          "name": "Bear crawl",
+          "instructions": [
+            "Posició de mans i puntes dels peus amb genolls a un dit del terra.",
+            "Avança movent la mà i el peu oposats alhora mantenint els malucs baixos.",
+            "Continua per la distància o temps prescrits."
+          ]
+        },
+        "crab_walk_v1": {
+          "name": "Crab walk",
+          "instructions": [
+            "Asseu-te al terra amb mans darrere els malucs i peus plans.",
+            "Aixeca els malucs en taula invertida i camina endavant o lateralment usant mà i peu oposats.",
+            "Continua per la distància o temps prescrits."
+          ]
+        },
+        "sandbag_sled_push_v1": {
+          "name": "Empenta de sandbag (sled)",
+          "instructions": [
+            "Posa un sandbag pesat en superfície llisa i inclina't endavant amb mans a sobre.",
+            "Empeny endavant amb passos curts i potents arrossegant el sandbag pel terra.",
+            "Continua per la distància o temps prescrits."
+          ]
+        },
+        "farmer_carry_interval_v1": {
+          "name": "Intervals de farmer's carry",
+          "instructions": [
+            "Agafa un pes pesat a cada mà i posa't dret.",
+            "Camina 30–60 segons a ritme constant, després descansa interval igual.",
+            "Repeteix les rondes prescrites."
+          ]
+        },
+        "walking_incline_v1": {
+          "name": "Caminada inclinada",
+          "instructions": [
+            "Configura la cinta a inclinació moderada (5–10%) i velocitat de caminada còmoda.",
+            "Mantén postura dreta sense agafar les baranes.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "spin_easy_v1": {
+          "name": "Bicicleta suau",
+          "instructions": [
+            "Pedaleja a resistència molt baixa i ritme conversacional.",
+            "Centra't en respiració relaxada i pedaleig suau.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "row_zone2_v1": {
+          "name": "Rem zona 2",
+          "instructions": [
+            "Asseu-te al rem amb peus subjectes i agafada relaxada.",
+            "Mantén ritme constant i conversacional empenyent primer amb les cames i tirant amb els braços.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "brisk_walk_v1": {
+          "name": "Caminada ràpida",
+          "instructions": [
+            "Camina a un ritme on parlar en frases curtes és còmode.",
+            "Mantén postura dreta i cadència constant.",
+            "Continua el temps prescrit."
+          ]
+        },
+        "circuit_complex_basic_v1": {
+          "name": "Circuit de condicionament bàsic",
+          "instructions": [
+            "Fes 10 sentadelles, 10 flexions i 10 abdominals seguides.",
+            "Descansa 60 segons.",
+            "Completa les rondes prescrites."
+          ]
+        }
       }
     },
     "es": {
-      "preset_tags": {"resistencia":"Resistencia","potencia":"Potencia","forca":"Fuerza","escalfament":"Calentamiento","tornada_calma":"Vuelta a la calma","corredor":"Corredor","pujada":"Subida","unilateral":"Unilateral","core_estabilitat":"Core y estabilidad","mobilitat_toracica":"Movilidad torácica"},
+      "preset_tags": {
+        "resistencia": "Resistencia",
+        "potencia": "Potencia",
+        "forca": "Fuerza",
+        "escalfament": "Calentamiento",
+        "tornada_calma": "Vuelta a la calma",
+        "corredor": "Corredor",
+        "pujada": "Subida",
+        "unilateral": "Unilateral",
+        "core_estabilitat": "Core y estabilidad",
+        "mobilitat_toracica": "Movilidad torácica"
+      },
       "exercises": {
-        "jumprope_basic_v1":{"name":"Saltar a la comba básico","instructions":["Sostén un asa de la cuerda en cada mano con la cuerda detrás de los talones.","Haz girar la cuerda con las muñecas y salta con ambos pies por encima a cadencia constante.","Continúa el tiempo prescrito con aterrizajes suaves."]},
-        "jumprope_double_under_v1":{"name":"Double under con comba","instructions":["Sostén las asas con la cuerda detrás de los talones.","Salta más alto de lo normal y haz girar la cuerda dos veces bajo los pies en un solo salto.","Aterriza suave y continúa las reps prescritas."]},
-        "jumprope_alternating_foot_v1":{"name":"Comba alternando pie","instructions":["Sostén las asas con la cuerda detrás de los talones.","Salta alternando un pie cada vez que pasa la cuerda, como correr en el sitio.","Continúa a cadencia constante el tiempo prescrito."]},
-        "jumprope_high_knee_v1":{"name":"Comba con rodillas altas","instructions":["Sostén las asas con la cuerda detrás de los talones.","Salta alternando piernas subiendo las rodillas a la altura de la cadera en cada pasada.","Continúa el tiempo prescrito."]},
-        "jumprope_boxer_skip_v1":{"name":"Boxer skip con comba","instructions":["Sostén las asas con la cuerda detrás de los talones.","Desplaza el peso de un pie al otro en un pequeño rebote mientras pasa la cuerda.","Continúa a cadencia relajada el tiempo prescrito."]},
-        "jumprope_criss_cross_v1":{"name":"Criss-cross con comba","instructions":["Sostén las asas con la cuerda detrás de los talones.","En cada pasada, cruza los brazos delante del cuerpo y descruza en el siguiente salto.","Continúa las reps prescritas."]},
-        "jumprope_side_to_side_v1":{"name":"Comba lateral","instructions":["Sostén las asas con la cuerda detrás de los talones.","Salta los pies unos centímetros a un lado mientras pasa la cuerda, luego al lado opuesto en el siguiente salto.","Continúa el tiempo prescrito."]},
-        "jumprope_single_leg_v1":{"name":"Comba a una pierna","instructions":["Sostén las asas con la cuerda detrás de los talones.","Salta a una pierna manteniendo la otra ligeramente levantada mientras pasa la cuerda.","Continúa las reps prescritas antes de cambiar."]},
-        "hill_sprint_v1":{"name":"Sprint en cuesta","instructions":["Encuentra una pendiente moderada (6–10%).","Esprinta duro por la cuesta 10–20 segundos centrándote en empujar las rodillas.","Camina abajo para recuperación completa antes del siguiente."]},
-        "shuttle_run_v1":{"name":"Shuttle run","instructions":["Marca dos conos separados 10–25 metros.","Esprinta al cono lejano, toca el suelo y esprinta de vuelta.","Repite las reps con recuperaciones cortas."]},
-        "interval_400m_v1":{"name":"Intervalo 400m","instructions":["Corre 400 metros a un ritmo duro pero sostenible.","Recupera con 60–120 segundos de caminata o trote lento.","Repite las reps prescritas."]},
-        "fartlek_run_v1":{"name":"Fartlek","instructions":["Empieza con trote suave para calentar.","Alterna series espontáneas de carrera rápida (30–90 s) con recuperaciones de trote suave según percepción.","Continúa el tiempo total prescrito, acaba con trote suave."]},
-        "tempo_run_v1":{"name":"Carrera a ritmo tempo","instructions":["Calienta con 10 minutos de trote suave.","Mantén un ritmo cómodamente duro (alrededor del umbral) durante la duración prescrita.","Enfría con 5–10 minutos de trote suave."]},
-        "treadmill_intervals_v1":{"name":"Intervalos en cinta","instructions":["Calienta con 5 minutos de caminata suave en la cinta.","Alterna 60 segundos de carrera dura con 60 segundos de caminata lenta las reps prescritas.","Enfría con 5 minutos de caminata."]},
-        "bike_sprint_v1":{"name":"Sprint en bicicleta","instructions":["Calienta a ritmo suave 5 minutos.","Esprinta duro 20–30 segundos a máximo esfuerzo.","Recupera a ritmo suave 60–90 segundos; repite las reps prescritas."]},
-        "bike_tabata_v1":{"name":"Tabata en bicicleta","instructions":["Calienta a ritmo suave 5 minutos.","Alterna 20 segundos de esfuerzo máximo con 10 segundos de recuperación, 8 rondas.","Enfría a ritmo suave 5 minutos."]},
-        "bike_zone2_v1":{"name":"Salida en bici zona 2","instructions":["Mantén un ritmo constante y conversacional donde hablar en frases cortas es posible.","Mantén el esfuerzo durante la duración prescrita sin picos de intensidad.","Enfría los últimos 5 minutos a ritmo más suave."]},
-        "bike_hill_simulation_v1":{"name":"Simulación de cuesta en bici","instructions":["Calienta 5 minutos a ritmo suave.","Aumenta resistencia para simular cuesta fuerte y pedalea duro 2–4 minutos.","Recupera a baja resistencia 2 minutos; repite las reps prescritas."]},
-        "jumping_jack_v1":{"name":"Jumping jack","instructions":["De pie con pies juntos y brazos a los lados.","Salta los pies abiertos y los brazos sobre la cabeza simultáneamente, luego vuelve.","Continúa a cadencia constante las reps o tiempo prescritos."]},
-        "high_knee_run_v1":{"name":"Carrera con rodillas altas","instructions":["De pie con pies al ancho de cadera.","Corre en el sitio empujando las rodillas a la altura de la cadera en cada paso.","Continúa a cadencia rápida el tiempo prescrito."]},
-        "butt_kicker_v1":{"name":"Butt kicker","instructions":["De pie con pies al ancho de cadera.","Corre en el sitio apartando los talones hasta los glúteos en cada paso.","Continúa a cadencia rápida el tiempo prescrito."]},
-        "sprawl_v1":{"name":"Sprawl","instructions":["De pie con pies al ancho de hombros.","Baja las manos al suelo y tira las piernas atrás a plancha.","Salta los pies a las manos y ponte de pie; repite a cadencia rápida."]},
-        "mountain_climber_tempo_v1":{"name":"Mountain climber a tempo","instructions":["Plancha alta con manos bajo los hombros.","Lleva una rodilla al pecho a tempo controlado, luego alterna.","Continúa a cadencia constante el tiempo prescrito."]},
-        "lateral_shuffle_v1":{"name":"Shuffle lateral","instructions":["Postura atlética con rodillas flexionadas y pies al ancho de hombros.","Shuffle lateralmente sin cruzar los pies unos metros, luego cambia dirección.","Continúa alternando dirección el tiempo prescrito."]},
-        "fast_feet_v1":{"name":"Fast feet","instructions":["Postura atlética con rodillas ligeramente flexionadas.","Toca el suelo con las puntas de los pies lo más rápido posible sin subir rodillas.","Continúa a cadencia máxima el tiempo prescrito."]},
-        "scissor_lunge_v1":{"name":"Zancada tijera","instructions":["Posición de split con un pie delante y otro detrás.","Salta cambiando piernas en el aire y aterriza en la posición opuesta.","Continúa alternando a cadencia rápida."]},
-        "kb_swing_one_handed_v1":{"name":"Swing con kettlebell a una mano","instructions":["De pie con pies al ancho de hombros y la kettlebell en el suelo delante.","Hinge para coger la bola con una mano, balancéala atrás entre las piernas y haz snap de caderas para que suba a la altura del pecho.","Déjala caer entre las piernas en hinge controlado; cambia manos según programación."]},
-        "kb_clean_press_v1":{"name":"Clean and press con kettlebell","instructions":["Clean la kettlebell a posición rack en el hombro.","Presiónala sobre la cabeza hasta extensión completa.","Baja al rack y al suelo; haz las reps antes de cambiar."]},
-        "kb_thruster_v1":{"name":"Thruster con kettlebell","instructions":["Sostén una kettlebell racked en cada hombro (o una en goblet) y sentadilla a paralelo.","Empuja arriba explosivo presionando las bolas sobre la cabeza en un solo movimiento.","Baja al rack y repite."]},
-        "kb_snatch_continuous_v1":{"name":"Snatch continuo con kettlebell","instructions":["Empieza con la kettlebell colgando entre las piernas.","Snatch la bola sobre la cabeza y bájala a la posición de swing sin tocar el suelo.","Continúa a cadencia constante las reps prescritas; cambia manos."]},
-        "kb_complex_simple_v1":{"name":"Complejo simple de kettlebell","instructions":["Haz 5 swings, 5 cleans y 5 presses con una kettlebell a un lado sin dejarla.","Cambia manos y repite el complejo al otro lado.","Descansa según necesidad y completa las rondas prescritas."]},
-        "bear_crawl_v1":{"name":"Bear crawl","instructions":["Posición de manos y puntas de los pies con rodillas a un dedo del suelo.","Avanza moviendo la mano y el pie opuestos a la vez manteniendo las caderas bajas.","Continúa por la distancia o tiempo prescritos."]},
-        "crab_walk_v1":{"name":"Crab walk","instructions":["Siéntate en el suelo con manos detrás de las caderas y pies planos.","Levanta las caderas en mesa invertida y camina adelante o lateralmente usando mano y pie opuestos.","Continúa por la distancia o tiempo prescritos."]},
-        "sandbag_sled_push_v1":{"name":"Empuje de sandbag (sled)","instructions":["Coloca un sandbag pesado en superficie lisa e inclínate adelante con manos encima.","Empuja adelante con pasos cortos y potentes arrastrando el sandbag por el suelo.","Continúa por la distancia o tiempo prescritos."]},
-        "farmer_carry_interval_v1":{"name":"Intervalos de farmer's carry","instructions":["Coge un peso pesado en cada mano y ponte de pie.","Camina 30–60 segundos a ritmo constante, luego descansa intervalo igual.","Repite las rondas prescritas."]},
-        "walking_incline_v1":{"name":"Caminata inclinada","instructions":["Configura la cinta a inclinación moderada (5–10%) y velocidad de caminata cómoda.","Mantén postura erguida sin coger las barandillas.","Continúa el tiempo prescrito."]},
-        "spin_easy_v1":{"name":"Bicicleta suave","instructions":["Pedalea a resistencia muy baja y ritmo conversacional.","Céntrate en respiración relajada y pedaleo suave.","Continúa el tiempo prescrito."]},
-        "row_zone2_v1":{"name":"Remo zona 2","instructions":["Siéntate en el remo con pies sujetos y agarre relajado.","Mantén ritmo constante y conversacional empujando primero con las piernas y tirando con los brazos.","Continúa el tiempo prescrito."]},
-        "brisk_walk_v1":{"name":"Caminata rápida","instructions":["Camina a un ritmo donde hablar en frases cortas es cómodo.","Mantén postura erguida y cadencia constante.","Continúa el tiempo prescrito."]},
-        "circuit_complex_basic_v1":{"name":"Circuito de acondicionamiento básico","instructions":["Haz 10 sentadillas, 10 flexiones y 10 abdominales seguidas.","Descansa 60 segundos.","Completa las rondas prescritas."]}
+        "jumprope_basic_v1": {
+          "name": "Saltar a la comba básico",
+          "instructions": [
+            "Sostén un asa de la cuerda en cada mano con la cuerda detrás de los talones.",
+            "Haz girar la cuerda con las muñecas y salta con ambos pies por encima a cadencia constante.",
+            "Continúa el tiempo prescrito con aterrizajes suaves."
+          ]
+        },
+        "jumprope_double_under_v1": {
+          "name": "Double under con comba",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Salta más alto de lo normal y haz girar la cuerda dos veces bajo los pies en un solo salto.",
+            "Aterriza suave y continúa las reps prescritas."
+          ]
+        },
+        "jumprope_alternating_foot_v1": {
+          "name": "Comba alternando pie",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Salta alternando un pie cada vez que pasa la cuerda, como correr en el sitio.",
+            "Continúa a cadencia constante el tiempo prescrito."
+          ]
+        },
+        "jumprope_high_knee_v1": {
+          "name": "Comba con rodillas altas",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Salta alternando piernas subiendo las rodillas a la altura de la cadera en cada pasada.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "jumprope_boxer_skip_v1": {
+          "name": "Boxer skip con comba",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Desplaza el peso de un pie al otro en un pequeño rebote mientras pasa la cuerda.",
+            "Continúa a cadencia relajada el tiempo prescrito."
+          ]
+        },
+        "jumprope_criss_cross_v1": {
+          "name": "Criss-cross con comba",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "En cada pasada, cruza los brazos delante del cuerpo y descruza en el siguiente salto.",
+            "Continúa las reps prescritas."
+          ]
+        },
+        "jumprope_side_to_side_v1": {
+          "name": "Comba lateral",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Salta los pies unos centímetros a un lado mientras pasa la cuerda, luego al lado opuesto en el siguiente salto.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "jumprope_single_leg_v1": {
+          "name": "Comba a una pierna",
+          "instructions": [
+            "Sostén las asas con la cuerda detrás de los talones.",
+            "Salta a una pierna manteniendo la otra ligeramente levantada mientras pasa la cuerda.",
+            "Continúa las reps prescritas antes de cambiar."
+          ]
+        },
+        "hill_sprint_v1": {
+          "name": "Sprint en cuesta",
+          "instructions": [
+            "Encuentra una pendiente moderada (6–10%).",
+            "Esprinta duro por la cuesta 10–20 segundos centrándote en empujar las rodillas.",
+            "Camina abajo para recuperación completa antes del siguiente."
+          ]
+        },
+        "shuttle_run_v1": {
+          "name": "Shuttle run",
+          "instructions": [
+            "Marca dos conos separados 10–25 metros.",
+            "Esprinta al cono lejano, toca el suelo y esprinta de vuelta.",
+            "Repite las reps con recuperaciones cortas."
+          ]
+        },
+        "interval_400m_v1": {
+          "name": "Intervalo 400m",
+          "instructions": [
+            "Corre 400 metros a un ritmo duro pero sostenible.",
+            "Recupera con 60–120 segundos de caminata o trote lento.",
+            "Repite las reps prescritas."
+          ]
+        },
+        "fartlek_run_v1": {
+          "name": "Fartlek",
+          "instructions": [
+            "Empieza con trote suave para calentar.",
+            "Alterna series espontáneas de carrera rápida (30–90 s) con recuperaciones de trote suave según percepción.",
+            "Continúa el tiempo total prescrito, acaba con trote suave."
+          ]
+        },
+        "tempo_run_v1": {
+          "name": "Carrera a ritmo tempo",
+          "instructions": [
+            "Calienta con 10 minutos de trote suave.",
+            "Mantén un ritmo cómodamente duro (alrededor del umbral) durante la duración prescrita.",
+            "Enfría con 5–10 minutos de trote suave."
+          ]
+        },
+        "treadmill_intervals_v1": {
+          "name": "Intervalos en cinta",
+          "instructions": [
+            "Calienta con 5 minutos de caminata suave en la cinta.",
+            "Alterna 60 segundos de carrera dura con 60 segundos de caminata lenta las reps prescritas.",
+            "Enfría con 5 minutos de caminata."
+          ]
+        },
+        "bike_sprint_v1": {
+          "name": "Sprint en bicicleta",
+          "instructions": [
+            "Calienta a ritmo suave 5 minutos.",
+            "Esprinta duro 20–30 segundos a máximo esfuerzo.",
+            "Recupera a ritmo suave 60–90 segundos; repite las reps prescritas."
+          ]
+        },
+        "bike_tabata_v1": {
+          "name": "Tabata en bicicleta",
+          "instructions": [
+            "Calienta a ritmo suave 5 minutos.",
+            "Alterna 20 segundos de esfuerzo máximo con 10 segundos de recuperación, 8 rondas.",
+            "Enfría a ritmo suave 5 minutos."
+          ]
+        },
+        "bike_zone2_v1": {
+          "name": "Salida en bici zona 2",
+          "instructions": [
+            "Mantén un ritmo constante y conversacional donde hablar en frases cortas es posible.",
+            "Mantén el esfuerzo durante la duración prescrita sin picos de intensidad.",
+            "Enfría los últimos 5 minutos a ritmo más suave."
+          ]
+        },
+        "bike_hill_simulation_v1": {
+          "name": "Simulación de cuesta en bici",
+          "instructions": [
+            "Calienta 5 minutos a ritmo suave.",
+            "Aumenta resistencia para simular cuesta fuerte y pedalea duro 2–4 minutos.",
+            "Recupera a baja resistencia 2 minutos; repite las reps prescritas."
+          ]
+        },
+        "jumping_jack_v1": {
+          "name": "Jumping jack",
+          "instructions": [
+            "De pie con pies juntos y brazos a los lados.",
+            "Salta los pies abiertos y los brazos sobre la cabeza simultáneamente, luego vuelve.",
+            "Continúa a cadencia constante las reps o tiempo prescritos."
+          ]
+        },
+        "high_knee_run_v1": {
+          "name": "Carrera con rodillas altas",
+          "instructions": [
+            "De pie con pies al ancho de cadera.",
+            "Corre en el sitio empujando las rodillas a la altura de la cadera en cada paso.",
+            "Continúa a cadencia rápida el tiempo prescrito."
+          ]
+        },
+        "butt_kicker_v1": {
+          "name": "Butt kicker",
+          "instructions": [
+            "De pie con pies al ancho de cadera.",
+            "Corre en el sitio apartando los talones hasta los glúteos en cada paso.",
+            "Continúa a cadencia rápida el tiempo prescrito."
+          ]
+        },
+        "sprawl_v1": {
+          "name": "Sprawl",
+          "instructions": [
+            "De pie con pies al ancho de hombros.",
+            "Baja las manos al suelo y tira las piernas atrás a plancha.",
+            "Salta los pies a las manos y ponte de pie; repite a cadencia rápida."
+          ]
+        },
+        "mountain_climber_tempo_v1": {
+          "name": "Mountain climber a tempo",
+          "instructions": [
+            "Plancha alta con manos bajo los hombros.",
+            "Lleva una rodilla al pecho a tempo controlado, luego alterna.",
+            "Continúa a cadencia constante el tiempo prescrito."
+          ]
+        },
+        "lateral_shuffle_v1": {
+          "name": "Shuffle lateral",
+          "instructions": [
+            "Postura atlética con rodillas flexionadas y pies al ancho de hombros.",
+            "Shuffle lateralmente sin cruzar los pies unos metros, luego cambia dirección.",
+            "Continúa alternando dirección el tiempo prescrito."
+          ]
+        },
+        "fast_feet_v1": {
+          "name": "Fast feet",
+          "instructions": [
+            "Postura atlética con rodillas ligeramente flexionadas.",
+            "Toca el suelo con las puntas de los pies lo más rápido posible sin subir rodillas.",
+            "Continúa a cadencia máxima el tiempo prescrito."
+          ]
+        },
+        "scissor_lunge_v1": {
+          "name": "Zancada tijera",
+          "instructions": [
+            "Posición de split con un pie delante y otro detrás.",
+            "Salta cambiando piernas en el aire y aterriza en la posición opuesta.",
+            "Continúa alternando a cadencia rápida."
+          ]
+        },
+        "kb_swing_one_handed_v1": {
+          "name": "Swing con kettlebell a una mano",
+          "instructions": [
+            "De pie con pies al ancho de hombros y la kettlebell en el suelo delante.",
+            "Hinge para coger la bola con una mano, balancéala atrás entre las piernas y haz snap de caderas para que suba a la altura del pecho.",
+            "Déjala caer entre las piernas en hinge controlado; cambia manos según programación."
+          ]
+        },
+        "kb_clean_press_v1": {
+          "name": "Clean and press con kettlebell",
+          "instructions": [
+            "Clean la kettlebell a posición rack en el hombro.",
+            "Presiónala sobre la cabeza hasta extensión completa.",
+            "Baja al rack y al suelo; haz las reps antes de cambiar."
+          ]
+        },
+        "kb_thruster_v1": {
+          "name": "Thruster con kettlebell",
+          "instructions": [
+            "Sostén una kettlebell racked en cada hombro (o una en goblet) y sentadilla a paralelo.",
+            "Empuja arriba explosivo presionando las bolas sobre la cabeza en un solo movimiento.",
+            "Baja al rack y repite."
+          ]
+        },
+        "kb_snatch_continuous_v1": {
+          "name": "Snatch continuo con kettlebell",
+          "instructions": [
+            "Empieza con la kettlebell colgando entre las piernas.",
+            "Snatch la bola sobre la cabeza y bájala a la posición de swing sin tocar el suelo.",
+            "Continúa a cadencia constante las reps prescritas; cambia manos."
+          ]
+        },
+        "kb_complex_simple_v1": {
+          "name": "Complejo simple de kettlebell",
+          "instructions": [
+            "Haz 5 swings, 5 cleans y 5 presses con una kettlebell a un lado sin dejarla.",
+            "Cambia manos y repite el complejo al otro lado.",
+            "Descansa según necesidad y completa las rondas prescritas."
+          ]
+        },
+        "bear_crawl_v1": {
+          "name": "Bear crawl",
+          "instructions": [
+            "Posición de manos y puntas de los pies con rodillas a un dedo del suelo.",
+            "Avanza moviendo la mano y el pie opuestos a la vez manteniendo las caderas bajas.",
+            "Continúa por la distancia o tiempo prescritos."
+          ]
+        },
+        "crab_walk_v1": {
+          "name": "Crab walk",
+          "instructions": [
+            "Siéntate en el suelo con manos detrás de las caderas y pies planos.",
+            "Levanta las caderas en mesa invertida y camina adelante o lateralmente usando mano y pie opuestos.",
+            "Continúa por la distancia o tiempo prescritos."
+          ]
+        },
+        "sandbag_sled_push_v1": {
+          "name": "Empuje de sandbag (sled)",
+          "instructions": [
+            "Coloca un sandbag pesado en superficie lisa e inclínate adelante con manos encima.",
+            "Empuja adelante con pasos cortos y potentes arrastrando el sandbag por el suelo.",
+            "Continúa por la distancia o tiempo prescritos."
+          ]
+        },
+        "farmer_carry_interval_v1": {
+          "name": "Intervalos de farmer's carry",
+          "instructions": [
+            "Coge un peso pesado en cada mano y ponte de pie.",
+            "Camina 30–60 segundos a ritmo constante, luego descansa intervalo igual.",
+            "Repite las rondas prescritas."
+          ]
+        },
+        "walking_incline_v1": {
+          "name": "Caminata inclinada",
+          "instructions": [
+            "Configura la cinta a inclinación moderada (5–10%) y velocidad de caminata cómoda.",
+            "Mantén postura erguida sin coger las barandillas.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "spin_easy_v1": {
+          "name": "Bicicleta suave",
+          "instructions": [
+            "Pedalea a resistencia muy baja y ritmo conversacional.",
+            "Céntrate en respiración relajada y pedaleo suave.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "row_zone2_v1": {
+          "name": "Remo zona 2",
+          "instructions": [
+            "Siéntate en el remo con pies sujetos y agarre relajado.",
+            "Mantén ritmo constante y conversacional empujando primero con las piernas y tirando con los brazos.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "brisk_walk_v1": {
+          "name": "Caminata rápida",
+          "instructions": [
+            "Camina a un ritmo donde hablar en frases cortas es cómodo.",
+            "Mantén postura erguida y cadencia constante.",
+            "Continúa el tiempo prescrito."
+          ]
+        },
+        "circuit_complex_basic_v1": {
+          "name": "Circuito de acondicionamiento básico",
+          "instructions": [
+            "Haz 10 sentadillas, 10 flexiones y 10 abdominales seguidas.",
+            "Descansa 60 segundos.",
+            "Completa las rondas prescritas."
+          ]
+        }
       }
     },
     "en": {
-      "preset_tags": {"resistencia":"Endurance","potencia":"Power","forca":"Strength","escalfament":"Warm-up","tornada_calma":"Cool-down","corredor":"Runner","pujada":"Uphill","unilateral":"Unilateral","core_estabilitat":"Core & stability","mobilitat_toracica":"Thoracic mobility"},
+      "preset_tags": {
+        "resistencia": "Endurance",
+        "potencia": "Power",
+        "forca": "Strength",
+        "escalfament": "Warm-up",
+        "tornada_calma": "Cool-down",
+        "corredor": "Runner",
+        "pujada": "Uphill",
+        "unilateral": "Unilateral",
+        "core_estabilitat": "Core & stability",
+        "mobilitat_toracica": "Thoracic mobility"
+      },
       "exercises": {
-        "jumprope_basic_v1":{"name":"Basic Jump Rope","instructions":["Hold a jump rope handle in each hand with the rope behind the heels.","Spin the rope using the wrists and hop with both feet over it at a steady cadence.","Continue for the prescribed time keeping landings soft."]},
-        "jumprope_double_under_v1":{"name":"Jump Rope Double Under","instructions":["Hold the jump rope handles with the rope behind the heels.","Jump higher than usual and spin the rope twice under the feet in a single jump.","Land softly and continue for the prescribed reps."]},
-        "jumprope_alternating_foot_v1":{"name":"Alternating Foot Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","Skip alternating one foot at a time as the rope passes under, like running in place.","Continue at a steady cadence for the prescribed time."]},
-        "jumprope_high_knee_v1":{"name":"High Knee Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","Jump alternating legs while driving the knees up to hip height with each pass.","Continue for the prescribed time."]},
-        "jumprope_boxer_skip_v1":{"name":"Boxer Skip Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","Shift the weight from one foot to the other in a small bounce as the rope passes under.","Continue at a relaxed cadence for the prescribed time."]},
-        "jumprope_criss_cross_v1":{"name":"Criss-Cross Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","On each pass, cross the arms in front of the body and uncross on the next jump.","Continue for the prescribed reps."]},
-        "jumprope_side_to_side_v1":{"name":"Side-to-Side Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","Jump the feet a few inches to one side as the rope passes, then back to the other side on the next jump.","Continue for the prescribed time."]},
-        "jumprope_single_leg_v1":{"name":"Single-Leg Jump Rope","instructions":["Hold the rope handles with the rope behind the heels.","Hop on one foot keeping the other slightly lifted as the rope passes under.","Continue for the prescribed reps before switching legs."]},
-        "hill_sprint_v1":{"name":"Hill Sprint","instructions":["Find a hill of moderate gradient (6–10%).","Sprint hard up the hill for 10–20 seconds focusing on driving the knees.","Walk back down for full recovery before the next rep."]},
-        "shuttle_run_v1":{"name":"Shuttle Run","instructions":["Mark two cones 10–25 metres apart.","Sprint to the far cone, touch the ground and sprint back to the start.","Repeat for the prescribed reps with short recoveries."]},
-        "interval_400m_v1":{"name":"400m Interval","instructions":["Run 400 metres at a hard but sustainable pace.","Recover with 60–120 seconds of slow walking or jogging.","Repeat for the prescribed number of reps."]},
-        "fartlek_run_v1":{"name":"Fartlek Run","instructions":["Start with an easy jog to warm up.","Alternate spontaneous bouts of fast running (30–90 s) with easy jogging recoveries based on perceived effort.","Continue for the prescribed total time, finishing with an easy cool-down jog."]},
-        "tempo_run_v1":{"name":"Tempo Run","instructions":["Warm up with 10 minutes of easy jogging.","Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.","Cool down with 5–10 minutes of easy jogging."]},
-        "treadmill_intervals_v1":{"name":"Treadmill Intervals","instructions":["Warm up with 5 minutes of easy walking on the treadmill.","Alternate 60 seconds of hard running with 60 seconds of slow walking for the prescribed reps.","Cool down with 5 minutes of walking."]},
-        "bike_sprint_v1":{"name":"Bike Sprint","instructions":["Warm up at an easy pace for 5 minutes.","Sprint hard for 20–30 seconds at maximum effort.","Recover at an easy pace for 60–90 seconds; repeat for the prescribed reps."]},
-        "bike_tabata_v1":{"name":"Bike Tabata Intervals","instructions":["Warm up at an easy pace for 5 minutes.","Alternate 20 seconds of all-out effort with 10 seconds of recovery for 8 rounds.","Cool down at an easy pace for 5 minutes."]},
-        "bike_zone2_v1":{"name":"Zone 2 Bike Ride","instructions":["Maintain a steady, conversational pace where speaking in short sentences is possible.","Hold the effort for the prescribed duration without spikes in intensity.","Cool down for the last 5 minutes at an easier pace."]},
-        "bike_hill_simulation_v1":{"name":"Bike Hill Simulation","instructions":["Warm up for 5 minutes at an easy pace.","Increase resistance to simulate a steep climb and pedal hard for 2–4 minutes.","Recover at low resistance for 2 minutes; repeat for the prescribed reps."]},
-        "jumping_jack_v1":{"name":"Jumping Jack","instructions":["Stand tall with feet together and arms at the sides.","Jump the feet wide and the arms overhead simultaneously, then jump back to the start.","Continue at a steady cadence for the prescribed reps or time."]},
-        "high_knee_run_v1":{"name":"High Knee Run","instructions":["Stand tall with feet hip-width apart.","Run in place driving the knees to hip height with each step.","Continue at a fast cadence for the prescribed time."]},
-        "butt_kicker_v1":{"name":"Butt Kicker","instructions":["Stand tall with feet hip-width apart.","Run in place kicking the heels up to the glutes with each step.","Continue at a fast cadence for the prescribed time."]},
-        "sprawl_v1":{"name":"Sprawl","instructions":["Stand with feet shoulder-width apart.","Drop the hands to the floor and kick the legs straight back into a plank.","Jump the feet back to the hands and stand tall; repeat at a fast cadence."]},
-        "mountain_climber_tempo_v1":{"name":"Tempo Mountain Climber","instructions":["Set up in a high plank with hands under the shoulders.","Drive one knee toward the chest at a controlled tempo, then alternate.","Continue at a steady cadence for the prescribed time."]},
-        "lateral_shuffle_v1":{"name":"Lateral Shuffle","instructions":["Adopt an athletic stance with knees bent and feet shoulder-width apart.","Shuffle laterally without crossing the feet for several metres, then change direction.","Continue alternating direction for the prescribed time."]},
-        "fast_feet_v1":{"name":"Fast Feet","instructions":["Stand in an athletic stance with knees slightly bent.","Tap the balls of the feet on the floor as fast as possible without lifting the knees high.","Continue at maximum cadence for the prescribed time."]},
-        "scissor_lunge_v1":{"name":"Scissor Lunge","instructions":["Step into a split stance with one foot forward and one back.","Jump up switching legs in mid-air and land in the opposite split stance.","Continue alternating at a fast cadence."]},
-        "kb_swing_one_handed_v1":{"name":"One-Handed Kettlebell Swing","instructions":["Stand with feet shoulder-width apart and the kettlebell on the floor in front.","Hinge to grip the bell with one hand, hike it back between the legs and snap the hips to swing it to chest height.","Let it fall back between the legs in a controlled hinge; switch hands as scheduled."]},
-        "kb_clean_press_v1":{"name":"Kettlebell Clean and Press","instructions":["Clean the kettlebell to the rack position at the shoulder.","Press the bell overhead until the arm is fully extended.","Lower to the rack and back to the floor; complete reps before switching sides."]},
-        "kb_thruster_v1":{"name":"Kettlebell Thruster","instructions":["Hold a kettlebell racked at each shoulder (or one in goblet) and squat to parallel.","Drive up explosively pressing the bells overhead in one motion.","Lower to the rack and repeat."]},
-        "kb_snatch_continuous_v1":{"name":"Continuous Kettlebell Snatch","instructions":["Start with the kettlebell hanging between the legs.","Snatch the bell overhead and lower it back to the swing position without touching the floor.","Continue at a steady cadence for the prescribed reps; switch hands."]},
-        "kb_complex_simple_v1":{"name":"Simple Kettlebell Complex","instructions":["Perform 5 swings, 5 cleans and 5 presses with one kettlebell on one side without setting it down.","Switch hands and repeat the complex on the other side.","Rest as needed and complete the prescribed rounds."]},
-        "bear_crawl_v1":{"name":"Bear Crawl","instructions":["Set up on hands and toes with knees hovering an inch off the floor.","Crawl forward moving the opposite hand and foot at the same time keeping the hips low.","Continue for the prescribed distance or time."]},
-        "crab_walk_v1":{"name":"Crab Walk","instructions":["Sit on the floor with hands behind the hips and feet flat.","Lift the hips into a reverse tabletop and walk forward or sideways using opposite hand and foot.","Continue for the prescribed distance or time."]},
-        "sandbag_sled_push_v1":{"name":"Sandbag Sled Push","instructions":["Place a heavy sandbag on a smooth surface and lean forward with hands on top of it.","Drive forward with short, powerful steps pushing the sandbag along the floor.","Continue for the prescribed distance or time."]},
-        "farmer_carry_interval_v1":{"name":"Farmer's Carry Interval","instructions":["Pick up a heavy weight in each hand and stand tall.","Walk for 30–60 seconds at a steady pace, then rest for an equal interval.","Repeat for the prescribed rounds."]},
-        "walking_incline_v1":{"name":"Incline Walk","instructions":["Set the treadmill to a moderate incline (5–10%) and a comfortable walking speed.","Maintain an upright posture without holding the rails.","Continue for the prescribed time."]},
-        "spin_easy_v1":{"name":"Easy Spin Bike","instructions":["Pedal at a very easy resistance and conversational pace.","Focus on relaxed breathing and smooth pedaling.","Continue for the prescribed time."]},
-        "row_zone2_v1":{"name":"Zone 2 Row","instructions":["Sit on a rower with feet strapped and a relaxed grip on the handle.","Maintain a steady, conversational pace driving with the legs first then pulling with the arms.","Continue for the prescribed time."]},
-        "brisk_walk_v1":{"name":"Brisk Walk","instructions":["Walk at a pace where speaking in short sentences is comfortable.","Maintain an upright posture and a steady cadence.","Continue for the prescribed time."]},
-        "circuit_complex_basic_v1":{"name":"Basic Conditioning Circuit","instructions":["Perform 10 squats, 10 push-ups and 10 sit-ups back to back.","Rest 60 seconds.","Complete the prescribed number of rounds."]}
+        "jumprope_basic_v1": {
+          "name": "Basic Jump Rope",
+          "instructions": [
+            "Hold a jump rope handle in each hand with the rope behind the heels.",
+            "Spin the rope using the wrists and hop with both feet over it at a steady cadence.",
+            "Continue for the prescribed time keeping landings soft."
+          ]
+        },
+        "jumprope_double_under_v1": {
+          "name": "Jump Rope Double Under",
+          "instructions": [
+            "Hold the jump rope handles with the rope behind the heels.",
+            "Jump higher than usual and spin the rope twice under the feet in a single jump.",
+            "Land softly and continue for the prescribed reps."
+          ]
+        },
+        "jumprope_alternating_foot_v1": {
+          "name": "Alternating Foot Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "Skip alternating one foot at a time as the rope passes under, like running in place.",
+            "Continue at a steady cadence for the prescribed time."
+          ]
+        },
+        "jumprope_high_knee_v1": {
+          "name": "High Knee Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "Jump alternating legs while driving the knees up to hip height with each pass.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "jumprope_boxer_skip_v1": {
+          "name": "Boxer Skip Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "Shift the weight from one foot to the other in a small bounce as the rope passes under.",
+            "Continue at a relaxed cadence for the prescribed time."
+          ]
+        },
+        "jumprope_criss_cross_v1": {
+          "name": "Criss-Cross Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "On each pass, cross the arms in front of the body and uncross on the next jump.",
+            "Continue for the prescribed reps."
+          ]
+        },
+        "jumprope_side_to_side_v1": {
+          "name": "Side-to-Side Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "Jump the feet a few inches to one side as the rope passes, then back to the other side on the next jump.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "jumprope_single_leg_v1": {
+          "name": "Single-Leg Jump Rope",
+          "instructions": [
+            "Hold the rope handles with the rope behind the heels.",
+            "Hop on one foot keeping the other slightly lifted as the rope passes under.",
+            "Continue for the prescribed reps before switching legs."
+          ]
+        },
+        "hill_sprint_v1": {
+          "name": "Hill Sprint",
+          "instructions": [
+            "Find a hill of moderate gradient (6–10%).",
+            "Sprint hard up the hill for 10–20 seconds focusing on driving the knees.",
+            "Walk back down for full recovery before the next rep."
+          ]
+        },
+        "shuttle_run_v1": {
+          "name": "Shuttle Run",
+          "instructions": [
+            "Mark two cones 10–25 metres apart.",
+            "Sprint to the far cone, touch the ground and sprint back to the start.",
+            "Repeat for the prescribed reps with short recoveries."
+          ]
+        },
+        "interval_400m_v1": {
+          "name": "400m Interval",
+          "instructions": [
+            "Run 400 metres at a hard but sustainable pace.",
+            "Recover with 60–120 seconds of slow walking or jogging.",
+            "Repeat for the prescribed number of reps."
+          ]
+        },
+        "fartlek_run_v1": {
+          "name": "Fartlek Run",
+          "instructions": [
+            "Start with an easy jog to warm up.",
+            "Alternate spontaneous bouts of fast running (30–90 s) with easy jogging recoveries based on perceived effort.",
+            "Continue for the prescribed total time, finishing with an easy cool-down jog."
+          ]
+        },
+        "tempo_run_v1": {
+          "name": "Tempo Run",
+          "instructions": [
+            "Warm up with 10 minutes of easy jogging.",
+            "Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.",
+            "Cool down with 5–10 minutes of easy jogging."
+          ]
+        },
+        "treadmill_intervals_v1": {
+          "name": "Treadmill Intervals",
+          "instructions": [
+            "Warm up with 5 minutes of easy walking on the treadmill.",
+            "Alternate 60 seconds of hard running with 60 seconds of slow walking for the prescribed reps.",
+            "Cool down with 5 minutes of walking."
+          ]
+        },
+        "bike_sprint_v1": {
+          "name": "Bike Sprint",
+          "instructions": [
+            "Warm up at an easy pace for 5 minutes.",
+            "Sprint hard for 20–30 seconds at maximum effort.",
+            "Recover at an easy pace for 60–90 seconds; repeat for the prescribed reps."
+          ]
+        },
+        "bike_tabata_v1": {
+          "name": "Bike Tabata Intervals",
+          "instructions": [
+            "Warm up at an easy pace for 5 minutes.",
+            "Alternate 20 seconds of all-out effort with 10 seconds of recovery for 8 rounds.",
+            "Cool down at an easy pace for 5 minutes."
+          ]
+        },
+        "bike_zone2_v1": {
+          "name": "Zone 2 Bike Ride",
+          "instructions": [
+            "Maintain a steady, conversational pace where speaking in short sentences is possible.",
+            "Hold the effort for the prescribed duration without spikes in intensity.",
+            "Cool down for the last 5 minutes at an easier pace."
+          ]
+        },
+        "bike_hill_simulation_v1": {
+          "name": "Bike Hill Simulation",
+          "instructions": [
+            "Warm up for 5 minutes at an easy pace.",
+            "Increase resistance to simulate a steep climb and pedal hard for 2–4 minutes.",
+            "Recover at low resistance for 2 minutes; repeat for the prescribed reps."
+          ]
+        },
+        "jumping_jack_v1": {
+          "name": "Jumping Jack",
+          "instructions": [
+            "Stand tall with feet together and arms at the sides.",
+            "Jump the feet wide and the arms overhead simultaneously, then jump back to the start.",
+            "Continue at a steady cadence for the prescribed reps or time."
+          ]
+        },
+        "high_knee_run_v1": {
+          "name": "High Knee Run",
+          "instructions": [
+            "Stand tall with feet hip-width apart.",
+            "Run in place driving the knees to hip height with each step.",
+            "Continue at a fast cadence for the prescribed time."
+          ]
+        },
+        "butt_kicker_v1": {
+          "name": "Butt Kicker",
+          "instructions": [
+            "Stand tall with feet hip-width apart.",
+            "Run in place kicking the heels up to the glutes with each step.",
+            "Continue at a fast cadence for the prescribed time."
+          ]
+        },
+        "sprawl_v1": {
+          "name": "Sprawl",
+          "instructions": [
+            "Stand with feet shoulder-width apart.",
+            "Drop the hands to the floor and kick the legs straight back into a plank.",
+            "Jump the feet back to the hands and stand tall; repeat at a fast cadence."
+          ]
+        },
+        "mountain_climber_tempo_v1": {
+          "name": "Tempo Mountain Climber",
+          "instructions": [
+            "Set up in a high plank with hands under the shoulders.",
+            "Drive one knee toward the chest at a controlled tempo, then alternate.",
+            "Continue at a steady cadence for the prescribed time."
+          ]
+        },
+        "lateral_shuffle_v1": {
+          "name": "Lateral Shuffle",
+          "instructions": [
+            "Adopt an athletic stance with knees bent and feet shoulder-width apart.",
+            "Shuffle laterally without crossing the feet for several metres, then change direction.",
+            "Continue alternating direction for the prescribed time."
+          ]
+        },
+        "fast_feet_v1": {
+          "name": "Fast Feet",
+          "instructions": [
+            "Stand in an athletic stance with knees slightly bent.",
+            "Tap the balls of the feet on the floor as fast as possible without lifting the knees high.",
+            "Continue at maximum cadence for the prescribed time."
+          ]
+        },
+        "scissor_lunge_v1": {
+          "name": "Scissor Lunge",
+          "instructions": [
+            "Step into a split stance with one foot forward and one back.",
+            "Jump up switching legs in mid-air and land in the opposite split stance.",
+            "Continue alternating at a fast cadence."
+          ]
+        },
+        "kb_swing_one_handed_v1": {
+          "name": "One-Handed Kettlebell Swing",
+          "instructions": [
+            "Stand with feet shoulder-width apart and the kettlebell on the floor in front.",
+            "Hinge to grip the bell with one hand, hike it back between the legs and snap the hips to swing it to chest height.",
+            "Let it fall back between the legs in a controlled hinge; switch hands as scheduled."
+          ]
+        },
+        "kb_clean_press_v1": {
+          "name": "Kettlebell Clean and Press",
+          "instructions": [
+            "Clean the kettlebell to the rack position at the shoulder.",
+            "Press the bell overhead until the arm is fully extended.",
+            "Lower to the rack and back to the floor; complete reps before switching sides."
+          ]
+        },
+        "kb_thruster_v1": {
+          "name": "Kettlebell Thruster",
+          "instructions": [
+            "Hold a kettlebell racked at each shoulder (or one in goblet) and squat to parallel.",
+            "Drive up explosively pressing the bells overhead in one motion.",
+            "Lower to the rack and repeat."
+          ]
+        },
+        "kb_snatch_continuous_v1": {
+          "name": "Continuous Kettlebell Snatch",
+          "instructions": [
+            "Start with the kettlebell hanging between the legs.",
+            "Snatch the bell overhead and lower it back to the swing position without touching the floor.",
+            "Continue at a steady cadence for the prescribed reps; switch hands."
+          ]
+        },
+        "kb_complex_simple_v1": {
+          "name": "Simple Kettlebell Complex",
+          "instructions": [
+            "Perform 5 swings, 5 cleans and 5 presses with one kettlebell on one side without setting it down.",
+            "Switch hands and repeat the complex on the other side.",
+            "Rest as needed and complete the prescribed rounds."
+          ]
+        },
+        "bear_crawl_v1": {
+          "name": "Bear Crawl",
+          "instructions": [
+            "Set up on hands and toes with knees hovering an inch off the floor.",
+            "Crawl forward moving the opposite hand and foot at the same time keeping the hips low.",
+            "Continue for the prescribed distance or time."
+          ]
+        },
+        "crab_walk_v1": {
+          "name": "Crab Walk",
+          "instructions": [
+            "Sit on the floor with hands behind the hips and feet flat.",
+            "Lift the hips into a reverse tabletop and walk forward or sideways using opposite hand and foot.",
+            "Continue for the prescribed distance or time."
+          ]
+        },
+        "sandbag_sled_push_v1": {
+          "name": "Sandbag Sled Push",
+          "instructions": [
+            "Place a heavy sandbag on a smooth surface and lean forward with hands on top of it.",
+            "Drive forward with short, powerful steps pushing the sandbag along the floor.",
+            "Continue for the prescribed distance or time."
+          ]
+        },
+        "farmer_carry_interval_v1": {
+          "name": "Farmer's Carry Interval",
+          "instructions": [
+            "Pick up a heavy weight in each hand and stand tall.",
+            "Walk for 30–60 seconds at a steady pace, then rest for an equal interval.",
+            "Repeat for the prescribed rounds."
+          ]
+        },
+        "walking_incline_v1": {
+          "name": "Incline Walk",
+          "instructions": [
+            "Set the treadmill to a moderate incline (5–10%) and a comfortable walking speed.",
+            "Maintain an upright posture without holding the rails.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "spin_easy_v1": {
+          "name": "Easy Spin Bike",
+          "instructions": [
+            "Pedal at a very easy resistance and conversational pace.",
+            "Focus on relaxed breathing and smooth pedaling.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "row_zone2_v1": {
+          "name": "Zone 2 Row",
+          "instructions": [
+            "Sit on a rower with feet strapped and a relaxed grip on the handle.",
+            "Maintain a steady, conversational pace driving with the legs first then pulling with the arms.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "brisk_walk_v1": {
+          "name": "Brisk Walk",
+          "instructions": [
+            "Walk at a pace where speaking in short sentences is comfortable.",
+            "Maintain an upright posture and a steady cadence.",
+            "Continue for the prescribed time."
+          ]
+        },
+        "circuit_complex_basic_v1": {
+          "name": "Basic Conditioning Circuit",
+          "instructions": [
+            "Perform 10 squats, 10 push-ups and 10 sit-ups back to back.",
+            "Rest 60 seconds.",
+            "Complete the prescribed number of rounds."
+          ]
+        }
       }
     }
   }

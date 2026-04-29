@@ -4,7 +4,6 @@
   "ab_wheel_rollout_v1": "Rollout con rueda abdominal",
   "Adductor": "Aductor",
   "Adductor_Groin": "Aductor de ingle",
-  "agility_ladder_inout_v1": "Escalera de agilidad in-out",
   "Air_Bike": "Bicicleta en el aire",
   "All_Fours_Quad_Stretch": "Estiramiento de cuádriceps a cuatro patas",
   "Alternate_Heel_Touchers": "Toques de talón alternados",
@@ -63,11 +62,6 @@
   "body_scan_v1": "Escaneo corporal",
   "Bodyweight_Squat": "Sentadilla con peso corporal",
   "Bodyweight_Walking_Lunge": "Zancada caminando con peso corporal",
-  "bosu_lunge_v1": "Zancada inversa al BOSU",
-  "bosu_plank_v1": "Plancha con BOSU",
-  "bosu_pushup_v1": "Flexión con BOSU",
-  "bosu_single_leg_stand_v1": "Apoyo monopodal en BOSU",
-  "bosu_squat_v1": "Sentadilla con BOSU",
   "bottoms_up_kb_press_v1": "Press con kettlebell boca abajo",
   "bound_alternating_v1": "Bounds alternados",
   "box_breathing_v1": "Respiración cuadrada 4-4-4-4",
@@ -85,7 +79,6 @@
   "butterfly_breath_v1": "Mariposa con respiración pélvica",
   "Calf_Raises_-_With_Bands": "Elevación de talones con bandas",
   "Calves-SMR": "Gemelos - Liberación miofascial",
-  "carioca_v1": "Carioca",
   "cat_cow_v1": "Gato-vaca",
   "Cat_Stretch": "Estiramiento del gato",
   "Childs_Pose": "Postura del niño",
@@ -99,7 +92,6 @@
   "coherent_breathing_v1": "Respiración coherente",
   "copenhagen_plank_v1": "Plancha Copenhagen",
   "cossack_squat_v1": "Sentadilla cossack",
-  "couch_stretch_kneel_v1": "Couch stretch",
   "couch_stretch_v1": "Couch stretch",
   "crab_walk_v1": "Crab walk",
   "Cross-Body_Crunch": "Crunch cruzado",
@@ -171,15 +163,9 @@
   "fitball_pelvic_tilt_v1": "Báscula pélvica con fitball",
   "fitball_wall_squat_v1": "Sentadilla con fitball en la pared",
   "Flutter_Kicks": "Patadas de aleteo",
-  "foam_roll_calf_v1": "Foam roll gemelos",
-  "foam_roll_glute_v1": "Foam roll glúteos",
   "foam_roll_glutes_v1": "Foam roller glúteos",
-  "foam_roll_it_band_v1": "Foam roll cintilla iliotibial",
-  "foam_roll_quad_v1": "Foam roll cuádriceps",
   "foam_roll_quads_v1": "Foam roller cuádriceps",
   "foam_roll_thoracic_v1": "Foam roller dorsal",
-  "foam_roll_tspine_v1": "Foam roll columna torácica",
-  "forward_lunge_walk_v1": "Zancada caminando adelante",
   "four_seven_eight_breathing_v1": "Respiración 4-7-8",
   "Frog_Hops": "Saltos de rana",
   "Front_Barbell_Squat": "Sentadilla frontal con barra",
@@ -245,7 +231,6 @@
   "Kneeling_Hip_Flexor": "Estiramiento de flexor de cadera arrodillado",
   "lateral_box_jump_v1": "Salto lateral al cajón",
   "lateral_lunge_v1": "Zancada lateral",
-  "lateral_lunge_walk_v1": "Zancada lateral caminando",
   "lateral_shuffle_v1": "Shuffle lateral",
   "lateral_step_down_v1": "Descenso lateral en escalón",
   "Leg_Extensions": "Extensiones de piernas",
@@ -253,9 +238,6 @@
   "legs_up_wall_v1": "Piernas en la pared",
   "Lower_Back-SMR": "Lumbar - Liberación miofascial",
   "Lying_Leg_Curls": "Curl de piernas tumbado",
-  "massageball_foot_v1": "Liberación de pie con pelota de masaje",
-  "massageball_glute_v1": "Liberación de glúteo con pelota de masaje",
-  "massageball_pec_v1": "Liberación de pectoral con pelota de masaje",
   "modified_side_plank_knee_v1": "Plancha lateral desde rodillas",
   "mountain_climber_explosive_v1": "Mountain climbers explosivos",
   "mountain_climber_tempo_v1": "Mountain climber a tempo",
@@ -267,15 +249,10 @@
   "Pallof_Press": "Pallof press",
   "pallof_press_band_v1": "Pallof press con banda",
   "pallof_press_split_stance_v1": "Pallof press en split",
-  "paralettes_l_sit_progression_v1": "Progresión L-sit en paralettes",
-  "paralettes_pushup_v1": "Flexión con paralettes",
   "pec_release_ball_v1": "Liberación pectoral con pelota",
   "pelvic_clock_v1": "Reloj pélvico",
   "pigeon_pose_v1": "Postura de la paloma",
   "pike_pushup_v1": "Flexión pike",
-  "pilates_ring_bridge_squeeze_v1": "Puente con presión de aro de Pilates",
-  "pilates_ring_inner_squeeze_v1": "Presión interna con aro de Pilates",
-  "pilates_ring_outer_press_v1": "Presión externa con aro de Pilates",
   "Piriformis-SMR": "Piriforme - Liberación miofascial",
   "pistol_squat_assisted_v1": "Pistol squat asistido",
   "Plank": "Plancha",
@@ -353,11 +330,8 @@
   "Single_Leg_Glute_Bridge": "Puente de glúteos a una pierna",
   "single_leg_hip_thrust_v1": "Hip thrust a una pierna",
   "Single_Leg_Push-off": "Impulso a una pierna",
-  "single_leg_rdl_balance_v1": "RDL de equilibrio a una pierna",
   "single_leg_rdl_v1": "Peso muerto rumano a una pierna",
-  "single_leg_reach_v1": "Reach a una pierna",
   "single_leg_squat_v1": "Sentadilla monopodal",
-  "single_leg_stance_eyes_closed_v1": "Apoyo monopodal con ojos cerrados",
   "sit_to_stand_v1": "Levantarse de la silla",
   "skater_jump_v1": "Salto patinador",
   "spin_easy_v1": "Bicicleta suave",
@@ -385,20 +359,10 @@
   "supported_squat_chair_v1": "Sentadilla con apoyo de silla",
   "svend_press_v1": "Svend press",
   "swiss_ball_hamstring_curl_v1": "Curl de isquios con fitball",
-  "swissball_bridge_v1": "Puente con fitball",
-  "swissball_dead_bug_v1": "Dead bug con fitball",
-  "swissball_hamstring_curl_v1": "Curl de isquiotibiales con fitball",
-  "swissball_pass_v1": "Pass con fitball",
-  "swissball_pike_v1": "Pike con fitball",
-  "swissball_plank_v1": "Plancha de antebrazos con fitball",
-  "swissball_rollout_v1": "Rollout con fitball",
-  "swissball_wall_squat_v1": "Sentadilla con fitball a la pared",
-  "tandem_stance_walk_v1": "Caminata en tándem",
   "tempo_run_v1": "Carrera a ritmo tempo",
   "Thigh_Abductor": "Abductor de muslo",
   "Thigh_Adductor": "Aductor de muslo",
   "thoracic_bridge_v1": "Puente torácico",
-  "thoracic_extension_foam_v1": "Extensión torácica en foam roller",
   "thread_the_needle_v1": "Thread the Needle (rotación torácica)",
   "treadmill_intervals_v1": "Intervalos en cinta",
   "tree_pose_v1": "Postura del árbol",
@@ -427,23 +391,14 @@
   "weighted_vest_step_up_v1": "Step-up con chaleco",
   "wide_grip_pullup_v1": "Dominada con agarre ancho",
   "Wide-Grip_Lat_Pulldown": "Jalón al pecho con agarre ancho",
-  "wobble_calf_raise_v1": "Elevación de talones en plataforma inestable",
-  "wobble_single_leg_v1": "Apoyo monopodal en plataforma inestable",
-  "wobble_squat_v1": "Sentadilla en plataforma inestable",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Círculos de calentamiento de muñecas",
-  "y_balance_reach_v1": "Reach Y-balance",
   "ytwl_complex_v1": "Complejo YTWL",
   "instructions": {
     "ab_wheel_rollout_v1": [
       "De rodillas en el suelo sosteniendo una rueda abdominal bajo los hombros.",
       "Rueda la rueda adelante manteniendo la columna neutra y las costillas abajo.",
       "Vuelve sin perder la presión abdominal."
-    ],
-    "agility_ladder_inout_v1": [
-      "Coloca una escalera de agilidad en el suelo (o visualiza los cuadros).",
-      "Pon ambos pies dentro de un cuadro, luego ambos fuera a los lados del siguiente cuadro, avanzando por la escalera.",
-      "Continúa a cadencia máxima el tiempo prescrito."
     ],
     "alternate_nostril_breathing_v1": [
       "Siéntate cómodo y lleva la mano derecha a la cara con el pulgar sobre la fosa derecha y el anular sobre la izquierda.",
@@ -639,31 +594,6 @@
       "Lleva la atención lento por cada parte del cuerpo desde los pies hasta la cabeza, observando sin juzgar.",
       "Respira naturalmente 10–20 minutos."
     ],
-    "bosu_lunge_v1": [
-      "De pie sobre la cúpula del BOSU con un pie en el centro.",
-      "Da un paso atrás con la otra pierna en zancada inversa hasta que la rodilla trasera casi toque el suelo.",
-      "Empuja por el pie delantero hasta de pie sobre el BOSU; alterna lados."
-    ],
-    "bosu_plank_v1": [
-      "Coloca los antebrazos sobre la cúpula del BOSU con codos bajo los hombros.",
-      "Extiende las piernas atrás en plancha con columna neutra.",
-      "Mantén el tiempo prescrito con el BOSU estable."
-    ],
-    "bosu_pushup_v1": [
-      "Coloca el BOSU con la cúpula abajo y agarra la plataforma a cada lado en plancha alta.",
-      "Baja el pecho hacia la plataforma con codos recogidos.",
-      "Empuja arriba manteniendo la plataforma estable."
-    ],
-    "bosu_single_leg_stand_v1": [
-      "De pie en el centro de la cúpula del BOSU con ambos pies.",
-      "Levanta un pie unos centímetros y equilibrate en la pierna de apoyo.",
-      "Mantén el tiempo prescrito antes de cambiar lado."
-    ],
-    "bosu_squat_v1": [
-      "De pie sobre la cúpula del BOSU con pies al ancho de hombros.",
-      "Sienta las caderas atrás y flexiona las rodillas en sentadilla manteniendo el pecho alto.",
-      "Empuja por los talones hasta de pie manteniendo el BOSU estable."
-    ],
     "bottoms_up_kb_press_v1": [
       "Sostén una kettlebell en el hombro con la bola arriba y la asa bien agarrada.",
       "Presiona la kettlebell sobre la cabeza manteniendo la bola equilibrada boca abajo.",
@@ -729,11 +659,6 @@
       "Inhala visualizando la respiración bajando a la pelvis y relajando el suelo.",
       "Exhala elevando suave el suelo pélvico; continúa el tiempo prescrito."
     ],
-    "carioca_v1": [
-      "De lado con rodillas ligeramente flexionadas.",
-      "Cruza un pie delante del otro, luego paso lateral con el pie trasero, luego cruza por detrás.",
-      "Continúa moviéndote lateralmente a cadencia suave; cambia dirección a la mitad."
-    ],
     "cat_cow_v1": [
       "Empieza a cuatro patas con muñecas bajo hombros y rodillas bajo caderas.",
       "Inhala y arquea la columna bajando el abdomen mientras miras arriba (vaca).",
@@ -783,11 +708,6 @@
       "De pie con pies más anchos que los hombros.",
       "Desplaza el peso a un lado flexionando esa rodilla mientras la otra pierna queda recta con dedos arriba.",
       "Empuja para volver al centro y alterna."
-    ],
-    "couch_stretch_kneel_v1": [
-      "De rodillas frente a una pared y coloca una espinilla contra la pared con el pie hacia arriba.",
-      "Avanza el otro pie en posición medio arrodillado y bascula la pelvis para sentir estiramiento en la parte frontal de la cadera y muslo trasero.",
-      "Mantén el tiempo prescrito y cambia lado."
     ],
     "couch_stretch_v1": [
       "Arrodíllate de espaldas a la pared o sofá, coloca una tibia contra la pared con el pie hacia arriba y el otro pie plano delante en zancada.",
@@ -1085,30 +1005,10 @@
       "Baja rodando la pelota hasta que los muslos queden paralelos al suelo.",
       "Mantén o levántate controlada."
     ],
-    "foam_roll_calf_v1": [
-      "Sentado en el suelo con un gemelo en el foam roller y la otra pierna encima para presión.",
-      "Levanta las caderas y rueda lento del tobillo a bajo la rodilla.",
-      "Pausa en zonas tensas y cambia pierna."
-    ],
-    "foam_roll_glute_v1": [
-      "Sentado en un foam roller y cruza un tobillo sobre la rodilla opuesta.",
-      "Desplaza el peso al lado cruzado y rueda lento sobre el glúteo.",
-      "Pausa en puntos tensos y cambia lado."
-    ],
     "foam_roll_glutes_v1": [
       "Siéntate sobre un foam roller con un tobillo cruzado sobre la rodilla opuesta.",
       "Inclínate hacia el lado de la pierna cruzada y muévete lento sobre el glúteo.",
       "Pausa en puntos tensos y respira; cambia de lado."
-    ],
-    "foam_roll_it_band_v1": [
-      "De lado con un foam roller bajo el muslo exterior.",
-      "Apila o escalona las piernas y rueda lento desde bajo la cadera hasta la rodilla.",
-      "Pausa en zonas tensas y cambia lado."
-    ],
-    "foam_roll_quad_v1": [
-      "Boca abajo con un foam roller en la parte frontal de un muslo.",
-      "Apoya el cuerpo en antebrazos y rueda lento desde sobre la rodilla hasta la cadera.",
-      "Pausa en puntos sensibles y respira; cambia pierna."
     ],
     "foam_roll_quads_v1": [
       "Túmbate boca abajo con el foam roller en la parte frontal de los muslos, apoyado sobre los antebrazos.",
@@ -1119,16 +1019,6 @@
       "Túmbate sobre un foam roller colocado en la parte alta de la espalda, rodillas flexionadas y manos detrás de la cabeza.",
       "Eleva ligeramente las caderas y muévete arriba y abajo entre las escápulas y la zona media.",
       "Pausa en puntos tensos y respira lento; evita la zona lumbar."
-    ],
-    "foam_roll_tspine_v1": [
-      "Boca arriba con un foam roller en la parte alta de la espalda.",
-      "Apoya la cabeza con las manos y levanta ligeramente las caderas.",
-      "Rueda lento entre los omóplatos y la región torácica baja pausando en puntos tensos."
-    ],
-    "forward_lunge_walk_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Da un paso adelante en zancada hasta que la rodilla trasera casi toque el suelo.",
-      "Empuja por el pie delantero para llevar la pierna trasera a la siguiente zancada; alterna."
     ],
     "four_seven_eight_breathing_v1": [
       "Siéntate cómodo y coloca la punta de la lengua detrás de los dientes superiores.",
@@ -1387,11 +1277,6 @@
       "Da un paso amplio a un lado, retrae las caderas y flexiona esa rodilla mientras la otra pierna queda recta.",
       "Vuelve de pie y alterna lados."
     ],
-    "lateral_lunge_walk_v1": [
-      "De pie con pies juntos y manos al pecho.",
-      "Da un paso lateral en zancada lateral sentando las caderas sobre la pierna flexionada.",
-      "Empuja al centro y da un paso a la otra dirección; alterna."
-    ],
     "lateral_shuffle_v1": [
       "Postura atlética con rodillas flexionadas y pies al ancho de hombros.",
       "Shuffle lateralmente sin cruzar los pies unos metros, luego cambia dirección.",
@@ -1413,21 +1298,6 @@
       "Flexiona las rodillas para llevar las almohadillas hacia los glúteos.",
       "Mantén la contracción un momento arriba.",
       "Baja lentamente a la posición inicial."
-    ],
-    "massageball_foot_v1": [
-      "De pie con una pelota de masaje bajo el arco de un pie.",
-      "Rueda la pelota lento del talón a los dedos aplicando presión suave.",
-      "Pausa en puntos sensibles y cambia pie."
-    ],
-    "massageball_glute_v1": [
-      "Sentado en el suelo con una pelota de masaje bajo un glúteo.",
-      "Cruza el tobillo de ese lado sobre la rodilla opuesta para profundizar.",
-      "Rueda lento sobre puntos tensos respirando profundo; cambia lado."
-    ],
-    "massageball_pec_v1": [
-      "De pie frente a una pared con una pelota de masaje entre la parte alta del pecho y la pared.",
-      "Inclínate contra la pelota y rueda lento por el pectoral buscando puntos tensos.",
-      "Pausa y respira; cambia lado."
     ],
     "modified_side_plank_knee_v1": [
       "Túmbate de lado con el antebrazo de abajo en la esterilla y rodillas flexionadas y apiladas.",
@@ -1469,16 +1339,6 @@
       "Empuja la banda recta resistiendo la rotación.",
       "Vuelve lento; haz las reps antes de cambiar."
     ],
-    "paralettes_l_sit_progression_v1": [
-      "Sentado entre dos paralettes con manos en las barras y codos bloqueados.",
-      "Empuja abajo para levantar las caderas y recoge las rodillas hacia el pecho.",
-      "Mantén el tuck (o extiende piernas si puedes) el tiempo prescrito."
-    ],
-    "paralettes_pushup_v1": [
-      "Plancha alta con manos agarrando las paralettes.",
-      "Baja el pecho entre las barras permitiendo más rango que una flexión al suelo.",
-      "Empuja arriba manteniendo codos recogidos."
-    ],
     "pec_release_ball_v1": [
       "Coloca una pelota de masaje entre la parte alta del pecho y una pared, justo bajo la clavícula.",
       "Aplica presión contra la pelota y mueve el brazo para encontrar puntos tensos.",
@@ -1498,21 +1358,6 @@
       "Posición de perro abajo con caderas altas y manos al ancho de hombros.",
       "Baja la cabeza hacia el suelo flexionando los codos.",
       "Empuja para volver al inicio."
-    ],
-    "pilates_ring_bridge_squeeze_v1": [
-      "Boca arriba con rodillas flexionadas, pies al suelo y un aro de Pilates entre las rodillas.",
-      "Levanta las caderas en puente mientras aprietas suavemente el aro.",
-      "Baja con control manteniendo la presión del aro todo el ejercicio."
-    ],
-    "pilates_ring_inner_squeeze_v1": [
-      "Boca arriba con rodillas flexionadas y un aro de Pilates entre los muslos interiores.",
-      "Exhala y aprieta el aro con los aductores sin apretar los glúteos.",
-      "Libera a la mitad y repite las reps prescritas."
-    ],
-    "pilates_ring_outer_press_v1": [
-      "Boca arriba con rodillas flexionadas y un aro de Pilates alrededor de las rodillas.",
-      "Empuja las rodillas hacia fuera contra el aro sin arquear la zona lumbar.",
-      "Libera a la mitad y repite las reps prescritas."
     ],
     "pistol_squat_assisted_v1": [
       "Sujeta un TRX, marco de puerta o poste para equilibrio y ponte sobre una pierna.",
@@ -1833,30 +1678,15 @@
       "Empuja por el talón plantado levantando las caderas con la pierna libre extendida.",
       "Baja controlado; haz las reps antes de cambiar."
     ],
-    "single_leg_rdl_balance_v1": [
-      "De pie en una pierna con rodilla ligeramente flexionada.",
-      "Hinge en la cadera extendiendo la pierna libre atrás hasta que el tronco esté paralelo al suelo.",
-      "Vuelve de pie manteniendo la rodilla de apoyo suave; alterna tras reps."
-    ],
     "single_leg_rdl_v1": [
       "De pie sobre una pierna con una mancuerna en la mano opuesta.",
       "Hinge en cadera extendiendo la pierna libre atrás mientras el torso baja paralelo al suelo.",
       "Vuelve de pie controlado; haz las reps antes de cambiar."
     ],
-    "single_leg_reach_v1": [
-      "De pie en una pierna con rodilla suave.",
-      "Hinge en la cadera estirando la mano opuesta hacia el suelo mientras extiendes la pierna libre atrás.",
-      "Vuelve de pie con control; completa reps antes de cambiar."
-    ],
     "single_leg_squat_v1": [
       "De pie sobre una pierna, la otra ligeramente al frente o al lado, brazos extendidos para el equilibrio.",
       "Flexiona lentamente la rodilla de apoyo hasta donde sea posible sin que colapse hacia dentro o la cadera caiga.",
       "Vuelve a la posición inicial empujando por el talón. Progresa con la mano en la pared hasta dominar el movimiento libre."
-    ],
-    "single_leg_stance_eyes_closed_v1": [
-      "De pie en una pierna con rodilla suave y brazos relajados.",
-      "Cierra los ojos y equilíbrate el tiempo prescrito.",
-      "Abre los ojos y cambia lado."
     ],
     "sit_to_stand_v1": [
       "Siéntate en una silla con los pies a la anchura de las caderas y planos en el suelo.",
@@ -1955,51 +1785,6 @@
       "Levanta las caderas en puente.",
       "Tira los talones hacia los glúteos flexionando rodillas, luego extiende controlado sin dejar caer caderas."
     ],
-    "swissball_bridge_v1": [
-      "Tumbado boca arriba con pies sobre un fitball y brazos al suelo.",
-      "Empuja los talones contra la pelota y levanta las caderas en puente.",
-      "Baja con control sin que la pelota se desplace."
-    ],
-    "swissball_dead_bug_v1": [
-      "Tumbado boca arriba presionando un fitball entre manos y rodillas con caderas y rodillas a 90°.",
-      "Mantén presión en la pelota mientras extiendes brazo y pierna opuestos.",
-      "Vuelve a inicial y alterna."
-    ],
-    "swissball_hamstring_curl_v1": [
-      "Tumbado boca arriba con talones sobre el fitball y brazos a los lados.",
-      "Levanta las caderas en puente.",
-      "Acerca la pelota a los glúteos flexionando rodillas, después extiende manteniendo caderas arriba."
-    ],
-    "swissball_pass_v1": [
-      "Tumbado boca arriba sosteniendo un fitball sobre la cabeza con brazos y piernas extendidas.",
-      "Crunch arriba pasando la pelota de manos a entre los pies.",
-      "Baja con control y pasa al revés en la siguiente rep."
-    ],
-    "swissball_pike_v1": [
-      "Plancha alta con espinillas sobre un fitball.",
-      "Pike las caderas hacia el techo rodando la pelota hacia las manos.",
-      "Invierte el movimiento hasta plancha plana con control."
-    ],
-    "swissball_plank_v1": [
-      "Coloca los antebrazos sobre un fitball con codos bajo los hombros.",
-      "Extiende las piernas atrás en plancha de antebrazos.",
-      "Mantén el tiempo prescrito con la pelota inmóvil."
-    ],
-    "swissball_rollout_v1": [
-      "De rodillas con antebrazos sobre el fitball.",
-      "Rueda la pelota adelante extendiendo brazos y caderas manteniendo columna neutra.",
-      "Tira de la pelota atrás hasta inicial usando los abdominales."
-    ],
-    "swissball_wall_squat_v1": [
-      "Coloca un fitball entre la zona lumbar y una pared.",
-      "Camina los pies adelante y baja en sentadilla dejando que la pelota ruede por la espalda media.",
-      "Empuja arriba manteniendo la pelota fija a la pared."
-    ],
-    "tandem_stance_walk_v1": [
-      "De pie con un pie directamente delante del otro, talón-punta.",
-      "Da pasos cortos adelante manteniendo la alineación tándem.",
-      "Continúa por la distancia o tiempo prescritos."
-    ],
     "tempo_run_v1": [
       "Calienta con 10 minutos de trote suave.",
       "Mantén un ritmo cómodamente duro (alrededor del umbral) durante la duración prescrita.",
@@ -2009,11 +1794,6 @@
       "Siéntate con rodillas flexionadas, pies en el suelo y manos detrás con dedos hacia atrás.",
       "Eleva las caderas y rota a un lado extendiendo el brazo libre hacia arriba en extensión torácica.",
       "Vuelve a la posición inicial controlado; alterna lados."
-    ],
-    "thoracic_extension_foam_v1": [
-      "Boca arriba con un foam roller en la parte alta de la espalda y manos detrás de la cabeza.",
-      "Inhala y arquea la parte alta de la espalda sobre el roller sin abrir las costillas.",
-      "Exhala para volver; repite moviendo el roller unos centímetros cada vez."
     ],
     "thread_the_needle_v1": [
       "Comienza en cuadrupedia con las caderas sobre las rodillas y los hombros sobre las muñecas.",
@@ -2145,21 +1925,6 @@
       "Tira el pecho hacia la barra empujando los codos abajo y hacia fuera.",
       "Baja en 2–3 segundos a suspensión muerta."
     ],
-    "wobble_calf_raise_v1": [
-      "De pie en la plataforma con las puntas de los pies cerca del centro.",
-      "Sube a punteras manteniendo la plataforma nivelada.",
-      "Baja con control sin que los bordes caigan al suelo."
-    ],
-    "wobble_single_leg_v1": [
-      "Coloca un pie en el centro de la plataforma y levanta ligeramente el otro.",
-      "Equilíbrate con rodilla suave evitando que los bordes toquen el suelo.",
-      "Mantén el tiempo prescrito antes de cambiar."
-    ],
-    "wobble_squat_v1": [
-      "De pie con ambos pies en la plataforma inestable, pies al ancho de hombros.",
-      "Sienta las caderas atrás en cuarto o media sentadilla manteniendo la plataforma estable.",
-      "Vuelve de pie sin que los bordes toquen el suelo."
-    ],
     "world_greatest_stretch_v1": [
       "Desde posición de flexión, avanza el pie derecho por fuera de la mano derecha en una zancada profunda.",
       "Baja el codo derecho hacia el pie y luego rota el torso abriendo el brazo derecho hacia el techo.",
@@ -2169,11 +1934,6 @@
       "Extiende los brazos delante y entrelaza los dedos.",
       "Haz círculos lentos con las muñecas en sentido horario las reps prescritas.",
       "Invierte la dirección las mismas reps."
-    ],
-    "y_balance_reach_v1": [
-      "De pie en una pierna con el pie libre justo sobre el suelo.",
-      "Estira el pie libre adelante, luego al lado, luego atrás en patrón Y volviendo entre cada dirección.",
-      "Completa las reps prescritas antes de cambiar."
     ],
     "ytwl_complex_v1": [
       "Túmbate pecho abajo en banco inclinado con una mancuerna ligera en cada mano.",

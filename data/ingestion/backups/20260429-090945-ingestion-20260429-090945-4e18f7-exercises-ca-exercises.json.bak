@@ -4,7 +4,6 @@
   "ab_wheel_rollout_v1": "Rollout amb roda abdominal",
   "Adductor": "Adductor",
   "Adductor_Groin": "Adductor d'engonal",
-  "agility_ladder_inout_v1": "Escala d'agilitat in-out",
   "Air_Bike": "Bicicleta a l'aire",
   "All_Fours_Quad_Stretch": "Estirament de quàdriceps a quatre grapes",
   "Alternate_Heel_Touchers": "Tocs de talons alternats",
@@ -63,11 +62,6 @@
   "body_scan_v1": "Escaneig corporal",
   "Bodyweight_Squat": "Sentadilla amb pes corporal",
   "Bodyweight_Walking_Lunge": "Estocada caminant amb pes corporal",
-  "bosu_lunge_v1": "Llunja inversa al BOSU",
-  "bosu_plank_v1": "Planxa amb BOSU",
-  "bosu_pushup_v1": "Flexió amb BOSU",
-  "bosu_single_leg_stand_v1": "Suport monopodal al BOSU",
-  "bosu_squat_v1": "Sentadella amb BOSU",
   "bottoms_up_kb_press_v1": "Press amb kettlebell de cap per avall",
   "bound_alternating_v1": "Bounds alternants",
   "box_breathing_v1": "Respiració quadrada 4-4-4-4",
@@ -85,7 +79,6 @@
   "butterfly_breath_v1": "Papallona amb respiració pèlvica",
   "Calf_Raises_-_With_Bands": "Elevació de talons amb bandes",
   "Calves-SMR": "Bessons - Alliberament miofascial",
-  "carioca_v1": "Carioca",
   "cat_cow_v1": "Gat-vaca",
   "Cat_Stretch": "Estirament del gat",
   "Childs_Pose": "Postura de l'infant",
@@ -99,7 +92,6 @@
   "coherent_breathing_v1": "Respiració coherent",
   "copenhagen_plank_v1": "Planxa Copenhagen",
   "cossack_squat_v1": "Sentadella cossack",
-  "couch_stretch_kneel_v1": "Couch stretch",
   "couch_stretch_v1": "Couch stretch",
   "crab_walk_v1": "Crab walk",
   "Cross-Body_Crunch": "Crunch creuat",
@@ -171,15 +163,9 @@
   "fitball_pelvic_tilt_v1": "Bàscula pèlvica amb fitball",
   "fitball_wall_squat_v1": "Sentadella amb fitball a la paret",
   "Flutter_Kicks": "Puntades de peus alternades",
-  "foam_roll_calf_v1": "Foam roll bessons",
-  "foam_roll_glute_v1": "Foam roll glutis",
   "foam_roll_glutes_v1": "Foam roller glutis",
-  "foam_roll_it_band_v1": "Foam roll cintilla iliotibial",
-  "foam_roll_quad_v1": "Foam roll quàdriceps",
   "foam_roll_quads_v1": "Foam roller quàdriceps",
   "foam_roll_thoracic_v1": "Foam roller dorsal",
-  "foam_roll_tspine_v1": "Foam roll columna toràcica",
-  "forward_lunge_walk_v1": "Llunja caminant endavant",
   "four_seven_eight_breathing_v1": "Respiració 4-7-8",
   "Frog_Hops": "Salts de granota",
   "Front_Barbell_Squat": "Sentadilla frontal amb barra",
@@ -245,7 +231,6 @@
   "Kneeling_Hip_Flexor": "Estirament de flexor de cadera agenollat",
   "lateral_box_jump_v1": "Salt lateral al calaix",
   "lateral_lunge_v1": "Llunja lateral",
-  "lateral_lunge_walk_v1": "Llunja lateral caminant",
   "lateral_shuffle_v1": "Shuffle lateral",
   "lateral_step_down_v1": "Descens lateral en escaló",
   "Leg_Extensions": "Extensions de cames",
@@ -253,9 +238,6 @@
   "legs_up_wall_v1": "Cames a la paret",
   "Lower_Back-SMR": "Lumbar - Alliberament miofascial",
   "Lying_Leg_Curls": "Curl de cames estirat",
-  "massageball_foot_v1": "Allibera peu amb pilota de massatge",
-  "massageball_glute_v1": "Allibera glut amb pilota de massatge",
-  "massageball_pec_v1": "Allibera pectoral amb pilota de massatge",
   "modified_side_plank_knee_v1": "Planxa lateral des de genolls",
   "mountain_climber_explosive_v1": "Mountain climbers explosius",
   "mountain_climber_tempo_v1": "Mountain climber a tempo",
@@ -267,15 +249,10 @@
   "Pallof_Press": "Pallof press",
   "pallof_press_band_v1": "Pallof press amb banda",
   "pallof_press_split_stance_v1": "Pallof press en split",
-  "paralettes_l_sit_progression_v1": "Progressió L-sit en paralettes",
-  "paralettes_pushup_v1": "Flexió amb paralettes",
   "pec_release_ball_v1": "Alliberament pectoral amb pilota",
   "pelvic_clock_v1": "Rellotge pèlvic",
   "pigeon_pose_v1": "Postura del colom",
   "pike_pushup_v1": "Flexió pike",
-  "pilates_ring_bridge_squeeze_v1": "Pont amb pressió d'anella de Pilates",
-  "pilates_ring_inner_squeeze_v1": "Pressió interna amb anella de Pilates",
-  "pilates_ring_outer_press_v1": "Pressió externa amb anella de Pilates",
   "Piriformis-SMR": "Piriforme - Alliberament miofascial",
   "pistol_squat_assisted_v1": "Pistol squat assistit",
   "Plank": "Planxa",
@@ -353,11 +330,8 @@
   "Single_Leg_Glute_Bridge": "Pont de glutis a una cama",
   "single_leg_hip_thrust_v1": "Hip thrust a una cama",
   "Single_Leg_Push-off": "Impulsió a una cama",
-  "single_leg_rdl_balance_v1": "RDL d'equilibri a una cama",
   "single_leg_rdl_v1": "Pes mort romanès a una cama",
-  "single_leg_reach_v1": "Reach a una cama",
   "single_leg_squat_v1": "Sentadella monopodal",
-  "single_leg_stance_eyes_closed_v1": "Suport monopodal amb ulls tancats",
   "sit_to_stand_v1": "Aixecar-se de la cadira",
   "skater_jump_v1": "Salt patinador",
   "spin_easy_v1": "Bicicleta suau",
@@ -385,20 +359,10 @@
   "supported_squat_chair_v1": "Sentadella amb suport de cadira",
   "svend_press_v1": "Svend press",
   "swiss_ball_hamstring_curl_v1": "Curl d'isquios amb fitball",
-  "swissball_bridge_v1": "Pont amb fitball",
-  "swissball_dead_bug_v1": "Dead bug amb fitball",
-  "swissball_hamstring_curl_v1": "Curl d'isquiotibials amb fitball",
-  "swissball_pass_v1": "Pass amb fitball",
-  "swissball_pike_v1": "Pike amb fitball",
-  "swissball_plank_v1": "Planxa d'avantbraços amb fitball",
-  "swissball_rollout_v1": "Rollout amb fitball",
-  "swissball_wall_squat_v1": "Sentadella amb fitball a la paret",
-  "tandem_stance_walk_v1": "Caminada en tàndem",
   "tempo_run_v1": "Cursa a ritme tempo",
   "Thigh_Abductor": "Abductor de cuixa",
   "Thigh_Adductor": "Adductor de cuixa",
   "thoracic_bridge_v1": "Pont toràcic",
-  "thoracic_extension_foam_v1": "Extensió toràcica al foam roller",
   "thread_the_needle_v1": "Thread the Needle (rotació toràcica)",
   "treadmill_intervals_v1": "Intervals a la cinta",
   "tree_pose_v1": "Postura de l'arbre",
@@ -427,23 +391,14 @@
   "weighted_vest_step_up_v1": "Step-up amb armilla",
   "wide_grip_pullup_v1": "Dominada amb agarrada ampla",
   "Wide-Grip_Lat_Pulldown": "Jaló al pit amb agafada ampla",
-  "wobble_calf_raise_v1": "Elevació de talons en plataforma inestable",
-  "wobble_single_leg_v1": "Suport monopodal en plataforma inestable",
-  "wobble_squat_v1": "Sentadella en plataforma inestable",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Cercles d'escalfament de canells",
-  "y_balance_reach_v1": "Reach Y-balance",
   "ytwl_complex_v1": "Complex YTWL",
   "instructions": {
     "ab_wheel_rollout_v1": [
       "A genolls al terra sostenint una roda abdominal sota les espatlles.",
       "Roda la roda endavant mantenint la columna neutra i les costelles avall.",
       "Torna sense perdre la pressió abdominal."
-    ],
-    "agility_ladder_inout_v1": [
-      "Posa una escala d'agilitat al terra (o visualitza els quadres).",
-      "Posa els dos peus dins un quadre, després els dos peus fora als costats del següent quadre, avançant per l'escala.",
-      "Continua a cadència màxima el temps prescrit."
     ],
     "alternate_nostril_breathing_v1": [
       "Asseu-te còmode i porta la mà dreta a la cara amb el polze sobre la fossa dreta i l'anular sobre l'esquerra.",
@@ -639,31 +594,6 @@
       "Porta l'atenció lentament per cada part del cos des dels peus fins al cap, observant sense jutjar.",
       "Respira naturalment 10–20 minuts."
     ],
-    "bosu_lunge_v1": [
-      "Dret sobre la cúpula del BOSU amb un peu al centre.",
-      "Fes un pas enrere amb l'altra cama en llunja inversa fins que el genoll del darrere quasi toqui el terra.",
-      "Empeny pel peu del davant fins dret sobre el BOSU; alterna costats."
-    ],
-    "bosu_plank_v1": [
-      "Posa els avantbraços sobre la cúpula del BOSU amb colzes sota les espatlles.",
-      "Estén les cames enrere en planxa amb columna neutra.",
-      "Mantén el temps prescrit amb el BOSU estable."
-    ],
-    "bosu_pushup_v1": [
-      "Posa el BOSU amb la cúpula avall i agafa la plataforma a cada costat en planxa alta.",
-      "Baixa el pit cap a la plataforma amb colzes recollits.",
-      "Empeny amunt mantenint la plataforma estable."
-    ],
-    "bosu_single_leg_stand_v1": [
-      "Dret al centre de la cúpula del BOSU amb els dos peus.",
-      "Aixeca un peu uns centímetres i equilibra't a la cama de suport.",
-      "Mantén el temps prescrit abans de canviar costat."
-    ],
-    "bosu_squat_v1": [
-      "Dret sobre la cúpula del BOSU amb peus a l'amplada de l'espatlla.",
-      "Asseu els malucs enrere i flexiona els genolls en sentadella mantenint el pit alt.",
-      "Empeny pels talons fins dret mantenint el BOSU estable."
-    ],
     "bottoms_up_kb_press_v1": [
       "Sostén una kettlebell a l'espatlla amb la bola amunt i la nansa ben agafada.",
       "Pressiona la kettlebell sobre el cap mantenint la bola equilibrada cap per avall.",
@@ -729,11 +659,6 @@
       "Inspira visualitzant la respiració baixant a la pelvis i relaxant el sòl.",
       "Espira aixecant suau el sòl pèlvic; continua pel temps prescrit."
     ],
-    "carioca_v1": [
-      "De costat amb genolls lleugerament flexionats.",
-      "Creua un peu davant de l'altre, després pas lateral amb el peu del darrere, després creua per darrere.",
-      "Continua movent-te lateralment a cadència suau; canvia direcció a la meitat."
-    ],
     "cat_cow_v1": [
       "Comença a quatre grapes amb canells sota espatlles i genolls sota malucs.",
       "Inspira i arqueja la columna baixant la panxa mentre mires amunt (vaca).",
@@ -783,11 +708,6 @@
       "Dret amb peus més amples que l'espatlla.",
       "Desplaça el pes a un costat flexionant aquell genoll mentre l'altra cama queda recta amb dits amunt.",
       "Empeny per tornar al centre i alterna."
-    ],
-    "couch_stretch_kneel_v1": [
-      "Genolls a terra de cara contra una paret i posa una espinilla contra la paret amb el peu cap amunt.",
-      "Avança l'altre peu en posició mig genoll i bascula la pelvis per notar estirament a la part davantera del maluc i cuixa de darrere.",
-      "Mantén el temps prescrit i canvia costat."
     ],
     "couch_stretch_v1": [
       "Agenolla't d'esquena a la paret o sofà, posa una tíbia contra la paret amb el peu cap amunt i l'altre peu pla davant en llunja.",
@@ -1085,30 +1005,10 @@
       "Baixa rodant la pilota fins que les cuixes siguin paral·leles al terra.",
       "Mantingues o torna a aixecar-te controlat."
     ],
-    "foam_roll_calf_v1": [
-      "Asseu-te al terra amb un bessó al foam roller i l'altra cama a sobre per pressió.",
-      "Aixeca els malucs i roda lentament del turmell fins a sota el genoll.",
-      "Pausa a zones tenses i canvia cama."
-    ],
-    "foam_roll_glute_v1": [
-      "Asseu-te a un foam roller i creua un turmell sobre el genoll oposat.",
-      "Desplaça el pes al costat creuat i roda lentament sobre el glut.",
-      "Pausa als punts tensos i canvia costat."
-    ],
     "foam_roll_glutes_v1": [
       "Asseu-te sobre un foam roller amb un turmell creuat sobre el genoll oposat.",
       "Inclina't cap al costat de la cama creuada i mou-te lentament sobre el glúti.",
       "Pausa als punts tensos i respira; canvia de costat."
-    ],
-    "foam_roll_it_band_v1": [
-      "De costat amb un foam roller sota la cuixa exterior.",
-      "Apila o esglaona les cames i roda lentament des de sota el maluc fins al genoll.",
-      "Pausa a zones tenses i canvia costat."
-    ],
-    "foam_roll_quad_v1": [
-      "Estirat boca avall amb un foam roller a la part davantera d'una cuixa.",
-      "Suporta el cos amb avantbraços i roda lentament des de sobre el genoll fins al maluc.",
-      "Pausa als punts sensibles i respira; canvia cama."
     ],
     "foam_roll_quads_v1": [
       "Estira't boca avall amb el foam roller a la part frontal de les cuixes, sostingut sobre els avantbraços.",
@@ -1119,16 +1019,6 @@
       "Estira't sobre un foam roller col·locat a la part alta de l'esquena, genolls flexionats i mans darrere del cap.",
       "Aixeca lleugerament els malucs i mou-te amunt i avall entre les escàpules i la zona mitja.",
       "Pausa als punts tensos i respira lent; evita la zona lumbar."
-    ],
-    "foam_roll_tspine_v1": [
-      "Estirat d'esquena amb un foam roller a la part alta de l'esquena.",
-      "Suporta el cap amb les mans i aixeca lleugerament els malucs.",
-      "Roda lentament entre els omòplats i la regió toràcica baixa pausant en punts tensos."
-    ],
-    "forward_lunge_walk_v1": [
-      "Dret amb peus a l'amplada del maluc.",
-      "Fes un pas endavant en llunja fins que el genoll del darrere quasi toqui el terra.",
-      "Empeny pel peu del davant per portar la cama de darrere a la següent llunja; alterna."
     ],
     "four_seven_eight_breathing_v1": [
       "Asseu-te còmode i posa la punta de la llengua darrere les dents superiors.",
@@ -1387,11 +1277,6 @@
       "Fes una passa àmplia a un costat, recula els malucs i flexiona aquest genoll mentre l'altra cama queda recta.",
       "Torna a dret i alterna costats."
     ],
-    "lateral_lunge_walk_v1": [
-      "Dret amb peus junts i mans al pit.",
-      "Fes un pas lateral en llunja lateral asseient els malucs sobre la cama flexionada.",
-      "Empeny al centre i fes un pas a l'altra direcció; alterna."
-    ],
     "lateral_shuffle_v1": [
       "Postura atlètica amb genolls flexionats i peus a l'amplada de l'espatlla.",
       "Shuffle lateralment sense creuar els peus uns metres, després canvia direcció.",
@@ -1413,21 +1298,6 @@
       "Flexiona els genolls per portar els coixinets cap als glutis.",
       "Mantén la contracció un moment a dalt.",
       "Baixa lentament a la posició inicial."
-    ],
-    "massageball_foot_v1": [
-      "Dret amb una pilota de massatge sota l'arc d'un peu.",
-      "Roda la pilota lentament del taló als dits aplicant pressió suau.",
-      "Pausa als punts sensibles i canvia peu."
-    ],
-    "massageball_glute_v1": [
-      "Asseu-te al terra amb una pilota de massatge sota un glut.",
-      "Creua el turmell d'aquest costat sobre el genoll oposat per aprofundir.",
-      "Roda lentament sobre punts tensos respirant fons; canvia costat."
-    ],
-    "massageball_pec_v1": [
-      "Dret davant d'una paret amb una pilota de massatge entre la part alta del pit i la paret.",
-      "Inclina't contra la pilota i roda lentament pel pectoral cercant punts tensos.",
-      "Pausa i respira; canvia costat."
     ],
     "modified_side_plank_knee_v1": [
       "Estira't de costat amb l'avantbraç de baix al matalàs i genolls flexionats i superposats.",
@@ -1469,16 +1339,6 @@
       "Empeny la banda recta resistint la rotació.",
       "Torna lent; fes les reps abans de canviar."
     ],
-    "paralettes_l_sit_progression_v1": [
-      "Asseu-te entre dues paralettes amb mans a les barres i colzes bloquejats.",
-      "Empeny avall per aixecar els malucs i recull els genolls cap al pit.",
-      "Mantén el tuck (o estén cames si pots) el temps prescrit."
-    ],
-    "paralettes_pushup_v1": [
-      "Planxa alta amb mans agafant les paralettes.",
-      "Baixa el pit entre les barres permetent més rang que una flexió al terra.",
-      "Empeny amunt mantenint colzes recollits."
-    ],
     "pec_release_ball_v1": [
       "Posa una pilota de massatge entre la part alta del pit i una paret, just sota la clavícula.",
       "Aplica pressió contra la pilota i mou el braç per trobar punts tensos.",
@@ -1498,21 +1358,6 @@
       "Posició de gos cap avall amb malucs alts i mans a l'amplada de l'espatlla.",
       "Baixa el cap cap al terra flexionant els colzes.",
       "Empeny per tornar a l'inici."
-    ],
-    "pilates_ring_bridge_squeeze_v1": [
-      "Estirat d'esquena amb genolls flexionats, peus al terra i una anella de Pilates entre els genolls.",
-      "Aixeca els malucs en pont mentre prems suaument l'anella.",
-      "Baixa amb control mantenint la pressió de l'anella tot l'exercici."
-    ],
-    "pilates_ring_inner_squeeze_v1": [
-      "Estirat d'esquena amb genolls flexionats i una anella de Pilates entre els malucs interiors.",
-      "Expira i prem l'anella amb els adductors sense apretar els glutis.",
-      "Allibera a la meitat i repeteix les reps prescrites."
-    ],
-    "pilates_ring_outer_press_v1": [
-      "Estirat d'esquena amb genolls flexionats i una anella de Pilates al voltant dels genolls.",
-      "Empeny els genolls cap a fora contra l'anella sense arquejar la zona lumbar.",
-      "Allibera a la meitat i repeteix les reps prescrites."
     ],
     "pistol_squat_assisted_v1": [
       "Subjecta un TRX, marc de porta o pal per equilibri i posa't sobre una cama.",
@@ -1833,30 +1678,15 @@
       "Empeny pel taló plantat aixecant els malucs amb la cama lliure estesa.",
       "Baixa controlat; fes les reps abans de canviar."
     ],
-    "single_leg_rdl_balance_v1": [
-      "Dret a una cama amb genoll lleugerament flexionat.",
-      "Hinge al maluc estenent la cama lliure enrere fins que el tronc estigui paral·lel al terra.",
-      "Torna a dret mantenint el genoll de suport suau; alterna després de reps."
-    ],
     "single_leg_rdl_v1": [
       "Dret sobre una cama amb una manuella a la mà oposada.",
       "Hinge al maluc estenent la cama lliure enrere mentre el tronc baixa paral·lel al terra.",
       "Torna a dret controlat; fes les reps abans de canviar."
     ],
-    "single_leg_reach_v1": [
-      "Dret a una cama amb genoll suau.",
-      "Hinge al maluc estirant la mà oposada cap al terra mentre estens la cama lliure enrere.",
-      "Torna a dret amb control; completa reps abans de canviar."
-    ],
     "single_leg_squat_v1": [
       "Dret sobre una cama, l'altra lleugera davant o al costat, braços estesos per a l'equilibri.",
       "Flexiona lentament el genoll de recolzament fins on sigui possible sense que col·lapsi cap a dins o el maluc caigui.",
       "Retorna a la posició inicial empenyent pel taló. Progressa amb la mà a la paret fins dominar el moviment lliure."
-    ],
-    "single_leg_stance_eyes_closed_v1": [
-      "Dret a una cama amb genoll suau i braços relaxats.",
-      "Tanca els ulls i equilibra't el temps prescrit.",
-      "Obre els ulls i canvia costat."
     ],
     "sit_to_stand_v1": [
       "Seu en una cadira amb els peus a l'amplada dels malucs i plans a terra.",
@@ -1955,51 +1785,6 @@
       "Aixeca els malucs en pont.",
       "Tira els talons cap als glutis flexionant els genolls, després estén controlat sense deixar caure els malucs."
     ],
-    "swissball_bridge_v1": [
-      "Estirat d'esquena amb peus sobre un fitball i braços al terra.",
-      "Empeny els talons contra la pilota i aixeca els malucs en pont.",
-      "Baixa amb control sense que la pilota es desplaci."
-    ],
-    "swissball_dead_bug_v1": [
-      "Estirat d'esquena pressionant un fitball entre mans i genolls amb malucs i genolls a 90°.",
-      "Mantén pressió a la pilota mentre estens braç i cama oposats.",
-      "Torna a inicial i alterna."
-    ],
-    "swissball_hamstring_curl_v1": [
-      "Estirat d'esquena amb talons sobre el fitball i braços als costats.",
-      "Aixeca els malucs en pont.",
-      "Apropa la pilota cap als glutis flexionant els genolls, després estén mantenint els malucs amunt."
-    ],
-    "swissball_pass_v1": [
-      "Estirat d'esquena sostenint un fitball sobre el cap amb braços i cames esteses.",
-      "Crunch amunt passant la pilota de mans a entre els peus.",
-      "Baixa amb control i passa al revés a la següent rep."
-    ],
-    "swissball_pike_v1": [
-      "Planxa alta amb les espinilles sobre un fitball.",
-      "Pike els malucs cap al sostre rodant la pilota cap a les mans.",
-      "Inverteix el moviment fins a planxa plana amb control."
-    ],
-    "swissball_plank_v1": [
-      "Posa els avantbraços sobre un fitball amb colzes sota les espatlles.",
-      "Estén les cames enrere en planxa d'avantbraços.",
-      "Mantén el temps prescrit amb la pilota immòbil."
-    ],
-    "swissball_rollout_v1": [
-      "Genolls al terra amb avantbraços sobre el fitball.",
-      "Roda la pilota endavant estenent braços i malucs mantenint columna neutra.",
-      "Estira la pilota enrere fins a la posició inicial usant els abdominals."
-    ],
-    "swissball_wall_squat_v1": [
-      "Posa un fitball entre la part baixa de l'esquena i una paret.",
-      "Camina els peus endavant i baixa en sentadella deixant que la pilota rodi pel mig de l'esquena.",
-      "Empeny amunt mantenint la pilota subjecta a la paret."
-    ],
-    "tandem_stance_walk_v1": [
-      "Dret amb un peu directament davant de l'altre, taló-punta.",
-      "Fes passos curts endavant mantenint l'alineació tàndem.",
-      "Continua per la distància o temps prescrits."
-    ],
     "tempo_run_v1": [
       "Escalfa amb 10 minuts de trot suau.",
       "Mantén un ritme còmodament dur (al voltant del llindar) durant la durada prescrita.",
@@ -2009,11 +1794,6 @@
       "Asseu-te amb genolls flexionats, peus al terra i mans darrere amb dits cap enrere.",
       "Aixeca els malucs i rota cap a un costat estenent el braç lliure cap amunt en extensió toràcica.",
       "Torna a la posició inicial controlat; alterna costats."
-    ],
-    "thoracic_extension_foam_v1": [
-      "Estirat d'esquena amb un foam roller a la part alta de l'esquena i mans darrere el cap.",
-      "Inspira i arqueja la part alta de l'esquena sobre el roller sense fer flare amb les costelles.",
-      "Espira per tornar; repeteix movent el roller uns centímetres cada vegada."
     ],
     "thread_the_needle_v1": [
       "Comença en quadrupèdia amb els malucs sobre els genolls i les espatlles sobre els canells.",
@@ -2145,21 +1925,6 @@
       "Tira el pit cap a la barra empenyent els colzes avall i enfora.",
       "Baixa en 2–3 segons a suspensió morta."
     ],
-    "wobble_calf_raise_v1": [
-      "Dret a la plataforma amb les puntes dels peus prop del centre.",
-      "Puja a punteres mantenint la plataforma anivellada.",
-      "Baixa amb control sense que les vores caiguin al terra."
-    ],
-    "wobble_single_leg_v1": [
-      "Posa un peu al centre de la plataforma i aixeca lleugerament l'altre.",
-      "Equilibra't amb genoll suau evitant que les vores toquin el terra.",
-      "Mantén el temps prescrit abans de canviar."
-    ],
-    "wobble_squat_v1": [
-      "Dret amb els dos peus a la plataforma inestable, peus a l'amplada de l'espatlla.",
-      "Asseu els malucs enrere en quart o mitja sentadella mantenint la plataforma estable.",
-      "Torna a dret sense que les vores toquin el terra."
-    ],
     "world_greatest_stretch_v1": [
       "Des de posició de flexió, avança el peu dret per fora de la mà dreta en una llunja profunda.",
       "Baixa el colze dret cap al peu i després rota el tronc obrint el braç dret cap al sostre.",
@@ -2169,11 +1934,6 @@
       "Estén els braços endavant i entrellaça els dits.",
       "Fes cercles lents amb els canells en sentit horari per les reps prescrites.",
       "Inverteix la direcció el mateix nombre de reps."
-    ],
-    "y_balance_reach_v1": [
-      "Dret a una cama amb el peu lliure just sobre el terra.",
-      "Estira el peu lliure endavant, després al costat, després darrere en patró Y tornant entre cada direcció.",
-      "Completa les reps prescrites abans de canviar."
     ],
     "ytwl_complex_v1": [
       "Estira't pit avall en banc inclinat amb una manuella lleugera a cada mà.",

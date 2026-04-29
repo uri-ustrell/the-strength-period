@@ -161,7 +161,7 @@
     "deload_session": "Descarga"
   },
   "preset_tags": {
-    "anti_rotacio": "Antirrotación",
+    "anti_rotacio": "Anti-rotación",
     "baixada": "Bajada",
     "core_estabilitat": "Core y estabilidad",
     "corredor": "Corredor",
@@ -177,11 +177,11 @@
     "pliometria": "Pliometría",
     "postpart": "Postparto",
     "potencia": "Potencia",
-    "prehab": "Prehabilitación",
+    "prehab": "Prehab",
     "pujada": "Subida",
-    "rehab_genoll": "Rehab rodilla",
+    "rehab_genoll": "Rehabilitación de rodilla",
     "rehab_lumbar": "Rehabilitación lumbar",
-    "rehab_turmell": "Rehab tobillo",
+    "rehab_turmell": "Rehabilitación de tobillo",
     "resistencia": "Resistencia",
     "respiracio": "Respiración",
     "sol_pelvic": "Suelo pélvico",

@@ -1,0 +1,105 @@
+{
+  "runId": "ingestion-20260429-090827-ea6891",
+  "createdAt": "2026-04-29T09:08:27.444Z",
+  "items": [
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:single_leg_rdl_balance_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "single_leg_rdl_balance_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.85)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:foam_roll_quad_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "foam_roll_quad_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:foam_roll_it_band_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "foam_roll_it_band_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:foam_roll_calf_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "foam_roll_calf_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:foam_roll_glute_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "foam_roll_glute_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:massageball_foot_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "massageball_foot_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:massageball_glute_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "massageball_glute_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:massageball_pec_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "massageball_pec_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-functional-stability:exercise:thoracic_extension_foam_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-functional-stability",
+      "canonicalId": "thoracic_extension_foam_v1",
+      "confidence": 0.92,
+      "reasons": [
+        "Unknown category mapped to strength."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

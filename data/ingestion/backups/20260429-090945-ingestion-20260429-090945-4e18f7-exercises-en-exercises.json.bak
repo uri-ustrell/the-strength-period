@@ -4,7 +4,6 @@
   "ab_wheel_rollout_v1": "Ab Wheel Rollout",
   "Adductor": "Adductor",
   "Adductor_Groin": "Adductor Groin Stretch",
-  "agility_ladder_inout_v1": "Agility Ladder In-Out",
   "Air_Bike": "Air Bike",
   "All_Fours_Quad_Stretch": "All Fours Quad Stretch",
   "Alternate_Heel_Touchers": "Alternate Heel Touchers",
@@ -63,11 +62,6 @@
   "body_scan_v1": "Body Scan Relaxation",
   "Bodyweight_Squat": "Bodyweight Squat",
   "Bodyweight_Walking_Lunge": "Bodyweight Walking Lunge",
-  "bosu_lunge_v1": "BOSU Reverse Lunge",
-  "bosu_plank_v1": "BOSU Plank",
-  "bosu_pushup_v1": "BOSU Push-Up",
-  "bosu_single_leg_stand_v1": "BOSU Single-Leg Stand",
-  "bosu_squat_v1": "BOSU Squat",
   "bottoms_up_kb_press_v1": "Bottoms-Up Kettlebell Press",
   "bound_alternating_v1": "Alternating Bounds",
   "box_breathing_v1": "Box Breathing 4-4-4-4",
@@ -85,7 +79,6 @@
   "butterfly_breath_v1": "Butterfly with Pelvic Breath",
   "Calf_Raises_-_With_Bands": "Calf Raises with Bands",
   "Calves-SMR": "Calves - Self-Myofascial Release",
-  "carioca_v1": "Carioca",
   "cat_cow_v1": "Cat-Cow",
   "Cat_Stretch": "Cat Stretch",
   "Childs_Pose": "Child's Pose",
@@ -99,7 +92,6 @@
   "coherent_breathing_v1": "Coherent Breathing",
   "copenhagen_plank_v1": "Copenhagen Plank",
   "cossack_squat_v1": "Cossack Squat",
-  "couch_stretch_kneel_v1": "Couch Stretch",
   "couch_stretch_v1": "Couch Stretch",
   "crab_walk_v1": "Crab Walk",
   "Cross-Body_Crunch": "Cross-Body Crunch",
@@ -171,15 +163,9 @@
   "fitball_pelvic_tilt_v1": "Fitball Pelvic Tilt",
   "fitball_wall_squat_v1": "Fitball Wall Squat",
   "Flutter_Kicks": "Flutter Kicks",
-  "foam_roll_calf_v1": "Foam Roll Calves",
-  "foam_roll_glute_v1": "Foam Roll Glutes",
   "foam_roll_glutes_v1": "Foam Roll Glutes",
-  "foam_roll_it_band_v1": "Foam Roll IT Band",
-  "foam_roll_quad_v1": "Foam Roll Quadriceps",
   "foam_roll_quads_v1": "Foam Roll Quads",
   "foam_roll_thoracic_v1": "Foam Roll Thoracic Spine",
-  "foam_roll_tspine_v1": "Foam Roll Thoracic Spine",
-  "forward_lunge_walk_v1": "Walking Forward Lunge",
   "four_seven_eight_breathing_v1": "4-7-8 Breathing",
   "Frog_Hops": "Frog Hops",
   "Front_Barbell_Squat": "Front Barbell Squat",
@@ -245,7 +231,6 @@
   "Kneeling_Hip_Flexor": "Kneeling Hip Flexor Stretch",
   "lateral_box_jump_v1": "Lateral Box Jump",
   "lateral_lunge_v1": "Lateral Lunge",
-  "lateral_lunge_walk_v1": "Walking Lateral Lunge",
   "lateral_shuffle_v1": "Lateral Shuffle",
   "lateral_step_down_v1": "Lateral Step Down",
   "Leg_Extensions": "Leg Extensions",
@@ -253,9 +238,6 @@
   "legs_up_wall_v1": "Legs-Up-the-Wall",
   "Lower_Back-SMR": "Lower Back - Self-Myofascial Release",
   "Lying_Leg_Curls": "Lying Leg Curls",
-  "massageball_foot_v1": "Massage Ball Foot Release",
-  "massageball_glute_v1": "Massage Ball Glute Release",
-  "massageball_pec_v1": "Massage Ball Pec Release",
   "modified_side_plank_knee_v1": "Modified Side Plank from Knees",
   "mountain_climber_explosive_v1": "Explosive Mountain Climbers",
   "mountain_climber_tempo_v1": "Tempo Mountain Climber",
@@ -267,15 +249,10 @@
   "Pallof_Press": "Pallof Press",
   "pallof_press_band_v1": "Banded Pallof Press",
   "pallof_press_split_stance_v1": "Split-Stance Pallof Press",
-  "paralettes_l_sit_progression_v1": "Paralettes L-Sit Progression",
-  "paralettes_pushup_v1": "Paralettes Push-Up",
   "pec_release_ball_v1": "Pec Release with Massage Ball",
   "pelvic_clock_v1": "Pelvic Clock",
   "pigeon_pose_v1": "Pigeon Pose",
   "pike_pushup_v1": "Pike Push-Up",
-  "pilates_ring_bridge_squeeze_v1": "Pilates Ring Bridge Squeeze",
-  "pilates_ring_inner_squeeze_v1": "Pilates Ring Inner Thigh Squeeze",
-  "pilates_ring_outer_press_v1": "Pilates Ring Outer Press",
   "Piriformis-SMR": "Piriformis - Self-Myofascial Release",
   "pistol_squat_assisted_v1": "Assisted Pistol Squat",
   "Plank": "Plank",
@@ -353,11 +330,8 @@
   "Single_Leg_Glute_Bridge": "Single Leg Glute Bridge",
   "single_leg_hip_thrust_v1": "Single-Leg Hip Thrust",
   "Single_Leg_Push-off": "Single Leg Push-Off",
-  "single_leg_rdl_balance_v1": "Single-Leg RDL Balance",
   "single_leg_rdl_v1": "Single-Leg Romanian Deadlift",
-  "single_leg_reach_v1": "Single-Leg Reach",
   "single_leg_squat_v1": "Single-Leg Squat",
-  "single_leg_stance_eyes_closed_v1": "Single-Leg Stance (Eyes Closed)",
   "sit_to_stand_v1": "Sit to Stand",
   "skater_jump_v1": "Skater Jump",
   "spin_easy_v1": "Easy Spin Bike",
@@ -385,20 +359,10 @@
   "supported_squat_chair_v1": "Supported Chair Squat",
   "svend_press_v1": "Svend Press",
   "swiss_ball_hamstring_curl_v1": "Swiss Ball Hamstring Curl",
-  "swissball_bridge_v1": "Swiss Ball Bridge",
-  "swissball_dead_bug_v1": "Swiss Ball Dead Bug",
-  "swissball_hamstring_curl_v1": "Swiss Ball Hamstring Curl",
-  "swissball_pass_v1": "Swiss Ball Pass",
-  "swissball_pike_v1": "Swiss Ball Pike",
-  "swissball_plank_v1": "Swiss Ball Forearm Plank",
-  "swissball_rollout_v1": "Swiss Ball Rollout",
-  "swissball_wall_squat_v1": "Swiss Ball Wall Squat",
-  "tandem_stance_walk_v1": "Tandem Stance Walk",
   "tempo_run_v1": "Tempo Run",
   "Thigh_Abductor": "Thigh Abductor",
   "Thigh_Adductor": "Thigh Adductor",
   "thoracic_bridge_v1": "Thoracic Bridge",
-  "thoracic_extension_foam_v1": "Thoracic Extension on Foam Roller",
   "thread_the_needle_v1": "Thread the Needle",
   "treadmill_intervals_v1": "Treadmill Intervals",
   "tree_pose_v1": "Tree Pose",
@@ -427,23 +391,14 @@
   "weighted_vest_step_up_v1": "Weight Vest Step-Up",
   "wide_grip_pullup_v1": "Wide-Grip Pull-Up",
   "Wide-Grip_Lat_Pulldown": "Wide-Grip Lat Pulldown",
-  "wobble_calf_raise_v1": "Wobble Board Calf Raise",
-  "wobble_single_leg_v1": "Wobble Board Single-Leg Stance",
-  "wobble_squat_v1": "Wobble Board Squat",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Wrist Warm-up Circles",
-  "y_balance_reach_v1": "Y-Balance Reach",
   "ytwl_complex_v1": "YTWL Complex",
   "instructions": {
     "ab_wheel_rollout_v1": [
       "Kneel on the floor holding an ab wheel under the shoulders.",
       "Roll the wheel forward keeping the spine neutral and ribs down.",
       "Pull back to the start without losing the brace."
-    ],
-    "agility_ladder_inout_v1": [
-      "Set up an agility ladder on the floor (or visualise the squares).",
-      "Step both feet into a square, then both feet out to the sides of the next square, advancing down the ladder.",
-      "Continue at maximum cadence for the prescribed time."
     ],
     "alternate_nostril_breathing_v1": [
       "Sit comfortably and bring the right hand to the face with thumb on the right nostril and ring finger on the left.",
@@ -640,31 +595,6 @@
       "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
       "Breathe naturally for 10–20 minutes."
     ],
-    "bosu_lunge_v1": [
-      "Stand on the dome of a BOSU with one foot in the centre.",
-      "Step the other leg back into a reverse lunge until the back knee is near the floor.",
-      "Drive through the front foot back to standing on the BOSU; alternate sides."
-    ],
-    "bosu_plank_v1": [
-      "Place the forearms on the dome of a BOSU with elbows under the shoulders.",
-      "Extend the legs back into a forearm plank with a neutral spine.",
-      "Hold for the prescribed time keeping the BOSU stable."
-    ],
-    "bosu_pushup_v1": [
-      "Place a BOSU dome-down and grip the platform on each side in a high plank.",
-      "Lower the chest toward the platform with elbows tucked.",
-      "Press back up keeping the platform stable."
-    ],
-    "bosu_single_leg_stand_v1": [
-      "Stand on the centre of a BOSU dome with both feet.",
-      "Lift one foot a few inches off the dome and balance on the standing leg.",
-      "Hold for the prescribed time before switching sides."
-    ],
-    "bosu_squat_v1": [
-      "Stand on the dome side of a BOSU with feet shoulder-width apart.",
-      "Sit the hips back and bend the knees into a squat keeping the chest tall.",
-      "Drive through the heels back to standing while keeping the BOSU steady."
-    ],
     "bottoms_up_kb_press_v1": [
       "Hold a kettlebell at the shoulder with the bell up and the handle gripped tight.",
       "Press the kettlebell overhead keeping the bell balanced upside down.",
@@ -730,11 +660,6 @@
       "Inhale and visualise the breath descending into the pelvis relaxing the floor.",
       "Exhale gently lifting the pelvic floor; continue for the prescribed time."
     ],
-    "carioca_v1": [
-      "Stand sideways with knees slightly bent.",
-      "Cross one foot in front of the other, then step laterally with the trailing foot, then cross behind.",
-      "Continue moving sideways at a smooth cadence; switch direction halfway."
-    ],
     "cat_cow_v1": [
       "Start on hands and knees with wrists under shoulders and knees under hips.",
       "Inhale and arch the spine dropping the belly while looking up (cow).",
@@ -784,11 +709,6 @@
       "Stand with feet wider than shoulder-width.",
       "Shift the weight to one side bending that knee while the other leg stays straight with toes up.",
       "Push back to centre and alternate sides."
-    ],
-    "couch_stretch_kneel_v1": [
-      "Kneel facing away from a wall and place one shin against the wall with the foot pointing up.",
-      "Step the other foot forward into a half-kneeling position and tuck the pelvis to feel a stretch in the front of the back hip and thigh.",
-      "Hold for the prescribed time and switch sides."
     ],
     "couch_stretch_v1": [
       "Kneel facing away from a wall or couch, place one shin against the wall with the foot pointing up and the other foot flat in front in a lunge.",
@@ -1085,30 +1005,10 @@
       "Squat down rolling the ball with you until the thighs are parallel to the floor.",
       "Hold or stand back up under control."
     ],
-    "foam_roll_calf_v1": [
-      "Sit on the floor with one calf on a foam roller and the other leg on top for pressure.",
-      "Lift the hips and roll slowly from the ankle to below the knee.",
-      "Pause on tight areas and switch legs."
-    ],
-    "foam_roll_glute_v1": [
-      "Sit on a foam roller and cross one ankle over the opposite knee.",
-      "Shift weight onto the crossed-leg side and roll slowly over the glute.",
-      "Pause on tight spots and switch sides."
-    ],
     "foam_roll_glutes_v1": [
       "Sit on a foam roller with one ankle crossed over the opposite knee.",
       "Lean toward the crossed-leg side and roll slowly across the glute.",
       "Pause on tight spots and breathe; switch sides."
-    ],
-    "foam_roll_it_band_v1": [
-      "Lie on one side with a foam roller under the outer thigh.",
-      "Stack or stagger the legs and roll slowly from below the hip toward the knee.",
-      "Pause on tight areas and switch sides."
-    ],
-    "foam_roll_quad_v1": [
-      "Lie face down with a foam roller across the front of one thigh.",
-      "Support the upper body on the forearms and roll slowly from above the knee to the hip.",
-      "Pause on tender spots and breathe; switch legs."
     ],
     "foam_roll_quads_v1": [
       "Lie face-down with the foam roller across the front of the thighs, supporting the upper body on the forearms.",
@@ -1119,16 +1019,6 @@
       "Lie back on a foam roller placed across the upper back, knees bent and hands behind the head.",
       "Lift the hips slightly and roll up and down between the shoulder blades and mid-back.",
       "Pause on tight spots and breathe slowly; avoid the lumbar spine."
-    ],
-    "foam_roll_tspine_v1": [
-      "Lie on the back with a foam roller across the upper back.",
-      "Support the head with the hands and lift the hips slightly.",
-      "Roll slowly between the shoulder blades and the lower thoracic region pausing on tight spots."
-    ],
-    "forward_lunge_walk_v1": [
-      "Stand tall with feet hip-width apart.",
-      "Step forward into a lunge until the back knee is near the floor.",
-      "Push through the front foot to bring the back leg through into the next lunge; alternate sides."
     ],
     "four_seven_eight_breathing_v1": [
       "Sit comfortably and place the tongue tip behind the upper teeth.",
@@ -1388,11 +1278,6 @@
       "Take a wide step to one side, sit the hips back and bend that knee while the other leg stays straight.",
       "Push back to standing and alternate sides."
     ],
-    "lateral_lunge_walk_v1": [
-      "Stand with feet together and hands clasped at the chest.",
-      "Step laterally into a side lunge sitting the hips back over the bent leg.",
-      "Push back to centre and step the other direction; alternate."
-    ],
     "lateral_shuffle_v1": [
       "Adopt an athletic stance with knees bent and feet shoulder-width apart.",
       "Shuffle laterally without crossing the feet for several metres, then change direction.",
@@ -1413,21 +1298,6 @@
       "Keeping the torso flat on the bench, ensure your legs are fully stretched and grab the side handles of the machine. Position your toes straight (or you can also use any of the other two stances described on the foot positioning section). This will be your starting position.",
       "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
       "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
-    ],
-    "massageball_foot_v1": [
-      "Stand and place a massage ball under the arch of one foot.",
-      "Roll the ball slowly from heel to toes applying gentle pressure.",
-      "Pause on tender spots and switch feet."
-    ],
-    "massageball_glute_v1": [
-      "Sit on the floor and place a massage ball under one glute.",
-      "Cross the ankle of that side over the opposite knee to deepen pressure.",
-      "Roll slowly over tight spots breathing deeply; switch sides."
-    ],
-    "massageball_pec_v1": [
-      "Stand facing a wall with a massage ball pinned between the upper chest and the wall.",
-      "Lean into the ball and roll slowly across the pec searching for tight spots.",
-      "Pause and breathe; switch sides."
     ],
     "modified_side_plank_knee_v1": [
       "Lie on one side with the bottom forearm on the mat, knees bent and stacked.",
@@ -1469,16 +1339,6 @@
       "Press the band straight out resisting rotation.",
       "Return slowly; complete reps before switching sides."
     ],
-    "paralettes_l_sit_progression_v1": [
-      "Sit between two paralettes with hands on the bars and elbows locked.",
-      "Press down to lift the hips off the floor and tuck the knees toward the chest.",
-      "Hold the tuck (or extend the legs straight if able) for the prescribed time."
-    ],
-    "paralettes_pushup_v1": [
-      "Set up in a high plank with hands gripping the paralettes.",
-      "Lower the chest between the bars allowing a deeper range than a floor push-up.",
-      "Press back up keeping the elbows tucked."
-    ],
     "pec_release_ball_v1": [
       "Place a massage ball between the upper chest and a wall just below the collarbone.",
       "Lean into the ball and slowly explore the area moving the arm to find tight spots.",
@@ -1498,21 +1358,6 @@
       "Set up in a downward-dog position with hips high and hands shoulder-width.",
       "Lower the head toward the floor by bending the elbows.",
       "Press back up to the start."
-    ],
-    "pilates_ring_bridge_squeeze_v1": [
-      "Lie on the back with knees bent, feet on the floor and a Pilates ring between the knees.",
-      "Lift the hips into a bridge while gently squeezing the ring.",
-      "Lower with control maintaining ring pressure throughout the set."
-    ],
-    "pilates_ring_inner_squeeze_v1": [
-      "Lie on the back with knees bent and a Pilates ring placed between the inner thighs.",
-      "Exhale and squeeze the ring with the inner thighs without bracing the glutes.",
-      "Release halfway and repeat for the prescribed reps."
-    ],
-    "pilates_ring_outer_press_v1": [
-      "Lie on the back with knees bent and a Pilates ring placed around the outside of the knees.",
-      "Press the knees outward against the ring without arching the lower back.",
-      "Release halfway and repeat for the prescribed reps."
     ],
     "pistol_squat_assisted_v1": [
       "Hold a TRX, doorframe or post for balance and stand on one leg.",
@@ -1829,30 +1674,15 @@
       "Drive through the planted heel lifting the hips while keeping the free leg extended.",
       "Lower under control; complete reps before switching sides."
     ],
-    "single_leg_rdl_balance_v1": [
-      "Stand on one leg with a slightly bent knee.",
-      "Hinge at the hip extending the free leg behind until the torso is parallel to the floor.",
-      "Return to standing keeping the standing knee soft; alternate after reps."
-    ],
     "single_leg_rdl_v1": [
       "Stand on one leg holding a dumbbell in the opposite hand.",
       "Hinge at the hip extending the free leg back as the torso lowers parallel to the floor.",
       "Return to standing under control; complete reps before switching sides."
     ],
-    "single_leg_reach_v1": [
-      "Stand on one leg with a soft knee.",
-      "Hinge at the hip reaching the opposite hand toward the floor while extending the free leg back.",
-      "Return to standing under control; complete reps before switching."
-    ],
     "single_leg_squat_v1": [
       "Stand on one leg, the other slightly in front or to the side, arms extended for balance.",
       "Slowly flex the support knee as far as possible without it collapsing inward or the hip dropping.",
       "Return to start by pushing through the heel. Use wall support to progress toward freestanding."
-    ],
-    "single_leg_stance_eyes_closed_v1": [
-      "Stand on one leg with a soft knee and arms relaxed.",
-      "Close the eyes and balance for the prescribed time.",
-      "Open the eyes and switch sides."
     ],
     "sit_to_stand_v1": [
       "Sit in a chair with feet hip-width apart and flat on the floor.",
@@ -1951,51 +1781,6 @@
       "Lift the hips into a bridge.",
       "Pull the heels toward the glutes by bending the knees, then extend back out under control without dropping the hips."
     ],
-    "swissball_bridge_v1": [
-      "Lie on the back with feet on a Swiss ball and arms relaxed on the floor.",
-      "Drive the heels down into the ball and lift the hips into a bridge.",
-      "Lower with control without letting the ball drift."
-    ],
-    "swissball_dead_bug_v1": [
-      "Lie on the back pressing a Swiss ball between the hands and knees with hips and knees at 90°.",
-      "Maintain pressure on the ball while extending the opposite arm and leg.",
-      "Return to the start and alternate."
-    ],
-    "swissball_hamstring_curl_v1": [
-      "Lie on the back with the heels on a Swiss ball and arms by the sides.",
-      "Lift the hips into a glute bridge.",
-      "Curl the ball toward the glutes by bending the knees, then extend back keeping the hips lifted."
-    ],
-    "swissball_pass_v1": [
-      "Lie on the back holding a Swiss ball overhead with arms and legs extended above the floor.",
-      "Crunch up passing the ball from hands to between the feet.",
-      "Lower with control and pass back on the next rep."
-    ],
-    "swissball_pike_v1": [
-      "Set up in a high plank with shins on top of a Swiss ball.",
-      "Pike the hips toward the ceiling rolling the ball toward the hands.",
-      "Reverse the motion back to a flat plank under control."
-    ],
-    "swissball_plank_v1": [
-      "Place the forearms on top of a Swiss ball with elbows under the shoulders.",
-      "Extend the legs back into a forearm plank.",
-      "Hold for the prescribed time keeping the ball still."
-    ],
-    "swissball_rollout_v1": [
-      "Kneel on the floor with forearms on a Swiss ball.",
-      "Roll the ball forward extending the arms and hips while keeping a neutral spine.",
-      "Pull the ball back to the start using the abdominals."
-    ],
-    "swissball_wall_squat_v1": [
-      "Place a Swiss ball between the lower back and a wall.",
-      "Walk the feet forward and squat down letting the ball roll up the back to mid-back.",
-      "Drive up to the start keeping the ball pinned to the wall."
-    ],
-    "tandem_stance_walk_v1": [
-      "Stand with one foot directly in front of the other heel-to-toe.",
-      "Take small steps forward maintaining the tandem alignment.",
-      "Continue for the prescribed distance or time."
-    ],
     "tempo_run_v1": [
       "Warm up with 10 minutes of easy jogging.",
       "Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.",
@@ -2005,11 +1790,6 @@
       "Sit with knees bent, feet flat and hands behind you, fingers pointing back.",
       "Lift the hips and rotate to one side reaching the free hand overhead in a thoracic extension.",
       "Return to the start under control; alternate sides."
-    ],
-    "thoracic_extension_foam_v1": [
-      "Lie on the back with a foam roller across the upper back and hands behind the head.",
-      "Inhale and arch the upper back over the roller without flaring the ribs.",
-      "Exhale to return; repeat moving the roller a few inches at a time along the upper back."
     ],
     "thread_the_needle_v1": [
       "Start on all fours with hips over knees and shoulders over wrists.",
@@ -2141,21 +1921,6 @@
       "Pull the chest toward the bar by driving the elbows down and out.",
       "Lower in 2–3 seconds to a dead hang."
     ],
-    "wobble_calf_raise_v1": [
-      "Stand on a wobble board with the balls of the feet near the centre.",
-      "Rise onto the toes keeping the board level.",
-      "Lower with control without letting the edges crash to the floor."
-    ],
-    "wobble_single_leg_v1": [
-      "Place one foot in the centre of a wobble board and lift the other slightly.",
-      "Balance with a soft knee keeping the board edges off the floor.",
-      "Hold for the prescribed time before switching sides."
-    ],
-    "wobble_squat_v1": [
-      "Stand with both feet on a wobble board feet shoulder-width apart.",
-      "Sit the hips back into a quarter to half squat keeping the board steady.",
-      "Return to standing without letting the edges of the board touch the floor."
-    ],
     "world_greatest_stretch_v1": [
       "From a push-up position step the right foot outside the right hand into a deep lunge.",
       "Drop the right elbow toward the instep, then rotate the torso opening the right arm up to the ceiling.",
@@ -2165,11 +1930,6 @@
       "Extend the arms in front and interlock the fingers.",
       "Circle the wrists slowly clockwise for the prescribed reps.",
       "Reverse direction for the same number of reps."
-    ],
-    "y_balance_reach_v1": [
-      "Stand on one leg with the free foot just off the floor.",
-      "Reach the free foot forward, then to the side, then behind in a Y pattern returning between each direction.",
-      "Complete the prescribed reps before switching sides."
     ],
     "ytwl_complex_v1": [
       "Lie face-down on an incline bench with a light dumbbell in each hand.",
