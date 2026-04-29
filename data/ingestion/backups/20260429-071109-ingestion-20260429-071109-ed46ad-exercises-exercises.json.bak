@@ -631,52 +631,6 @@
     }
   },
   {
-    "id": "band_chest_fly_v1",
-    "nameKey": "exercises:band_chest_fly_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor two bands at chest height behind you and grip a handle in each hand with arms out to the sides.",
-      "Bring the hands together in front of the chest in an arc squeezing the chest.",
-      "Return slowly to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_chest_fly_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "band_chest_fly_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "band_chest_press_standing_v1",
     "nameKey": "exercises:band_chest_press_standing_v1",
     "primaryMuscles": [
@@ -719,98 +673,6 @@
           "ingestedAt": "2026-04-14T14:38:52.945Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during interactive session: trail eccentric + resistance band exercises."
-        }
-      ]
-    }
-  },
-  {
-    "id": "band_concentration_curl_v1",
-    "nameKey": "exercises:band_concentration_curl_v1",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit and step one foot on a band, holding the other end with the same-side hand.",
-      "Brace the elbow against the inner thigh and curl the band up.",
-      "Lower slowly back to the start; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_concentration_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "band_concentration_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "band_external_rotation_v1",
-    "nameKey": "exercises:band_external_rotation_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "trapezi"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band at elbow height and stand sideways gripping it with the far hand, elbow tucked at 90°.",
-      "Rotate the forearm out away from the body keeping the elbow pinned to the side.",
-      "Return slowly; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_external_rotation_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "band_external_rotation_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -939,52 +801,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "band_internal_rotation_v1",
-    "nameKey": "exercises:band_internal_rotation_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "pectoral"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band at elbow height and stand sideways gripping it with the near hand, elbow tucked at 90°.",
-      "Rotate the forearm in across the body keeping the elbow pinned.",
-      "Return slowly; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_internal_rotation_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "band_internal_rotation_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
   },
   {
     "id": "band_lateral_walk_v1",
@@ -1264,52 +1080,6 @@
           "ingestedAt": "2026-04-14T14:38:52.945Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during interactive session: trail eccentric + resistance band exercises."
-        }
-      ]
-    }
-  },
-  {
-    "id": "band_tricep_overhead_extension_v1",
-    "nameKey": "exercises:band_tricep_overhead_extension_v1",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band low and stand facing away holding the band overhead with both hands.",
-      "Bend the elbows lowering the band behind the head.",
-      "Extend the arms back to the start under control."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_tricep_overhead_extension_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "band_tricep_overhead_extension_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -1655,53 +1425,6 @@
     ]
   },
   {
-    "id": "bb_bench_press_v1",
-    "nameKey": "exercises:bb_bench_press_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "deltoides"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on a bench with the barbell over the chest, hands just outside shoulder width.",
-      "Lower the bar to the chest in 2–3 seconds tucking the elbows ~45°.",
-      "Press the bar back up to lockout."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_bench_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "bb_bench_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "bb_bent_over_row_v1",
     "nameKey": "exercises:bb_bent_over_row_v1",
     "primaryMuscles": [
@@ -1843,52 +1566,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bb_drag_curl_v1",
-    "nameKey": "exercises:bb_drag_curl_v1",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with the barbell at hip level, hands shoulder-width apart underhand.",
-      "Curl the bar by dragging it up the body keeping the elbows behind the torso.",
-      "Lower in 2–3 seconds back to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_drag_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "bb_drag_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -2042,60 +1719,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bb_pendlay_row_v1",
-    "nameKey": "exercises:bb_pendlay_row_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "biceps",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "modify",
-        "note": "Reduce load and emphasise neutral spine while symptoms persist."
-      }
-    ],
-    "instructions": [
-      "Stand with feet hip-width apart and the barbell on the floor over the mid-foot.",
-      "Hinge to a flat back parallel to the floor and grip the bar shoulder-width.",
-      "Row the bar explosively to the lower ribs and lower it back to the floor under control between reps."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_pendlay_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "bb_pendlay_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -2543,54 +2166,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "bottoms_up_kb_press_v1",
-    "nameKey": "exercises:bottoms_up_kb_press_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "avantbras"
-    ],
-    "equipment": [
-      "kettlebell"
-    ],
-    "level": "expert",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hold a kettlebell at the shoulder with the bell up and the handle gripped tight.",
-      "Press the kettlebell overhead keeping the bell balanced upside down.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bottoms_up_kb_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "bottoms_up_kb_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
   },
   {
     "id": "bound_alternating_v1",
@@ -3453,53 +3028,6 @@
     ]
   },
   {
-    "id": "chinup_v1",
-    "nameKey": "exercises:chinup_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "trapezi"
-    ],
-    "equipment": [
-      "barra_dominades"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hang from a pull-up bar with palms facing the body shoulder-width.",
-      "Pull the chest toward the bar by driving the elbows down.",
-      "Lower in 2–3 seconds to a dead hang."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "chinup_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "chinup_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "clap_pushup_v1",
     "nameKey": "exercises:clap_pushup_v1",
     "primaryMuscles": [
@@ -3541,53 +3069,6 @@
           "ingestedAt": "2026-04-28T20:40:53.260Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: plyometrics & power (batch 4/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "close_grip_pushup_v1",
-    "nameKey": "exercises:close_grip_pushup_v1",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "deltoides"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a high plank with hands directly under the shoulders or slightly closer.",
-      "Lower the chest with the elbows tracking close to the ribs.",
-      "Press back up to the start without flaring the elbows."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "close_grip_pushup_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "close_grip_pushup_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -3944,53 +3425,6 @@
     ]
   },
   {
-    "id": "cuban_press_db_v1",
-    "nameKey": "exercises:cuban_press_db_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand with a light dumbbell in each hand and elbows bent to 90° at chest height.",
-      "Externally rotate the shoulders bringing the dumbbells to the ears.",
-      "Press overhead, then reverse the motion to return."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "cuban_press_db_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "cuban_press_db_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "curtsy_lunge_v1",
     "nameKey": "exercises:curtsy_lunge_v1",
     "primaryMuscles": [
@@ -4170,52 +3604,6 @@
     }
   },
   {
-    "id": "db_chest_fly_v1",
-    "nameKey": "exercises:db_chest_fly_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on a bench with a dumbbell in each hand pressed over the chest, elbows slightly bent.",
-      "Lower the dumbbells out to the sides in an arc until you feel a chest stretch.",
-      "Reverse the motion squeezing the chest at the top."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_chest_fly_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_chest_fly_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "db_chest_supported_row_v1",
     "nameKey": "exercises:db_chest_supported_row_v1",
     "primaryMuscles": [
@@ -4304,192 +3692,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_cross_body_hammer_curl_v1",
-    "nameKey": "exercises:db_cross_body_hammer_curl_v1",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with a dumbbell in each hand, palms facing the body.",
-      "Curl one dumbbell across the body toward the opposite shoulder.",
-      "Lower under control and alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_cross_body_hammer_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_cross_body_hammer_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_decline_press_v1",
-    "nameKey": "exercises:db_decline_press_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on a decline bench with a dumbbell in each hand at chest height.",
-      "Press both dumbbells up over the chest until the arms are extended.",
-      "Lower in 2–3 seconds back to the chest."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_decline_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_decline_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_flat_press_v1",
-    "nameKey": "exercises:db_flat_press_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on a bench with a dumbbell in each hand at chest height.",
-      "Press both dumbbells up over the chest until the arms are extended.",
-      "Lower in 2–3 seconds back to the chest."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_flat_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_flat_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_front_raise_v1",
-    "nameKey": "exercises:db_front_raise_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "pectoral"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with a dumbbell in each hand resting on the front of the thighs.",
-      "Raise the dumbbells straight up to shoulder height with arms slightly bent.",
-      "Lower in 2–3 seconds back to the thighs."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_front_raise_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_front_raise_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -4635,147 +3837,6 @@
     }
   },
   {
-    "id": "db_incline_curl_v1",
-    "nameKey": "exercises:db_incline_curl_v1",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit on an incline bench with a dumbbell in each hand and arms hanging down.",
-      "Curl the dumbbells up keeping the elbows pinned at the sides.",
-      "Lower in 2–3 seconds back to a full stretch."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_incline_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_incline_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_kickback_v1",
-    "nameKey": "exercises:db_kickback_v1",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hinge at the hips holding a dumbbell with one hand and brace with the other on a bench or knee.",
-      "With the upper arm parallel to the floor, extend the elbow back until the arm is straight.",
-      "Lower under control to 90°; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_kickback_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_kickback_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_kroc_row_v1",
-    "nameKey": "exercises:db_kroc_row_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "biceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hinge at the hips with one hand braced on a stable surface and a heavy dumbbell in the other.",
-      "Row the dumbbell explosively to the hip allowing some controlled body english.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_kroc_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_kroc_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "db_lateral_raise_v1",
     "nameKey": "exercises:db_lateral_raise_v1",
     "primaryMuscles": [
@@ -4817,194 +3878,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_lying_external_rotation_v1",
-    "nameKey": "exercises:db_lying_external_rotation_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "trapezi"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on one side with a light dumbbell in the top hand and the elbow tucked at 90° on the ribs.",
-      "Rotate the forearm up to the ceiling without moving the elbow.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_lying_external_rotation_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_lying_external_rotation_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_meadows_row_v1",
-    "nameKey": "exercises:db_meadows_row_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "biceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand in a staggered stance and hinge at the hips, bracing one hand on the front knee.",
-      "Row a dumbbell from the floor up to the hip with the other hand keeping the elbow high.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_meadows_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_meadows_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_overhead_tricep_extension_v1",
-    "nameKey": "exercises:db_overhead_tricep_extension_v1",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand or sit holding a dumbbell with both hands overhead, arms extended.",
-      "Bend the elbows lowering the dumbbell behind the head.",
-      "Extend the arms back to the start without flaring the elbows."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_overhead_tricep_extension_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_overhead_tricep_extension_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_pullover_lat_v1",
-    "nameKey": "exercises:db_pullover_lat_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "triceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia",
-      "mobilitat_toracica"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on a bench holding a dumbbell with both hands above the chest, arms slightly bent.",
-      "Lower the dumbbell back over the head until you feel a stretch through the lats and chest.",
-      "Pull the dumbbell back over the chest contracting the lats."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_pullover_lat_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_pullover_lat_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -5163,53 +4036,6 @@
     }
   },
   {
-    "id": "db_rear_delt_row_v1",
-    "nameKey": "exercises:db_rear_delt_row_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "dorsal"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hinge at the hips with a dumbbell in each hand, arms hanging.",
-      "Row the dumbbells to the sides flaring the elbows wide squeezing the rear delts.",
-      "Lower in 2–3 seconds back to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_rear_delt_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_rear_delt_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "db_renegade_row_v1",
     "nameKey": "exercises:db_renegade_row_v1",
     "primaryMuscles": [
@@ -5254,53 +4080,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_seated_overhead_press_v1",
-    "nameKey": "exercises:db_seated_overhead_press_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "trapezi"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit upright on a bench with a dumbbell in each hand at the shoulders, palms forward.",
-      "Press both dumbbells overhead until the arms are fully extended.",
-      "Lower in 2–3 seconds back to the shoulders."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_seated_overhead_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_seated_overhead_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -5502,52 +4281,6 @@
     }
   },
   {
-    "id": "db_spider_curl_v1",
-    "nameKey": "exercises:db_spider_curl_v1",
-    "primaryMuscles": [
-      "biceps"
-    ],
-    "secondaryMuscles": [
-      "avantbras"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie chest-down on an incline bench with a dumbbell in each hand and arms hanging vertically.",
-      "Curl the dumbbells up squeezing the biceps at the top.",
-      "Lower in 2–3 seconds back to a full stretch."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_spider_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_spider_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "db_thruster_v1",
     "nameKey": "exercises:db_thruster_v1",
     "primaryMuscles": [
@@ -5592,99 +4325,6 @@
           "ingestedAt": "2026-04-28T20:40:53.260Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: plyometrics & power (batch 4/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_wrist_curl_v1",
-    "nameKey": "exercises:db_wrist_curl_v1",
-    "primaryMuscles": [
-      "avantbras"
-    ],
-    "secondaryMuscles": [
-      "biceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "prehab"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit with the forearm resting on a bench or thigh, dumbbell in hand palm up.",
-      "Lower the dumbbell as the wrist extends, then curl the wrist back up.",
-      "Repeat for the prescribed reps and switch sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_wrist_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_wrist_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_z_press_v1",
-    "nameKey": "exercises:db_z_press_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "abdominal"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "core_estabilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit on the floor with legs extended in front and a dumbbell in each hand at the shoulders.",
-      "Press the dumbbells overhead while keeping the torso vertical.",
-      "Lower in 2–3 seconds back to the shoulders."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_z_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "db_z_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -5870,53 +4510,6 @@
           "ingestedAt": "2026-04-28T20:07:56.067Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: pregnancy and postpartum (batch 3/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "dead_hang_v1",
-    "nameKey": "exercises:dead_hang_v1",
-    "primaryMuscles": [
-      "avantbras"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "trapezi"
-    ],
-    "equipment": [
-      "barra_dominades"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "forca",
-      "mobilitat_toracica"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hang from a pull-up bar with both hands shoulder-width apart and arms fully extended.",
-      "Relax the shoulders and let them stretch up while gripping firmly.",
-      "Hold for the prescribed time."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "dead_hang_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "dead_hang_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -7495,53 +6088,6 @@
     }
   },
   {
-    "id": "handstand_pushup_wall_v1",
-    "nameKey": "exercises:handstand_pushup_wall_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "trapezi"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "expert",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "equilibri"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Kick up to a handstand against a wall with hands shoulder-width apart.",
-      "Lower the head toward the floor by bending the elbows.",
-      "Press back up to a full handstand without breaking form."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "handstand_pushup_wall_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "handstand_pushup_wall_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "hang_clean_v1",
     "nameKey": "exercises:hang_clean_v1",
     "primaryMuscles": [
@@ -8096,53 +6642,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "inverted_row_feet_elevated_v1",
-    "nameKey": "exercises:inverted_row_feet_elevated_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "biceps"
-    ],
-    "equipment": [
-      "anelles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hang under a set of rings or a low bar with the heels resting on a bench, body in a straight line.",
-      "Pull the chest to the rings driving the elbows back.",
-      "Lower in 2–3 seconds back to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "inverted_row_feet_elevated_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "inverted_row_feet_elevated_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
   },
   {
     "id": "IT_Band_and_Glute_Stretch",
@@ -10042,53 +8541,6 @@
     }
   },
   {
-    "id": "pike_pushup_v1",
-    "nameKey": "exercises:pike_pushup_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "triceps",
-      "trapezi"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a downward-dog position with hips high and hands shoulder-width.",
-      "Lower the head toward the floor by bending the elbows.",
-      "Press back up to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "pike_pushup_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "pike_pushup_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Piriformis-SMR",
     "nameKey": "exercises:Piriformis-SMR",
     "primaryMuscles": [
@@ -11346,52 +9798,6 @@
     ]
   },
   {
-    "id": "prone_yt_raise_v1",
-    "nameKey": "exercises:prone_yt_raise_v1",
-    "primaryMuscles": [
-      "trapezi"
-    ],
-    "secondaryMuscles": [
-      "deltoides"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "mobilitat_toracica"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie face-down on the floor with arms extended overhead in a Y.",
-      "Lift the arms off the floor and hold briefly, then move to a T position and lift again.",
-      "Lower under control between positions and repeat the sequence."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "prone_yt_raise_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "prone_yt_raise_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "pullup_neutral_grip_v1",
     "nameKey": "exercises:pullup_neutral_grip_v1",
     "primaryMuscles": [
@@ -12421,53 +10827,6 @@
           "ingestedAt": "2026-04-28T20:00:28.285Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: mobility, yoga and breathwork (batch 2/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "seal_row_v1",
-    "nameKey": "exercises:seal_row_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "biceps"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie chest-down on an elevated bench with a dumbbell in each hand and arms hanging.",
-      "Row both dumbbells to the ribs squeezing the shoulder blades.",
-      "Lower under control to a full stretch."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "seal_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "seal_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -14539,52 +12898,6 @@
     }
   },
   {
-    "id": "svend_press_v1",
-    "nameKey": "exercises:svend_press_v1",
-    "primaryMuscles": [
-      "pectoral"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "triceps"
-    ],
-    "equipment": [
-      "discos"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall pressing two small plates together at chest height with both hands.",
-      "Press the plates straight out in front while squeezing them together.",
-      "Return to the chest under control."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "svend_press_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "svend_press_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "swiss_ball_hamstring_curl_v1",
     "nameKey": "exercises:swiss_ball_hamstring_curl_v1",
     "primaryMuscles": [
@@ -14892,53 +13205,6 @@
           "ingestedAt": "2026-04-28T20:00:28.285Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: mobility, yoga and breathwork (batch 2/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "tricep_dip_chair_v1",
-    "nameKey": "exercises:tricep_dip_chair_v1",
-    "primaryMuscles": [
-      "triceps"
-    ],
-    "secondaryMuscles": [
-      "pectoral",
-      "deltoides"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit on the edge of a sturdy chair with hands on the front of the seat and feet on the floor.",
-      "Slide the hips off the chair and lower by bending the elbows to ~90°.",
-      "Press back up to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "tricep_dip_chair_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "tricep_dip_chair_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }
@@ -15408,53 +13674,6 @@
     }
   },
   {
-    "id": "wall_slide_v1",
-    "nameKey": "exercises:wall_slide_v1",
-    "primaryMuscles": [
-      "trapezi"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "dorsal"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "mobility",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "mobilitat_toracica",
-      "prehab"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand with the back, head and arms against a wall, elbows at 90° in a goalpost.",
-      "Slide the arms overhead keeping contact with the wall.",
-      "Pull back down to the start without losing contact."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "wall_slide_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "wall_slide_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "warrior_one_v1",
     "nameKey": "exercises:warrior_one_v1",
     "primaryMuscles": [
@@ -15882,53 +14101,6 @@
     }
   },
   {
-    "id": "wide_grip_pullup_v1",
-    "nameKey": "exercises:wide_grip_pullup_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "biceps",
-      "trapezi"
-    ],
-    "equipment": [
-      "barra_dominades"
-    ],
-    "level": "expert",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hang from a pull-up bar with palms facing away wider than shoulder-width.",
-      "Pull the chest toward the bar by driving the elbows down and out.",
-      "Lower in 2–3 seconds to a dead hang."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "wide_grip_pullup_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "wide_grip_pullup_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Wide-Grip_Lat_Pulldown",
     "nameKey": "exercises:Wide-Grip_Lat_Pulldown",
     "primaryMuscles": [
@@ -16059,53 +14231,6 @@
           "ingestedAt": "2026-04-28T20:00:28.285Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: mobility, yoga and breathwork (batch 2/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "ytwl_complex_v1",
-    "nameKey": "exercises:ytwl_complex_v1",
-    "primaryMuscles": [
-      "trapezi"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "dorsal"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "mobilitat_toracica"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie face-down on an incline bench with a light dumbbell in each hand.",
-      "Move the arms through Y, T, W and L positions raising the dumbbells with shoulder blades retracted.",
-      "Lower under control between positions and repeat the sequence."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "ytwl_complex_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-strength-accessories",
-          "sourceExternalId": "ytwl_complex_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T07:11:09.368Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: strength accessories (batch 6/8)."
         }
       ]
     }

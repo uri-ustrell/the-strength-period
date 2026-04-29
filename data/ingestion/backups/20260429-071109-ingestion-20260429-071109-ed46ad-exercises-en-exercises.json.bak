@@ -15,21 +15,16 @@
   "Balance_Board": "Balance Board",
   "Ball_Leg_Curl": "Ball Leg Curl",
   "band_bicep_curl_v1": "Band Bicep Curl",
-  "band_chest_fly_v1": "Banded Chest Fly",
   "band_chest_press_standing_v1": "Band Chest Press (Standing)",
-  "band_concentration_curl_v1": "Banded Concentration Curl",
-  "band_external_rotation_v1": "Banded External Rotation",
   "band_face_pull_v1": "Band Face Pull",
   "Band_Good_Morning": "Band Good Morning",
   "Band_Hip_Adductions": "Band Hip Adductions",
-  "band_internal_rotation_v1": "Banded Internal Rotation",
   "band_lateral_walk_v1": "Band Lateral Walk",
   "band_monster_walk_v1": "Banded Monster Walk",
   "band_overhead_press_v1": "Band Overhead Press",
   "Band_Pull_Apart": "Band Pull Apart",
   "band_seated_abduction_v1": "Banded Seated Hip Abduction",
   "band_squat_v1": "Band Squat",
-  "band_tricep_overhead_extension_v1": "Banded Overhead Triceps Extension",
   "band_tricep_pushdown_v1": "Band Tricep Pushdown",
   "Barbell_Bench_Press_-_Medium_Grip": "Barbell Bench Press - Medium Grip",
   "Barbell_Deadlift": "Barbell Deadlift",
@@ -38,15 +33,12 @@
   "Barbell_Lunge": "Barbell Lunge",
   "Barbell_Squat": "Barbell Squat",
   "Barbell_Step_Ups": "Barbell Step Ups",
-  "bb_bench_press_v1": "Barbell Bench Press",
   "bb_bent_over_row_v1": "Barbell Bent-Over Row",
   "bb_bicep_curl_v1": "Barbell Bicep Curl",
   "bb_close_grip_bench_v1": "Close-Grip Bench Press",
-  "bb_drag_curl_v1": "Barbell Drag Curl",
   "bb_good_morning_v1": "Barbell Good Morning",
   "bb_hip_thrust_v1": "Barbell Hip Thrust",
   "bb_overhead_press_v1": "Barbell Overhead Press",
-  "bb_pendlay_row_v1": "Pendlay Row",
   "bb_rdl_v1": "Barbell Romanian Deadlift",
   "bb_shrug_v1": "Barbell Shrug",
   "Bench_Dips": "Bench Dips",
@@ -57,7 +49,6 @@
   "body_scan_v1": "Body Scan Relaxation",
   "Bodyweight_Squat": "Bodyweight Squat",
   "Bodyweight_Walking_Lunge": "Bodyweight Walking Lunge",
-  "bottoms_up_kb_press_v1": "Bottoms-Up Kettlebell Press",
   "bound_alternating_v1": "Alternating Bounds",
   "box_breathing_v1": "Box Breathing 4-4-4-4",
   "Box_Jump_Multiple_Response": "Box Jump - Multiple Response",
@@ -77,9 +68,7 @@
   "Childs_Pose": "Child's Pose",
   "childs_pose_v1": "Child's Pose",
   "Chin-Up": "Chin-Up",
-  "chinup_v1": "Chin-Up",
   "clap_pushup_v1": "Clap Push-Up",
-  "close_grip_pushup_v1": "Close-Grip Push-Up",
   "cobra_pose_v1": "Cobra Pose",
   "coherent_breathing_v1": "Coherent Breathing",
   "copenhagen_plank_v1": "Copenhagen Plank",
@@ -88,48 +77,29 @@
   "Cross-Body_Crunch": "Cross-Body Crunch",
   "Crossover_Reverse_Lunge": "Crossover Reverse Lunge",
   "Crunches": "Crunches",
-  "cuban_press_db_v1": "Cuban Press",
   "curtsy_lunge_v1": "Curtsy Lunge",
   "Dancers_Stretch": "Dancer's Stretch",
   "db_arnold_press_v1": "Arnold Press",
   "db_bulgarian_split_squat_v1": "Dumbbell Bulgarian Split Squat",
-  "db_chest_fly_v1": "Dumbbell Chest Fly",
   "db_chest_supported_row_v1": "Chest-Supported Dumbbell Row",
   "db_concentration_curl_v1": "Concentration Curl",
-  "db_cross_body_hammer_curl_v1": "Dumbbell Cross-Body Hammer Curl",
-  "db_decline_press_v1": "Dumbbell Decline Bench Press",
-  "db_flat_press_v1": "Dumbbell Flat Bench Press",
-  "db_front_raise_v1": "Dumbbell Front Raise",
   "db_hammer_curl_v1": "Dumbbell Hammer Curl",
   "db_hip_thrust_v1": "Dumbbell Hip Thrust",
   "db_incline_bench_press_v1": "Incline Dumbbell Bench Press",
-  "db_incline_curl_v1": "Dumbbell Incline Curl",
-  "db_kickback_v1": "Dumbbell Triceps Kickback",
-  "db_kroc_row_v1": "Dumbbell Kroc Row",
   "db_lateral_raise_v1": "Dumbbell Lateral Raise",
-  "db_lying_external_rotation_v1": "Dumbbell Lying External Rotation",
-  "db_meadows_row_v1": "Meadows Row",
-  "db_overhead_tricep_extension_v1": "Dumbbell Overhead Triceps Extension",
-  "db_pullover_lat_v1": "Dumbbell Pullover",
   "db_pullover_v1": "Dumbbell Pullover",
   "db_rdl_v1": "Dumbbell Romanian Deadlift",
   "db_rear_delt_fly_v1": "Dumbbell Rear Delt Fly",
-  "db_rear_delt_row_v1": "Dumbbell Rear Delt Row",
   "db_renegade_row_v1": "Renegade Row",
-  "db_seated_overhead_press_v1": "Dumbbell Seated Overhead Press",
   "db_side_bend_v1": "Dumbbell Side Bend",
   "db_single_arm_row_v1": "Single-Arm Dumbbell Row",
   "db_skullcrusher_v1": "Dumbbell Skullcrusher",
   "db_snatch_v1": "Dumbbell Snatch",
-  "db_spider_curl_v1": "Dumbbell Spider Curl",
   "db_thruster_v1": "Dumbbell Thruster",
-  "db_wrist_curl_v1": "Dumbbell Wrist Curl",
-  "db_z_press_v1": "Dumbbell Z-Press",
   "db_zottman_curl_v1": "Zottman Curl",
   "Dead_Bug": "Dead Bug",
   "dead_bug_loaded_v1": "Loaded Dead Bug",
   "dead_bug_neutral_pelvis_v1": "Dead Bug (Neutral Pelvis)",
-  "dead_hang_v1": "Dead Hang",
   "Decline_Crunch": "Decline Crunch",
   "Decline_Oblique_Crunch": "Decline Oblique Crunch",
   "deep_squat_release_v1": "Deep Squat Pelvic Release",
@@ -166,7 +136,6 @@
   "Groin_and_Back_Stretch": "Groin and Back Stretch",
   "half_kneeling_chop_v1": "Half-Kneeling Chop",
   "half_kneeling_lift_v1": "Half-Kneeling Lift",
-  "handstand_pushup_wall_v1": "Wall Handstand Push-Up",
   "hang_clean_v1": "Barbell Hang Clean",
   "Hanging_Leg_Raise": "Hanging Leg Raise",
   "happy_baby_pose_v1": "Happy Baby",
@@ -179,7 +148,6 @@
   "Hyperextensions_Back_Extensions": "Hyperextensions / Back Extensions",
   "incline_plank_pregnancy_v1": "Incline Plank on Bench",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Hip Flexor and Quad Stretch",
-  "inverted_row_feet_elevated_v1": "Feet-Elevated Inverted Row",
   "IT_Band_and_Glute_Stretch": "IT Band and Glute Stretch",
   "Jackknife_Sit-Up": "Jackknife Sit-Up",
   "kb_clean_v1": "Kettlebell Clean",
@@ -221,7 +189,6 @@
   "pec_release_ball_v1": "Pec Release with Massage Ball",
   "pelvic_clock_v1": "Pelvic Clock",
   "pigeon_pose_v1": "Pigeon Pose",
-  "pike_pushup_v1": "Pike Push-Up",
   "Piriformis-SMR": "Piriformis - Self-Myofascial Release",
   "pistol_squat_assisted_v1": "Assisted Pistol Squat",
   "Plank": "Plank",
@@ -249,7 +216,6 @@
   "postpp_wall_sit_isometric_v1": "Wall Sit (isometric)",
   "progressive_muscle_relaxation_v1": "Progressive Muscle Relaxation",
   "Prone_Manual_Hamstring": "Prone Manual Hamstring",
-  "prone_yt_raise_v1": "Prone Y-T Raise",
   "pullup_neutral_grip_v1": "Neutral-Grip Pull-Up",
   "Pullups": "Pull-Ups",
   "push_press_v1": "Barbell Push Press",
@@ -273,7 +239,6 @@
   "sandbag_squat_v1": "Sandbag Front Squat",
   "sandbag_zercher_squat_v1": "Sandbag Zercher Squat",
   "savasana_v1": "Savasana",
-  "seal_row_v1": "Seal Row",
   "seated_box_jump_v1": "Seated Box Jump",
   "Seated_Cable_Rows": "Seated Cable Rows",
   "Seated_Calf_Raise": "Seated Calf Raise",
@@ -320,7 +285,6 @@
   "supine_twist_v1": "Supine Spinal Twist",
   "supported_fish_pose_v1": "Supported Fish Pose",
   "supported_squat_chair_v1": "Supported Chair Squat",
-  "svend_press_v1": "Svend Press",
   "swiss_ball_hamstring_curl_v1": "Swiss Ball Hamstring Curl",
   "Thigh_Abductor": "Thigh Abductor",
   "Thigh_Adductor": "Thigh Adductor",
@@ -328,7 +292,6 @@
   "thread_the_needle_v1": "Thread the Needle",
   "tree_pose_v1": "Tree Pose",
   "triangle_pose_v1": "Triangle Pose",
-  "tricep_dip_chair_v1": "Triceps Dip on Chair",
   "Triceps_Pushdown": "Triceps Pushdown",
   "tuck_jump_v1": "Tuck Jump",
   "turkish_get_up_kettlebell_v1": "Turkish Get-Up",
@@ -339,7 +302,6 @@
   "wall_press_core_v1": "Wall Press Core Brace",
   "wall_push_up_v1": "Wall Push-Up",
   "wall_pushup_pregnancy_v1": "Wall Push-Up",
-  "wall_slide_v1": "Wall Slide",
   "warrior_one_v1": "Warrior I",
   "warrior_two_v1": "Warrior II",
   "weighted_vest_burpee_v1": "Weight Vest Burpee",
@@ -349,11 +311,9 @@
   "weighted_vest_ruck_walk_v1": "Weight Vest Ruck Walk",
   "weighted_vest_squat_v1": "Weight Vest Squat",
   "weighted_vest_step_up_v1": "Weight Vest Step-Up",
-  "wide_grip_pullup_v1": "Wide-Grip Pull-Up",
   "Wide-Grip_Lat_Pulldown": "Wide-Grip Lat Pulldown",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Wrist Warm-up Circles",
-  "ytwl_complex_v1": "YTWL Complex",
   "instructions": {
     "ab_wheel_rollout_v1": [
       "Kneel on the floor holding an ab wheel under the shoulders.",
@@ -375,35 +335,15 @@
       "Curl the handles toward your shoulders, keeping elbows fixed at your sides without swinging.",
       "Lower under control over 2 sec."
     ],
-    "band_chest_fly_v1": [
-      "Anchor two bands at chest height behind you and grip a handle in each hand with arms out to the sides.",
-      "Bring the hands together in front of the chest in an arc squeezing the chest.",
-      "Return slowly to the start."
-    ],
     "band_chest_press_standing_v1": [
       "Anchor a resistance band behind you at chest height (door or stable weight).",
       "Grip one end in each hand, one foot slightly forward for stability.",
       "Press handles forward until arms are nearly extended; return slowly over 2 sec."
     ],
-    "band_concentration_curl_v1": [
-      "Sit and step one foot on a band, holding the other end with the same-side hand.",
-      "Brace the elbow against the inner thigh and curl the band up.",
-      "Lower slowly back to the start; complete reps before switching sides."
-    ],
-    "band_external_rotation_v1": [
-      "Anchor a band at elbow height and stand sideways gripping it with the far hand, elbow tucked at 90°.",
-      "Rotate the forearm out away from the body keeping the elbow pinned to the side.",
-      "Return slowly; complete reps before switching sides."
-    ],
     "band_face_pull_v1": [
       "Anchor a band at face height and stand back so it has tension, holding the ends with palms down.",
       "Pull the band toward the face leading with the elbows wide and externally rotating the shoulders.",
       "Return in 2 seconds without losing band tension."
-    ],
-    "band_internal_rotation_v1": [
-      "Anchor a band at elbow height and stand sideways gripping it with the near hand, elbow tucked at 90°.",
-      "Rotate the forearm in across the body keeping the elbow pinned.",
-      "Return slowly; complete reps before switching sides."
     ],
     "band_lateral_walk_v1": [
       "Place a resistance band around your ankles or just above knees; stand with knees slightly bent.",
@@ -430,11 +370,6 @@
       "Push your knees out against the band resistance throughout the squat.",
       "Lower to parallel or below; drive up through your heels."
     ],
-    "band_tricep_overhead_extension_v1": [
-      "Anchor a band low and stand facing away holding the band overhead with both hands.",
-      "Bend the elbows lowering the band behind the head.",
-      "Extend the arms back to the start under control."
-    ],
     "band_tricep_pushdown_v1": [
       "Anchor a band overhead and grip the ends with elbows tucked at the sides.",
       "Press the band down by extending the elbows fully without moving the upper arms.",
@@ -455,11 +390,6 @@
       "Begin to raise the bar as you exhale by pushing the floor with the heel of your foot as you straighten the legs again and go back to the starting position.",
       "Repeat for the recommended amount of repetitions."
     ],
-    "bb_bench_press_v1": [
-      "Lie on a bench with the barbell over the chest, hands just outside shoulder width.",
-      "Lower the bar to the chest in 2–3 seconds tucking the elbows ~45°.",
-      "Press the bar back up to lockout."
-    ],
     "bb_bent_over_row_v1": [
       "Hinge at the hips to about a 45° torso angle, holding the barbell with an overhand grip just outside the knees.",
       "Pull the bar to the lower ribs by leading with the elbows and squeezing the shoulder blades.",
@@ -475,11 +405,6 @@
       "Lower the bar to the lower chest in 2 seconds keeping the elbows tucked at ~30°.",
       "Press the bar back up to lockout without flaring the elbows."
     ],
-    "bb_drag_curl_v1": [
-      "Stand tall with the barbell at hip level, hands shoulder-width apart underhand.",
-      "Curl the bar by dragging it up the body keeping the elbows behind the torso.",
-      "Lower in 2–3 seconds back to the start."
-    ],
     "bb_good_morning_v1": [
       "Stand with the barbell across the upper back, feet hip-width apart.",
       "Hinge at the hips with a slight knee bend lowering the torso toward parallel to the floor.",
@@ -494,11 +419,6 @@
       "Stand with feet hip-width apart and the barbell racked at the shoulders, hands just outside shoulder width.",
       "Press the bar straight up overhead, moving the head slightly forward as the bar passes the face.",
       "Lower in 2–3 seconds back to the front rack with the elbows tucked."
-    ],
-    "bb_pendlay_row_v1": [
-      "Stand with feet hip-width apart and the barbell on the floor over the mid-foot.",
-      "Hinge to a flat back parallel to the floor and grip the bar shoulder-width.",
-      "Row the bar explosively to the lower ribs and lower it back to the floor under control between reps."
     ],
     "bb_rdl_v1": [
       "Stand with the barbell at hip level, hands shoulder-width apart.",
@@ -529,11 +449,6 @@
       "Lie comfortably on the back with arms by the sides and eyes closed.",
       "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
       "Breathe naturally for 10–20 minutes."
-    ],
-    "bottoms_up_kb_press_v1": [
-      "Hold a kettlebell at the shoulder with the bell up and the handle gripped tight.",
-      "Press the kettlebell overhead keeping the bell balanced upside down.",
-      "Lower under control; complete reps before switching sides."
     ],
     "bound_alternating_v1": [
       "Run a few steps to gain rhythm.",
@@ -595,20 +510,10 @@
       "Sit the hips back to the heels and walk the hands forward extending the arms.",
       "Rest the forehead on the mat and breathe slowly into the back."
     ],
-    "chinup_v1": [
-      "Hang from a pull-up bar with palms facing the body shoulder-width.",
-      "Pull the chest toward the bar by driving the elbows down.",
-      "Lower in 2–3 seconds to a dead hang."
-    ],
     "clap_pushup_v1": [
       "Set up in a high plank with hands shoulder-width apart.",
       "Lower the chest and press up explosively clapping the hands together at the top.",
       "Land softly with elbows soft and continue."
-    ],
-    "close_grip_pushup_v1": [
-      "Set up in a high plank with hands directly under the shoulders or slightly closer.",
-      "Lower the chest with the elbows tracking close to the ribs.",
-      "Press back up to the start without flaring the elbows."
     ],
     "cobra_pose_v1": [
       "Lie face-down with hands under the shoulders and elbows tucked.",
@@ -635,11 +540,6 @@
       "Squeeze the back glute and lift the chest tall, keeping the lower back neutral.",
       "Hold for 30–60 seconds breathing slowly; switch sides."
     ],
-    "cuban_press_db_v1": [
-      "Stand with a light dumbbell in each hand and elbows bent to 90° at chest height.",
-      "Externally rotate the shoulders bringing the dumbbells to the ears.",
-      "Press overhead, then reverse the motion to return."
-    ],
     "curtsy_lunge_v1": [
       "Stand tall with feet hip-width apart.",
       "Step one foot back and across the body lowering into a curtsy lunge.",
@@ -655,11 +555,6 @@
       "Lower into a lunge until the front thigh is parallel to the floor.",
       "Drive through the front foot to return to standing."
     ],
-    "db_chest_fly_v1": [
-      "Lie on a bench with a dumbbell in each hand pressed over the chest, elbows slightly bent.",
-      "Lower the dumbbells out to the sides in an arc until you feel a chest stretch.",
-      "Reverse the motion squeezing the chest at the top."
-    ],
     "db_chest_supported_row_v1": [
       "Lie face-down on an incline bench set to ~30°, holding a dumbbell in each hand with arms hanging.",
       "Row both dumbbells toward the rib cage by squeezing the shoulder blades together.",
@@ -669,26 +564,6 @@
       "Sit on a bench with legs spread, holding a dumbbell in one hand and bracing that elbow against the inner thigh.",
       "Curl the dumbbell up to the shoulder while keeping the elbow fixed against the thigh.",
       "Lower in 2 seconds and repeat for all reps before switching arms."
-    ],
-    "db_cross_body_hammer_curl_v1": [
-      "Stand tall with a dumbbell in each hand, palms facing the body.",
-      "Curl one dumbbell across the body toward the opposite shoulder.",
-      "Lower under control and alternate sides."
-    ],
-    "db_decline_press_v1": [
-      "Lie on a decline bench with a dumbbell in each hand at chest height.",
-      "Press both dumbbells up over the chest until the arms are extended.",
-      "Lower in 2–3 seconds back to the chest."
-    ],
-    "db_flat_press_v1": [
-      "Lie on a bench with a dumbbell in each hand at chest height.",
-      "Press both dumbbells up over the chest until the arms are extended.",
-      "Lower in 2–3 seconds back to the chest."
-    ],
-    "db_front_raise_v1": [
-      "Stand tall with a dumbbell in each hand resting on the front of the thighs.",
-      "Raise the dumbbells straight up to shoulder height with arms slightly bent.",
-      "Lower in 2–3 seconds back to the thighs."
     ],
     "db_hammer_curl_v1": [
       "Stand with a dumbbell in each hand by the sides, palms facing the body (neutral grip).",
@@ -705,45 +580,10 @@
       "Press both dumbbells up and slightly inward until the arms are extended without locking the elbows.",
       "Lower the dumbbells in 2–3 seconds until the elbows reach roughly chest level, keeping the shoulder blades retracted."
     ],
-    "db_incline_curl_v1": [
-      "Sit on an incline bench with a dumbbell in each hand and arms hanging down.",
-      "Curl the dumbbells up keeping the elbows pinned at the sides.",
-      "Lower in 2–3 seconds back to a full stretch."
-    ],
-    "db_kickback_v1": [
-      "Hinge at the hips holding a dumbbell with one hand and brace with the other on a bench or knee.",
-      "With the upper arm parallel to the floor, extend the elbow back until the arm is straight.",
-      "Lower under control to 90°; complete reps before switching sides."
-    ],
-    "db_kroc_row_v1": [
-      "Hinge at the hips with one hand braced on a stable surface and a heavy dumbbell in the other.",
-      "Row the dumbbell explosively to the hip allowing some controlled body english.",
-      "Lower under control; complete reps before switching sides."
-    ],
     "db_lateral_raise_v1": [
       "Stand with a dumbbell in each hand, arms relaxed by the sides, slight bend in the elbows.",
       "Raise both arms out to the sides until they reach shoulder height, leading with the elbows.",
       "Lower in 2–3 seconds back to the starting position without swinging."
-    ],
-    "db_lying_external_rotation_v1": [
-      "Lie on one side with a light dumbbell in the top hand and the elbow tucked at 90° on the ribs.",
-      "Rotate the forearm up to the ceiling without moving the elbow.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "db_meadows_row_v1": [
-      "Stand in a staggered stance and hinge at the hips, bracing one hand on the front knee.",
-      "Row a dumbbell from the floor up to the hip with the other hand keeping the elbow high.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "db_overhead_tricep_extension_v1": [
-      "Stand or sit holding a dumbbell with both hands overhead, arms extended.",
-      "Bend the elbows lowering the dumbbell behind the head.",
-      "Extend the arms back to the start without flaring the elbows."
-    ],
-    "db_pullover_lat_v1": [
-      "Lie on a bench holding a dumbbell with both hands above the chest, arms slightly bent.",
-      "Lower the dumbbell back over the head until you feel a stretch through the lats and chest.",
-      "Pull the dumbbell back over the chest contracting the lats."
     ],
     "db_pullover_v1": [
       "Lie supine on a bench with both hands holding one dumbbell over the chest, elbows slightly bent.",
@@ -760,20 +600,10 @@
       "Raise both arms out to the sides squeezing the shoulder blades together until the upper arms reach torso level.",
       "Lower in 2 seconds back to the start under control."
     ],
-    "db_rear_delt_row_v1": [
-      "Hinge at the hips with a dumbbell in each hand, arms hanging.",
-      "Row the dumbbells to the sides flaring the elbows wide squeezing the rear delts.",
-      "Lower in 2–3 seconds back to the start."
-    ],
     "db_renegade_row_v1": [
       "Set up in a push-up position with hands on two dumbbells placed shoulder-width apart, feet wider than hips.",
       "Row one dumbbell to the side of the rib cage while keeping the hips square to the floor.",
       "Lower under control and alternate sides for the prescribed reps."
-    ],
-    "db_seated_overhead_press_v1": [
-      "Sit upright on a bench with a dumbbell in each hand at the shoulders, palms forward.",
-      "Press both dumbbells overhead until the arms are fully extended.",
-      "Lower in 2–3 seconds back to the shoulders."
     ],
     "db_side_bend_v1": [
       "Stand tall with a dumbbell in one hand and the other hand on the head.",
@@ -795,25 +625,10 @@
       "Drive the hips forward explosively pulling the dumbbell straight overhead in one motion.",
       "Lower to the floor under control and complete reps before switching sides."
     ],
-    "db_spider_curl_v1": [
-      "Lie chest-down on an incline bench with a dumbbell in each hand and arms hanging vertically.",
-      "Curl the dumbbells up squeezing the biceps at the top.",
-      "Lower in 2–3 seconds back to a full stretch."
-    ],
     "db_thruster_v1": [
       "Stand with a dumbbell in each hand racked at the shoulders.",
       "Squat down to parallel keeping the chest up.",
       "Drive up explosively and press the dumbbells overhead in one motion."
-    ],
-    "db_wrist_curl_v1": [
-      "Sit with the forearm resting on a bench or thigh, dumbbell in hand palm up.",
-      "Lower the dumbbell as the wrist extends, then curl the wrist back up.",
-      "Repeat for the prescribed reps and switch sides."
-    ],
-    "db_z_press_v1": [
-      "Sit on the floor with legs extended in front and a dumbbell in each hand at the shoulders.",
-      "Press the dumbbells overhead while keeping the torso vertical.",
-      "Lower in 2–3 seconds back to the shoulders."
     ],
     "db_zottman_curl_v1": [
       "Stand with a dumbbell in each hand at the sides, palms facing forward.",
@@ -829,11 +644,6 @@
       "Lie supine with arms reaching to the ceiling and knees stacked over hips at 90°.",
       "Exhale gently engaging the core and lower the opposite arm and leg toward the floor without arching the back.",
       "Inhale to return; alternate sides."
-    ],
-    "dead_hang_v1": [
-      "Hang from a pull-up bar with both hands shoulder-width apart and arms fully extended.",
-      "Relax the shoulders and let them stretch up while gripping firmly.",
-      "Hold for the prescribed time."
     ],
     "deep_squat_release_v1": [
       "Stand with feet slightly wider than hips, toes turned out.",
@@ -945,11 +755,6 @@
       "Pull the band diagonally up across the body to overhead on the opposite side.",
       "Return slowly; complete reps before switching sides."
     ],
-    "handstand_pushup_wall_v1": [
-      "Kick up to a handstand against a wall with hands shoulder-width apart.",
-      "Lower the head toward the floor by bending the elbows.",
-      "Press back up to a full handstand without breaking form."
-    ],
     "hang_clean_v1": [
       "Stand with the barbell at hip level, hands shoulder-width apart.",
       "Hinge to mid-thigh, explode up driving the hips and pull the bar to a front rack at the shoulders, dropping under to receive it.",
@@ -989,11 +794,6 @@
       "Place the hands on a sturdy bench or chair shoulder-width apart.",
       "Step the feet back into a straight line from head to heels, exhaling and gently lifting the pelvic floor.",
       "Hold for the prescribed time breathing steadily; do not let the lower back sag."
-    ],
-    "inverted_row_feet_elevated_v1": [
-      "Hang under a set of rings or a low bar with the heels resting on a bench, body in a straight line.",
-      "Pull the chest to the rings driving the elbows back.",
-      "Lower in 2–3 seconds back to the start."
     ],
     "kb_clean_v1": [
       "Start with the kettlebell on the floor between the feet, hinge at the hips and grip with one hand.",
@@ -1159,11 +959,6 @@
       "Square the hips and lower the torso over the front shin to your comfortable depth.",
       "Hold breathing slowly; switch sides."
     ],
-    "pike_pushup_v1": [
-      "Set up in a downward-dog position with hips high and hands shoulder-width.",
-      "Lower the head toward the floor by bending the elbows.",
-      "Press back up to the start."
-    ],
     "pistol_squat_assisted_v1": [
       "Hold a TRX, doorframe or post for balance and stand on one leg.",
       "Lower into a single-leg squat extending the free leg in front.",
@@ -1288,11 +1083,6 @@
       "Move up the body tensing and releasing calves, thighs, glutes, abdomen, hands, arms, shoulders and face.",
       "Finish with 1–2 minutes of natural breathing."
     ],
-    "prone_yt_raise_v1": [
-      "Lie face-down on the floor with arms extended overhead in a Y.",
-      "Lift the arms off the floor and hold briefly, then move to a T position and lift again.",
-      "Lower under control between positions and repeat the sequence."
-    ],
     "pullup_neutral_grip_v1": [
       "Hang from parallel pull-up handles with palms facing each other, arms fully extended.",
       "Pull the chest toward the bar by driving the elbows down and back.",
@@ -1378,11 +1168,6 @@
       "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
       "Close the eyes and let the body sink into the mat releasing all muscular effort.",
       "Breathe naturally for 5–15 minutes."
-    ],
-    "seal_row_v1": [
-      "Lie chest-down on an elevated bench with a dumbbell in each hand and arms hanging.",
-      "Row both dumbbells to the ribs squeezing the shoulder blades.",
-      "Lower under control to a full stretch."
     ],
     "seated_box_jump_v1": [
       "Sit on a low box with feet flat and arms by the sides, stationary.",
@@ -1546,11 +1331,6 @@
       "Sit back slowly until the glutes lightly touch the chair, keeping the chest up.",
       "Stand back up driving through the mid-foot."
     ],
-    "svend_press_v1": [
-      "Stand tall pressing two small plates together at chest height with both hands.",
-      "Press the plates straight out in front while squeezing them together.",
-      "Return to the chest under control."
-    ],
     "swiss_ball_hamstring_curl_v1": [
       "Lie on the back with the heels resting on a Swiss ball, arms by the sides.",
       "Lift the hips into a bridge.",
@@ -1575,11 +1355,6 @@
       "Step the feet wide, turn the front foot forward and back foot 90°, arms extended sideways.",
       "Hinge from the front hip reaching the front hand toward the ankle and the top hand to the ceiling.",
       "Keep the chest open and gaze up; switch sides."
-    ],
-    "tricep_dip_chair_v1": [
-      "Sit on the edge of a sturdy chair with hands on the front of the seat and feet on the floor.",
-      "Slide the hips off the chair and lower by bending the elbows to ~90°.",
-      "Press back up to the start."
     ],
     "tuck_jump_v1": [
       "Stand with feet hip-width apart and arms at the sides.",
@@ -1626,11 +1401,6 @@
       "Bend the elbows lowering the chest toward the wall while keeping the body in a straight line.",
       "Press back to the start without locking the elbows."
     ],
-    "wall_slide_v1": [
-      "Stand with the back, head and arms against a wall, elbows at 90° in a goalpost.",
-      "Slide the arms overhead keeping contact with the wall.",
-      "Pull back down to the start without losing contact."
-    ],
     "warrior_one_v1": [
       "Step one foot forward into a long lunge with the back foot turned out 45°.",
       "Bend the front knee over the ankle and reach both arms overhead, palms facing.",
@@ -1676,11 +1446,6 @@
       "Step up driving through the front foot until standing on top.",
       "Step down under control and alternate sides."
     ],
-    "wide_grip_pullup_v1": [
-      "Hang from a pull-up bar with palms facing away wider than shoulder-width.",
-      "Pull the chest toward the bar by driving the elbows down and out.",
-      "Lower in 2–3 seconds to a dead hang."
-    ],
     "world_greatest_stretch_v1": [
       "From a push-up position step the right foot outside the right hand into a deep lunge.",
       "Drop the right elbow toward the instep, then rotate the torso opening the right arm up to the ceiling.",
@@ -1690,11 +1455,6 @@
       "Extend the arms in front and interlock the fingers.",
       "Circle the wrists slowly clockwise for the prescribed reps.",
       "Reverse direction for the same number of reps."
-    ],
-    "ytwl_complex_v1": [
-      "Lie face-down on an incline bench with a light dumbbell in each hand.",
-      "Move the arms through Y, T, W and L positions raising the dumbbells with shoulder blades retracted.",
-      "Lower under control between positions and repeat the sequence."
     ]
   }
 }

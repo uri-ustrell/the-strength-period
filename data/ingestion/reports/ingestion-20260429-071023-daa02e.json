@@ -1,0 +1,546 @@
+{
+  "runId": "ingestion-20260429-071023-daa02e",
+  "startedAt": "2026-04-29T07:10:23.010Z",
+  "completedAt": "2026-04-29T07:10:23.064Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 39,
+    "skipped": 0,
+    "duplicate": 1,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "bb_drag_curl_v1",
+    "db_incline_curl_v1",
+    "db_spider_curl_v1",
+    "band_concentration_curl_v1",
+    "db_cross_body_hammer_curl_v1",
+    "db_overhead_tricep_extension_v1",
+    "db_kickback_v1",
+    "band_tricep_overhead_extension_v1",
+    "close_grip_pushup_v1",
+    "tricep_dip_chair_v1",
+    "bb_pendlay_row_v1",
+    "db_meadows_row_v1",
+    "db_kroc_row_v1",
+    "seal_row_v1",
+    "inverted_row_feet_elevated_v1",
+    "wide_grip_pullup_v1",
+    "chinup_v1",
+    "db_seated_overhead_press_v1",
+    "db_z_press_v1",
+    "db_front_raise_v1",
+    "db_rear_delt_row_v1",
+    "cuban_press_db_v1",
+    "bottoms_up_kb_press_v1",
+    "handstand_pushup_wall_v1",
+    "pike_pushup_v1",
+    "bb_bench_press_v1",
+    "db_flat_press_v1",
+    "db_decline_press_v1",
+    "db_chest_fly_v1",
+    "band_chest_fly_v1",
+    "svend_press_v1",
+    "band_external_rotation_v1",
+    "band_internal_rotation_v1",
+    "db_lying_external_rotation_v1",
+    "ytwl_complex_v1",
+    "prone_yt_raise_v1",
+    "wall_slide_v1",
+    "db_wrist_curl_v1",
+    "dead_hang_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-strength-accessories",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:bb_drag_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "bb_drag_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_drag_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_incline_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_incline_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_incline_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_spider_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_spider_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_spider_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:band_concentration_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "band_concentration_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_concentration_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_cross_body_hammer_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_cross_body_hammer_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_cross_body_hammer_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_overhead_tricep_extension_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_overhead_tricep_extension_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_overhead_tricep_extension_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_kickback_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_kickback_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_kickback_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:band_tricep_overhead_extension_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "band_tricep_overhead_extension_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_tricep_overhead_extension_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:close_grip_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "close_grip_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "close_grip_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:tricep_dip_chair_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "tricep_dip_chair_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "tricep_dip_chair_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:bb_pendlay_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "bb_pendlay_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_pendlay_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_meadows_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_meadows_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_meadows_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_kroc_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_kroc_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_kroc_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:seal_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "seal_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seal_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:inverted_row_feet_elevated_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "inverted_row_feet_elevated_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "inverted_row_feet_elevated_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:wide_grip_pullup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "wide_grip_pullup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wide_grip_pullup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:chinup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "chinup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "chinup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_pullover_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_pullover_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "db_pullover_v1",
+      "duplicateOf": "db_pullover_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_seated_overhead_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_seated_overhead_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_seated_overhead_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_z_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_z_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_z_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_front_raise_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_front_raise_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_front_raise_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_rear_delt_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_rear_delt_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_rear_delt_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:cuban_press_db_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "cuban_press_db_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "cuban_press_db_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:bottoms_up_kb_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "bottoms_up_kb_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bottoms_up_kb_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:handstand_pushup_wall_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "handstand_pushup_wall_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "handstand_pushup_wall_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:pike_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "pike_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pike_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:bb_bench_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "bb_bench_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_bench_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_flat_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_flat_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_flat_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_decline_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_decline_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_decline_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_chest_fly_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_chest_fly_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_chest_fly_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:band_chest_fly_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "band_chest_fly_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_chest_fly_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:svend_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "svend_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "svend_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:band_external_rotation_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "band_external_rotation_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_external_rotation_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:band_internal_rotation_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "band_internal_rotation_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "band_internal_rotation_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_lying_external_rotation_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_lying_external_rotation_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_lying_external_rotation_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:ytwl_complex_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "ytwl_complex_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "ytwl_complex_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:prone_yt_raise_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "prone_yt_raise_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "prone_yt_raise_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:wall_slide_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "wall_slide_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wall_slide_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_wrist_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "db_wrist_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_wrist_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:dead_hang_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "sourceExternalId": "dead_hang_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "dead_hang_v1"
+    }
+  ]
+}

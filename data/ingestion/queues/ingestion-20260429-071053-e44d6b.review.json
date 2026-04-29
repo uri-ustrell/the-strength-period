@@ -1,0 +1,17 @@
+{
+  "runId": "ingestion-20260429-071053-e44d6b",
+  "createdAt": "2026-04-29T07:10:53.128Z",
+  "items": [
+    {
+      "candidateId": "bulk-x3-strength-accessories:exercise:db_pullover_lat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-strength-accessories",
+      "canonicalId": "db_pullover_lat_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}
