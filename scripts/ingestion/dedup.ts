@@ -241,7 +241,7 @@ export function deduplicateCandidate(
   }
 
   const candidateTokens = tokenize(candidate.titleFingerprint)
-  const candidateMuscles = Object.keys(candidate.canonical.muscleDistribution)
+  const candidateMuscles = Object.keys(candidate.canonical.muscleDistribution ?? {})
   let bestMatch: { id: string; score: number } | null = null
 
   for (const existing of context.presetSnapshots) {
@@ -299,7 +299,7 @@ export function registerAcceptedCandidate(
       id: canonicalId,
       slug: candidate.slugFingerprint,
       titleTokens: tokenize(candidate.titleFingerprint),
-      muscleKeys: Object.keys(candidate.canonical.muscleDistribution),
+      muscleKeys: Object.keys(candidate.canonical.muscleDistribution ?? {}),
     })
   }
 

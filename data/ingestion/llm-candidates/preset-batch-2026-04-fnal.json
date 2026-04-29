@@ -1,0 +1,1005 @@
+{
+  "presets": [
+    {
+      "kind": "preset",
+      "sourceExternalId": "hiit_corredor_curt_v1",
+      "title": "HIIT curt per a corredors",
+      "description": "Tres sessions setmanals d'intervals curts amb corda, bicicleta i salts per estimular la potència aeròbica i la tolerància al lactat.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "velocitat", "resistencia", "pliometria"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Estímul cardiometabòlic curt i intens; pot contribuir a millorar VO2max i economia de cursa quan es combina amb tirades fàcils.",
+      "sessions": [
+        {
+          "label": "Sessió A · Comba i bici",
+          "exercises": [
+            { "exerciseId": "jumprope_basic_v1", "sets": 4, "reps": 30, "restSeconds": 60, "rpe": 7 },
+            { "exerciseId": "bike_tabata_v1", "sets": 1, "reps": 8, "restSeconds": 120, "rpe": 9 },
+            { "exerciseId": "squat_jump_v1", "sets": 3, "reps": 10, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Intervals 400 m",
+          "exercises": [
+            { "exerciseId": "interval_400m_v1", "sets": 6, "reps": 1, "restSeconds": 180, "rpe": 8 },
+            { "exerciseId": "skater_jump_v1", "sets": 3, "reps": 12, "restSeconds": 75, "rpe": 7 },
+            { "exerciseId": "dead_bug_neutral_pelvis_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Tabata mixt",
+          "exercises": [
+            { "exerciseId": "jumprope_double_under_v1", "sets": 4, "reps": 20, "restSeconds": 60, "rpe": 8 },
+            { "exerciseId": "burpee_jump_v1", "sets": 4, "reps": 10, "restSeconds": 60, "rpe": 8 },
+            { "exerciseId": "high_knee_run_v1", "sets": 4, "reps": 20, "restSeconds": 60, "rpe": 7 },
+            { "exerciseId": "hollow_body_hold_v1", "sets": 3, "reps": 20, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "condicionament_kb_corredor_v1",
+      "title": "Condicionament amb kettlebell per a corredors",
+      "description": "Bloc de tres sessions amb complexes de kettlebell i sandbag per millorar la resistència muscular i la capacitat de treball.",
+      "durationOptions": [6, 8, 10],
+      "requiredTags": ["corredor", "resistencia", "forca", "potencia"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 5,
+      "notes": "Combina ballistics i grinds en format circuit; pot ajudar a millorar la robustesa muscular dels corredors amb poc temps disponible.",
+      "sessions": [
+        {
+          "label": "Sessió A · Complex KB bàsic",
+          "exercises": [
+            { "exerciseId": "kb_complex_simple_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "kb_swing_two_handed_v1", "sets": 4, "reps": 15, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 3, "reps": 10, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Sandbag i transports",
+          "exercises": [
+            { "exerciseId": "sandbag_clean_v1", "sets": 4, "reps": 8, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "sandbag_bear_hug_carry_v1", "sets": 3, "reps": 20, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "farmer_carry_interval_v1", "sets": 3, "reps": 20, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "pallof_press_band_v1", "sets": 3, "reps": 12, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Thrusters i empeny",
+          "exercises": [
+            { "exerciseId": "kb_thruster_v1", "sets": 4, "reps": 8, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "sandbag_sled_push_v1", "sets": 4, "reps": 20, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "kb_swing_one_handed_v1", "sets": 3, "reps": 12, "restSeconds": 75 },
+            { "exerciseId": "side_plank_hip_lift_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "intervals_corredor_carrera_v1",
+      "title": "Intervals per a competició",
+      "description": "Bloc d'intervals específics i treball metabòlic per afinar la velocitat de cursa abans d'una competició.",
+      "durationOptions": [4, 6],
+      "requiredTags": ["corredor", "velocitat", "resistencia"],
+      "autoRestrictions": [],
+      "progressionType": "block",
+      "weeklyProgression": 7,
+      "notes": "Volum baix amb intensitat alta; dissenyat per a corredors amb base aeròbica consolidada que volen polir el ritme.",
+      "sessions": [
+        {
+          "label": "Sessió A · Tempo controlat",
+          "exercises": [
+            { "exerciseId": "tempo_run_v1", "sets": 1, "reps": 25, "restSeconds": 0, "rpe": 7 },
+            { "exerciseId": "lateral_box_jump_v1", "sets": 3, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Repeticions curtes",
+          "exercises": [
+            { "exerciseId": "interval_400m_v1", "sets": 8, "reps": 1, "restSeconds": 180, "rpe": 9 },
+            { "exerciseId": "shuttle_run_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "hollow_body_hold_v1", "sets": 3, "reps": 20, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "pliometria_corredor_base_v1",
+      "title": "Pliometria base per a corredors",
+      "description": "Introducció progressiva al treball pliomètric amb salts de baix impacte per estimular la rigidesa elàstica del tendó.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "pliometria", "potencia", "prehab"],
+      "autoRestrictions": ["tendinitis_aquilea"],
+      "progressionType": "linear",
+      "weeklyProgression": 4,
+      "notes": "Volum baix i salts curts inicials; pot contribuir a millorar la rigidesa muscle-tendó si s'introdueix de forma gradual.",
+      "sessions": [
+        {
+          "label": "Sessió A · Salts a un peu",
+          "exercises": [
+            { "exerciseId": "jumprope_basic_v1", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "squat_jump_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 6 },
+            { "exerciseId": "skater_jump_v1", "sets": 3, "reps": 10, "restSeconds": 75, "rpe": 6 },
+            { "exerciseId": "single_leg_rdl_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Box i caigudes",
+          "exercises": [
+            { "exerciseId": "box_jump_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "broad_jump_v1", "sets": 3, "reps": 5, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "bound_alternating_v1", "sets": 3, "reps": 10, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "potencia_trail_baixades_v1",
+      "title": "Potència excèntrica per a baixades",
+      "description": "Tres sessions amb pliometria reactiva i treball excèntric per millorar la tolerància a les baixades de muntanya.",
+      "durationOptions": [6, 8],
+      "requiredTags": ["corredor", "baixada", "pliometria", "potencia"],
+      "autoRestrictions": ["tendinitis_rotuliana", "rehab_genoll"],
+      "progressionType": "block",
+      "weeklyProgression": 7,
+      "notes": "Inclou caigudes des de calaix i excèntrics carregats; evidència suggereix beneficis sobre el dany muscular induït per baixades quan s'integra amb progressió controlada.",
+      "sessions": [
+        {
+          "label": "Sessió A · Caigudes reactives",
+          "exercises": [
+            { "exerciseId": "depth_drop_jump_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "depth_jump_v1", "sets": 3, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "lateral_step_down_v1", "sets": 3, "reps": 10, "restSeconds": 75, "tempo": "4-1-1-0" },
+            { "exerciseId": "single_leg_rdl_balance_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Excèntric controlat",
+          "exercises": [
+            { "exerciseId": "split_squat_jump_v1", "sets": 3, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "single_leg_box_jump_v1", "sets": 3, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "nordic_curl_v1", "sets": 3, "reps": 6, "restSeconds": 120, "tempo": "5-0-1-0", "rpe": 8 },
+            { "exerciseId": "copenhagen_plank_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C · Potència integrada",
+          "exercises": [
+            { "exerciseId": "box_jump_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "lateral_box_jump_v1", "sets": 3, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_swing_two_handed_v1", "sets": 4, "reps": 12, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "side_plank_hip_lift_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "salts_explosivitat_v1",
+      "title": "Explosivitat i salts avançats",
+      "description": "Bloc curt d'alta intensitat per a corredors experimentats amb base pliomètrica consolidada.",
+      "durationOptions": [4, 6],
+      "requiredTags": ["corredor", "pliometria", "potencia", "velocitat"],
+      "autoRestrictions": ["tendinitis_aquilea", "rehab_genoll"],
+      "progressionType": "block",
+      "weeklyProgression": 8,
+      "notes": "Volum baix però alta densitat reactiva; reservat per a corredors amb experiència en pliometria i sense dolor articular actiu.",
+      "sessions": [
+        {
+          "label": "Sessió A · Salts màxims",
+          "exercises": [
+            { "exerciseId": "broad_jump_v1", "sets": 5, "reps": 5, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "tuck_jump_v1", "sets": 4, "reps": 6, "restSeconds": 90, "rpe": 8 },
+            { "exerciseId": "clap_pushup_v1", "sets": 3, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "ab_wheel_rollout_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Reactivitat",
+          "exercises": [
+            { "exerciseId": "depth_jump_v1", "sets": 4, "reps": 5, "restSeconds": 150, "rpe": 9 },
+            { "exerciseId": "bound_alternating_v1", "sets": 4, "reps": 12, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "step_up_jump_v1", "sets": 3, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "pallof_press_split_stance_v1", "sets": 3, "reps": 10, "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "estabilitat_funcional_v1",
+      "title": "Estabilitat funcional integral",
+      "description": "Tres sessions amb superfícies inestables i treball unilateral per millorar el control motor del tren inferior.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "core_estabilitat", "equilibri", "unilateral"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 5,
+      "notes": "Combina bosu, fitball i monopodals; pot contribuir a millorar el control del genoll i el maluc en cursa.",
+      "sessions": [
+        {
+          "label": "Sessió A · Bosu i monopodal",
+          "exercises": [
+            { "exerciseId": "bosu_squat_v1", "sets": 3, "reps": 12, "restSeconds": 60 },
+            { "exerciseId": "single_leg_rdl_balance_v1", "sets": 3, "reps": 8, "restSeconds": 60 },
+            { "exerciseId": "bosu_lunge_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "swissball_dead_bug_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Fitball i core",
+          "exercises": [
+            { "exerciseId": "swissball_plank_v1", "sets": 3, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "swissball_rollout_v1", "sets": 3, "reps": 8, "restSeconds": 60 },
+            { "exerciseId": "swissball_hamstring_curl_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "pallof_press_band_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Y-balance i wobble",
+          "exercises": [
+            { "exerciseId": "y_balance_reach_v1", "sets": 3, "reps": 8, "restSeconds": 45 },
+            { "exerciseId": "wobble_squat_v1", "sets": 3, "reps": 12, "restSeconds": 60 },
+            { "exerciseId": "wobble_calf_raise_v1", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "side_plank_dynamic_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "equilibri_propiocepcio_v1",
+      "title": "Equilibri i propiocepció",
+      "description": "Dues sessions setmanals centrades en propiocepció i control del peu per a la prevenció de torçades de turmell.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "equilibri", "prehab", "rehab_turmell"],
+      "autoRestrictions": ["rehab_turmell"],
+      "progressionType": "linear",
+      "weeklyProgression": 3,
+      "notes": "Volum suau i acumulatiu; pot ajudar a reduir el risc d'inestabilitat funcional del turmell quan s'integra com a part de l'escalfament.",
+      "sessions": [
+        {
+          "label": "Sessió A · Control distal",
+          "exercises": [
+            { "exerciseId": "tandem_stance_walk_v1", "sets": 3, "reps": 20, "restSeconds": 45 },
+            { "exerciseId": "single_leg_stance_eyes_closed_v1", "sets": 3, "reps": 30, "restSeconds": 45 },
+            { "exerciseId": "wobble_single_leg_v1", "sets": 3, "reps": 20, "restSeconds": 45 },
+            { "exerciseId": "massageball_foot_v1", "sets": 2, "reps": 20, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B · Reaccions",
+          "exercises": [
+            { "exerciseId": "y_balance_reach_v1", "sets": 3, "reps": 8, "restSeconds": 45 },
+            { "exerciseId": "single_leg_reach_v1", "sets": 3, "reps": 8, "restSeconds": 45 },
+            { "exerciseId": "lateral_shuffle_v1", "sets": 3, "reps": 15, "restSeconds": 60 },
+            { "exerciseId": "bosu_single_leg_stand_v1", "sets": 3, "reps": 20, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "core_estabilitat_avancat_v1",
+      "title": "Core i estabilitat avançat",
+      "description": "Bloc avançat anti-rotació i anti-extensió per a corredors amb experiència que volen reforçar el tronc.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "core_estabilitat", "anti_rotacio", "isometric"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Centrat en patrons anti-rotació i carries; pot contribuir a millorar la transferència de força entre tren superior i inferior durant la cursa.",
+      "sessions": [
+        {
+          "label": "Sessió A · Anti-rotació",
+          "exercises": [
+            { "exerciseId": "pallof_press_split_stance_v1", "sets": 4, "reps": 10, "restSeconds": 45 },
+            { "exerciseId": "half_kneeling_chop_v1", "sets": 3, "reps": 10, "restSeconds": 45 },
+            { "exerciseId": "single_arm_farmer_carry_v1", "sets": 3, "reps": 20, "restSeconds": 60 },
+            { "exerciseId": "bird_dog_row_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Anti-extensió",
+          "exercises": [
+            { "exerciseId": "ab_wheel_rollout_v1", "sets": 4, "reps": 8, "restSeconds": 60 },
+            { "exerciseId": "body_saw_plank_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "dead_bug_loaded_v1", "sets": 3, "reps": 10, "restSeconds": 45 },
+            { "exerciseId": "hollow_body_hold_v1", "sets": 3, "reps": 30, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Lateral i carries",
+          "exercises": [
+            { "exerciseId": "copenhagen_plank_v1", "sets": 3, "reps": 8, "restSeconds": 60 },
+            { "exerciseId": "side_plank_hip_lift_v1", "sets": 3, "reps": 10, "restSeconds": 45 },
+            { "exerciseId": "suitcase_carry_v1", "sets": 3, "reps": 20, "restSeconds": 60 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "kettlebell_complex_v1",
+      "title": "Complex de kettlebell complet",
+      "description": "Tres sessions de força i potència basades exclusivament en kettlebell per cobrir patrons de hinge, squat i empenta.",
+      "durationOptions": [6, 8, 10],
+      "requiredTags": ["corredor", "forca", "potencia", "resistencia"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Treball ballistic + grinds amb una sola eina; pot contribuir a millorar la força general en corredors amb poc espai i temps.",
+      "sessions": [
+        {
+          "label": "Sessió A · Hinge i swing",
+          "exercises": [
+            { "exerciseId": "kb_swing_two_handed_v1", "sets": 5, "reps": 12, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_swing_one_handed_v1", "sets": 3, "reps": 10, "restSeconds": 75 },
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 4, "reps": 10, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_halo_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Clean i press",
+          "exercises": [
+            { "exerciseId": "kb_clean_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_clean_press_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "kb_press_v1", "sets": 3, "reps": 8, "restSeconds": 90 },
+            { "exerciseId": "bottoms_up_kb_press_v1", "sets": 3, "reps": 6, "restSeconds": 75 }
+          ]
+        },
+        {
+          "label": "Sessió C · Snatch i complex",
+          "exercises": [
+            { "exerciseId": "kb_snatch_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "kb_thruster_v1", "sets": 4, "reps": 8, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "kb_turkish_get_up_v1", "sets": 3, "reps": 4, "restSeconds": 90 },
+            { "exerciseId": "kb_windmill_v1", "sets": 3, "reps": 6, "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "potencia_kb_explosiva_v1",
+      "title": "Potència explosiva amb kettlebell",
+      "description": "Bloc de dues sessions enfocat a la potència ballística amb kettlebell i salts complementaris.",
+      "durationOptions": [4, 6],
+      "requiredTags": ["corredor", "potencia", "pliometria", "forca"],
+      "autoRestrictions": [],
+      "progressionType": "block",
+      "weeklyProgression": 7,
+      "notes": "Volum baix d'alta velocitat; pot contribuir a millorar la taxa de producció de força aplicable a la fase d'impulsió en cursa.",
+      "sessions": [
+        {
+          "label": "Sessió A · Swing-jump",
+          "exercises": [
+            { "exerciseId": "kb_swing_two_handed_v1", "sets": 5, "reps": 10, "restSeconds": 90, "rpe": 8 },
+            { "exerciseId": "squat_jump_v1", "sets": 4, "reps": 6, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 3, "reps": 8, "restSeconds": 90 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Snatch-bound",
+          "exercises": [
+            { "exerciseId": "kb_snatch_v1", "sets": 5, "reps": 6, "restSeconds": 120, "rpe": 8 },
+            { "exerciseId": "bound_alternating_v1", "sets": 3, "reps": 10, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "kb_clean_press_v1", "sets": 3, "reps": 6, "restSeconds": 90 },
+            { "exerciseId": "pallof_press_band_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "accessoris_tren_superior_v1",
+      "title": "Accessoris de tren superior per a corredors",
+      "description": "Tres sessions complementàries de tracció, empenta i treball escapular per equilibrar el volum del tren inferior.",
+      "durationOptions": [6, 8, 10],
+      "requiredTags": ["corredor", "forca", "hipertrofia"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 5,
+      "notes": "Volum moderat de tren superior amb èmfasi en escapular; pot contribuir a millorar la postura i l'eficiència del braceig en distàncies llargues.",
+      "sessions": [
+        {
+          "label": "Sessió A · Empenta",
+          "exercises": [
+            { "exerciseId": "db_seated_overhead_press_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "db_chest_fly_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "db_lateral_raise_v1", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "Triceps_Pushdown", "sets": 3, "reps": 12, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Tracció",
+          "exercises": [
+            { "exerciseId": "pullup_neutral_grip_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "db_single_arm_row_v1", "sets": 3, "reps": 10, "restSeconds": 75 },
+            { "exerciseId": "Face_Pull", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "db_hammer_curl_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Escapular i prehab",
+          "exercises": [
+            { "exerciseId": "Band_Pull_Apart", "sets": 3, "reps": 15, "restSeconds": 45 },
+            { "exerciseId": "band_face_pull_v1", "sets": 3, "reps": 15, "restSeconds": 45 },
+            { "exerciseId": "db_rear_delt_fly_v1", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "inverted_row_feet_elevated_v1", "sets": 3, "reps": 10, "restSeconds": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "forca_bracos_complementaria_v1",
+      "title": "Força de braços complementària",
+      "description": "Dues sessions curtes per afegir treball directe de bíceps i tríceps al volum d'entrenament setmanal.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "hipertrofia", "forca"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 5,
+      "notes": "Bloc accessori de baix volum sistèmic; pot contribuir a equilibrar el desenvolupament del braç en corredors que també practiquen calistènia.",
+      "sessions": [
+        {
+          "label": "Sessió A · Bíceps",
+          "exercises": [
+            { "exerciseId": "bb_bicep_curl_v1", "sets": 4, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "db_incline_curl_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "db_hammer_curl_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "db_concentration_curl_v1", "sets": 3, "reps": 12, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Tríceps",
+          "exercises": [
+            { "exerciseId": "db_overhead_tricep_extension_v1", "sets": 4, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "Triceps_Pushdown", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "tricep_dip_chair_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "band_tricep_overhead_extension_v1", "sets": 3, "reps": 12, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "recuperacio_activa_postcarrera_v1",
+      "title": "Recuperació activa postcarrera",
+      "description": "Sessió única setmanal d'autoalliberament miofascial, mobilitat suau i respiració per facilitar la recuperació entre tirades exigents.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "mobilitat", "tornada_calma", "respiracio"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 1,
+      "notes": "Treball de baixa intensitat; pot ajudar a reduir la sensació subjectiva de fatiga muscular després de sessions exigents.",
+      "sessions": [
+        {
+          "label": "Sessió de recuperació",
+          "exercises": [
+            { "exerciseId": "foam_roll_quad_v1", "sets": 2, "reps": 20, "restSeconds": 30 },
+            { "exerciseId": "foam_roll_calf_v1", "sets": 2, "reps": 20, "restSeconds": 30 },
+            { "exerciseId": "foam_roll_glute_v1", "sets": 2, "reps": 20, "restSeconds": 30 },
+            { "exerciseId": "foam_roll_it_band_v1", "sets": 2, "reps": 20, "restSeconds": 30 },
+            { "exerciseId": "couch_stretch_v1", "sets": 2, "reps": 1, "restSeconds": 30 },
+            { "exerciseId": "pigeon_pose_v1", "sets": 2, "reps": 1, "restSeconds": 30 },
+            { "exerciseId": "diaphragmatic_breathing_v1", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "mobilitat_recuperacio_setmanal_v1",
+      "title": "Mobilitat i recuperació setmanal",
+      "description": "Dues sessions de mobilitat global amb postures dinàmiques i estiraments per millorar el rang articular sense fatiga.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "mobilitat", "iogues", "mobilitat_toracica"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 2,
+      "notes": "Combinació d'estiraments i postures actives; pot contribuir a mantenir el rang funcional de cadera i columna toràcica.",
+      "sessions": [
+        {
+          "label": "Sessió A · Cadera i tronc",
+          "exercises": [
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "open_book_stretch_v1", "sets": 2, "reps": 8, "restSeconds": 30 },
+            { "exerciseId": "downward_dog_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "childs_pose_v1", "sets": 2, "reps": 1, "restSeconds": 30 },
+            { "exerciseId": "cat_cow_v1", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        },
+        {
+          "label": "Sessió B · Toràcica i fàscia",
+          "exercises": [
+            { "exerciseId": "thoracic_extension_foam_v1", "sets": 2, "reps": 10, "restSeconds": 30 },
+            { "exerciseId": "thoracic_bridge_v1", "sets": 2, "reps": 8, "restSeconds": 45 },
+            { "exerciseId": "foam_roll_thoracic_v1", "sets": 2, "reps": 15, "restSeconds": 30 },
+            { "exerciseId": "massageball_pec_v1", "sets": 2, "reps": 15, "restSeconds": 30 },
+            { "exerciseId": "coherent_breathing_v1", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "mobilitat_postentreno_v1",
+      "title": "Mobilitat post-entrenament",
+      "description": "Bloc curt diari per fer servir com a tornada a la calma després d'entrenaments de força o cursa.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "tornada_calma", "mobilitat", "respiracio"],
+      "autoRestrictions": [],
+      "progressionType": "linear",
+      "weeklyProgression": 1,
+      "notes": "Rutina breu de baix volum; pot ajudar a baixar la freqüència cardíaca i preparar el cos per al descans.",
+      "sessions": [
+        {
+          "label": "Tornada a la calma",
+          "exercises": [
+            { "exerciseId": "foam_roll_glute_v1", "sets": 2, "reps": 15, "restSeconds": 30 },
+            { "exerciseId": "couch_stretch_kneel_v1", "sets": 2, "reps": 1, "restSeconds": 30 },
+            { "exerciseId": "childs_pose_v1", "sets": 2, "reps": 1, "restSeconds": 30 },
+            { "exerciseId": "box_breathing_v1", "sets": 2, "reps": 10, "restSeconds": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "hibrid_trail_complet_v1",
+      "title": "Híbrid trail complet",
+      "description": "Quatre sessions setmanals que combinen cardio en bici, força del tren inferior, accessoris de tren superior i una sessió de descàrrega.",
+      "durationOptions": [6, 8, 10],
+      "requiredTags": ["corredor", "pujada", "baixada", "forca", "resistencia"],
+      "autoRestrictions": ["rehab_genoll"],
+      "progressionType": "block",
+      "weeklyProgression": 6,
+      "notes": "Bloc complet d'híbrid per a trail runners; pot contribuir a millorar la capacitat de treball total i la robustesa muscular en terrenys variables.",
+      "sessions": [
+        {
+          "label": "Sessió A · Cardio + força inferior",
+          "exercises": [
+            { "exerciseId": "bike_hill_simulation_v1", "sets": 1, "reps": 20, "restSeconds": 0, "rpe": 7 },
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "single_leg_rdl_v1", "sets": 3, "reps": 8, "restSeconds": 75 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Pliometria + accessoris",
+          "exercises": [
+            { "exerciseId": "box_jump_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "lateral_box_jump_v1", "sets": 3, "reps": 8, "restSeconds": 90 },
+            { "exerciseId": "db_single_arm_row_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "Face_Pull", "sets": 3, "reps": 12, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Endurance i carries",
+          "exercises": [
+            { "exerciseId": "row_zone2_v1", "sets": 1, "reps": 25, "restSeconds": 0, "rpe": 6 },
+            { "exerciseId": "weighted_vest_lunge_walk_v1", "sets": 3, "reps": 20, "restSeconds": 90 },
+            { "exerciseId": "single_arm_farmer_carry_v1", "sets": 3, "reps": 20, "restSeconds": 75 },
+            { "exerciseId": "side_plank_hip_lift_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió D · Descàrrega",
+          "exercises": [
+            { "exerciseId": "bike_zone2_v1", "sets": 1, "reps": 20, "restSeconds": 0, "rpe": 5 },
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 2, "reps": 8, "restSeconds": 90, "rpe": 5 },
+            { "exerciseId": "Plank", "sets": 2, "reps": 30, "restSeconds": 60 },
+            { "exerciseId": "foam_roll_quad_v1", "sets": 2, "reps": 15, "restSeconds": 30 }
+          ],
+          "isDeload": true
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "hibrid_asfalt_potencia_v1",
+      "title": "Híbrid asfalt amb potència",
+      "description": "Tres sessions per a corredors d'asfalt que combinen tempo, salts i accessoris específics per millorar l'economia de cursa.",
+      "durationOptions": [4, 6, 8],
+      "requiredTags": ["corredor", "velocitat", "potencia", "forca"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 6,
+      "notes": "Combinació de tempo i pliometria curta; pot contribuir a millorar la rigidesa elàstica del peu i l'eficiència mecànica.",
+      "sessions": [
+        {
+          "label": "Sessió A · Tempo i salts",
+          "exercises": [
+            { "exerciseId": "tempo_run_v1", "sets": 1, "reps": 20, "restSeconds": 0, "rpe": 7 },
+            { "exerciseId": "squat_jump_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "Pallof_Press", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió B · Força + reactivitat",
+          "exercises": [
+            { "exerciseId": "kb_goblet_squat_v1", "sets": 4, "reps": 8, "restSeconds": 90, "rpe": 7 },
+            { "exerciseId": "box_jump_v1", "sets": 4, "reps": 6, "restSeconds": 120, "rpe": 7 },
+            { "exerciseId": "single_leg_rdl_v1", "sets": 3, "reps": 8, "restSeconds": 60 },
+            { "exerciseId": "ab_wheel_rollout_v1", "sets": 3, "reps": 8, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió C · Fartlek + accessoris",
+          "exercises": [
+            { "exerciseId": "fartlek_run_v1", "sets": 1, "reps": 25, "restSeconds": 0, "rpe": 7 },
+            { "exerciseId": "db_seated_overhead_press_v1", "sets": 3, "reps": 8, "restSeconds": 75 },
+            { "exerciseId": "Face_Pull", "sets": 3, "reps": 12, "restSeconds": 45 },
+            { "exerciseId": "side_plank_hip_lift_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "preset",
+      "sourceExternalId": "cross_training_corredor_v1",
+      "title": "Cross-training per a corredors",
+      "description": "Tres sessions que combinen modalitats variades —bicicleta, kettlebell, salts i mobilitat— per evitar el sobreús sense perdre condicionament.",
+      "durationOptions": [6, 8, 10],
+      "requiredTags": ["corredor", "resistencia", "forca", "mobilitat"],
+      "autoRestrictions": [],
+      "progressionType": "undulating",
+      "weeklyProgression": 5,
+      "notes": "Útil en setmanes amb molts kilòmetres o lesió lleu en cursa; pot ajudar a mantenir la forma física amb menys impacte articular.",
+      "sessions": [
+        {
+          "label": "Sessió A · Bici + força",
+          "exercises": [
+            { "exerciseId": "bike_zone2_v1", "sets": 1, "reps": 30, "restSeconds": 0, "rpe": 6 },
+            { "exerciseId": "kb_swing_two_handed_v1", "sets": 4, "reps": 12, "restSeconds": 75 },
+            { "exerciseId": "Plank", "sets": 3, "reps": 30, "restSeconds": 60 }
+          ]
+        },
+        {
+          "label": "Sessió B · Rem + accessoris",
+          "exercises": [
+            { "exerciseId": "row_zone2_v1", "sets": 1, "reps": 25, "restSeconds": 0, "rpe": 6 },
+            { "exerciseId": "db_single_arm_row_v1", "sets": 3, "reps": 10, "restSeconds": 60 },
+            { "exerciseId": "db_seated_overhead_press_v1", "sets": 3, "reps": 8, "restSeconds": 75 },
+            { "exerciseId": "pallof_press_band_v1", "sets": 3, "reps": 10, "restSeconds": 45 }
+          ]
+        },
+        {
+          "label": "Sessió C · Salts + mobilitat",
+          "exercises": [
+            { "exerciseId": "skater_jump_v1", "sets": 3, "reps": 10, "restSeconds": 75 },
+            { "exerciseId": "broad_jump_v1", "sets": 3, "reps": 5, "restSeconds": 90 },
+            { "exerciseId": "world_greatest_stretch_v1", "sets": 2, "reps": 5, "restSeconds": 30 },
+            { "exerciseId": "open_book_stretch_v1", "sets": 2, "reps": 8, "restSeconds": 30 }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "presets": {
+        "hiit_corredor_curt_v1": {
+          "name": "HIIT curt per a corredors",
+          "description": "Tres sessions setmanals d'intervals curts amb corda, bicicleta i salts per estimular la potència aeròbica i la tolerància al lactat."
+        },
+        "condicionament_kb_corredor_v1": {
+          "name": "Condicionament amb kettlebell per a corredors",
+          "description": "Bloc de tres sessions amb complexes de kettlebell i sandbag per millorar la resistència muscular i la capacitat de treball."
+        },
+        "intervals_corredor_carrera_v1": {
+          "name": "Intervals per a competició",
+          "description": "Bloc d'intervals específics i treball metabòlic per afinar la velocitat de cursa abans d'una competició."
+        },
+        "pliometria_corredor_base_v1": {
+          "name": "Pliometria base per a corredors",
+          "description": "Introducció progressiva al treball pliomètric amb salts de baix impacte per estimular la rigidesa elàstica del tendó."
+        },
+        "potencia_trail_baixades_v1": {
+          "name": "Potència excèntrica per a baixades",
+          "description": "Tres sessions amb pliometria reactiva i treball excèntric per millorar la tolerància a les baixades de muntanya."
+        },
+        "salts_explosivitat_v1": {
+          "name": "Explosivitat i salts avançats",
+          "description": "Bloc curt d'alta intensitat per a corredors experimentats amb base pliomètrica consolidada."
+        },
+        "estabilitat_funcional_v1": {
+          "name": "Estabilitat funcional integral",
+          "description": "Tres sessions amb superfícies inestables i treball unilateral per millorar el control motor del tren inferior."
+        },
+        "equilibri_propiocepcio_v1": {
+          "name": "Equilibri i propiocepció",
+          "description": "Dues sessions setmanals centrades en propiocepció i control del peu per a la prevenció de torçades de turmell."
+        },
+        "core_estabilitat_avancat_v1": {
+          "name": "Core i estabilitat avançat",
+          "description": "Bloc avançat anti-rotació i anti-extensió per a corredors amb experiència que volen reforçar el tronc."
+        },
+        "kettlebell_complex_v1": {
+          "name": "Complex de kettlebell complet",
+          "description": "Tres sessions de força i potència basades exclusivament en kettlebell per cobrir patrons de hinge, squat i empenta."
+        },
+        "potencia_kb_explosiva_v1": {
+          "name": "Potència explosiva amb kettlebell",
+          "description": "Bloc de dues sessions enfocat a la potència ballística amb kettlebell i salts complementaris."
+        },
+        "accessoris_tren_superior_v1": {
+          "name": "Accessoris de tren superior per a corredors",
+          "description": "Tres sessions complementàries de tracció, empenta i treball escapular per equilibrar el volum del tren inferior."
+        },
+        "forca_bracos_complementaria_v1": {
+          "name": "Força de braços complementària",
+          "description": "Dues sessions curtes per afegir treball directe de bíceps i tríceps al volum d'entrenament setmanal."
+        },
+        "recuperacio_activa_postcarrera_v1": {
+          "name": "Recuperació activa postcarrera",
+          "description": "Sessió única setmanal d'autoalliberament miofascial, mobilitat suau i respiració per facilitar la recuperació entre tirades exigents."
+        },
+        "mobilitat_recuperacio_setmanal_v1": {
+          "name": "Mobilitat i recuperació setmanal",
+          "description": "Dues sessions de mobilitat global amb postures dinàmiques i estiraments per millorar el rang articular sense fatiga."
+        },
+        "mobilitat_postentreno_v1": {
+          "name": "Mobilitat post-entrenament",
+          "description": "Bloc curt diari per fer servir com a tornada a la calma després d'entrenaments de força o cursa."
+        },
+        "hibrid_trail_complet_v1": {
+          "name": "Híbrid trail complet",
+          "description": "Quatre sessions setmanals que combinen cardio en bici, força del tren inferior, accessoris de tren superior i una sessió de descàrrega."
+        },
+        "hibrid_asfalt_potencia_v1": {
+          "name": "Híbrid asfalt amb potència",
+          "description": "Tres sessions per a corredors d'asfalt que combinen tempo, salts i accessoris específics per millorar l'economia de cursa."
+        },
+        "cross_training_corredor_v1": {
+          "name": "Cross-training per a corredors",
+          "description": "Tres sessions que combinen modalitats variades —bicicleta, kettlebell, salts i mobilitat— per evitar el sobreús sense perdre condicionament."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "pujada": "Pujada",
+        "baixada": "Baixada",
+        "velocitat": "Velocitat",
+        "core_estabilitat": "Core i estabilitat",
+        "equilibri": "Equilibri",
+        "pliometria": "Pliometria",
+        "mobilitat": "Mobilitat",
+        "tornada_calma": "Tornada a la calma",
+        "forca": "Força",
+        "hipertrofia": "Hipertròfia",
+        "potencia": "Potència",
+        "resistencia": "Resistència",
+        "iogues": "Ioga",
+        "respiracio": "Respiració",
+        "mobilitat_toracica": "Mobilitat toràcica",
+        "anti_rotacio": "Anti-rotació",
+        "prehab": "Prehab",
+        "unilateral": "Unilateral",
+        "isometric": "Isomètric",
+        "rehab_turmell": "Rehab turmell"
+      }
+    },
+    "es": {
+      "presets": {
+        "hiit_corredor_curt_v1": {
+          "name": "HIIT corto para corredores",
+          "description": "Tres sesiones semanales de intervalos cortos con cuerda, bicicleta y saltos para estimular la potencia aeróbica y la tolerancia al lactato."
+        },
+        "condicionament_kb_corredor_v1": {
+          "name": "Acondicionamiento con kettlebell para corredores",
+          "description": "Bloque de tres sesiones con complejos de kettlebell y sandbag para mejorar la resistencia muscular y la capacidad de trabajo."
+        },
+        "intervals_corredor_carrera_v1": {
+          "name": "Intervalos para competición",
+          "description": "Bloque de intervalos específicos y trabajo metabólico para afinar la velocidad de carrera antes de una competición."
+        },
+        "pliometria_corredor_base_v1": {
+          "name": "Pliometría base para corredores",
+          "description": "Introducción progresiva al trabajo pliométrico con saltos de bajo impacto para estimular la rigidez elástica del tendón."
+        },
+        "potencia_trail_baixades_v1": {
+          "name": "Potencia excéntrica para bajadas",
+          "description": "Tres sesiones con pliometría reactiva y trabajo excéntrico para mejorar la tolerancia a las bajadas de montaña."
+        },
+        "salts_explosivitat_v1": {
+          "name": "Explosividad y saltos avanzados",
+          "description": "Bloque corto de alta intensidad para corredores experimentados con base pliométrica consolidada."
+        },
+        "estabilitat_funcional_v1": {
+          "name": "Estabilidad funcional integral",
+          "description": "Tres sesiones con superficies inestables y trabajo unilateral para mejorar el control motor del tren inferior."
+        },
+        "equilibri_propiocepcio_v1": {
+          "name": "Equilibrio y propiocepción",
+          "description": "Dos sesiones semanales centradas en propiocepción y control del pie para la prevención de torceduras de tobillo."
+        },
+        "core_estabilitat_avancat_v1": {
+          "name": "Core y estabilidad avanzado",
+          "description": "Bloque avanzado anti-rotación y anti-extensión para corredores con experiencia que quieren reforzar el tronco."
+        },
+        "kettlebell_complex_v1": {
+          "name": "Complejo de kettlebell completo",
+          "description": "Tres sesiones de fuerza y potencia basadas exclusivamente en kettlebell para cubrir patrones de hinge, squat y empuje."
+        },
+        "potencia_kb_explosiva_v1": {
+          "name": "Potencia explosiva con kettlebell",
+          "description": "Bloque de dos sesiones enfocado a la potencia balística con kettlebell y saltos complementarios."
+        },
+        "accessoris_tren_superior_v1": {
+          "name": "Accesorios de tren superior para corredores",
+          "description": "Tres sesiones complementarias de tracción, empuje y trabajo escapular para equilibrar el volumen del tren inferior."
+        },
+        "forca_bracos_complementaria_v1": {
+          "name": "Fuerza de brazos complementaria",
+          "description": "Dos sesiones cortas para añadir trabajo directo de bíceps y tríceps al volumen de entrenamiento semanal."
+        },
+        "recuperacio_activa_postcarrera_v1": {
+          "name": "Recuperación activa postcarrera",
+          "description": "Sesión única semanal de autoliberación miofascial, movilidad suave y respiración para facilitar la recuperación entre tiradas exigentes."
+        },
+        "mobilitat_recuperacio_setmanal_v1": {
+          "name": "Movilidad y recuperación semanal",
+          "description": "Dos sesiones de movilidad global con posturas dinámicas y estiramientos para mejorar el rango articular sin fatiga."
+        },
+        "mobilitat_postentreno_v1": {
+          "name": "Movilidad post-entrenamiento",
+          "description": "Bloque corto diario para usar como vuelta a la calma tras entrenamientos de fuerza o carrera."
+        },
+        "hibrid_trail_complet_v1": {
+          "name": "Híbrido trail completo",
+          "description": "Cuatro sesiones semanales que combinan cardio en bici, fuerza de tren inferior, accesorios de tren superior y una sesión de descarga."
+        },
+        "hibrid_asfalt_potencia_v1": {
+          "name": "Híbrido asfalto con potencia",
+          "description": "Tres sesiones para corredores de asfalto que combinan tempo, saltos y accesorios específicos para mejorar la economía de carrera."
+        },
+        "cross_training_corredor_v1": {
+          "name": "Cross-training para corredores",
+          "description": "Tres sesiones que combinan modalidades variadas —bicicleta, kettlebell, saltos y movilidad— para evitar el sobreuso sin perder acondicionamiento."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Corredor",
+        "pujada": "Subida",
+        "baixada": "Bajada",
+        "velocitat": "Velocidad",
+        "core_estabilitat": "Core y estabilidad",
+        "equilibri": "Equilibrio",
+        "pliometria": "Pliometría",
+        "mobilitat": "Movilidad",
+        "tornada_calma": "Vuelta a la calma",
+        "forca": "Fuerza",
+        "hipertrofia": "Hipertrofia",
+        "potencia": "Potencia",
+        "resistencia": "Resistencia",
+        "iogues": "Yoga",
+        "respiracio": "Respiración",
+        "mobilitat_toracica": "Movilidad torácica",
+        "anti_rotacio": "Anti-rotación",
+        "prehab": "Prehab",
+        "unilateral": "Unilateral",
+        "isometric": "Isométrico",
+        "rehab_turmell": "Rehab tobillo"
+      }
+    },
+    "en": {
+      "presets": {
+        "hiit_corredor_curt_v1": {
+          "name": "Short HIIT for runners",
+          "description": "Three weekly sessions of short intervals with rope, bike and jumps to stimulate aerobic power and lactate tolerance."
+        },
+        "condicionament_kb_corredor_v1": {
+          "name": "Kettlebell conditioning for runners",
+          "description": "Three-session block with kettlebell and sandbag complexes to improve muscular endurance and work capacity."
+        },
+        "intervals_corredor_carrera_v1": {
+          "name": "Race-specific intervals",
+          "description": "Specific interval and metabolic work block to sharpen running speed before a race."
+        },
+        "pliometria_corredor_base_v1": {
+          "name": "Plyometric base for runners",
+          "description": "Progressive introduction to plyometric work with low-impact jumps to stimulate muscle-tendon stiffness."
+        },
+        "potencia_trail_baixades_v1": {
+          "name": "Eccentric power for downhills",
+          "description": "Three sessions with reactive plyometrics and eccentric work to improve tolerance to mountain descents."
+        },
+        "salts_explosivitat_v1": {
+          "name": "Advanced explosiveness and jumps",
+          "description": "Short, high-intensity block for experienced runners with a consolidated plyometric base."
+        },
+        "estabilitat_funcional_v1": {
+          "name": "Integrated functional stability",
+          "description": "Three sessions with unstable surfaces and unilateral work to improve lower-body motor control."
+        },
+        "equilibri_propiocepcio_v1": {
+          "name": "Balance and proprioception",
+          "description": "Two weekly sessions focused on proprioception and foot control for ankle sprain prevention."
+        },
+        "core_estabilitat_avancat_v1": {
+          "name": "Advanced core and stability",
+          "description": "Advanced anti-rotation and anti-extension block for experienced runners who want to reinforce the trunk."
+        },
+        "kettlebell_complex_v1": {
+          "name": "Complete kettlebell complex",
+          "description": "Three strength and power sessions based exclusively on kettlebell to cover hinge, squat and press patterns."
+        },
+        "potencia_kb_explosiva_v1": {
+          "name": "Explosive kettlebell power",
+          "description": "Two-session block focused on ballistic kettlebell power with complementary jumps."
+        },
+        "accessoris_tren_superior_v1": {
+          "name": "Upper-body accessories for runners",
+          "description": "Three complementary sessions of pulling, pressing and scapular work to balance lower-body training volume."
+        },
+        "forca_bracos_complementaria_v1": {
+          "name": "Complementary arm strength",
+          "description": "Two short sessions to add direct biceps and triceps work to the weekly training volume."
+        },
+        "recuperacio_activa_postcarrera_v1": {
+          "name": "Active post-run recovery",
+          "description": "Weekly single session of self-myofascial release, gentle mobility and breathing to support recovery between demanding runs."
+        },
+        "mobilitat_recuperacio_setmanal_v1": {
+          "name": "Weekly mobility and recovery",
+          "description": "Two global mobility sessions with dynamic postures and stretches to improve range of motion without fatigue."
+        },
+        "mobilitat_postentreno_v1": {
+          "name": "Post-workout mobility",
+          "description": "Short daily block to use as a cool-down after strength or running workouts."
+        },
+        "hibrid_trail_complet_v1": {
+          "name": "Complete trail hybrid",
+          "description": "Four weekly sessions combining bike cardio, lower-body strength, upper-body accessories and a deload session."
+        },
+        "hibrid_asfalt_potencia_v1": {
+          "name": "Road hybrid with power",
+          "description": "Three sessions for road runners combining tempo, jumps and specific accessories to improve running economy."
+        },
+        "cross_training_corredor_v1": {
+          "name": "Cross-training for runners",
+          "description": "Three sessions combining varied modalities —bike, kettlebell, jumps and mobility— to avoid overuse without losing conditioning."
+        }
+      },
+      "preset_tags": {
+        "corredor": "Runner",
+        "pujada": "Uphill",
+        "baixada": "Downhill",
+        "velocitat": "Speed",
+        "core_estabilitat": "Core & stability",
+        "equilibri": "Balance",
+        "pliometria": "Plyometrics",
+        "mobilitat": "Mobility",
+        "tornada_calma": "Cool-down",
+        "forca": "Strength",
+        "hipertrofia": "Hypertrophy",
+        "potencia": "Power",
+        "resistencia": "Endurance",
+        "iogues": "Yoga",
+        "respiracio": "Breathing",
+        "mobilitat_toracica": "Thoracic mobility",
+        "anti_rotacio": "Anti-rotation",
+        "prehab": "Prehab",
+        "unilateral": "Unilateral",
+        "isometric": "Isometric",
+        "rehab_turmell": "Ankle rehab"
+      }
+    }
+  }
+}

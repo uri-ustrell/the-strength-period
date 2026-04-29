@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-import { HARDCODED_PRESETS } from '../../src/data/presets'
+import { PRESETS } from '../../src/data/presets'
 import type {
   CandidateEnvelope,
   MergeWriteResult,
@@ -423,7 +423,7 @@ function mergeHardcodedPresetCatalogEntry(
 }
 
 function buildHardcodedPresetCatalogEntry(
-  preset: (typeof HARDCODED_PRESETS)[number]
+  preset: (typeof PRESETS)[number]
 ): PresetCatalogEntry {
   return {
     id: preset.id,
@@ -452,7 +452,7 @@ function buildHardcodedPresetCatalogEntry(
 function seedHardcodedPresets(existingCatalog: PresetCatalogEntry[]): PresetCatalogEntry[] {
   const byId = new Map(existingCatalog.map((preset) => [preset.id, preset]))
 
-  for (const preset of HARDCODED_PRESETS) {
+  for (const preset of PRESETS) {
     const hardcodedEntry = buildHardcodedPresetCatalogEntry(preset)
     const existingEntry = byId.get(preset.id)
 

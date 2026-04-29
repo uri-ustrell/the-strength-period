@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "adapter": "llm-json",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-candidates/preset-batch-2026-04-fnal.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-generated candidates",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "Generated 2026-04-29 by content-factory: 20 faithful-mode presets across HIIT, plyometrics, stability, kettlebell, accessories, recovery, and hybrid themes.",
+        "verifiedAt": "2026-04-29T00:00:00.000Z",
+        "verifiedBy": "copilot-session"
+      }
+    }
+  ]
+}

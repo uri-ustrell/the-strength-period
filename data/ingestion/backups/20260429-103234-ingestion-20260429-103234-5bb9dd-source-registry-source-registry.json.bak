@@ -336,25 +336,5 @@
     "bulk-x3-functional-stability::thoracic_extension_foam_v1": "thoracic_extension_foam_v1",
     "bulk-x3-functional-stability::couch_stretch_kneel_v1": "couch_stretch_kneel_v1"
   },
-  "presets": {
-    "preset-batch-2026-04-fnal::hiit_corredor_curt_v1": "hiit_corredor_curt_v1",
-    "preset-batch-2026-04-fnal::condicionament_kb_corredor_v1": "condicionament_kb_corredor_v1",
-    "preset-batch-2026-04-fnal::intervals_corredor_carrera_v1": "intervals_corredor_carrera_v1",
-    "preset-batch-2026-04-fnal::pliometria_corredor_base_v1": "pliometria_corredor_base_v1",
-    "preset-batch-2026-04-fnal::potencia_trail_baixades_v1": "potencia_trail_baixades_v1",
-    "preset-batch-2026-04-fnal::salts_explosivitat_v1": "salts_explosivitat_v1",
-    "preset-batch-2026-04-fnal::estabilitat_funcional_v1": "estabilitat_funcional_v1",
-    "preset-batch-2026-04-fnal::equilibri_propiocepcio_v1": "equilibri_propiocepcio_v1",
-    "preset-batch-2026-04-fnal::core_estabilitat_avancat_v1": "core_estabilitat_avancat_v1",
-    "preset-batch-2026-04-fnal::kettlebell_complex_v1": "kettlebell_complex_v1",
-    "preset-batch-2026-04-fnal::potencia_kb_explosiva_v1": "potencia_kb_explosiva_v1",
-    "preset-batch-2026-04-fnal::accessoris_tren_superior_v1": "accessoris_tren_superior_v1",
-    "preset-batch-2026-04-fnal::forca_bracos_complementaria_v1": "forca_bracos_complementaria_v1",
-    "preset-batch-2026-04-fnal::recuperacio_activa_postcarrera_v1": "recuperacio_activa_postcarrera_v1",
-    "preset-batch-2026-04-fnal::mobilitat_recuperacio_setmanal_v1": "mobilitat_recuperacio_setmanal_v1",
-    "preset-batch-2026-04-fnal::mobilitat_postentreno_v1": "mobilitat_postentreno_v1",
-    "preset-batch-2026-04-fnal::hibrid_trail_complet_v1": "hibrid_trail_complet_v1",
-    "preset-batch-2026-04-fnal::hibrid_asfalt_potencia_v1": "hibrid_asfalt_potencia_v1",
-    "preset-batch-2026-04-fnal::cross_training_corredor_v1": "cross_training_corredor_v1"
-  }
+  "presets": {}
 }

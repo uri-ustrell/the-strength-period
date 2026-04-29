@@ -5,6 +5,14 @@
 
 ## Active Tasks
 
+### Refactor: Restrict Generator Mode to "From-Zero" Onboarding Only
+- [ ] All curated presets must use Faithful mode (sessions[] explicit)
+- [ ] Generator mode (muscleDistribution-only) is reserved exclusively for the "from-zero / first-time user" experience where no preset is selected
+- [ ] Audit `src/data/presets.ts` and `src/services/planning/planningEngine.ts`: ensure curated presets cannot be generator-only
+- [ ] Update `data/ingestion/prompts/presets-llm-chat.prompt.txt`: clarify that LLM-generated presets must always be Faithful mode
+- [ ] Update `specs/CONVENTIONS.md` and the dual-engine spec section to document this constraint
+- [ ] Verify `data/ingestion/presets/catalog.json` (currently 36 faithful, 0 generator — already aligned, but lock the rule)
+
 ### Technical Glossary for UI
 - [ ] TODO: Create a glossary of technical terms (mesocicle, deload, RPE, sèries, repeticions, tempo, etc.)
 - [ ] Add glossary to a dedicated section/page in the app

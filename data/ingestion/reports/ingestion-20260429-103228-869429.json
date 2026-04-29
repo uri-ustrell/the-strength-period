@@ -1,0 +1,273 @@
+{
+  "runId": "ingestion-20260429-103228-869429",
+  "startedAt": "2026-04-29T10:32:28.782Z",
+  "completedAt": "2026-04-29T10:32:28.798Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 19,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [],
+  "acceptedPresetIds": [
+    "hiit_corredor_curt_v1",
+    "condicionament_kb_corredor_v1",
+    "intervals_corredor_carrera_v1",
+    "pliometria_corredor_base_v1",
+    "potencia_trail_baixades_v1",
+    "salts_explosivitat_v1",
+    "estabilitat_funcional_v1",
+    "equilibri_propiocepcio_v1",
+    "core_estabilitat_avancat_v1",
+    "kettlebell_complex_v1",
+    "potencia_kb_explosiva_v1",
+    "accessoris_tren_superior_v1",
+    "forca_bracos_complementaria_v1",
+    "recuperacio_activa_postcarrera_v1",
+    "mobilitat_recuperacio_setmanal_v1",
+    "mobilitat_postentreno_v1",
+    "hibrid_trail_complet_v1",
+    "hibrid_asfalt_potencia_v1",
+    "cross_training_corredor_v1"
+  ],
+  "photosTriggered": false,
+  "filesWritten": [],
+  "sources": [
+    {
+      "sourceId": "preset-batch-2026-04-fnal",
+      "adapterId": "llm-json",
+      "candidateCount": 19
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:hiit_corredor_curt_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "hiit_corredor_curt_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hiit_corredor_curt_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:condicionament_kb_corredor_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "condicionament_kb_corredor_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "condicionament_kb_corredor_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:intervals_corredor_carrera_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "intervals_corredor_carrera_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "intervals_corredor_carrera_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:pliometria_corredor_base_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "pliometria_corredor_base_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pliometria_corredor_base_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:potencia_trail_baixades_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "potencia_trail_baixades_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "potencia_trail_baixades_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:salts_explosivitat_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "salts_explosivitat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "salts_explosivitat_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:estabilitat_funcional_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "estabilitat_funcional_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "estabilitat_funcional_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:equilibri_propiocepcio_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "equilibri_propiocepcio_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "equilibri_propiocepcio_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:core_estabilitat_avancat_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "core_estabilitat_avancat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "core_estabilitat_avancat_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:kettlebell_complex_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "kettlebell_complex_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kettlebell_complex_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:potencia_kb_explosiva_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "potencia_kb_explosiva_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "potencia_kb_explosiva_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:accessoris_tren_superior_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "accessoris_tren_superior_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "accessoris_tren_superior_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:forca_bracos_complementaria_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "forca_bracos_complementaria_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "forca_bracos_complementaria_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:recuperacio_activa_postcarrera_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "recuperacio_activa_postcarrera_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "recuperacio_activa_postcarrera_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:mobilitat_recuperacio_setmanal_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "mobilitat_recuperacio_setmanal_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "mobilitat_recuperacio_setmanal_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:mobilitat_postentreno_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "mobilitat_postentreno_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "mobilitat_postentreno_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:hibrid_trail_complet_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "hibrid_trail_complet_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hibrid_trail_complet_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:hibrid_asfalt_potencia_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "hibrid_asfalt_potencia_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hibrid_asfalt_potencia_v1"
+    },
+    {
+      "candidateId": "preset-batch-2026-04-fnal:preset:cross_training_corredor_v1",
+      "kind": "preset",
+      "sourceId": "preset-batch-2026-04-fnal",
+      "sourceExternalId": "cross_training_corredor_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "cross_training_corredor_v1"
+    }
+  ]
+}
