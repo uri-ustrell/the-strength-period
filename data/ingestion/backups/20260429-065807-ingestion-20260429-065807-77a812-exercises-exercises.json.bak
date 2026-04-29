@@ -77,64 +77,6 @@
     ]
   },
   {
-    "id": "ab_wheel_rollout_v1",
-    "nameKey": "exercises:ab_wheel_rollout_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "triceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "expert",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "forca"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "avoid",
-        "note": "High anti-extension load; avoid until pain-free and cleared."
-      },
-      {
-        "condition": "diastasi",
-        "action": "avoid",
-        "note": "Heavy abdominal pressure; avoid during recovery."
-      }
-    ],
-    "instructions": [
-      "Kneel on the floor holding an ab wheel under the shoulders.",
-      "Roll the wheel forward keeping the spine neutral and ribs down.",
-      "Pull back to the start without losing the brace."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "ab_wheel_rollout_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "ab_wheel_rollout_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Adductor",
     "nameKey": "exercises:Adductor",
     "primaryMuscles": [
@@ -858,53 +800,6 @@
     }
   },
   {
-    "id": "band_monster_walk_v1",
-    "nameKey": "exercises:band_monster_walk_v1",
-    "primaryMuscles": [
-      "abductors"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "prehab",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Place a mini band around the ankles or just above the knees and adopt a quarter-squat stance.",
-      "Step forward and out alternating legs to keep tension on the band.",
-      "Continue for the prescribed reps or distance."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_monster_walk_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "band_monster_walk_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "band_overhead_press_v1",
     "nameKey": "exercises:band_overhead_press_v1",
     "primaryMuscles": [
@@ -988,52 +883,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "band_seated_abduction_v1",
-    "nameKey": "exercises:band_seated_abduction_v1",
-    "primaryMuscles": [
-      "abductors"
-    ],
-    "secondaryMuscles": [
-      "glutis"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "prehab"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit on a bench with a mini band around the thighs just above the knees.",
-      "Press the knees apart against the band keeping the feet flat.",
-      "Return slowly to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "band_seated_abduction_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "band_seated_abduction_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "band_squat_v1",
@@ -1571,105 +1420,6 @@
     }
   },
   {
-    "id": "bb_good_morning_v1",
-    "nameKey": "exercises:bb_good_morning_v1",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "avoid",
-        "note": "High shear load on the spine; avoid until cleared."
-      }
-    ],
-    "instructions": [
-      "Stand with the barbell across the upper back, feet hip-width apart.",
-      "Hinge at the hips with a slight knee bend lowering the torso toward parallel to the floor.",
-      "Drive the hips forward to return to standing."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_good_morning_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "bb_good_morning_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bb_hip_thrust_v1",
-    "nameKey": "exercises:bb_hip_thrust_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "abdominal"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit with the upper back against a bench and the barbell across the hips.",
-      "Drive through the heels lifting the hips until the body forms a straight line from knees to shoulders.",
-      "Lower the hips under control to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_hip_thrust_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "bb_hip_thrust_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "bb_overhead_press_v1",
     "nameKey": "exercises:bb_overhead_press_v1",
     "primaryMuscles": [
@@ -1719,59 +1469,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bb_rdl_v1",
-    "nameKey": "exercises:bb_rdl_v1",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "modify",
-        "note": "Reduce range and load while symptoms persist."
-      }
-    ],
-    "instructions": [
-      "Stand with the barbell at hip level, hands shoulder-width apart.",
-      "Hinge at the hips with a slight knee bend, sliding the bar down the thighs until you feel a hamstring stretch.",
-      "Drive the hips forward to return to standing keeping the bar close to the body."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bb_rdl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "bb_rdl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -1950,102 +1647,6 @@
           "ingestedAt": "2026-04-28T20:07:56.067Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: pregnancy and postpartum (batch 3/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bird_dog_row_v1",
-    "nameKey": "exercises:bird_dog_row_v1",
-    "primaryMuscles": [
-      "dorsal"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "oblics",
-      "glutis"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "anti_rotacio",
-      "core_estabilitat",
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up on three points with one knee and the opposite hand on a bench, the other arm holding a dumbbell and the free leg extended back.",
-      "Row the dumbbell to the ribs without rotating the hips.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bird_dog_row_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "bird_dog_row_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "body_saw_plank_v1",
-    "nameKey": "exercises:body_saw_plank_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a forearm plank with sliders or a towel under the feet.",
-      "Push back through the elbows so the body slides toward the heels.",
-      "Pull forward back to the plank position keeping the core braced."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "body_saw_plank_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "body_saw_plank_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -2565,54 +2166,6 @@
           "ingestedAt": "2026-04-28T20:40:53.260Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: plyometrics & power (batch 4/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "bulgarian_split_squat_v1",
-    "nameKey": "exercises:bulgarian_split_squat_v1",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand a stride away from a bench and place the top of one foot on it behind you.",
-      "Lower into a lunge until the front thigh is parallel to the floor.",
-      "Drive through the front foot to return to standing; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "bulgarian_split_squat_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "bulgarian_split_squat_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -3169,101 +2722,6 @@
     }
   },
   {
-    "id": "copenhagen_plank_v1",
-    "nameKey": "exercises:copenhagen_plank_v1",
-    "primaryMuscles": [
-      "adductors"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "expert",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on your side with the top leg resting on a bench at ankle or knee height.",
-      "Lift the hips into a side plank pressing the top leg down on the bench.",
-      "Hold without dropping the hips for the prescribed time."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "copenhagen_plank_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "copenhagen_plank_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "cossack_squat_v1",
-    "nameKey": "exercises:cossack_squat_v1",
-    "primaryMuscles": [
-      "adductors"
-    ],
-    "secondaryMuscles": [
-      "quadriceps",
-      "glutis"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "mobility",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "mobilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand with feet wider than shoulder-width.",
-      "Shift the weight to one side bending that knee while the other leg stays straight with toes up.",
-      "Push back to centre and alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "cossack_squat_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "cossack_squat_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "couch_stretch_v1",
     "nameKey": "exercises:couch_stretch_v1",
     "primaryMuscles": [
@@ -3425,53 +2883,6 @@
     ]
   },
   {
-    "id": "curtsy_lunge_v1",
-    "nameKey": "exercises:curtsy_lunge_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "quadriceps",
-      "abductors"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with feet hip-width apart.",
-      "Step one foot back and across the body lowering into a curtsy lunge.",
-      "Return to standing and alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "curtsy_lunge_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "curtsy_lunge_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Dancers_Stretch",
     "nameKey": "exercises:Dancers_Stretch",
     "primaryMuscles": [
@@ -3551,54 +2962,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_bulgarian_split_squat_v1",
-    "nameKey": "exercises:db_bulgarian_split_squat_v1",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "unilateral",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hold a dumbbell in each hand and stand a stride away from a bench with one foot resting on it behind you.",
-      "Lower into a lunge until the front thigh is parallel to the floor.",
-      "Drive through the front foot to return to standing."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_bulgarian_split_squat_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "db_bulgarian_split_squat_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -3738,53 +3101,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_hip_thrust_v1",
-    "nameKey": "exercises:db_hip_thrust_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "abdominal"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit with the upper back against a bench and a dumbbell on the hips.",
-      "Drive through the heels lifting the hips until the body forms a straight line.",
-      "Lower the hips under control to the start."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_hip_thrust_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "db_hip_thrust_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -3936,59 +3252,6 @@
     }
   },
   {
-    "id": "db_rdl_v1",
-    "nameKey": "exercises:db_rdl_v1",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "lumbar"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "modify",
-        "note": "Reduce range and load while symptoms persist."
-      }
-    ],
-    "instructions": [
-      "Stand with a dumbbell in each hand resting on the front of the thighs.",
-      "Hinge at the hips with a slight knee bend, lowering the dumbbells along the legs.",
-      "Drive the hips forward to return to standing squeezing the glutes at the top."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_rdl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "db_rdl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "db_rear_delt_fly_v1",
     "nameKey": "exercises:db_rear_delt_fly_v1",
     "primaryMuscles": [
@@ -4080,59 +3343,6 @@
           "ingestedAt": "2026-04-28T19:49:52.013Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x5 expansion: upper body and gym equipment to compensate runner/bodyweight bias."
-        }
-      ]
-    }
-  },
-  {
-    "id": "db_side_bend_v1",
-    "nameKey": "exercises:db_side_bend_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "lumbar",
-      "glutis"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "avoid",
-        "note": "Lateral flexion under load can aggravate; avoid until cleared."
-      }
-    ],
-    "instructions": [
-      "Stand tall with a dumbbell in one hand and the other hand on the head.",
-      "Bend laterally toward the loaded side then return to upright contracting the opposite obliques.",
-      "Complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "db_side_bend_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "db_side_bend_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -4411,54 +3621,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "dead_bug_loaded_v1",
-    "nameKey": "exercises:dead_bug_loaded_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "dorsal",
-      "oblics"
-    ],
-    "equipment": [
-      "manueles",
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on the back with arms straight up holding a light dumbbell and knees over the hips.",
-      "Lower the opposite arm and leg toward the floor without arching the lower back.",
-      "Return to start and alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "dead_bug_loaded_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "dead_bug_loaded_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "dead_bug_neutral_pelvis_v1",
@@ -5744,101 +4906,6 @@
     ]
   },
   {
-    "id": "front_foot_elevated_split_squat_v1",
-    "nameKey": "exercises:front_foot_elevated_split_squat_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "quadriceps",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal",
-      "step"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Place the front foot on a step or low platform with the back foot on the floor in a split stance.",
-      "Lower the back knee toward the floor keeping the torso tall.",
-      "Drive through the front foot to return to standing."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "front_foot_elevated_split_squat_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "front_foot_elevated_split_squat_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "glute_bridge_march_v1",
-    "nameKey": "exercises:glute_bridge_march_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on the back with knees bent and feet flat.",
-      "Lift the hips into a glute bridge.",
-      "Hold the bridge while marching one knee toward the chest, then alternate without dropping the hips."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "glute_bridge_march_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "glute_bridge_march_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Glute_Ham_Raise",
     "nameKey": "exercises:Glute_Ham_Raise",
     "primaryMuscles": [
@@ -5990,102 +5057,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "half_kneeling_chop_v1",
-    "nameKey": "exercises:half_kneeling_chop_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "deltoides"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "anti_rotacio",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band high and assume a half-kneeling stance with the inside knee down.",
-      "Pull the band diagonally down across the body to the outside hip.",
-      "Return slowly; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "half_kneeling_chop_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "half_kneeling_chop_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "half_kneeling_lift_v1",
-    "nameKey": "exercises:half_kneeling_lift_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "abdominal"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "anti_rotacio",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band low and assume a half-kneeling stance with the outside knee down.",
-      "Pull the band diagonally up across the body to overhead on the opposite side.",
-      "Return slowly; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "half_kneeling_lift_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "half_kneeling_lift_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "hang_clean_v1",
@@ -6463,53 +5434,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "hollow_body_hold_v1",
-    "nameKey": "exercises:hollow_body_hold_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "psoes",
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat",
-      "forca"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on the back with arms overhead and legs straight.",
-      "Press the lower back into the floor and lift the shoulders and legs into a banana shape.",
-      "Hold without losing contact between the lower back and the floor."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "hollow_body_hold_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "hollow_body_hold_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "Hyperextensions_Back_Extensions",
@@ -7108,61 +6032,6 @@
     }
   },
   {
-    "id": "kb_swing_two_handed_v1",
-    "nameKey": "exercises:kb_swing_two_handed_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "lumbar",
-      "dorsal"
-    ],
-    "equipment": [
-      "kettlebell"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "potencia",
-      "forca",
-      "resistencia"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "modify",
-        "note": "Reduce load and amplitude until symptoms resolve."
-      }
-    ],
-    "instructions": [
-      "Stand with feet shoulder-width apart and the kettlebell on the floor in front.",
-      "Hinge to grip the bell, hike it back between the legs and explosively snap the hips to swing it to chest height.",
-      "Let it fall back between the legs in a controlled hinge and continue."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "kb_swing_two_handed_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "kb_swing_two_handed_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "kb_swing_v1",
     "nameKey": "exercises:kb_swing_v1",
     "primaryMuscles": [
@@ -7632,54 +6501,6 @@
           "ingestedAt": "2026-04-28T20:40:53.260Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: plyometrics & power (batch 4/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "lateral_lunge_v1",
-    "nameKey": "exercises:lateral_lunge_v1",
-    "primaryMuscles": [
-      "adductors"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "quadriceps"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral",
-      "mobilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with feet together.",
-      "Take a wide step to one side, sit the hips back and bend that knee while the other leg stays straight.",
-      "Push back to standing and alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "lateral_lunge_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "lateral_lunge_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -8295,102 +7116,6 @@
     ]
   },
   {
-    "id": "pallof_press_band_v1",
-    "nameKey": "exercises:pallof_press_band_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "deltoides"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "beginner",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "anti_rotacio",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band at chest height and stand sideways gripping it with both hands at the chest.",
-      "Press the band straight out in front resisting the pull toward the anchor.",
-      "Bring the hands back to the chest under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "pallof_press_band_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "pallof_press_band_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "pallof_press_split_stance_v1",
-    "nameKey": "exercises:pallof_press_split_stance_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "abdominal"
-    ],
-    "equipment": [
-      "banda_elastica"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "anti_rotacio",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Anchor a band at chest height and assume a half-kneeling or split stance perpendicular to the anchor.",
-      "Press the band straight out resisting rotation.",
-      "Return slowly; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "pallof_press_split_stance_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "pallof_press_split_stance_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "pec_release_ball_v1",
     "nameKey": "exercises:pec_release_ball_v1",
     "primaryMuscles": [
@@ -8577,55 +7302,6 @@
     ]
   },
   {
-    "id": "pistol_squat_assisted_v1",
-    "nameKey": "exercises:pistol_squat_assisted_v1",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "pes_corporal",
-      "trx"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral",
-      "mobilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Hold a TRX, doorframe or post for balance and stand on one leg.",
-      "Lower into a single-leg squat extending the free leg in front.",
-      "Drive through the planted foot to return to standing."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "pistol_squat_assisted_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "pistol_squat_assisted_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Plank",
     "nameKey": "exercises:Plank",
     "primaryMuscles": [
@@ -8700,52 +7376,6 @@
           "ingestedAt": "2026-04-28T20:40:53.260Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: plyometrics & power (batch 4/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "plank_long_lever_v1",
-    "nameKey": "exercises:plank_long_lever_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "oblics"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "core_estabilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a forearm plank with elbows extended forward of the shoulders.",
-      "Press the floor away and brace the abs without sagging the hips.",
-      "Hold for the prescribed time."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "plank_long_lever_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "plank_long_lever_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -10217,53 +8847,6 @@
     ]
   },
   {
-    "id": "reverse_lunge_v1",
-    "nameKey": "exercises:reverse_lunge_v1",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with feet hip-width apart.",
-      "Step one foot back into a lunge lowering the back knee toward the floor.",
-      "Drive through the front foot to return to standing; alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "reverse_lunge_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "reverse_lunge_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "ring_row_v1",
     "nameKey": "exercises:ring_row_v1",
     "primaryMuscles": [
@@ -11444,149 +10027,6 @@
     }
   },
   {
-    "id": "side_plank_dynamic_v1",
-    "nameKey": "exercises:side_plank_dynamic_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "abdominal"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a side plank on the forearm with the hips lifted.",
-      "Rotate the top arm under the body to thread the needle, then return to the open side plank.",
-      "Complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "side_plank_dynamic_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "side_plank_dynamic_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "side_plank_hip_lift_v1",
-    "nameKey": "exercises:side_plank_hip_lift_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "abductors",
-      "abdominal"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "stability",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Set up in a side plank on the forearm with the hips lifted.",
-      "Lower the hips toward the floor and drive them back up without rotating the torso.",
-      "Complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "side_plank_hip_lift_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "side_plank_hip_lift_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "single_arm_farmer_carry_v1",
-    "nameKey": "exercises:single_arm_farmer_carry_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "avantbras",
-      "glutis"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Pick up a heavy dumbbell with one hand and stand tall.",
-      "Walk for the prescribed distance keeping the shoulders level and the core braced.",
-      "Switch sides and repeat."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "single_arm_farmer_carry_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "single_arm_farmer_carry_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "single_leg_box_jump_v1",
     "nameKey": "exercises:single_leg_box_jump_v1",
     "primaryMuscles": [
@@ -11671,53 +10111,6 @@
     ]
   },
   {
-    "id": "single_leg_hip_thrust_v1",
-    "nameKey": "exercises:single_leg_hip_thrust_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "isquiotibials",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Sit with the upper back against a bench and one foot flat on the floor.",
-      "Drive through the planted heel lifting the hips while keeping the free leg extended.",
-      "Lower under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "single_leg_hip_thrust_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "single_leg_hip_thrust_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Single_Leg_Push-off",
     "nameKey": "exercises:Single_Leg_Push-off",
     "primaryMuscles": [
@@ -11760,54 +10153,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "single_leg_rdl_v1",
-    "nameKey": "exercises:single_leg_rdl_v1",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "estabilitzadors_cadera"
-    ],
-    "equipment": [
-      "manueles"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral",
-      "core_estabilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand on one leg holding a dumbbell in the opposite hand.",
-      "Hinge at the hip extending the free leg back as the torso lowers parallel to the floor.",
-      "Return to standing under control; complete reps before switching sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "single_leg_rdl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "single_leg_rdl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "single_leg_squat_v1",
@@ -12471,55 +10816,6 @@
     ]
   },
   {
-    "id": "suitcase_carry_v1",
-    "nameKey": "exercises:suitcase_carry_v1",
-    "primaryMuscles": [
-      "oblics"
-    ],
-    "secondaryMuscles": [
-      "trapezi",
-      "avantbras",
-      "glutis"
-    ],
-    "equipment": [
-      "kettlebell"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Pick up a kettlebell with one hand and stand tall, shoulders level.",
-      "Walk forward with controlled steps resisting any lean toward the loaded side.",
-      "Continue for the prescribed time or distance; switch sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "suitcase_carry_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "suitcase_carry_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "Sumo_Deadlift",
     "nameKey": "exercises:Sumo_Deadlift",
     "primaryMuscles": [
@@ -12564,60 +10860,6 @@
         "isRepresentative": true
       }
     ]
-  },
-  {
-    "id": "sumo_deadlift_v1",
-    "nameKey": "exercises:sumo_deadlift_v1",
-    "primaryMuscles": [
-      "glutis"
-    ],
-    "secondaryMuscles": [
-      "adductors",
-      "quadriceps",
-      "lumbar"
-    ],
-    "equipment": [
-      "barra"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "weight",
-    "tags": [
-      "forca",
-      "hipertrofia"
-    ],
-    "restrictions": [
-      {
-        "condition": "rehab_lumbar",
-        "action": "modify",
-        "note": "Reduce load and emphasise neutral spine while symptoms persist."
-      }
-    ],
-    "instructions": [
-      "Stand with a wide stance and feet turned out, the barbell over the mid-foot.",
-      "Hinge to grip the bar inside the legs.",
-      "Drive the floor away pushing the hips forward to lockout."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "sumo_deadlift_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "sumo_deadlift_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
   },
   {
     "id": "sun_salutation_a_v1",
@@ -12893,53 +11135,6 @@
           "ingestedAt": "2026-04-28T20:07:56.067Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: pregnancy and postpartum (batch 3/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "swiss_ball_hamstring_curl_v1",
-    "nameKey": "exercises:swiss_ball_hamstring_curl_v1",
-    "primaryMuscles": [
-      "isquiotibials"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "abdominal"
-    ],
-    "equipment": [
-      "fitball"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "core_estabilitat"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on the back with the heels resting on a Swiss ball, arms by the sides.",
-      "Lift the hips into a bridge.",
-      "Pull the heels toward the glutes by bending the knees, then extend back out under control without dropping the hips."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "swiss_ball_hamstring_curl_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "swiss_ball_hamstring_curl_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }
@@ -13288,56 +11483,6 @@
     }
   },
   {
-    "id": "turkish_get_up_kettlebell_v1",
-    "nameKey": "exercises:turkish_get_up_kettlebell_v1",
-    "primaryMuscles": [
-      "abdominal"
-    ],
-    "secondaryMuscles": [
-      "deltoides",
-      "glutis",
-      "quadriceps"
-    ],
-    "equipment": [
-      "kettlebell"
-    ],
-    "level": "expert",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "mobilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Lie on the back with one arm pressing a kettlebell straight up toward the ceiling.",
-      "Move through the get-up sequence (roll to the elbow, post the hand, bridge the hips, sweep the leg, lunge up to standing) keeping the bell vertical at all times.",
-      "Reverse the sequence back to the floor; alternate sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "turkish_get_up_kettlebell_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "turkish_get_up_kettlebell_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
     "id": "tva_activation_supine_v1",
     "nameKey": "exercises:tva_activation_supine_v1",
     "primaryMuscles": [
@@ -13431,102 +11576,6 @@
           "ingestedAt": "2026-04-28T20:00:28.285Z",
           "licenseName": "User-generated candidates",
           "provenance": "Generated during 2026-04 bulk x3 expansion: mobility, yoga and breathwork (batch 2/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "waiter_walk_v1",
-    "nameKey": "exercises:waiter_walk_v1",
-    "primaryMuscles": [
-      "deltoides"
-    ],
-    "secondaryMuscles": [
-      "abdominal",
-      "oblics"
-    ],
-    "equipment": [
-      "kettlebell"
-    ],
-    "level": "intermediate",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "seconds",
-    "tags": [
-      "forca",
-      "core_estabilitat",
-      "unilateral"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Press a kettlebell or dumbbell overhead with one arm in a locked-out position.",
-      "Walk forward keeping the bell stable directly over the shoulder.",
-      "Continue for the prescribed time; switch sides."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "waiter_walk_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "waiter_walk_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
-        }
-      ]
-    }
-  },
-  {
-    "id": "walking_lunge_v1",
-    "nameKey": "exercises:walking_lunge_v1",
-    "primaryMuscles": [
-      "quadriceps"
-    ],
-    "secondaryMuscles": [
-      "glutis",
-      "isquiotibials"
-    ],
-    "equipment": [
-      "pes_corporal"
-    ],
-    "level": "beginner",
-    "category": "strength",
-    "estimatedSeriesDurationSeconds": 40,
-    "progressionMetric": "reps",
-    "tags": [
-      "forca",
-      "unilateral",
-      "resistencia"
-    ],
-    "restrictions": [],
-    "instructions": [
-      "Stand tall with feet hip-width apart.",
-      "Step forward into a lunge lowering the back knee toward the floor.",
-      "Drive up and step the back foot through into the next lunge; continue alternating."
-    ],
-    "images": [
-      {
-        "url": "/exercises/placeholder.svg",
-        "alt": "walking_lunge_v1",
-        "isRepresentative": true
-      }
-    ],
-    "ingestionMeta": {
-      "sourceRecords": [
-        {
-          "sourceId": "bulk-x3-lower-core",
-          "sourceExternalId": "walking_lunge_v1",
-          "adapterId": "llm-json",
-          "ingestedAt": "2026-04-29T06:58:07.203Z",
-          "licenseName": "User-generated candidates",
-          "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8)."
         }
       ]
     }

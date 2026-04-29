@@ -1,7 +1,6 @@
 {
   "90_90_Hamstring": "Estiramiento de isquiotibiales 90/90",
   "Ab_Roller": "Rueda abdominal",
-  "ab_wheel_rollout_v1": "Rollout con rueda abdominal",
   "Adductor": "Aductor",
   "Adductor_Groin": "Aductor de ingle",
   "Air_Bike": "Bicicleta en el aire",
@@ -20,10 +19,8 @@
   "Band_Good_Morning": "Good morning con banda",
   "Band_Hip_Adductions": "Aducción de cadera con banda",
   "band_lateral_walk_v1": "Marcha lateral con banda elástica",
-  "band_monster_walk_v1": "Monster walk con banda",
   "band_overhead_press_v1": "Press por encima con banda elástica",
   "Band_Pull_Apart": "Pull apart con banda",
-  "band_seated_abduction_v1": "Abducción de cadera sentada con banda",
   "band_squat_v1": "Sentadilla con banda elástica",
   "band_tricep_pushdown_v1": "Extensión de tríceps con banda",
   "Barbell_Bench_Press_-_Medium_Grip": "Press de banca con barra - agarre medio",
@@ -36,16 +33,11 @@
   "bb_bent_over_row_v1": "Remo con barra inclinado",
   "bb_bicep_curl_v1": "Curl de bíceps con barra",
   "bb_close_grip_bench_v1": "Press de banca agarre cerrado",
-  "bb_good_morning_v1": "Good morning con barra",
-  "bb_hip_thrust_v1": "Hip thrust con barra",
   "bb_overhead_press_v1": "Press militar con barra",
-  "bb_rdl_v1": "Peso muerto rumano con barra",
   "bb_shrug_v1": "Encogimiento de hombros con barra",
   "Bench_Dips": "Fondos en banco",
   "Bent_Over_Barbell_Row": "Remo con barra inclinado",
   "bird_dog_pregnancy_v1": "Bird dog (gestación)",
-  "bird_dog_row_v1": "Bird dog con remo",
-  "body_saw_plank_v1": "Body saw en plancha",
   "body_scan_v1": "Escaneo corporal",
   "Bodyweight_Squat": "Sentadilla con peso corporal",
   "Bodyweight_Walking_Lunge": "Zancada caminando con peso corporal",
@@ -57,7 +49,6 @@
   "bridge_kegel_v1": "Puente con Kegel",
   "bridge_pose_yoga_v1": "Postura del puente (Setu Bandha)",
   "broad_jump_v1": "Salto horizontal",
-  "bulgarian_split_squat_v1": "Split squat búlgaro",
   "burpee_jump_v1": "Burpee con salto",
   "Butt_Lift_Bridge": "Puente de glúteos",
   "butterfly_breath_v1": "Mariposa con respiración pélvica",
@@ -71,34 +62,26 @@
   "clap_pushup_v1": "Flexión con aplauso",
   "cobra_pose_v1": "Postura de la cobra",
   "coherent_breathing_v1": "Respiración coherente",
-  "copenhagen_plank_v1": "Plancha Copenhagen",
-  "cossack_squat_v1": "Sentadilla cossack",
   "couch_stretch_v1": "Couch stretch",
   "Cross-Body_Crunch": "Crunch cruzado",
   "Crossover_Reverse_Lunge": "Zancada inversa cruzada",
   "Crunches": "Abdominales",
-  "curtsy_lunge_v1": "Zancada reverencia",
   "Dancers_Stretch": "Estiramiento del bailarín",
   "db_arnold_press_v1": "Press Arnold",
-  "db_bulgarian_split_squat_v1": "Split squat búlgaro con mancuernas",
   "db_chest_supported_row_v1": "Remo con mancuernas con apoyo en el pecho",
   "db_concentration_curl_v1": "Curl de concentración",
   "db_hammer_curl_v1": "Curl martillo con mancuernas",
-  "db_hip_thrust_v1": "Hip thrust con mancuerna",
   "db_incline_bench_press_v1": "Press de banca inclinado con mancuernas",
   "db_lateral_raise_v1": "Elevación lateral con mancuernas",
   "db_pullover_v1": "Pullover con mancuerna",
-  "db_rdl_v1": "Peso muerto rumano con mancuernas",
   "db_rear_delt_fly_v1": "Apertura posterior con mancuernas",
   "db_renegade_row_v1": "Renegade row",
-  "db_side_bend_v1": "Inclinación lateral con mancuerna",
   "db_single_arm_row_v1": "Remo a una mano con mancuerna",
   "db_skullcrusher_v1": "Skullcrusher con mancuernas",
   "db_snatch_v1": "Snatch con mancuerna",
   "db_thruster_v1": "Thruster con mancuernas",
   "db_zottman_curl_v1": "Curl Zottman",
   "Dead_Bug": "Dead bug",
-  "dead_bug_loaded_v1": "Dead bug cargado",
   "dead_bug_neutral_pelvis_v1": "Dead bug (pelvis neutra)",
   "Decline_Crunch": "Crunch declinado",
   "Decline_Oblique_Crunch": "Crunch declinado oblicuo",
@@ -128,14 +111,10 @@
   "Frog_Hops": "Saltos de rana",
   "Front_Barbell_Squat": "Sentadilla frontal con barra",
   "Front_Box_Jump": "Salto frontal al cajón",
-  "front_foot_elevated_split_squat_v1": "Split squat con pie delantero elevado",
-  "glute_bridge_march_v1": "Puente de glúteos con marcha",
   "Glute_Ham_Raise": "Glute ham raise",
   "Goblet_Squat": "Sentadilla goblet",
   "Good_Morning": "Good morning",
   "Groin_and_Back_Stretch": "Estiramiento de ingle y espalda",
-  "half_kneeling_chop_v1": "Chop en media rodilla",
-  "half_kneeling_lift_v1": "Lift en media rodilla",
   "hang_clean_v1": "Hang clean con barra",
   "Hanging_Leg_Raise": "Elevación de piernas colgado",
   "happy_baby_pose_v1": "Bebé feliz",
@@ -144,7 +123,6 @@
   "hip_90_90_switch_v1": "Switch de cadera 90/90",
   "hip_cars_v1": "CARs de cadera",
   "Hip_Circles_prone": "Círculos de cadera en pronación",
-  "hollow_body_hold_v1": "Hollow body hold",
   "Hyperextensions_Back_Extensions": "Hiperextensiones lumbares",
   "incline_plank_pregnancy_v1": "Plancha inclinada en banco",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estiramiento de flexor de cadera y cuádriceps",
@@ -158,7 +136,6 @@
   "kb_halo_v1": "Halo con kettlebell",
   "kb_press_v1": "Press a una mano con kettlebell",
   "kb_snatch_v1": "Snatch con kettlebell",
-  "kb_swing_two_handed_v1": "Swing con kettlebell a dos manos",
   "kb_swing_v1": "Kettlebell swing",
   "kb_turkish_get_up_v1": "Turkish get-up",
   "kb_windmill_v1": "Windmill con kettlebell",
@@ -169,7 +146,6 @@
   "Knee_Tuck_Jump": "Salto con rodillas al pecho",
   "Kneeling_Hip_Flexor": "Estiramiento de flexor de cadera arrodillado",
   "lateral_box_jump_v1": "Salto lateral al cajón",
-  "lateral_lunge_v1": "Zancada lateral",
   "lateral_step_down_v1": "Descenso lateral en escalón",
   "Leg_Extensions": "Extensiones de piernas",
   "Leg_Press": "Prensa de piernas",
@@ -184,16 +160,12 @@
   "One-Arm_Dumbbell_Row": "Remo con mancuerna a una mano",
   "open_book_stretch_v1": "Open book torácico",
   "Pallof_Press": "Pallof press",
-  "pallof_press_band_v1": "Pallof press con banda",
-  "pallof_press_split_stance_v1": "Pallof press en split",
   "pec_release_ball_v1": "Liberación pectoral con pelota",
   "pelvic_clock_v1": "Reloj pélvico",
   "pigeon_pose_v1": "Postura de la paloma",
   "Piriformis-SMR": "Piriforme - Liberación miofascial",
-  "pistol_squat_assisted_v1": "Pistol squat asistido",
   "Plank": "Plancha",
   "plank_jack_v1": "Plank jacks",
-  "plank_long_lever_v1": "Plancha de palanca larga",
   "plyo_pushup_v1": "Flexión pliométrica",
   "postpartum_band_row_v1": "Remo sentada postparto con banda",
   "postpartum_diaphragmatic_breath_v1": "Respiración diafragmática postparto",
@@ -226,7 +198,6 @@
   "resistance_band_row_seated_v1": "Remo sentada con banda",
   "resistance_band_row_standing_v1": "Remo con banda elástica (de pie)",
   "Reverse_Crunch": "Crunch inverso",
-  "reverse_lunge_v1": "Zancada inversa",
   "ring_row_v1": "Remo con anillas",
   "Romanian_Deadlift": "Peso muerto rumano",
   "Russian_Twist": "Giro ruso",
@@ -253,14 +224,9 @@
   "side_lying_clamshell_v1": "Clamshell lateral",
   "Side_Lying_Groin_Stretch": "Estiramiento de ingle de lado",
   "side_lying_leg_raise_v1": "Elevación lateral de pierna",
-  "side_plank_dynamic_v1": "Plancha lateral dinámica",
-  "side_plank_hip_lift_v1": "Elevación de cadera en plancha lateral",
-  "single_arm_farmer_carry_v1": "Farmer carry a un brazo",
   "single_leg_box_jump_v1": "Salto al cajón a una pierna",
   "Single_Leg_Glute_Bridge": "Puente de glúteos a una pierna",
-  "single_leg_hip_thrust_v1": "Hip thrust a una pierna",
   "Single_Leg_Push-off": "Impulso a una pierna",
-  "single_leg_rdl_v1": "Peso muerto rumano a una pierna",
   "single_leg_squat_v1": "Sentadilla monopodal",
   "sit_to_stand_v1": "Levantarse de la silla",
   "skater_jump_v1": "Salto patinador",
@@ -276,16 +242,13 @@
   "step_up_jump_v1": "Step-up con salto",
   "step_up_v1": "Subida al escalón",
   "Stiff-Legged_Barbell_Deadlift": "Peso muerto con piernas rígidas",
-  "suitcase_carry_v1": "Carry de maleta",
   "Sumo_Deadlift": "Peso muerto sumo",
-  "sumo_deadlift_v1": "Peso muerto sumo",
   "sun_salutation_a_v1": "Saludo al sol A",
   "sun_salutation_b_v1": "Saludo al sol B",
   "Superman": "Superman",
   "supine_twist_v1": "Torsión supina",
   "supported_fish_pose_v1": "Postura del pez con apoyo",
   "supported_squat_chair_v1": "Sentadilla con apoyo de silla",
-  "swiss_ball_hamstring_curl_v1": "Curl de isquios con fitball",
   "Thigh_Abductor": "Abductor de muslo",
   "Thigh_Adductor": "Aductor de muslo",
   "thoracic_bridge_v1": "Puente torácico",
@@ -294,11 +257,8 @@
   "triangle_pose_v1": "Postura del triángulo",
   "Triceps_Pushdown": "Extensión de tríceps con polea",
   "tuck_jump_v1": "Tuck jump",
-  "turkish_get_up_kettlebell_v1": "Turkish get-up con kettlebell",
   "tva_activation_supine_v1": "Activación del transverso (supina)",
   "upward_dog_v1": "Perro boca arriba",
-  "waiter_walk_v1": "Waiter walk",
-  "walking_lunge_v1": "Zancada caminada",
   "wall_press_core_v1": "Press de pared con core",
   "wall_push_up_v1": "Flexiones en la pared",
   "wall_pushup_pregnancy_v1": "Flexión en la pared",
@@ -315,11 +275,6 @@
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Círculos de calentamiento de muñecas",
   "instructions": {
-    "ab_wheel_rollout_v1": [
-      "De rodillas en el suelo sosteniendo una rueda abdominal bajo los hombros.",
-      "Rueda la rueda adelante manteniendo la columna neutra y las costillas abajo.",
-      "Vuelve sin perder la presión abdominal."
-    ],
     "alternate_nostril_breathing_v1": [
       "Siéntate cómodo y lleva la mano derecha a la cara con el pulgar sobre la fosa derecha y el anular sobre la izquierda.",
       "Cierra la fosa derecha e inhala por la izquierda, luego cierra la izquierda y exhala por la derecha.",
@@ -350,20 +305,10 @@
       "Da pasos laterales controlados manteniendo tensión constante en la banda y el core estable.",
       "No dejes que los pies se junten del todo para mantener la tensión durante todo el movimiento."
     ],
-    "band_monster_walk_v1": [
-      "Coloca una mini-banda en los tobillos o por encima de las rodillas y adopta un cuarto de sentadilla.",
-      "Camina adelante y hacia fuera alternando piernas manteniendo tensión en la banda.",
-      "Continúa por las reps o distancia prescritas."
-    ],
     "band_overhead_press_v1": [
       "Pisa la banda en el centro con los pies a la anchura de las caderas; agarra los extremos a la altura de los hombros.",
       "Empuja las manos hacia arriba hasta casi extendidos, manteniendo el core activado.",
       "Baja lentamente hasta la altura de los hombros y repite."
-    ],
-    "band_seated_abduction_v1": [
-      "Siéntate en un banco con una mini-banda alrededor de los muslos, justo por encima de las rodillas.",
-      "Empuja las rodillas hacia fuera contra la banda manteniendo los pies planos.",
-      "Vuelve lento al inicio."
     ],
     "band_squat_v1": [
       "Coloca una banda elástica justo por encima de las rodillas; de pie con los pies a la anchura de las caderas.",
@@ -404,25 +349,10 @@
       "Baja la barra al pecho bajo en 2 segundos manteniendo los codos pegados a unos 30°.",
       "Empuja la barra hacia arriba hasta la extensión sin abrir los codos."
     ],
-    "bb_good_morning_v1": [
-      "De pie con la barra en la parte alta de la espalda, pies al ancho de cadera.",
-      "Hinge en caderas con ligera flexión de rodilla bajando el torso hacia paralelo al suelo.",
-      "Empuja las caderas adelante para volver de pie."
-    ],
-    "bb_hip_thrust_v1": [
-      "Siéntate con la espalda alta contra un banco y la barra sobre las caderas.",
-      "Empuja por los talones levantando las caderas hasta línea recta de rodillas a hombros.",
-      "Baja controlado al inicio."
-    ],
     "bb_overhead_press_v1": [
       "De pie con pies al ancho de cadera y la barra en posición rack en los hombros, manos justo por fuera del ancho de hombros.",
       "Empuja la barra recta hacia arriba moviendo la cabeza ligeramente hacia delante cuando pasa por delante de la cara.",
       "Baja en 2–3 segundos al rack frontal con los codos flexionados."
-    ],
-    "bb_rdl_v1": [
-      "De pie con la barra a la altura de la cadera, manos al ancho de hombros.",
-      "Hinge en caderas con ligera flexión de rodilla, deslizando la barra por los muslos hasta notar estiramiento de isquios.",
-      "Empuja las caderas adelante para volver de pie manteniendo la barra cerca del cuerpo."
     ],
     "bb_shrug_v1": [
       "De pie con la barra a longitud de brazo frente a los muslos, manos al ancho de hombros.",
@@ -433,16 +363,6 @@
       "A cuatro patas con columna neutra.",
       "Extiende el brazo y la pierna opuestos manteniendo caderas y hombros paralelos al suelo.",
       "Baja controlada y cambia de lado."
-    ],
-    "bird_dog_row_v1": [
-      "Tres puntos: una rodilla y la mano opuesta en un banco, el otro brazo sosteniendo una mancuerna y la pierna libre extendida atrás.",
-      "Rema la mancuerna a las costillas sin rotar las caderas.",
-      "Baja controlado; haz las reps antes de cambiar."
-    ],
-    "body_saw_plank_v1": [
-      "Plancha con antebrazos y sliders o toalla bajo los pies.",
-      "Empuja atrás con los codos para que el cuerpo deslice hacia los talones.",
-      "Vuelve adelante a la plancha manteniendo el core activo."
     ],
     "body_scan_v1": [
       "Túmbate cómodo de espaldas con brazos a los lados y ojos cerrados.",
@@ -484,11 +404,6 @@
       "Empuja los brazos adelante y salta lo máximo horizontalmente.",
       "Aterriza suave con rodillas flexionadas; resetea."
     ],
-    "bulgarian_split_squat_v1": [
-      "De pie a un paso de un banco y apoya la parte superior de un pie en el banco detrás.",
-      "Baja a zancada hasta que el muslo delantero quede paralelo al suelo.",
-      "Empuja por el pie delantero para volver; haz las reps antes de cambiar."
-    ],
     "burpee_jump_v1": [
       "De pie con pies al ancho de hombros.",
       "Baja a plancha, haz una flexión, salta los pies a las manos y explota a un salto vertical.",
@@ -524,35 +439,15 @@
       "Inhala por la nariz 5 segundos expandiendo abdomen y costillas.",
       "Exhala por la nariz 5 segundos; continúa a este ritmo 5–10 minutos."
     ],
-    "copenhagen_plank_v1": [
-      "Túmbate de lado con la pierna de arriba apoyada en un banco a la altura del tobillo o rodilla.",
-      "Levanta las caderas en plancha lateral presionando la pierna de arriba contra el banco.",
-      "Mantén sin dejar caer las caderas el tiempo prescrito."
-    ],
-    "cossack_squat_v1": [
-      "De pie con pies más anchos que los hombros.",
-      "Desplaza el peso a un lado flexionando esa rodilla mientras la otra pierna queda recta con dedos arriba.",
-      "Empuja para volver al centro y alterna."
-    ],
     "couch_stretch_v1": [
       "Arrodíllate de espaldas a la pared o sofá, coloca una tibia contra la pared con el pie hacia arriba y el otro pie plano delante en zancada.",
       "Contrae el glúteo trasero y eleva el pecho alto manteniendo la lumbar neutra.",
       "Mantén 30–60 segundos respirando lento; cambia de lado."
     ],
-    "curtsy_lunge_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Da un paso atrás y cruzado bajando a zancada reverencia.",
-      "Vuelve de pie y alterna."
-    ],
     "db_arnold_press_v1": [
       "Siéntate en un banco con respaldo con dos mancuernas frente a los hombros y las palmas hacia el cuerpo.",
       "Empuja las mancuernas hacia arriba mientras rotas las palmas hacia fuera hasta extender los brazos.",
       "Invierte el movimiento en 2 segundos hasta la posición inicial."
-    ],
-    "db_bulgarian_split_squat_v1": [
-      "Sostén una mancuerna en cada mano y ponte a un paso de un banco con un pie detrás apoyado.",
-      "Baja a zancada hasta paralelo.",
-      "Empuja por el pie delantero para volver de pie."
     ],
     "db_chest_supported_row_v1": [
       "Túmbate boca abajo en un banco inclinado a unos 30° con una mancuerna en cada mano y brazos colgando.",
@@ -569,11 +464,6 @@
       "Flexiona los codos para llevar las mancuernas hacia los hombros sin rotar las muñecas.",
       "Baja en 2–3 segundos de forma controlada."
     ],
-    "db_hip_thrust_v1": [
-      "Siéntate con la espalda alta contra un banco y una mancuerna sobre las caderas.",
-      "Empuja por los talones hasta línea recta.",
-      "Baja controlado al inicio."
-    ],
     "db_incline_bench_press_v1": [
       "Coloca un banco reclinable a 30–45° y túmbate con una mancuerna en cada mano a la altura del hombro, palmas hacia delante.",
       "Empuja ambas mancuernas hacia arriba y ligeramente hacia dentro hasta extender los brazos sin bloquear los codos.",
@@ -589,11 +479,6 @@
       "Baja la mancuerna en arco hacia detrás de la cabeza hasta sentir un estiramiento en el dorsal y pecho, manteniendo la zona lumbar en contacto con el banco.",
       "Vuelve a llevar la mancuerna sobre el pecho de forma controlada."
     ],
-    "db_rdl_v1": [
-      "De pie con una mancuerna en cada mano apoyada delante de los muslos.",
-      "Hinge en caderas con ligera flexión de rodilla, bajando las mancuernas a lo largo de las piernas.",
-      "Empuja las caderas adelante para volver apretando glúteos arriba."
-    ],
     "db_rear_delt_fly_v1": [
       "Inclínate por las caderas con la espalda recta, mancuernas ligeras y brazos colgando, palmas enfrentadas.",
       "Eleva los brazos a los lados juntando las escápulas hasta que el brazo alcance el nivel del torso.",
@@ -603,11 +488,6 @@
       "Colócate en posición de flexión con las manos sobre dos mancuernas separadas al ancho de los hombros, pies más abiertos que las caderas.",
       "Tira de una mancuerna hacia el costado del torso manteniendo las caderas paralelas al suelo.",
       "Baja controlado y alterna lados durante las repeticiones."
-    ],
-    "db_side_bend_v1": [
-      "De pie con una mancuerna en una mano y la otra mano en la cabeza.",
-      "Inclina lateralmente hacia el lado cargado y vuelve contrayendo los oblicuos opuestos.",
-      "Haz las reps antes de cambiar."
     ],
     "db_single_arm_row_v1": [
       "Apoya una rodilla y la mano del mismo lado sobre un banco; el otro pie en el suelo y la mancuerna en la mano libre.",
@@ -633,11 +513,6 @@
       "De pie con una mancuerna en cada mano a los lados del cuerpo, palmas hacia delante.",
       "Flexiona los codos hasta los hombros, luego rota las muñecas para que las palmas queden abajo arriba.",
       "Baja en 3 segundos con las palmas abajo y rota a palmas arriba al final del recorrido."
-    ],
-    "dead_bug_loaded_v1": [
-      "Túmbate de espaldas con brazos rectos arriba sosteniendo una mancuerna ligera y rodillas sobre caderas.",
-      "Baja el brazo y la pierna opuestos hacia el suelo sin arquear la zona lumbar.",
-      "Vuelve y alterna lados."
     ],
     "dead_bug_neutral_pelvis_v1": [
       "Túmbate de espaldas con brazos al techo y rodillas sobre caderas a 90°.",
@@ -735,26 +610,6 @@
       "Inhala en silencio por la nariz 4 segundos, retén la respiración 7 segundos.",
       "Exhala audiblemente por la boca 8 segundos; repite 4 ciclos."
     ],
-    "front_foot_elevated_split_squat_v1": [
-      "Coloca el pie delantero en un step o plataforma baja con el pie trasero en el suelo en split.",
-      "Baja la rodilla trasera hacia el suelo manteniendo el torso erguido.",
-      "Empuja por el pie delantero para volver de pie."
-    ],
-    "glute_bridge_march_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies planos.",
-      "Levanta las caderas en puente de glúteos.",
-      "Mantén el puente mientras llevas una rodilla al pecho, alterna sin dejar caer las caderas."
-    ],
-    "half_kneeling_chop_v1": [
-      "Ancla una banda alta y ponte en media rodilla con la rodilla de dentro en el suelo.",
-      "Tira la banda en diagonal hacia abajo por el cuerpo a la cadera del lado.",
-      "Vuelve lento; haz las reps antes de cambiar."
-    ],
-    "half_kneeling_lift_v1": [
-      "Ancla una banda baja y ponte en media rodilla con la rodilla de fuera en el suelo.",
-      "Tira la banda en diagonal arriba por el cuerpo hacia la cabeza del lado opuesto.",
-      "Vuelve lento; haz las reps antes de cambiar."
-    ],
     "hang_clean_v1": [
       "De pie con la barra a la altura de la cadera, manos al ancho de hombros.",
       "Hinge a medio-muslo, explota empujando las caderas y lleva la barra a rack frontal en hombros, bajando para recibirla.",
@@ -784,11 +639,6 @@
       "De pie sobre una pierna, agárrate a una pared para equilibrio si hace falta.",
       "Eleva la rodilla libre a la altura de la cadera, ábrela al lado y luego llévala atrás y baja.",
       "Invierte el círculo; cambia de lado."
-    ],
-    "hollow_body_hold_v1": [
-      "Túmbate de espaldas con brazos por encima de la cabeza y piernas rectas.",
-      "Presiona la lumbar contra el suelo y levanta hombros y piernas en forma de plátano.",
-      "Mantén sin perder contacto de la lumbar con el suelo."
     ],
     "incline_plank_pregnancy_v1": [
       "Coloca las manos en un banco o silla sólida al ancho de hombros.",
@@ -834,11 +684,6 @@
       "Empieza con la kettlebell en el suelo entre los pies.",
       "Hinge, empuja explosivo las caderas y tira la kettlebell recta arriba en un solo movimiento atravesando la mano arriba.",
       "Baja controlado al suelo y cambia manos según programación."
-    ],
-    "kb_swing_two_handed_v1": [
-      "De pie con pies al ancho de hombros y la kettlebell en el suelo delante.",
-      "Hinge para coger la bola, balancéala atrás entre las piernas y haz un snap explosivo de caderas para que suba a la altura del pecho.",
-      "Déjala caer entre las piernas en hinge controlado y continúa."
     ],
     "kb_swing_v1": [
       "De pie con los pies al ancho de hombros y la kettlebell en el suelo a un pie de distancia delante.",
@@ -887,11 +732,6 @@
       "Flexiona las rodillas y salta lateralmente al cajón aterrizando suave.",
       "Baja al lado opuesto y salta de vuelta; alterna."
     ],
-    "lateral_lunge_v1": [
-      "De pie con pies juntos.",
-      "Da un paso amplio a un lado, retrae las caderas y flexiona esa rodilla mientras la otra pierna queda recta.",
-      "Vuelve de pie y alterna lados."
-    ],
     "lateral_step_down_v1": [
       "De pie sobre un escalón o caja (10–20 cm), con el pie de control al lado del suelo.",
       "Flexiona lentamente la rodilla de apoyo para bajar el otro pie hacia el suelo en 3–4 segundos, manteniendo la rodilla alineada sobre el segundo dedo.",
@@ -934,16 +774,6 @@
       "Inhala y abre lento el brazo de arriba siguiéndolo con la mirada, manteniendo las rodillas juntas.",
       "Exhala para volver; haz reps y cambia de lado."
     ],
-    "pallof_press_band_v1": [
-      "Ancla una banda a la altura del pecho y ponte de lado cogiéndola con ambas manos al pecho.",
-      "Empuja la banda recta adelante resistiendo el tirón hacia el ancla.",
-      "Vuelve las manos al pecho controlado; haz las reps antes de cambiar."
-    ],
-    "pallof_press_split_stance_v1": [
-      "Ancla una banda a la altura del pecho y ponte en media rodilla o split perpendicular al ancla.",
-      "Empuja la banda recta resistiendo la rotación.",
-      "Vuelve lento; haz las reps antes de cambiar."
-    ],
     "pec_release_ball_v1": [
       "Coloca una pelota de masaje entre la parte alta del pecho y una pared, justo bajo la clavícula.",
       "Aplica presión contra la pelota y mueve el brazo para encontrar puntos tensos.",
@@ -959,11 +789,6 @@
       "Cuadra las caderas y baja el torso sobre la tibia delantera hasta donde toleres.",
       "Mantén respirando lento; cambia de lado."
     ],
-    "pistol_squat_assisted_v1": [
-      "Sujeta un TRX, marco de puerta o poste para equilibrio y ponte sobre una pierna.",
-      "Baja a sentadilla a una pierna extendiendo la pierna libre delante.",
-      "Empuja por el pie plantado para volver de pie."
-    ],
     "Plank": [
       "Sitúate en posición de flexión con los antebrazos en el suelo.",
       "Mantén el cuerpo en línea recta desde la cabeza hasta los talones.",
@@ -975,11 +800,6 @@
       "Plancha alta con pies juntos.",
       "Salta los pies abiertos a los lados e inmediatamente juntos.",
       "Continúa a ritmo constante con caderas niveladas."
-    ],
-    "plank_long_lever_v1": [
-      "Posición de plancha con antebrazos y codos extendidos delante de los hombros.",
-      "Empuja el suelo y activa los abdominales sin dejar caer las caderas.",
-      "Mantén el tiempo prescrito."
     ],
     "plyo_pushup_v1": [
       "Plancha alta con manos al ancho de hombros.",
@@ -1118,11 +938,6 @@
       "De pie con rodillas ligeramente flexionadas, lleva los codos hacia atrás acercando las manos a los costados del tronco y juntando las escápulas.",
       "Regresa lentamente a la posición inicial con 2 segundos de control."
     ],
-    "reverse_lunge_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Da un paso atrás con un pie a zancada bajando la rodilla trasera al suelo.",
-      "Empuja por el pie delantero para volver; alterna lados."
-    ],
     "ring_row_v1": [
       "Coloca las anillas a la altura de la cadera y agárralas con brazos extendidos, cuerpo en línea recta y talones en el suelo.",
       "Tira del pecho hacia las anillas retrayendo las escápulas y flexionando los codos.",
@@ -1223,35 +1038,10 @@
       "Eleva la pierna de arriba a unos 45° sin rotar la cadera.",
       "Baja controlada; cambia de lado."
     ],
-    "side_plank_dynamic_v1": [
-      "Posición de plancha lateral sobre el antebrazo con caderas levantadas.",
-      "Rota el brazo de arriba bajo el cuerpo en thread the needle, luego vuelve a la plancha lateral abierta.",
-      "Haz las reps antes de cambiar."
-    ],
-    "side_plank_hip_lift_v1": [
-      "Posición de plancha lateral sobre el antebrazo con caderas levantadas.",
-      "Baja las caderas hacia el suelo y empújalas arriba sin rotar el torso.",
-      "Haz las reps antes de cambiar."
-    ],
-    "single_arm_farmer_carry_v1": [
-      "Coge una mancuerna pesada con una mano y ponte de pie.",
-      "Camina la distancia prescrita manteniendo los hombros nivelados y el core activo.",
-      "Cambia y repite."
-    ],
     "single_leg_box_jump_v1": [
       "De pie sobre una pierna de cara a un cajón bajo.",
       "Flexiona la rodilla y salta explosivo al cajón aterrizando suave en la misma pierna.",
       "Baja y haz las reps antes de cambiar."
-    ],
-    "single_leg_hip_thrust_v1": [
-      "Siéntate con la espalda alta contra un banco y un pie plano en el suelo.",
-      "Empuja por el talón plantado levantando las caderas con la pierna libre extendida.",
-      "Baja controlado; haz las reps antes de cambiar."
-    ],
-    "single_leg_rdl_v1": [
-      "De pie sobre una pierna con una mancuerna en la mano opuesta.",
-      "Hinge en cadera extendiendo la pierna libre atrás mientras el torso baja paralelo al suelo.",
-      "Vuelve de pie controlado; haz las reps antes de cambiar."
     ],
     "single_leg_squat_v1": [
       "De pie sobre una pierna, la otra ligeramente al frente o al lado, brazos extendidos para el equilibrio.",
@@ -1300,16 +1090,6 @@
       "Empuja el talón del pie en el escalón para levantarte, llevando el otro pie al nivel del escalón.",
       "Baja controlando el descenso en 2 seg; alterna piernas o haz todas las reps de un lado primero."
     ],
-    "suitcase_carry_v1": [
-      "Coge una kettlebell con una mano y ponte de pie con los hombros nivelados.",
-      "Camina con pasos controlados resistiendo cualquier inclinación hacia el lado cargado.",
-      "Continúa por el tiempo o distancia prescritos; cambia."
-    ],
-    "sumo_deadlift_v1": [
-      "De pie con stance amplio y pies girados hacia fuera, la barra sobre el medio pie.",
-      "Hinge para coger la barra dentro de las piernas.",
-      "Empuja el suelo hacia abajo llevando las caderas adelante hasta lockout."
-    ],
     "sun_salutation_a_v1": [
       "Desde de pie, inhala brazos arriba, exhala flexión adelante, inhala medio elevado.",
       "Exhala retrocede a plancha, baja al suelo, inhala perro arriba, exhala perro abajo y respira.",
@@ -1334,11 +1114,6 @@
       "De pie ante una silla sólida con pies al ancho de cadera.",
       "Siéntate lenta hasta que los glúteos toquen la silla manteniendo el pecho alto.",
       "Levántate empujando por la planta del pie."
-    ],
-    "swiss_ball_hamstring_curl_v1": [
-      "Túmbate de espaldas con los talones sobre un fitball, brazos a los lados.",
-      "Levanta las caderas en puente.",
-      "Tira los talones hacia los glúteos flexionando rodillas, luego extiende controlado sin dejar caer caderas."
     ],
     "thoracic_bridge_v1": [
       "Siéntate con rodillas flexionadas, pies en el suelo y manos detrás con dedos hacia atrás.",
@@ -1365,11 +1140,6 @@
       "Salta explosivo llevando las rodillas al pecho arriba.",
       "Aterriza suave flexionando las rodillas y repite."
     ],
-    "turkish_get_up_kettlebell_v1": [
-      "Túmbate de espaldas con un brazo presionando una kettlebell recta arriba hacia el techo.",
-      "Muévete por la secuencia del get-up (rueda al codo, apoya la mano, puente de caderas, barre la pierna, zancada a de pie) manteniendo la bola vertical siempre.",
-      "Invierte la secuencia hasta el suelo; alterna."
-    ],
     "tva_activation_supine_v1": [
       "Túmbate de espaldas con rodillas flexionadas y pies planos, manos sobre el abdomen bajo.",
       "Exhala lento llevando el abdomen bajo hacia la columna y elevando el suelo pélvico.",
@@ -1379,16 +1149,6 @@
       "Túmbate boca abajo con manos bajo hombros y empeines en la esterilla.",
       "Empuja las manos elevando pecho, caderas y muslos del suelo con brazos extendidos.",
       "Rueda los hombros atrás y mira ligeramente arriba; mantén respirando."
-    ],
-    "waiter_walk_v1": [
-      "Presiona una kettlebell o mancuerna sobre la cabeza con un brazo en lockout.",
-      "Camina adelante manteniendo la bola estable sobre el hombro.",
-      "Continúa por el tiempo prescrito; cambia."
-    ],
-    "walking_lunge_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Avanza a zancada bajando la rodilla trasera al suelo.",
-      "Empuja y pasa el pie trasero a la siguiente zancada; alterna."
     ],
     "wall_press_core_v1": [
       "De pie a un pie de la pared con ambas palmas contra ella a la altura del pecho.",

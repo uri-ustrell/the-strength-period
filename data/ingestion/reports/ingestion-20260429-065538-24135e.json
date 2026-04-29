@@ -1,0 +1,551 @@
+{
+  "runId": "ingestion-20260429-065538-24135e",
+  "startedAt": "2026-04-29T06:55:38.651Z",
+  "completedAt": "2026-04-29T06:55:38.688Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 36,
+    "skipped": 4,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "bb_rdl_v1",
+    "db_rdl_v1",
+    "single_leg_rdl_v1",
+    "bb_hip_thrust_v1",
+    "db_hip_thrust_v1",
+    "single_leg_hip_thrust_v1",
+    "bb_good_morning_v1",
+    "swiss_ball_hamstring_curl_v1",
+    "kb_swing_two_handed_v1",
+    "bulgarian_split_squat_v1",
+    "front_foot_elevated_split_squat_v1",
+    "reverse_lunge_v1",
+    "walking_lunge_v1",
+    "lateral_lunge_v1",
+    "curtsy_lunge_v1",
+    "pistol_squat_assisted_v1",
+    "copenhagen_plank_v1",
+    "side_plank_hip_lift_v1",
+    "cossack_squat_v1",
+    "sumo_deadlift_v1",
+    "dead_bug_loaded_v1",
+    "hollow_body_hold_v1",
+    "ab_wheel_rollout_v1",
+    "plank_long_lever_v1",
+    "body_saw_plank_v1",
+    "pallof_press_band_v1",
+    "pallof_press_split_stance_v1",
+    "half_kneeling_chop_v1",
+    "half_kneeling_lift_v1",
+    "bird_dog_row_v1",
+    "suitcase_carry_v1",
+    "side_plank_dynamic_v1",
+    "db_side_bend_v1",
+    "single_arm_farmer_carry_v1",
+    "waiter_walk_v1",
+    "turkish_get_up_kettlebell_v1"
+  ],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260429-065538-24135e.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260429-065538-24135e.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-lower-core",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:bb_rdl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "bb_rdl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_rdl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:db_rdl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "db_rdl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_rdl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:single_leg_rdl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "single_leg_rdl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "single_leg_rdl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:bb_hip_thrust_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "bb_hip_thrust_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_hip_thrust_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:db_hip_thrust_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "db_hip_thrust_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_hip_thrust_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:single_leg_hip_thrust_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "single_leg_hip_thrust_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "single_leg_hip_thrust_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:glute_bridge_march_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "glute_bridge_march_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.85)."
+      ],
+      "canonicalId": "glute_bridge_march_v1",
+      "duplicateOf": "postpp_glute_bridge_march_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:bb_good_morning_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "bb_good_morning_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bb_good_morning_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:swiss_ball_hamstring_curl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "swiss_ball_hamstring_curl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "swiss_ball_hamstring_curl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:kb_swing_two_handed_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "kb_swing_two_handed_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_swing_two_handed_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:bulgarian_split_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "bulgarian_split_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bulgarian_split_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:db_bulgarian_split_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "db_bulgarian_split_squat_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.85)."
+      ],
+      "canonicalId": "db_bulgarian_split_squat_v1",
+      "duplicateOf": "bulgarian_split_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:front_foot_elevated_split_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "front_foot_elevated_split_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "front_foot_elevated_split_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:reverse_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "reverse_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "reverse_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:walking_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "walking_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "walking_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:lateral_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "lateral_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "lateral_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:curtsy_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "curtsy_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "curtsy_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:pistol_squat_assisted_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "pistol_squat_assisted_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pistol_squat_assisted_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:copenhagen_plank_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "copenhagen_plank_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "copenhagen_plank_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:side_plank_hip_lift_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "side_plank_hip_lift_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "side_plank_hip_lift_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:band_seated_abduction_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "band_seated_abduction_v1",
+      "status": "skipped",
+      "confidence": 0.97,
+      "reasons": [
+        "Pending manual review.",
+        "1 tag(s) were dropped because they are not canonical."
+      ],
+      "canonicalId": "band_seated_abduction_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:band_monster_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "band_monster_walk_v1",
+      "status": "skipped",
+      "confidence": 0.97,
+      "reasons": [
+        "Pending manual review.",
+        "1 tag(s) were dropped because they are not canonical."
+      ],
+      "canonicalId": "band_monster_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:cossack_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "cossack_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "cossack_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:sumo_deadlift_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "sumo_deadlift_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sumo_deadlift_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:dead_bug_loaded_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "dead_bug_loaded_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "dead_bug_loaded_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:hollow_body_hold_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "hollow_body_hold_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hollow_body_hold_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:ab_wheel_rollout_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "ab_wheel_rollout_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "ab_wheel_rollout_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:plank_long_lever_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "plank_long_lever_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "plank_long_lever_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:body_saw_plank_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "body_saw_plank_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "body_saw_plank_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:pallof_press_band_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "pallof_press_band_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pallof_press_band_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:pallof_press_split_stance_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "pallof_press_split_stance_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pallof_press_split_stance_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:half_kneeling_chop_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "half_kneeling_chop_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "half_kneeling_chop_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:half_kneeling_lift_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "half_kneeling_lift_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "half_kneeling_lift_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:bird_dog_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "bird_dog_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bird_dog_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:suitcase_carry_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "suitcase_carry_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "suitcase_carry_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:side_plank_dynamic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "side_plank_dynamic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "side_plank_dynamic_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:db_side_bend_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "db_side_bend_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_side_bend_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:single_arm_farmer_carry_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "single_arm_farmer_carry_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "single_arm_farmer_carry_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:waiter_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "waiter_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "waiter_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-lower-core:exercise:turkish_get_up_kettlebell_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceExternalId": "turkish_get_up_kettlebell_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "turkish_get_up_kettlebell_v1"
+    }
+  ]
+}

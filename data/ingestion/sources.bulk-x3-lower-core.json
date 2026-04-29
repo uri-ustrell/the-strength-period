@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "adapter": "llm-json",
+      "sourceId": "bulk-x3-lower-core",
+      "sourceType": "llm-json",
+      "input": "data/ingestion/llm-candidates/bulk-x3-lower-core.json",
+      "sourceUrl": "local-file",
+      "license": {
+        "licenseName": "User-generated candidates",
+        "allowsRedistribution": true,
+        "allowsCommercialUse": true,
+        "requiresAttribution": false,
+        "provenance": "Generated during 2026-04 bulk x3 expansion: lower body & core (batch 5/8).",
+        "verifiedAt": "2026-04-28T00:00:00.000Z",
+        "verifiedBy": "copilot-session"
+      }
+    }
+  ]
+}
