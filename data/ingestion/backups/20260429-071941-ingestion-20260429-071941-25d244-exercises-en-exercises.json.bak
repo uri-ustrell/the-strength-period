@@ -49,13 +49,8 @@
   "bb_pendlay_row_v1": "Pendlay Row",
   "bb_rdl_v1": "Barbell Romanian Deadlift",
   "bb_shrug_v1": "Barbell Shrug",
-  "bear_crawl_v1": "Bear Crawl",
   "Bench_Dips": "Bench Dips",
   "Bent_Over_Barbell_Row": "Bent Over Barbell Row",
-  "bike_hill_simulation_v1": "Bike Hill Simulation",
-  "bike_sprint_v1": "Bike Sprint",
-  "bike_tabata_v1": "Bike Tabata Intervals",
-  "bike_zone2_v1": "Zone 2 Bike Ride",
   "bird_dog_pregnancy_v1": "Bird Dog (Pregnancy-friendly)",
   "bird_dog_row_v1": "Bird Dog Row",
   "body_saw_plank_v1": "Body Saw Plank",
@@ -70,11 +65,9 @@
   "box_squat_jump_v1": "Box Squat Jump",
   "bridge_kegel_v1": "Bridge with Kegel",
   "bridge_pose_yoga_v1": "Bridge Pose (Setu Bandha)",
-  "brisk_walk_v1": "Brisk Walk",
   "broad_jump_v1": "Broad Jump",
   "bulgarian_split_squat_v1": "Bulgarian Split Squat",
   "burpee_jump_v1": "Burpee with Jump",
-  "butt_kicker_v1": "Butt Kicker",
   "Butt_Lift_Bridge": "Glute Bridge",
   "butterfly_breath_v1": "Butterfly with Pelvic Breath",
   "Calf_Raises_-_With_Bands": "Calf Raises with Bands",
@@ -85,7 +78,6 @@
   "childs_pose_v1": "Child's Pose",
   "Chin-Up": "Chin-Up",
   "chinup_v1": "Chin-Up",
-  "circuit_complex_basic_v1": "Basic Conditioning Circuit",
   "clap_pushup_v1": "Clap Push-Up",
   "close_grip_pushup_v1": "Close-Grip Push-Up",
   "cobra_pose_v1": "Cobra Pose",
@@ -93,7 +85,6 @@
   "copenhagen_plank_v1": "Copenhagen Plank",
   "cossack_squat_v1": "Cossack Squat",
   "couch_stretch_v1": "Couch Stretch",
-  "crab_walk_v1": "Crab Walk",
   "Cross-Body_Crunch": "Cross-Body Crunch",
   "Crossover_Reverse_Lunge": "Crossover Reverse Lunge",
   "Crunches": "Crunches",
@@ -155,9 +146,6 @@
   "Dumbbell_Side_Bend": "Dumbbell Side Bend",
   "eccentric_calf_raise_v1": "Eccentric Calf Raise (Heel Drop)",
   "Face_Pull": "Face Pull",
-  "farmer_carry_interval_v1": "Farmer's Carry Interval",
-  "fartlek_run_v1": "Fartlek Run",
-  "fast_feet_v1": "Fast Feet",
   "fitball_dead_bug_v1": "Fitball Dead Bug",
   "fitball_pelvic_circles_v1": "Fitball Pelvic Circles",
   "fitball_pelvic_tilt_v1": "Fitball Pelvic Tilt",
@@ -184,8 +172,6 @@
   "happy_baby_pose_v1": "Happy Baby",
   "heel_slide_pelvic_v1": "Heel Slide with Pelvic Floor",
   "heel_slide_supine_v1": "Supine Heel Slide",
-  "high_knee_run_v1": "High Knee Run",
-  "hill_sprint_v1": "Hill Sprint",
   "hip_90_90_switch_v1": "90/90 Hip Switch",
   "hip_cars_v1": "Hip CARs",
   "Hip_Circles_prone": "Hip Circles Prone",
@@ -193,34 +179,19 @@
   "Hyperextensions_Back_Extensions": "Hyperextensions / Back Extensions",
   "incline_plank_pregnancy_v1": "Incline Plank on Bench",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Hip Flexor and Quad Stretch",
-  "interval_400m_v1": "400m Interval",
   "inverted_row_feet_elevated_v1": "Feet-Elevated Inverted Row",
   "IT_Band_and_Glute_Stretch": "IT Band and Glute Stretch",
   "Jackknife_Sit-Up": "Jackknife Sit-Up",
-  "jumping_jack_v1": "Jumping Jack",
-  "jumprope_alternating_foot_v1": "Alternating Foot Jump Rope",
-  "jumprope_basic_v1": "Basic Jump Rope",
-  "jumprope_boxer_skip_v1": "Boxer Skip Jump Rope",
-  "jumprope_criss_cross_v1": "Criss-Cross Jump Rope",
-  "jumprope_double_under_v1": "Jump Rope Double Under",
-  "jumprope_high_knee_v1": "High Knee Jump Rope",
-  "jumprope_side_to_side_v1": "Side-to-Side Jump Rope",
-  "jumprope_single_leg_v1": "Single-Leg Jump Rope",
-  "kb_clean_press_v1": "Kettlebell Clean and Press",
   "kb_clean_v1": "Kettlebell Clean",
-  "kb_complex_simple_v1": "Simple Kettlebell Complex",
   "kb_double_clean_v1": "Double Kettlebell Clean",
   "kb_double_press_v1": "Double Kettlebell Press",
   "kb_farmer_carry_v1": "Kettlebell Farmer Carry",
   "kb_goblet_squat_v1": "Kettlebell Goblet Squat",
   "kb_halo_v1": "Kettlebell Halo",
   "kb_press_v1": "Kettlebell Single-Arm Press",
-  "kb_snatch_continuous_v1": "Continuous Kettlebell Snatch",
   "kb_snatch_v1": "Kettlebell Snatch",
-  "kb_swing_one_handed_v1": "One-Handed Kettlebell Swing",
   "kb_swing_two_handed_v1": "Two-Handed Kettlebell Swing",
   "kb_swing_v1": "Kettlebell Swing",
-  "kb_thruster_v1": "Kettlebell Thruster",
   "kb_turkish_get_up_v1": "Turkish Get-Up",
   "kb_windmill_v1": "Kettlebell Windmill",
   "kegel_basic_v1": "Basic Kegel",
@@ -231,7 +202,6 @@
   "Kneeling_Hip_Flexor": "Kneeling Hip Flexor Stretch",
   "lateral_box_jump_v1": "Lateral Box Jump",
   "lateral_lunge_v1": "Lateral Lunge",
-  "lateral_shuffle_v1": "Lateral Shuffle",
   "lateral_step_down_v1": "Lateral Step Down",
   "Leg_Extensions": "Leg Extensions",
   "Leg_Press": "Leg Press",
@@ -240,7 +210,6 @@
   "Lying_Leg_Curls": "Lying Leg Curls",
   "modified_side_plank_knee_v1": "Modified Side Plank from Knees",
   "mountain_climber_explosive_v1": "Explosive Mountain Climbers",
-  "mountain_climber_tempo_v1": "Tempo Mountain Climber",
   "Mountain_Climbers": "Mountain Climbers",
   "neck_cars_v1": "Neck CARs",
   "nordic_curl_v1": "Nordic Hamstring Curl",
@@ -294,7 +263,6 @@
   "reverse_lunge_v1": "Reverse Lunge",
   "ring_row_v1": "Ring Row",
   "Romanian_Deadlift": "Romanian Deadlift",
-  "row_zone2_v1": "Zone 2 Row",
   "Russian_Twist": "Russian Twist",
   "sandbag_bear_hug_carry_v1": "Bear Hug Sandbag Carry",
   "sandbag_clean_v1": "Sandbag Clean",
@@ -302,11 +270,9 @@
   "sandbag_get_up_v1": "Sandbag Get-Up",
   "sandbag_rotational_lunge_v1": "Sandbag Rotational Lunge",
   "sandbag_shoulder_to_shoulder_v1": "Sandbag Shoulder to Shoulder",
-  "sandbag_sled_push_v1": "Sandbag Sled Push",
   "sandbag_squat_v1": "Sandbag Front Squat",
   "sandbag_zercher_squat_v1": "Sandbag Zercher Squat",
   "savasana_v1": "Savasana",
-  "scissor_lunge_v1": "Scissor Lunge",
   "seal_row_v1": "Seal Row",
   "seated_box_jump_v1": "Seated Box Jump",
   "Seated_Cable_Rows": "Seated Cable Rows",
@@ -318,7 +284,6 @@
   "seated_marching_v1": "Seated Marching",
   "seated_spinal_twist_v1": "Seated Spinal Twist",
   "shoulder_cars_v1": "Shoulder CARs",
-  "shuttle_run_v1": "Shuttle Run",
   "Side_Lateral_Raise": "Side Lateral Raise",
   "side_lying_clamshell_v1": "Side-Lying Clamshell",
   "Side_Lying_Groin_Stretch": "Side Lying Groin Stretch",
@@ -334,10 +299,8 @@
   "single_leg_squat_v1": "Single-Leg Squat",
   "sit_to_stand_v1": "Sit to Stand",
   "skater_jump_v1": "Skater Jump",
-  "spin_easy_v1": "Easy Spin Bike",
   "split_squat_jump_v1": "Split Squat Jump",
   "Split_Squat_with_Dumbbells": "Split Squat with Dumbbells",
-  "sprawl_v1": "Sprawl",
   "squat_jump_v1": "Squat Jump",
   "standing_calf_raise_pregnancy_v1": "Standing Calf Raise",
   "Standing_Calf_Raises": "Standing Calf Raises",
@@ -359,12 +322,10 @@
   "supported_squat_chair_v1": "Supported Chair Squat",
   "svend_press_v1": "Svend Press",
   "swiss_ball_hamstring_curl_v1": "Swiss Ball Hamstring Curl",
-  "tempo_run_v1": "Tempo Run",
   "Thigh_Abductor": "Thigh Abductor",
   "Thigh_Adductor": "Thigh Adductor",
   "thoracic_bridge_v1": "Thoracic Bridge",
   "thread_the_needle_v1": "Thread the Needle",
-  "treadmill_intervals_v1": "Treadmill Intervals",
   "tree_pose_v1": "Tree Pose",
   "triangle_pose_v1": "Triangle Pose",
   "tricep_dip_chair_v1": "Triceps Dip on Chair",
@@ -374,7 +335,6 @@
   "tva_activation_supine_v1": "TVA Activation Supine",
   "upward_dog_v1": "Upward-Facing Dog",
   "waiter_walk_v1": "Waiter Walk",
-  "walking_incline_v1": "Incline Walk",
   "walking_lunge_v1": "Walking Lunge",
   "wall_press_core_v1": "Wall Press Core Brace",
   "wall_push_up_v1": "Wall Push-Up",
@@ -550,31 +510,6 @@
       "Lift the shoulders straight up toward the ears without rolling them.",
       "Pause briefly at the top and lower the shoulders under control."
     ],
-    "bear_crawl_v1": [
-      "Set up on hands and toes with knees hovering an inch off the floor.",
-      "Crawl forward moving the opposite hand and foot at the same time keeping the hips low.",
-      "Continue for the prescribed distance or time."
-    ],
-    "bike_hill_simulation_v1": [
-      "Warm up for 5 minutes at an easy pace.",
-      "Increase resistance to simulate a steep climb and pedal hard for 2–4 minutes.",
-      "Recover at low resistance for 2 minutes; repeat for the prescribed reps."
-    ],
-    "bike_sprint_v1": [
-      "Warm up at an easy pace for 5 minutes.",
-      "Sprint hard for 20–30 seconds at maximum effort.",
-      "Recover at an easy pace for 60–90 seconds; repeat for the prescribed reps."
-    ],
-    "bike_tabata_v1": [
-      "Warm up at an easy pace for 5 minutes.",
-      "Alternate 20 seconds of all-out effort with 10 seconds of recovery for 8 rounds.",
-      "Cool down at an easy pace for 5 minutes."
-    ],
-    "bike_zone2_v1": [
-      "Maintain a steady, conversational pace where speaking in short sentences is possible.",
-      "Hold the effort for the prescribed duration without spikes in intensity.",
-      "Cool down for the last 5 minutes at an easier pace."
-    ],
     "bird_dog_pregnancy_v1": [
       "Start on hands and knees with a neutral spine.",
       "Extend the opposite arm and leg keeping the hips and shoulders square to the floor.",
@@ -630,11 +565,6 @@
       "Press into the feet and lift the hips toward the ceiling, optionally clasping the hands beneath the body.",
       "Hold breathing steadily and lower under control."
     ],
-    "brisk_walk_v1": [
-      "Walk at a pace where speaking in short sentences is comfortable.",
-      "Maintain an upright posture and a steady cadence.",
-      "Continue for the prescribed time."
-    ],
     "broad_jump_v1": [
       "Stand with feet hip-width apart, swing the arms back and bend the knees.",
       "Drive the arms forward and jump as far horizontally as possible.",
@@ -649,11 +579,6 @@
       "Stand with feet shoulder-width apart.",
       "Drop to a push-up position, perform one push-up, jump the feet to the hands and explode up into a vertical jump.",
       "Land softly and immediately repeat."
-    ],
-    "butt_kicker_v1": [
-      "Stand tall with feet hip-width apart.",
-      "Run in place kicking the heels up to the glutes with each step.",
-      "Continue at a fast cadence for the prescribed time."
     ],
     "butterfly_breath_v1": [
       "Sit with the soles of the feet together and knees relaxed apart.",
@@ -674,11 +599,6 @@
       "Hang from a pull-up bar with palms facing the body shoulder-width.",
       "Pull the chest toward the bar by driving the elbows down.",
       "Lower in 2–3 seconds to a dead hang."
-    ],
-    "circuit_complex_basic_v1": [
-      "Perform 10 squats, 10 push-ups and 10 sit-ups back to back.",
-      "Rest 60 seconds.",
-      "Complete the prescribed number of rounds."
     ],
     "clap_pushup_v1": [
       "Set up in a high plank with hands shoulder-width apart.",
@@ -714,11 +634,6 @@
       "Kneel facing away from a wall or couch, place one shin against the wall with the foot pointing up and the other foot flat in front in a lunge.",
       "Squeeze the back glute and lift the chest tall, keeping the lower back neutral.",
       "Hold for 30–60 seconds breathing slowly; switch sides."
-    ],
-    "crab_walk_v1": [
-      "Sit on the floor with hands behind the hips and feet flat.",
-      "Lift the hips into a reverse tabletop and walk forward or sideways using opposite hand and foot.",
-      "Continue for the prescribed distance or time."
     ],
     "cuban_press_db_v1": [
       "Stand with a light dumbbell in each hand and elbows bent to 90° at chest height.",
@@ -970,21 +885,6 @@
       "Rise on both toes (concentric), then slowly lower on one leg over 4–5 sec, letting the heel drop below the step level.",
       "Return with both legs and repeat. Progress by adding load or increasing reps."
     ],
-    "farmer_carry_interval_v1": [
-      "Pick up a heavy weight in each hand and stand tall.",
-      "Walk for 30–60 seconds at a steady pace, then rest for an equal interval.",
-      "Repeat for the prescribed rounds."
-    ],
-    "fartlek_run_v1": [
-      "Start with an easy jog to warm up.",
-      "Alternate spontaneous bouts of fast running (30–90 s) with easy jogging recoveries based on perceived effort.",
-      "Continue for the prescribed total time, finishing with an easy cool-down jog."
-    ],
-    "fast_feet_v1": [
-      "Stand in an athletic stance with knees slightly bent.",
-      "Tap the balls of the feet on the floor as fast as possible without lifting the knees high.",
-      "Continue at maximum cadence for the prescribed time."
-    ],
     "fitball_dead_bug_v1": [
       "Lie supine holding a fitball between the hands and knees with arms and legs at 90°.",
       "Press hands and knees into the ball as you extend the opposite arm and leg without losing pressure.",
@@ -1070,16 +970,6 @@
       "Exhale and slide one heel away on the floor until the leg is fully extended without arching the lower back.",
       "Inhale to slide the heel back; alternate sides."
     ],
-    "high_knee_run_v1": [
-      "Stand tall with feet hip-width apart.",
-      "Run in place driving the knees to hip height with each step.",
-      "Continue at a fast cadence for the prescribed time."
-    ],
-    "hill_sprint_v1": [
-      "Find a hill of moderate gradient (6–10%).",
-      "Sprint hard up the hill for 10–20 seconds focusing on driving the knees.",
-      "Walk back down for full recovery before the next rep."
-    ],
     "hip_90_90_switch_v1": [
       "Sit with one shin in front parallel to the body and the other shin to the side, both at 90°.",
       "Lift the knees and rotate the hips to switch leg positions to the opposite side.",
@@ -1100,75 +990,15 @@
       "Step the feet back into a straight line from head to heels, exhaling and gently lifting the pelvic floor.",
       "Hold for the prescribed time breathing steadily; do not let the lower back sag."
     ],
-    "interval_400m_v1": [
-      "Run 400 metres at a hard but sustainable pace.",
-      "Recover with 60–120 seconds of slow walking or jogging.",
-      "Repeat for the prescribed number of reps."
-    ],
     "inverted_row_feet_elevated_v1": [
       "Hang under a set of rings or a low bar with the heels resting on a bench, body in a straight line.",
       "Pull the chest to the rings driving the elbows back.",
       "Lower in 2–3 seconds back to the start."
     ],
-    "jumping_jack_v1": [
-      "Stand tall with feet together and arms at the sides.",
-      "Jump the feet wide and the arms overhead simultaneously, then jump back to the start.",
-      "Continue at a steady cadence for the prescribed reps or time."
-    ],
-    "jumprope_alternating_foot_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "Skip alternating one foot at a time as the rope passes under, like running in place.",
-      "Continue at a steady cadence for the prescribed time."
-    ],
-    "jumprope_basic_v1": [
-      "Hold a jump rope handle in each hand with the rope behind the heels.",
-      "Spin the rope using the wrists and hop with both feet over it at a steady cadence.",
-      "Continue for the prescribed time keeping landings soft."
-    ],
-    "jumprope_boxer_skip_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "Shift the weight from one foot to the other in a small bounce as the rope passes under.",
-      "Continue at a relaxed cadence for the prescribed time."
-    ],
-    "jumprope_criss_cross_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "On each pass, cross the arms in front of the body and uncross on the next jump.",
-      "Continue for the prescribed reps."
-    ],
-    "jumprope_double_under_v1": [
-      "Hold the jump rope handles with the rope behind the heels.",
-      "Jump higher than usual and spin the rope twice under the feet in a single jump.",
-      "Land softly and continue for the prescribed reps."
-    ],
-    "jumprope_high_knee_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "Jump alternating legs while driving the knees up to hip height with each pass.",
-      "Continue for the prescribed time."
-    ],
-    "jumprope_side_to_side_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "Jump the feet a few inches to one side as the rope passes, then back to the other side on the next jump.",
-      "Continue for the prescribed time."
-    ],
-    "jumprope_single_leg_v1": [
-      "Hold the rope handles with the rope behind the heels.",
-      "Hop on one foot keeping the other slightly lifted as the rope passes under.",
-      "Continue for the prescribed reps before switching legs."
-    ],
-    "kb_clean_press_v1": [
-      "Clean the kettlebell to the rack position at the shoulder.",
-      "Press the bell overhead until the arm is fully extended.",
-      "Lower to the rack and back to the floor; complete reps before switching sides."
-    ],
     "kb_clean_v1": [
       "Start with the kettlebell on the floor between the feet, hinge at the hips and grip with one hand.",
       "Drive the hips forward to pull the kettlebell up, guiding the elbow back as the bell rotates around the wrist.",
       "Catch the kettlebell in the rack position at the shoulder, then reverse to the floor."
-    ],
-    "kb_complex_simple_v1": [
-      "Perform 5 swings, 5 cleans and 5 presses with one kettlebell on one side without setting it down.",
-      "Switch hands and repeat the complex on the other side.",
-      "Rest as needed and complete the prescribed rounds."
     ],
     "kb_double_clean_v1": [
       "Stand with two kettlebells on the floor between the feet.",
@@ -1200,20 +1030,10 @@
       "Press the kettlebell overhead until the arm is fully extended and the bicep is near the ear.",
       "Lower in 2–3 seconds back to the rack and complete reps before switching sides."
     ],
-    "kb_snatch_continuous_v1": [
-      "Start with the kettlebell hanging between the legs.",
-      "Snatch the bell overhead and lower it back to the swing position without touching the floor.",
-      "Continue at a steady cadence for the prescribed reps; switch hands."
-    ],
     "kb_snatch_v1": [
       "Start with the kettlebell on the floor between the feet.",
       "Hinge, explosively drive the hips forward and pull the kettlebell straight overhead in one continuous motion punching the hand through at the top.",
       "Lower under control to the floor and switch hands as scheduled."
-    ],
-    "kb_swing_one_handed_v1": [
-      "Stand with feet shoulder-width apart and the kettlebell on the floor in front.",
-      "Hinge to grip the bell with one hand, hike it back between the legs and snap the hips to swing it to chest height.",
-      "Let it fall back between the legs in a controlled hinge; switch hands as scheduled."
     ],
     "kb_swing_two_handed_v1": [
       "Stand with feet shoulder-width apart and the kettlebell on the floor in front.",
@@ -1224,11 +1044,6 @@
       "Stand with feet shoulder-width apart, kettlebell on the floor about a foot in front.",
       "Hinge at the hips, grip the kettlebell with both hands and hike it back between the legs.",
       "Drive the hips forward explosively to swing the kettlebell up to chest height, then let it fall back into the next rep."
-    ],
-    "kb_thruster_v1": [
-      "Hold a kettlebell racked at each shoulder (or one in goblet) and squat to parallel.",
-      "Drive up explosively pressing the bells overhead in one motion.",
-      "Lower to the rack and repeat."
     ],
     "kb_turkish_get_up_v1": [
       "Lie on your back with one arm pressing a kettlebell overhead, same-side knee bent and foot flat.",
@@ -1278,11 +1093,6 @@
       "Take a wide step to one side, sit the hips back and bend that knee while the other leg stays straight.",
       "Push back to standing and alternate sides."
     ],
-    "lateral_shuffle_v1": [
-      "Adopt an athletic stance with knees bent and feet shoulder-width apart.",
-      "Shuffle laterally without crossing the feet for several metres, then change direction.",
-      "Continue alternating direction for the prescribed time."
-    ],
     "lateral_step_down_v1": [
       "Stand on a step or box (10–20 cm) with the control foot near the edge.",
       "Slowly flex the support knee to lower the other foot toward the floor in 3–4 sec, keeping the knee aligned over the second toe.",
@@ -1308,11 +1118,6 @@
       "Set up in a high plank with hands under shoulders.",
       "Drive one knee toward the chest and switch legs explosively in mid-air.",
       "Continue at a fast pace keeping the hips low."
-    ],
-    "mountain_climber_tempo_v1": [
-      "Set up in a high plank with hands under the shoulders.",
-      "Drive one knee toward the chest at a controlled tempo, then alternate.",
-      "Continue at a steady cadence for the prescribed time."
     ],
     "neck_cars_v1": [
       "Sit or stand tall with shoulders relaxed.",
@@ -1529,11 +1334,6 @@
       "Pull the chest up to the rings by retracting the shoulder blades and bending the elbows.",
       "Lower in 2 seconds back to full extension; raise feet to a box for added difficulty."
     ],
-    "row_zone2_v1": [
-      "Sit on a rower with feet strapped and a relaxed grip on the handle.",
-      "Maintain a steady, conversational pace driving with the legs first then pulling with the arms.",
-      "Continue for the prescribed time."
-    ],
     "sandbag_bear_hug_carry_v1": [
       "Pick up the sandbag and hug it tight against the chest, arms wrapped around it.",
       "Walk forward with controlled steps for the prescribed distance or time.",
@@ -1564,11 +1364,6 @@
       "Explosively press it overhead and lower to the opposite shoulder.",
       "Alternate shoulders for the prescribed reps."
     ],
-    "sandbag_sled_push_v1": [
-      "Place a heavy sandbag on a smooth surface and lean forward with hands on top of it.",
-      "Drive forward with short, powerful steps pushing the sandbag along the floor.",
-      "Continue for the prescribed distance or time."
-    ],
     "sandbag_squat_v1": [
       "Hold a sandbag racked against the chest with both arms.",
       "Squat down keeping the chest tall and elbows up.",
@@ -1583,11 +1378,6 @@
       "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
       "Close the eyes and let the body sink into the mat releasing all muscular effort.",
       "Breathe naturally for 5–15 minutes."
-    ],
-    "scissor_lunge_v1": [
-      "Step into a split stance with one foot forward and one back.",
-      "Jump up switching legs in mid-air and land in the opposite split stance.",
-      "Continue alternating at a fast cadence."
     ],
     "seal_row_v1": [
       "Lie chest-down on an elevated bench with a dumbbell in each hand and arms hanging.",
@@ -1633,11 +1423,6 @@
       "Stand tall with one arm at the side, brace the core.",
       "Trace the largest controlled circle possible with the arm: forward, up, back and down.",
       "Reverse direction; switch arms."
-    ],
-    "shuttle_run_v1": [
-      "Mark two cones 10–25 metres apart.",
-      "Sprint to the far cone, touch the ground and sprint back to the start.",
-      "Repeat for the prescribed reps with short recoveries."
     ],
     "side_lying_clamshell_v1": [
       "Lie on one side with knees bent and stacked, feet aligned with the spine.",
@@ -1694,20 +1479,10 @@
       "Push off laterally to the opposite side landing softly on the other leg with the trailing leg crossed behind.",
       "Continue alternating side to side."
     ],
-    "spin_easy_v1": [
-      "Pedal at a very easy resistance and conversational pace.",
-      "Focus on relaxed breathing and smooth pedaling.",
-      "Continue for the prescribed time."
-    ],
     "split_squat_jump_v1": [
       "Step into a split stance with one foot forward and one back.",
       "Lower into a lunge and explode up switching legs in mid-air.",
       "Land softly in the opposite split stance and repeat."
-    ],
-    "sprawl_v1": [
-      "Stand with feet shoulder-width apart.",
-      "Drop the hands to the floor and kick the legs straight back into a plank.",
-      "Jump the feet back to the hands and stand tall; repeat at a fast cadence."
     ],
     "squat_jump_v1": [
       "Stand with feet shoulder-width apart.",
@@ -1781,11 +1556,6 @@
       "Lift the hips into a bridge.",
       "Pull the heels toward the glutes by bending the knees, then extend back out under control without dropping the hips."
     ],
-    "tempo_run_v1": [
-      "Warm up with 10 minutes of easy jogging.",
-      "Hold a comfortably hard pace (around lactate threshold) for the prescribed duration.",
-      "Cool down with 5–10 minutes of easy jogging."
-    ],
     "thoracic_bridge_v1": [
       "Sit with knees bent, feet flat and hands behind you, fingers pointing back.",
       "Lift the hips and rotate to one side reaching the free hand overhead in a thoracic extension.",
@@ -1795,11 +1565,6 @@
       "Start on all fours with hips over knees and shoulders over wrists.",
       "Slide one arm underneath your body, rotating your torso, until the shoulder and side of the head reach the floor.",
       "Hold 2–3 seconds feeling the thoracic stretch, return to start, and repeat on the other side."
-    ],
-    "treadmill_intervals_v1": [
-      "Warm up with 5 minutes of easy walking on the treadmill.",
-      "Alternate 60 seconds of hard running with 60 seconds of slow walking for the prescribed reps.",
-      "Cool down with 5 minutes of walking."
     ],
     "tree_pose_v1": [
       "Stand tall and shift weight onto one foot.",
@@ -1840,11 +1605,6 @@
       "Press a kettlebell or dumbbell overhead with one arm in a locked-out position.",
       "Walk forward keeping the bell stable directly over the shoulder.",
       "Continue for the prescribed time; switch sides."
-    ],
-    "walking_incline_v1": [
-      "Set the treadmill to a moderate incline (5–10%) and a comfortable walking speed.",
-      "Maintain an upright posture without holding the rails.",
-      "Continue for the prescribed time."
     ],
     "walking_lunge_v1": [
       "Stand tall with feet hip-width apart.",

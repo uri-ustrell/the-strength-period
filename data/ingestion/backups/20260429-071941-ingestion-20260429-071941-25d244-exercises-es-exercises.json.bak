@@ -49,13 +49,8 @@
   "bb_pendlay_row_v1": "Pendlay row",
   "bb_rdl_v1": "Peso muerto rumano con barra",
   "bb_shrug_v1": "Encogimiento de hombros con barra",
-  "bear_crawl_v1": "Bear crawl",
   "Bench_Dips": "Fondos en banco",
   "Bent_Over_Barbell_Row": "Remo con barra inclinado",
-  "bike_hill_simulation_v1": "Simulación de cuesta en bici",
-  "bike_sprint_v1": "Sprint en bicicleta",
-  "bike_tabata_v1": "Tabata en bicicleta",
-  "bike_zone2_v1": "Salida en bici zona 2",
   "bird_dog_pregnancy_v1": "Bird dog (gestación)",
   "bird_dog_row_v1": "Bird dog con remo",
   "body_saw_plank_v1": "Body saw en plancha",
@@ -70,11 +65,9 @@
   "box_squat_jump_v1": "Squat jump desde cajón",
   "bridge_kegel_v1": "Puente con Kegel",
   "bridge_pose_yoga_v1": "Postura del puente (Setu Bandha)",
-  "brisk_walk_v1": "Caminata rápida",
   "broad_jump_v1": "Salto horizontal",
   "bulgarian_split_squat_v1": "Split squat búlgaro",
   "burpee_jump_v1": "Burpee con salto",
-  "butt_kicker_v1": "Butt kicker",
   "Butt_Lift_Bridge": "Puente de glúteos",
   "butterfly_breath_v1": "Mariposa con respiración pélvica",
   "Calf_Raises_-_With_Bands": "Elevación de talones con bandas",
@@ -85,7 +78,6 @@
   "childs_pose_v1": "Postura del niño",
   "Chin-Up": "Dominadas supinas",
   "chinup_v1": "Chin-up",
-  "circuit_complex_basic_v1": "Circuito de acondicionamiento básico",
   "clap_pushup_v1": "Flexión con aplauso",
   "close_grip_pushup_v1": "Flexión cerrada",
   "cobra_pose_v1": "Postura de la cobra",
@@ -93,7 +85,6 @@
   "copenhagen_plank_v1": "Plancha Copenhagen",
   "cossack_squat_v1": "Sentadilla cossack",
   "couch_stretch_v1": "Couch stretch",
-  "crab_walk_v1": "Crab walk",
   "Cross-Body_Crunch": "Crunch cruzado",
   "Crossover_Reverse_Lunge": "Zancada inversa cruzada",
   "Crunches": "Abdominales",
@@ -155,9 +146,6 @@
   "Dumbbell_Side_Bend": "Flexión lateral con mancuerna",
   "eccentric_calf_raise_v1": "Elevación de talón excéntrica en escalón (heel drop)",
   "Face_Pull": "Face pull",
-  "farmer_carry_interval_v1": "Intervalos de farmer's carry",
-  "fartlek_run_v1": "Fartlek",
-  "fast_feet_v1": "Fast feet",
   "fitball_dead_bug_v1": "Dead bug con fitball",
   "fitball_pelvic_circles_v1": "Círculos pélvicos con fitball",
   "fitball_pelvic_tilt_v1": "Báscula pélvica con fitball",
@@ -184,8 +172,6 @@
   "happy_baby_pose_v1": "Bebé feliz",
   "heel_slide_pelvic_v1": "Deslizamiento de talón con suelo pélvico",
   "heel_slide_supine_v1": "Deslizamiento de talón supino",
-  "high_knee_run_v1": "Carrera con rodillas altas",
-  "hill_sprint_v1": "Sprint en cuesta",
   "hip_90_90_switch_v1": "Switch de cadera 90/90",
   "hip_cars_v1": "CARs de cadera",
   "Hip_Circles_prone": "Círculos de cadera en pronación",
@@ -193,34 +179,19 @@
   "Hyperextensions_Back_Extensions": "Hiperextensiones lumbares",
   "incline_plank_pregnancy_v1": "Plancha inclinada en banco",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estiramiento de flexor de cadera y cuádriceps",
-  "interval_400m_v1": "Intervalo 400m",
   "inverted_row_feet_elevated_v1": "Remo invertido con pies elevados",
   "IT_Band_and_Glute_Stretch": "Estiramiento de banda iliotibial y glúteos",
   "Jackknife_Sit-Up": "Sit-up en V",
-  "jumping_jack_v1": "Jumping jack",
-  "jumprope_alternating_foot_v1": "Comba alternando pie",
-  "jumprope_basic_v1": "Saltar a la comba básico",
-  "jumprope_boxer_skip_v1": "Boxer skip con comba",
-  "jumprope_criss_cross_v1": "Criss-cross con comba",
-  "jumprope_double_under_v1": "Double under con comba",
-  "jumprope_high_knee_v1": "Comba con rodillas altas",
-  "jumprope_side_to_side_v1": "Comba lateral",
-  "jumprope_single_leg_v1": "Comba a una pierna",
-  "kb_clean_press_v1": "Clean and press con kettlebell",
   "kb_clean_v1": "Clean con kettlebell",
-  "kb_complex_simple_v1": "Complejo simple de kettlebell",
   "kb_double_clean_v1": "Doble clean con kettlebells",
   "kb_double_press_v1": "Doble press con kettlebells",
   "kb_farmer_carry_v1": "Farmer carry con kettlebells",
   "kb_goblet_squat_v1": "Sentadilla goblet con kettlebell",
   "kb_halo_v1": "Halo con kettlebell",
   "kb_press_v1": "Press a una mano con kettlebell",
-  "kb_snatch_continuous_v1": "Snatch continuo con kettlebell",
   "kb_snatch_v1": "Snatch con kettlebell",
-  "kb_swing_one_handed_v1": "Swing con kettlebell a una mano",
   "kb_swing_two_handed_v1": "Swing con kettlebell a dos manos",
   "kb_swing_v1": "Kettlebell swing",
-  "kb_thruster_v1": "Thruster con kettlebell",
   "kb_turkish_get_up_v1": "Turkish get-up",
   "kb_windmill_v1": "Windmill con kettlebell",
   "kegel_basic_v1": "Kegel básico",
@@ -231,7 +202,6 @@
   "Kneeling_Hip_Flexor": "Estiramiento de flexor de cadera arrodillado",
   "lateral_box_jump_v1": "Salto lateral al cajón",
   "lateral_lunge_v1": "Zancada lateral",
-  "lateral_shuffle_v1": "Shuffle lateral",
   "lateral_step_down_v1": "Descenso lateral en escalón",
   "Leg_Extensions": "Extensiones de piernas",
   "Leg_Press": "Prensa de piernas",
@@ -240,7 +210,6 @@
   "Lying_Leg_Curls": "Curl de piernas tumbado",
   "modified_side_plank_knee_v1": "Plancha lateral desde rodillas",
   "mountain_climber_explosive_v1": "Mountain climbers explosivos",
-  "mountain_climber_tempo_v1": "Mountain climber a tempo",
   "Mountain_Climbers": "Escaladores",
   "neck_cars_v1": "CARs de cuello",
   "nordic_curl_v1": "Curl nórdico de isquiotibiales",
@@ -294,7 +263,6 @@
   "reverse_lunge_v1": "Zancada inversa",
   "ring_row_v1": "Remo con anillas",
   "Romanian_Deadlift": "Peso muerto rumano",
-  "row_zone2_v1": "Remo zona 2",
   "Russian_Twist": "Giro ruso",
   "sandbag_bear_hug_carry_v1": "Carry abrazando sandbag",
   "sandbag_clean_v1": "Clean con sandbag",
@@ -302,11 +270,9 @@
   "sandbag_get_up_v1": "Get-up con sandbag",
   "sandbag_rotational_lunge_v1": "Zancada rotacional con sandbag",
   "sandbag_shoulder_to_shoulder_v1": "Sandbag de hombro a hombro",
-  "sandbag_sled_push_v1": "Empuje de sandbag (sled)",
   "sandbag_squat_v1": "Front squat con sandbag",
   "sandbag_zercher_squat_v1": "Zercher squat con sandbag",
   "savasana_v1": "Savasana",
-  "scissor_lunge_v1": "Zancada tijera",
   "seal_row_v1": "Seal row",
   "seated_box_jump_v1": "Salto al cajón sentado",
   "Seated_Cable_Rows": "Remo con cable sentado",
@@ -318,7 +284,6 @@
   "seated_marching_v1": "Marcha sentada",
   "seated_spinal_twist_v1": "Torsión espinal sentada",
   "shoulder_cars_v1": "CARs de hombro",
-  "shuttle_run_v1": "Shuttle run",
   "Side_Lateral_Raise": "Elevación lateral",
   "side_lying_clamshell_v1": "Clamshell lateral",
   "Side_Lying_Groin_Stretch": "Estiramiento de ingle de lado",
@@ -334,10 +299,8 @@
   "single_leg_squat_v1": "Sentadilla monopodal",
   "sit_to_stand_v1": "Levantarse de la silla",
   "skater_jump_v1": "Salto patinador",
-  "spin_easy_v1": "Bicicleta suave",
   "split_squat_jump_v1": "Split squat jump",
   "Split_Squat_with_Dumbbells": "Sentadilla búlgara con mancuernas",
-  "sprawl_v1": "Sprawl",
   "squat_jump_v1": "Squat jump",
   "standing_calf_raise_pregnancy_v1": "Elevación de gemelos de pie",
   "Standing_Calf_Raises": "Elevación de talones de pie",
@@ -359,12 +322,10 @@
   "supported_squat_chair_v1": "Sentadilla con apoyo de silla",
   "svend_press_v1": "Svend press",
   "swiss_ball_hamstring_curl_v1": "Curl de isquios con fitball",
-  "tempo_run_v1": "Carrera a ritmo tempo",
   "Thigh_Abductor": "Abductor de muslo",
   "Thigh_Adductor": "Aductor de muslo",
   "thoracic_bridge_v1": "Puente torácico",
   "thread_the_needle_v1": "Thread the Needle (rotación torácica)",
-  "treadmill_intervals_v1": "Intervalos en cinta",
   "tree_pose_v1": "Postura del árbol",
   "triangle_pose_v1": "Postura del triángulo",
   "tricep_dip_chair_v1": "Dip de tríceps en silla",
@@ -374,7 +335,6 @@
   "tva_activation_supine_v1": "Activación del transverso (supina)",
   "upward_dog_v1": "Perro boca arriba",
   "waiter_walk_v1": "Waiter walk",
-  "walking_incline_v1": "Caminata inclinada",
   "walking_lunge_v1": "Zancada caminada",
   "wall_press_core_v1": "Press de pared con core",
   "wall_push_up_v1": "Flexiones en la pared",
@@ -549,31 +509,6 @@
       "Eleva los hombros directamente hacia las orejas sin rotarlos.",
       "Pausa breve arriba y baja los hombros de forma controlada."
     ],
-    "bear_crawl_v1": [
-      "Posición de manos y puntas de los pies con rodillas a un dedo del suelo.",
-      "Avanza moviendo la mano y el pie opuestos a la vez manteniendo las caderas bajas.",
-      "Continúa por la distancia o tiempo prescritos."
-    ],
-    "bike_hill_simulation_v1": [
-      "Calienta 5 minutos a ritmo suave.",
-      "Aumenta resistencia para simular cuesta fuerte y pedalea duro 2–4 minutos.",
-      "Recupera a baja resistencia 2 minutos; repite las reps prescritas."
-    ],
-    "bike_sprint_v1": [
-      "Calienta a ritmo suave 5 minutos.",
-      "Esprinta duro 20–30 segundos a máximo esfuerzo.",
-      "Recupera a ritmo suave 60–90 segundos; repite las reps prescritas."
-    ],
-    "bike_tabata_v1": [
-      "Calienta a ritmo suave 5 minutos.",
-      "Alterna 20 segundos de esfuerzo máximo con 10 segundos de recuperación, 8 rondas.",
-      "Enfría a ritmo suave 5 minutos."
-    ],
-    "bike_zone2_v1": [
-      "Mantén un ritmo constante y conversacional donde hablar en frases cortas es posible.",
-      "Mantén el esfuerzo durante la duración prescrita sin picos de intensidad.",
-      "Enfría los últimos 5 minutos a ritmo más suave."
-    ],
     "bird_dog_pregnancy_v1": [
       "A cuatro patas con columna neutra.",
       "Extiende el brazo y la pierna opuestos manteniendo caderas y hombros paralelos al suelo.",
@@ -629,11 +564,6 @@
       "Empuja por los pies y eleva las caderas hacia el techo, opcionalmente entrelazando las manos debajo.",
       "Mantén respirando y baja controlado."
     ],
-    "brisk_walk_v1": [
-      "Camina a un ritmo donde hablar en frases cortas es cómodo.",
-      "Mantén postura erguida y cadencia constante.",
-      "Continúa el tiempo prescrito."
-    ],
     "broad_jump_v1": [
       "De pie con pies al ancho de cadera, balancea los brazos atrás y flexiona las rodillas.",
       "Empuja los brazos adelante y salta lo máximo horizontalmente.",
@@ -648,11 +578,6 @@
       "De pie con pies al ancho de hombros.",
       "Baja a plancha, haz una flexión, salta los pies a las manos y explota a un salto vertical.",
       "Aterriza suave y repite."
-    ],
-    "butt_kicker_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Corre en el sitio apartando los talones hasta los glúteos en cada paso.",
-      "Continúa a cadencia rápida el tiempo prescrito."
     ],
     "butterfly_breath_v1": [
       "Siéntate con las plantas de los pies juntas y rodillas relajadas abiertas.",
@@ -673,11 +598,6 @@
       "Cuélgate de una barra con palmas hacia el cuerpo al ancho de hombros.",
       "Tira el pecho hacia la barra empujando los codos abajo.",
       "Baja en 2–3 segundos a suspensión muerta."
-    ],
-    "circuit_complex_basic_v1": [
-      "Haz 10 sentadillas, 10 flexiones y 10 abdominales seguidas.",
-      "Descansa 60 segundos.",
-      "Completa las rondas prescritas."
     ],
     "clap_pushup_v1": [
       "Plancha alta con manos al ancho de hombros.",
@@ -713,11 +633,6 @@
       "Arrodíllate de espaldas a la pared o sofá, coloca una tibia contra la pared con el pie hacia arriba y el otro pie plano delante en zancada.",
       "Contrae el glúteo trasero y eleva el pecho alto manteniendo la lumbar neutra.",
       "Mantén 30–60 segundos respirando lento; cambia de lado."
-    ],
-    "crab_walk_v1": [
-      "Siéntate en el suelo con manos detrás de las caderas y pies planos.",
-      "Levanta las caderas en mesa invertida y camina adelante o lateralmente usando mano y pie opuestos.",
-      "Continúa por la distancia o tiempo prescritos."
     ],
     "cuban_press_db_v1": [
       "De pie con una mancuerna ligera en cada mano y codos flexionados a 90° a la altura del pecho.",
@@ -970,21 +885,6 @@
       "Sube de puntillas con ambas piernas y baja lentamente en 4–5 seg con una sola pierna, dejando que el talón caiga por debajo del nivel del escalón.",
       "Vuelve con ambas piernas y repite. Progresa añadiendo carga o aumentando repeticiones."
     ],
-    "farmer_carry_interval_v1": [
-      "Coge un peso pesado en cada mano y ponte de pie.",
-      "Camina 30–60 segundos a ritmo constante, luego descansa intervalo igual.",
-      "Repite las rondas prescritas."
-    ],
-    "fartlek_run_v1": [
-      "Empieza con trote suave para calentar.",
-      "Alterna series espontáneas de carrera rápida (30–90 s) con recuperaciones de trote suave según percepción.",
-      "Continúa el tiempo total prescrito, acaba con trote suave."
-    ],
-    "fast_feet_v1": [
-      "Postura atlética con rodillas ligeramente flexionadas.",
-      "Toca el suelo con las puntas de los pies lo más rápido posible sin subir rodillas.",
-      "Continúa a cadencia máxima el tiempo prescrito."
-    ],
     "fitball_dead_bug_v1": [
       "Túmbate de espaldas sosteniendo una fitball entre manos y rodillas con brazos y piernas a 90°.",
       "Presiona manos y rodillas contra la pelota mientras extiendes el brazo y pierna opuestos sin perder presión.",
@@ -1070,16 +970,6 @@
       "Exhala y desliza un talón hacia delante por el suelo hasta extender la pierna sin arquear.",
       "Inhala devolviendo el talón; alterna lados."
     ],
-    "high_knee_run_v1": [
-      "De pie con pies al ancho de cadera.",
-      "Corre en el sitio empujando las rodillas a la altura de la cadera en cada paso.",
-      "Continúa a cadencia rápida el tiempo prescrito."
-    ],
-    "hill_sprint_v1": [
-      "Encuentra una pendiente moderada (6–10%).",
-      "Esprinta duro por la cuesta 10–20 segundos centrándote en empujar las rodillas.",
-      "Camina abajo para recuperación completa antes del siguiente."
-    ],
     "hip_90_90_switch_v1": [
       "Siéntate con una pierna delante con la tibia paralela al cuerpo y la otra al lado, ambas a 90°.",
       "Eleva las rodillas y rota las caderas para cambiar las piernas a la posición opuesta.",
@@ -1100,75 +990,15 @@
       "Retrocede los pies en línea recta de cabeza a pies, exhalando y activando suave el suelo pélvico.",
       "Mantén el tiempo prescrito respirando; no dejes caer la lumbar."
     ],
-    "interval_400m_v1": [
-      "Corre 400 metros a un ritmo duro pero sostenible.",
-      "Recupera con 60–120 segundos de caminata o trote lento.",
-      "Repite las reps prescritas."
-    ],
     "inverted_row_feet_elevated_v1": [
       "Cuélgate bajo unas anillas o barra baja con los talones apoyados en banco, cuerpo en línea recta.",
       "Tira el pecho hacia las anillas empujando los codos atrás.",
       "Baja en 2–3 segundos al inicio."
     ],
-    "jumping_jack_v1": [
-      "De pie con pies juntos y brazos a los lados.",
-      "Salta los pies abiertos y los brazos sobre la cabeza simultáneamente, luego vuelve.",
-      "Continúa a cadencia constante las reps o tiempo prescritos."
-    ],
-    "jumprope_alternating_foot_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Salta alternando un pie cada vez que pasa la cuerda, como correr en el sitio.",
-      "Continúa a cadencia constante el tiempo prescrito."
-    ],
-    "jumprope_basic_v1": [
-      "Sostén un asa de la cuerda en cada mano con la cuerda detrás de los talones.",
-      "Haz girar la cuerda con las muñecas y salta con ambos pies por encima a cadencia constante.",
-      "Continúa el tiempo prescrito con aterrizajes suaves."
-    ],
-    "jumprope_boxer_skip_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Desplaza el peso de un pie al otro en un pequeño rebote mientras pasa la cuerda.",
-      "Continúa a cadencia relajada el tiempo prescrito."
-    ],
-    "jumprope_criss_cross_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "En cada pasada, cruza los brazos delante del cuerpo y descruza en el siguiente salto.",
-      "Continúa las reps prescritas."
-    ],
-    "jumprope_double_under_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Salta más alto de lo normal y haz girar la cuerda dos veces bajo los pies en un solo salto.",
-      "Aterriza suave y continúa las reps prescritas."
-    ],
-    "jumprope_high_knee_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Salta alternando piernas subiendo las rodillas a la altura de la cadera en cada pasada.",
-      "Continúa el tiempo prescrito."
-    ],
-    "jumprope_side_to_side_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Salta los pies unos centímetros a un lado mientras pasa la cuerda, luego al lado opuesto en el siguiente salto.",
-      "Continúa el tiempo prescrito."
-    ],
-    "jumprope_single_leg_v1": [
-      "Sostén las asas con la cuerda detrás de los talones.",
-      "Salta a una pierna manteniendo la otra ligeramente levantada mientras pasa la cuerda.",
-      "Continúa las reps prescritas antes de cambiar."
-    ],
-    "kb_clean_press_v1": [
-      "Clean la kettlebell a posición rack en el hombro.",
-      "Presiónala sobre la cabeza hasta extensión completa.",
-      "Baja al rack y al suelo; haz las reps antes de cambiar."
-    ],
     "kb_clean_v1": [
       "Empieza con la kettlebell en el suelo entre los pies, flexiona las caderas y agárrala con una mano.",
       "Empuja las caderas hacia delante para subir la kettlebell, guiando el codo hacia atrás mientras la campana rota alrededor de la muñeca.",
       "Recibe la kettlebell en posición rack en el hombro y vuelve al suelo."
-    ],
-    "kb_complex_simple_v1": [
-      "Haz 5 swings, 5 cleans y 5 presses con una kettlebell a un lado sin dejarla.",
-      "Cambia manos y repite el complejo al otro lado.",
-      "Descansa según necesidad y completa las rondas prescritas."
     ],
     "kb_double_clean_v1": [
       "De pie con dos kettlebells en el suelo entre los pies.",
@@ -1200,20 +1030,10 @@
       "Empuja la kettlebell hacia arriba hasta extender completamente el brazo con el bíceps cerca de la oreja.",
       "Baja en 2–3 segundos al rack y completa las repeticiones antes de cambiar."
     ],
-    "kb_snatch_continuous_v1": [
-      "Empieza con la kettlebell colgando entre las piernas.",
-      "Snatch la bola sobre la cabeza y bájala a la posición de swing sin tocar el suelo.",
-      "Continúa a cadencia constante las reps prescritas; cambia manos."
-    ],
     "kb_snatch_v1": [
       "Empieza con la kettlebell en el suelo entre los pies.",
       "Hinge, empuja explosivo las caderas y tira la kettlebell recta arriba en un solo movimiento atravesando la mano arriba.",
       "Baja controlado al suelo y cambia manos según programación."
-    ],
-    "kb_swing_one_handed_v1": [
-      "De pie con pies al ancho de hombros y la kettlebell en el suelo delante.",
-      "Hinge para coger la bola con una mano, balancéala atrás entre las piernas y haz snap de caderas para que suba a la altura del pecho.",
-      "Déjala caer entre las piernas en hinge controlado; cambia manos según programación."
     ],
     "kb_swing_two_handed_v1": [
       "De pie con pies al ancho de hombros y la kettlebell en el suelo delante.",
@@ -1224,11 +1044,6 @@
       "De pie con los pies al ancho de hombros y la kettlebell en el suelo a un pie de distancia delante.",
       "Flexiona las caderas, agarra la kettlebell con ambas manos y pásala entre las piernas.",
       "Empuja las caderas hacia delante explosivamente para columpiar la kettlebell hasta la altura del pecho y deja que vuelva a la siguiente repetición."
-    ],
-    "kb_thruster_v1": [
-      "Sostén una kettlebell racked en cada hombro (o una en goblet) y sentadilla a paralelo.",
-      "Empuja arriba explosivo presionando las bolas sobre la cabeza en un solo movimiento.",
-      "Baja al rack y repite."
     ],
     "kb_turkish_get_up_v1": [
       "Túmbate boca arriba con un brazo sosteniendo una kettlebell sobre la cabeza, misma rodilla flexionada y pie apoyado.",
@@ -1277,11 +1092,6 @@
       "Da un paso amplio a un lado, retrae las caderas y flexiona esa rodilla mientras la otra pierna queda recta.",
       "Vuelve de pie y alterna lados."
     ],
-    "lateral_shuffle_v1": [
-      "Postura atlética con rodillas flexionadas y pies al ancho de hombros.",
-      "Shuffle lateralmente sin cruzar los pies unos metros, luego cambia dirección.",
-      "Continúa alternando dirección el tiempo prescrito."
-    ],
     "lateral_step_down_v1": [
       "De pie sobre un escalón o caja (10–20 cm), con el pie de control al lado del suelo.",
       "Flexiona lentamente la rodilla de apoyo para bajar el otro pie hacia el suelo en 3–4 segundos, manteniendo la rodilla alineada sobre el segundo dedo.",
@@ -1308,11 +1118,6 @@
       "Plancha alta con manos bajo hombros.",
       "Lleva una rodilla al pecho y cambia piernas explosivo en el aire.",
       "Continúa a ritmo rápido con caderas bajas."
-    ],
-    "mountain_climber_tempo_v1": [
-      "Plancha alta con manos bajo los hombros.",
-      "Lleva una rodilla al pecho a tempo controlado, luego alterna.",
-      "Continúa a cadencia constante el tiempo prescrito."
     ],
     "neck_cars_v1": [
       "Siéntate o quédate de pie con los hombros relajados.",
@@ -1533,11 +1338,6 @@
       "Tira del pecho hacia las anillas retrayendo las escápulas y flexionando los codos.",
       "Baja en 2 segundos a la extensión completa; eleva los pies sobre un cajón para mayor dificultad."
     ],
-    "row_zone2_v1": [
-      "Siéntate en el remo con pies sujetos y agarre relajado.",
-      "Mantén ritmo constante y conversacional empujando primero con las piernas y tirando con los brazos.",
-      "Continúa el tiempo prescrito."
-    ],
     "sandbag_bear_hug_carry_v1": [
       "Recoge el sandbag y abrázalo fuerte al pecho, brazos alrededor.",
       "Camina adelante con pasos controlados por la distancia o tiempo prescritos.",
@@ -1568,11 +1368,6 @@
       "Empuja explosivo arriba y baja al hombro opuesto.",
       "Alterna hombros las reps."
     ],
-    "sandbag_sled_push_v1": [
-      "Coloca un sandbag pesado en superficie lisa e inclínate adelante con manos encima.",
-      "Empuja adelante con pasos cortos y potentes arrastrando el sandbag por el suelo.",
-      "Continúa por la distancia o tiempo prescritos."
-    ],
     "sandbag_squat_v1": [
       "Sostén un sandbag racked en el pecho con ambos brazos.",
       "Haz la sentadilla manteniendo el pecho alto y los codos arriba.",
@@ -1587,11 +1382,6 @@
       "Túmbate de espaldas con los brazos ligeramente separados del cuerpo, palmas arriba, y los pies relajados abiertos.",
       "Cierra los ojos y deja que el cuerpo se hunda en la esterilla liberando todo esfuerzo muscular.",
       "Respira naturalmente 5–15 minutos."
-    ],
-    "scissor_lunge_v1": [
-      "Posición de split con un pie delante y otro detrás.",
-      "Salta cambiando piernas en el aire y aterriza en la posición opuesta.",
-      "Continúa alternando a cadencia rápida."
     ],
     "seal_row_v1": [
       "Túmbate pecho abajo en banco elevado con una mancuerna en cada mano y brazos colgando.",
@@ -1637,11 +1427,6 @@
       "De pie con un brazo al lado, contrae el core.",
       "Traza el círculo controlado más grande posible con el brazo: adelante, arriba, atrás y abajo.",
       "Invierte la dirección; cambia de brazo."
-    ],
-    "shuttle_run_v1": [
-      "Marca dos conos separados 10–25 metros.",
-      "Esprinta al cono lejano, toca el suelo y esprinta de vuelta.",
-      "Repite las reps con recuperaciones cortas."
     ],
     "side_lying_clamshell_v1": [
       "Túmbate de lado con rodillas flexionadas y apiladas, pies alineados con la columna.",
@@ -1698,20 +1483,10 @@
       "Empuja lateralmente al lado opuesto aterrizando suave en la otra pierna con la pierna de seguimiento detrás.",
       "Continúa alternando lado a lado."
     ],
-    "spin_easy_v1": [
-      "Pedalea a resistencia muy baja y ritmo conversacional.",
-      "Céntrate en respiración relajada y pedaleo suave.",
-      "Continúa el tiempo prescrito."
-    ],
     "split_squat_jump_v1": [
       "Posición de split con un pie delante y otro detrás.",
       "Baja a zancada y salta explosivo cambiando piernas en el aire.",
       "Aterriza suave en la posición de split opuesta y repite."
-    ],
-    "sprawl_v1": [
-      "De pie con pies al ancho de hombros.",
-      "Baja las manos al suelo y tira las piernas atrás a plancha.",
-      "Salta los pies a las manos y ponte de pie; repite a cadencia rápida."
     ],
     "squat_jump_v1": [
       "De pie con pies al ancho de hombros.",
@@ -1785,11 +1560,6 @@
       "Levanta las caderas en puente.",
       "Tira los talones hacia los glúteos flexionando rodillas, luego extiende controlado sin dejar caer caderas."
     ],
-    "tempo_run_v1": [
-      "Calienta con 10 minutos de trote suave.",
-      "Mantén un ritmo cómodamente duro (alrededor del umbral) durante la duración prescrita.",
-      "Enfría con 5–10 minutos de trote suave."
-    ],
     "thoracic_bridge_v1": [
       "Siéntate con rodillas flexionadas, pies en el suelo y manos detrás con dedos hacia atrás.",
       "Eleva las caderas y rota a un lado extendiendo el brazo libre hacia arriba en extensión torácica.",
@@ -1799,11 +1569,6 @@
       "Comienza en cuadrupedia con las caderas sobre las rodillas y los hombros sobre las muñecas.",
       "Desliza un brazo por debajo del cuerpo, girando el tronco, hasta que el hombro y el lado de la cabeza lleguen al suelo.",
       "Mantén 2–3 segundos sintiendo el estiramiento torácico, vuelve a la posición inicial y repite al otro lado."
-    ],
-    "treadmill_intervals_v1": [
-      "Calienta con 5 minutos de caminata suave en la cinta.",
-      "Alterna 60 segundos de carrera dura con 60 segundos de caminata lenta las reps prescritas.",
-      "Enfría con 5 minutos de caminata."
     ],
     "tree_pose_v1": [
       "De pie y transfiere el peso a una pierna.",
@@ -1844,11 +1609,6 @@
       "Presiona una kettlebell o mancuerna sobre la cabeza con un brazo en lockout.",
       "Camina adelante manteniendo la bola estable sobre el hombro.",
       "Continúa por el tiempo prescrito; cambia."
-    ],
-    "walking_incline_v1": [
-      "Configura la cinta a inclinación moderada (5–10%) y velocidad de caminata cómoda.",
-      "Mantén postura erguida sin coger las barandillas.",
-      "Continúa el tiempo prescrito."
     ],
     "walking_lunge_v1": [
       "De pie con pies al ancho de cadera.",

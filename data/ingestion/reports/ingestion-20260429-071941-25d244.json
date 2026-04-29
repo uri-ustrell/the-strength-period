@@ -1,0 +1,556 @@
+{
+  "runId": "ingestion-20260429-071941-25d244",
+  "startedAt": "2026-04-29T07:19:41.419Z",
+  "completedAt": "2026-04-29T07:19:41.473Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 40,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "jumprope_basic_v1",
+    "jumprope_double_under_v1",
+    "jumprope_alternating_foot_v1",
+    "jumprope_high_knee_v1",
+    "jumprope_boxer_skip_v1",
+    "jumprope_criss_cross_v1",
+    "jumprope_side_to_side_v1",
+    "jumprope_single_leg_v1",
+    "hill_sprint_v1",
+    "shuttle_run_v1",
+    "interval_400m_v1",
+    "fartlek_run_v1",
+    "tempo_run_v1",
+    "treadmill_intervals_v1",
+    "bike_sprint_v1",
+    "bike_tabata_v1",
+    "bike_zone2_v1",
+    "bike_hill_simulation_v1",
+    "jumping_jack_v1",
+    "high_knee_run_v1",
+    "butt_kicker_v1",
+    "sprawl_v1",
+    "mountain_climber_tempo_v1",
+    "lateral_shuffle_v1",
+    "fast_feet_v1",
+    "scissor_lunge_v1",
+    "kb_swing_one_handed_v1",
+    "kb_clean_press_v1",
+    "kb_thruster_v1",
+    "kb_snatch_continuous_v1",
+    "kb_complex_simple_v1",
+    "bear_crawl_v1",
+    "crab_walk_v1",
+    "sandbag_sled_push_v1",
+    "farmer_carry_interval_v1",
+    "walking_incline_v1",
+    "spin_easy_v1",
+    "row_zone2_v1",
+    "brisk_walk_v1",
+    "circuit_complex_basic_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_basic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_basic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_basic_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_double_under_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_double_under_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_double_under_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_alternating_foot_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_alternating_foot_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_alternating_foot_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_high_knee_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_high_knee_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_high_knee_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_boxer_skip_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_boxer_skip_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_boxer_skip_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_criss_cross_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_criss_cross_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_criss_cross_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_side_to_side_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_side_to_side_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_side_to_side_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumprope_single_leg_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumprope_single_leg_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumprope_single_leg_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:hill_sprint_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "hill_sprint_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hill_sprint_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:shuttle_run_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "shuttle_run_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "shuttle_run_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:interval_400m_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "interval_400m_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "interval_400m_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:fartlek_run_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "fartlek_run_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fartlek_run_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:tempo_run_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "tempo_run_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "tempo_run_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:treadmill_intervals_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "treadmill_intervals_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "treadmill_intervals_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:bike_sprint_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "bike_sprint_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bike_sprint_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:bike_tabata_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "bike_tabata_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bike_tabata_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:bike_zone2_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "bike_zone2_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bike_zone2_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:bike_hill_simulation_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "bike_hill_simulation_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bike_hill_simulation_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:jumping_jack_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "jumping_jack_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "jumping_jack_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:high_knee_run_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "high_knee_run_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "high_knee_run_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:butt_kicker_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "butt_kicker_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "butt_kicker_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:sprawl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "sprawl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sprawl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:mountain_climber_tempo_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "mountain_climber_tempo_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "mountain_climber_tempo_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:lateral_shuffle_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "lateral_shuffle_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "lateral_shuffle_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:fast_feet_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "fast_feet_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fast_feet_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:scissor_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "scissor_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "scissor_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_swing_one_handed_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "kb_swing_one_handed_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_swing_one_handed_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_clean_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "kb_clean_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted via review decision file.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "kb_clean_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_thruster_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "kb_thruster_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_thruster_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_snatch_continuous_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "kb_snatch_continuous_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted via review decision file.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "kb_snatch_continuous_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_complex_simple_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "kb_complex_simple_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_complex_simple_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:bear_crawl_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "bear_crawl_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bear_crawl_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:crab_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "crab_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "crab_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:sandbag_sled_push_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "sandbag_sled_push_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_sled_push_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:farmer_carry_interval_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "farmer_carry_interval_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "farmer_carry_interval_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:walking_incline_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "walking_incline_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "walking_incline_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:spin_easy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "spin_easy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "spin_easy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:row_zone2_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "row_zone2_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "row_zone2_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:brisk_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "brisk_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "brisk_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:circuit_complex_basic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "sourceExternalId": "circuit_complex_basic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "circuit_complex_basic_v1"
+    }
+  ]
+}

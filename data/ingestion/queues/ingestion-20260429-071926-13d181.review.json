@@ -1,0 +1,28 @@
+{
+  "runId": "ingestion-20260429-071926-13d181",
+  "createdAt": "2026-04-29T07:19:26.213Z",
+  "items": [
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_clean_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "canonicalId": "kb_clean_press_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-cardio-conditioning:exercise:kb_snatch_continuous_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-cardio-conditioning",
+      "canonicalId": "kb_snatch_continuous_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

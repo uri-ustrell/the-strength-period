@@ -49,13 +49,8 @@
   "bb_pendlay_row_v1": "Pendlay row",
   "bb_rdl_v1": "Pes mort romanès amb barra",
   "bb_shrug_v1": "Encongiment d'espatlles amb barra",
-  "bear_crawl_v1": "Bear crawl",
   "Bench_Dips": "Fons en banc",
   "Bent_Over_Barbell_Row": "Rem amb barra inclinat",
-  "bike_hill_simulation_v1": "Simulació de pujada en bici",
-  "bike_sprint_v1": "Sprint en bicicleta",
-  "bike_tabata_v1": "Tabata en bicicleta",
-  "bike_zone2_v1": "Sortida en bici zona 2",
   "bird_dog_pregnancy_v1": "Bird dog (gestació)",
   "bird_dog_row_v1": "Bird dog amb rem",
   "body_saw_plank_v1": "Body saw en planxa",
@@ -70,11 +65,9 @@
   "box_squat_jump_v1": "Squat jump des de calaix",
   "bridge_kegel_v1": "Pont amb Kegel",
   "bridge_pose_yoga_v1": "Postura del pont (Setu Bandha)",
-  "brisk_walk_v1": "Caminada ràpida",
   "broad_jump_v1": "Salt horitzontal",
   "bulgarian_split_squat_v1": "Split squat búlgar",
   "burpee_jump_v1": "Burpee amb salt",
-  "butt_kicker_v1": "Butt kicker",
   "Butt_Lift_Bridge": "Pont de glutis",
   "butterfly_breath_v1": "Papallona amb respiració pèlvica",
   "Calf_Raises_-_With_Bands": "Elevació de talons amb bandes",
@@ -85,7 +78,6 @@
   "childs_pose_v1": "Postura del nen",
   "Chin-Up": "Dominades supines",
   "chinup_v1": "Chin-up",
-  "circuit_complex_basic_v1": "Circuit de condicionament bàsic",
   "clap_pushup_v1": "Flexió amb aplaudiment",
   "close_grip_pushup_v1": "Flexió tancada",
   "cobra_pose_v1": "Postura de la cobra",
@@ -93,7 +85,6 @@
   "copenhagen_plank_v1": "Planxa Copenhagen",
   "cossack_squat_v1": "Sentadella cossack",
   "couch_stretch_v1": "Couch stretch",
-  "crab_walk_v1": "Crab walk",
   "Cross-Body_Crunch": "Crunch creuat",
   "Crossover_Reverse_Lunge": "Estocada inversa creuada",
   "Crunches": "Abdominals",
@@ -155,9 +146,6 @@
   "Dumbbell_Side_Bend": "Flexió lateral amb manuella",
   "eccentric_calf_raise_v1": "Punteta excèntrica en escaló (heel drop)",
   "Face_Pull": "Face pull",
-  "farmer_carry_interval_v1": "Intervals de farmer's carry",
-  "fartlek_run_v1": "Fartlek",
-  "fast_feet_v1": "Fast feet",
   "fitball_dead_bug_v1": "Dead bug amb fitball",
   "fitball_pelvic_circles_v1": "Cercles pèlvics amb fitball",
   "fitball_pelvic_tilt_v1": "Bàscula pèlvica amb fitball",
@@ -184,8 +172,6 @@
   "happy_baby_pose_v1": "Bebè feliç",
   "heel_slide_pelvic_v1": "Lliscament de taló amb sòl pèlvic",
   "heel_slide_supine_v1": "Lliscament de taló supí",
-  "high_knee_run_v1": "Cursa amb genolls alts",
-  "hill_sprint_v1": "Sprint en pujada",
   "hip_90_90_switch_v1": "Switch de maluc 90/90",
   "hip_cars_v1": "CARs de maluc",
   "Hip_Circles_prone": "Cercles de cadera en pronació",
@@ -193,34 +179,19 @@
   "Hyperextensions_Back_Extensions": "Hiperextensions lumbars",
   "incline_plank_pregnancy_v1": "Planxa inclinada en banc",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estirament de flexor de cadera i quàdriceps",
-  "interval_400m_v1": "Interval 400m",
   "inverted_row_feet_elevated_v1": "Rem invertit amb peus elevats",
   "IT_Band_and_Glute_Stretch": "Estirament de banda iliotibial i glutis",
   "Jackknife_Sit-Up": "Sit-up en V",
-  "jumping_jack_v1": "Jumping jack",
-  "jumprope_alternating_foot_v1": "Salt amb corda alternant peu",
-  "jumprope_basic_v1": "Salt amb corda bàsic",
-  "jumprope_boxer_skip_v1": "Boxer skip amb corda",
-  "jumprope_criss_cross_v1": "Criss-cross amb corda",
-  "jumprope_double_under_v1": "Double under amb corda",
-  "jumprope_high_knee_v1": "Salt amb corda amb genolls alts",
-  "jumprope_side_to_side_v1": "Salt amb corda lateral",
-  "jumprope_single_leg_v1": "Salt amb corda a una cama",
-  "kb_clean_press_v1": "Clean and press amb kettlebell",
   "kb_clean_v1": "Clean amb kettlebell",
-  "kb_complex_simple_v1": "Complex simple de kettlebell",
   "kb_double_clean_v1": "Doble clean amb kettlebells",
   "kb_double_press_v1": "Doble press amb kettlebells",
   "kb_farmer_carry_v1": "Farmer carry amb kettlebells",
   "kb_goblet_squat_v1": "Sentadella goblet amb kettlebell",
   "kb_halo_v1": "Halo amb kettlebell",
   "kb_press_v1": "Press a una mà amb kettlebell",
-  "kb_snatch_continuous_v1": "Snatch continu amb kettlebell",
   "kb_snatch_v1": "Snatch amb kettlebell",
-  "kb_swing_one_handed_v1": "Swing amb kettlebell a una mà",
   "kb_swing_two_handed_v1": "Swing amb kettlebell a dues mans",
   "kb_swing_v1": "Kettlebell swing",
-  "kb_thruster_v1": "Thruster amb kettlebell",
   "kb_turkish_get_up_v1": "Turkish get-up",
   "kb_windmill_v1": "Windmill amb kettlebell",
   "kegel_basic_v1": "Kegel bàsic",
@@ -231,7 +202,6 @@
   "Kneeling_Hip_Flexor": "Estirament de flexor de cadera agenollat",
   "lateral_box_jump_v1": "Salt lateral al calaix",
   "lateral_lunge_v1": "Llunja lateral",
-  "lateral_shuffle_v1": "Shuffle lateral",
   "lateral_step_down_v1": "Descens lateral en escaló",
   "Leg_Extensions": "Extensions de cames",
   "Leg_Press": "Premsa de cames",
@@ -240,7 +210,6 @@
   "Lying_Leg_Curls": "Curl de cames estirat",
   "modified_side_plank_knee_v1": "Planxa lateral des de genolls",
   "mountain_climber_explosive_v1": "Mountain climbers explosius",
-  "mountain_climber_tempo_v1": "Mountain climber a tempo",
   "Mountain_Climbers": "Escaladors",
   "neck_cars_v1": "CARs de coll",
   "nordic_curl_v1": "Curl nòrdic d'isquiotibials",
@@ -294,7 +263,6 @@
   "reverse_lunge_v1": "Llunja inversa",
   "ring_row_v1": "Rem amb anelles",
   "Romanian_Deadlift": "Pes mort romanès",
-  "row_zone2_v1": "Rem zona 2",
   "Russian_Twist": "Gir rus",
   "sandbag_bear_hug_carry_v1": "Carry abraçant sandbag",
   "sandbag_clean_v1": "Clean amb sandbag",
@@ -302,11 +270,9 @@
   "sandbag_get_up_v1": "Get-up amb sandbag",
   "sandbag_rotational_lunge_v1": "Llunja rotacional amb sandbag",
   "sandbag_shoulder_to_shoulder_v1": "Sandbag d'espatlla a espatlla",
-  "sandbag_sled_push_v1": "Empenta de sandbag (sled)",
   "sandbag_squat_v1": "Front squat amb sandbag",
   "sandbag_zercher_squat_v1": "Zercher squat amb sandbag",
   "savasana_v1": "Savasana",
-  "scissor_lunge_v1": "Llunja tisora",
   "seal_row_v1": "Seal row",
   "seated_box_jump_v1": "Salt al calaix des de assegut",
   "Seated_Cable_Rows": "Rem amb cable assegut",
@@ -318,7 +284,6 @@
   "seated_marching_v1": "Marxa asseguda",
   "seated_spinal_twist_v1": "Rotació espinal asseguda",
   "shoulder_cars_v1": "CARs d'espatlla",
-  "shuttle_run_v1": "Shuttle run",
   "Side_Lateral_Raise": "Elevació lateral",
   "side_lying_clamshell_v1": "Clamshell de costat",
   "Side_Lying_Groin_Stretch": "Estirament d'engonal de costat",
@@ -334,10 +299,8 @@
   "single_leg_squat_v1": "Sentadella monopodal",
   "sit_to_stand_v1": "Aixecar-se de la cadira",
   "skater_jump_v1": "Salt patinador",
-  "spin_easy_v1": "Bicicleta suau",
   "split_squat_jump_v1": "Split squat jump",
   "Split_Squat_with_Dumbbells": "Sentadilla búlgara amb manuelles",
-  "sprawl_v1": "Sprawl",
   "squat_jump_v1": "Squat jump",
   "standing_calf_raise_pregnancy_v1": "Elevació de bessons dempeus",
   "Standing_Calf_Raises": "Elevació de talons dret",
@@ -359,12 +322,10 @@
   "supported_squat_chair_v1": "Sentadella amb suport de cadira",
   "svend_press_v1": "Svend press",
   "swiss_ball_hamstring_curl_v1": "Curl d'isquios amb fitball",
-  "tempo_run_v1": "Cursa a ritme tempo",
   "Thigh_Abductor": "Abductor de cuixa",
   "Thigh_Adductor": "Adductor de cuixa",
   "thoracic_bridge_v1": "Pont toràcic",
   "thread_the_needle_v1": "Thread the Needle (rotació toràcica)",
-  "treadmill_intervals_v1": "Intervals a la cinta",
   "tree_pose_v1": "Postura de l'arbre",
   "triangle_pose_v1": "Postura del triangle",
   "tricep_dip_chair_v1": "Dip de tríceps en cadira",
@@ -374,7 +335,6 @@
   "tva_activation_supine_v1": "Activació del transvers (supina)",
   "upward_dog_v1": "Gos cap amunt",
   "waiter_walk_v1": "Waiter walk",
-  "walking_incline_v1": "Caminada inclinada",
   "walking_lunge_v1": "Llunja caminada",
   "wall_press_core_v1": "Press de paret amb core",
   "wall_push_up_v1": "Flexió de braços a la paret",
@@ -549,31 +509,6 @@
       "Aixeca les espatlles directament cap a les orelles sense rotar-les.",
       "Pausa breu a dalt i baixa les espatlles de forma controlada."
     ],
-    "bear_crawl_v1": [
-      "Posició de mans i puntes dels peus amb genolls a un dit del terra.",
-      "Avança movent la mà i el peu oposats alhora mantenint els malucs baixos.",
-      "Continua per la distància o temps prescrits."
-    ],
-    "bike_hill_simulation_v1": [
-      "Escalfa 5 minuts a ritme suau.",
-      "Augmenta resistència per simular pujada forta i pedaleja dur 2–4 minuts.",
-      "Recupera a baixa resistència 2 minuts; repeteix les reps prescrites."
-    ],
-    "bike_sprint_v1": [
-      "Escalfa a ritme suau 5 minuts.",
-      "Esprinta dur 20–30 segons a màxim esforç.",
-      "Recupera a ritme suau 60–90 segons; repeteix les reps prescrites."
-    ],
-    "bike_tabata_v1": [
-      "Escalfa a ritme suau 5 minuts.",
-      "Alterna 20 segons d'esforç màxim amb 10 segons de recuperació, 8 rondes.",
-      "Refreda a ritme suau 5 minuts."
-    ],
-    "bike_zone2_v1": [
-      "Mantén un ritme constant i conversacional on parlar en frases curtes és possible.",
-      "Mantén l'esforç durant la durada prescrita sense pics d'intensitat.",
-      "Refreda els últims 5 minuts a ritme més suau."
-    ],
     "bird_dog_pregnancy_v1": [
       "A quatre grapes amb columna neutra.",
       "Estén el braç i la cama oposats mantenint malucs i espatlles paral·lels al terra.",
@@ -629,11 +564,6 @@
       "Empeny pels peus i aixeca els malucs cap al sostre, opcionalment entrellaçant les mans sota.",
       "Mantingues respirant i baixa controlat."
     ],
-    "brisk_walk_v1": [
-      "Camina a un ritme on parlar en frases curtes és còmode.",
-      "Mantén postura dreta i cadència constant.",
-      "Continua el temps prescrit."
-    ],
     "broad_jump_v1": [
       "Dret amb peus a l'amplada del maluc, balanceja els braços enrere i flexiona els genolls.",
       "Empeny els braços endavant i salta el màxim horitzontalment possible.",
@@ -648,11 +578,6 @@
       "Dret amb peus a l'amplada de l'espatlla.",
       "Baixa a planxa, fes una flexió, salta els peus a les mans i explota a un salt vertical.",
       "Aterra suau i repeteix."
-    ],
-    "butt_kicker_v1": [
-      "Dret amb peus a l'amplada del maluc.",
-      "Corre al lloc apartant els talons fins als glutis a cada pas.",
-      "Continua a cadència ràpida el temps prescrit."
     ],
     "butterfly_breath_v1": [
       "Asseu-te amb les soles dels peus juntes i els genolls relaxats oberts.",
@@ -673,11 +598,6 @@
       "Penja't d'una barra amb palmells cap al cos a l'amplada de l'espatlla.",
       "Tira el pit cap a la barra empenyent els colzes avall.",
       "Baixa en 2–3 segons a suspensió morta."
-    ],
-    "circuit_complex_basic_v1": [
-      "Fes 10 sentadelles, 10 flexions i 10 abdominals seguides.",
-      "Descansa 60 segons.",
-      "Completa les rondes prescrites."
     ],
     "clap_pushup_v1": [
       "Planxa alta amb mans a l'amplada de l'espatlla.",
@@ -713,11 +633,6 @@
       "Agenolla't d'esquena a la paret o sofà, posa una tíbia contra la paret amb el peu cap amunt i l'altre peu pla davant en llunja.",
       "Contrau el glúti del darrere i puja el pit alt mantenint la lumbar neutra.",
       "Mantingues 30–60 segons respirant lent; canvia de costat."
-    ],
-    "crab_walk_v1": [
-      "Asseu-te al terra amb mans darrere els malucs i peus plans.",
-      "Aixeca els malucs en taula invertida i camina endavant o lateralment usant mà i peu oposats.",
-      "Continua per la distància o temps prescrits."
     ],
     "cuban_press_db_v1": [
       "Dret amb una manuella lleugera a cada mà i colzes flexionats a 90° a l'altura del pit.",
@@ -970,21 +885,6 @@
       "Puja als punts de peus amb totes dues cames (concèntric) i baixa lentament en 4–5 seg amb una sola cama, deixant que el taló caigui per sota del nivell.",
       "Retorna amb les dues cames i repeteix. Progressa la càrrega afegint pes o augmentant reps."
     ],
-    "farmer_carry_interval_v1": [
-      "Agafa un pes pesat a cada mà i posa't dret.",
-      "Camina 30–60 segons a ritme constant, després descansa interval igual.",
-      "Repeteix les rondes prescrites."
-    ],
-    "fartlek_run_v1": [
-      "Comença amb trot suau per escalfar.",
-      "Alterna sèries espontànies de carrera ràpida (30–90 s) amb recuperacions de trot suau segons percepció.",
-      "Continua el temps total prescrit, acaba amb trot suau."
-    ],
-    "fast_feet_v1": [
-      "Postura atlètica amb genolls lleugerament flexionats.",
-      "Toca el terra amb les puntes dels peus el més ràpid possible sense pujar genolls.",
-      "Continua a cadència màxima el temps prescrit."
-    ],
     "fitball_dead_bug_v1": [
       "Estira't d'esquena sostenint una fitball entre mans i genolls amb braços i cames a 90°.",
       "Pressiona mans i genolls contra la pilota mentre estens el braç i cama oposats sense perdre pressió.",
@@ -1070,16 +970,6 @@
       "Espira i llisca un taló endavant pel terra fins estendre del tot la cama sense arquejar.",
       "Inspira tornant el taló; alterna costats."
     ],
-    "high_knee_run_v1": [
-      "Dret amb peus a l'amplada del maluc.",
-      "Corre al lloc empenyent els genolls a l'altura del maluc a cada pas.",
-      "Continua a cadència ràpida el temps prescrit."
-    ],
-    "hill_sprint_v1": [
-      "Troba un pendent moderat (6–10%).",
-      "Esprinta dur per la pujada 10–20 segons centrant-te en empènyer els genolls.",
-      "Camina avall per recuperació completa abans del següent."
-    ],
     "hip_90_90_switch_v1": [
       "Asseu-te amb una cama davant amb la tíbia paral·lela al cos i l'altra al costat, totes dues a 90°.",
       "Aixeca els genolls i rota els malucs per canviar les cames a la posició oposada.",
@@ -1100,75 +990,15 @@
       "Recula els peus en línia recta de cap a peus, espirant i activant suau el sòl pèlvic.",
       "Mantingues el temps prescrit respirant; no deixis caure la lumbar."
     ],
-    "interval_400m_v1": [
-      "Corre 400 metres a un ritme dur però sostenible.",
-      "Recupera amb 60–120 segons de caminada o trot lent.",
-      "Repeteix les reps prescrites."
-    ],
     "inverted_row_feet_elevated_v1": [
       "Penja't sota un parell d'anelles o una barra baixa amb els talons recolzats en banc, cos en línia recta.",
       "Tira el pit cap a les anelles empenyent els colzes enrere.",
       "Baixa en 2–3 segons a l'inici."
     ],
-    "jumping_jack_v1": [
-      "Dret amb peus junts i braços als costats.",
-      "Salta els peus oberts i els braços sobre el cap simultàniament, després torna.",
-      "Continua a cadència constant les reps o temps prescrits."
-    ],
-    "jumprope_alternating_foot_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Salta alternant un peu cada vegada que passa la corda, com córrer al lloc.",
-      "Continua a cadència constant el temps prescrit."
-    ],
-    "jumprope_basic_v1": [
-      "Sostén una nansa de la corda a cada mà amb la corda darrere els talons.",
-      "Fes girar la corda amb els canells i salta amb els dos peus per sobre a cadència constant.",
-      "Continua el temps prescrit amb aterratges suaus."
-    ],
-    "jumprope_boxer_skip_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Desplaça el pes d'un peu a l'altre en un petit rebot mentre passa la corda.",
-      "Continua a cadència relaxada el temps prescrit."
-    ],
-    "jumprope_criss_cross_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "A cada passada, creua els braços davant del cos i descreua al següent salt.",
-      "Continua les reps prescrites."
-    ],
-    "jumprope_double_under_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Salta més alt del normal i fes girar la corda dues vegades sota els peus en un sol salt.",
-      "Aterra suau i continua les reps prescrites."
-    ],
-    "jumprope_high_knee_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Salta alternant cames pujant els genolls a l'altura del maluc a cada passada.",
-      "Continua el temps prescrit."
-    ],
-    "jumprope_side_to_side_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Salta els peus uns centímetres a un costat mentre passa la corda, després al costat oposat al següent salt.",
-      "Continua el temps prescrit."
-    ],
-    "jumprope_single_leg_v1": [
-      "Sostén les nanses amb la corda darrere els talons.",
-      "Salta a una cama mantenint l'altra lleugerament aixecada mentre passa la corda.",
-      "Continua les reps prescrites abans de canviar."
-    ],
-    "kb_clean_press_v1": [
-      "Cleaneja la kettlebell a posició rack a l'espatlla.",
-      "Pressiona-la sobre el cap fins extensió completa.",
-      "Baixa al rack i al terra; fes les reps abans de canviar."
-    ],
     "kb_clean_v1": [
       "Comença amb la kettlebell al terra entre els peus, flexiona els malucs i agafa-la amb una mà.",
       "Empeny els malucs cap endavant per pujar la kettlebell, guiant el colze enrere mentre la campana rota al voltant del canell.",
       "Recull la kettlebell a la posició rack a l'espatlla i torna al terra."
-    ],
-    "kb_complex_simple_v1": [
-      "Fes 5 swings, 5 cleans i 5 presses amb una kettlebell a un costat sense deixar-la.",
-      "Canvia mans i repeteix el complex a l'altre costat.",
-      "Descansa segons necessitat i completa les rondes prescrites."
     ],
     "kb_double_clean_v1": [
       "Dret amb dues kettlebells al terra entre els peus.",
@@ -1200,20 +1030,10 @@
       "Empeny la kettlebell cap amunt fins a estendre completament el braç amb el bíceps a prop de l'orella.",
       "Baixa en 2–3 segons fins al rack i fes totes les reps abans de canviar."
     ],
-    "kb_snatch_continuous_v1": [
-      "Comença amb la kettlebell penjant entre les cames.",
-      "Snatch la bola sobre el cap i baixa-la a la posició de swing sense tocar el terra.",
-      "Continua a cadència constant les reps prescrites; canvia mans."
-    ],
     "kb_snatch_v1": [
       "Comença amb la kettlebell al terra entre els peus.",
       "Hinge, empeny explosiu els malucs i tira la kettlebell recta amunt en un sol moviment travessant la mà a dalt.",
       "Baixa controlat al terra i canvia mans segons la programació."
-    ],
-    "kb_swing_one_handed_v1": [
-      "Dret amb peus a l'amplada de l'espatlla i la kettlebell al terra davant.",
-      "Hinge per agafar la bola amb una mà, balanceja-la enrere entre les cames i fes snap de malucs perquè pugi a l'altura del pit.",
-      "Deixa-la caure entre les cames en hinge controlat; canvia mans segons la programació."
     ],
     "kb_swing_two_handed_v1": [
       "Dret amb peus a l'amplada de l'espatlla i la kettlebell al terra davant.",
@@ -1224,11 +1044,6 @@
       "Dret amb els peus a l'amplada de les espatlles i la kettlebell al terra a un peu de distància davant.",
       "Flexiona els malucs, agafa la kettlebell amb les dues mans i passa-la entre les cames.",
       "Empeny els malucs explosivament per balancejar la kettlebell fins a l'altura del pit i deixa-la caure cap a la repetició següent."
-    ],
-    "kb_thruster_v1": [
-      "Sostén una kettlebell racked a cada espatlla (o una en goblet) i sentadella a paral·lel.",
-      "Empeny amunt explosiu pressionant les boles sobre el cap en un sol moviment.",
-      "Baixa al rack i repeteix."
     ],
     "kb_turkish_get_up_v1": [
       "Estira't d'esquena amb un braç sostenint una kettlebell sobre el cap, mateix genoll flexionat amb el peu a terra.",
@@ -1277,11 +1092,6 @@
       "Fes una passa àmplia a un costat, recula els malucs i flexiona aquest genoll mentre l'altra cama queda recta.",
       "Torna a dret i alterna costats."
     ],
-    "lateral_shuffle_v1": [
-      "Postura atlètica amb genolls flexionats i peus a l'amplada de l'espatlla.",
-      "Shuffle lateralment sense creuar els peus uns metres, després canvia direcció.",
-      "Continua alternant direcció el temps prescrit."
-    ],
     "lateral_step_down_v1": [
       "Dret sobre un escaló o caixa (10–20 cm), amb el peu controlador al costat del pis.",
       "Flexiona lentament el genoll de recolzament per baixar l'altre peu cap al terra en 3–4 segons, mantenint el genoll alineat sobre el segon dit del peu.",
@@ -1308,11 +1118,6 @@
       "Planxa alta amb mans sota espatlles.",
       "Porta un genoll cap al pit i canvia cames explosiu a l'aire.",
       "Continua a ritme ràpid amb malucs baixos."
-    ],
-    "mountain_climber_tempo_v1": [
-      "Planxa alta amb mans sota les espatlles.",
-      "Porta un genoll cap al pit a tempo controlat, després alterna.",
-      "Continua a cadència constant el temps prescrit."
     ],
     "neck_cars_v1": [
       "Asseu-te o queda't dret amb les espatlles relaxades.",
@@ -1533,11 +1338,6 @@
       "Tira el pit cap a les anelles retraient les escàpules i flexionant els colzes.",
       "Baixa en 2 segons fins a l'extensió completa; eleva els peus sobre una caixa per més dificultat."
     ],
-    "row_zone2_v1": [
-      "Asseu-te al rem amb peus subjectes i agafada relaxada.",
-      "Mantén ritme constant i conversacional empenyent primer amb les cames i tirant amb els braços.",
-      "Continua el temps prescrit."
-    ],
     "sandbag_bear_hug_carry_v1": [
       "Recull el sandbag i abraça'l fort al pit, braços al voltant.",
       "Camina endavant amb passos controlats per la distància o temps prescrits.",
@@ -1568,11 +1368,6 @@
       "Empeny explosiu amunt i baixa a l'espatlla oposada.",
       "Alterna espatlles per les reps."
     ],
-    "sandbag_sled_push_v1": [
-      "Posa un sandbag pesat en superfície llisa i inclina't endavant amb mans a sobre.",
-      "Empeny endavant amb passos curts i potents arrossegant el sandbag pel terra.",
-      "Continua per la distància o temps prescrits."
-    ],
     "sandbag_squat_v1": [
       "Sostén un sandbag racked al pit amb els dos braços.",
       "Fes la sentadella mantenint el pit alt i els colzes amunt.",
@@ -1587,11 +1382,6 @@
       "Estira't d'esquena amb els braços lleugerament separats del cos, palmells amunt, i els peus relaxats oberts.",
       "Tanca els ulls i deixa el cos enfonsar-se al matalàs alliberant tot esforç muscular.",
       "Respira naturalment 5–15 minuts."
-    ],
-    "scissor_lunge_v1": [
-      "Posició de split amb un peu davant i l'altre darrere.",
-      "Salta canviant cames a l'aire i aterra a la posició oposada.",
-      "Continua alternant a cadència ràpida."
     ],
     "seal_row_v1": [
       "Estira't pit avall en banc elevat amb una manuella a cada mà i braços penjant.",
@@ -1637,11 +1427,6 @@
       "Dret amb un braç al costat, contrau el core.",
       "Traça el cercle controlat més gran possible amb el braç: endavant, amunt, enrere i avall.",
       "Inverteix la direcció; canvia de braç."
-    ],
-    "shuttle_run_v1": [
-      "Marca dos cons separats 10–25 metres.",
-      "Esprinta al con llunyà, toca el terra i esprinta de tornada.",
-      "Repeteix les reps amb recuperacions curtes."
     ],
     "side_lying_clamshell_v1": [
       "Estira't de costat amb genolls flexionats i superposats, peus alineats amb la columna.",
@@ -1698,20 +1483,10 @@
       "Empeny lateralment al costat oposat aterrant suau a l'altra cama amb la cama de seguiment darrere.",
       "Continua alternant costat a costat."
     ],
-    "spin_easy_v1": [
-      "Pedaleja a resistència molt baixa i ritme conversacional.",
-      "Centra't en respiració relaxada i pedaleig suau.",
-      "Continua el temps prescrit."
-    ],
     "split_squat_jump_v1": [
       "Posició de split amb un peu davant i l'altre darrere.",
       "Baixa a llunja i salta explosiu canviant cames a l'aire.",
       "Aterra suau a la posició de split oposada i repeteix."
-    ],
-    "sprawl_v1": [
-      "Dret amb peus a l'amplada de l'espatlla.",
-      "Baixa les mans al terra i tira les cames enrere a planxa.",
-      "Salta els peus a les mans i posa't dret; repeteix a cadència ràpida."
     ],
     "squat_jump_v1": [
       "Dret amb peus a l'amplada de l'espatlla.",
@@ -1785,11 +1560,6 @@
       "Aixeca els malucs en pont.",
       "Tira els talons cap als glutis flexionant els genolls, després estén controlat sense deixar caure els malucs."
     ],
-    "tempo_run_v1": [
-      "Escalfa amb 10 minuts de trot suau.",
-      "Mantén un ritme còmodament dur (al voltant del llindar) durant la durada prescrita.",
-      "Refreda amb 5–10 minuts de trot suau."
-    ],
     "thoracic_bridge_v1": [
       "Asseu-te amb genolls flexionats, peus al terra i mans darrere amb dits cap enrere.",
       "Aixeca els malucs i rota cap a un costat estenent el braç lliure cap amunt en extensió toràcica.",
@@ -1799,11 +1569,6 @@
       "Comença en quadrupèdia amb els malucs sobre els genolls i les espatlles sobre els canells.",
       "Llisca un braç per sota del cos, girant el tronc, fins que l'espatlla i el costat del cap arribin al terra.",
       "Mantén la posició 2–3 segons sentint l'estirament toràcic, torna a la posició inicial i repeteix a l'altre costat."
-    ],
-    "treadmill_intervals_v1": [
-      "Escalfa amb 5 minuts de caminada suau a la cinta.",
-      "Alterna 60 segons de carrera dura amb 60 segons de caminada lenta les reps prescrites.",
-      "Refreda amb 5 minuts de caminada."
     ],
     "tree_pose_v1": [
       "Dret i transfereix el pes a una cama.",
@@ -1844,11 +1609,6 @@
       "Pressiona una kettlebell o manuella sobre el cap amb un braç en lockout.",
       "Camina endavant mantenint la bola estable sobre l'espatlla.",
       "Continua pel temps prescrit; canvia."
-    ],
-    "walking_incline_v1": [
-      "Configura la cinta a inclinació moderada (5–10%) i velocitat de caminada còmoda.",
-      "Mantén postura dreta sense agafar les baranes.",
-      "Continua el temps prescrit."
     ],
     "walking_lunge_v1": [
       "Dret amb peus a l'amplada del maluc.",
