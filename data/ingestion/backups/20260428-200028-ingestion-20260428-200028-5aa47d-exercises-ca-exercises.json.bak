@@ -6,9 +6,7 @@
   "Air_Bike": "Bicicleta a l'aire",
   "All_Fours_Quad_Stretch": "Estirament de quàdriceps a quatre grapes",
   "Alternate_Heel_Touchers": "Tocs de talons alternats",
-  "alternate_nostril_breathing_v1": "Respiració alterna (Nadi Shodhana)",
   "Ankle_Circles": "Cercles de turmell",
-  "ankle_rocking_v1": "Mobilitat de turmell",
   "Anterior_Tibialis-SMR": "Alliberament tibial anterior (SMR)",
   "Arnold_Dumbbell_Press": "Press Arnold amb manuelles",
   "Balance_Board": "Taula d'equilibri",
@@ -37,26 +35,15 @@
   "bb_shrug_v1": "Encongiment d'espatlles amb barra",
   "Bench_Dips": "Fons en banc",
   "Bent_Over_Barbell_Row": "Rem amb barra inclinat",
-  "bird_dog_pregnancy_v1": "Bird dog (gestació)",
-  "body_scan_v1": "Escaneig corporal",
   "Bodyweight_Squat": "Sentadilla amb pes corporal",
   "Bodyweight_Walking_Lunge": "Estocada caminant amb pes corporal",
-  "box_breathing_v1": "Respiració quadrada 4-4-4-4",
   "Box_Jump_Multiple_Response": "Salt a la caixa múltiple",
-  "bridge_kegel_v1": "Pont amb Kegel",
-  "bridge_pose_yoga_v1": "Postura del pont (Setu Bandha)",
   "Butt_Lift_Bridge": "Pont de glutis",
-  "butterfly_breath_v1": "Papallona amb respiració pèlvica",
   "Calf_Raises_-_With_Bands": "Elevació de talons amb bandes",
   "Calves-SMR": "Bessons - Alliberament miofascial",
-  "cat_cow_v1": "Gat-vaca",
   "Cat_Stretch": "Estirament del gat",
   "Childs_Pose": "Postura de l'infant",
-  "childs_pose_v1": "Postura del nen",
   "Chin-Up": "Dominades supines",
-  "cobra_pose_v1": "Postura de la cobra",
-  "coherent_breathing_v1": "Respiració coherent",
-  "couch_stretch_v1": "Couch stretch",
   "Cross-Body_Crunch": "Crunch creuat",
   "Crossover_Reverse_Lunge": "Estocada inversa creuada",
   "Crunches": "Abdominals",
@@ -74,14 +61,11 @@
   "db_skullcrusher_v1": "Skullcrusher amb manuelles",
   "db_zottman_curl_v1": "Curl Zottman",
   "Dead_Bug": "Dead bug",
-  "dead_bug_neutral_pelvis_v1": "Dead bug (pelvis neutra)",
   "Decline_Crunch": "Crunch declinat",
   "Decline_Oblique_Crunch": "Crunch declinat oblic",
-  "deep_squat_release_v1": "Sentadella profunda d'alliberament pèlvic",
   "depth_jump_v1": "Salt de profunditat (depth jump)",
-  "diaphragmatic_breathing_v1": "Respiració diafragmàtica",
   "Dips_-_Chest_Version": "Fons en paral·leles - versió pectoral",
-  "downward_dog_v1": "Gos cap avall",
+  "downward_dog_v1": "Postura del gos cap avall",
   "Dumbbell_Bench_Press": "Press de banca amb manuelles",
   "Dumbbell_Bicep_Curl": "Curl de bíceps amb manuelles",
   "Dumbbell_Flyes": "Obertures amb manuelles",
@@ -90,15 +74,7 @@
   "Dumbbell_Side_Bend": "Flexió lateral amb manuella",
   "eccentric_calf_raise_v1": "Punteta excèntrica en escaló (heel drop)",
   "Face_Pull": "Face pull",
-  "fitball_dead_bug_v1": "Dead bug amb fitball",
-  "fitball_pelvic_circles_v1": "Cercles pèlvics amb fitball",
-  "fitball_pelvic_tilt_v1": "Bàscula pèlvica amb fitball",
-  "fitball_wall_squat_v1": "Sentadella amb fitball a la paret",
   "Flutter_Kicks": "Puntades de peus alternades",
-  "foam_roll_glutes_v1": "Foam roller glutis",
-  "foam_roll_quads_v1": "Foam roller quàdriceps",
-  "foam_roll_thoracic_v1": "Foam roller dorsal",
-  "four_seven_eight_breathing_v1": "Respiració 4-7-8",
   "Frog_Hops": "Salts de granota",
   "Front_Barbell_Squat": "Sentadilla frontal amb barra",
   "Front_Box_Jump": "Salt frontal a la caixa",
@@ -107,14 +83,8 @@
   "Good_Morning": "Good morning",
   "Groin_and_Back_Stretch": "Estirament d'engonal i esquena",
   "Hanging_Leg_Raise": "Elevació de cames penjat",
-  "happy_baby_pose_v1": "Bebè feliç",
-  "heel_slide_pelvic_v1": "Lliscament de taló amb sòl pèlvic",
-  "heel_slide_supine_v1": "Lliscament de taló supí",
-  "hip_90_90_switch_v1": "Switch de maluc 90/90",
-  "hip_cars_v1": "CARs de maluc",
   "Hip_Circles_prone": "Cercles de cadera en pronació",
   "Hyperextensions_Back_Extensions": "Hiperextensions lumbars",
-  "incline_plank_pregnancy_v1": "Planxa inclinada en banc",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estirament de flexor de cadera i quàdriceps",
   "IT_Band_and_Glute_Stretch": "Estirament de banda iliotibial i glutis",
   "Jackknife_Sit-Up": "Sit-up en V",
@@ -126,40 +96,20 @@
   "kb_swing_v1": "Kettlebell swing",
   "kb_turkish_get_up_v1": "Turkish get-up",
   "kb_windmill_v1": "Windmill amb kettlebell",
-  "kegel_basic_v1": "Kegel bàsic",
-  "kegel_elevator_v1": "Kegel ascensor",
-  "kegel_quick_pulses_v1": "Kegel pulsacions ràpides",
-  "kegel_with_breath_v1": "Kegel amb respiració diafragmàtica",
   "Knee_Tuck_Jump": "Salt amb genolls al pit",
   "Kneeling_Hip_Flexor": "Estirament de flexor de cadera agenollat",
   "lateral_step_down_v1": "Descens lateral en escaló",
   "Leg_Extensions": "Extensions de cames",
   "Leg_Press": "Premsa de cames",
-  "legs_up_wall_v1": "Cames a la paret",
   "Lower_Back-SMR": "Lumbar - Alliberament miofascial",
   "Lying_Leg_Curls": "Curl de cames estirat",
-  "modified_side_plank_knee_v1": "Planxa lateral des de genolls",
   "Mountain_Climbers": "Escaladors",
-  "neck_cars_v1": "CARs de coll",
   "nordic_curl_v1": "Curl nòrdic d'isquiotibials",
   "One-Arm_Dumbbell_Row": "Rem amb manuella a una mà",
-  "open_book_stretch_v1": "Open book toràcic",
   "Pallof_Press": "Pallof press",
-  "pec_release_ball_v1": "Alliberament pectoral amb pilota",
-  "pelvic_clock_v1": "Rellotge pèlvic",
   "pigeon_pose_v1": "Postura del colom",
   "Piriformis-SMR": "Piriforme - Alliberament miofascial",
   "Plank": "Planxa",
-  "postpartum_band_row_v1": "Rem assegut postpart amb banda",
-  "postpartum_diaphragmatic_breath_v1": "Respiració diafragmàtica postpart",
-  "postpartum_gentle_squat_v1": "Sentadella suau postpart",
-  "postpartum_glute_bridge_v1": "Pont de glutis postpart",
-  "postpartum_pelvic_tilt_v1": "Bàscula pèlvica postpart",
-  "postpartum_seated_press_light_v1": "Press lleuger assegut postpart",
-  "postpartum_side_lying_glute_v1": "Elevació de glutis de costat postpart",
-  "postpartum_standing_pelvic_tuck_v1": "Bàscula pèlvica dempeus postpart",
-  "postpartum_walking_v1": "Caminar postpart progressiu",
-  "postpartum_wall_pushup_v1": "Flexió a la paret postpart",
   "postpp_bird_dog_v1": "Bird Dog (quadrúpede contralateral)",
   "postpp_clamshell_band_v1": "Cloïssa amb banda (abducció de maluc lateral)",
   "postpp_glute_bridge_march_v1": "Pont de glutis amb marxa alternant",
@@ -169,40 +119,28 @@
   "postpp_standing_pelvic_tilt_v1": "Basculació pèlvica de peu",
   "postpp_ta_bracing_supine_v1": "Activació transvers abdominal (decúbit supí)",
   "postpp_wall_sit_isometric_v1": "Sentadella de paret (isomètrica)",
-  "progressive_muscle_relaxation_v1": "Relaxació muscular progressiva",
   "Prone_Manual_Hamstring": "Isquiotibials manual en pronació",
   "pullup_neutral_grip_v1": "Dominada amb presa neutra",
   "Pullups": "Dominades",
   "Push_Up_to_Side_Plank": "Flexió a planxa lateral",
   "Pushups": "Flexions",
   "Quadriceps-SMR": "Quàdriceps - Alliberament miofascial",
-  "quadruped_toe_taps_v1": "Tocs de puntera a quatre grapes",
-  "resistance_band_row_seated_v1": "Rem assegut amb banda",
   "resistance_band_row_standing_v1": "Rem amb banda elàstica (dempeus)",
   "Reverse_Crunch": "Crunch invers",
   "ring_row_v1": "Rem amb anelles",
   "Romanian_Deadlift": "Pes mort romanès",
   "Russian_Twist": "Gir rus",
-  "savasana_v1": "Savasana",
   "Seated_Cable_Rows": "Rem amb cable assegut",
   "Seated_Calf_Raise": "Elevació de talons assegut",
-  "seated_dumbbell_curl_pregnancy_v1": "Curl amb manuelles assegut (gestació)",
-  "seated_forward_fold_v1": "Plegament endavant assegut",
-  "seated_lateral_raise_light_v1": "Elevació lateral lleugera asseguda",
-  "seated_marches_v1": "Marxes assegudes",
   "seated_marching_v1": "Marxa asseguda",
   "seated_spinal_twist_v1": "Rotació espinal asseguda",
-  "shoulder_cars_v1": "CARs d'espatlla",
   "Side_Lateral_Raise": "Elevació lateral",
-  "side_lying_clamshell_v1": "Clamshell de costat",
   "Side_Lying_Groin_Stretch": "Estirament d'engonal de costat",
-  "side_lying_leg_raise_v1": "Elevació lateral de cama",
   "Single_Leg_Glute_Bridge": "Pont de glutis a una cama",
   "Single_Leg_Push-off": "Impulsió a una cama",
   "single_leg_squat_v1": "Sentadella monopodal",
   "sit_to_stand_v1": "Aixecar-se de la cadira",
   "Split_Squat_with_Dumbbells": "Sentadilla búlgara amb manuelles",
-  "standing_calf_raise_pregnancy_v1": "Elevació de bessons dempeus",
   "Standing_Calf_Raises": "Elevació de talons dret",
   "Standing_Hip_Circles": "Cercles de cadera dret",
   "Standing_Hip_Flexors": "Flexors de cadera dret",
@@ -211,40 +149,16 @@
   "step_up_v1": "Pujada a l'escaló",
   "Stiff-Legged_Barbell_Deadlift": "Pes mort amb cames rígides",
   "Sumo_Deadlift": "Pes mort sumo",
-  "sun_salutation_a_v1": "Salutació al sol A",
-  "sun_salutation_b_v1": "Salutació al sol B",
   "Superman": "Superman",
-  "supine_twist_v1": "Torsió supina",
-  "supported_fish_pose_v1": "Postura del peix amb suport",
-  "supported_squat_chair_v1": "Sentadella amb suport de cadira",
+  "supine_twist_v1": "Rotació espinal en decúbit supí",
   "Thigh_Abductor": "Abductor de cuixa",
   "Thigh_Adductor": "Adductor de cuixa",
-  "thoracic_bridge_v1": "Pont toràcic",
   "thread_the_needle_v1": "Thread the Needle (rotació toràcica)",
-  "tree_pose_v1": "Postura de l'arbre",
-  "triangle_pose_v1": "Postura del triangle",
   "Triceps_Pushdown": "Extensió de tríceps amb politja",
-  "tva_activation_supine_v1": "Activació del transvers (supina)",
-  "upward_dog_v1": "Gos cap amunt",
-  "wall_press_core_v1": "Press de paret amb core",
   "wall_push_up_v1": "Flexió de braços a la paret",
-  "wall_pushup_pregnancy_v1": "Flexió a la paret",
-  "warrior_one_v1": "Guerrer I",
-  "warrior_two_v1": "Guerrer II",
   "Wide-Grip_Lat_Pulldown": "Jaló al pit amb agafada ampla",
-  "world_greatest_stretch_v1": "World's Greatest Stretch",
-  "wrist_warmup_circles_v1": "Cercles d'escalfament de canells",
+  "world_greatest_stretch_v1": "El millor estirament del món",
   "instructions": {
-    "alternate_nostril_breathing_v1": [
-      "Asseu-te còmode i porta la mà dreta a la cara amb el polze sobre la fossa dreta i l'anular sobre l'esquerra.",
-      "Tanca la fossa dreta i inspira per l'esquerra, llavors tanca l'esquerra i espira per la dreta.",
-      "Inspira per la dreta, tanca-la i espira per l'esquerra; continua alternant."
-    ],
-    "ankle_rocking_v1": [
-      "Agenolla't sobre un genoll amb el peu davant pla i mans sobre la cuixa.",
-      "Empeny el genoll davanter cap endavant per damunt dels dits sentint estirament al turmell, amb el taló a terra.",
-      "Torna i repeteix; canvia de costat."
-    ],
     "band_bicep_curl_v1": [
       "Trepitja la banda al centre; agafa els extrems amb les palmes cap amunt i braços al costat del cos.",
       "Flexiona els colzes portant les mans cap als muscles sense balancejar el tronc.",
@@ -319,61 +233,6 @@
       "Aixeca les espatlles directament cap a les orelles sense rotar-les.",
       "Pausa breu a dalt i baixa les espatlles de forma controlada."
     ],
-    "bird_dog_pregnancy_v1": [
-      "A quatre grapes amb columna neutra.",
-      "Estén el braç i la cama oposats mantenint malucs i espatlles paral·lels al terra.",
-      "Baixa controlat i canvia de costat."
-    ],
-    "body_scan_v1": [
-      "Estira't còmode d'esquena amb braços als costats i ulls tancats.",
-      "Porta l'atenció lentament per cada part del cos des dels peus fins al cap, observant sense jutjar.",
-      "Respira naturalment 10–20 minuts."
-    ],
-    "box_breathing_v1": [
-      "Asseu-te còmode amb la columna alta i les espatlles relaxades.",
-      "Inspira pel nas 4 segons, retén 4 segons.",
-      "Espira 4 segons, retén buit 4 segons; repeteix el cicle."
-    ],
-    "bridge_kegel_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
-      "Espira aixecant els malucs mentre actives suau el sòl pèlvic.",
-      "Inspira baixant els malucs i relaxant el sòl pèlvic; repeteix."
-    ],
-    "bridge_pose_yoga_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
-      "Empeny pels peus i aixeca els malucs cap al sostre, opcionalment entrellaçant les mans sota.",
-      "Mantingues respirant i baixa controlat."
-    ],
-    "butterfly_breath_v1": [
-      "Asseu-te amb les soles dels peus juntes i els genolls relaxats oberts.",
-      "Inspira visualitzant la respiració baixant a la pelvis i relaxant el sòl.",
-      "Espira aixecant suau el sòl pèlvic; continua pel temps prescrit."
-    ],
-    "cat_cow_v1": [
-      "Comença a quatre grapes amb canells sota espatlles i genolls sota malucs.",
-      "Inspira i arqueja la columna baixant la panxa mentre mires amunt (vaca).",
-      "Espira i arrodoneix la columna amagant la barbeta i la pelvis (gat); alterna lentament."
-    ],
-    "childs_pose_v1": [
-      "Agenolla't al matalàs amb els polzes dels peus tocant-se i els genolls oberts.",
-      "Asseu els malucs als talons i camina les mans endavant estenent els braços.",
-      "Recolza el front al matalàs i respira lent cap a l'esquena."
-    ],
-    "cobra_pose_v1": [
-      "Estira't boca avall amb les mans sota les espatlles i els colzes plegats.",
-      "Empeny lleugerament aixecant el pit del terra amb els colzes encara plegats.",
-      "Mantingues respirant; baixa controlat."
-    ],
-    "coherent_breathing_v1": [
-      "Asseu-te o estira't còmode amb la columna neutra.",
-      "Inspira pel nas 5 segons expandint la panxa i les costelles.",
-      "Espira pel nas 5 segons; continua a aquest ritme 5–10 minuts."
-    ],
-    "couch_stretch_v1": [
-      "Agenolla't d'esquena a la paret o sofà, posa una tíbia contra la paret amb el peu cap amunt i l'altre peu pla davant en llunja.",
-      "Contrau el glúti del darrere i puja el pit alt mantenint la lumbar neutra.",
-      "Mantingues 30–60 segons respirant lent; canvia de costat."
-    ],
     "db_arnold_press_v1": [
       "Asseu-te en un banc amb respatller, amb dues manuelles davant les espatlles i els palmells cap al cos.",
       "Empeny les manuelles cap amunt mentre rotes els palmells cap enfora fins a estendre els braços.",
@@ -434,30 +293,15 @@
       "Flexiona els colzes fins a les espatlles, després rota els canells perquè els palmells quedin avall a dalt.",
       "Baixa en 3 segons amb els palmells avall i rota a palmells amunt al final del recorregut."
     ],
-    "dead_bug_neutral_pelvis_v1": [
-      "Estira't d'esquena amb braços al sostre i genolls sobre malucs a 90°.",
-      "Espira activant el core i baixa el braç i la cama oposats cap al terra sense arquejar.",
-      "Inspira tornant; alterna costats."
-    ],
-    "deep_squat_release_v1": [
-      "Dret amb peus una mica més oberts que els malucs, dits cap enfora.",
-      "Baixa fins a la sentadella més profunda que toleris, amb suport si cal.",
-      "Mantingues 30–60 segons respirant lent cap al sòl pèlvic."
-    ],
     "depth_jump_v1": [
       "Dret sobre una caixa (20–40 cm), passos cap endavant i cau al terra amb tots dos peus.",
       "En contactar, amorteix la caiguda flexionant genolls i malucs; immediatament salta cap amunt per maximitzar la potència.",
       "Mantén el temps de contacte amb el terra el mínim possible. Atura si el contacte és rígid o l'articulació dóna senyals."
     ],
-    "diaphragmatic_breathing_v1": [
-      "Estira't d'esquena amb genolls flexionats i una mà al pit, l'altra a la panxa.",
-      "Inspira lent pel nas 4 segons expandint la panxa mentre el pit es manté quasi quiet.",
-      "Espira pels llavis arrunyats 6 segons; repeteix pel temps prescrit."
-    ],
     "downward_dog_v1": [
-      "Des de quatre grapes, plega els dits dels peus i puja els malucs amunt i enrere fent una V invertida.",
-      "Pressiona el pit cap a les cuixes i els talons cap al terra sense bloquejar genolls.",
-      "Mantingues respirant amb constància pel temps prescrit."
+      "Des de la posició de planxa, empeny els malucs amunt i enrere formant una V invertida, amb les mans i peus a terra.",
+      "Allarga la columna tractant de portar els talons al terra i el cap entre els braços mirant els peus.",
+      "Manté de 20 a 40 segons respirant profundament; pots alternar flexions de genolls per aprofundir l'estirament dels isquiotibials."
     ],
     "Dumbbell_Bicep_Curl": [
       "Dret amb una manuella a cada mà, braços estesos als costats.",
@@ -484,76 +328,6 @@
       "Dret al canell d'un escaló a la meitat de peu, agafant-se a una paret per equilibrar.",
       "Puja als punts de peus amb totes dues cames (concèntric) i baixa lentament en 4–5 seg amb una sola cama, deixant que el taló caigui per sota del nivell.",
       "Retorna amb les dues cames i repeteix. Progressa la càrrega afegint pes o augmentant reps."
-    ],
-    "fitball_dead_bug_v1": [
-      "Estira't d'esquena sostenint una fitball entre mans i genolls amb braços i cames a 90°.",
-      "Pressiona mans i genolls contra la pilota mentre estens el braç i cama oposats sense perdre pressió.",
-      "Torna i alterna controlat."
-    ],
-    "fitball_pelvic_circles_v1": [
-      "Asseu-te sobre una fitball amb els peus plans i la columna alta.",
-      "Fes cercles lents amb els malucs en una direcció.",
-      "Inverteix la direcció les mateixes reps; respira natural."
-    ],
-    "fitball_pelvic_tilt_v1": [
-      "Asseu-te sobre una fitball amb els peus plans i les mans als malucs.",
-      "Bascula la pelvis endavant i enrere lent sense moure el tronc.",
-      "Repeteix suau coordinant amb la respiració."
-    ],
-    "fitball_wall_squat_v1": [
-      "Posa una fitball entre la part baixa de l'esquena i una paret, peus a l'amplada de l'espatlla i una mica davant.",
-      "Baixa rodant la pilota fins que les cuixes siguin paral·leles al terra.",
-      "Mantingues o torna a aixecar-te controlat."
-    ],
-    "foam_roll_glutes_v1": [
-      "Asseu-te sobre un foam roller amb un turmell creuat sobre el genoll oposat.",
-      "Inclina't cap al costat de la cama creuada i mou-te lentament sobre el glúti.",
-      "Pausa als punts tensos i respira; canvia de costat."
-    ],
-    "foam_roll_quads_v1": [
-      "Estira't boca avall amb el foam roller a la part frontal de les cuixes, sostingut sobre els avantbraços.",
-      "Mou-te lentament des de just sobre els genolls fins als flexors del maluc.",
-      "Pausa als punts tensos i respira; evita rodar sobre la ròtula."
-    ],
-    "foam_roll_thoracic_v1": [
-      "Estira't sobre un foam roller col·locat a la part alta de l'esquena, genolls flexionats i mans darrere del cap.",
-      "Aixeca lleugerament els malucs i mou-te amunt i avall entre les escàpules i la zona mitja.",
-      "Pausa als punts tensos i respira lent; evita la zona lumbar."
-    ],
-    "four_seven_eight_breathing_v1": [
-      "Asseu-te còmode i posa la punta de la llengua darrere les dents superiors.",
-      "Inspira en silenci pel nas 4 segons, retén l'aire 7 segons.",
-      "Espira audiblement per la boca 8 segons; repeteix 4 cicles."
-    ],
-    "happy_baby_pose_v1": [
-      "Estira't d'esquena i porta els genolls cap a les aixelles.",
-      "Agafa l'exterior dels peus i tira'ls suaument cap al terra amb les tíbies verticals.",
-      "Balanceja't lleugerament respirant lent."
-    ],
-    "heel_slide_pelvic_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
-      "Espira activant suau el sòl pèlvic i llisca un taló endavant fins estendre la cama.",
-      "Inspira tornant el taló; alterna costats."
-    ],
-    "heel_slide_supine_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
-      "Espira i llisca un taló endavant pel terra fins estendre del tot la cama sense arquejar.",
-      "Inspira tornant el taló; alterna costats."
-    ],
-    "hip_90_90_switch_v1": [
-      "Asseu-te amb una cama davant amb la tíbia paral·lela al cos i l'altra al costat, totes dues a 90°.",
-      "Aixeca els genolls i rota els malucs per canviar les cames a la posició oposada.",
-      "Torna lentament controlat sense ajudar-te amb les mans."
-    ],
-    "hip_cars_v1": [
-      "Dret sobre una cama, agafa't a una paret per equilibri si cal.",
-      "Aixeca el genoll lliure a l'altura del maluc, obre'l cap al costat i després porta'l darrere i baixa'l.",
-      "Inverteix el cercle; canvia de costat."
-    ],
-    "incline_plank_pregnancy_v1": [
-      "Posa les mans en un banc o cadira sòlid a l'amplada de l'espatlla.",
-      "Recula els peus en línia recta de cap a peus, espirant i activant suau el sòl pèlvic.",
-      "Mantingues el temps prescrit respirant; no deixis caure la lumbar."
     ],
     "kb_clean_v1": [
       "Comença amb la kettlebell al terra entre els peus, flexiona els malucs i agafa-la amb una mà.",
@@ -595,26 +369,6 @@
       "Rota els peus 45° cap al costat de la mà lliure i llisca aquella mà per la cara interna de la cama mentre empenys el maluc cap al costat carregat.",
       "Torna a l'inici contraient oblics i glutis; canvia de costat."
     ],
-    "kegel_basic_v1": [
-      "Asseu-te o estira't còmode amb genolls flexionats i postura relaxada.",
-      "Aixeca suau el sòl pèlvic com si volguessis aturar el pipí, mantingues 3–5 segons sense aguantar la respiració.",
-      "Allibera del tot 5 segons abans de la repetició següent; la qualitat importa més que la quantitat."
-    ],
-    "kegel_elevator_v1": [
-      "Asseu-te còmode i visualitza el sòl pèlvic com un ascensor amb diferents pisos.",
-      "Contrau progressivament en 3 nivells (planta 1, 2, dalt) mantenint breument cada un.",
-      "Allibera en els mateixos 3 nivells fins a relaxació completa; respira natural."
-    ],
-    "kegel_quick_pulses_v1": [
-      "Asseu-te o estira't còmode amb la columna neutra.",
-      "Fes contraccions curtes d'1 segon del sòl pèlvic seguides d'allibert complet d'1 segon.",
-      "Mantingues glutis i adductors relaxats; respira normalment."
-    ],
-    "kegel_with_breath_v1": [
-      "Estira't d'esquena amb genolls flexionats i una mà a la panxa.",
-      "Inspira relaxant el sòl pèlvic i expandint la panxa.",
-      "Espira aixecant suau el sòl pèlvic; repeteix coordinant respiració i contracció."
-    ],
     "Lat_Pulldown": [
       "Seu a la màquina de politja alta amb les cuixes fixades sota els coixinets.",
       "Agafa la barra amb les mans més obertes que les espatlles.",
@@ -627,11 +381,6 @@
       "Flexiona lentament el genoll de recolzament per baixar l'altre peu cap al terra en 3–4 segons, mantenint el genoll alineat sobre el segon dit del peu.",
       "Toca el terra però sense transferir el pes; empeny per tornar a la posició inicial. Controla que el maluc no caigui cap al costat."
     ],
-    "legs_up_wall_v1": [
-      "Asseu-te de costat contra una paret i puja les cames per la paret mentre t'estires al matalàs.",
-      "Llisca els malucs a prop de la paret i deixa els braços relaxats als costats.",
-      "Respira lent 5–15 minuts."
-    ],
     "Lying_Leg_Curls": [
       "Situa't bocaterrosa a la màquina de cames amb els turmells sota els coixinets.",
       "Agafa les nanses laterals per estabilitzar-te.",
@@ -639,40 +388,15 @@
       "Mantén la contracció un moment a dalt.",
       "Baixa lentament a la posició inicial."
     ],
-    "modified_side_plank_knee_v1": [
-      "Estira't de costat amb l'avantbraç de baix al matalàs i genolls flexionats i superposats.",
-      "Aixeca els malucs creant una línia recta de genolls a cap.",
-      "Mantingues respirant; canvia de costat."
-    ],
-    "neck_cars_v1": [
-      "Asseu-te o queda't dret amb les espatlles relaxades.",
-      "Rota lentament el cap fent un cercle controlat explorant el rang sense dolor.",
-      "Inverteix la direcció les mateixes reps; mantingues el moviment lent."
-    ],
     "nordic_curl_v1": [
       "Agenolla't amb els turmells subjectats sota un banc, barra o per un company.",
       "Mantenint el cos recte des dels genolls fins al cap, inclina't cap endavant de forma lenta i controlada (3–5 seg), cedint la resistència dels isquiotibials.",
       "Quan ja no puguis controlar la caiguda, usa les mans per aturar-te i empenys per tornar. Progressa des de moviments parcials fins a complets."
     ],
-    "open_book_stretch_v1": [
-      "Estira't de costat amb genolls superposats a 90° i braços estesos endavant, palmells junts.",
-      "Inspira i obre lentament el braç de dalt seguint-lo amb la mirada, mantenint els genolls junts.",
-      "Espira per tornar; fes reps i canvia de costat."
-    ],
-    "pec_release_ball_v1": [
-      "Posa una pilota de massatge entre la part alta del pit i una paret, just sota la clavícula.",
-      "Aplica pressió contra la pilota i mou el braç per trobar punts tensos.",
-      "Mantingues 20–30 segons cada punt respirant lent; canvia de costat."
-    ],
-    "pelvic_clock_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
-      "Imagina un rellotge a la pelvis i bascula lent a les posicions de 12, 3, 6 i 9.",
-      "Fes cercles suaus en els dos sentits; respira natural."
-    ],
     "pigeon_pose_v1": [
-      "Des de quatre grapes, porta una tíbia endavant creuant el matalàs amb la cama del darrere estirada.",
-      "Quadra els malucs i baixa el tronc sobre la tíbia davantera fins on toleris.",
-      "Mantingues respirant lent; canvia de costat."
+      "Des de quadrupèdia, porta el genoll dret cap endavant i deixa-lo caure cap a l'exterior de la mà dreta; estén la cama esquerra cap enrere.",
+      "Baixa el maluc dret cap al terra o aproxima't tant com puguis sense dolor; pot ajudar un bloc o una manta doblada sota el maluc.",
+      "Mantén de 30 a 60 segons de cada costat, respirant lentament; evita compensar inclinant el tronc cap a un costat."
     ],
     "Plank": [
       "Situa't en posició de flexió amb els avantbraços al terra.",
@@ -680,56 +404,6 @@
       "Activa l'abdomen i evita que els malucs caiguin o s'elevin.",
       "Mantén la posició durant el temps indicat.",
       "Respira de manera constant durant tot l'exercici."
-    ],
-    "postpartum_band_row_v1": [
-      "Asseu-te alt amb la banda al voltant dels peus i un extrem a cada mà.",
-      "Tira la banda cap a les costelles inferiors juntant les escàpules.",
-      "Torna en 2 segons sense perdre tensió."
-    ],
-    "postpartum_diaphragmatic_breath_v1": [
-      "Estira't d'esquena o asseu-te còmode amb una mà al pit i l'altra a la panxa.",
-      "Inspira pel nas expandint panxa i costelles sense pujar el pit.",
-      "Espira lent alliberant del tot; repeteix 5–10 minuts."
-    ],
-    "postpartum_gentle_squat_v1": [
-      "Dret amb peus a l'amplada del maluc, mans als malucs.",
-      "Baixa fins a una profunditat còmoda mantenint el pit alt i espirant a la baixada.",
-      "Aixeca't empenyent pel mig del peu."
-    ],
-    "postpartum_glute_bridge_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
-      "Espira aixecant els malucs contraient els glutis sense arquejar la lumbar.",
-      "Baixa en 2 segons controlat."
-    ],
-    "postpartum_pelvic_tilt_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
-      "Espira basculant la pelvis per aplanar la lumbar i activar suau el sòl pèlvic.",
-      "Inspira alliberant a neutra."
-    ],
-    "postpartum_seated_press_light_v1": [
-      "Asseu-te en una cadira amb respatller i una manuella lleugera a cada mà a l'altura de l'espatlla.",
-      "Espira empenyent les manuelles amunt sense arquejar la lumbar.",
-      "Baixa en 2 segons fins a les espatlles."
-    ],
-    "postpartum_side_lying_glute_v1": [
-      "Estira't de costat amb genolls flexionats i superposats, cap sobre el braç de baix.",
-      "Mantenint els peus junts, aixeca el genoll de dalt obrint el maluc sense rotar la pelvis.",
-      "Baixa controlat; canvia de costat."
-    ],
-    "postpartum_standing_pelvic_tuck_v1": [
-      "Dret amb peus a l'amplada del maluc i genolls suaus.",
-      "Espira basculant la pelvis i aixecant suau el sòl pèlvic.",
-      "Inspira alliberant a neutra; repeteix lent."
-    ],
-    "postpartum_walking_v1": [
-      "Comença amb 5–10 minuts de caminar lent en pla, progressant setmanalment.",
-      "Atenció a sensació de pesadesa al sòl pèlvic; atura si hi ha símptomes.",
-      "Augmenta la durada gradualment abans del ritme o desnivell."
-    ],
-    "postpartum_wall_pushup_v1": [
-      "Dret de cara a una paret amb mans a l'altura del pit, una mica més obertes que les espatlles.",
-      "Flexiona els colzes acostant el pit a la paret, espirant i activant suau el core.",
-      "Empeny sense bloquejar els colzes."
     ],
     "postpp_bird_dog_v1": [
       "Comença a quatre grapes amb els canells sota les espatlles i els genolls sota els malucs (columna neutra).",
@@ -776,11 +450,6 @@
       "Llisca cap avall fins que els cuixes quedin quasi paral·lels (o fins a un angle còmode), mantenint els genolls sobre els turmells.",
       "Mantén la posició el temps indicat respirant normalment i torna a pujar lliscant."
     ],
-    "progressive_muscle_relaxation_v1": [
-      "Estira't d'esquena i tensa els peus 5 segons, després allibera totalment 10 segons.",
-      "Puja pel cos tensant i alliberant bessons, cuixes, glutis, abdomen, mans, braços, espatlles i cara.",
-      "Acaba amb 1–2 minuts de respiració natural."
-    ],
     "pullup_neutral_grip_v1": [
       "Penja't de mànecs paral·lels de dominades amb palmells encarats, braços ben estesos.",
       "Tira el pit cap a la barra empenyent els colzes avall i enrere.",
@@ -793,16 +462,6 @@
       "Empeny cap amunt fins a estendre els braços completament.",
       "Repeteix de manera controlada."
     ],
-    "quadruped_toe_taps_v1": [
-      "A quatre grapes amb columna neutra.",
-      "Aixeca un genoll del matalàs i toca la punta del peu al costat sense rotar els malucs.",
-      "Torna i alterna costats controlat."
-    ],
-    "resistance_band_row_seated_v1": [
-      "Asseu-te al terra o cadira amb les cames esteses, banda al voltant dels peus i extrems a cada mà.",
-      "Tira la banda cap a les costelles inferiors juntant les escàpules.",
-      "Torna en 2 segons sense perdre tensió."
-    ],
     "resistance_band_row_standing_v1": [
       "Subjecta una banda elàstica ancorada a l'altura del maluc o amb els dos extrems a les mans.",
       "Dempeus amb genolls lleugerament flexionats, treu els colzes cap enrere portant las mans als costats del tronc i ajuntant les escàpules.",
@@ -812,31 +471,6 @@
       "Posa les anelles a l'altura del maluc i agafa-les amb braços estesos, cos en línia recta i talons al terra.",
       "Tira el pit cap a les anelles retraient les escàpules i flexionant els colzes.",
       "Baixa en 2 segons fins a l'extensió completa; eleva els peus sobre una caixa per més dificultat."
-    ],
-    "savasana_v1": [
-      "Estira't d'esquena amb els braços lleugerament separats del cos, palmells amunt, i els peus relaxats oberts.",
-      "Tanca els ulls i deixa el cos enfonsar-se al matalàs alliberant tot esforç muscular.",
-      "Respira naturalment 5–15 minuts."
-    ],
-    "seated_dumbbell_curl_pregnancy_v1": [
-      "Asseu-te en una cadira amb respatller i una manuella lleugera a cada mà.",
-      "Flexiona els colzes a les espatlles sense arquejar la lumbar.",
-      "Baixa en 2 segons controlat."
-    ],
-    "seated_forward_fold_v1": [
-      "Asseu-te amb les dues cames esteses endavant i els peus flexionats.",
-      "Inclina't des dels malucs cap als peus sense arrodonir la lumbar.",
-      "Mantingues respirant; flexiona lleugerament els genolls si cal."
-    ],
-    "seated_lateral_raise_light_v1": [
-      "Asseu-te en una cadira amb manuelles lleugeres als costats, lleugera flexió de colze.",
-      "Eleva els braços als costats fins a l'altura de l'espatlla guiant amb el colze.",
-      "Baixa en 2 segons sense balanceig."
-    ],
-    "seated_marches_v1": [
-      "Asseu-te alt en una cadira amb peus plans i mans a la panxa baixa.",
-      "Aixeca un genoll cap al pit espirant i activant el core.",
-      "Baixa controlat i alterna costats."
     ],
     "seated_marching_v1": [
       "Seu ben dret en una cadira amb els peus a terra i les mans sobre les cuixes o als costats.",
@@ -848,21 +482,6 @@
       "Posa la mà esquerra al genoll dret i gira el tronc cap a la dreta, col·locant la mà dreta darrere l'esquena com a suport.",
       "Mantén 30 segons girant una mica més amb cada exhalació; torna al centre i repeteix a l'altre costat."
     ],
-    "shoulder_cars_v1": [
-      "Dret amb un braç al costat, contrau el core.",
-      "Traça el cercle controlat més gran possible amb el braç: endavant, amunt, enrere i avall.",
-      "Inverteix la direcció; canvia de braç."
-    ],
-    "side_lying_clamshell_v1": [
-      "Estira't de costat amb genolls flexionats i superposats, peus alineats amb la columna.",
-      "Mantingues els peus junts i aixeca el genoll de dalt obrint com una cloïssa sense rotar la pelvis.",
-      "Baixa controlat; canvia de costat."
-    ],
-    "side_lying_leg_raise_v1": [
-      "Estira't de costat amb la cama de baix flexionada i la de dalt estesa.",
-      "Aixeca la cama de dalt fins a uns 45° sense rotar el maluc.",
-      "Baixa controlat; canvia de costat."
-    ],
     "single_leg_squat_v1": [
       "Dret sobre una cama, l'altra lleugera davant o al costat, braços estesos per a l'equilibri.",
       "Flexiona lentament el genoll de recolzament fins on sigui possible sense que col·lapsi cap a dins o el maluc caigui.",
@@ -872,11 +491,6 @@
       "Seu en una cadira amb els peus a l'amplada dels malucs i plans a terra.",
       "Inclina lleugerament el tronc cap endavant, empeny els talons contra el terra i aixeca't fins a quedar totalment dret.",
       "Controla el descens tornant a seure lentament, sense caure sobre la cadira."
-    ],
-    "standing_calf_raise_pregnancy_v1": [
-      "Dret amb peus a l'amplada del maluc, agafat a una paret o cadira.",
-      "Puja sobre les puntes empenyent els talons amunt.",
-      "Baixa en 2 segons controlat."
     ],
     "Standing_Calf_Raises": [
       "Situa't dret amb els peus a l'amplada de les espatlles.",
@@ -890,95 +504,25 @@
       "Empeny el taló del peu de l'escaló per aixecar el cos, portant l'altre peu al nivell de l'escaló.",
       "Baixa controlant el descens en 2 seg; alterna les cames o fes totes les reps d'un costat primer."
     ],
-    "sun_salutation_a_v1": [
-      "Des de dret, inspira braços amunt, espira plega endavant, inspira mig aixecat.",
-      "Espira recula a planxa, baixa al terra, inspira gos amunt, espira gos avall i respira.",
-      "Pas o salt al davant del matalàs, inspira mig aixecat, espira plega, inspira a dret; completa reps."
-    ],
-    "sun_salutation_b_v1": [
-      "Des de dret, inspira a postura de la cadira, espira plega, inspira mig aixecat, espira recula a planxa-chaturanga, inspira gos amunt, espira gos avall.",
-      "Inspira porta el peu dret a Guerrer I, espira torna a planxa-chaturanga i flueix per gos amunt i avall; repeteix amb l'esquerre.",
-      "Pas o salt al davant, inspira mig aixecat, espira plega, inspira a cadira, espira a dret; completa reps."
-    ],
     "supine_twist_v1": [
-      "Estira't d'esquena, abraça un genoll al pit i guia'l a través del cos cap al costat oposat.",
-      "Estén el braç del mateix costat i mira cap al braç estès, mantenint les dues espatlles a terra.",
-      "Mantingues respirant lent; canvia de costat."
-    ],
-    "supported_fish_pose_v1": [
-      "Posa un foam roller al llarg de la columna i estira't d'esquena perquè et sostingui la part alta longitudinalment.",
-      "Deixa els braços caure als costats i les cames esteses o flexionades.",
-      "Respira lent obrint el pit 2–5 minuts."
-    ],
-    "supported_squat_chair_v1": [
-      "Dret davant d'una cadira sòlida amb peus a l'amplada del maluc.",
-      "Asseu-te lent fins que els glutis toquin la cadira mantenint el pit alt.",
-      "Aixeca't empenyent pel mig del peu."
-    ],
-    "thoracic_bridge_v1": [
-      "Asseu-te amb genolls flexionats, peus al terra i mans darrere amb dits cap enrere.",
-      "Aixeca els malucs i rota cap a un costat estenent el braç lliure cap amunt en extensió toràcica.",
-      "Torna a la posició inicial controlat; alterna costats."
+      "Estira't d'esquena; porta els dos genolls al pit i deixa'ls caure suaument cap a un costat mentre estens els braços en creu.",
+      "Gira el cap cap al costat contrari als genolls si és còmode, per augmentar la rotació toràcica.",
+      "Mantén 30–45 segons de cada costat; és normal sentir un alleugeriment de tensió lumbar progressiu."
     ],
     "thread_the_needle_v1": [
       "Comença en quadrupèdia amb els malucs sobre els genolls i les espatlles sobre els canells.",
       "Llisca un braç per sota del cos, girant el tronc, fins que l'espatlla i el costat del cap arribin al terra.",
       "Mantén la posició 2–3 segons sentint l'estirament toràcic, torna a la posició inicial i repeteix a l'altre costat."
     ],
-    "tree_pose_v1": [
-      "Dret i transfereix el pes a una cama.",
-      "Posa l'altre peu al turmell, bessó o cuixa interna (evita el genoll) i porta les mans al pit o amunt.",
-      "Mantingues respirant; canvia de costat."
-    ],
-    "triangle_pose_v1": [
-      "Obre els peus, gira el peu davanter endavant i el del darrere 90°, braços estesos als costats.",
-      "Flexiona pel maluc davanter portant la mà davantera cap al turmell i la mà de dalt cap al sostre.",
-      "Mantingues el pit obert i mira amunt; canvia de costat."
-    ],
-    "tva_activation_supine_v1": [
-      "Estira't d'esquena amb genolls flexionats i peus plans, mans sobre la panxa baixa.",
-      "Espira lent portant la panxa baixa cap a la columna i aixecant el sòl pèlvic.",
-      "Inspira alliberant del tot; repeteix sense aplanar la corba lumbar."
-    ],
-    "upward_dog_v1": [
-      "Estira't boca avall amb mans sota espatlles i empenyes dels peus al matalàs.",
-      "Empeny les mans aixecant el pit, malucs i cuixes del terra amb braços estesos.",
-      "Roda les espatlles enrere i mira lleugerament amunt; mantingues respirant."
-    ],
-    "wall_press_core_v1": [
-      "Dret a un peu de la paret amb les dues palmes contra ella a l'altura del pit.",
-      "Empeny la paret com si la volguessis allunyar mentre actives el core i espires.",
-      "Mantingues l'activació respirant constant."
-    ],
     "wall_push_up_v1": [
       "Posa't de peu davant d'una paret a uns 60 cm, amb les mans a l'alçada dels muscles i lleugerament separades.",
       "Flexiona els colzes fins que el pit s'acosti a la paret mantenint el cos recte com una planxa.",
       "Empeny la paret per tornar a la posició inicial controlant el moviment en tot moment."
     ],
-    "wall_pushup_pregnancy_v1": [
-      "Dret de cara a una paret amb mans a l'altura del pit, una mica més obertes que les espatlles.",
-      "Flexiona els colzes acostant el pit a la paret mantenint el cos recte.",
-      "Empeny per tornar sense bloquejar els colzes."
-    ],
-    "warrior_one_v1": [
-      "Avança un peu en una llunja llarga amb el peu del darrere girat 45°.",
-      "Flexiona el genoll davanter sobre el turmell i estén els dos braços amunt, palmells encarats.",
-      "Quadra els malucs endavant i mantingues respirant; canvia de costat."
-    ],
-    "warrior_two_v1": [
-      "Obre els peus, gira el peu davanter endavant i el del darrere 90° al costat.",
-      "Flexiona el genoll davanter sobre el turmell i estén els braços paral·lels al terra.",
-      "Mira sobre la mà davantera i mantingues respirant; canvia de costat."
-    ],
     "world_greatest_stretch_v1": [
-      "Des de posició de flexió, avança el peu dret per fora de la mà dreta en una llunja profunda.",
-      "Baixa el colze dret cap al peu i després rota el tronc obrint el braç dret cap al sostre.",
-      "Torna la mà al terra i recula; alterna costats."
-    ],
-    "wrist_warmup_circles_v1": [
-      "Estén els braços endavant i entrellaça els dits.",
-      "Fes cercles lents amb els canells en sentit horari per les reps prescrites.",
-      "Inverteix la direcció el mateix nombre de reps."
+      "Fes un pas llarg cap endavant amb el peu dret fins a una postura de llunada baixa; col·loca la mà esquerra a terra just al costat del peu dret.",
+      "Gira el tronc cap a la dreta portant el braç dret cap amunt fins al cel, obrint el pit i mirant el dit polze.",
+      "Torna la mà al terra, estén la cama davantera per sentir l'estirament dels isquiotibials, i torna a la posició de llunada. Fes 3–5 reps per costat."
     ]
   }
 }

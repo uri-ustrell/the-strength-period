@@ -1,0 +1,1747 @@
+{
+  "_meta": {
+    "purpose": "Bulk x3 batch 3: Pregnancy & Postpartum (40 exercises)",
+    "session": "2026-04 expansion",
+    "distribution": {
+      "pelvic_floor": 12,
+      "pregnancy_safe_strength": 10,
+      "diastasis_safe_core": 8,
+      "postpartum_recovery": 10
+    },
+    "safety_note": "All exercises in this batch use conservative cues, encourage breath coordination, avoid Valsalva, supine after first trimester, and prone positions during late pregnancy. Restrictions tag clinical conditions where modification is required."
+  },
+  "exercises": [
+    {
+      "sourceExternalId": "kegel_basic_v1",
+      "name": "Basic Kegel",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "gestacio", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit or lie comfortably with knees bent and a relaxed posture.",
+        "Gently lift the pelvic floor as if stopping the flow of urine, hold for 3–5 seconds without holding the breath.",
+        "Fully release for 5 seconds before the next repetition; quality matters more than quantity."
+      ]
+    },
+    {
+      "sourceExternalId": "kegel_quick_pulses_v1",
+      "name": "Quick Kegel Pulses",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "gestacio", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit or lie comfortably with the spine in neutral.",
+        "Perform short 1-second contractions of the pelvic floor followed by full 1-second releases.",
+        "Keep the glutes and inner thighs relaxed; breathe normally throughout."
+      ]
+    },
+    {
+      "sourceExternalId": "kegel_elevator_v1",
+      "name": "Elevator Kegel",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit comfortably and visualise the pelvic floor as an elevator with several floors.",
+        "Contract progressively in 3 levels (1st floor, 2nd floor, top floor) holding briefly at each.",
+        "Release in the same 3 levels back down to full relaxation; breathe naturally."
+      ]
+    },
+    {
+      "sourceExternalId": "kegel_with_breath_v1",
+      "name": "Kegel with Diaphragmatic Breath",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "respiracio", "postpart"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine with knees bent and one hand on the belly.",
+        "Inhale relaxing the pelvic floor and expanding the belly.",
+        "Exhale gently lifting the pelvic floor; repeat coordinating breath and contraction."
+      ]
+    },
+    {
+      "sourceExternalId": "pelvic_clock_v1",
+      "name": "Pelvic Clock",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["lumbar", "mobilitat_cadera"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine with knees bent and feet flat on the mat.",
+        "Imagine a clock on the pelvis and tilt it slowly to 12, 3, 6 and 9 o'clock positions.",
+        "Make smooth circles in both directions; breathe naturally."
+      ]
+    },
+    {
+      "sourceExternalId": "bridge_kegel_v1",
+      "name": "Bridge with Kegel",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["abdominal", "isquiotibials"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "postpart", "forca"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Keep the rise low and avoid abdominal doming."
+        }
+      ],
+      "instructions": [
+        "Lie supine with knees bent and feet hip-width apart.",
+        "Exhale lifting the hips while gently engaging the pelvic floor.",
+        "Inhale lowering the hips and relaxing the pelvic floor; repeat."
+      ]
+    },
+    {
+      "sourceExternalId": "fitball_pelvic_circles_v1",
+      "name": "Fitball Pelvic Circles",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["abdominal", "lumbar"],
+      "equipment": ["fitball"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "gestacio", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a fitball with feet flat and the spine tall.",
+        "Make slow circles with the hips in one direction.",
+        "Reverse direction for the same number of reps; breathe naturally."
+      ]
+    },
+    {
+      "sourceExternalId": "fitball_pelvic_tilt_v1",
+      "name": "Fitball Pelvic Tilt",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["lumbar"],
+      "equipment": ["fitball"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "gestacio", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a fitball with feet flat and hands on the hips.",
+        "Tilt the pelvis forward and back slowly without moving the upper body.",
+        "Repeat smoothly coordinating with the breath."
+      ]
+    },
+    {
+      "sourceExternalId": "deep_squat_release_v1",
+      "name": "Deep Squat Pelvic Release",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["glutis", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["sol_pelvic", "mobilitat", "gestacio"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet slightly wider than hips, toes turned out.",
+        "Squat down as low as comfortable, using a wall or support if needed.",
+        "Hold for 30–60 seconds breathing slowly into the pelvic floor."
+      ]
+    },
+    {
+      "sourceExternalId": "butterfly_breath_v1",
+      "name": "Butterfly with Pelvic Breath",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["abdominal"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["sol_pelvic", "respiracio", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Sit with the soles of the feet together and knees relaxed apart.",
+        "Inhale and visualise the breath descending into the pelvis relaxing the floor.",
+        "Exhale gently lifting the pelvic floor; continue for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "side_lying_clamshell_v1",
+      "name": "Side-Lying Clamshell",
+      "primaryMuscles": ["estabilitzadors_cadera"],
+      "secondaryMuscles": ["glutis", "abductors"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "prehab", "postpart"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on one side with knees bent and stacked, feet aligned with the spine.",
+        "Keep the feet together and lift the top knee opening like a clamshell without rotating the pelvis.",
+        "Lower under control; switch sides after all reps."
+      ]
+    },
+    {
+      "sourceExternalId": "heel_slide_pelvic_v1",
+      "name": "Heel Slide with Pelvic Floor",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["psoes"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "postpart", "prehab"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Pause if you observe doming or coning of the abdomen."
+        }
+      ],
+      "instructions": [
+        "Lie supine with knees bent and feet flat on the mat.",
+        "Exhale gently lifting the pelvic floor and slide one heel away until the leg is straight.",
+        "Inhale to bring the heel back; alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "wall_pushup_pregnancy_v1",
+      "name": "Wall Push-Up",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["triceps", "deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
+        "Bend the elbows lowering the chest toward the wall while keeping the body in a straight line.",
+        "Press back to the start without locking the elbows."
+      ]
+    },
+    {
+      "sourceExternalId": "supported_squat_chair_v1",
+      "name": "Supported Chair Squat",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Stand in front of a sturdy chair with feet hip-width apart.",
+        "Sit back slowly until the glutes lightly touch the chair, keeping the chest up.",
+        "Stand back up driving through the mid-foot."
+      ]
+    },
+    {
+      "sourceExternalId": "side_lying_leg_raise_v1",
+      "name": "Side-Lying Leg Raise",
+      "primaryMuscles": ["abductors"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on one side with the bottom leg bent for support and the top leg extended.",
+        "Lift the top leg straight up to about 45° without rotating the hip.",
+        "Lower under control; switch sides after all reps."
+      ]
+    },
+    {
+      "sourceExternalId": "bird_dog_pregnancy_v1",
+      "name": "Bird Dog (Pregnancy-friendly)",
+      "primaryMuscles": ["lumbar"],
+      "secondaryMuscles": ["glutis", "deltoides", "abdominal"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "core_estabilitat"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Reduce limb extension range and exhale on lift to protect the linea alba."
+        }
+      ],
+      "instructions": [
+        "Start on hands and knees with a neutral spine.",
+        "Extend the opposite arm and leg keeping the hips and shoulders square to the floor.",
+        "Lower under control and switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_dumbbell_curl_pregnancy_v1",
+      "name": "Seated Dumbbell Curl (Pregnancy)",
+      "primaryMuscles": ["biceps"],
+      "secondaryMuscles": ["avantbras"],
+      "equipment": ["manueles"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "weight",
+      "tags": ["gestacio", "postpart", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a chair with back support and a light dumbbell in each hand.",
+        "Curl the dumbbells to the shoulders without arching the lower back.",
+        "Lower in 2 seconds under control."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_lateral_raise_light_v1",
+      "name": "Seated Light Lateral Raise",
+      "primaryMuscles": ["deltoides"],
+      "secondaryMuscles": ["trapezi"],
+      "equipment": ["manueles"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a chair with light dumbbells at the sides, slight elbow bend.",
+        "Raise both arms out to shoulder height leading with the elbows.",
+        "Lower in 2 seconds without swinging."
+      ]
+    },
+    {
+      "sourceExternalId": "incline_plank_pregnancy_v1",
+      "name": "Incline Plank on Bench",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["pectoral", "deltoides"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "seconds",
+      "tags": ["gestacio", "postpart", "core_estabilitat"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Choose a higher surface to reduce abdominal load if doming appears."
+        }
+      ],
+      "instructions": [
+        "Place the hands on a sturdy bench or chair shoulder-width apart.",
+        "Step the feet back into a straight line from head to heels, exhaling and gently lifting the pelvic floor.",
+        "Hold for the prescribed time breathing steadily; do not let the lower back sag."
+      ]
+    },
+    {
+      "sourceExternalId": "resistance_band_row_seated_v1",
+      "name": "Seated Band Row",
+      "primaryMuscles": ["dorsal"],
+      "secondaryMuscles": ["biceps", "trapezi"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "forca", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on the floor or a chair with legs extended, band looped around the feet, ends in each hand.",
+        "Row the band toward the lower ribs squeezing the shoulder blades together.",
+        "Return in 2 seconds without losing tension."
+      ]
+    },
+    {
+      "sourceExternalId": "fitball_wall_squat_v1",
+      "name": "Fitball Wall Squat",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "abdominal"],
+      "equipment": ["fitball"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "seconds",
+      "tags": ["gestacio", "postpart", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Place a fitball between the lower back and a wall, feet shoulder-width apart and slightly forward.",
+        "Squat down rolling the ball with you until the thighs are parallel to the floor.",
+        "Hold or stand back up under control."
+      ]
+    },
+    {
+      "sourceExternalId": "standing_calf_raise_pregnancy_v1",
+      "name": "Standing Calf Raise",
+      "primaryMuscles": ["bessons"],
+      "secondaryMuscles": ["estabilitzadors_cadera"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["gestacio", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet hip-width apart, holding a wall or chair for balance.",
+        "Rise onto the balls of the feet pushing the heels up.",
+        "Lower in 2 seconds under control."
+      ]
+    },
+    {
+      "sourceExternalId": "tva_activation_supine_v1",
+      "name": "TVA Activation Supine",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["sol_pelvic", "postpart", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine with knees bent and feet flat, hands resting on the lower belly.",
+        "Exhale slowly drawing the lower belly in toward the spine and lifting the pelvic floor.",
+        "Inhale releasing fully; repeat without flattening the lumbar curve."
+      ]
+    },
+    {
+      "sourceExternalId": "dead_bug_neutral_pelvis_v1",
+      "name": "Dead Bug (Neutral Pelvis)",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["psoes", "deltoides"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "core_estabilitat", "anti_rotacio"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Keep both feet on the mat tapping one heel out at a time if doming appears."
+        }
+      ],
+      "instructions": [
+        "Lie supine with arms reaching to the ceiling and knees stacked over hips at 90°.",
+        "Exhale gently engaging the core and lower the opposite arm and leg toward the floor without arching the back.",
+        "Inhale to return; alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "heel_slide_supine_v1",
+      "name": "Supine Heel Slide",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["psoes"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "prehab", "core_estabilitat"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Keep range short while symptoms persist."
+        }
+      ],
+      "instructions": [
+        "Lie supine with knees bent and feet flat on the mat.",
+        "Exhale and slide one heel away on the floor until the leg is fully extended without arching the lower back.",
+        "Inhale to slide the heel back; alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "modified_side_plank_knee_v1",
+      "name": "Modified Side Plank from Knees",
+      "primaryMuscles": ["oblics"],
+      "secondaryMuscles": ["estabilitzadors_cadera", "deltoides"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "seconds",
+      "tags": ["postpart", "core_estabilitat", "anti_rotacio"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on one side with the bottom forearm on the mat, knees bent and stacked.",
+        "Lift the hips off the mat creating a straight line from knees to head.",
+        "Hold breathing steadily; switch sides after the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "quadruped_toe_taps_v1",
+      "name": "Quadruped Toe Taps",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["estabilitzadors_cadera"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Start on hands and knees with a neutral spine.",
+        "Lift one knee just off the mat and tap the toe out to the side without rotating the hips.",
+        "Return and alternate sides under control."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_marches_v1",
+      "name": "Seated Marches",
+      "primaryMuscles": ["psoes"],
+      "secondaryMuscles": ["abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "core_estabilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit tall on a chair with feet flat and hands on the lower belly.",
+        "Lift one knee toward the chest exhaling and engaging the core.",
+        "Lower under control and alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "wall_press_core_v1",
+      "name": "Wall Press Core Brace",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["pectoral"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "seconds",
+      "tags": ["postpart", "core_estabilitat", "anti_rotacio"],
+      "restrictions": [],
+      "instructions": [
+        "Stand a foot away from a wall with both palms flat against it at chest height.",
+        "Press the wall as if pushing it away while bracing the core and exhaling.",
+        "Hold the brace breathing steadily."
+      ]
+    },
+    {
+      "sourceExternalId": "fitball_dead_bug_v1",
+      "name": "Fitball Dead Bug",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["psoes"],
+      "equipment": ["fitball"],
+      "level": "intermediate",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "core_estabilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine holding a fitball between the hands and knees with arms and legs at 90°.",
+        "Press hands and knees into the ball as you extend the opposite arm and leg without losing pressure.",
+        "Return and alternate sides under control."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_walking_v1",
+      "name": "Postpartum Walking Progression",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "bessons", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "cardio",
+      "progressionMetric": "seconds",
+      "tags": ["postpart", "resistencia"],
+      "restrictions": [],
+      "instructions": [
+        "Begin with 5–10 minutes of slow walking on flat ground, progressing weekly.",
+        "Pay attention to pelvic-floor heaviness and stop if symptoms appear.",
+        "Build duration gradually before increasing pace or terrain difficulty."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_pelvic_tilt_v1",
+      "name": "Postpartum Pelvic Tilt",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["lumbar"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "sol_pelvic", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine with knees bent and feet flat on the mat.",
+        "Exhale tilting the pelvis to flatten the lumbar curve, gently engaging the pelvic floor.",
+        "Inhale releasing back to neutral."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_glute_bridge_v1",
+      "name": "Postpartum Glute Bridge",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["isquiotibials", "abdominal"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca", "sol_pelvic"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine with knees bent and feet hip-width apart.",
+        "Exhale lifting the hips squeezing the glutes without overarching the lower back.",
+        "Lower in 2 seconds under control."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_diaphragmatic_breath_v1",
+      "name": "Postpartum Diaphragmatic Breath",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["postpart", "respiracio", "sol_pelvic"],
+      "restrictions": [],
+      "instructions": [
+        "Lie supine or sit comfortably with one hand on the chest and the other on the belly.",
+        "Inhale through the nose expanding the belly and ribs without lifting the chest.",
+        "Exhale slowly releasing fully; repeat for 5–10 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_gentle_squat_v1",
+      "name": "Postpartum Gentle Squat",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet hip-width apart, hands on hips.",
+        "Squat down to a comfortable depth keeping the chest up and exhaling on the way down.",
+        "Stand back up driving through the mid-foot."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_wall_pushup_v1",
+      "name": "Postpartum Wall Push-Up",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["triceps", "deltoides", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
+        "Bend the elbows lowering the chest toward the wall, exhaling and gently engaging the core.",
+        "Press back without locking the elbows."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_band_row_v1",
+      "name": "Postpartum Seated Band Row",
+      "primaryMuscles": ["dorsal"],
+      "secondaryMuscles": ["biceps", "trapezi"],
+      "equipment": ["banda_elastica"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit tall with the band looped around the feet and an end in each hand.",
+        "Row the band toward the lower ribs squeezing the shoulder blades.",
+        "Return in 2 seconds without losing tension."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_seated_press_light_v1",
+      "name": "Postpartum Seated Light Press",
+      "primaryMuscles": ["deltoides"],
+      "secondaryMuscles": ["triceps", "trapezi"],
+      "equipment": ["manueles"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca", "prehab"],
+      "restrictions": [
+        {
+          "condition": "diastasi",
+          "action": "modify",
+          "note": "Avoid rib flare and exhale on the press to keep the core engaged."
+        }
+      ],
+      "instructions": [
+        "Sit on a chair with back support and a light dumbbell in each hand at shoulder height.",
+        "Exhale pressing the dumbbells overhead without arching the lower back.",
+        "Lower in 2 seconds back to the shoulders."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_standing_pelvic_tuck_v1",
+      "name": "Postpartum Standing Pelvic Tuck",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "sol_pelvic", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand with feet hip-width apart and knees soft.",
+        "Exhale tucking the pelvis under and gently lifting the pelvic floor.",
+        "Inhale releasing back to neutral; repeat slowly."
+      ]
+    },
+    {
+      "sourceExternalId": "postpartum_side_lying_glute_v1",
+      "name": "Postpartum Side-Lying Glute Lift",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["abductors"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "strength",
+      "progressionMetric": "reps",
+      "tags": ["postpart", "forca", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on one side with knees bent and stacked, head on the bottom arm.",
+        "Keeping the feet together, lift the top knee opening the hip without rotating the pelvis.",
+        "Lower under control; switch sides after all reps."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "preset_tags": {
+        "sol_pelvic": "Sòl pèlvic",
+        "gestacio": "Gestació",
+        "postpart": "Postpart",
+        "prehab": "Prehab",
+        "respiracio": "Respiració",
+        "mobilitat": "Mobilitat",
+        "forca": "Força",
+        "core_estabilitat": "Core i estabilitat",
+        "anti_rotacio": "Anti-rotació",
+        "resistencia": "Resistència"
+      },
+      "exercises": {
+        "kegel_basic_v1": {
+          "name": "Kegel bàsic",
+          "instructions": [
+            "Asseu-te o estira't còmode amb genolls flexionats i postura relaxada.",
+            "Aixeca suau el sòl pèlvic com si volguessis aturar el pipí, mantingues 3–5 segons sense aguantar la respiració.",
+            "Allibera del tot 5 segons abans de la repetició següent; la qualitat importa més que la quantitat."
+          ]
+        },
+        "kegel_quick_pulses_v1": {
+          "name": "Kegel pulsacions ràpides",
+          "instructions": [
+            "Asseu-te o estira't còmode amb la columna neutra.",
+            "Fes contraccions curtes d'1 segon del sòl pèlvic seguides d'allibert complet d'1 segon.",
+            "Mantingues glutis i adductors relaxats; respira normalment."
+          ]
+        },
+        "kegel_elevator_v1": {
+          "name": "Kegel ascensor",
+          "instructions": [
+            "Asseu-te còmode i visualitza el sòl pèlvic com un ascensor amb diferents pisos.",
+            "Contrau progressivament en 3 nivells (planta 1, 2, dalt) mantenint breument cada un.",
+            "Allibera en els mateixos 3 nivells fins a relaxació completa; respira natural."
+          ]
+        },
+        "kegel_with_breath_v1": {
+          "name": "Kegel amb respiració diafragmàtica",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i una mà a la panxa.",
+            "Inspira relaxant el sòl pèlvic i expandint la panxa.",
+            "Espira aixecant suau el sòl pèlvic; repeteix coordinant respiració i contracció."
+          ]
+        },
+        "pelvic_clock_v1": {
+          "name": "Rellotge pèlvic",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
+            "Imagina un rellotge a la pelvis i bascula lent a les posicions de 12, 3, 6 i 9.",
+            "Fes cercles suaus en els dos sentits; respira natural."
+          ]
+        },
+        "bridge_kegel_v1": {
+          "name": "Pont amb Kegel",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
+            "Espira aixecant els malucs mentre actives suau el sòl pèlvic.",
+            "Inspira baixant els malucs i relaxant el sòl pèlvic; repeteix."
+          ]
+        },
+        "fitball_pelvic_circles_v1": {
+          "name": "Cercles pèlvics amb fitball",
+          "instructions": [
+            "Asseu-te sobre una fitball amb els peus plans i la columna alta.",
+            "Fes cercles lents amb els malucs en una direcció.",
+            "Inverteix la direcció les mateixes reps; respira natural."
+          ]
+        },
+        "fitball_pelvic_tilt_v1": {
+          "name": "Bàscula pèlvica amb fitball",
+          "instructions": [
+            "Asseu-te sobre una fitball amb els peus plans i les mans als malucs.",
+            "Bascula la pelvis endavant i enrere lent sense moure el tronc.",
+            "Repeteix suau coordinant amb la respiració."
+          ]
+        },
+        "deep_squat_release_v1": {
+          "name": "Sentadella profunda d'alliberament pèlvic",
+          "instructions": [
+            "Dret amb peus una mica més oberts que els malucs, dits cap enfora.",
+            "Baixa fins a la sentadella més profunda que toleris, amb suport si cal.",
+            "Mantingues 30–60 segons respirant lent cap al sòl pèlvic."
+          ]
+        },
+        "butterfly_breath_v1": {
+          "name": "Papallona amb respiració pèlvica",
+          "instructions": [
+            "Asseu-te amb les soles dels peus juntes i els genolls relaxats oberts.",
+            "Inspira visualitzant la respiració baixant a la pelvis i relaxant el sòl.",
+            "Espira aixecant suau el sòl pèlvic; continua pel temps prescrit."
+          ]
+        },
+        "side_lying_clamshell_v1": {
+          "name": "Clamshell de costat",
+          "instructions": [
+            "Estira't de costat amb genolls flexionats i superposats, peus alineats amb la columna.",
+            "Mantingues els peus junts i aixeca el genoll de dalt obrint com una cloïssa sense rotar la pelvis.",
+            "Baixa controlat; canvia de costat."
+          ]
+        },
+        "heel_slide_pelvic_v1": {
+          "name": "Lliscament de taló amb sòl pèlvic",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
+            "Espira activant suau el sòl pèlvic i llisca un taló endavant fins estendre la cama.",
+            "Inspira tornant el taló; alterna costats."
+          ]
+        },
+        "wall_pushup_pregnancy_v1": {
+          "name": "Flexió a la paret",
+          "instructions": [
+            "Dret de cara a una paret amb mans a l'altura del pit, una mica més obertes que les espatlles.",
+            "Flexiona els colzes acostant el pit a la paret mantenint el cos recte.",
+            "Empeny per tornar sense bloquejar els colzes."
+          ]
+        },
+        "supported_squat_chair_v1": {
+          "name": "Sentadella amb suport de cadira",
+          "instructions": [
+            "Dret davant d'una cadira sòlida amb peus a l'amplada del maluc.",
+            "Asseu-te lent fins que els glutis toquin la cadira mantenint el pit alt.",
+            "Aixeca't empenyent pel mig del peu."
+          ]
+        },
+        "side_lying_leg_raise_v1": {
+          "name": "Elevació lateral de cama",
+          "instructions": [
+            "Estira't de costat amb la cama de baix flexionada i la de dalt estesa.",
+            "Aixeca la cama de dalt fins a uns 45° sense rotar el maluc.",
+            "Baixa controlat; canvia de costat."
+          ]
+        },
+        "bird_dog_pregnancy_v1": {
+          "name": "Bird dog (gestació)",
+          "instructions": [
+            "A quatre grapes amb columna neutra.",
+            "Estén el braç i la cama oposats mantenint malucs i espatlles paral·lels al terra.",
+            "Baixa controlat i canvia de costat."
+          ]
+        },
+        "seated_dumbbell_curl_pregnancy_v1": {
+          "name": "Curl amb manuelles assegut (gestació)",
+          "instructions": [
+            "Asseu-te en una cadira amb respatller i una manuella lleugera a cada mà.",
+            "Flexiona els colzes a les espatlles sense arquejar la lumbar.",
+            "Baixa en 2 segons controlat."
+          ]
+        },
+        "seated_lateral_raise_light_v1": {
+          "name": "Elevació lateral lleugera asseguda",
+          "instructions": [
+            "Asseu-te en una cadira amb manuelles lleugeres als costats, lleugera flexió de colze.",
+            "Eleva els braços als costats fins a l'altura de l'espatlla guiant amb el colze.",
+            "Baixa en 2 segons sense balanceig."
+          ]
+        },
+        "incline_plank_pregnancy_v1": {
+          "name": "Planxa inclinada en banc",
+          "instructions": [
+            "Posa les mans en un banc o cadira sòlid a l'amplada de l'espatlla.",
+            "Recula els peus en línia recta de cap a peus, espirant i activant suau el sòl pèlvic.",
+            "Mantingues el temps prescrit respirant; no deixis caure la lumbar."
+          ]
+        },
+        "resistance_band_row_seated_v1": {
+          "name": "Rem assegut amb banda",
+          "instructions": [
+            "Asseu-te al terra o cadira amb les cames esteses, banda al voltant dels peus i extrems a cada mà.",
+            "Tira la banda cap a les costelles inferiors juntant les escàpules.",
+            "Torna en 2 segons sense perdre tensió."
+          ]
+        },
+        "fitball_wall_squat_v1": {
+          "name": "Sentadella amb fitball a la paret",
+          "instructions": [
+            "Posa una fitball entre la part baixa de l'esquena i una paret, peus a l'amplada de l'espatlla i una mica davant.",
+            "Baixa rodant la pilota fins que les cuixes siguin paral·leles al terra.",
+            "Mantingues o torna a aixecar-te controlat."
+          ]
+        },
+        "standing_calf_raise_pregnancy_v1": {
+          "name": "Elevació de bessons dempeus",
+          "instructions": [
+            "Dret amb peus a l'amplada del maluc, agafat a una paret o cadira.",
+            "Puja sobre les puntes empenyent els talons amunt.",
+            "Baixa en 2 segons controlat."
+          ]
+        },
+        "tva_activation_supine_v1": {
+          "name": "Activació del transvers (supina)",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus plans, mans sobre la panxa baixa.",
+            "Espira lent portant la panxa baixa cap a la columna i aixecant el sòl pèlvic.",
+            "Inspira alliberant del tot; repeteix sense aplanar la corba lumbar."
+          ]
+        },
+        "dead_bug_neutral_pelvis_v1": {
+          "name": "Dead bug (pelvis neutra)",
+          "instructions": [
+            "Estira't d'esquena amb braços al sostre i genolls sobre malucs a 90°.",
+            "Espira activant el core i baixa el braç i la cama oposats cap al terra sense arquejar.",
+            "Inspira tornant; alterna costats."
+          ]
+        },
+        "heel_slide_supine_v1": {
+          "name": "Lliscament de taló supí",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
+            "Espira i llisca un taló endavant pel terra fins estendre del tot la cama sense arquejar.",
+            "Inspira tornant el taló; alterna costats."
+          ]
+        },
+        "modified_side_plank_knee_v1": {
+          "name": "Planxa lateral des de genolls",
+          "instructions": [
+            "Estira't de costat amb l'avantbraç de baix al matalàs i genolls flexionats i superposats.",
+            "Aixeca els malucs creant una línia recta de genolls a cap.",
+            "Mantingues respirant; canvia de costat."
+          ]
+        },
+        "quadruped_toe_taps_v1": {
+          "name": "Tocs de puntera a quatre grapes",
+          "instructions": [
+            "A quatre grapes amb columna neutra.",
+            "Aixeca un genoll del matalàs i toca la punta del peu al costat sense rotar els malucs.",
+            "Torna i alterna costats controlat."
+          ]
+        },
+        "seated_marches_v1": {
+          "name": "Marxes assegudes",
+          "instructions": [
+            "Asseu-te alt en una cadira amb peus plans i mans a la panxa baixa.",
+            "Aixeca un genoll cap al pit espirant i activant el core.",
+            "Baixa controlat i alterna costats."
+          ]
+        },
+        "wall_press_core_v1": {
+          "name": "Press de paret amb core",
+          "instructions": [
+            "Dret a un peu de la paret amb les dues palmes contra ella a l'altura del pit.",
+            "Empeny la paret com si la volguessis allunyar mentre actives el core i espires.",
+            "Mantingues l'activació respirant constant."
+          ]
+        },
+        "fitball_dead_bug_v1": {
+          "name": "Dead bug amb fitball",
+          "instructions": [
+            "Estira't d'esquena sostenint una fitball entre mans i genolls amb braços i cames a 90°.",
+            "Pressiona mans i genolls contra la pilota mentre estens el braç i cama oposats sense perdre pressió.",
+            "Torna i alterna controlat."
+          ]
+        },
+        "postpartum_walking_v1": {
+          "name": "Caminar postpart progressiu",
+          "instructions": [
+            "Comença amb 5–10 minuts de caminar lent en pla, progressant setmanalment.",
+            "Atenció a sensació de pesadesa al sòl pèlvic; atura si hi ha símptomes.",
+            "Augmenta la durada gradualment abans del ritme o desnivell."
+          ]
+        },
+        "postpartum_pelvic_tilt_v1": {
+          "name": "Bàscula pèlvica postpart",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus al matalàs.",
+            "Espira basculant la pelvis per aplanar la lumbar i activar suau el sòl pèlvic.",
+            "Inspira alliberant a neutra."
+          ]
+        },
+        "postpartum_glute_bridge_v1": {
+          "name": "Pont de glutis postpart",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
+            "Espira aixecant els malucs contraient els glutis sense arquejar la lumbar.",
+            "Baixa en 2 segons controlat."
+          ]
+        },
+        "postpartum_diaphragmatic_breath_v1": {
+          "name": "Respiració diafragmàtica postpart",
+          "instructions": [
+            "Estira't d'esquena o asseu-te còmode amb una mà al pit i l'altra a la panxa.",
+            "Inspira pel nas expandint panxa i costelles sense pujar el pit.",
+            "Espira lent alliberant del tot; repeteix 5–10 minuts."
+          ]
+        },
+        "postpartum_gentle_squat_v1": {
+          "name": "Sentadella suau postpart",
+          "instructions": [
+            "Dret amb peus a l'amplada del maluc, mans als malucs.",
+            "Baixa fins a una profunditat còmoda mantenint el pit alt i espirant a la baixada.",
+            "Aixeca't empenyent pel mig del peu."
+          ]
+        },
+        "postpartum_wall_pushup_v1": {
+          "name": "Flexió a la paret postpart",
+          "instructions": [
+            "Dret de cara a una paret amb mans a l'altura del pit, una mica més obertes que les espatlles.",
+            "Flexiona els colzes acostant el pit a la paret, espirant i activant suau el core.",
+            "Empeny sense bloquejar els colzes."
+          ]
+        },
+        "postpartum_band_row_v1": {
+          "name": "Rem assegut postpart amb banda",
+          "instructions": [
+            "Asseu-te alt amb la banda al voltant dels peus i un extrem a cada mà.",
+            "Tira la banda cap a les costelles inferiors juntant les escàpules.",
+            "Torna en 2 segons sense perdre tensió."
+          ]
+        },
+        "postpartum_seated_press_light_v1": {
+          "name": "Press lleuger assegut postpart",
+          "instructions": [
+            "Asseu-te en una cadira amb respatller i una manuella lleugera a cada mà a l'altura de l'espatlla.",
+            "Espira empenyent les manuelles amunt sense arquejar la lumbar.",
+            "Baixa en 2 segons fins a les espatlles."
+          ]
+        },
+        "postpartum_standing_pelvic_tuck_v1": {
+          "name": "Bàscula pèlvica dempeus postpart",
+          "instructions": [
+            "Dret amb peus a l'amplada del maluc i genolls suaus.",
+            "Espira basculant la pelvis i aixecant suau el sòl pèlvic.",
+            "Inspira alliberant a neutra; repeteix lent."
+          ]
+        },
+        "postpartum_side_lying_glute_v1": {
+          "name": "Elevació de glutis de costat postpart",
+          "instructions": [
+            "Estira't de costat amb genolls flexionats i superposats, cap sobre el braç de baix.",
+            "Mantenint els peus junts, aixeca el genoll de dalt obrint el maluc sense rotar la pelvis.",
+            "Baixa controlat; canvia de costat."
+          ]
+        }
+      }
+    },
+    "es": {
+      "preset_tags": {
+        "sol_pelvic": "Suelo pélvico",
+        "gestacio": "Gestación",
+        "postpart": "Postparto",
+        "prehab": "Prehab",
+        "respiracio": "Respiración",
+        "mobilitat": "Movilidad",
+        "forca": "Fuerza",
+        "core_estabilitat": "Core y estabilidad",
+        "anti_rotacio": "Anti-rotación",
+        "resistencia": "Resistencia"
+      },
+      "exercises": {
+        "kegel_basic_v1": {
+          "name": "Kegel básico",
+          "instructions": [
+            "Siéntate o túmbate cómoda con rodillas flexionadas y postura relajada.",
+            "Eleva suave el suelo pélvico como si quisieras detener el pis, mantén 3–5 segundos sin aguantar la respiración.",
+            "Suelta del todo 5 segundos antes de la siguiente repetición; la calidad importa más que la cantidad."
+          ]
+        },
+        "kegel_quick_pulses_v1": {
+          "name": "Kegel pulsaciones rápidas",
+          "instructions": [
+            "Siéntate o túmbate cómoda con la columna neutra.",
+            "Haz contracciones cortas de 1 segundo del suelo pélvico seguidas de soltar completo de 1 segundo.",
+            "Mantén glúteos y aductores relajados; respira normal."
+          ]
+        },
+        "kegel_elevator_v1": {
+          "name": "Kegel ascensor",
+          "instructions": [
+            "Siéntate cómoda y visualiza el suelo pélvico como un ascensor con varios pisos.",
+            "Contrae progresivamente en 3 niveles (planta 1, 2, arriba) manteniendo brevemente cada uno.",
+            "Suelta en los mismos 3 niveles hasta relajación completa; respira natural."
+          ]
+        },
+        "kegel_with_breath_v1": {
+          "name": "Kegel con respiración diafragmática",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y una mano en el abdomen.",
+            "Inhala relajando el suelo pélvico y expandiendo el abdomen.",
+            "Exhala elevando suave el suelo pélvico; repite coordinando respiración y contracción."
+          ]
+        },
+        "pelvic_clock_v1": {
+          "name": "Reloj pélvico",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
+            "Imagina un reloj en la pelvis y bascula lento a las posiciones de 12, 3, 6 y 9.",
+            "Haz círculos suaves en ambos sentidos; respira natural."
+          ]
+        },
+        "bridge_kegel_v1": {
+          "name": "Puente con Kegel",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
+            "Exhala elevando las caderas mientras activas suave el suelo pélvico.",
+            "Inhala bajando las caderas y relajando el suelo pélvico; repite."
+          ]
+        },
+        "fitball_pelvic_circles_v1": {
+          "name": "Círculos pélvicos con fitball",
+          "instructions": [
+            "Siéntate sobre una fitball con los pies planos y la columna alta.",
+            "Haz círculos lentos con las caderas en una dirección.",
+            "Invierte la dirección las mismas reps; respira natural."
+          ]
+        },
+        "fitball_pelvic_tilt_v1": {
+          "name": "Báscula pélvica con fitball",
+          "instructions": [
+            "Siéntate sobre una fitball con los pies planos y las manos en las caderas.",
+            "Bascula la pelvis adelante y atrás lento sin mover el torso.",
+            "Repite suave coordinando con la respiración."
+          ]
+        },
+        "deep_squat_release_v1": {
+          "name": "Sentadilla profunda de liberación pélvica",
+          "instructions": [
+            "De pie con pies algo más abiertos que las caderas, dedos hacia fuera.",
+            "Baja a la sentadilla más profunda que toleres, con apoyo si hace falta.",
+            "Mantén 30–60 segundos respirando lento hacia el suelo pélvico."
+          ]
+        },
+        "butterfly_breath_v1": {
+          "name": "Mariposa con respiración pélvica",
+          "instructions": [
+            "Siéntate con las plantas de los pies juntas y rodillas relajadas abiertas.",
+            "Inhala visualizando la respiración bajando a la pelvis y relajando el suelo.",
+            "Exhala elevando suave el suelo pélvico; continúa el tiempo prescrito."
+          ]
+        },
+        "side_lying_clamshell_v1": {
+          "name": "Clamshell lateral",
+          "instructions": [
+            "Túmbate de lado con rodillas flexionadas y apiladas, pies alineados con la columna.",
+            "Mantén los pies juntos y eleva la rodilla de arriba abriendo como una almeja sin rotar la pelvis.",
+            "Baja controlada; cambia de lado."
+          ]
+        },
+        "heel_slide_pelvic_v1": {
+          "name": "Deslizamiento de talón con suelo pélvico",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
+            "Exhala activando suave el suelo pélvico y desliza un talón hacia delante hasta extender la pierna.",
+            "Inhala devolviendo el talón; alterna lados."
+          ]
+        },
+        "wall_pushup_pregnancy_v1": {
+          "name": "Flexión en la pared",
+          "instructions": [
+            "De pie de cara a la pared con manos a la altura del pecho, algo más abiertas que los hombros.",
+            "Flexiona los codos acercando el pecho a la pared manteniendo el cuerpo recto.",
+            "Empuja para volver sin bloquear los codos."
+          ]
+        },
+        "supported_squat_chair_v1": {
+          "name": "Sentadilla con apoyo de silla",
+          "instructions": [
+            "De pie ante una silla sólida con pies al ancho de cadera.",
+            "Siéntate lenta hasta que los glúteos toquen la silla manteniendo el pecho alto.",
+            "Levántate empujando por la planta del pie."
+          ]
+        },
+        "side_lying_leg_raise_v1": {
+          "name": "Elevación lateral de pierna",
+          "instructions": [
+            "Túmbate de lado con la pierna de abajo flexionada y la de arriba extendida.",
+            "Eleva la pierna de arriba a unos 45° sin rotar la cadera.",
+            "Baja controlada; cambia de lado."
+          ]
+        },
+        "bird_dog_pregnancy_v1": {
+          "name": "Bird dog (gestación)",
+          "instructions": [
+            "A cuatro patas con columna neutra.",
+            "Extiende el brazo y la pierna opuestos manteniendo caderas y hombros paralelos al suelo.",
+            "Baja controlada y cambia de lado."
+          ]
+        },
+        "seated_dumbbell_curl_pregnancy_v1": {
+          "name": "Curl con mancuernas sentada (gestación)",
+          "instructions": [
+            "Siéntate en una silla con respaldo y una mancuerna ligera en cada mano.",
+            "Flexiona los codos a los hombros sin arquear la lumbar.",
+            "Baja en 2 segundos controlada."
+          ]
+        },
+        "seated_lateral_raise_light_v1": {
+          "name": "Elevación lateral ligera sentada",
+          "instructions": [
+            "Siéntate en una silla con mancuernas ligeras a los lados, ligera flexión de codo.",
+            "Eleva los brazos a los lados a la altura del hombro guiando con el codo.",
+            "Baja en 2 segundos sin balanceo."
+          ]
+        },
+        "incline_plank_pregnancy_v1": {
+          "name": "Plancha inclinada en banco",
+          "instructions": [
+            "Coloca las manos en un banco o silla sólida al ancho de hombros.",
+            "Retrocede los pies en línea recta de cabeza a pies, exhalando y activando suave el suelo pélvico.",
+            "Mantén el tiempo prescrito respirando; no dejes caer la lumbar."
+          ]
+        },
+        "resistance_band_row_seated_v1": {
+          "name": "Remo sentada con banda",
+          "instructions": [
+            "Siéntate en el suelo o silla con piernas extendidas, banda alrededor de los pies y extremos en cada mano.",
+            "Tira de la banda hacia las costillas inferiores juntando las escápulas.",
+            "Vuelve en 2 segundos sin perder tensión."
+          ]
+        },
+        "fitball_wall_squat_v1": {
+          "name": "Sentadilla con fitball en la pared",
+          "instructions": [
+            "Coloca una fitball entre la parte baja de la espalda y una pared, pies al ancho del hombro y algo adelante.",
+            "Baja rodando la pelota hasta que los muslos queden paralelos al suelo.",
+            "Mantén o levántate controlada."
+          ]
+        },
+        "standing_calf_raise_pregnancy_v1": {
+          "name": "Elevación de gemelos de pie",
+          "instructions": [
+            "De pie con pies al ancho de cadera, agarrada a una pared o silla.",
+            "Sube sobre las puntas empujando los talones arriba.",
+            "Baja en 2 segundos controlada."
+          ]
+        },
+        "tva_activation_supine_v1": {
+          "name": "Activación del transverso (supina)",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies planos, manos sobre el abdomen bajo.",
+            "Exhala lento llevando el abdomen bajo hacia la columna y elevando el suelo pélvico.",
+            "Inhala soltando del todo; repite sin aplanar la curva lumbar."
+          ]
+        },
+        "dead_bug_neutral_pelvis_v1": {
+          "name": "Dead bug (pelvis neutra)",
+          "instructions": [
+            "Túmbate de espaldas con brazos al techo y rodillas sobre caderas a 90°.",
+            "Exhala activando el core y baja el brazo y la pierna opuestos hacia el suelo sin arquear.",
+            "Inhala devolviendo; alterna lados."
+          ]
+        },
+        "heel_slide_supine_v1": {
+          "name": "Deslizamiento de talón supino",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
+            "Exhala y desliza un talón hacia delante por el suelo hasta extender la pierna sin arquear.",
+            "Inhala devolviendo el talón; alterna lados."
+          ]
+        },
+        "modified_side_plank_knee_v1": {
+          "name": "Plancha lateral desde rodillas",
+          "instructions": [
+            "Túmbate de lado con el antebrazo de abajo en la esterilla y rodillas flexionadas y apiladas.",
+            "Eleva las caderas creando una línea recta de rodillas a cabeza.",
+            "Mantén respirando; cambia de lado."
+          ]
+        },
+        "quadruped_toe_taps_v1": {
+          "name": "Toques de puntera a cuatro patas",
+          "instructions": [
+            "A cuatro patas con columna neutra.",
+            "Eleva una rodilla de la esterilla y toca la punta del pie al lado sin rotar las caderas.",
+            "Vuelve y alterna lados controlada."
+          ]
+        },
+        "seated_marches_v1": {
+          "name": "Marchas sentadas",
+          "instructions": [
+            "Siéntate alta en una silla con pies planos y manos en el abdomen bajo.",
+            "Eleva una rodilla hacia el pecho exhalando y activando el core.",
+            "Baja controlada y alterna lados."
+          ]
+        },
+        "wall_press_core_v1": {
+          "name": "Press de pared con core",
+          "instructions": [
+            "De pie a un pie de la pared con ambas palmas contra ella a la altura del pecho.",
+            "Empuja la pared como si quisieras alejarla mientras activas el core y exhalas.",
+            "Mantén la activación respirando constante."
+          ]
+        },
+        "fitball_dead_bug_v1": {
+          "name": "Dead bug con fitball",
+          "instructions": [
+            "Túmbate de espaldas sosteniendo una fitball entre manos y rodillas con brazos y piernas a 90°.",
+            "Presiona manos y rodillas contra la pelota mientras extiendes el brazo y pierna opuestos sin perder presión.",
+            "Vuelve y alterna controlada."
+          ]
+        },
+        "postpartum_walking_v1": {
+          "name": "Caminar postparto progresivo",
+          "instructions": [
+            "Empieza con 5–10 minutos de caminar lento en plano, progresando semanalmente.",
+            "Atención a sensación de pesadez en el suelo pélvico; para si hay síntomas.",
+            "Aumenta la duración gradualmente antes del ritmo o desnivel."
+          ]
+        },
+        "postpartum_pelvic_tilt_v1": {
+          "name": "Báscula pélvica postparto",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
+            "Exhala basculando la pelvis para aplanar la lumbar y activar suave el suelo pélvico.",
+            "Inhala soltando a neutra."
+          ]
+        },
+        "postpartum_glute_bridge_v1": {
+          "name": "Puente de glúteos postparto",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
+            "Exhala elevando las caderas contrayendo los glúteos sin arquear la lumbar.",
+            "Baja en 2 segundos controlada."
+          ]
+        },
+        "postpartum_diaphragmatic_breath_v1": {
+          "name": "Respiración diafragmática postparto",
+          "instructions": [
+            "Túmbate de espaldas o siéntate cómoda con una mano en el pecho y la otra en el abdomen.",
+            "Inhala por la nariz expandiendo abdomen y costillas sin subir el pecho.",
+            "Exhala lento soltando del todo; repite 5–10 minutos."
+          ]
+        },
+        "postpartum_gentle_squat_v1": {
+          "name": "Sentadilla suave postparto",
+          "instructions": [
+            "De pie con pies al ancho de cadera, manos en las caderas.",
+            "Baja a una profundidad cómoda manteniendo el pecho alto y exhalando al bajar.",
+            "Levántate empujando por la planta del pie."
+          ]
+        },
+        "postpartum_wall_pushup_v1": {
+          "name": "Flexión en la pared postparto",
+          "instructions": [
+            "De pie de cara a una pared con manos a la altura del pecho, algo más abiertas que los hombros.",
+            "Flexiona los codos acercando el pecho a la pared, exhalando y activando suave el core.",
+            "Empuja sin bloquear los codos."
+          ]
+        },
+        "postpartum_band_row_v1": {
+          "name": "Remo sentada postparto con banda",
+          "instructions": [
+            "Siéntate alta con la banda alrededor de los pies y un extremo en cada mano.",
+            "Tira de la banda hacia las costillas inferiores juntando las escápulas.",
+            "Vuelve en 2 segundos sin perder tensión."
+          ]
+        },
+        "postpartum_seated_press_light_v1": {
+          "name": "Press ligero sentada postparto",
+          "instructions": [
+            "Siéntate en una silla con respaldo y una mancuerna ligera en cada mano a la altura del hombro.",
+            "Exhala empujando las mancuernas arriba sin arquear la lumbar.",
+            "Baja en 2 segundos a los hombros."
+          ]
+        },
+        "postpartum_standing_pelvic_tuck_v1": {
+          "name": "Báscula pélvica de pie postparto",
+          "instructions": [
+            "De pie con pies al ancho de cadera y rodillas suaves.",
+            "Exhala basculando la pelvis y elevando suave el suelo pélvico.",
+            "Inhala soltando a neutra; repite lento."
+          ]
+        },
+        "postpartum_side_lying_glute_v1": {
+          "name": "Elevación de glúteos lateral postparto",
+          "instructions": [
+            "Túmbate de lado con rodillas flexionadas y apiladas, cabeza sobre el brazo de abajo.",
+            "Manteniendo los pies juntos, eleva la rodilla de arriba abriendo la cadera sin rotar la pelvis.",
+            "Baja controlada; cambia de lado."
+          ]
+        }
+      }
+    },
+    "en": {
+      "preset_tags": {
+        "sol_pelvic": "Pelvic floor",
+        "gestacio": "Pregnancy",
+        "postpart": "Postpartum",
+        "prehab": "Prehab",
+        "respiracio": "Breathwork",
+        "mobilitat": "Mobility",
+        "forca": "Strength",
+        "core_estabilitat": "Core & stability",
+        "anti_rotacio": "Anti-rotation",
+        "resistencia": "Endurance"
+      },
+      "exercises": {
+        "kegel_basic_v1": {
+          "name": "Basic Kegel",
+          "instructions": [
+            "Sit or lie comfortably with knees bent and a relaxed posture.",
+            "Gently lift the pelvic floor as if stopping the flow of urine, hold for 3–5 seconds without holding the breath.",
+            "Fully release for 5 seconds before the next repetition; quality matters more than quantity."
+          ]
+        },
+        "kegel_quick_pulses_v1": {
+          "name": "Quick Kegel Pulses",
+          "instructions": [
+            "Sit or lie comfortably with the spine in neutral.",
+            "Perform short 1-second contractions of the pelvic floor followed by full 1-second releases.",
+            "Keep the glutes and inner thighs relaxed; breathe normally throughout."
+          ]
+        },
+        "kegel_elevator_v1": {
+          "name": "Elevator Kegel",
+          "instructions": [
+            "Sit comfortably and visualise the pelvic floor as an elevator with several floors.",
+            "Contract progressively in 3 levels (1st floor, 2nd floor, top floor) holding briefly at each.",
+            "Release in the same 3 levels back down to full relaxation; breathe naturally."
+          ]
+        },
+        "kegel_with_breath_v1": {
+          "name": "Kegel with Diaphragmatic Breath",
+          "instructions": [
+            "Lie supine with knees bent and one hand on the belly.",
+            "Inhale relaxing the pelvic floor and expanding the belly.",
+            "Exhale gently lifting the pelvic floor; repeat coordinating breath and contraction."
+          ]
+        },
+        "pelvic_clock_v1": {
+          "name": "Pelvic Clock",
+          "instructions": [
+            "Lie supine with knees bent and feet flat on the mat.",
+            "Imagine a clock on the pelvis and tilt it slowly to 12, 3, 6 and 9 o'clock positions.",
+            "Make smooth circles in both directions; breathe naturally."
+          ]
+        },
+        "bridge_kegel_v1": {
+          "name": "Bridge with Kegel",
+          "instructions": [
+            "Lie supine with knees bent and feet hip-width apart.",
+            "Exhale lifting the hips while gently engaging the pelvic floor.",
+            "Inhale lowering the hips and relaxing the pelvic floor; repeat."
+          ]
+        },
+        "fitball_pelvic_circles_v1": {
+          "name": "Fitball Pelvic Circles",
+          "instructions": [
+            "Sit on a fitball with feet flat and the spine tall.",
+            "Make slow circles with the hips in one direction.",
+            "Reverse direction for the same number of reps; breathe naturally."
+          ]
+        },
+        "fitball_pelvic_tilt_v1": {
+          "name": "Fitball Pelvic Tilt",
+          "instructions": [
+            "Sit on a fitball with feet flat and hands on the hips.",
+            "Tilt the pelvis forward and back slowly without moving the upper body.",
+            "Repeat smoothly coordinating with the breath."
+          ]
+        },
+        "deep_squat_release_v1": {
+          "name": "Deep Squat Pelvic Release",
+          "instructions": [
+            "Stand with feet slightly wider than hips, toes turned out.",
+            "Squat down as low as comfortable, using a wall or support if needed.",
+            "Hold for 30–60 seconds breathing slowly into the pelvic floor."
+          ]
+        },
+        "butterfly_breath_v1": {
+          "name": "Butterfly with Pelvic Breath",
+          "instructions": [
+            "Sit with the soles of the feet together and knees relaxed apart.",
+            "Inhale and visualise the breath descending into the pelvis relaxing the floor.",
+            "Exhale gently lifting the pelvic floor; continue for the prescribed time."
+          ]
+        },
+        "side_lying_clamshell_v1": {
+          "name": "Side-Lying Clamshell",
+          "instructions": [
+            "Lie on one side with knees bent and stacked, feet aligned with the spine.",
+            "Keep the feet together and lift the top knee opening like a clamshell without rotating the pelvis.",
+            "Lower under control; switch sides after all reps."
+          ]
+        },
+        "heel_slide_pelvic_v1": {
+          "name": "Heel Slide with Pelvic Floor",
+          "instructions": [
+            "Lie supine with knees bent and feet flat on the mat.",
+            "Exhale gently lifting the pelvic floor and slide one heel away until the leg is straight.",
+            "Inhale to bring the heel back; alternate sides."
+          ]
+        },
+        "wall_pushup_pregnancy_v1": {
+          "name": "Wall Push-Up",
+          "instructions": [
+            "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
+            "Bend the elbows lowering the chest toward the wall while keeping the body in a straight line.",
+            "Press back to the start without locking the elbows."
+          ]
+        },
+        "supported_squat_chair_v1": {
+          "name": "Supported Chair Squat",
+          "instructions": [
+            "Stand in front of a sturdy chair with feet hip-width apart.",
+            "Sit back slowly until the glutes lightly touch the chair, keeping the chest up.",
+            "Stand back up driving through the mid-foot."
+          ]
+        },
+        "side_lying_leg_raise_v1": {
+          "name": "Side-Lying Leg Raise",
+          "instructions": [
+            "Lie on one side with the bottom leg bent for support and the top leg extended.",
+            "Lift the top leg straight up to about 45° without rotating the hip.",
+            "Lower under control; switch sides after all reps."
+          ]
+        },
+        "bird_dog_pregnancy_v1": {
+          "name": "Bird Dog (Pregnancy-friendly)",
+          "instructions": [
+            "Start on hands and knees with a neutral spine.",
+            "Extend the opposite arm and leg keeping the hips and shoulders square to the floor.",
+            "Lower under control and switch sides."
+          ]
+        },
+        "seated_dumbbell_curl_pregnancy_v1": {
+          "name": "Seated Dumbbell Curl (Pregnancy)",
+          "instructions": [
+            "Sit on a chair with back support and a light dumbbell in each hand.",
+            "Curl the dumbbells to the shoulders without arching the lower back.",
+            "Lower in 2 seconds under control."
+          ]
+        },
+        "seated_lateral_raise_light_v1": {
+          "name": "Seated Light Lateral Raise",
+          "instructions": [
+            "Sit on a chair with light dumbbells at the sides, slight elbow bend.",
+            "Raise both arms out to shoulder height leading with the elbows.",
+            "Lower in 2 seconds without swinging."
+          ]
+        },
+        "incline_plank_pregnancy_v1": {
+          "name": "Incline Plank on Bench",
+          "instructions": [
+            "Place the hands on a sturdy bench or chair shoulder-width apart.",
+            "Step the feet back into a straight line from head to heels, exhaling and gently lifting the pelvic floor.",
+            "Hold for the prescribed time breathing steadily; do not let the lower back sag."
+          ]
+        },
+        "resistance_band_row_seated_v1": {
+          "name": "Seated Band Row",
+          "instructions": [
+            "Sit on the floor or a chair with legs extended, band looped around the feet, ends in each hand.",
+            "Row the band toward the lower ribs squeezing the shoulder blades together.",
+            "Return in 2 seconds without losing tension."
+          ]
+        },
+        "fitball_wall_squat_v1": {
+          "name": "Fitball Wall Squat",
+          "instructions": [
+            "Place a fitball between the lower back and a wall, feet shoulder-width apart and slightly forward.",
+            "Squat down rolling the ball with you until the thighs are parallel to the floor.",
+            "Hold or stand back up under control."
+          ]
+        },
+        "standing_calf_raise_pregnancy_v1": {
+          "name": "Standing Calf Raise",
+          "instructions": [
+            "Stand with feet hip-width apart, holding a wall or chair for balance.",
+            "Rise onto the balls of the feet pushing the heels up.",
+            "Lower in 2 seconds under control."
+          ]
+        },
+        "tva_activation_supine_v1": {
+          "name": "TVA Activation Supine",
+          "instructions": [
+            "Lie supine with knees bent and feet flat, hands resting on the lower belly.",
+            "Exhale slowly drawing the lower belly in toward the spine and lifting the pelvic floor.",
+            "Inhale releasing fully; repeat without flattening the lumbar curve."
+          ]
+        },
+        "dead_bug_neutral_pelvis_v1": {
+          "name": "Dead Bug (Neutral Pelvis)",
+          "instructions": [
+            "Lie supine with arms reaching to the ceiling and knees stacked over hips at 90°.",
+            "Exhale gently engaging the core and lower the opposite arm and leg toward the floor without arching the back.",
+            "Inhale to return; alternate sides."
+          ]
+        },
+        "heel_slide_supine_v1": {
+          "name": "Supine Heel Slide",
+          "instructions": [
+            "Lie supine with knees bent and feet flat on the mat.",
+            "Exhale and slide one heel away on the floor until the leg is fully extended without arching the lower back.",
+            "Inhale to slide the heel back; alternate sides."
+          ]
+        },
+        "modified_side_plank_knee_v1": {
+          "name": "Modified Side Plank from Knees",
+          "instructions": [
+            "Lie on one side with the bottom forearm on the mat, knees bent and stacked.",
+            "Lift the hips off the mat creating a straight line from knees to head.",
+            "Hold breathing steadily; switch sides after the prescribed time."
+          ]
+        },
+        "quadruped_toe_taps_v1": {
+          "name": "Quadruped Toe Taps",
+          "instructions": [
+            "Start on hands and knees with a neutral spine.",
+            "Lift one knee just off the mat and tap the toe out to the side without rotating the hips.",
+            "Return and alternate sides under control."
+          ]
+        },
+        "seated_marches_v1": {
+          "name": "Seated Marches",
+          "instructions": [
+            "Sit tall on a chair with feet flat and hands on the lower belly.",
+            "Lift one knee toward the chest exhaling and engaging the core.",
+            "Lower under control and alternate sides."
+          ]
+        },
+        "wall_press_core_v1": {
+          "name": "Wall Press Core Brace",
+          "instructions": [
+            "Stand a foot away from a wall with both palms flat against it at chest height.",
+            "Press the wall as if pushing it away while bracing the core and exhaling.",
+            "Hold the brace breathing steadily."
+          ]
+        },
+        "fitball_dead_bug_v1": {
+          "name": "Fitball Dead Bug",
+          "instructions": [
+            "Lie supine holding a fitball between the hands and knees with arms and legs at 90°.",
+            "Press hands and knees into the ball as you extend the opposite arm and leg without losing pressure.",
+            "Return and alternate sides under control."
+          ]
+        },
+        "postpartum_walking_v1": {
+          "name": "Postpartum Walking Progression",
+          "instructions": [
+            "Begin with 5–10 minutes of slow walking on flat ground, progressing weekly.",
+            "Pay attention to pelvic-floor heaviness and stop if symptoms appear.",
+            "Build duration gradually before increasing pace or terrain difficulty."
+          ]
+        },
+        "postpartum_pelvic_tilt_v1": {
+          "name": "Postpartum Pelvic Tilt",
+          "instructions": [
+            "Lie supine with knees bent and feet flat on the mat.",
+            "Exhale tilting the pelvis to flatten the lumbar curve, gently engaging the pelvic floor.",
+            "Inhale releasing back to neutral."
+          ]
+        },
+        "postpartum_glute_bridge_v1": {
+          "name": "Postpartum Glute Bridge",
+          "instructions": [
+            "Lie supine with knees bent and feet hip-width apart.",
+            "Exhale lifting the hips squeezing the glutes without overarching the lower back.",
+            "Lower in 2 seconds under control."
+          ]
+        },
+        "postpartum_diaphragmatic_breath_v1": {
+          "name": "Postpartum Diaphragmatic Breath",
+          "instructions": [
+            "Lie supine or sit comfortably with one hand on the chest and the other on the belly.",
+            "Inhale through the nose expanding the belly and ribs without lifting the chest.",
+            "Exhale slowly releasing fully; repeat for 5–10 minutes."
+          ]
+        },
+        "postpartum_gentle_squat_v1": {
+          "name": "Postpartum Gentle Squat",
+          "instructions": [
+            "Stand with feet hip-width apart, hands on hips.",
+            "Squat down to a comfortable depth keeping the chest up and exhaling on the way down.",
+            "Stand back up driving through the mid-foot."
+          ]
+        },
+        "postpartum_wall_pushup_v1": {
+          "name": "Postpartum Wall Push-Up",
+          "instructions": [
+            "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
+            "Bend the elbows lowering the chest toward the wall, exhaling and gently engaging the core.",
+            "Press back without locking the elbows."
+          ]
+        },
+        "postpartum_band_row_v1": {
+          "name": "Postpartum Seated Band Row",
+          "instructions": [
+            "Sit tall with the band looped around the feet and an end in each hand.",
+            "Row the band toward the lower ribs squeezing the shoulder blades.",
+            "Return in 2 seconds without losing tension."
+          ]
+        },
+        "postpartum_seated_press_light_v1": {
+          "name": "Postpartum Seated Light Press",
+          "instructions": [
+            "Sit on a chair with back support and a light dumbbell in each hand at shoulder height.",
+            "Exhale pressing the dumbbells overhead without arching the lower back.",
+            "Lower in 2 seconds back to the shoulders."
+          ]
+        },
+        "postpartum_standing_pelvic_tuck_v1": {
+          "name": "Postpartum Standing Pelvic Tuck",
+          "instructions": [
+            "Stand with feet hip-width apart and knees soft.",
+            "Exhale tucking the pelvis under and gently lifting the pelvic floor.",
+            "Inhale releasing back to neutral; repeat slowly."
+          ]
+        },
+        "postpartum_side_lying_glute_v1": {
+          "name": "Postpartum Side-Lying Glute Lift",
+          "instructions": [
+            "Lie on one side with knees bent and stacked, head on the bottom arm.",
+            "Keeping the feet together, lift the top knee opening the hip without rotating the pelvis.",
+            "Lower under control; switch sides after all reps."
+          ]
+        }
+      }
+    }
+  }
+}

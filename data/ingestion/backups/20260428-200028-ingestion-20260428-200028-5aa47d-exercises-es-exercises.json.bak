@@ -6,9 +6,7 @@
   "Air_Bike": "Bicicleta en el aire",
   "All_Fours_Quad_Stretch": "Estiramiento de cuádriceps a cuatro patas",
   "Alternate_Heel_Touchers": "Toques de talón alternados",
-  "alternate_nostril_breathing_v1": "Respiración alterna (Nadi Shodhana)",
   "Ankle_Circles": "Círculos de tobillo",
-  "ankle_rocking_v1": "Movilidad de tobillo",
   "Anterior_Tibialis-SMR": "Liberación tibial anterior (SMR)",
   "Arnold_Dumbbell_Press": "Press Arnold con mancuernas",
   "Balance_Board": "Tabla de equilibrio",
@@ -37,26 +35,15 @@
   "bb_shrug_v1": "Encogimiento de hombros con barra",
   "Bench_Dips": "Fondos en banco",
   "Bent_Over_Barbell_Row": "Remo con barra inclinado",
-  "bird_dog_pregnancy_v1": "Bird dog (gestación)",
-  "body_scan_v1": "Escaneo corporal",
   "Bodyweight_Squat": "Sentadilla con peso corporal",
   "Bodyweight_Walking_Lunge": "Zancada caminando con peso corporal",
-  "box_breathing_v1": "Respiración cuadrada 4-4-4-4",
   "Box_Jump_Multiple_Response": "Salto al cajón múltiple",
-  "bridge_kegel_v1": "Puente con Kegel",
-  "bridge_pose_yoga_v1": "Postura del puente (Setu Bandha)",
   "Butt_Lift_Bridge": "Puente de glúteos",
-  "butterfly_breath_v1": "Mariposa con respiración pélvica",
   "Calf_Raises_-_With_Bands": "Elevación de talones con bandas",
   "Calves-SMR": "Gemelos - Liberación miofascial",
-  "cat_cow_v1": "Gato-vaca",
   "Cat_Stretch": "Estiramiento del gato",
   "Childs_Pose": "Postura del niño",
-  "childs_pose_v1": "Postura del niño",
   "Chin-Up": "Dominadas supinas",
-  "cobra_pose_v1": "Postura de la cobra",
-  "coherent_breathing_v1": "Respiración coherente",
-  "couch_stretch_v1": "Couch stretch",
   "Cross-Body_Crunch": "Crunch cruzado",
   "Crossover_Reverse_Lunge": "Zancada inversa cruzada",
   "Crunches": "Abdominales",
@@ -74,14 +61,11 @@
   "db_skullcrusher_v1": "Skullcrusher con mancuernas",
   "db_zottman_curl_v1": "Curl Zottman",
   "Dead_Bug": "Dead bug",
-  "dead_bug_neutral_pelvis_v1": "Dead bug (pelvis neutra)",
   "Decline_Crunch": "Crunch declinado",
   "Decline_Oblique_Crunch": "Crunch declinado oblicuo",
-  "deep_squat_release_v1": "Sentadilla profunda de liberación pélvica",
   "depth_jump_v1": "Salto de profundidad (depth jump)",
-  "diaphragmatic_breathing_v1": "Respiración diafragmática",
   "Dips_-_Chest_Version": "Fondos en paralelas - versión pectoral",
-  "downward_dog_v1": "Perro boca abajo",
+  "downward_dog_v1": "Perro mirando hacia abajo",
   "Dumbbell_Bench_Press": "Press de banca con mancuernas",
   "Dumbbell_Bicep_Curl": "Curl de bíceps con mancuernas",
   "Dumbbell_Flyes": "Aperturas con mancuernas",
@@ -90,15 +74,7 @@
   "Dumbbell_Side_Bend": "Flexión lateral con mancuerna",
   "eccentric_calf_raise_v1": "Elevación de talón excéntrica en escalón (heel drop)",
   "Face_Pull": "Face pull",
-  "fitball_dead_bug_v1": "Dead bug con fitball",
-  "fitball_pelvic_circles_v1": "Círculos pélvicos con fitball",
-  "fitball_pelvic_tilt_v1": "Báscula pélvica con fitball",
-  "fitball_wall_squat_v1": "Sentadilla con fitball en la pared",
   "Flutter_Kicks": "Patadas de aleteo",
-  "foam_roll_glutes_v1": "Foam roller glúteos",
-  "foam_roll_quads_v1": "Foam roller cuádriceps",
-  "foam_roll_thoracic_v1": "Foam roller dorsal",
-  "four_seven_eight_breathing_v1": "Respiración 4-7-8",
   "Frog_Hops": "Saltos de rana",
   "Front_Barbell_Squat": "Sentadilla frontal con barra",
   "Front_Box_Jump": "Salto frontal al cajón",
@@ -107,14 +83,8 @@
   "Good_Morning": "Good morning",
   "Groin_and_Back_Stretch": "Estiramiento de ingle y espalda",
   "Hanging_Leg_Raise": "Elevación de piernas colgado",
-  "happy_baby_pose_v1": "Bebé feliz",
-  "heel_slide_pelvic_v1": "Deslizamiento de talón con suelo pélvico",
-  "heel_slide_supine_v1": "Deslizamiento de talón supino",
-  "hip_90_90_switch_v1": "Switch de cadera 90/90",
-  "hip_cars_v1": "CARs de cadera",
   "Hip_Circles_prone": "Círculos de cadera en pronación",
   "Hyperextensions_Back_Extensions": "Hiperextensiones lumbares",
-  "incline_plank_pregnancy_v1": "Plancha inclinada en banco",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Estiramiento de flexor de cadera y cuádriceps",
   "IT_Band_and_Glute_Stretch": "Estiramiento de banda iliotibial y glúteos",
   "Jackknife_Sit-Up": "Sit-up en V",
@@ -126,40 +96,20 @@
   "kb_swing_v1": "Kettlebell swing",
   "kb_turkish_get_up_v1": "Turkish get-up",
   "kb_windmill_v1": "Windmill con kettlebell",
-  "kegel_basic_v1": "Kegel básico",
-  "kegel_elevator_v1": "Kegel ascensor",
-  "kegel_quick_pulses_v1": "Kegel pulsaciones rápidas",
-  "kegel_with_breath_v1": "Kegel con respiración diafragmática",
   "Knee_Tuck_Jump": "Salto con rodillas al pecho",
   "Kneeling_Hip_Flexor": "Estiramiento de flexor de cadera arrodillado",
   "lateral_step_down_v1": "Descenso lateral en escalón",
   "Leg_Extensions": "Extensiones de piernas",
   "Leg_Press": "Prensa de piernas",
-  "legs_up_wall_v1": "Piernas en la pared",
   "Lower_Back-SMR": "Lumbar - Liberación miofascial",
   "Lying_Leg_Curls": "Curl de piernas tumbado",
-  "modified_side_plank_knee_v1": "Plancha lateral desde rodillas",
   "Mountain_Climbers": "Escaladores",
-  "neck_cars_v1": "CARs de cuello",
   "nordic_curl_v1": "Curl nórdico de isquiotibiales",
   "One-Arm_Dumbbell_Row": "Remo con mancuerna a una mano",
-  "open_book_stretch_v1": "Open book torácico",
   "Pallof_Press": "Pallof press",
-  "pec_release_ball_v1": "Liberación pectoral con pelota",
-  "pelvic_clock_v1": "Reloj pélvico",
-  "pigeon_pose_v1": "Postura de la paloma",
+  "pigeon_pose_v1": "Postura del palomo",
   "Piriformis-SMR": "Piriforme - Liberación miofascial",
   "Plank": "Plancha",
-  "postpartum_band_row_v1": "Remo sentada postparto con banda",
-  "postpartum_diaphragmatic_breath_v1": "Respiración diafragmática postparto",
-  "postpartum_gentle_squat_v1": "Sentadilla suave postparto",
-  "postpartum_glute_bridge_v1": "Puente de glúteos postparto",
-  "postpartum_pelvic_tilt_v1": "Báscula pélvica postparto",
-  "postpartum_seated_press_light_v1": "Press ligero sentada postparto",
-  "postpartum_side_lying_glute_v1": "Elevación de glúteos lateral postparto",
-  "postpartum_standing_pelvic_tuck_v1": "Báscula pélvica de pie postparto",
-  "postpartum_walking_v1": "Caminar postparto progresivo",
-  "postpartum_wall_pushup_v1": "Flexión en la pared postparto",
   "postpp_bird_dog_v1": "Bird Dog (cuadrúpedo contralateral)",
   "postpp_clamshell_band_v1": "Almeja con banda (abducción lateral de cadera)",
   "postpp_glute_bridge_march_v1": "Puente de glúteos con marcha alterna",
@@ -169,40 +119,28 @@
   "postpp_standing_pelvic_tilt_v1": "Basculación pélvica de pie",
   "postpp_ta_bracing_supine_v1": "Activación transverso abdominal (decúbito supino)",
   "postpp_wall_sit_isometric_v1": "Sentadilla de pared (isométrica)",
-  "progressive_muscle_relaxation_v1": "Relajación muscular progresiva",
   "Prone_Manual_Hamstring": "Isquiotibiales manual en pronación",
   "pullup_neutral_grip_v1": "Dominada con agarre neutro",
   "Pullups": "Dominadas",
   "Push_Up_to_Side_Plank": "Flexión a plancha lateral",
   "Pushups": "Flexiones",
   "Quadriceps-SMR": "Cuádriceps - Liberación miofascial",
-  "quadruped_toe_taps_v1": "Toques de puntera a cuatro patas",
-  "resistance_band_row_seated_v1": "Remo sentada con banda",
   "resistance_band_row_standing_v1": "Remo con banda elástica (de pie)",
   "Reverse_Crunch": "Crunch inverso",
   "ring_row_v1": "Remo con anillas",
   "Romanian_Deadlift": "Peso muerto rumano",
   "Russian_Twist": "Giro ruso",
-  "savasana_v1": "Savasana",
   "Seated_Cable_Rows": "Remo con cable sentado",
   "Seated_Calf_Raise": "Elevación de talones sentado",
-  "seated_dumbbell_curl_pregnancy_v1": "Curl con mancuernas sentada (gestación)",
-  "seated_forward_fold_v1": "Flexión sentada hacia delante",
-  "seated_lateral_raise_light_v1": "Elevación lateral ligera sentada",
-  "seated_marches_v1": "Marchas sentadas",
   "seated_marching_v1": "Marcha sentada",
   "seated_spinal_twist_v1": "Torsión espinal sentada",
-  "shoulder_cars_v1": "CARs de hombro",
   "Side_Lateral_Raise": "Elevación lateral",
-  "side_lying_clamshell_v1": "Clamshell lateral",
   "Side_Lying_Groin_Stretch": "Estiramiento de ingle de lado",
-  "side_lying_leg_raise_v1": "Elevación lateral de pierna",
   "Single_Leg_Glute_Bridge": "Puente de glúteos a una pierna",
   "Single_Leg_Push-off": "Impulso a una pierna",
   "single_leg_squat_v1": "Sentadilla monopodal",
   "sit_to_stand_v1": "Levantarse de la silla",
   "Split_Squat_with_Dumbbells": "Sentadilla búlgara con mancuernas",
-  "standing_calf_raise_pregnancy_v1": "Elevación de gemelos de pie",
   "Standing_Calf_Raises": "Elevación de talones de pie",
   "Standing_Hip_Circles": "Círculos de cadera de pie",
   "Standing_Hip_Flexors": "Flexores de cadera de pie",
@@ -211,40 +149,16 @@
   "step_up_v1": "Subida al escalón",
   "Stiff-Legged_Barbell_Deadlift": "Peso muerto con piernas rígidas",
   "Sumo_Deadlift": "Peso muerto sumo",
-  "sun_salutation_a_v1": "Saludo al sol A",
-  "sun_salutation_b_v1": "Saludo al sol B",
   "Superman": "Superman",
-  "supine_twist_v1": "Torsión supina",
-  "supported_fish_pose_v1": "Postura del pez con apoyo",
-  "supported_squat_chair_v1": "Sentadilla con apoyo de silla",
+  "supine_twist_v1": "Torsión espinal en decúbito supino",
   "Thigh_Abductor": "Abductor de muslo",
   "Thigh_Adductor": "Aductor de muslo",
-  "thoracic_bridge_v1": "Puente torácico",
   "thread_the_needle_v1": "Thread the Needle (rotación torácica)",
-  "tree_pose_v1": "Postura del árbol",
-  "triangle_pose_v1": "Postura del triángulo",
   "Triceps_Pushdown": "Extensión de tríceps con polea",
-  "tva_activation_supine_v1": "Activación del transverso (supina)",
-  "upward_dog_v1": "Perro boca arriba",
-  "wall_press_core_v1": "Press de pared con core",
   "wall_push_up_v1": "Flexiones en la pared",
-  "wall_pushup_pregnancy_v1": "Flexión en la pared",
-  "warrior_one_v1": "Guerrero I",
-  "warrior_two_v1": "Guerrero II",
   "Wide-Grip_Lat_Pulldown": "Jalón al pecho con agarre ancho",
-  "world_greatest_stretch_v1": "World's Greatest Stretch",
-  "wrist_warmup_circles_v1": "Círculos de calentamiento de muñecas",
+  "world_greatest_stretch_v1": "El mejor estiramiento del mundo",
   "instructions": {
-    "alternate_nostril_breathing_v1": [
-      "Siéntate cómodo y lleva la mano derecha a la cara con el pulgar sobre la fosa derecha y el anular sobre la izquierda.",
-      "Cierra la fosa derecha e inhala por la izquierda, luego cierra la izquierda y exhala por la derecha.",
-      "Inhala por la derecha, ciérrala y exhala por la izquierda; continúa alternando."
-    ],
-    "ankle_rocking_v1": [
-      "Arrodíllate sobre una rodilla con el pie delantero plano y manos sobre el muslo.",
-      "Empuja la rodilla delantera por encima de los dedos sintiendo estiramiento en el tobillo, con el talón en el suelo.",
-      "Vuelve y repite; cambia de lado."
-    ],
     "band_bicep_curl_v1": [
       "Pisa la banda en el centro; agarra los extremos con las palmas hacia arriba y brazos al lado del cuerpo.",
       "Flexiona los codos llevando las manos hacia los hombros sin balancear el tronco.",
@@ -319,61 +233,6 @@
       "Eleva los hombros directamente hacia las orejas sin rotarlos.",
       "Pausa breve arriba y baja los hombros de forma controlada."
     ],
-    "bird_dog_pregnancy_v1": [
-      "A cuatro patas con columna neutra.",
-      "Extiende el brazo y la pierna opuestos manteniendo caderas y hombros paralelos al suelo.",
-      "Baja controlada y cambia de lado."
-    ],
-    "body_scan_v1": [
-      "Túmbate cómodo de espaldas con brazos a los lados y ojos cerrados.",
-      "Lleva la atención lento por cada parte del cuerpo desde los pies hasta la cabeza, observando sin juzgar.",
-      "Respira naturalmente 10–20 minutos."
-    ],
-    "box_breathing_v1": [
-      "Siéntate cómodo con la columna alta y los hombros relajados.",
-      "Inhala por la nariz 4 segundos, retén 4 segundos.",
-      "Exhala 4 segundos, retén vacío 4 segundos; repite el ciclo."
-    ],
-    "bridge_kegel_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
-      "Exhala elevando las caderas mientras activas suave el suelo pélvico.",
-      "Inhala bajando las caderas y relajando el suelo pélvico; repite."
-    ],
-    "bridge_pose_yoga_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
-      "Empuja por los pies y eleva las caderas hacia el techo, opcionalmente entrelazando las manos debajo.",
-      "Mantén respirando y baja controlado."
-    ],
-    "butterfly_breath_v1": [
-      "Siéntate con las plantas de los pies juntas y rodillas relajadas abiertas.",
-      "Inhala visualizando la respiración bajando a la pelvis y relajando el suelo.",
-      "Exhala elevando suave el suelo pélvico; continúa el tiempo prescrito."
-    ],
-    "cat_cow_v1": [
-      "Empieza a cuatro patas con muñecas bajo hombros y rodillas bajo caderas.",
-      "Inhala y arquea la columna bajando el abdomen mientras miras arriba (vaca).",
-      "Exhala y redondea la columna escondiendo barbilla y pelvis (gato); alterna lento."
-    ],
-    "childs_pose_v1": [
-      "Arrodíllate en la esterilla con los dedos gordos juntos y las rodillas abiertas.",
-      "Sienta las caderas en los talones y camina las manos delante extendiendo los brazos.",
-      "Apoya la frente en la esterilla y respira lento hacia la espalda."
-    ],
-    "cobra_pose_v1": [
-      "Túmbate boca abajo con manos bajo hombros y codos pegados.",
-      "Empuja ligeramente elevando el pecho del suelo con los codos aún flexionados.",
-      "Mantén respirando; baja controlado."
-    ],
-    "coherent_breathing_v1": [
-      "Siéntate o túmbate cómodo con la columna neutra.",
-      "Inhala por la nariz 5 segundos expandiendo abdomen y costillas.",
-      "Exhala por la nariz 5 segundos; continúa a este ritmo 5–10 minutos."
-    ],
-    "couch_stretch_v1": [
-      "Arrodíllate de espaldas a la pared o sofá, coloca una tibia contra la pared con el pie hacia arriba y el otro pie plano delante en zancada.",
-      "Contrae el glúteo trasero y eleva el pecho alto manteniendo la lumbar neutra.",
-      "Mantén 30–60 segundos respirando lento; cambia de lado."
-    ],
     "db_arnold_press_v1": [
       "Siéntate en un banco con respaldo con dos mancuernas frente a los hombros y las palmas hacia el cuerpo.",
       "Empuja las mancuernas hacia arriba mientras rotas las palmas hacia fuera hasta extender los brazos.",
@@ -434,30 +293,15 @@
       "Flexiona los codos hasta los hombros, luego rota las muñecas para que las palmas queden abajo arriba.",
       "Baja en 3 segundos con las palmas abajo y rota a palmas arriba al final del recorrido."
     ],
-    "dead_bug_neutral_pelvis_v1": [
-      "Túmbate de espaldas con brazos al techo y rodillas sobre caderas a 90°.",
-      "Exhala activando el core y baja el brazo y la pierna opuestos hacia el suelo sin arquear.",
-      "Inhala devolviendo; alterna lados."
-    ],
-    "deep_squat_release_v1": [
-      "De pie con pies algo más abiertos que las caderas, dedos hacia fuera.",
-      "Baja a la sentadilla más profunda que toleres, con apoyo si hace falta.",
-      "Mantén 30–60 segundos respirando lento hacia el suelo pélvico."
-    ],
     "depth_jump_v1": [
       "De pie sobre una caja (20–40 cm), da un paso al frente y cae al suelo con ambos pies.",
       "Al contactar, amortigua la caída flexionando rodillas y caderas; inmediatamente salta hacia arriba para maximizar la potencia.",
       "Mantén el tiempo de contacto con el suelo al mínimo. Para el ejercicio si el contacto es rígido o una articulación da señales."
     ],
-    "diaphragmatic_breathing_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y una mano en el pecho, la otra en el abdomen.",
-      "Inhala lento por la nariz 4 segundos expandiendo el abdomen mientras el pecho se mantiene casi quieto.",
-      "Exhala por los labios fruncidos 6 segundos; repite el tiempo prescrito."
-    ],
     "downward_dog_v1": [
-      "Desde cuatro patas, flexiona los dedos de los pies y eleva las caderas arriba y atrás formando una V invertida.",
-      "Empuja el pecho hacia los muslos y los talones hacia el suelo sin bloquear rodillas.",
-      "Mantén respirando con constancia el tiempo prescrito."
+      "Desde la posición de plancha, empuja las caderas hacia arriba y atrás formando una V invertida, con manos y pies en el suelo.",
+      "Alarga la columna intentando llevar los talones al suelo y la cabeza entre los brazos mirando los pies.",
+      "Mantén de 20 a 40 segundos respirando profundamente; puedes alternar flexiones de rodillas para profundizar el estiramiento de isquiotibiales."
     ],
     "Dumbbell_Bicep_Curl": [
       "De pie con una mancuerna en cada mano, brazos extendidos a los lados.",
@@ -484,76 +328,6 @@
       "De pie en el borde de un escalón con la mitad del pie, agarrándose a una pared para equilibrarse.",
       "Sube de puntillas con ambas piernas y baja lentamente en 4–5 seg con una sola pierna, dejando que el talón caiga por debajo del nivel del escalón.",
       "Vuelve con ambas piernas y repite. Progresa añadiendo carga o aumentando repeticiones."
-    ],
-    "fitball_dead_bug_v1": [
-      "Túmbate de espaldas sosteniendo una fitball entre manos y rodillas con brazos y piernas a 90°.",
-      "Presiona manos y rodillas contra la pelota mientras extiendes el brazo y pierna opuestos sin perder presión.",
-      "Vuelve y alterna controlada."
-    ],
-    "fitball_pelvic_circles_v1": [
-      "Siéntate sobre una fitball con los pies planos y la columna alta.",
-      "Haz círculos lentos con las caderas en una dirección.",
-      "Invierte la dirección las mismas reps; respira natural."
-    ],
-    "fitball_pelvic_tilt_v1": [
-      "Siéntate sobre una fitball con los pies planos y las manos en las caderas.",
-      "Bascula la pelvis adelante y atrás lento sin mover el torso.",
-      "Repite suave coordinando con la respiración."
-    ],
-    "fitball_wall_squat_v1": [
-      "Coloca una fitball entre la parte baja de la espalda y una pared, pies al ancho del hombro y algo adelante.",
-      "Baja rodando la pelota hasta que los muslos queden paralelos al suelo.",
-      "Mantén o levántate controlada."
-    ],
-    "foam_roll_glutes_v1": [
-      "Siéntate sobre un foam roller con un tobillo cruzado sobre la rodilla opuesta.",
-      "Inclínate hacia el lado de la pierna cruzada y muévete lento sobre el glúteo.",
-      "Pausa en puntos tensos y respira; cambia de lado."
-    ],
-    "foam_roll_quads_v1": [
-      "Túmbate boca abajo con el foam roller en la parte frontal de los muslos, apoyado sobre los antebrazos.",
-      "Muévete lento desde justo encima de las rodillas hasta los flexores de cadera.",
-      "Pausa en puntos tensos y respira; evita rodar sobre la rótula."
-    ],
-    "foam_roll_thoracic_v1": [
-      "Túmbate sobre un foam roller colocado en la parte alta de la espalda, rodillas flexionadas y manos detrás de la cabeza.",
-      "Eleva ligeramente las caderas y muévete arriba y abajo entre las escápulas y la zona media.",
-      "Pausa en puntos tensos y respira lento; evita la zona lumbar."
-    ],
-    "four_seven_eight_breathing_v1": [
-      "Siéntate cómodo y coloca la punta de la lengua detrás de los dientes superiores.",
-      "Inhala en silencio por la nariz 4 segundos, retén la respiración 7 segundos.",
-      "Exhala audiblemente por la boca 8 segundos; repite 4 ciclos."
-    ],
-    "happy_baby_pose_v1": [
-      "Túmbate de espaldas y lleva las rodillas hacia las axilas.",
-      "Agarra el exterior de los pies y tira de ellos suavemente hacia el suelo con las tibias verticales.",
-      "Balancéate ligeramente respirando lento."
-    ],
-    "heel_slide_pelvic_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
-      "Exhala activando suave el suelo pélvico y desliza un talón hacia delante hasta extender la pierna.",
-      "Inhala devolviendo el talón; alterna lados."
-    ],
-    "heel_slide_supine_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
-      "Exhala y desliza un talón hacia delante por el suelo hasta extender la pierna sin arquear.",
-      "Inhala devolviendo el talón; alterna lados."
-    ],
-    "hip_90_90_switch_v1": [
-      "Siéntate con una pierna delante con la tibia paralela al cuerpo y la otra al lado, ambas a 90°.",
-      "Eleva las rodillas y rota las caderas para cambiar las piernas a la posición opuesta.",
-      "Vuelve lento controlado sin ayudarte con las manos."
-    ],
-    "hip_cars_v1": [
-      "De pie sobre una pierna, agárrate a una pared para equilibrio si hace falta.",
-      "Eleva la rodilla libre a la altura de la cadera, ábrela al lado y luego llévala atrás y baja.",
-      "Invierte el círculo; cambia de lado."
-    ],
-    "incline_plank_pregnancy_v1": [
-      "Coloca las manos en un banco o silla sólida al ancho de hombros.",
-      "Retrocede los pies en línea recta de cabeza a pies, exhalando y activando suave el suelo pélvico.",
-      "Mantén el tiempo prescrito respirando; no dejes caer la lumbar."
     ],
     "kb_clean_v1": [
       "Empieza con la kettlebell en el suelo entre los pies, flexiona las caderas y agárrala con una mano.",
@@ -595,26 +369,6 @@
       "Rota los pies 45° hacia el lado de la mano libre y desliza esa mano por la cara interna de la pierna mientras empujas la cadera hacia el lado cargado.",
       "Vuelve al inicio contrayendo oblicuos y glúteos; cambia de lado."
     ],
-    "kegel_basic_v1": [
-      "Siéntate o túmbate cómoda con rodillas flexionadas y postura relajada.",
-      "Eleva suave el suelo pélvico como si quisieras detener el pis, mantén 3–5 segundos sin aguantar la respiración.",
-      "Suelta del todo 5 segundos antes de la siguiente repetición; la calidad importa más que la cantidad."
-    ],
-    "kegel_elevator_v1": [
-      "Siéntate cómoda y visualiza el suelo pélvico como un ascensor con varios pisos.",
-      "Contrae progresivamente en 3 niveles (planta 1, 2, arriba) manteniendo brevemente cada uno.",
-      "Suelta en los mismos 3 niveles hasta relajación completa; respira natural."
-    ],
-    "kegel_quick_pulses_v1": [
-      "Siéntate o túmbate cómoda con la columna neutra.",
-      "Haz contracciones cortas de 1 segundo del suelo pélvico seguidas de soltar completo de 1 segundo.",
-      "Mantén glúteos y aductores relajados; respira normal."
-    ],
-    "kegel_with_breath_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y una mano en el abdomen.",
-      "Inhala relajando el suelo pélvico y expandiendo el abdomen.",
-      "Exhala elevando suave el suelo pélvico; repite coordinando respiración y contracción."
-    ],
     "Lat_Pulldown": [
       "Siéntate en la máquina de polea alta con los muslos fijados bajo las almohadillas.",
       "Agarra la barra con las manos más abiertas que los hombros.",
@@ -627,11 +381,6 @@
       "Flexiona lentamente la rodilla de apoyo para bajar el otro pie hacia el suelo en 3–4 segundos, manteniendo la rodilla alineada sobre el segundo dedo.",
       "Toca el suelo sin transferir el peso; empuja para volver. Controla que la cadera no caiga al lado."
     ],
-    "legs_up_wall_v1": [
-      "Siéntate de lado contra una pared y sube las piernas por la pared mientras te tumbas en la esterilla.",
-      "Desliza las caderas cerca de la pared y deja los brazos relajados a los lados.",
-      "Respira lento 5–15 minutos."
-    ],
     "Lying_Leg_Curls": [
       "Sitúate boca abajo en la máquina de piernas con los tobillos bajo las almohadillas.",
       "Agarra las asas laterales para estabilizarte.",
@@ -639,40 +388,15 @@
       "Mantén la contracción un momento arriba.",
       "Baja lentamente a la posición inicial."
     ],
-    "modified_side_plank_knee_v1": [
-      "Túmbate de lado con el antebrazo de abajo en la esterilla y rodillas flexionadas y apiladas.",
-      "Eleva las caderas creando una línea recta de rodillas a cabeza.",
-      "Mantén respirando; cambia de lado."
-    ],
-    "neck_cars_v1": [
-      "Siéntate o quédate de pie con los hombros relajados.",
-      "Rota lento la cabeza dibujando un círculo controlado explorando el rango sin dolor.",
-      "Invierte la dirección las mismas reps; mantén el movimiento lento."
-    ],
     "nordic_curl_v1": [
       "Arrodíllate con los tobillos sujetos bajo un banco, barra o por un compañero.",
       "Manteniendo el cuerpo recto desde las rodillas hasta la cabeza, inclínate hacia adelante lentamente (3–5 seg), cediendo la resistencia de los isquiotibiales.",
       "Cuando no puedas controlar la caída, usa las manos para frenarte y empuja para volver. Progresa desde movimientos parciales a completos."
     ],
-    "open_book_stretch_v1": [
-      "Túmbate de lado con rodillas apiladas a 90° y brazos extendidos delante, palmas juntas.",
-      "Inhala y abre lento el brazo de arriba siguiéndolo con la mirada, manteniendo las rodillas juntas.",
-      "Exhala para volver; haz reps y cambia de lado."
-    ],
-    "pec_release_ball_v1": [
-      "Coloca una pelota de masaje entre la parte alta del pecho y una pared, justo bajo la clavícula.",
-      "Aplica presión contra la pelota y mueve el brazo para encontrar puntos tensos.",
-      "Mantén 20–30 segundos cada punto respirando lento; cambia de lado."
-    ],
-    "pelvic_clock_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
-      "Imagina un reloj en la pelvis y bascula lento a las posiciones de 12, 3, 6 y 9.",
-      "Haz círculos suaves en ambos sentidos; respira natural."
-    ],
     "pigeon_pose_v1": [
-      "Desde cuatro patas, lleva una tibia adelante cruzando la esterilla con la pierna trasera estirada.",
-      "Cuadra las caderas y baja el torso sobre la tibia delantera hasta donde toleres.",
-      "Mantén respirando lento; cambia de lado."
+      "Desde cuadrupedia, lleva la rodilla derecha hacia adelante y déjala caer hacia el exterior de la mano derecha; extiende la pierna izquierda hacia atrás.",
+      "Baja la cadera derecha hacia el suelo o aproximate tanto como puedas sin dolor; puede ayudar un bloque o una manta doblada bajo la cadera.",
+      "Mantén de 30 a 60 segundos de cada lado, respirando lentamente; evita compensar inclinando el tronco hacia un lado."
     ],
     "Plank": [
       "Sitúate en posición de flexión con los antebrazos en el suelo.",
@@ -680,56 +404,6 @@
       "Activa el abdomen y evita que las caderas caigan o se eleven.",
       "Mantén la posición durante el tiempo indicado.",
       "Respira de manera constante durante todo el ejercicio."
-    ],
-    "postpartum_band_row_v1": [
-      "Siéntate alta con la banda alrededor de los pies y un extremo en cada mano.",
-      "Tira de la banda hacia las costillas inferiores juntando las escápulas.",
-      "Vuelve en 2 segundos sin perder tensión."
-    ],
-    "postpartum_diaphragmatic_breath_v1": [
-      "Túmbate de espaldas o siéntate cómoda con una mano en el pecho y la otra en el abdomen.",
-      "Inhala por la nariz expandiendo abdomen y costillas sin subir el pecho.",
-      "Exhala lento soltando del todo; repite 5–10 minutos."
-    ],
-    "postpartum_gentle_squat_v1": [
-      "De pie con pies al ancho de cadera, manos en las caderas.",
-      "Baja a una profundidad cómoda manteniendo el pecho alto y exhalando al bajar.",
-      "Levántate empujando por la planta del pie."
-    ],
-    "postpartum_glute_bridge_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
-      "Exhala elevando las caderas contrayendo los glúteos sin arquear la lumbar.",
-      "Baja en 2 segundos controlada."
-    ],
-    "postpartum_pelvic_tilt_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies en la esterilla.",
-      "Exhala basculando la pelvis para aplanar la lumbar y activar suave el suelo pélvico.",
-      "Inhala soltando a neutra."
-    ],
-    "postpartum_seated_press_light_v1": [
-      "Siéntate en una silla con respaldo y una mancuerna ligera en cada mano a la altura del hombro.",
-      "Exhala empujando las mancuernas arriba sin arquear la lumbar.",
-      "Baja en 2 segundos a los hombros."
-    ],
-    "postpartum_side_lying_glute_v1": [
-      "Túmbate de lado con rodillas flexionadas y apiladas, cabeza sobre el brazo de abajo.",
-      "Manteniendo los pies juntos, eleva la rodilla de arriba abriendo la cadera sin rotar la pelvis.",
-      "Baja controlada; cambia de lado."
-    ],
-    "postpartum_standing_pelvic_tuck_v1": [
-      "De pie con pies al ancho de cadera y rodillas suaves.",
-      "Exhala basculando la pelvis y elevando suave el suelo pélvico.",
-      "Inhala soltando a neutra; repite lento."
-    ],
-    "postpartum_walking_v1": [
-      "Empieza con 5–10 minutos de caminar lento en plano, progresando semanalmente.",
-      "Atención a sensación de pesadez en el suelo pélvico; para si hay síntomas.",
-      "Aumenta la duración gradualmente antes del ritmo o desnivel."
-    ],
-    "postpartum_wall_pushup_v1": [
-      "De pie de cara a una pared con manos a la altura del pecho, algo más abiertas que los hombros.",
-      "Flexiona los codos acercando el pecho a la pared, exhalando y activando suave el core.",
-      "Empuja sin bloquear los codos."
     ],
     "postpp_bird_dog_v1": [
       "Empieza a cuatro patas con muñecas bajo hombros y rodillas bajo caderas (columna neutra).",
@@ -776,11 +450,6 @@
       "Deslízate hacia abajo hasta que los muslos queden casi paralelos (o a un ángulo cómodo), manteniendo las rodillas sobre los tobillos.",
       "Mantén la posición el tiempo indicado respirando normalmente y vuelve a subir deslizando."
     ],
-    "progressive_muscle_relaxation_v1": [
-      "Túmbate de espaldas y tensa los pies 5 segundos, luego suelta totalmente 10 segundos.",
-      "Sube por el cuerpo tensando y soltando gemelos, muslos, glúteos, abdomen, manos, brazos, hombros y cara.",
-      "Termina con 1–2 minutos de respiración natural."
-    ],
     "pullup_neutral_grip_v1": [
       "Cuélgate de mangos paralelos de dominadas con palmas enfrentadas, brazos completamente extendidos.",
       "Tira del pecho hacia la barra empujando los codos abajo y atrás.",
@@ -793,16 +462,6 @@
       "Empuja hacia arriba hasta extender los brazos completamente.",
       "Repite de manera controlada."
     ],
-    "quadruped_toe_taps_v1": [
-      "A cuatro patas con columna neutra.",
-      "Eleva una rodilla de la esterilla y toca la punta del pie al lado sin rotar las caderas.",
-      "Vuelve y alterna lados controlada."
-    ],
-    "resistance_band_row_seated_v1": [
-      "Siéntate en el suelo o silla con piernas extendidas, banda alrededor de los pies y extremos en cada mano.",
-      "Tira de la banda hacia las costillas inferiores juntando las escápulas.",
-      "Vuelve en 2 segundos sin perder tensión."
-    ],
     "resistance_band_row_standing_v1": [
       "Sujeta una banda elástica anclada a la altura de la cadera o con ambos extremos en las manos.",
       "De pie con rodillas ligeramente flexionadas, lleva los codos hacia atrás acercando las manos a los costados del tronco y juntando las escápulas.",
@@ -812,31 +471,6 @@
       "Coloca las anillas a la altura de la cadera y agárralas con brazos extendidos, cuerpo en línea recta y talones en el suelo.",
       "Tira del pecho hacia las anillas retrayendo las escápulas y flexionando los codos.",
       "Baja en 2 segundos a la extensión completa; eleva los pies sobre un cajón para mayor dificultad."
-    ],
-    "savasana_v1": [
-      "Túmbate de espaldas con los brazos ligeramente separados del cuerpo, palmas arriba, y los pies relajados abiertos.",
-      "Cierra los ojos y deja que el cuerpo se hunda en la esterilla liberando todo esfuerzo muscular.",
-      "Respira naturalmente 5–15 minutos."
-    ],
-    "seated_dumbbell_curl_pregnancy_v1": [
-      "Siéntate en una silla con respaldo y una mancuerna ligera en cada mano.",
-      "Flexiona los codos a los hombros sin arquear la lumbar.",
-      "Baja en 2 segundos controlada."
-    ],
-    "seated_forward_fold_v1": [
-      "Siéntate con ambas piernas extendidas delante y los pies flexionados.",
-      "Inclínate desde las caderas hacia los pies sin redondear la lumbar.",
-      "Mantén respirando; flexiona ligeramente las rodillas si hace falta."
-    ],
-    "seated_lateral_raise_light_v1": [
-      "Siéntate en una silla con mancuernas ligeras a los lados, ligera flexión de codo.",
-      "Eleva los brazos a los lados a la altura del hombro guiando con el codo.",
-      "Baja en 2 segundos sin balanceo."
-    ],
-    "seated_marches_v1": [
-      "Siéntate alta en una silla con pies planos y manos en el abdomen bajo.",
-      "Eleva una rodilla hacia el pecho exhalando y activando el core.",
-      "Baja controlada y alterna lados."
     ],
     "seated_marching_v1": [
       "Siéntate erguido en una silla con los pies en el suelo y las manos sobre los muslos o a los lados.",
@@ -848,21 +482,6 @@
       "Pon la mano izquierda en la rodilla derecha y gira el tronco hacia la derecha, colocando la mano derecha detrás de la espalda como apoyo.",
       "Mantén 30 segundos girando un poco más con cada exhalación; vuelve al centro y repite al otro lado."
     ],
-    "shoulder_cars_v1": [
-      "De pie con un brazo al lado, contrae el core.",
-      "Traza el círculo controlado más grande posible con el brazo: adelante, arriba, atrás y abajo.",
-      "Invierte la dirección; cambia de brazo."
-    ],
-    "side_lying_clamshell_v1": [
-      "Túmbate de lado con rodillas flexionadas y apiladas, pies alineados con la columna.",
-      "Mantén los pies juntos y eleva la rodilla de arriba abriendo como una almeja sin rotar la pelvis.",
-      "Baja controlada; cambia de lado."
-    ],
-    "side_lying_leg_raise_v1": [
-      "Túmbate de lado con la pierna de abajo flexionada y la de arriba extendida.",
-      "Eleva la pierna de arriba a unos 45° sin rotar la cadera.",
-      "Baja controlada; cambia de lado."
-    ],
     "single_leg_squat_v1": [
       "De pie sobre una pierna, la otra ligeramente al frente o al lado, brazos extendidos para el equilibrio.",
       "Flexiona lentamente la rodilla de apoyo hasta donde sea posible sin que colapse hacia dentro o la cadera caiga.",
@@ -872,11 +491,6 @@
       "Siéntate en una silla con los pies a la anchura de las caderas y planos en el suelo.",
       "Inclina ligeramente el tronco hacia adelante, empuja los talones contra el suelo y levántate hasta quedar completamente erguido.",
       "Controla el descenso volviendo a sentarte lentamente, sin caer sobre la silla."
-    ],
-    "standing_calf_raise_pregnancy_v1": [
-      "De pie con pies al ancho de cadera, agarrada a una pared o silla.",
-      "Sube sobre las puntas empujando los talones arriba.",
-      "Baja en 2 segundos controlada."
     ],
     "Standing_Calf_Raises": [
       "Sitúate de pie con los pies al ancho de los hombros.",
@@ -890,95 +504,25 @@
       "Empuja el talón del pie en el escalón para levantarte, llevando el otro pie al nivel del escalón.",
       "Baja controlando el descenso en 2 seg; alterna piernas o haz todas las reps de un lado primero."
     ],
-    "sun_salutation_a_v1": [
-      "Desde de pie, inhala brazos arriba, exhala flexión adelante, inhala medio elevado.",
-      "Exhala retrocede a plancha, baja al suelo, inhala perro arriba, exhala perro abajo y respira.",
-      "Paso o salto al frente, inhala medio elevado, exhala flexión, inhala a de pie; completa reps."
-    ],
-    "sun_salutation_b_v1": [
-      "Desde de pie, inhala a postura de la silla, exhala flexión, inhala medio elevado, exhala retrocede a plancha-chaturanga, inhala perro arriba, exhala perro abajo.",
-      "Inhala lleva el pie derecho a Guerrero I, exhala vuelve a plancha-chaturanga y fluye por perro arriba y abajo; repite con el izquierdo.",
-      "Paso o salto al frente, inhala medio elevado, exhala flexión, inhala a silla, exhala a de pie; completa reps."
-    ],
     "supine_twist_v1": [
-      "Túmbate de espaldas, abraza una rodilla al pecho y guíala a través del cuerpo al lado opuesto.",
-      "Extiende el brazo del mismo lado y mira hacia el brazo extendido, manteniendo ambos hombros en el suelo.",
-      "Mantén respirando lento; cambia de lado."
-    ],
-    "supported_fish_pose_v1": [
-      "Coloca un foam roller a lo largo de la columna y túmbate de espaldas para que sostenga la parte alta longitudinalmente.",
-      "Deja caer los brazos a los lados y las piernas extendidas o flexionadas.",
-      "Respira lento abriendo el pecho 2–5 minutos."
-    ],
-    "supported_squat_chair_v1": [
-      "De pie ante una silla sólida con pies al ancho de cadera.",
-      "Siéntate lenta hasta que los glúteos toquen la silla manteniendo el pecho alto.",
-      "Levántate empujando por la planta del pie."
-    ],
-    "thoracic_bridge_v1": [
-      "Siéntate con rodillas flexionadas, pies en el suelo y manos detrás con dedos hacia atrás.",
-      "Eleva las caderas y rota a un lado extendiendo el brazo libre hacia arriba en extensión torácica.",
-      "Vuelve a la posición inicial controlado; alterna lados."
+      "Estírate boca arriba; lleva ambas rodillas al pecho y déjalas caer suavemente hacia un lado mientras extiendes los brazos en cruz.",
+      "Gira la cabeza hacia el lado contrario a las rodillas si es cómodo, para aumentar la rotación torácica.",
+      "Mantén 30–45 segundos de cada lado; es normal sentir un progresivo alivio de la tensión lumbar."
     ],
     "thread_the_needle_v1": [
       "Comienza en cuadrupedia con las caderas sobre las rodillas y los hombros sobre las muñecas.",
       "Desliza un brazo por debajo del cuerpo, girando el tronco, hasta que el hombro y el lado de la cabeza lleguen al suelo.",
       "Mantén 2–3 segundos sintiendo el estiramiento torácico, vuelve a la posición inicial y repite al otro lado."
     ],
-    "tree_pose_v1": [
-      "De pie y transfiere el peso a una pierna.",
-      "Coloca el otro pie en el tobillo, gemelo o muslo interno (evita la rodilla) y lleva las manos al pecho o arriba.",
-      "Mantén respirando; cambia de lado."
-    ],
-    "triangle_pose_v1": [
-      "Abre los pies, gira el pie delantero adelante y el trasero 90°, brazos extendidos a los lados.",
-      "Flexiona por la cadera delantera llevando la mano delantera hacia el tobillo y la mano de arriba al techo.",
-      "Mantén el pecho abierto y mira arriba; cambia de lado."
-    ],
-    "tva_activation_supine_v1": [
-      "Túmbate de espaldas con rodillas flexionadas y pies planos, manos sobre el abdomen bajo.",
-      "Exhala lento llevando el abdomen bajo hacia la columna y elevando el suelo pélvico.",
-      "Inhala soltando del todo; repite sin aplanar la curva lumbar."
-    ],
-    "upward_dog_v1": [
-      "Túmbate boca abajo con manos bajo hombros y empeines en la esterilla.",
-      "Empuja las manos elevando pecho, caderas y muslos del suelo con brazos extendidos.",
-      "Rueda los hombros atrás y mira ligeramente arriba; mantén respirando."
-    ],
-    "wall_press_core_v1": [
-      "De pie a un pie de la pared con ambas palmas contra ella a la altura del pecho.",
-      "Empuja la pared como si quisieras alejarla mientras activas el core y exhalas.",
-      "Mantén la activación respirando constante."
-    ],
     "wall_push_up_v1": [
       "Colócate de pie frente a una pared a unos 60 cm, con las manos a la altura de los hombros y ligeramente separadas.",
       "Flexiona los codos hasta que el pecho se acerque a la pared manteniendo el cuerpo recto como una tabla.",
       "Empuja la pared para volver a la posición inicial controlando el movimiento en todo momento."
     ],
-    "wall_pushup_pregnancy_v1": [
-      "De pie de cara a la pared con manos a la altura del pecho, algo más abiertas que los hombros.",
-      "Flexiona los codos acercando el pecho a la pared manteniendo el cuerpo recto.",
-      "Empuja para volver sin bloquear los codos."
-    ],
-    "warrior_one_v1": [
-      "Avanza un pie en una zancada larga con el pie trasero girado 45°.",
-      "Flexiona la rodilla delantera sobre el tobillo y extiende ambos brazos arriba, palmas enfrentadas.",
-      "Cuadra las caderas adelante y mantén respirando; cambia de lado."
-    ],
-    "warrior_two_v1": [
-      "Abre los pies, gira el pie delantero adelante y el trasero 90° al lado.",
-      "Flexiona la rodilla delantera sobre el tobillo y extiende los brazos paralelos al suelo.",
-      "Mira sobre la mano delantera y mantén respirando; cambia de lado."
-    ],
     "world_greatest_stretch_v1": [
-      "Desde posición de flexión, avanza el pie derecho por fuera de la mano derecha en una zancada profunda.",
-      "Baja el codo derecho hacia el pie y luego rota el torso abriendo el brazo derecho hacia el techo.",
-      "Vuelve la mano al suelo y retrocede; alterna lados."
-    ],
-    "wrist_warmup_circles_v1": [
-      "Extiende los brazos delante y entrelaza los dedos.",
-      "Haz círculos lentos con las muñecas en sentido horario las reps prescritas.",
-      "Invierte la dirección las mismas reps."
+      "Da un paso largo hacia adelante con el pie derecho hasta una postura de zancada baja; coloca la mano izquierda en el suelo justo al lado del pie derecho.",
+      "Gira el tronco hacia la derecha llevando el brazo derecho hacia arriba al cielo, abriendo el pecho y mirando el pulgar.",
+      "Vuelve la mano al suelo, extiende la pierna delantera para sentir el estiramiento de isquiotibiales, y vuelve a la postura de zancada. Haz 3–5 reps por lado."
     ]
   }
 }

@@ -6,9 +6,7 @@
   "Air_Bike": "Air Bike",
   "All_Fours_Quad_Stretch": "All Fours Quad Stretch",
   "Alternate_Heel_Touchers": "Alternate Heel Touchers",
-  "alternate_nostril_breathing_v1": "Alternate Nostril Breathing (Nadi Shodhana)",
   "Ankle_Circles": "Ankle Circles",
-  "ankle_rocking_v1": "Ankle Rocking",
   "Anterior_Tibialis-SMR": "Anterior Tibialis SMR",
   "Arnold_Dumbbell_Press": "Arnold Dumbbell Press",
   "Balance_Board": "Balance Board",
@@ -37,26 +35,15 @@
   "bb_shrug_v1": "Barbell Shrug",
   "Bench_Dips": "Bench Dips",
   "Bent_Over_Barbell_Row": "Bent Over Barbell Row",
-  "bird_dog_pregnancy_v1": "Bird Dog (Pregnancy-friendly)",
-  "body_scan_v1": "Body Scan Relaxation",
   "Bodyweight_Squat": "Bodyweight Squat",
   "Bodyweight_Walking_Lunge": "Bodyweight Walking Lunge",
-  "box_breathing_v1": "Box Breathing 4-4-4-4",
   "Box_Jump_Multiple_Response": "Box Jump - Multiple Response",
-  "bridge_kegel_v1": "Bridge with Kegel",
-  "bridge_pose_yoga_v1": "Bridge Pose (Setu Bandha)",
   "Butt_Lift_Bridge": "Glute Bridge",
-  "butterfly_breath_v1": "Butterfly with Pelvic Breath",
   "Calf_Raises_-_With_Bands": "Calf Raises with Bands",
   "Calves-SMR": "Calves - Self-Myofascial Release",
-  "cat_cow_v1": "Cat-Cow",
   "Cat_Stretch": "Cat Stretch",
   "Childs_Pose": "Child's Pose",
-  "childs_pose_v1": "Child's Pose",
   "Chin-Up": "Chin-Up",
-  "cobra_pose_v1": "Cobra Pose",
-  "coherent_breathing_v1": "Coherent Breathing",
-  "couch_stretch_v1": "Couch Stretch",
   "Cross-Body_Crunch": "Cross-Body Crunch",
   "Crossover_Reverse_Lunge": "Crossover Reverse Lunge",
   "Crunches": "Crunches",
@@ -74,12 +61,9 @@
   "db_skullcrusher_v1": "Dumbbell Skullcrusher",
   "db_zottman_curl_v1": "Zottman Curl",
   "Dead_Bug": "Dead Bug",
-  "dead_bug_neutral_pelvis_v1": "Dead Bug (Neutral Pelvis)",
   "Decline_Crunch": "Decline Crunch",
   "Decline_Oblique_Crunch": "Decline Oblique Crunch",
-  "deep_squat_release_v1": "Deep Squat Pelvic Release",
   "depth_jump_v1": "Depth Jump",
-  "diaphragmatic_breathing_v1": "Diaphragmatic Breathing",
   "Dips_-_Chest_Version": "Dips - Chest Version",
   "downward_dog_v1": "Downward-Facing Dog",
   "Dumbbell_Bench_Press": "Dumbbell Bench Press",
@@ -90,15 +74,7 @@
   "Dumbbell_Side_Bend": "Dumbbell Side Bend",
   "eccentric_calf_raise_v1": "Eccentric Calf Raise (Heel Drop)",
   "Face_Pull": "Face Pull",
-  "fitball_dead_bug_v1": "Fitball Dead Bug",
-  "fitball_pelvic_circles_v1": "Fitball Pelvic Circles",
-  "fitball_pelvic_tilt_v1": "Fitball Pelvic Tilt",
-  "fitball_wall_squat_v1": "Fitball Wall Squat",
   "Flutter_Kicks": "Flutter Kicks",
-  "foam_roll_glutes_v1": "Foam Roll Glutes",
-  "foam_roll_quads_v1": "Foam Roll Quads",
-  "foam_roll_thoracic_v1": "Foam Roll Thoracic Spine",
-  "four_seven_eight_breathing_v1": "4-7-8 Breathing",
   "Frog_Hops": "Frog Hops",
   "Front_Barbell_Squat": "Front Barbell Squat",
   "Front_Box_Jump": "Front Box Jump",
@@ -107,14 +83,8 @@
   "Good_Morning": "Good Morning",
   "Groin_and_Back_Stretch": "Groin and Back Stretch",
   "Hanging_Leg_Raise": "Hanging Leg Raise",
-  "happy_baby_pose_v1": "Happy Baby",
-  "heel_slide_pelvic_v1": "Heel Slide with Pelvic Floor",
-  "heel_slide_supine_v1": "Supine Heel Slide",
-  "hip_90_90_switch_v1": "90/90 Hip Switch",
-  "hip_cars_v1": "Hip CARs",
   "Hip_Circles_prone": "Hip Circles Prone",
   "Hyperextensions_Back_Extensions": "Hyperextensions / Back Extensions",
-  "incline_plank_pregnancy_v1": "Incline Plank on Bench",
   "Intermediate_Hip_Flexor_and_Quad_Stretch": "Hip Flexor and Quad Stretch",
   "IT_Band_and_Glute_Stretch": "IT Band and Glute Stretch",
   "Jackknife_Sit-Up": "Jackknife Sit-Up",
@@ -126,40 +96,20 @@
   "kb_swing_v1": "Kettlebell Swing",
   "kb_turkish_get_up_v1": "Turkish Get-Up",
   "kb_windmill_v1": "Kettlebell Windmill",
-  "kegel_basic_v1": "Basic Kegel",
-  "kegel_elevator_v1": "Elevator Kegel",
-  "kegel_quick_pulses_v1": "Quick Kegel Pulses",
-  "kegel_with_breath_v1": "Kegel with Diaphragmatic Breath",
   "Knee_Tuck_Jump": "Knee Tuck Jump",
   "Kneeling_Hip_Flexor": "Kneeling Hip Flexor Stretch",
   "lateral_step_down_v1": "Lateral Step Down",
   "Leg_Extensions": "Leg Extensions",
   "Leg_Press": "Leg Press",
-  "legs_up_wall_v1": "Legs-Up-the-Wall",
   "Lower_Back-SMR": "Lower Back - Self-Myofascial Release",
   "Lying_Leg_Curls": "Lying Leg Curls",
-  "modified_side_plank_knee_v1": "Modified Side Plank from Knees",
   "Mountain_Climbers": "Mountain Climbers",
-  "neck_cars_v1": "Neck CARs",
   "nordic_curl_v1": "Nordic Hamstring Curl",
   "One-Arm_Dumbbell_Row": "One-Arm Dumbbell Row",
-  "open_book_stretch_v1": "Open Book Thoracic Rotation",
   "Pallof_Press": "Pallof Press",
-  "pec_release_ball_v1": "Pec Release with Massage Ball",
-  "pelvic_clock_v1": "Pelvic Clock",
   "pigeon_pose_v1": "Pigeon Pose",
   "Piriformis-SMR": "Piriformis - Self-Myofascial Release",
   "Plank": "Plank",
-  "postpartum_band_row_v1": "Postpartum Seated Band Row",
-  "postpartum_diaphragmatic_breath_v1": "Postpartum Diaphragmatic Breath",
-  "postpartum_gentle_squat_v1": "Postpartum Gentle Squat",
-  "postpartum_glute_bridge_v1": "Postpartum Glute Bridge",
-  "postpartum_pelvic_tilt_v1": "Postpartum Pelvic Tilt",
-  "postpartum_seated_press_light_v1": "Postpartum Seated Light Press",
-  "postpartum_side_lying_glute_v1": "Postpartum Side-Lying Glute Lift",
-  "postpartum_standing_pelvic_tuck_v1": "Postpartum Standing Pelvic Tuck",
-  "postpartum_walking_v1": "Postpartum Walking Progression",
-  "postpartum_wall_pushup_v1": "Postpartum Wall Push-Up",
   "postpp_bird_dog_v1": "Bird Dog (quadruped contralateral)",
   "postpp_clamshell_band_v1": "Clamshell with Band",
   "postpp_glute_bridge_march_v1": "Glute Bridge March",
@@ -169,40 +119,28 @@
   "postpp_standing_pelvic_tilt_v1": "Standing Pelvic Tilt",
   "postpp_ta_bracing_supine_v1": "Transverse Abdominis Bracing (supine)",
   "postpp_wall_sit_isometric_v1": "Wall Sit (isometric)",
-  "progressive_muscle_relaxation_v1": "Progressive Muscle Relaxation",
   "Prone_Manual_Hamstring": "Prone Manual Hamstring",
   "pullup_neutral_grip_v1": "Neutral-Grip Pull-Up",
   "Pullups": "Pull-Ups",
   "Push_Up_to_Side_Plank": "Push-Up to Side Plank",
   "Pushups": "Push-Ups",
   "Quadriceps-SMR": "Quadriceps - Self-Myofascial Release",
-  "quadruped_toe_taps_v1": "Quadruped Toe Taps",
-  "resistance_band_row_seated_v1": "Seated Band Row",
   "resistance_band_row_standing_v1": "Resistance Band Row (Standing)",
   "Reverse_Crunch": "Reverse Crunch",
   "ring_row_v1": "Ring Row",
   "Romanian_Deadlift": "Romanian Deadlift",
   "Russian_Twist": "Russian Twist",
-  "savasana_v1": "Savasana",
   "Seated_Cable_Rows": "Seated Cable Rows",
   "Seated_Calf_Raise": "Seated Calf Raise",
-  "seated_dumbbell_curl_pregnancy_v1": "Seated Dumbbell Curl (Pregnancy)",
-  "seated_forward_fold_v1": "Seated Forward Fold",
-  "seated_lateral_raise_light_v1": "Seated Light Lateral Raise",
-  "seated_marches_v1": "Seated Marches",
   "seated_marching_v1": "Seated Marching",
   "seated_spinal_twist_v1": "Seated Spinal Twist",
-  "shoulder_cars_v1": "Shoulder CARs",
   "Side_Lateral_Raise": "Side Lateral Raise",
-  "side_lying_clamshell_v1": "Side-Lying Clamshell",
   "Side_Lying_Groin_Stretch": "Side Lying Groin Stretch",
-  "side_lying_leg_raise_v1": "Side-Lying Leg Raise",
   "Single_Leg_Glute_Bridge": "Single Leg Glute Bridge",
   "Single_Leg_Push-off": "Single Leg Push-Off",
   "single_leg_squat_v1": "Single-Leg Squat",
   "sit_to_stand_v1": "Sit to Stand",
   "Split_Squat_with_Dumbbells": "Split Squat with Dumbbells",
-  "standing_calf_raise_pregnancy_v1": "Standing Calf Raise",
   "Standing_Calf_Raises": "Standing Calf Raises",
   "Standing_Hip_Circles": "Standing Hip Circles",
   "Standing_Hip_Flexors": "Standing Hip Flexors",
@@ -211,40 +149,16 @@
   "step_up_v1": "Step-Up",
   "Stiff-Legged_Barbell_Deadlift": "Stiff-Legged Barbell Deadlift",
   "Sumo_Deadlift": "Sumo Deadlift",
-  "sun_salutation_a_v1": "Sun Salutation A",
-  "sun_salutation_b_v1": "Sun Salutation B",
   "Superman": "Superman",
   "supine_twist_v1": "Supine Spinal Twist",
-  "supported_fish_pose_v1": "Supported Fish Pose",
-  "supported_squat_chair_v1": "Supported Chair Squat",
   "Thigh_Abductor": "Thigh Abductor",
   "Thigh_Adductor": "Thigh Adductor",
-  "thoracic_bridge_v1": "Thoracic Bridge",
   "thread_the_needle_v1": "Thread the Needle",
-  "tree_pose_v1": "Tree Pose",
-  "triangle_pose_v1": "Triangle Pose",
   "Triceps_Pushdown": "Triceps Pushdown",
-  "tva_activation_supine_v1": "TVA Activation Supine",
-  "upward_dog_v1": "Upward-Facing Dog",
-  "wall_press_core_v1": "Wall Press Core Brace",
   "wall_push_up_v1": "Wall Push-Up",
-  "wall_pushup_pregnancy_v1": "Wall Push-Up",
-  "warrior_one_v1": "Warrior I",
-  "warrior_two_v1": "Warrior II",
   "Wide-Grip_Lat_Pulldown": "Wide-Grip Lat Pulldown",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
-  "wrist_warmup_circles_v1": "Wrist Warm-up Circles",
   "instructions": {
-    "alternate_nostril_breathing_v1": [
-      "Sit comfortably and bring the right hand to the face with thumb on the right nostril and ring finger on the left.",
-      "Close the right nostril and inhale through the left, then close the left and exhale through the right.",
-      "Inhale through the right, close it and exhale through the left; continue alternating."
-    ],
-    "ankle_rocking_v1": [
-      "Kneel on one knee with the front foot flat and hands on the front thigh.",
-      "Drive the front knee forward over the toes feeling a stretch in the ankle, keeping the heel down.",
-      "Return and repeat for reps; switch sides."
-    ],
     "band_bicep_curl_v1": [
       "Stand on the center of the band; grip ends with palms up and arms at your sides.",
       "Curl the handles toward your shoulders, keeping elbows fixed at your sides without swinging.",
@@ -320,61 +234,6 @@
       "Lift the shoulders straight up toward the ears without rolling them.",
       "Pause briefly at the top and lower the shoulders under control."
     ],
-    "bird_dog_pregnancy_v1": [
-      "Start on hands and knees with a neutral spine.",
-      "Extend the opposite arm and leg keeping the hips and shoulders square to the floor.",
-      "Lower under control and switch sides."
-    ],
-    "body_scan_v1": [
-      "Lie comfortably on the back with arms by the sides and eyes closed.",
-      "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
-      "Breathe naturally for 10–20 minutes."
-    ],
-    "box_breathing_v1": [
-      "Sit comfortably with the spine tall and shoulders relaxed.",
-      "Inhale through the nose for 4 seconds, hold for 4 seconds.",
-      "Exhale for 4 seconds, hold empty for 4 seconds; repeat the cycle."
-    ],
-    "bridge_kegel_v1": [
-      "Lie supine with knees bent and feet hip-width apart.",
-      "Exhale lifting the hips while gently engaging the pelvic floor.",
-      "Inhale lowering the hips and relaxing the pelvic floor; repeat."
-    ],
-    "bridge_pose_yoga_v1": [
-      "Lie on the back with knees bent and feet hip-width apart.",
-      "Press into the feet and lift the hips toward the ceiling, optionally clasping the hands beneath the body.",
-      "Hold breathing steadily and lower under control."
-    ],
-    "butterfly_breath_v1": [
-      "Sit with the soles of the feet together and knees relaxed apart.",
-      "Inhale and visualise the breath descending into the pelvis relaxing the floor.",
-      "Exhale gently lifting the pelvic floor; continue for the prescribed time."
-    ],
-    "cat_cow_v1": [
-      "Start on hands and knees with wrists under shoulders and knees under hips.",
-      "Inhale and arch the spine dropping the belly while looking up (cow).",
-      "Exhale and round the spine tucking the chin and pelvis (cat); alternate slowly."
-    ],
-    "childs_pose_v1": [
-      "Kneel on the mat with big toes touching and knees apart.",
-      "Sit the hips back to the heels and walk the hands forward extending the arms.",
-      "Rest the forehead on the mat and breathe slowly into the back."
-    ],
-    "cobra_pose_v1": [
-      "Lie face-down with hands under the shoulders and elbows tucked.",
-      "Press lightly into the hands lifting the chest off the floor with the elbows still bent.",
-      "Hold breathing steadily; lower under control."
-    ],
-    "coherent_breathing_v1": [
-      "Sit or lie comfortably with the spine in neutral.",
-      "Inhale through the nose for 5 seconds expanding the belly and ribs.",
-      "Exhale through the nose for 5 seconds; continue at this pace for 5–10 minutes."
-    ],
-    "couch_stretch_v1": [
-      "Kneel facing away from a wall or couch, place one shin against the wall with the foot pointing up and the other foot flat in front in a lunge.",
-      "Squeeze the back glute and lift the chest tall, keeping the lower back neutral.",
-      "Hold for 30–60 seconds breathing slowly; switch sides."
-    ],
     "db_arnold_press_v1": [
       "Sit on a bench with back support, holding two dumbbells in front of the shoulders, palms facing the body.",
       "Press the dumbbells overhead while rotating the palms outward until the arms are fully extended.",
@@ -435,30 +294,15 @@
       "Curl the dumbbells up to the shoulders, then rotate the wrists so the palms face down at the top.",
       "Lower in 3 seconds with the palms down, rotating back to palms-up at the bottom."
     ],
-    "dead_bug_neutral_pelvis_v1": [
-      "Lie supine with arms reaching to the ceiling and knees stacked over hips at 90°.",
-      "Exhale gently engaging the core and lower the opposite arm and leg toward the floor without arching the back.",
-      "Inhale to return; alternate sides."
-    ],
-    "deep_squat_release_v1": [
-      "Stand with feet slightly wider than hips, toes turned out.",
-      "Squat down as low as comfortable, using a wall or support if needed.",
-      "Hold for 30–60 seconds breathing slowly into the pelvic floor."
-    ],
     "depth_jump_v1": [
       "Stand on a box (20–40 cm), step off and land on both feet simultaneously.",
       "Upon landing, absorb into a squat and immediately jump upward to maximize reactive power.",
       "Minimize ground contact time. Stop the exercise if landing feels stiff or a joint signals pain."
     ],
-    "diaphragmatic_breathing_v1": [
-      "Lie on the back with knees bent and one hand on the chest, the other on the belly.",
-      "Inhale slowly through the nose for 4 seconds expanding the belly while the chest stays relatively still.",
-      "Exhale through pursed lips for 6 seconds; repeat for the prescribed time."
-    ],
     "downward_dog_v1": [
-      "From hands and knees, tuck the toes and lift the hips up and back into an inverted V shape.",
-      "Press the chest toward the thighs and the heels toward the floor without locking the knees.",
-      "Hold breathing steadily for the prescribed time."
+      "From a plank position, push your hips up and back to form an inverted V with hands and feet on the ground.",
+      "Lengthen your spine, trying to bring your heels to the floor and your head between your arms.",
+      "Hold for 20–40 seconds breathing deeply; alternating knee bends can deepen the hamstring stretch."
     ],
     "Dumbbell_Bicep_Curl": [
       "Stand up straight with a dumbbell in each hand at arm's length. Keep your elbows close to your torso and rotate the palms of your hands until they are facing forward. This will be your starting position.",
@@ -484,76 +328,6 @@
       "Stand on the edge of a step with the ball of your foot, holding a wall for balance.",
       "Rise on both toes (concentric), then slowly lower on one leg over 4–5 sec, letting the heel drop below the step level.",
       "Return with both legs and repeat. Progress by adding load or increasing reps."
-    ],
-    "fitball_dead_bug_v1": [
-      "Lie supine holding a fitball between the hands and knees with arms and legs at 90°.",
-      "Press hands and knees into the ball as you extend the opposite arm and leg without losing pressure.",
-      "Return and alternate sides under control."
-    ],
-    "fitball_pelvic_circles_v1": [
-      "Sit on a fitball with feet flat and the spine tall.",
-      "Make slow circles with the hips in one direction.",
-      "Reverse direction for the same number of reps; breathe naturally."
-    ],
-    "fitball_pelvic_tilt_v1": [
-      "Sit on a fitball with feet flat and hands on the hips.",
-      "Tilt the pelvis forward and back slowly without moving the upper body.",
-      "Repeat smoothly coordinating with the breath."
-    ],
-    "fitball_wall_squat_v1": [
-      "Place a fitball between the lower back and a wall, feet shoulder-width apart and slightly forward.",
-      "Squat down rolling the ball with you until the thighs are parallel to the floor.",
-      "Hold or stand back up under control."
-    ],
-    "foam_roll_glutes_v1": [
-      "Sit on a foam roller with one ankle crossed over the opposite knee.",
-      "Lean toward the crossed-leg side and roll slowly across the glute.",
-      "Pause on tight spots and breathe; switch sides."
-    ],
-    "foam_roll_quads_v1": [
-      "Lie face-down with the foam roller across the front of the thighs, supporting the upper body on the forearms.",
-      "Roll slowly from above the knees to the hip flexors.",
-      "Pause on tight spots and breathe; avoid rolling directly on the kneecap."
-    ],
-    "foam_roll_thoracic_v1": [
-      "Lie back on a foam roller placed across the upper back, knees bent and hands behind the head.",
-      "Lift the hips slightly and roll up and down between the shoulder blades and mid-back.",
-      "Pause on tight spots and breathe slowly; avoid the lumbar spine."
-    ],
-    "four_seven_eight_breathing_v1": [
-      "Sit comfortably and place the tongue tip behind the upper teeth.",
-      "Inhale silently through the nose for 4 seconds, hold the breath for 7 seconds.",
-      "Exhale audibly through the mouth for 8 seconds; repeat for 4 cycles."
-    ],
-    "happy_baby_pose_v1": [
-      "Lie on the back and bring the knees toward the armpits.",
-      "Grab the outsides of the feet and gently pull them down toward the floor with shins vertical.",
-      "Rock slightly side to side breathing slowly."
-    ],
-    "heel_slide_pelvic_v1": [
-      "Lie supine with knees bent and feet flat on the mat.",
-      "Exhale gently lifting the pelvic floor and slide one heel away until the leg is straight.",
-      "Inhale to bring the heel back; alternate sides."
-    ],
-    "heel_slide_supine_v1": [
-      "Lie supine with knees bent and feet flat on the mat.",
-      "Exhale and slide one heel away on the floor until the leg is fully extended without arching the lower back.",
-      "Inhale to slide the heel back; alternate sides."
-    ],
-    "hip_90_90_switch_v1": [
-      "Sit with one shin in front parallel to the body and the other shin to the side, both at 90°.",
-      "Lift the knees and rotate the hips to switch leg positions to the opposite side.",
-      "Return slowly under control without using the hands."
-    ],
-    "hip_cars_v1": [
-      "Stand on one leg, holding a wall for balance if needed.",
-      "Lift the free knee to hip height, abduct it to the side, then rotate it back behind you and lower.",
-      "Reverse the circle; switch sides."
-    ],
-    "incline_plank_pregnancy_v1": [
-      "Place the hands on a sturdy bench or chair shoulder-width apart.",
-      "Step the feet back into a straight line from head to heels, exhaling and gently lifting the pelvic floor.",
-      "Hold for the prescribed time breathing steadily; do not let the lower back sag."
     ],
     "kb_clean_v1": [
       "Start with the kettlebell on the floor between the feet, hinge at the hips and grip with one hand.",
@@ -595,26 +369,6 @@
       "Rotate the feet 45° toward the empty hand and slide that hand down the inside of the leg while pushing the hips toward the loaded side.",
       "Return to standing under control by squeezing the obliques and glutes; switch sides."
     ],
-    "kegel_basic_v1": [
-      "Sit or lie comfortably with knees bent and a relaxed posture.",
-      "Gently lift the pelvic floor as if stopping the flow of urine, hold for 3–5 seconds without holding the breath.",
-      "Fully release for 5 seconds before the next repetition; quality matters more than quantity."
-    ],
-    "kegel_elevator_v1": [
-      "Sit comfortably and visualise the pelvic floor as an elevator with several floors.",
-      "Contract progressively in 3 levels (1st floor, 2nd floor, top floor) holding briefly at each.",
-      "Release in the same 3 levels back down to full relaxation; breathe naturally."
-    ],
-    "kegel_quick_pulses_v1": [
-      "Sit or lie comfortably with the spine in neutral.",
-      "Perform short 1-second contractions of the pelvic floor followed by full 1-second releases.",
-      "Keep the glutes and inner thighs relaxed; breathe normally throughout."
-    ],
-    "kegel_with_breath_v1": [
-      "Lie supine with knees bent and one hand on the belly.",
-      "Inhale relaxing the pelvic floor and expanding the belly.",
-      "Exhale gently lifting the pelvic floor; repeat coordinating breath and contraction."
-    ],
     "Lat_Pulldown": [
       "Sit down on a pull-down machine with a wide bar attached to the top pulley. Make sure that you adjust the knee pad of the machine to fit your height. These pads will prevent your body from being raised by the resistance attached to the bar.",
       "Grab the bar with the palms facing forward using the prescribed grip. Note on grips: For a wide grip, your hands need to be spaced out at a distance wider than shoulder width. For a medium grip, your hands need to be spaced out at a distance equal to your shoulder width and for a close grip at a distance smaller than your shoulder width.",
@@ -628,105 +382,25 @@
       "Slowly flex the support knee to lower the other foot toward the floor in 3–4 sec, keeping the knee aligned over the second toe.",
       "Touch the floor without transferring weight; push back up. Control the hip not dropping to the side."
     ],
-    "legs_up_wall_v1": [
-      "Sit sideways against a wall and swing the legs up the wall as you lie back on the mat.",
-      "Slide the hips close to the wall and let the arms relax at the sides.",
-      "Breathe slowly for 5–15 minutes."
-    ],
     "Lying_Leg_Curls": [
       "Adjust the machine lever to fit your height and lie face down on the leg curl machine with the pad of the lever on the back of your legs (just a few inches under the calves). Tip: Preferably use a leg curl machine that is angled as opposed to flat since an angled position is more favorable for hamstrings recruitment.",
       "Keeping the torso flat on the bench, ensure your legs are fully stretched and grab the side handles of the machine. Position your toes straight (or you can also use any of the other two stances described on the foot positioning section). This will be your starting position.",
       "As you exhale, curl your legs up as far as possible without lifting the upper legs from the pad. Once you hit the fully contracted position, hold it for a second.",
       "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions."
     ],
-    "modified_side_plank_knee_v1": [
-      "Lie on one side with the bottom forearm on the mat, knees bent and stacked.",
-      "Lift the hips off the mat creating a straight line from knees to head.",
-      "Hold breathing steadily; switch sides after the prescribed time."
-    ],
-    "neck_cars_v1": [
-      "Sit or stand tall with shoulders relaxed.",
-      "Slowly rotate the head in a controlled circle exploring the full range without pain.",
-      "Reverse direction for the same reps; keep the motion slow."
-    ],
     "nordic_curl_v1": [
       "Kneel with ankles secured under a bench, bar, or held by a partner.",
       "Keeping your body straight from knees to head, lean forward slowly (3–5 sec) under eccentric hamstring control.",
       "When you can no longer control the fall, use your hands to brake, then push back. Progress from partial to full range of motion."
     ],
-    "open_book_stretch_v1": [
-      "Lie on one side with knees stacked at 90° and arms extended in front, palms together.",
-      "Inhale and slowly open the top arm across the body following it with your gaze, keeping the knees stacked.",
-      "Exhale to return; complete reps and switch sides."
-    ],
-    "pec_release_ball_v1": [
-      "Place a massage ball between the upper chest and a wall just below the collarbone.",
-      "Lean into the ball and slowly explore the area moving the arm to find tight spots.",
-      "Hold each tight spot for 20–30 seconds breathing slowly; switch sides."
-    ],
-    "pelvic_clock_v1": [
-      "Lie supine with knees bent and feet flat on the mat.",
-      "Imagine a clock on the pelvis and tilt it slowly to 12, 3, 6 and 9 o'clock positions.",
-      "Make smooth circles in both directions; breathe naturally."
-    ],
     "pigeon_pose_v1": [
-      "From hands and knees, bring one shin forward across the mat with the back leg extended straight back.",
-      "Square the hips and lower the torso over the front shin to your comfortable depth.",
-      "Hold breathing slowly; switch sides."
+      "From all fours, bring your right knee forward and let it fall to the outside of your right hand; extend your left leg back.",
+      "Lower your right hip toward the floor as much as comfortable without pain; a block or folded blanket under the hip can help.",
+      "Hold 30–60 seconds on each side, breathing slowly; avoid compensating by leaning the torso to one side."
     ],
     "Plank": [
       "Get into a prone position on the floor, supporting your weight on your toes and your forearms. Your arms are bent and directly below the shoulder.",
       "Keep your body straight at all times, and hold this position as long as possible. To increase difficulty, an arm or leg can be raised."
-    ],
-    "postpartum_band_row_v1": [
-      "Sit tall with the band looped around the feet and an end in each hand.",
-      "Row the band toward the lower ribs squeezing the shoulder blades.",
-      "Return in 2 seconds without losing tension."
-    ],
-    "postpartum_diaphragmatic_breath_v1": [
-      "Lie supine or sit comfortably with one hand on the chest and the other on the belly.",
-      "Inhale through the nose expanding the belly and ribs without lifting the chest.",
-      "Exhale slowly releasing fully; repeat for 5–10 minutes."
-    ],
-    "postpartum_gentle_squat_v1": [
-      "Stand with feet hip-width apart, hands on hips.",
-      "Squat down to a comfortable depth keeping the chest up and exhaling on the way down.",
-      "Stand back up driving through the mid-foot."
-    ],
-    "postpartum_glute_bridge_v1": [
-      "Lie supine with knees bent and feet hip-width apart.",
-      "Exhale lifting the hips squeezing the glutes without overarching the lower back.",
-      "Lower in 2 seconds under control."
-    ],
-    "postpartum_pelvic_tilt_v1": [
-      "Lie supine with knees bent and feet flat on the mat.",
-      "Exhale tilting the pelvis to flatten the lumbar curve, gently engaging the pelvic floor.",
-      "Inhale releasing back to neutral."
-    ],
-    "postpartum_seated_press_light_v1": [
-      "Sit on a chair with back support and a light dumbbell in each hand at shoulder height.",
-      "Exhale pressing the dumbbells overhead without arching the lower back.",
-      "Lower in 2 seconds back to the shoulders."
-    ],
-    "postpartum_side_lying_glute_v1": [
-      "Lie on one side with knees bent and stacked, head on the bottom arm.",
-      "Keeping the feet together, lift the top knee opening the hip without rotating the pelvis.",
-      "Lower under control; switch sides after all reps."
-    ],
-    "postpartum_standing_pelvic_tuck_v1": [
-      "Stand with feet hip-width apart and knees soft.",
-      "Exhale tucking the pelvis under and gently lifting the pelvic floor.",
-      "Inhale releasing back to neutral; repeat slowly."
-    ],
-    "postpartum_walking_v1": [
-      "Begin with 5–10 minutes of slow walking on flat ground, progressing weekly.",
-      "Pay attention to pelvic-floor heaviness and stop if symptoms appear.",
-      "Build duration gradually before increasing pace or terrain difficulty."
-    ],
-    "postpartum_wall_pushup_v1": [
-      "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
-      "Bend the elbows lowering the chest toward the wall, exhaling and gently engaging the core.",
-      "Press back without locking the elbows."
     ],
     "postpp_bird_dog_v1": [
       "Start on hands and knees with wrists under shoulders and knees under hips (neutral spine).",
@@ -773,11 +447,6 @@
       "Slide down until thighs are near parallel (or to a comfortable angle), keeping knees above ankles.",
       "Hold the position for the prescribed duration breathing normally, then slide back up."
     ],
-    "progressive_muscle_relaxation_v1": [
-      "Lie on the back and tense the feet for 5 seconds, then fully release for 10 seconds.",
-      "Move up the body tensing and releasing calves, thighs, glutes, abdomen, hands, arms, shoulders and face.",
-      "Finish with 1–2 minutes of natural breathing."
-    ],
     "pullup_neutral_grip_v1": [
       "Hang from parallel pull-up handles with palms facing each other, arms fully extended.",
       "Pull the chest toward the bar by driving the elbows down and back.",
@@ -789,16 +458,6 @@
       "Now breathe out and press your upper body back up to the starting position while squeezing your chest.",
       "After a brief pause at the top contracted position, you can begin to lower yourself downward again for as many repetitions as needed."
     ],
-    "quadruped_toe_taps_v1": [
-      "Start on hands and knees with a neutral spine.",
-      "Lift one knee just off the mat and tap the toe out to the side without rotating the hips.",
-      "Return and alternate sides under control."
-    ],
-    "resistance_band_row_seated_v1": [
-      "Sit on the floor or a chair with legs extended, band looped around the feet, ends in each hand.",
-      "Row the band toward the lower ribs squeezing the shoulder blades together.",
-      "Return in 2 seconds without losing tension."
-    ],
     "resistance_band_row_standing_v1": [
       "Hold a resistance band anchored at hip height or grip both ends in your hands.",
       "Stand with knees slightly bent, drive elbows back bringing hands alongside your torso and squeezing shoulder blades together.",
@@ -808,31 +467,6 @@
       "Set the rings at hip height and grab the handles with arms extended, body in a straight line, heels on the floor.",
       "Pull the chest up to the rings by retracting the shoulder blades and bending the elbows.",
       "Lower in 2 seconds back to full extension; raise feet to a box for added difficulty."
-    ],
-    "savasana_v1": [
-      "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
-      "Close the eyes and let the body sink into the mat releasing all muscular effort.",
-      "Breathe naturally for 5–15 minutes."
-    ],
-    "seated_dumbbell_curl_pregnancy_v1": [
-      "Sit on a chair with back support and a light dumbbell in each hand.",
-      "Curl the dumbbells to the shoulders without arching the lower back.",
-      "Lower in 2 seconds under control."
-    ],
-    "seated_forward_fold_v1": [
-      "Sit with both legs extended forward and feet flexed.",
-      "Hinge from the hips reaching toward the feet without rounding the lower back.",
-      "Hold breathing steadily; bend the knees slightly if needed."
-    ],
-    "seated_lateral_raise_light_v1": [
-      "Sit on a chair with light dumbbells at the sides, slight elbow bend.",
-      "Raise both arms out to shoulder height leading with the elbows.",
-      "Lower in 2 seconds without swinging."
-    ],
-    "seated_marches_v1": [
-      "Sit tall on a chair with feet flat and hands on the lower belly.",
-      "Lift one knee toward the chest exhaling and engaging the core.",
-      "Lower under control and alternate sides."
     ],
     "seated_marching_v1": [
       "Sit tall in a chair with feet flat on the floor and hands resting on thighs or at your sides.",
@@ -844,21 +478,6 @@
       "Place your left hand on your right knee and rotate your torso to the right, placing your right hand behind you for support.",
       "Hold 30 seconds, rotating a little further with each exhale; return to center and repeat on the other side."
     ],
-    "shoulder_cars_v1": [
-      "Stand tall with one arm at the side, brace the core.",
-      "Trace the largest controlled circle possible with the arm: forward, up, back and down.",
-      "Reverse direction; switch arms."
-    ],
-    "side_lying_clamshell_v1": [
-      "Lie on one side with knees bent and stacked, feet aligned with the spine.",
-      "Keep the feet together and lift the top knee opening like a clamshell without rotating the pelvis.",
-      "Lower under control; switch sides after all reps."
-    ],
-    "side_lying_leg_raise_v1": [
-      "Lie on one side with the bottom leg bent for support and the top leg extended.",
-      "Lift the top leg straight up to about 45° without rotating the hip.",
-      "Lower under control; switch sides after all reps."
-    ],
     "single_leg_squat_v1": [
       "Stand on one leg, the other slightly in front or to the side, arms extended for balance.",
       "Slowly flex the support knee as far as possible without it collapsing inward or the hip dropping.",
@@ -868,11 +487,6 @@
       "Sit in a chair with feet hip-width apart and flat on the floor.",
       "Lean your torso slightly forward, push through your heels and stand up until fully erect.",
       "Control the descent by sitting back down slowly without dropping onto the chair."
-    ],
-    "standing_calf_raise_pregnancy_v1": [
-      "Stand with feet hip-width apart, holding a wall or chair for balance.",
-      "Rise onto the balls of the feet pushing the heels up.",
-      "Lower in 2 seconds under control."
     ],
     "Standing_Calf_Raises": [
       "Adjust the padded lever of the calf raise machine to fit your height.",
@@ -886,95 +500,25 @@
       "Drive through the heel of the elevated foot to lift your body, bringing the other foot up to level.",
       "Control the descent over 2 sec; alternate legs or complete all reps on one side before switching."
     ],
-    "sun_salutation_a_v1": [
-      "From standing inhale arms overhead, exhale fold forward, inhale halfway lift.",
-      "Exhale step or jump back to plank, lower to the floor, inhale to upward dog, exhale to downward dog and breathe.",
-      "Step or jump to the front of the mat, inhale halfway lift, exhale fold, inhale to stand; complete reps."
-    ],
-    "sun_salutation_b_v1": [
-      "From standing inhale into chair pose, exhale fold forward, inhale halfway lift, exhale step back to plank then chaturanga, inhale upward dog, exhale downward dog.",
-      "Inhale step the right foot forward into Warrior I, exhale return to plank/chaturanga and flow through up dog and down dog; repeat with left.",
-      "Step or jump to the front, inhale halfway lift, exhale fold, inhale to chair, exhale stand; complete reps."
-    ],
     "supine_twist_v1": [
-      "Lie on the back, hug one knee to the chest then guide it across the body to the opposite side.",
-      "Extend the same-side arm out and turn the gaze toward the extended arm, keeping both shoulders on the floor.",
-      "Hold breathing slowly; switch sides."
-    ],
-    "supported_fish_pose_v1": [
-      "Place a foam roller along the spine and lie back so it supports the upper back lengthwise.",
-      "Let the arms fall open to the sides and the legs extend or bend at the knees.",
-      "Breathe slowly opening the chest for 2–5 minutes."
-    ],
-    "supported_squat_chair_v1": [
-      "Stand in front of a sturdy chair with feet hip-width apart.",
-      "Sit back slowly until the glutes lightly touch the chair, keeping the chest up.",
-      "Stand back up driving through the mid-foot."
-    ],
-    "thoracic_bridge_v1": [
-      "Sit with knees bent, feet flat and hands behind you, fingers pointing back.",
-      "Lift the hips and rotate to one side reaching the free hand overhead in a thoracic extension.",
-      "Return to the start under control; alternate sides."
+      "Lie on your back; bring both knees to your chest and let them fall gently to one side while extending arms out in a T.",
+      "Turn your head to the opposite side from your knees if comfortable, to increase thoracic rotation.",
+      "Hold 30–45 seconds on each side; a gradual release of lumbar tension is normal."
     ],
     "thread_the_needle_v1": [
       "Start on all fours with hips over knees and shoulders over wrists.",
       "Slide one arm underneath your body, rotating your torso, until the shoulder and side of the head reach the floor.",
       "Hold 2–3 seconds feeling the thoracic stretch, return to start, and repeat on the other side."
     ],
-    "tree_pose_v1": [
-      "Stand tall and shift weight onto one foot.",
-      "Place the other foot on the inner ankle, calf or thigh (avoid the knee) and bring the hands to the chest or overhead.",
-      "Hold breathing steadily; switch sides."
-    ],
-    "triangle_pose_v1": [
-      "Step the feet wide, turn the front foot forward and back foot 90°, arms extended sideways.",
-      "Hinge from the front hip reaching the front hand toward the ankle and the top hand to the ceiling.",
-      "Keep the chest open and gaze up; switch sides."
-    ],
-    "tva_activation_supine_v1": [
-      "Lie supine with knees bent and feet flat, hands resting on the lower belly.",
-      "Exhale slowly drawing the lower belly in toward the spine and lifting the pelvic floor.",
-      "Inhale releasing fully; repeat without flattening the lumbar curve."
-    ],
-    "upward_dog_v1": [
-      "Lie face-down with hands under the shoulders and tops of the feet on the mat.",
-      "Press into the hands lifting the chest, hips and thighs off the floor with arms straight.",
-      "Roll the shoulders back and look slightly up; hold breathing steadily."
-    ],
-    "wall_press_core_v1": [
-      "Stand a foot away from a wall with both palms flat against it at chest height.",
-      "Press the wall as if pushing it away while bracing the core and exhaling.",
-      "Hold the brace breathing steadily."
-    ],
     "wall_push_up_v1": [
       "Stand facing a wall about 60 cm away, hands at shoulder height and slightly wider than shoulder-width.",
       "Bend your elbows until your chest nearly touches the wall, keeping your body straight like a plank.",
       "Push the wall to return to the start position, controlling the movement throughout."
     ],
-    "wall_pushup_pregnancy_v1": [
-      "Stand facing a wall with hands at chest height, slightly wider than shoulders.",
-      "Bend the elbows lowering the chest toward the wall while keeping the body in a straight line.",
-      "Press back to the start without locking the elbows."
-    ],
-    "warrior_one_v1": [
-      "Step one foot forward into a long lunge with the back foot turned out 45°.",
-      "Bend the front knee over the ankle and reach both arms overhead, palms facing.",
-      "Square the hips forward and hold breathing steadily; switch sides."
-    ],
-    "warrior_two_v1": [
-      "Step the feet wide apart, turn the front foot forward and the back foot 90° to the side.",
-      "Bend the front knee over the ankle and extend the arms parallel to the floor.",
-      "Gaze over the front hand and hold breathing steadily; switch sides."
-    ],
     "world_greatest_stretch_v1": [
-      "From a push-up position step the right foot outside the right hand into a deep lunge.",
-      "Drop the right elbow toward the instep, then rotate the torso opening the right arm up to the ceiling.",
-      "Return the hand to the floor and step back; alternate sides."
-    ],
-    "wrist_warmup_circles_v1": [
-      "Extend the arms in front and interlock the fingers.",
-      "Circle the wrists slowly clockwise for the prescribed reps.",
-      "Reverse direction for the same number of reps."
+      "Step your right foot forward into a deep lunge; place your left hand on the floor just inside your right foot.",
+      "Rotate your torso to the right, sweeping your right arm up toward the ceiling, opening your chest and tracking your thumb.",
+      "Return the hand to the floor, extend the front leg to feel the hamstring stretch, then return to lunge. Do 3–5 reps per side."
     ]
   }
 }

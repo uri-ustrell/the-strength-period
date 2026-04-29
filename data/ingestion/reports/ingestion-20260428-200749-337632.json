@@ -1,0 +1,546 @@
+{
+  "runId": "ingestion-20260428-200749-337632",
+  "startedAt": "2026-04-28T20:07:49.987Z",
+  "completedAt": "2026-04-28T20:07:50.029Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 40,
+    "skipped": 0,
+    "duplicate": 0,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "kegel_basic_v1",
+    "kegel_quick_pulses_v1",
+    "kegel_elevator_v1",
+    "kegel_with_breath_v1",
+    "pelvic_clock_v1",
+    "bridge_kegel_v1",
+    "fitball_pelvic_circles_v1",
+    "fitball_pelvic_tilt_v1",
+    "deep_squat_release_v1",
+    "butterfly_breath_v1",
+    "side_lying_clamshell_v1",
+    "heel_slide_pelvic_v1",
+    "wall_pushup_pregnancy_v1",
+    "supported_squat_chair_v1",
+    "side_lying_leg_raise_v1",
+    "bird_dog_pregnancy_v1",
+    "seated_dumbbell_curl_pregnancy_v1",
+    "seated_lateral_raise_light_v1",
+    "incline_plank_pregnancy_v1",
+    "resistance_band_row_seated_v1",
+    "fitball_wall_squat_v1",
+    "standing_calf_raise_pregnancy_v1",
+    "tva_activation_supine_v1",
+    "dead_bug_neutral_pelvis_v1",
+    "heel_slide_supine_v1",
+    "modified_side_plank_knee_v1",
+    "quadruped_toe_taps_v1",
+    "seated_marches_v1",
+    "wall_press_core_v1",
+    "fitball_dead_bug_v1",
+    "postpartum_walking_v1",
+    "postpartum_pelvic_tilt_v1",
+    "postpartum_glute_bridge_v1",
+    "postpartum_diaphragmatic_breath_v1",
+    "postpartum_gentle_squat_v1",
+    "postpartum_wall_pushup_v1",
+    "postpartum_band_row_v1",
+    "postpartum_seated_press_light_v1",
+    "postpartum_standing_pelvic_tuck_v1",
+    "postpartum_side_lying_glute_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:kegel_basic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "kegel_basic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kegel_basic_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:kegel_quick_pulses_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "kegel_quick_pulses_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kegel_quick_pulses_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:kegel_elevator_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "kegel_elevator_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kegel_elevator_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:kegel_with_breath_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "kegel_with_breath_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kegel_with_breath_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:pelvic_clock_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "pelvic_clock_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pelvic_clock_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:bridge_kegel_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "bridge_kegel_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bridge_kegel_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:fitball_pelvic_circles_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "fitball_pelvic_circles_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fitball_pelvic_circles_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:fitball_pelvic_tilt_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "fitball_pelvic_tilt_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fitball_pelvic_tilt_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:deep_squat_release_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "deep_squat_release_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "deep_squat_release_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:butterfly_breath_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "butterfly_breath_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "butterfly_breath_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:side_lying_clamshell_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "side_lying_clamshell_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "side_lying_clamshell_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:heel_slide_pelvic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "heel_slide_pelvic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "heel_slide_pelvic_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:wall_pushup_pregnancy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "wall_pushup_pregnancy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wall_pushup_pregnancy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:supported_squat_chair_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "supported_squat_chair_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "supported_squat_chair_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:side_lying_leg_raise_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "side_lying_leg_raise_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "side_lying_leg_raise_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:bird_dog_pregnancy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "bird_dog_pregnancy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bird_dog_pregnancy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:seated_dumbbell_curl_pregnancy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "seated_dumbbell_curl_pregnancy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_dumbbell_curl_pregnancy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:seated_lateral_raise_light_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "seated_lateral_raise_light_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_lateral_raise_light_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:incline_plank_pregnancy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "incline_plank_pregnancy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "incline_plank_pregnancy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:resistance_band_row_seated_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "resistance_band_row_seated_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "resistance_band_row_seated_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:fitball_wall_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "fitball_wall_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fitball_wall_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:standing_calf_raise_pregnancy_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "standing_calf_raise_pregnancy_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "standing_calf_raise_pregnancy_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:tva_activation_supine_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "tva_activation_supine_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "tva_activation_supine_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:dead_bug_neutral_pelvis_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "dead_bug_neutral_pelvis_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "dead_bug_neutral_pelvis_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:heel_slide_supine_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "heel_slide_supine_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "heel_slide_supine_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:modified_side_plank_knee_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "modified_side_plank_knee_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "modified_side_plank_knee_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:quadruped_toe_taps_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "quadruped_toe_taps_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "quadruped_toe_taps_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:seated_marches_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "seated_marches_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_marches_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:wall_press_core_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "wall_press_core_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wall_press_core_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:fitball_dead_bug_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "fitball_dead_bug_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "fitball_dead_bug_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_walking_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_walking_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_walking_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_pelvic_tilt_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_pelvic_tilt_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_pelvic_tilt_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_glute_bridge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_glute_bridge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_glute_bridge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_diaphragmatic_breath_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_diaphragmatic_breath_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_diaphragmatic_breath_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_gentle_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_gentle_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_gentle_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_wall_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_wall_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_wall_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_band_row_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_band_row_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_band_row_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_seated_press_light_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_seated_press_light_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_seated_press_light_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_standing_pelvic_tuck_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_standing_pelvic_tuck_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_standing_pelvic_tuck_v1"
+    },
+    {
+      "candidateId": "bulk-x3-pregnancy-postpartum:exercise:postpartum_side_lying_glute_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-pregnancy-postpartum",
+      "sourceExternalId": "postpartum_side_lying_glute_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "postpartum_side_lying_glute_v1"
+    }
+  ]
+}

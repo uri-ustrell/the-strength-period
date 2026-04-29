@@ -1,0 +1,1715 @@
+{
+  "_meta": {
+    "purpose": "Bulk x3 batch 2: Mobility, Yoga, Breath/Relax (40 exercises)",
+    "session": "2026-04 expansion",
+    "distribution": {
+      "mobility": 15,
+      "yoga": 15,
+      "breath_relax": 10
+    }
+  },
+  "exercises": [
+    {
+      "sourceExternalId": "cat_cow_v1",
+      "name": "Cat-Cow",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["lumbar", "abdominal"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Start on hands and knees with wrists under shoulders and knees under hips.",
+        "Inhale and arch the spine dropping the belly while looking up (cow).",
+        "Exhale and round the spine tucking the chin and pelvis (cat); alternate slowly."
+      ]
+    },
+    {
+      "sourceExternalId": "world_greatest_stretch_v1",
+      "name": "World's Greatest Stretch",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["mobilitat_toracica", "isquiotibials"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "From a push-up position step the right foot outside the right hand into a deep lunge.",
+        "Drop the right elbow toward the instep, then rotate the torso opening the right arm up to the ceiling.",
+        "Return the hand to the floor and step back; alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "thoracic_bridge_v1",
+      "name": "Thoracic Bridge",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["glutis", "deltoides"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "mobilitat_toracica"],
+      "restrictions": [],
+      "instructions": [
+        "Sit with knees bent, feet flat and hands behind you, fingers pointing back.",
+        "Lift the hips and rotate to one side reaching the free hand overhead in a thoracic extension.",
+        "Return to the start under control; alternate sides."
+      ]
+    },
+    {
+      "sourceExternalId": "open_book_stretch_v1",
+      "name": "Open Book Thoracic Rotation",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["pectoral"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "mobilitat_toracica", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on one side with knees stacked at 90° and arms extended in front, palms together.",
+        "Inhale and slowly open the top arm across the body following it with your gaze, keeping the knees stacked.",
+        "Exhale to return; complete reps and switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "hip_90_90_switch_v1",
+      "name": "90/90 Hip Switch",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["glutis", "oblics"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit with one shin in front parallel to the body and the other shin to the side, both at 90°.",
+        "Lift the knees and rotate the hips to switch leg positions to the opposite side.",
+        "Return slowly under control without using the hands."
+      ]
+    },
+    {
+      "sourceExternalId": "ankle_rocking_v1",
+      "name": "Ankle Rocking",
+      "primaryMuscles": ["mobilitat_turmell"],
+      "secondaryMuscles": ["bessons"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Kneel on one knee with the front foot flat and hands on the front thigh.",
+        "Drive the front knee forward over the toes feeling a stretch in the ankle, keeping the heel down.",
+        "Return and repeat for reps; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "wrist_warmup_circles_v1",
+      "name": "Wrist Warm-up Circles",
+      "primaryMuscles": ["avantbras"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["escalfament", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Extend the arms in front and interlock the fingers.",
+        "Circle the wrists slowly clockwise for the prescribed reps.",
+        "Reverse direction for the same number of reps."
+      ]
+    },
+    {
+      "sourceExternalId": "neck_cars_v1",
+      "name": "Neck CARs",
+      "primaryMuscles": ["trapezi"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Sit or stand tall with shoulders relaxed.",
+        "Slowly rotate the head in a controlled circle exploring the full range without pain.",
+        "Reverse direction for the same reps; keep the motion slow."
+      ]
+    },
+    {
+      "sourceExternalId": "shoulder_cars_v1",
+      "name": "Shoulder CARs",
+      "primaryMuscles": ["deltoides"],
+      "secondaryMuscles": ["trapezi"],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand tall with one arm at the side, brace the core.",
+        "Trace the largest controlled circle possible with the arm: forward, up, back and down.",
+        "Reverse direction; switch arms."
+      ]
+    },
+    {
+      "sourceExternalId": "hip_cars_v1",
+      "name": "Hip CARs",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["glutis", "abdominal"],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand on one leg, holding a wall for balance if needed.",
+        "Lift the free knee to hip height, abduct it to the side, then rotate it back behind you and lower.",
+        "Reverse the circle; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "foam_roll_thoracic_v1",
+      "name": "Foam Roll Thoracic Spine",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["fascies"],
+      "equipment": ["foam_roller"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "mobilitat_toracica"],
+      "restrictions": [],
+      "instructions": [
+        "Lie back on a foam roller placed across the upper back, knees bent and hands behind the head.",
+        "Lift the hips slightly and roll up and down between the shoulder blades and mid-back.",
+        "Pause on tight spots and breathe slowly; avoid the lumbar spine."
+      ]
+    },
+    {
+      "sourceExternalId": "foam_roll_quads_v1",
+      "name": "Foam Roll Quads",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["fascies"],
+      "equipment": ["foam_roller"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie face-down with the foam roller across the front of the thighs, supporting the upper body on the forearms.",
+        "Roll slowly from above the knees to the hip flexors.",
+        "Pause on tight spots and breathe; avoid rolling directly on the kneecap."
+      ]
+    },
+    {
+      "sourceExternalId": "foam_roll_glutes_v1",
+      "name": "Foam Roll Glutes",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["fascies"],
+      "equipment": ["foam_roller"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Sit on a foam roller with one ankle crossed over the opposite knee.",
+        "Lean toward the crossed-leg side and roll slowly across the glute.",
+        "Pause on tight spots and breathe; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "pec_release_ball_v1",
+      "name": "Pec Release with Massage Ball",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["fascies"],
+      "equipment": ["pilota_massatge"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Place a massage ball between the upper chest and a wall just below the collarbone.",
+        "Lean into the ball and slowly explore the area moving the arm to find tight spots.",
+        "Hold each tight spot for 20–30 seconds breathing slowly; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "couch_stretch_v1",
+      "name": "Couch Stretch",
+      "primaryMuscles": ["psoes"],
+      "secondaryMuscles": ["quadriceps"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["mobilitat", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Kneel facing away from a wall or couch, place one shin against the wall with the foot pointing up and the other foot flat in front in a lunge.",
+        "Squeeze the back glute and lift the chest tall, keeping the lower back neutral.",
+        "Hold for 30–60 seconds breathing slowly; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "downward_dog_v1",
+      "name": "Downward-Facing Dog",
+      "primaryMuscles": ["dorsal"],
+      "secondaryMuscles": ["isquiotibials", "bessons", "deltoides"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "From hands and knees, tuck the toes and lift the hips up and back into an inverted V shape.",
+        "Press the chest toward the thighs and the heels toward the floor without locking the knees.",
+        "Hold breathing steadily for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "upward_dog_v1",
+      "name": "Upward-Facing Dog",
+      "primaryMuscles": ["pectoral"],
+      "secondaryMuscles": ["lumbar", "deltoides"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat_toracica"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Reduce arch depth or substitute with cobra pose."
+        }
+      ],
+      "instructions": [
+        "Lie face-down with hands under the shoulders and tops of the feet on the mat.",
+        "Press into the hands lifting the chest, hips and thighs off the floor with arms straight.",
+        "Roll the shoulders back and look slightly up; hold breathing steadily."
+      ]
+    },
+    {
+      "sourceExternalId": "cobra_pose_v1",
+      "name": "Cobra Pose",
+      "primaryMuscles": ["lumbar"],
+      "secondaryMuscles": ["pectoral"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat_toracica"],
+      "restrictions": [
+        {
+          "condition": "rehab_lumbar",
+          "action": "modify",
+          "note": "Stay in a low cobra (sphinx) variation while symptoms persist."
+        }
+      ],
+      "instructions": [
+        "Lie face-down with hands under the shoulders and elbows tucked.",
+        "Press lightly into the hands lifting the chest off the floor with the elbows still bent.",
+        "Hold breathing steadily; lower under control."
+      ]
+    },
+    {
+      "sourceExternalId": "childs_pose_v1",
+      "name": "Child's Pose",
+      "primaryMuscles": ["dorsal"],
+      "secondaryMuscles": ["lumbar", "mobilitat_cadera"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat", "escalfament"],
+      "restrictions": [],
+      "instructions": [
+        "Kneel on the mat with big toes touching and knees apart.",
+        "Sit the hips back to the heels and walk the hands forward extending the arms.",
+        "Rest the forehead on the mat and breathe slowly into the back."
+      ]
+    },
+    {
+      "sourceExternalId": "warrior_one_v1",
+      "name": "Warrior I",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "deltoides"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Step one foot forward into a long lunge with the back foot turned out 45°.",
+        "Bend the front knee over the ankle and reach both arms overhead, palms facing.",
+        "Square the hips forward and hold breathing steadily; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "warrior_two_v1",
+      "name": "Warrior II",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["glutis", "deltoides", "abductors"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "Step the feet wide apart, turn the front foot forward and the back foot 90° to the side.",
+        "Bend the front knee over the ankle and extend the arms parallel to the floor.",
+        "Gaze over the front hand and hold breathing steadily; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "triangle_pose_v1",
+      "name": "Triangle Pose",
+      "primaryMuscles": ["oblics"],
+      "secondaryMuscles": ["isquiotibials", "mobilitat_cadera"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Step the feet wide, turn the front foot forward and back foot 90°, arms extended sideways.",
+        "Hinge from the front hip reaching the front hand toward the ankle and the top hand to the ceiling.",
+        "Keep the chest open and gaze up; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "tree_pose_v1",
+      "name": "Tree Pose",
+      "primaryMuscles": ["estabilitzadors_cadera"],
+      "secondaryMuscles": ["abdominal"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "stability",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Stand tall and shift weight onto one foot.",
+        "Place the other foot on the inner ankle, calf or thigh (avoid the knee) and bring the hands to the chest or overhead.",
+        "Hold breathing steadily; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "pigeon_pose_v1",
+      "name": "Pigeon Pose",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["glutis"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "From hands and knees, bring one shin forward across the mat with the back leg extended straight back.",
+        "Square the hips and lower the torso over the front shin to your comfortable depth.",
+        "Hold breathing slowly; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "seated_forward_fold_v1",
+      "name": "Seated Forward Fold",
+      "primaryMuscles": ["isquiotibials"],
+      "secondaryMuscles": ["lumbar"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Sit with both legs extended forward and feet flexed.",
+        "Hinge from the hips reaching toward the feet without rounding the lower back.",
+        "Hold breathing steadily; bend the knees slightly if needed."
+      ]
+    },
+    {
+      "sourceExternalId": "bridge_pose_yoga_v1",
+      "name": "Bridge Pose (Setu Bandha)",
+      "primaryMuscles": ["glutis"],
+      "secondaryMuscles": ["isquiotibials", "mobilitat_toracica"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "sol_pelvic", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back with knees bent and feet hip-width apart.",
+        "Press into the feet and lift the hips toward the ceiling, optionally clasping the hands beneath the body.",
+        "Hold breathing steadily and lower under control."
+      ]
+    },
+    {
+      "sourceExternalId": "happy_baby_pose_v1",
+      "name": "Happy Baby",
+      "primaryMuscles": ["mobilitat_cadera"],
+      "secondaryMuscles": ["lumbar"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back and bring the knees toward the armpits.",
+        "Grab the outsides of the feet and gently pull them down toward the floor with shins vertical.",
+        "Rock slightly side to side breathing slowly."
+      ]
+    },
+    {
+      "sourceExternalId": "sun_salutation_a_v1",
+      "name": "Sun Salutation A",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["isquiotibials", "deltoides", "abdominal"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["iogues", "escalfament", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "From standing inhale arms overhead, exhale fold forward, inhale halfway lift.",
+        "Exhale step or jump back to plank, lower to the floor, inhale to upward dog, exhale to downward dog and breathe.",
+        "Step or jump to the front of the mat, inhale halfway lift, exhale fold, inhale to stand; complete reps."
+      ]
+    },
+    {
+      "sourceExternalId": "sun_salutation_b_v1",
+      "name": "Sun Salutation B",
+      "primaryMuscles": ["quadriceps"],
+      "secondaryMuscles": ["mobilitat_toracica", "deltoides", "glutis"],
+      "equipment": ["mat"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["iogues", "escalfament", "forca"],
+      "restrictions": [],
+      "instructions": [
+        "From standing inhale into chair pose, exhale fold forward, inhale halfway lift, exhale step back to plank then chaturanga, inhale upward dog, exhale downward dog.",
+        "Inhale step the right foot forward into Warrior I, exhale return to plank/chaturanga and flow through up dog and down dog; repeat with left.",
+        "Step or jump to the front, inhale halfway lift, exhale fold, inhale to chair, exhale stand; complete reps."
+      ]
+    },
+    {
+      "sourceExternalId": "supine_twist_v1",
+      "name": "Supine Spinal Twist",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["oblics", "glutis"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back, hug one knee to the chest then guide it across the body to the opposite side.",
+        "Extend the same-side arm out and turn the gaze toward the extended arm, keeping both shoulders on the floor.",
+        "Hold breathing slowly; switch sides."
+      ]
+    },
+    {
+      "sourceExternalId": "diaphragmatic_breathing_v1",
+      "name": "Diaphragmatic Breathing",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio", "sol_pelvic", "prehab"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back with knees bent and one hand on the chest, the other on the belly.",
+        "Inhale slowly through the nose for 4 seconds expanding the belly while the chest stays relatively still.",
+        "Exhale through pursed lips for 6 seconds; repeat for the prescribed time."
+      ]
+    },
+    {
+      "sourceExternalId": "box_breathing_v1",
+      "name": "Box Breathing 4-4-4-4",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Sit comfortably with the spine tall and shoulders relaxed.",
+        "Inhale through the nose for 4 seconds, hold for 4 seconds.",
+        "Exhale for 4 seconds, hold empty for 4 seconds; repeat the cycle."
+      ]
+    },
+    {
+      "sourceExternalId": "coherent_breathing_v1",
+      "name": "Coherent Breathing",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Sit or lie comfortably with the spine in neutral.",
+        "Inhale through the nose for 5 seconds expanding the belly and ribs.",
+        "Exhale through the nose for 5 seconds; continue at this pace for 5–10 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "alternate_nostril_breathing_v1",
+      "name": "Alternate Nostril Breathing (Nadi Shodhana)",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "intermediate",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio", "iogues"],
+      "restrictions": [],
+      "instructions": [
+        "Sit comfortably and bring the right hand to the face with thumb on the right nostril and ring finger on the left.",
+        "Close the right nostril and inhale through the left, then close the left and exhale through the right.",
+        "Inhale through the right, close it and exhale through the left; continue alternating."
+      ]
+    },
+    {
+      "sourceExternalId": "four_seven_eight_breathing_v1",
+      "name": "4-7-8 Breathing",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["pes_corporal"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "reps",
+      "tags": ["respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Sit comfortably and place the tongue tip behind the upper teeth.",
+        "Inhale silently through the nose for 4 seconds, hold the breath for 7 seconds.",
+        "Exhale audibly through the mouth for 8 seconds; repeat for 4 cycles."
+      ]
+    },
+    {
+      "sourceExternalId": "savasana_v1",
+      "name": "Savasana",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
+        "Close the eyes and let the body sink into the mat releasing all muscular effort.",
+        "Breathe naturally for 5–15 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "legs_up_wall_v1",
+      "name": "Legs-Up-the-Wall",
+      "primaryMuscles": ["lumbar"],
+      "secondaryMuscles": ["isquiotibials"],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "respiracio"],
+      "restrictions": [
+        {
+          "condition": "hipertensio",
+          "action": "modify",
+          "note": "Keep the head slightly elevated and limit duration to a few minutes."
+        }
+      ],
+      "instructions": [
+        "Sit sideways against a wall and swing the legs up the wall as you lie back on the mat.",
+        "Slide the hips close to the wall and let the arms relax at the sides.",
+        "Breathe slowly for 5–15 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "supported_fish_pose_v1",
+      "name": "Supported Fish Pose",
+      "primaryMuscles": ["mobilitat_toracica"],
+      "secondaryMuscles": ["pectoral"],
+      "equipment": ["foam_roller"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["iogues", "mobilitat_toracica"],
+      "restrictions": [],
+      "instructions": [
+        "Place a foam roller along the spine and lie back so it supports the upper back lengthwise.",
+        "Let the arms fall open to the sides and the legs extend or bend at the knees.",
+        "Breathe slowly opening the chest for 2–5 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "body_scan_v1",
+      "name": "Body Scan Relaxation",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Lie comfortably on the back with arms by the sides and eyes closed.",
+        "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
+        "Breathe naturally for 10–20 minutes."
+      ]
+    },
+    {
+      "sourceExternalId": "progressive_muscle_relaxation_v1",
+      "name": "Progressive Muscle Relaxation",
+      "primaryMuscles": ["abdominal"],
+      "secondaryMuscles": [],
+      "equipment": ["mat"],
+      "level": "beginner",
+      "category": "mobility",
+      "progressionMetric": "seconds",
+      "tags": ["respiracio"],
+      "restrictions": [],
+      "instructions": [
+        "Lie on the back and tense the feet for 5 seconds, then fully release for 10 seconds.",
+        "Move up the body tensing and releasing calves, thighs, glutes, abdomen, hands, arms, shoulders and face.",
+        "Finish with 1–2 minutes of natural breathing."
+      ]
+    }
+  ],
+  "i18n": {
+    "ca": {
+      "preset_tags": {
+        "mobilitat": "Mobilitat",
+        "mobilitat_toracica": "Mobilitat toràcica",
+        "escalfament": "Escalfament",
+        "prehab": "Prehab",
+        "iogues": "Iogues",
+        "respiracio": "Respiració",
+        "sol_pelvic": "Sòl pèlvic",
+        "forca": "Força"
+      },
+      "exercises": {
+        "cat_cow_v1": {
+          "name": "Gat-vaca",
+          "instructions": [
+            "Comença a quatre grapes amb canells sota espatlles i genolls sota malucs.",
+            "Inspira i arqueja la columna baixant la panxa mentre mires amunt (vaca).",
+            "Espira i arrodoneix la columna amagant la barbeta i la pelvis (gat); alterna lentament."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "World's Greatest Stretch",
+          "instructions": [
+            "Des de posició de flexió, avança el peu dret per fora de la mà dreta en una llunja profunda.",
+            "Baixa el colze dret cap al peu i després rota el tronc obrint el braç dret cap al sostre.",
+            "Torna la mà al terra i recula; alterna costats."
+          ]
+        },
+        "thoracic_bridge_v1": {
+          "name": "Pont toràcic",
+          "instructions": [
+            "Asseu-te amb genolls flexionats, peus al terra i mans darrere amb dits cap enrere.",
+            "Aixeca els malucs i rota cap a un costat estenent el braç lliure cap amunt en extensió toràcica.",
+            "Torna a la posició inicial controlat; alterna costats."
+          ]
+        },
+        "open_book_stretch_v1": {
+          "name": "Open book toràcic",
+          "instructions": [
+            "Estira't de costat amb genolls superposats a 90° i braços estesos endavant, palmells junts.",
+            "Inspira i obre lentament el braç de dalt seguint-lo amb la mirada, mantenint els genolls junts.",
+            "Espira per tornar; fes reps i canvia de costat."
+          ]
+        },
+        "hip_90_90_switch_v1": {
+          "name": "Switch de maluc 90/90",
+          "instructions": [
+            "Asseu-te amb una cama davant amb la tíbia paral·lela al cos i l'altra al costat, totes dues a 90°.",
+            "Aixeca els genolls i rota els malucs per canviar les cames a la posició oposada.",
+            "Torna lentament controlat sense ajudar-te amb les mans."
+          ]
+        },
+        "ankle_rocking_v1": {
+          "name": "Mobilitat de turmell",
+          "instructions": [
+            "Agenolla't sobre un genoll amb el peu davant pla i mans sobre la cuixa.",
+            "Empeny el genoll davanter cap endavant per damunt dels dits sentint estirament al turmell, amb el taló a terra.",
+            "Torna i repeteix; canvia de costat."
+          ]
+        },
+        "wrist_warmup_circles_v1": {
+          "name": "Cercles d'escalfament de canells",
+          "instructions": [
+            "Estén els braços endavant i entrellaça els dits.",
+            "Fes cercles lents amb els canells en sentit horari per les reps prescrites.",
+            "Inverteix la direcció el mateix nombre de reps."
+          ]
+        },
+        "neck_cars_v1": {
+          "name": "CARs de coll",
+          "instructions": [
+            "Asseu-te o queda't dret amb les espatlles relaxades.",
+            "Rota lentament el cap fent un cercle controlat explorant el rang sense dolor.",
+            "Inverteix la direcció les mateixes reps; mantingues el moviment lent."
+          ]
+        },
+        "shoulder_cars_v1": {
+          "name": "CARs d'espatlla",
+          "instructions": [
+            "Dret amb un braç al costat, contrau el core.",
+            "Traça el cercle controlat més gran possible amb el braç: endavant, amunt, enrere i avall.",
+            "Inverteix la direcció; canvia de braç."
+          ]
+        },
+        "hip_cars_v1": {
+          "name": "CARs de maluc",
+          "instructions": [
+            "Dret sobre una cama, agafa't a una paret per equilibri si cal.",
+            "Aixeca el genoll lliure a l'altura del maluc, obre'l cap al costat i després porta'l darrere i baixa'l.",
+            "Inverteix el cercle; canvia de costat."
+          ]
+        },
+        "foam_roll_thoracic_v1": {
+          "name": "Foam roller dorsal",
+          "instructions": [
+            "Estira't sobre un foam roller col·locat a la part alta de l'esquena, genolls flexionats i mans darrere del cap.",
+            "Aixeca lleugerament els malucs i mou-te amunt i avall entre les escàpules i la zona mitja.",
+            "Pausa als punts tensos i respira lent; evita la zona lumbar."
+          ]
+        },
+        "foam_roll_quads_v1": {
+          "name": "Foam roller quàdriceps",
+          "instructions": [
+            "Estira't boca avall amb el foam roller a la part frontal de les cuixes, sostingut sobre els avantbraços.",
+            "Mou-te lentament des de just sobre els genolls fins als flexors del maluc.",
+            "Pausa als punts tensos i respira; evita rodar sobre la ròtula."
+          ]
+        },
+        "foam_roll_glutes_v1": {
+          "name": "Foam roller glutis",
+          "instructions": [
+            "Asseu-te sobre un foam roller amb un turmell creuat sobre el genoll oposat.",
+            "Inclina't cap al costat de la cama creuada i mou-te lentament sobre el glúti.",
+            "Pausa als punts tensos i respira; canvia de costat."
+          ]
+        },
+        "pec_release_ball_v1": {
+          "name": "Alliberament pectoral amb pilota",
+          "instructions": [
+            "Posa una pilota de massatge entre la part alta del pit i una paret, just sota la clavícula.",
+            "Aplica pressió contra la pilota i mou el braç per trobar punts tensos.",
+            "Mantingues 20–30 segons cada punt respirant lent; canvia de costat."
+          ]
+        },
+        "couch_stretch_v1": {
+          "name": "Couch stretch",
+          "instructions": [
+            "Agenolla't d'esquena a la paret o sofà, posa una tíbia contra la paret amb el peu cap amunt i l'altre peu pla davant en llunja.",
+            "Contrau el glúti del darrere i puja el pit alt mantenint la lumbar neutra.",
+            "Mantingues 30–60 segons respirant lent; canvia de costat."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Gos cap avall",
+          "instructions": [
+            "Des de quatre grapes, plega els dits dels peus i puja els malucs amunt i enrere fent una V invertida.",
+            "Pressiona el pit cap a les cuixes i els talons cap al terra sense bloquejar genolls.",
+            "Mantingues respirant amb constància pel temps prescrit."
+          ]
+        },
+        "upward_dog_v1": {
+          "name": "Gos cap amunt",
+          "instructions": [
+            "Estira't boca avall amb mans sota espatlles i empenyes dels peus al matalàs.",
+            "Empeny les mans aixecant el pit, malucs i cuixes del terra amb braços estesos.",
+            "Roda les espatlles enrere i mira lleugerament amunt; mantingues respirant."
+          ]
+        },
+        "cobra_pose_v1": {
+          "name": "Postura de la cobra",
+          "instructions": [
+            "Estira't boca avall amb les mans sota les espatlles i els colzes plegats.",
+            "Empeny lleugerament aixecant el pit del terra amb els colzes encara plegats.",
+            "Mantingues respirant; baixa controlat."
+          ]
+        },
+        "childs_pose_v1": {
+          "name": "Postura del nen",
+          "instructions": [
+            "Agenolla't al matalàs amb els polzes dels peus tocant-se i els genolls oberts.",
+            "Asseu els malucs als talons i camina les mans endavant estenent els braços.",
+            "Recolza el front al matalàs i respira lent cap a l'esquena."
+          ]
+        },
+        "warrior_one_v1": {
+          "name": "Guerrer I",
+          "instructions": [
+            "Avança un peu en una llunja llarga amb el peu del darrere girat 45°.",
+            "Flexiona el genoll davanter sobre el turmell i estén els dos braços amunt, palmells encarats.",
+            "Quadra els malucs endavant i mantingues respirant; canvia de costat."
+          ]
+        },
+        "warrior_two_v1": {
+          "name": "Guerrer II",
+          "instructions": [
+            "Obre els peus, gira el peu davanter endavant i el del darrere 90° al costat.",
+            "Flexiona el genoll davanter sobre el turmell i estén els braços paral·lels al terra.",
+            "Mira sobre la mà davantera i mantingues respirant; canvia de costat."
+          ]
+        },
+        "triangle_pose_v1": {
+          "name": "Postura del triangle",
+          "instructions": [
+            "Obre els peus, gira el peu davanter endavant i el del darrere 90°, braços estesos als costats.",
+            "Flexiona pel maluc davanter portant la mà davantera cap al turmell i la mà de dalt cap al sostre.",
+            "Mantingues el pit obert i mira amunt; canvia de costat."
+          ]
+        },
+        "tree_pose_v1": {
+          "name": "Postura de l'arbre",
+          "instructions": [
+            "Dret i transfereix el pes a una cama.",
+            "Posa l'altre peu al turmell, bessó o cuixa interna (evita el genoll) i porta les mans al pit o amunt.",
+            "Mantingues respirant; canvia de costat."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Postura del colom",
+          "instructions": [
+            "Des de quatre grapes, porta una tíbia endavant creuant el matalàs amb la cama del darrere estirada.",
+            "Quadra els malucs i baixa el tronc sobre la tíbia davantera fins on toleris.",
+            "Mantingues respirant lent; canvia de costat."
+          ]
+        },
+        "seated_forward_fold_v1": {
+          "name": "Plegament endavant assegut",
+          "instructions": [
+            "Asseu-te amb les dues cames esteses endavant i els peus flexionats.",
+            "Inclina't des dels malucs cap als peus sense arrodonir la lumbar.",
+            "Mantingues respirant; flexiona lleugerament els genolls si cal."
+          ]
+        },
+        "bridge_pose_yoga_v1": {
+          "name": "Postura del pont (Setu Bandha)",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i peus a l'amplada del maluc.",
+            "Empeny pels peus i aixeca els malucs cap al sostre, opcionalment entrellaçant les mans sota.",
+            "Mantingues respirant i baixa controlat."
+          ]
+        },
+        "happy_baby_pose_v1": {
+          "name": "Bebè feliç",
+          "instructions": [
+            "Estira't d'esquena i porta els genolls cap a les aixelles.",
+            "Agafa l'exterior dels peus i tira'ls suaument cap al terra amb les tíbies verticals.",
+            "Balanceja't lleugerament respirant lent."
+          ]
+        },
+        "sun_salutation_a_v1": {
+          "name": "Salutació al sol A",
+          "instructions": [
+            "Des de dret, inspira braços amunt, espira plega endavant, inspira mig aixecat.",
+            "Espira recula a planxa, baixa al terra, inspira gos amunt, espira gos avall i respira.",
+            "Pas o salt al davant del matalàs, inspira mig aixecat, espira plega, inspira a dret; completa reps."
+          ]
+        },
+        "sun_salutation_b_v1": {
+          "name": "Salutació al sol B",
+          "instructions": [
+            "Des de dret, inspira a postura de la cadira, espira plega, inspira mig aixecat, espira recula a planxa-chaturanga, inspira gos amunt, espira gos avall.",
+            "Inspira porta el peu dret a Guerrer I, espira torna a planxa-chaturanga i flueix per gos amunt i avall; repeteix amb l'esquerre.",
+            "Pas o salt al davant, inspira mig aixecat, espira plega, inspira a cadira, espira a dret; completa reps."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Torsió supina",
+          "instructions": [
+            "Estira't d'esquena, abraça un genoll al pit i guia'l a través del cos cap al costat oposat.",
+            "Estén el braç del mateix costat i mira cap al braç estès, mantenint les dues espatlles a terra.",
+            "Mantingues respirant lent; canvia de costat."
+          ]
+        },
+        "diaphragmatic_breathing_v1": {
+          "name": "Respiració diafragmàtica",
+          "instructions": [
+            "Estira't d'esquena amb genolls flexionats i una mà al pit, l'altra a la panxa.",
+            "Inspira lent pel nas 4 segons expandint la panxa mentre el pit es manté quasi quiet.",
+            "Espira pels llavis arrunyats 6 segons; repeteix pel temps prescrit."
+          ]
+        },
+        "box_breathing_v1": {
+          "name": "Respiració quadrada 4-4-4-4",
+          "instructions": [
+            "Asseu-te còmode amb la columna alta i les espatlles relaxades.",
+            "Inspira pel nas 4 segons, retén 4 segons.",
+            "Espira 4 segons, retén buit 4 segons; repeteix el cicle."
+          ]
+        },
+        "coherent_breathing_v1": {
+          "name": "Respiració coherent",
+          "instructions": [
+            "Asseu-te o estira't còmode amb la columna neutra.",
+            "Inspira pel nas 5 segons expandint la panxa i les costelles.",
+            "Espira pel nas 5 segons; continua a aquest ritme 5–10 minuts."
+          ]
+        },
+        "alternate_nostril_breathing_v1": {
+          "name": "Respiració alterna (Nadi Shodhana)",
+          "instructions": [
+            "Asseu-te còmode i porta la mà dreta a la cara amb el polze sobre la fossa dreta i l'anular sobre l'esquerra.",
+            "Tanca la fossa dreta i inspira per l'esquerra, llavors tanca l'esquerra i espira per la dreta.",
+            "Inspira per la dreta, tanca-la i espira per l'esquerra; continua alternant."
+          ]
+        },
+        "four_seven_eight_breathing_v1": {
+          "name": "Respiració 4-7-8",
+          "instructions": [
+            "Asseu-te còmode i posa la punta de la llengua darrere les dents superiors.",
+            "Inspira en silenci pel nas 4 segons, retén l'aire 7 segons.",
+            "Espira audiblement per la boca 8 segons; repeteix 4 cicles."
+          ]
+        },
+        "savasana_v1": {
+          "name": "Savasana",
+          "instructions": [
+            "Estira't d'esquena amb els braços lleugerament separats del cos, palmells amunt, i els peus relaxats oberts.",
+            "Tanca els ulls i deixa el cos enfonsar-se al matalàs alliberant tot esforç muscular.",
+            "Respira naturalment 5–15 minuts."
+          ]
+        },
+        "legs_up_wall_v1": {
+          "name": "Cames a la paret",
+          "instructions": [
+            "Asseu-te de costat contra una paret i puja les cames per la paret mentre t'estires al matalàs.",
+            "Llisca els malucs a prop de la paret i deixa els braços relaxats als costats.",
+            "Respira lent 5–15 minuts."
+          ]
+        },
+        "supported_fish_pose_v1": {
+          "name": "Postura del peix amb suport",
+          "instructions": [
+            "Posa un foam roller al llarg de la columna i estira't d'esquena perquè et sostingui la part alta longitudinalment.",
+            "Deixa els braços caure als costats i les cames esteses o flexionades.",
+            "Respira lent obrint el pit 2–5 minuts."
+          ]
+        },
+        "body_scan_v1": {
+          "name": "Escaneig corporal",
+          "instructions": [
+            "Estira't còmode d'esquena amb braços als costats i ulls tancats.",
+            "Porta l'atenció lentament per cada part del cos des dels peus fins al cap, observant sense jutjar.",
+            "Respira naturalment 10–20 minuts."
+          ]
+        },
+        "progressive_muscle_relaxation_v1": {
+          "name": "Relaxació muscular progressiva",
+          "instructions": [
+            "Estira't d'esquena i tensa els peus 5 segons, després allibera totalment 10 segons.",
+            "Puja pel cos tensant i alliberant bessons, cuixes, glutis, abdomen, mans, braços, espatlles i cara.",
+            "Acaba amb 1–2 minuts de respiració natural."
+          ]
+        }
+      }
+    },
+    "es": {
+      "preset_tags": {
+        "mobilitat": "Movilidad",
+        "mobilitat_toracica": "Movilidad torácica",
+        "escalfament": "Calentamiento",
+        "prehab": "Prehab",
+        "iogues": "Yoga",
+        "respiracio": "Respiración",
+        "sol_pelvic": "Suelo pélvico",
+        "forca": "Fuerza"
+      },
+      "exercises": {
+        "cat_cow_v1": {
+          "name": "Gato-vaca",
+          "instructions": [
+            "Empieza a cuatro patas con muñecas bajo hombros y rodillas bajo caderas.",
+            "Inhala y arquea la columna bajando el abdomen mientras miras arriba (vaca).",
+            "Exhala y redondea la columna escondiendo barbilla y pelvis (gato); alterna lento."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "World's Greatest Stretch",
+          "instructions": [
+            "Desde posición de flexión, avanza el pie derecho por fuera de la mano derecha en una zancada profunda.",
+            "Baja el codo derecho hacia el pie y luego rota el torso abriendo el brazo derecho hacia el techo.",
+            "Vuelve la mano al suelo y retrocede; alterna lados."
+          ]
+        },
+        "thoracic_bridge_v1": {
+          "name": "Puente torácico",
+          "instructions": [
+            "Siéntate con rodillas flexionadas, pies en el suelo y manos detrás con dedos hacia atrás.",
+            "Eleva las caderas y rota a un lado extendiendo el brazo libre hacia arriba en extensión torácica.",
+            "Vuelve a la posición inicial controlado; alterna lados."
+          ]
+        },
+        "open_book_stretch_v1": {
+          "name": "Open book torácico",
+          "instructions": [
+            "Túmbate de lado con rodillas apiladas a 90° y brazos extendidos delante, palmas juntas.",
+            "Inhala y abre lento el brazo de arriba siguiéndolo con la mirada, manteniendo las rodillas juntas.",
+            "Exhala para volver; haz reps y cambia de lado."
+          ]
+        },
+        "hip_90_90_switch_v1": {
+          "name": "Switch de cadera 90/90",
+          "instructions": [
+            "Siéntate con una pierna delante con la tibia paralela al cuerpo y la otra al lado, ambas a 90°.",
+            "Eleva las rodillas y rota las caderas para cambiar las piernas a la posición opuesta.",
+            "Vuelve lento controlado sin ayudarte con las manos."
+          ]
+        },
+        "ankle_rocking_v1": {
+          "name": "Movilidad de tobillo",
+          "instructions": [
+            "Arrodíllate sobre una rodilla con el pie delantero plano y manos sobre el muslo.",
+            "Empuja la rodilla delantera por encima de los dedos sintiendo estiramiento en el tobillo, con el talón en el suelo.",
+            "Vuelve y repite; cambia de lado."
+          ]
+        },
+        "wrist_warmup_circles_v1": {
+          "name": "Círculos de calentamiento de muñecas",
+          "instructions": [
+            "Extiende los brazos delante y entrelaza los dedos.",
+            "Haz círculos lentos con las muñecas en sentido horario las reps prescritas.",
+            "Invierte la dirección las mismas reps."
+          ]
+        },
+        "neck_cars_v1": {
+          "name": "CARs de cuello",
+          "instructions": [
+            "Siéntate o quédate de pie con los hombros relajados.",
+            "Rota lento la cabeza dibujando un círculo controlado explorando el rango sin dolor.",
+            "Invierte la dirección las mismas reps; mantén el movimiento lento."
+          ]
+        },
+        "shoulder_cars_v1": {
+          "name": "CARs de hombro",
+          "instructions": [
+            "De pie con un brazo al lado, contrae el core.",
+            "Traza el círculo controlado más grande posible con el brazo: adelante, arriba, atrás y abajo.",
+            "Invierte la dirección; cambia de brazo."
+          ]
+        },
+        "hip_cars_v1": {
+          "name": "CARs de cadera",
+          "instructions": [
+            "De pie sobre una pierna, agárrate a una pared para equilibrio si hace falta.",
+            "Eleva la rodilla libre a la altura de la cadera, ábrela al lado y luego llévala atrás y baja.",
+            "Invierte el círculo; cambia de lado."
+          ]
+        },
+        "foam_roll_thoracic_v1": {
+          "name": "Foam roller dorsal",
+          "instructions": [
+            "Túmbate sobre un foam roller colocado en la parte alta de la espalda, rodillas flexionadas y manos detrás de la cabeza.",
+            "Eleva ligeramente las caderas y muévete arriba y abajo entre las escápulas y la zona media.",
+            "Pausa en puntos tensos y respira lento; evita la zona lumbar."
+          ]
+        },
+        "foam_roll_quads_v1": {
+          "name": "Foam roller cuádriceps",
+          "instructions": [
+            "Túmbate boca abajo con el foam roller en la parte frontal de los muslos, apoyado sobre los antebrazos.",
+            "Muévete lento desde justo encima de las rodillas hasta los flexores de cadera.",
+            "Pausa en puntos tensos y respira; evita rodar sobre la rótula."
+          ]
+        },
+        "foam_roll_glutes_v1": {
+          "name": "Foam roller glúteos",
+          "instructions": [
+            "Siéntate sobre un foam roller con un tobillo cruzado sobre la rodilla opuesta.",
+            "Inclínate hacia el lado de la pierna cruzada y muévete lento sobre el glúteo.",
+            "Pausa en puntos tensos y respira; cambia de lado."
+          ]
+        },
+        "pec_release_ball_v1": {
+          "name": "Liberación pectoral con pelota",
+          "instructions": [
+            "Coloca una pelota de masaje entre la parte alta del pecho y una pared, justo bajo la clavícula.",
+            "Aplica presión contra la pelota y mueve el brazo para encontrar puntos tensos.",
+            "Mantén 20–30 segundos cada punto respirando lento; cambia de lado."
+          ]
+        },
+        "couch_stretch_v1": {
+          "name": "Couch stretch",
+          "instructions": [
+            "Arrodíllate de espaldas a la pared o sofá, coloca una tibia contra la pared con el pie hacia arriba y el otro pie plano delante en zancada.",
+            "Contrae el glúteo trasero y eleva el pecho alto manteniendo la lumbar neutra.",
+            "Mantén 30–60 segundos respirando lento; cambia de lado."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Perro boca abajo",
+          "instructions": [
+            "Desde cuatro patas, flexiona los dedos de los pies y eleva las caderas arriba y atrás formando una V invertida.",
+            "Empuja el pecho hacia los muslos y los talones hacia el suelo sin bloquear rodillas.",
+            "Mantén respirando con constancia el tiempo prescrito."
+          ]
+        },
+        "upward_dog_v1": {
+          "name": "Perro boca arriba",
+          "instructions": [
+            "Túmbate boca abajo con manos bajo hombros y empeines en la esterilla.",
+            "Empuja las manos elevando pecho, caderas y muslos del suelo con brazos extendidos.",
+            "Rueda los hombros atrás y mira ligeramente arriba; mantén respirando."
+          ]
+        },
+        "cobra_pose_v1": {
+          "name": "Postura de la cobra",
+          "instructions": [
+            "Túmbate boca abajo con manos bajo hombros y codos pegados.",
+            "Empuja ligeramente elevando el pecho del suelo con los codos aún flexionados.",
+            "Mantén respirando; baja controlado."
+          ]
+        },
+        "childs_pose_v1": {
+          "name": "Postura del niño",
+          "instructions": [
+            "Arrodíllate en la esterilla con los dedos gordos juntos y las rodillas abiertas.",
+            "Sienta las caderas en los talones y camina las manos delante extendiendo los brazos.",
+            "Apoya la frente en la esterilla y respira lento hacia la espalda."
+          ]
+        },
+        "warrior_one_v1": {
+          "name": "Guerrero I",
+          "instructions": [
+            "Avanza un pie en una zancada larga con el pie trasero girado 45°.",
+            "Flexiona la rodilla delantera sobre el tobillo y extiende ambos brazos arriba, palmas enfrentadas.",
+            "Cuadra las caderas adelante y mantén respirando; cambia de lado."
+          ]
+        },
+        "warrior_two_v1": {
+          "name": "Guerrero II",
+          "instructions": [
+            "Abre los pies, gira el pie delantero adelante y el trasero 90° al lado.",
+            "Flexiona la rodilla delantera sobre el tobillo y extiende los brazos paralelos al suelo.",
+            "Mira sobre la mano delantera y mantén respirando; cambia de lado."
+          ]
+        },
+        "triangle_pose_v1": {
+          "name": "Postura del triángulo",
+          "instructions": [
+            "Abre los pies, gira el pie delantero adelante y el trasero 90°, brazos extendidos a los lados.",
+            "Flexiona por la cadera delantera llevando la mano delantera hacia el tobillo y la mano de arriba al techo.",
+            "Mantén el pecho abierto y mira arriba; cambia de lado."
+          ]
+        },
+        "tree_pose_v1": {
+          "name": "Postura del árbol",
+          "instructions": [
+            "De pie y transfiere el peso a una pierna.",
+            "Coloca el otro pie en el tobillo, gemelo o muslo interno (evita la rodilla) y lleva las manos al pecho o arriba.",
+            "Mantén respirando; cambia de lado."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Postura de la paloma",
+          "instructions": [
+            "Desde cuatro patas, lleva una tibia adelante cruzando la esterilla con la pierna trasera estirada.",
+            "Cuadra las caderas y baja el torso sobre la tibia delantera hasta donde toleres.",
+            "Mantén respirando lento; cambia de lado."
+          ]
+        },
+        "seated_forward_fold_v1": {
+          "name": "Flexión sentada hacia delante",
+          "instructions": [
+            "Siéntate con ambas piernas extendidas delante y los pies flexionados.",
+            "Inclínate desde las caderas hacia los pies sin redondear la lumbar.",
+            "Mantén respirando; flexiona ligeramente las rodillas si hace falta."
+          ]
+        },
+        "bridge_pose_yoga_v1": {
+          "name": "Postura del puente (Setu Bandha)",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y pies al ancho de cadera.",
+            "Empuja por los pies y eleva las caderas hacia el techo, opcionalmente entrelazando las manos debajo.",
+            "Mantén respirando y baja controlado."
+          ]
+        },
+        "happy_baby_pose_v1": {
+          "name": "Bebé feliz",
+          "instructions": [
+            "Túmbate de espaldas y lleva las rodillas hacia las axilas.",
+            "Agarra el exterior de los pies y tira de ellos suavemente hacia el suelo con las tibias verticales.",
+            "Balancéate ligeramente respirando lento."
+          ]
+        },
+        "sun_salutation_a_v1": {
+          "name": "Saludo al sol A",
+          "instructions": [
+            "Desde de pie, inhala brazos arriba, exhala flexión adelante, inhala medio elevado.",
+            "Exhala retrocede a plancha, baja al suelo, inhala perro arriba, exhala perro abajo y respira.",
+            "Paso o salto al frente, inhala medio elevado, exhala flexión, inhala a de pie; completa reps."
+          ]
+        },
+        "sun_salutation_b_v1": {
+          "name": "Saludo al sol B",
+          "instructions": [
+            "Desde de pie, inhala a postura de la silla, exhala flexión, inhala medio elevado, exhala retrocede a plancha-chaturanga, inhala perro arriba, exhala perro abajo.",
+            "Inhala lleva el pie derecho a Guerrero I, exhala vuelve a plancha-chaturanga y fluye por perro arriba y abajo; repite con el izquierdo.",
+            "Paso o salto al frente, inhala medio elevado, exhala flexión, inhala a silla, exhala a de pie; completa reps."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Torsión supina",
+          "instructions": [
+            "Túmbate de espaldas, abraza una rodilla al pecho y guíala a través del cuerpo al lado opuesto.",
+            "Extiende el brazo del mismo lado y mira hacia el brazo extendido, manteniendo ambos hombros en el suelo.",
+            "Mantén respirando lento; cambia de lado."
+          ]
+        },
+        "diaphragmatic_breathing_v1": {
+          "name": "Respiración diafragmática",
+          "instructions": [
+            "Túmbate de espaldas con rodillas flexionadas y una mano en el pecho, la otra en el abdomen.",
+            "Inhala lento por la nariz 4 segundos expandiendo el abdomen mientras el pecho se mantiene casi quieto.",
+            "Exhala por los labios fruncidos 6 segundos; repite el tiempo prescrito."
+          ]
+        },
+        "box_breathing_v1": {
+          "name": "Respiración cuadrada 4-4-4-4",
+          "instructions": [
+            "Siéntate cómodo con la columna alta y los hombros relajados.",
+            "Inhala por la nariz 4 segundos, retén 4 segundos.",
+            "Exhala 4 segundos, retén vacío 4 segundos; repite el ciclo."
+          ]
+        },
+        "coherent_breathing_v1": {
+          "name": "Respiración coherente",
+          "instructions": [
+            "Siéntate o túmbate cómodo con la columna neutra.",
+            "Inhala por la nariz 5 segundos expandiendo abdomen y costillas.",
+            "Exhala por la nariz 5 segundos; continúa a este ritmo 5–10 minutos."
+          ]
+        },
+        "alternate_nostril_breathing_v1": {
+          "name": "Respiración alterna (Nadi Shodhana)",
+          "instructions": [
+            "Siéntate cómodo y lleva la mano derecha a la cara con el pulgar sobre la fosa derecha y el anular sobre la izquierda.",
+            "Cierra la fosa derecha e inhala por la izquierda, luego cierra la izquierda y exhala por la derecha.",
+            "Inhala por la derecha, ciérrala y exhala por la izquierda; continúa alternando."
+          ]
+        },
+        "four_seven_eight_breathing_v1": {
+          "name": "Respiración 4-7-8",
+          "instructions": [
+            "Siéntate cómodo y coloca la punta de la lengua detrás de los dientes superiores.",
+            "Inhala en silencio por la nariz 4 segundos, retén la respiración 7 segundos.",
+            "Exhala audiblemente por la boca 8 segundos; repite 4 ciclos."
+          ]
+        },
+        "savasana_v1": {
+          "name": "Savasana",
+          "instructions": [
+            "Túmbate de espaldas con los brazos ligeramente separados del cuerpo, palmas arriba, y los pies relajados abiertos.",
+            "Cierra los ojos y deja que el cuerpo se hunda en la esterilla liberando todo esfuerzo muscular.",
+            "Respira naturalmente 5–15 minutos."
+          ]
+        },
+        "legs_up_wall_v1": {
+          "name": "Piernas en la pared",
+          "instructions": [
+            "Siéntate de lado contra una pared y sube las piernas por la pared mientras te tumbas en la esterilla.",
+            "Desliza las caderas cerca de la pared y deja los brazos relajados a los lados.",
+            "Respira lento 5–15 minutos."
+          ]
+        },
+        "supported_fish_pose_v1": {
+          "name": "Postura del pez con apoyo",
+          "instructions": [
+            "Coloca un foam roller a lo largo de la columna y túmbate de espaldas para que sostenga la parte alta longitudinalmente.",
+            "Deja caer los brazos a los lados y las piernas extendidas o flexionadas.",
+            "Respira lento abriendo el pecho 2–5 minutos."
+          ]
+        },
+        "body_scan_v1": {
+          "name": "Escaneo corporal",
+          "instructions": [
+            "Túmbate cómodo de espaldas con brazos a los lados y ojos cerrados.",
+            "Lleva la atención lento por cada parte del cuerpo desde los pies hasta la cabeza, observando sin juzgar.",
+            "Respira naturalmente 10–20 minutos."
+          ]
+        },
+        "progressive_muscle_relaxation_v1": {
+          "name": "Relajación muscular progresiva",
+          "instructions": [
+            "Túmbate de espaldas y tensa los pies 5 segundos, luego suelta totalmente 10 segundos.",
+            "Sube por el cuerpo tensando y soltando gemelos, muslos, glúteos, abdomen, manos, brazos, hombros y cara.",
+            "Termina con 1–2 minutos de respiración natural."
+          ]
+        }
+      }
+    },
+    "en": {
+      "preset_tags": {
+        "mobilitat": "Mobility",
+        "mobilitat_toracica": "Thoracic mobility",
+        "escalfament": "Warm-up",
+        "prehab": "Prehab",
+        "iogues": "Yoga",
+        "respiracio": "Breathwork",
+        "sol_pelvic": "Pelvic floor",
+        "forca": "Strength"
+      },
+      "exercises": {
+        "cat_cow_v1": {
+          "name": "Cat-Cow",
+          "instructions": [
+            "Start on hands and knees with wrists under shoulders and knees under hips.",
+            "Inhale and arch the spine dropping the belly while looking up (cow).",
+            "Exhale and round the spine tucking the chin and pelvis (cat); alternate slowly."
+          ]
+        },
+        "world_greatest_stretch_v1": {
+          "name": "World's Greatest Stretch",
+          "instructions": [
+            "From a push-up position step the right foot outside the right hand into a deep lunge.",
+            "Drop the right elbow toward the instep, then rotate the torso opening the right arm up to the ceiling.",
+            "Return the hand to the floor and step back; alternate sides."
+          ]
+        },
+        "thoracic_bridge_v1": {
+          "name": "Thoracic Bridge",
+          "instructions": [
+            "Sit with knees bent, feet flat and hands behind you, fingers pointing back.",
+            "Lift the hips and rotate to one side reaching the free hand overhead in a thoracic extension.",
+            "Return to the start under control; alternate sides."
+          ]
+        },
+        "open_book_stretch_v1": {
+          "name": "Open Book Thoracic Rotation",
+          "instructions": [
+            "Lie on one side with knees stacked at 90° and arms extended in front, palms together.",
+            "Inhale and slowly open the top arm across the body following it with your gaze, keeping the knees stacked.",
+            "Exhale to return; complete reps and switch sides."
+          ]
+        },
+        "hip_90_90_switch_v1": {
+          "name": "90/90 Hip Switch",
+          "instructions": [
+            "Sit with one shin in front parallel to the body and the other shin to the side, both at 90°.",
+            "Lift the knees and rotate the hips to switch leg positions to the opposite side.",
+            "Return slowly under control without using the hands."
+          ]
+        },
+        "ankle_rocking_v1": {
+          "name": "Ankle Rocking",
+          "instructions": [
+            "Kneel on one knee with the front foot flat and hands on the front thigh.",
+            "Drive the front knee forward over the toes feeling a stretch in the ankle, keeping the heel down.",
+            "Return and repeat for reps; switch sides."
+          ]
+        },
+        "wrist_warmup_circles_v1": {
+          "name": "Wrist Warm-up Circles",
+          "instructions": [
+            "Extend the arms in front and interlock the fingers.",
+            "Circle the wrists slowly clockwise for the prescribed reps.",
+            "Reverse direction for the same number of reps."
+          ]
+        },
+        "neck_cars_v1": {
+          "name": "Neck CARs",
+          "instructions": [
+            "Sit or stand tall with shoulders relaxed.",
+            "Slowly rotate the head in a controlled circle exploring the full range without pain.",
+            "Reverse direction for the same reps; keep the motion slow."
+          ]
+        },
+        "shoulder_cars_v1": {
+          "name": "Shoulder CARs",
+          "instructions": [
+            "Stand tall with one arm at the side, brace the core.",
+            "Trace the largest controlled circle possible with the arm: forward, up, back and down.",
+            "Reverse direction; switch arms."
+          ]
+        },
+        "hip_cars_v1": {
+          "name": "Hip CARs",
+          "instructions": [
+            "Stand on one leg, holding a wall for balance if needed.",
+            "Lift the free knee to hip height, abduct it to the side, then rotate it back behind you and lower.",
+            "Reverse the circle; switch sides."
+          ]
+        },
+        "foam_roll_thoracic_v1": {
+          "name": "Foam Roll Thoracic Spine",
+          "instructions": [
+            "Lie back on a foam roller placed across the upper back, knees bent and hands behind the head.",
+            "Lift the hips slightly and roll up and down between the shoulder blades and mid-back.",
+            "Pause on tight spots and breathe slowly; avoid the lumbar spine."
+          ]
+        },
+        "foam_roll_quads_v1": {
+          "name": "Foam Roll Quads",
+          "instructions": [
+            "Lie face-down with the foam roller across the front of the thighs, supporting the upper body on the forearms.",
+            "Roll slowly from above the knees to the hip flexors.",
+            "Pause on tight spots and breathe; avoid rolling directly on the kneecap."
+          ]
+        },
+        "foam_roll_glutes_v1": {
+          "name": "Foam Roll Glutes",
+          "instructions": [
+            "Sit on a foam roller with one ankle crossed over the opposite knee.",
+            "Lean toward the crossed-leg side and roll slowly across the glute.",
+            "Pause on tight spots and breathe; switch sides."
+          ]
+        },
+        "pec_release_ball_v1": {
+          "name": "Pec Release with Massage Ball",
+          "instructions": [
+            "Place a massage ball between the upper chest and a wall just below the collarbone.",
+            "Lean into the ball and slowly explore the area moving the arm to find tight spots.",
+            "Hold each tight spot for 20–30 seconds breathing slowly; switch sides."
+          ]
+        },
+        "couch_stretch_v1": {
+          "name": "Couch Stretch",
+          "instructions": [
+            "Kneel facing away from a wall or couch, place one shin against the wall with the foot pointing up and the other foot flat in front in a lunge.",
+            "Squeeze the back glute and lift the chest tall, keeping the lower back neutral.",
+            "Hold for 30–60 seconds breathing slowly; switch sides."
+          ]
+        },
+        "downward_dog_v1": {
+          "name": "Downward-Facing Dog",
+          "instructions": [
+            "From hands and knees, tuck the toes and lift the hips up and back into an inverted V shape.",
+            "Press the chest toward the thighs and the heels toward the floor without locking the knees.",
+            "Hold breathing steadily for the prescribed time."
+          ]
+        },
+        "upward_dog_v1": {
+          "name": "Upward-Facing Dog",
+          "instructions": [
+            "Lie face-down with hands under the shoulders and tops of the feet on the mat.",
+            "Press into the hands lifting the chest, hips and thighs off the floor with arms straight.",
+            "Roll the shoulders back and look slightly up; hold breathing steadily."
+          ]
+        },
+        "cobra_pose_v1": {
+          "name": "Cobra Pose",
+          "instructions": [
+            "Lie face-down with hands under the shoulders and elbows tucked.",
+            "Press lightly into the hands lifting the chest off the floor with the elbows still bent.",
+            "Hold breathing steadily; lower under control."
+          ]
+        },
+        "childs_pose_v1": {
+          "name": "Child's Pose",
+          "instructions": [
+            "Kneel on the mat with big toes touching and knees apart.",
+            "Sit the hips back to the heels and walk the hands forward extending the arms.",
+            "Rest the forehead on the mat and breathe slowly into the back."
+          ]
+        },
+        "warrior_one_v1": {
+          "name": "Warrior I",
+          "instructions": [
+            "Step one foot forward into a long lunge with the back foot turned out 45°.",
+            "Bend the front knee over the ankle and reach both arms overhead, palms facing.",
+            "Square the hips forward and hold breathing steadily; switch sides."
+          ]
+        },
+        "warrior_two_v1": {
+          "name": "Warrior II",
+          "instructions": [
+            "Step the feet wide apart, turn the front foot forward and the back foot 90° to the side.",
+            "Bend the front knee over the ankle and extend the arms parallel to the floor.",
+            "Gaze over the front hand and hold breathing steadily; switch sides."
+          ]
+        },
+        "triangle_pose_v1": {
+          "name": "Triangle Pose",
+          "instructions": [
+            "Step the feet wide, turn the front foot forward and back foot 90°, arms extended sideways.",
+            "Hinge from the front hip reaching the front hand toward the ankle and the top hand to the ceiling.",
+            "Keep the chest open and gaze up; switch sides."
+          ]
+        },
+        "tree_pose_v1": {
+          "name": "Tree Pose",
+          "instructions": [
+            "Stand tall and shift weight onto one foot.",
+            "Place the other foot on the inner ankle, calf or thigh (avoid the knee) and bring the hands to the chest or overhead.",
+            "Hold breathing steadily; switch sides."
+          ]
+        },
+        "pigeon_pose_v1": {
+          "name": "Pigeon Pose",
+          "instructions": [
+            "From hands and knees, bring one shin forward across the mat with the back leg extended straight back.",
+            "Square the hips and lower the torso over the front shin to your comfortable depth.",
+            "Hold breathing slowly; switch sides."
+          ]
+        },
+        "seated_forward_fold_v1": {
+          "name": "Seated Forward Fold",
+          "instructions": [
+            "Sit with both legs extended forward and feet flexed.",
+            "Hinge from the hips reaching toward the feet without rounding the lower back.",
+            "Hold breathing steadily; bend the knees slightly if needed."
+          ]
+        },
+        "bridge_pose_yoga_v1": {
+          "name": "Bridge Pose (Setu Bandha)",
+          "instructions": [
+            "Lie on the back with knees bent and feet hip-width apart.",
+            "Press into the feet and lift the hips toward the ceiling, optionally clasping the hands beneath the body.",
+            "Hold breathing steadily and lower under control."
+          ]
+        },
+        "happy_baby_pose_v1": {
+          "name": "Happy Baby",
+          "instructions": [
+            "Lie on the back and bring the knees toward the armpits.",
+            "Grab the outsides of the feet and gently pull them down toward the floor with shins vertical.",
+            "Rock slightly side to side breathing slowly."
+          ]
+        },
+        "sun_salutation_a_v1": {
+          "name": "Sun Salutation A",
+          "instructions": [
+            "From standing inhale arms overhead, exhale fold forward, inhale halfway lift.",
+            "Exhale step or jump back to plank, lower to the floor, inhale to upward dog, exhale to downward dog and breathe.",
+            "Step or jump to the front of the mat, inhale halfway lift, exhale fold, inhale to stand; complete reps."
+          ]
+        },
+        "sun_salutation_b_v1": {
+          "name": "Sun Salutation B",
+          "instructions": [
+            "From standing inhale into chair pose, exhale fold forward, inhale halfway lift, exhale step back to plank then chaturanga, inhale upward dog, exhale downward dog.",
+            "Inhale step the right foot forward into Warrior I, exhale return to plank/chaturanga and flow through up dog and down dog; repeat with left.",
+            "Step or jump to the front, inhale halfway lift, exhale fold, inhale to chair, exhale stand; complete reps."
+          ]
+        },
+        "supine_twist_v1": {
+          "name": "Supine Spinal Twist",
+          "instructions": [
+            "Lie on the back, hug one knee to the chest then guide it across the body to the opposite side.",
+            "Extend the same-side arm out and turn the gaze toward the extended arm, keeping both shoulders on the floor.",
+            "Hold breathing slowly; switch sides."
+          ]
+        },
+        "diaphragmatic_breathing_v1": {
+          "name": "Diaphragmatic Breathing",
+          "instructions": [
+            "Lie on the back with knees bent and one hand on the chest, the other on the belly.",
+            "Inhale slowly through the nose for 4 seconds expanding the belly while the chest stays relatively still.",
+            "Exhale through pursed lips for 6 seconds; repeat for the prescribed time."
+          ]
+        },
+        "box_breathing_v1": {
+          "name": "Box Breathing 4-4-4-4",
+          "instructions": [
+            "Sit comfortably with the spine tall and shoulders relaxed.",
+            "Inhale through the nose for 4 seconds, hold for 4 seconds.",
+            "Exhale for 4 seconds, hold empty for 4 seconds; repeat the cycle."
+          ]
+        },
+        "coherent_breathing_v1": {
+          "name": "Coherent Breathing",
+          "instructions": [
+            "Sit or lie comfortably with the spine in neutral.",
+            "Inhale through the nose for 5 seconds expanding the belly and ribs.",
+            "Exhale through the nose for 5 seconds; continue at this pace for 5–10 minutes."
+          ]
+        },
+        "alternate_nostril_breathing_v1": {
+          "name": "Alternate Nostril Breathing (Nadi Shodhana)",
+          "instructions": [
+            "Sit comfortably and bring the right hand to the face with thumb on the right nostril and ring finger on the left.",
+            "Close the right nostril and inhale through the left, then close the left and exhale through the right.",
+            "Inhale through the right, close it and exhale through the left; continue alternating."
+          ]
+        },
+        "four_seven_eight_breathing_v1": {
+          "name": "4-7-8 Breathing",
+          "instructions": [
+            "Sit comfortably and place the tongue tip behind the upper teeth.",
+            "Inhale silently through the nose for 4 seconds, hold the breath for 7 seconds.",
+            "Exhale audibly through the mouth for 8 seconds; repeat for 4 cycles."
+          ]
+        },
+        "savasana_v1": {
+          "name": "Savasana",
+          "instructions": [
+            "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
+            "Close the eyes and let the body sink into the mat releasing all muscular effort.",
+            "Breathe naturally for 5–15 minutes."
+          ]
+        },
+        "legs_up_wall_v1": {
+          "name": "Legs-Up-the-Wall",
+          "instructions": [
+            "Sit sideways against a wall and swing the legs up the wall as you lie back on the mat.",
+            "Slide the hips close to the wall and let the arms relax at the sides.",
+            "Breathe slowly for 5–15 minutes."
+          ]
+        },
+        "supported_fish_pose_v1": {
+          "name": "Supported Fish Pose",
+          "instructions": [
+            "Place a foam roller along the spine and lie back so it supports the upper back lengthwise.",
+            "Let the arms fall open to the sides and the legs extend or bend at the knees.",
+            "Breathe slowly opening the chest for 2–5 minutes."
+          ]
+        },
+        "body_scan_v1": {
+          "name": "Body Scan Relaxation",
+          "instructions": [
+            "Lie comfortably on the back with arms by the sides and eyes closed.",
+            "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
+            "Breathe naturally for 10–20 minutes."
+          ]
+        },
+        "progressive_muscle_relaxation_v1": {
+          "name": "Progressive Muscle Relaxation",
+          "instructions": [
+            "Lie on the back and tense the feet for 5 seconds, then fully release for 10 seconds.",
+            "Move up the body tensing and releasing calves, thighs, glutes, abdomen, hands, arms, shoulders and face.",
+            "Finish with 1–2 minutes of natural breathing."
+          ]
+        }
+      }
+    }
+  }
+}

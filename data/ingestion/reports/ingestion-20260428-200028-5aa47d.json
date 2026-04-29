@@ -1,0 +1,554 @@
+{
+  "runId": "ingestion-20260428-200028-5aa47d",
+  "startedAt": "2026-04-28T20:00:28.280Z",
+  "completedAt": "2026-04-28T20:00:28.316Z",
+  "dryRun": false,
+  "counts": {
+    "accepted": 36,
+    "skipped": 0,
+    "duplicate": 4,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "cat_cow_v1",
+    "thoracic_bridge_v1",
+    "open_book_stretch_v1",
+    "hip_90_90_switch_v1",
+    "ankle_rocking_v1",
+    "wrist_warmup_circles_v1",
+    "neck_cars_v1",
+    "shoulder_cars_v1",
+    "hip_cars_v1",
+    "foam_roll_thoracic_v1",
+    "foam_roll_quads_v1",
+    "foam_roll_glutes_v1",
+    "pec_release_ball_v1",
+    "couch_stretch_v1",
+    "upward_dog_v1",
+    "cobra_pose_v1",
+    "childs_pose_v1",
+    "warrior_one_v1",
+    "warrior_two_v1",
+    "triangle_pose_v1",
+    "tree_pose_v1",
+    "seated_forward_fold_v1",
+    "bridge_pose_yoga_v1",
+    "happy_baby_pose_v1",
+    "sun_salutation_a_v1",
+    "sun_salutation_b_v1",
+    "diaphragmatic_breathing_v1",
+    "box_breathing_v1",
+    "coherent_breathing_v1",
+    "alternate_nostril_breathing_v1",
+    "four_seven_eight_breathing_v1",
+    "savasana_v1",
+    "legs_up_wall_v1",
+    "supported_fish_pose_v1",
+    "body_scan_v1",
+    "progressive_muscle_relaxation_v1"
+  ],
+  "acceptedPresetIds": [],
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/public/exercises/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/presets/catalog.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/source-registry.json",
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/alias-map.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/ca/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/es/exercises.json",
+    "/Users/03761952/oriol/the-strength-period/src/i18n/locales/en/exercises.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-mobility-yoga",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:cat_cow_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "cat_cow_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "cat_cow_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:world_greatest_stretch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "world_greatest_stretch_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "world_greatest_stretch_v1",
+      "duplicateOf": "world_greatest_stretch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:thoracic_bridge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "thoracic_bridge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "thoracic_bridge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:open_book_stretch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "open_book_stretch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "open_book_stretch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:hip_90_90_switch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "hip_90_90_switch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hip_90_90_switch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:ankle_rocking_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "ankle_rocking_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "ankle_rocking_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:wrist_warmup_circles_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "wrist_warmup_circles_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "wrist_warmup_circles_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:neck_cars_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "neck_cars_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "neck_cars_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:shoulder_cars_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "shoulder_cars_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "shoulder_cars_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:hip_cars_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "hip_cars_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hip_cars_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:foam_roll_thoracic_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "foam_roll_thoracic_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "foam_roll_thoracic_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:foam_roll_quads_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "foam_roll_quads_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "foam_roll_quads_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:foam_roll_glutes_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "foam_roll_glutes_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "foam_roll_glutes_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:pec_release_ball_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "pec_release_ball_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "pec_release_ball_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:couch_stretch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "couch_stretch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "couch_stretch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:downward_dog_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "downward_dog_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "downward_dog_v1",
+      "duplicateOf": "downward_dog_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:upward_dog_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "upward_dog_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "upward_dog_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:cobra_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "cobra_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "cobra_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:childs_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "childs_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "childs_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:warrior_one_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "warrior_one_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "warrior_one_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:warrior_two_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "warrior_two_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "warrior_two_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:triangle_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "triangle_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "triangle_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:tree_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "tree_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "tree_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:pigeon_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "pigeon_pose_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "pigeon_pose_v1",
+      "duplicateOf": "pigeon_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:seated_forward_fold_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "seated_forward_fold_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_forward_fold_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:bridge_pose_yoga_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "bridge_pose_yoga_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bridge_pose_yoga_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:happy_baby_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "happy_baby_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "happy_baby_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:sun_salutation_a_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "sun_salutation_a_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sun_salutation_a_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:sun_salutation_b_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "sun_salutation_b_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sun_salutation_b_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:supine_twist_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "supine_twist_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "supine_twist_v1",
+      "duplicateOf": "supine_twist_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:diaphragmatic_breathing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "diaphragmatic_breathing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "diaphragmatic_breathing_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:box_breathing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "box_breathing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "box_breathing_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:coherent_breathing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "coherent_breathing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "coherent_breathing_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:alternate_nostril_breathing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "alternate_nostril_breathing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "alternate_nostril_breathing_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:four_seven_eight_breathing_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "four_seven_eight_breathing_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "four_seven_eight_breathing_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:savasana_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "savasana_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "savasana_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:legs_up_wall_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "legs_up_wall_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "legs_up_wall_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:supported_fish_pose_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "supported_fish_pose_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "supported_fish_pose_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:body_scan_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "body_scan_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "body_scan_v1"
+    },
+    {
+      "candidateId": "bulk-x3-mobility-yoga:exercise:progressive_muscle_relaxation_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-mobility-yoga",
+      "sourceExternalId": "progressive_muscle_relaxation_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "progressive_muscle_relaxation_v1"
+    }
+  ]
+}
