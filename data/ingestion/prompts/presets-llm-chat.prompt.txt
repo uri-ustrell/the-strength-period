@@ -141,15 +141,23 @@ MANDATORY RULES
 9) Each preset must use either sessions[] (faithful mode) OR muscleDistribution (generator mode), not both.
 10) Exercise IDs in sessions[].exercises[].exerciseId must exist in the attached exercise-catalog.csv.
 
-ALLOWED ENUMS
+ALLOWED ENUMS (canonical — keep in sync with scripts/ingestion/contracts.ts)
 - progressionType: linear | undulating | block
-- requiredTags values:
-  corredor, pujada, baixada, velocitat, rehab_genoll, rehab_turmell, rehab_lumbar,
-  tendinitis_rotuliana, tendinitis_anserina, core_estabilitat, equilibri, pliometria,
-  mobilitat, escalfament, tornada_calma
-- autoRestrictions values:
-  rehab_genoll, rehab_lumbar, rehab_turmell, tendinitis_rotuliana
-- muscleDistribution keys (canonical muscle groups):
+- requiredTags (29 values):
+  corredor, pujada, baixada, velocitat,
+  rehab_genoll, rehab_turmell, rehab_lumbar,
+  tendinitis_rotuliana, tendinitis_anserina,
+  core_estabilitat, equilibri, pliometria,
+  mobilitat, escalfament, tornada_calma,
+  forca, hipertrofia, potencia, resistencia,
+  iogues, respiracio, mobilitat_toracica, anti_rotacio,
+  gestacio, postpart, sol_pelvic,
+  prehab, unilateral, isometric
+- autoRestrictions (10 values):
+  rehab_genoll, rehab_lumbar, rehab_turmell,
+  tendinitis_rotuliana, tendinitis_aquilea, lesio_lumbar_aguda,
+  embaras, postpart, diastasi, hipertensio
+- muscleDistribution keys (canonical muscle groups, 23 values):
   quadriceps, isquiotibials, glutis, bessons, tibial_anterior, adductors, abductors,
   psoes, pectoral, dorsal, trapezi, deltoides, biceps, triceps, avantbras, abdominal,
   oblics, lumbar, estabilitzadors_cadera, mobilitat_cadera, mobilitat_turmell,

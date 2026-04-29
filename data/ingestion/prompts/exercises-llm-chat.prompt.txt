@@ -63,36 +63,68 @@ MANDATORY RULES
 7) For every tag used in any exercise.tags entry, include i18n tag labels in ca/es/en under
   i18n.<locale>.preset_tags.<tag>.
 
-ALLOWED ENUMS
-- primaryMuscles / secondaryMuscles values:
+ALLOWED ENUMS (canonical — keep in sync with scripts/ingestion/contracts.ts)
+- primaryMuscles / secondaryMuscles (23 values):
   quadriceps, isquiotibials, glutis, bessons, tibial_anterior, adductors, abductors,
   psoes, pectoral, dorsal, trapezi, deltoides, biceps, triceps, avantbras, abdominal,
   oblics, lumbar, estabilitzadors_cadera, mobilitat_cadera, mobilitat_turmell,
   mobilitat_toracica, fascies
-- equipment values:
-  pes_corporal, manueles, barra, banda_elastica, pilates, trx
-- level values:
-  beginner, intermediate, expert
-- category values:
-  strength, mobility, stability, plyometrics, cardio
-- progressionMetric values:
-  weight, reps, seconds
-- tags values:
-  corredor, pujada, baixada, velocitat, rehab_genoll, rehab_turmell, rehab_lumbar,
-  tendinitis_rotuliana, tendinitis_anserina, core_estabilitat, equilibri, pliometria,
-  mobilitat, escalfament, tornada_calma
-- restrictions[].condition values:
-  rehab_genoll, rehab_lumbar, rehab_turmell, tendinitis_rotuliana
-- restrictions[].action values:
-  avoid, modify
+- equipment (27 values):
+  pes_corporal,
+  manueles, kettlebell, barra, discos, weight_vest,
+  banda_elastica, mini_band, banda_tubular,
+  trx, barra_dominades, anelles,
+  corda, comba, step, bicicleta, cinta,
+  foam_roller, pilota_massatge, mat,
+  fitball, bosu, plataforma_inestable,
+  paralettes, plyo_box, sandbag,
+  pilates
+- level: beginner, intermediate, expert
+- category (5 values, NO 'stretching'): strength, mobility, stability, plyometrics, cardio
+- progressionMetric: weight, reps, seconds
+- tags (29 values):
+  corredor, pujada, baixada, velocitat,
+  rehab_genoll, rehab_turmell, rehab_lumbar,
+  tendinitis_rotuliana, tendinitis_anserina,
+  core_estabilitat, equilibri, pliometria,
+  mobilitat, escalfament, tornada_calma,
+  forca, hipertrofia, potencia, resistencia,
+  iogues, respiracio, mobilitat_toracica, anti_rotacio,
+  gestacio, postpart, sol_pelvic,
+  prehab, unilateral, isometric
+- restrictions[].condition (10 values):
+  rehab_genoll, rehab_lumbar, rehab_turmell,
+  tendinitis_rotuliana, tendinitis_aquilea, lesio_lumbar_aguda,
+  embaras, postpart, diastasi, hipertensio
+- restrictions[].action: avoid, modify
+
+COMMON NON-CANONICAL VALUES TO AVOID (will be silently dropped or rejected)
+- Equipment: 'banc' (use anelles/manueles/barra), 'cable' (use banda_elastica or banda_tubular),
+  'landmine' (use barra), 'plate' (use discos)
+- Tags: 'activacio', 'activacio_pectoral' (use 'prehab' or 'escalfament' instead),
+  'tabata', 'circuit' (use 'resistencia' / 'potencia')
+- Categories: 'stretching' (use 'mobility'), 'recovery' (use 'mobility')
+- Restrictions: 'lesio_genoll' (use 'rehab_genoll'), 'embarazada' (use 'embaras')
+
+DUPLICATE PREVENTION (CRITICAL)
+- The catalog already contains 435+ exercises. Before generating, the user will provide a CSV
+  of all existing IDs (data/ingestion/prompts/exercise-catalog.csv). You MUST NOT propose any
+  sourceExternalId that already exists.
+- Exact slug collision causes hard rejection. Semantic near-duplicates (score ≥ 0.81) trigger
+  manual review. Aim for clearly distinct exercise variants (different equipment, range of motion,
+  unilateral vs bilateral, tempo emphasis, position).
+- Use descriptive snake_case IDs ending in _v1 (e.g. db_split_squat_v1, kb_clean_press_v1).
 
 JSON SCHEMA (EXACT FIELD NAMES)
+Note: the adapter accepts both `title` and `name` for the exercise entry; if neither is provided
+the sourceExternalId is used as fallback. The user-facing display name comes from
+i18n.<locale>.exercises.<id>.name, which is REQUIRED in ca/es/en.
 {
   "exercises": [
     {
       "kind": "exercise",
       "sourceExternalId": "string, required",
-      "title": "string, required",
+      "title": "string, required (or use 'name')",
       "aliases": ["string"],
       "primaryMuscles": ["quadriceps"],
       "secondaryMuscles": ["glutis"],
