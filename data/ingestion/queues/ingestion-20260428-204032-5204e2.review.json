@@ -1,0 +1,17 @@
+{
+  "runId": "ingestion-20260428-204032-5204e2",
+  "createdAt": "2026-04-28T20:40:32.774Z",
+  "items": [
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "squat_jump_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}

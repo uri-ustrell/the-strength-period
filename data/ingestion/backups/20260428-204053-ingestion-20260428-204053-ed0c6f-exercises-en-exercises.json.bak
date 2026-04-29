@@ -41,15 +41,10 @@
   "body_scan_v1": "Body Scan Relaxation",
   "Bodyweight_Squat": "Bodyweight Squat",
   "Bodyweight_Walking_Lunge": "Bodyweight Walking Lunge",
-  "bound_alternating_v1": "Alternating Bounds",
   "box_breathing_v1": "Box Breathing 4-4-4-4",
   "Box_Jump_Multiple_Response": "Box Jump - Multiple Response",
-  "box_jump_v1": "Box Jump",
-  "box_squat_jump_v1": "Box Squat Jump",
   "bridge_kegel_v1": "Bridge with Kegel",
   "bridge_pose_yoga_v1": "Bridge Pose (Setu Bandha)",
-  "broad_jump_v1": "Broad Jump",
-  "burpee_jump_v1": "Burpee with Jump",
   "Butt_Lift_Bridge": "Glute Bridge",
   "butterfly_breath_v1": "Butterfly with Pelvic Breath",
   "Calf_Raises_-_With_Bands": "Calf Raises with Bands",
@@ -59,7 +54,6 @@
   "Childs_Pose": "Child's Pose",
   "childs_pose_v1": "Child's Pose",
   "Chin-Up": "Chin-Up",
-  "clap_pushup_v1": "Clap Push-Up",
   "cobra_pose_v1": "Cobra Pose",
   "coherent_breathing_v1": "Coherent Breathing",
   "couch_stretch_v1": "Couch Stretch",
@@ -78,15 +72,12 @@
   "db_renegade_row_v1": "Renegade Row",
   "db_single_arm_row_v1": "Single-Arm Dumbbell Row",
   "db_skullcrusher_v1": "Dumbbell Skullcrusher",
-  "db_snatch_v1": "Dumbbell Snatch",
-  "db_thruster_v1": "Dumbbell Thruster",
   "db_zottman_curl_v1": "Zottman Curl",
   "Dead_Bug": "Dead Bug",
   "dead_bug_neutral_pelvis_v1": "Dead Bug (Neutral Pelvis)",
   "Decline_Crunch": "Decline Crunch",
   "Decline_Oblique_Crunch": "Decline Oblique Crunch",
   "deep_squat_release_v1": "Deep Squat Pelvic Release",
-  "depth_drop_jump_v1": "Depth Jump",
   "depth_jump_v1": "Depth Jump",
   "diaphragmatic_breathing_v1": "Diaphragmatic Breathing",
   "Dips_-_Chest_Version": "Dips - Chest Version",
@@ -115,7 +106,6 @@
   "Goblet_Squat": "Goblet Squat",
   "Good_Morning": "Good Morning",
   "Groin_and_Back_Stretch": "Groin and Back Stretch",
-  "hang_clean_v1": "Barbell Hang Clean",
   "Hanging_Leg_Raise": "Hanging Leg Raise",
   "happy_baby_pose_v1": "Happy Baby",
   "heel_slide_pelvic_v1": "Heel Slide with Pelvic Floor",
@@ -129,13 +119,10 @@
   "IT_Band_and_Glute_Stretch": "IT Band and Glute Stretch",
   "Jackknife_Sit-Up": "Jackknife Sit-Up",
   "kb_clean_v1": "Kettlebell Clean",
-  "kb_double_clean_v1": "Double Kettlebell Clean",
-  "kb_double_press_v1": "Double Kettlebell Press",
   "kb_farmer_carry_v1": "Kettlebell Farmer Carry",
   "kb_goblet_squat_v1": "Kettlebell Goblet Squat",
   "kb_halo_v1": "Kettlebell Halo",
   "kb_press_v1": "Kettlebell Single-Arm Press",
-  "kb_snatch_v1": "Kettlebell Snatch",
   "kb_swing_v1": "Kettlebell Swing",
   "kb_turkish_get_up_v1": "Turkish Get-Up",
   "kb_windmill_v1": "Kettlebell Windmill",
@@ -145,7 +132,6 @@
   "kegel_with_breath_v1": "Kegel with Diaphragmatic Breath",
   "Knee_Tuck_Jump": "Knee Tuck Jump",
   "Kneeling_Hip_Flexor": "Kneeling Hip Flexor Stretch",
-  "lateral_box_jump_v1": "Lateral Box Jump",
   "lateral_step_down_v1": "Lateral Step Down",
   "Leg_Extensions": "Leg Extensions",
   "Leg_Press": "Leg Press",
@@ -153,7 +139,6 @@
   "Lower_Back-SMR": "Lower Back - Self-Myofascial Release",
   "Lying_Leg_Curls": "Lying Leg Curls",
   "modified_side_plank_knee_v1": "Modified Side Plank from Knees",
-  "mountain_climber_explosive_v1": "Explosive Mountain Climbers",
   "Mountain_Climbers": "Mountain Climbers",
   "neck_cars_v1": "Neck CARs",
   "nordic_curl_v1": "Nordic Hamstring Curl",
@@ -165,8 +150,6 @@
   "pigeon_pose_v1": "Pigeon Pose",
   "Piriformis-SMR": "Piriformis - Self-Myofascial Release",
   "Plank": "Plank",
-  "plank_jack_v1": "Plank Jack",
-  "plyo_pushup_v1": "Plyometric Push-Up",
   "postpartum_band_row_v1": "Postpartum Seated Band Row",
   "postpartum_diaphragmatic_breath_v1": "Postpartum Diaphragmatic Breath",
   "postpartum_gentle_squat_v1": "Postpartum Gentle Squat",
@@ -190,7 +173,6 @@
   "Prone_Manual_Hamstring": "Prone Manual Hamstring",
   "pullup_neutral_grip_v1": "Neutral-Grip Pull-Up",
   "Pullups": "Pull-Ups",
-  "push_press_v1": "Barbell Push Press",
   "Push_Up_to_Side_Plank": "Push-Up to Side Plank",
   "Pushups": "Push-Ups",
   "Quadriceps-SMR": "Quadriceps - Self-Myofascial Release",
@@ -201,16 +183,7 @@
   "ring_row_v1": "Ring Row",
   "Romanian_Deadlift": "Romanian Deadlift",
   "Russian_Twist": "Russian Twist",
-  "sandbag_bear_hug_carry_v1": "Bear Hug Sandbag Carry",
-  "sandbag_clean_v1": "Sandbag Clean",
-  "sandbag_drag_v1": "Sandbag Drag",
-  "sandbag_get_up_v1": "Sandbag Get-Up",
-  "sandbag_rotational_lunge_v1": "Sandbag Rotational Lunge",
-  "sandbag_shoulder_to_shoulder_v1": "Sandbag Shoulder to Shoulder",
-  "sandbag_squat_v1": "Sandbag Front Squat",
-  "sandbag_zercher_squat_v1": "Sandbag Zercher Squat",
   "savasana_v1": "Savasana",
-  "seated_box_jump_v1": "Seated Box Jump",
   "Seated_Cable_Rows": "Seated Cable Rows",
   "Seated_Calf_Raise": "Seated Calf Raise",
   "seated_dumbbell_curl_pregnancy_v1": "Seated Dumbbell Curl (Pregnancy)",
@@ -224,22 +197,17 @@
   "side_lying_clamshell_v1": "Side-Lying Clamshell",
   "Side_Lying_Groin_Stretch": "Side Lying Groin Stretch",
   "side_lying_leg_raise_v1": "Side-Lying Leg Raise",
-  "single_leg_box_jump_v1": "Single-Leg Box Jump",
   "Single_Leg_Glute_Bridge": "Single Leg Glute Bridge",
   "Single_Leg_Push-off": "Single Leg Push-Off",
   "single_leg_squat_v1": "Single-Leg Squat",
   "sit_to_stand_v1": "Sit to Stand",
-  "skater_jump_v1": "Skater Jump",
-  "split_squat_jump_v1": "Split Squat Jump",
   "Split_Squat_with_Dumbbells": "Split Squat with Dumbbells",
-  "squat_jump_v1": "Squat Jump",
   "standing_calf_raise_pregnancy_v1": "Standing Calf Raise",
   "Standing_Calf_Raises": "Standing Calf Raises",
   "Standing_Hip_Circles": "Standing Hip Circles",
   "Standing_Hip_Flexors": "Standing Hip Flexors",
   "Standing_Leg_Curl": "Standing Leg Curl",
   "Standing_Military_Press": "Standing Military Press",
-  "step_up_jump_v1": "Step-Up to Jump",
   "step_up_v1": "Step-Up",
   "Stiff-Legged_Barbell_Deadlift": "Stiff-Legged Barbell Deadlift",
   "Sumo_Deadlift": "Sumo Deadlift",
@@ -256,7 +224,6 @@
   "tree_pose_v1": "Tree Pose",
   "triangle_pose_v1": "Triangle Pose",
   "Triceps_Pushdown": "Triceps Pushdown",
-  "tuck_jump_v1": "Tuck Jump",
   "tva_activation_supine_v1": "TVA Activation Supine",
   "upward_dog_v1": "Upward-Facing Dog",
   "wall_press_core_v1": "Wall Press Core Brace",
@@ -264,13 +231,6 @@
   "wall_pushup_pregnancy_v1": "Wall Push-Up",
   "warrior_one_v1": "Warrior I",
   "warrior_two_v1": "Warrior II",
-  "weighted_vest_burpee_v1": "Weight Vest Burpee",
-  "weighted_vest_lunge_walk_v1": "Weight Vest Walking Lunge",
-  "weighted_vest_pullup_v1": "Weight Vest Pull-Up",
-  "weighted_vest_pushup_v1": "Weight Vest Push-Up",
-  "weighted_vest_ruck_walk_v1": "Weight Vest Ruck Walk",
-  "weighted_vest_squat_v1": "Weight Vest Squat",
-  "weighted_vest_step_up_v1": "Weight Vest Step-Up",
   "Wide-Grip_Lat_Pulldown": "Wide-Grip Lat Pulldown",
   "world_greatest_stretch_v1": "World's Greatest Stretch",
   "wrist_warmup_circles_v1": "Wrist Warm-up Circles",
@@ -370,25 +330,10 @@
       "Bring attention slowly through each body part from feet to head, noticing sensations without judgement.",
       "Breathe naturally for 10–20 minutes."
     ],
-    "bound_alternating_v1": [
-      "Run a few steps to gain rhythm.",
-      "Push off one leg and jump forward and slightly up landing on the opposite leg.",
-      "Continue alternating for the prescribed bounds focusing on horizontal distance."
-    ],
     "box_breathing_v1": [
       "Sit comfortably with the spine tall and shoulders relaxed.",
       "Inhale through the nose for 4 seconds, hold for 4 seconds.",
       "Exhale for 4 seconds, hold empty for 4 seconds; repeat the cycle."
-    ],
-    "box_jump_v1": [
-      "Stand a foot away from a sturdy box with feet hip-width apart.",
-      "Swing the arms back, hinge briefly and jump explosively landing softly on top of the box with knees bent.",
-      "Step down (do not jump down) to start the next rep."
-    ],
-    "box_squat_jump_v1": [
-      "Sit on a low box with feet flat and torso upright.",
-      "Drive through the feet jumping explosively up off the box.",
-      "Land softly, sit back down briefly and repeat."
     ],
     "bridge_kegel_v1": [
       "Lie supine with knees bent and feet hip-width apart.",
@@ -399,16 +344,6 @@
       "Lie on the back with knees bent and feet hip-width apart.",
       "Press into the feet and lift the hips toward the ceiling, optionally clasping the hands beneath the body.",
       "Hold breathing steadily and lower under control."
-    ],
-    "broad_jump_v1": [
-      "Stand with feet hip-width apart, swing the arms back and bend the knees.",
-      "Drive the arms forward and jump as far horizontally as possible.",
-      "Land softly with knees bent; reset before the next rep."
-    ],
-    "burpee_jump_v1": [
-      "Stand with feet shoulder-width apart.",
-      "Drop to a push-up position, perform one push-up, jump the feet to the hands and explode up into a vertical jump.",
-      "Land softly and immediately repeat."
     ],
     "butterfly_breath_v1": [
       "Sit with the soles of the feet together and knees relaxed apart.",
@@ -424,11 +359,6 @@
       "Kneel on the mat with big toes touching and knees apart.",
       "Sit the hips back to the heels and walk the hands forward extending the arms.",
       "Rest the forehead on the mat and breathe slowly into the back."
-    ],
-    "clap_pushup_v1": [
-      "Set up in a high plank with hands shoulder-width apart.",
-      "Lower the chest and press up explosively clapping the hands together at the top.",
-      "Land softly with elbows soft and continue."
     ],
     "cobra_pose_v1": [
       "Lie face-down with hands under the shoulders and elbows tucked.",
@@ -500,16 +430,6 @@
       "Bend the elbows to lower the dumbbells toward the temples, keeping the upper arms vertical.",
       "Extend the elbows to return without flaring them out."
     ],
-    "db_snatch_v1": [
-      "Start with a dumbbell between the feet and hinge to grip it with one hand.",
-      "Drive the hips forward explosively pulling the dumbbell straight overhead in one motion.",
-      "Lower to the floor under control and complete reps before switching sides."
-    ],
-    "db_thruster_v1": [
-      "Stand with a dumbbell in each hand racked at the shoulders.",
-      "Squat down to parallel keeping the chest up.",
-      "Drive up explosively and press the dumbbells overhead in one motion."
-    ],
     "db_zottman_curl_v1": [
       "Stand with a dumbbell in each hand at the sides, palms facing forward.",
       "Curl the dumbbells up to the shoulders, then rotate the wrists so the palms face down at the top.",
@@ -524,11 +444,6 @@
       "Stand with feet slightly wider than hips, toes turned out.",
       "Squat down as low as comfortable, using a wall or support if needed.",
       "Hold for 30–60 seconds breathing slowly into the pelvic floor."
-    ],
-    "depth_drop_jump_v1": [
-      "Stand on top of a box of moderate height (30–60 cm).",
-      "Step off the box and as soon as you land, rebound immediately into a maximal vertical jump.",
-      "Land softly and reset before the next rep."
     ],
     "depth_jump_v1": [
       "Stand on a box (20–40 cm), step off and land on both feet simultaneously.",
@@ -610,11 +525,6 @@
       "Inhale silently through the nose for 4 seconds, hold the breath for 7 seconds.",
       "Exhale audibly through the mouth for 8 seconds; repeat for 4 cycles."
     ],
-    "hang_clean_v1": [
-      "Stand with the barbell at hip level, hands shoulder-width apart.",
-      "Hinge to mid-thigh, explode up driving the hips and pull the bar to a front rack at the shoulders, dropping under to receive it.",
-      "Stand fully and lower the bar to the start under control."
-    ],
     "happy_baby_pose_v1": [
       "Lie on the back and bring the knees toward the armpits.",
       "Grab the outsides of the feet and gently pull them down toward the floor with shins vertical.",
@@ -650,16 +560,6 @@
       "Drive the hips forward to pull the kettlebell up, guiding the elbow back as the bell rotates around the wrist.",
       "Catch the kettlebell in the rack position at the shoulder, then reverse to the floor."
     ],
-    "kb_double_clean_v1": [
-      "Stand with two kettlebells on the floor between the feet.",
-      "Hinge, grip both bells and drive the hips forward to clean both kettlebells to a double rack at the shoulders.",
-      "Lower under control to the floor and repeat."
-    ],
-    "kb_double_press_v1": [
-      "Start with two kettlebells racked at the shoulders, elbows tucked.",
-      "Press both kettlebells overhead until the arms are fully extended.",
-      "Lower in 2–3 seconds back to the rack."
-    ],
     "kb_farmer_carry_v1": [
       "Hold a heavy kettlebell in each hand by the sides with shoulders packed and ribs down.",
       "Walk forward with controlled steps for the prescribed distance or time.",
@@ -679,11 +579,6 @@
       "Stand with a kettlebell racked at the shoulder, elbow tucked, opposite hand at the side.",
       "Press the kettlebell overhead until the arm is fully extended and the bicep is near the ear.",
       "Lower in 2–3 seconds back to the rack and complete reps before switching sides."
-    ],
-    "kb_snatch_v1": [
-      "Start with the kettlebell on the floor between the feet.",
-      "Hinge, explosively drive the hips forward and pull the kettlebell straight overhead in one continuous motion punching the hand through at the top.",
-      "Lower under control to the floor and switch hands as scheduled."
     ],
     "kb_swing_v1": [
       "Stand with feet shoulder-width apart, kettlebell on the floor about a foot in front.",
@@ -728,11 +623,6 @@
       "After a second at the contracted position squeezing your shoulder blades together, slowly raise the bar back to the starting position when your arms are fully extended and the lats are fully stretched. Inhale during this portion of the movement.",
       "Repeat this motion for the prescribed amount of repetitions."
     ],
-    "lateral_box_jump_v1": [
-      "Stand sideways next to a low box.",
-      "Bend the knees and jump laterally onto the box landing softly.",
-      "Step down to the opposite side and jump back across; alternate."
-    ],
     "lateral_step_down_v1": [
       "Stand on a step or box (10–20 cm) with the control foot near the edge.",
       "Slowly flex the support knee to lower the other foot toward the floor in 3–4 sec, keeping the knee aligned over the second toe.",
@@ -753,11 +643,6 @@
       "Lie on one side with the bottom forearm on the mat, knees bent and stacked.",
       "Lift the hips off the mat creating a straight line from knees to head.",
       "Hold breathing steadily; switch sides after the prescribed time."
-    ],
-    "mountain_climber_explosive_v1": [
-      "Set up in a high plank with hands under shoulders.",
-      "Drive one knee toward the chest and switch legs explosively in mid-air.",
-      "Continue at a fast pace keeping the hips low."
     ],
     "neck_cars_v1": [
       "Sit or stand tall with shoulders relaxed.",
@@ -792,16 +677,6 @@
     "Plank": [
       "Get into a prone position on the floor, supporting your weight on your toes and your forearms. Your arms are bent and directly below the shoulder.",
       "Keep your body straight at all times, and hold this position as long as possible. To increase difficulty, an arm or leg can be raised."
-    ],
-    "plank_jack_v1": [
-      "Set up in a high plank with feet together.",
-      "Jump the feet wide out to the sides and immediately back together.",
-      "Continue at a steady pace keeping the hips level."
-    ],
-    "plyo_pushup_v1": [
-      "Set up in a high plank with hands shoulder-width apart.",
-      "Lower the chest, then explosively press up so the hands leave the floor.",
-      "Land softly with elbows soft and immediately lower into the next rep."
     ],
     "postpartum_band_row_v1": [
       "Sit tall with the band looped around the feet and an end in each hand.",
@@ -908,11 +783,6 @@
       "Pull the chest toward the bar by driving the elbows down and back.",
       "Lower in 2–3 seconds back to a dead hang under control."
     ],
-    "push_press_v1": [
-      "Stand with the barbell racked at the shoulders, hands just outside shoulder width.",
-      "Dip slightly at the knees and explosively drive up pressing the bar overhead.",
-      "Lower in 2–3 seconds back to the front rack."
-    ],
     "Pushups": [
       "Lie on the floor face down and place your hands about 36 inches apart while holding your torso up at arms length.",
       "Next, lower yourself downward until your chest almost touches the floor as you inhale.",
@@ -939,55 +809,10 @@
       "Pull the chest up to the rings by retracting the shoulder blades and bending the elbows.",
       "Lower in 2 seconds back to full extension; raise feet to a box for added difficulty."
     ],
-    "sandbag_bear_hug_carry_v1": [
-      "Pick up the sandbag and hug it tight against the chest, arms wrapped around it.",
-      "Walk forward with controlled steps for the prescribed distance or time.",
-      "Set the sandbag down with a hip hinge."
-    ],
-    "sandbag_clean_v1": [
-      "Stand with the sandbag between the feet and grip the handles or the bag itself.",
-      "Hinge and explode up driving the hips forward, pulling the sandbag to the chest in a rack position.",
-      "Lower the sandbag to the floor under control and repeat."
-    ],
-    "sandbag_drag_v1": [
-      "Loop a strap or grip the sandbag and walk backward dragging it on a smooth surface.",
-      "Maintain a slight forward lean and brace the core.",
-      "Continue for the prescribed distance or time."
-    ],
-    "sandbag_get_up_v1": [
-      "Lie on the back hugging a sandbag to the chest.",
-      "Sit up, post a hand on the floor and stand up under control.",
-      "Reverse the sequence back to the floor; alternate sides."
-    ],
-    "sandbag_rotational_lunge_v1": [
-      "Hold a sandbag at chest height and step forward into a lunge.",
-      "Rotate the torso toward the front leg without losing balance.",
-      "Return to standing and alternate sides."
-    ],
-    "sandbag_shoulder_to_shoulder_v1": [
-      "Rack a sandbag on one shoulder with both hands supporting it.",
-      "Explosively press it overhead and lower to the opposite shoulder.",
-      "Alternate shoulders for the prescribed reps."
-    ],
-    "sandbag_squat_v1": [
-      "Hold a sandbag racked against the chest with both arms.",
-      "Squat down keeping the chest tall and elbows up.",
-      "Stand back up driving through the mid-foot."
-    ],
-    "sandbag_zercher_squat_v1": [
-      "Hold a sandbag in the crook of the elbows at chest height.",
-      "Squat down keeping the chest up and elbows tucked.",
-      "Stand back up driving through the mid-foot."
-    ],
     "savasana_v1": [
       "Lie on the back with arms slightly away from the body, palms up, and feet relaxed apart.",
       "Close the eyes and let the body sink into the mat releasing all muscular effort.",
       "Breathe naturally for 5–15 minutes."
-    ],
-    "seated_box_jump_v1": [
-      "Sit on a low box with feet flat and arms by the sides, stationary.",
-      "Without rocking, explode straight up jumping onto a target box in front.",
-      "Step down and reset between reps."
     ],
     "seated_dumbbell_curl_pregnancy_v1": [
       "Sit on a chair with back support and a light dumbbell in each hand.",
@@ -1034,11 +859,6 @@
       "Lift the top leg straight up to about 45° without rotating the hip.",
       "Lower under control; switch sides after all reps."
     ],
-    "single_leg_box_jump_v1": [
-      "Stand on one leg facing a low box.",
-      "Bend the knee and jump explosively up onto the box landing softly on the same leg.",
-      "Step down and complete reps before switching sides."
-    ],
     "single_leg_squat_v1": [
       "Stand on one leg, the other slightly in front or to the side, arms extended for balance.",
       "Slowly flex the support knee as far as possible without it collapsing inward or the hip dropping.",
@@ -1048,21 +868,6 @@
       "Sit in a chair with feet hip-width apart and flat on the floor.",
       "Lean your torso slightly forward, push through your heels and stand up until fully erect.",
       "Control the descent by sitting back down slowly without dropping onto the chair."
-    ],
-    "skater_jump_v1": [
-      "Stand on one leg with the other crossed slightly behind.",
-      "Push off laterally to the opposite side landing softly on the other leg with the trailing leg crossed behind.",
-      "Continue alternating side to side."
-    ],
-    "split_squat_jump_v1": [
-      "Step into a split stance with one foot forward and one back.",
-      "Lower into a lunge and explode up switching legs in mid-air.",
-      "Land softly in the opposite split stance and repeat."
-    ],
-    "squat_jump_v1": [
-      "Stand with feet shoulder-width apart.",
-      "Squat to parallel and explode up into a vertical jump swinging the arms.",
-      "Land softly bending the knees and immediately repeat."
     ],
     "standing_calf_raise_pregnancy_v1": [
       "Stand with feet hip-width apart, holding a wall or chair for balance.",
@@ -1075,11 +880,6 @@
       "Raise your heels as you breathe out by extending your ankles as high as possible and flexing your calf. Ensure that the knee is kept stationary at all times. There should be no bending at any time. Hold the contracted position by a second before you start to go back down.",
       "Go back slowly to the starting position as you breathe in by lowering your heels as you bend the ankles until calves are stretched.",
       "Repeat for the recommended amount of repetitions."
-    ],
-    "step_up_jump_v1": [
-      "Place one foot on a low box, drive through it to step up explosively jumping into the air.",
-      "Land softly back on the same foot on the box.",
-      "Step down and alternate sides."
     ],
     "step_up_v1": [
       "Place one full foot on a step or box about 20–30 cm high.",
@@ -1131,11 +931,6 @@
       "Hinge from the front hip reaching the front hand toward the ankle and the top hand to the ceiling.",
       "Keep the chest open and gaze up; switch sides."
     ],
-    "tuck_jump_v1": [
-      "Stand with feet hip-width apart and arms at the sides.",
-      "Jump explosively bringing the knees toward the chest at the top.",
-      "Land softly bending the knees and immediately repeat."
-    ],
     "tva_activation_supine_v1": [
       "Lie supine with knees bent and feet flat, hands resting on the lower belly.",
       "Exhale slowly drawing the lower belly in toward the spine and lifting the pelvic floor.",
@@ -1170,41 +965,6 @@
       "Step the feet wide apart, turn the front foot forward and the back foot 90° to the side.",
       "Bend the front knee over the ankle and extend the arms parallel to the floor.",
       "Gaze over the front hand and hold breathing steadily; switch sides."
-    ],
-    "weighted_vest_burpee_v1": [
-      "Wear a weighted vest and stand with feet shoulder-width apart.",
-      "Drop to a push-up position, perform one push-up, jump the feet to the hands and explode up into a small jump.",
-      "Land softly and immediately repeat."
-    ],
-    "weighted_vest_lunge_walk_v1": [
-      "Wear a weighted vest and stand tall with feet hip-width apart.",
-      "Step forward into a lunge lowering the back knee toward the floor.",
-      "Drive up and step the back foot through into the next lunge; alternate sides."
-    ],
-    "weighted_vest_pullup_v1": [
-      "Wear a weighted vest and hang from a pull-up bar with palms facing away.",
-      "Pull the chest toward the bar by driving the elbows down.",
-      "Lower in 2–3 seconds to a dead hang."
-    ],
-    "weighted_vest_pushup_v1": [
-      "Wear a weighted vest and set up in a high plank with hands shoulder-width apart.",
-      "Lower the chest to the floor in 2 seconds keeping the elbows tucked at ~45°.",
-      "Press back up to the start without sagging the hips."
-    ],
-    "weighted_vest_ruck_walk_v1": [
-      "Wear a weighted vest and walk briskly on flat ground or a moderate incline.",
-      "Maintain an upright posture and a controlled cadence.",
-      "Continue for the prescribed time gradually increasing distance over weeks."
-    ],
-    "weighted_vest_squat_v1": [
-      "Wear a weighted vest and stand with feet shoulder-width apart.",
-      "Squat down keeping the chest up and knees tracking over the toes.",
-      "Stand back up driving through the mid-foot."
-    ],
-    "weighted_vest_step_up_v1": [
-      "Wear a weighted vest and stand in front of a step or low box.",
-      "Step up driving through the front foot until standing on top.",
-      "Step down under control and alternate sides."
     ],
     "world_greatest_stretch_v1": [
       "From a push-up position step the right foot outside the right hand into a deep lunge.",

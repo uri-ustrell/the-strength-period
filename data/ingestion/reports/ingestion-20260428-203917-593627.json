@@ -1,0 +1,554 @@
+{
+  "runId": "ingestion-20260428-203917-593627",
+  "startedAt": "2026-04-28T20:39:17.177Z",
+  "completedAt": "2026-04-28T20:39:17.212Z",
+  "dryRun": true,
+  "counts": {
+    "accepted": 34,
+    "skipped": 5,
+    "duplicate": 1,
+    "rejected": 0
+  },
+  "acceptedExerciseIds": [
+    "box_jump_v1",
+    "step_up_jump_v1",
+    "lateral_box_jump_v1",
+    "seated_box_jump_v1",
+    "broad_jump_v1",
+    "tuck_jump_v1",
+    "single_leg_box_jump_v1",
+    "bound_alternating_v1",
+    "sandbag_clean_v1",
+    "sandbag_squat_v1",
+    "sandbag_bear_hug_carry_v1",
+    "sandbag_shoulder_to_shoulder_v1",
+    "sandbag_rotational_lunge_v1",
+    "sandbag_get_up_v1",
+    "sandbag_drag_v1",
+    "weighted_vest_pushup_v1",
+    "weighted_vest_pullup_v1",
+    "weighted_vest_squat_v1",
+    "weighted_vest_lunge_walk_v1",
+    "weighted_vest_step_up_v1",
+    "weighted_vest_ruck_walk_v1",
+    "weighted_vest_burpee_v1",
+    "plyo_pushup_v1",
+    "clap_pushup_v1",
+    "burpee_jump_v1",
+    "squat_jump_v1",
+    "skater_jump_v1",
+    "mountain_climber_explosive_v1",
+    "plank_jack_v1",
+    "kb_snatch_v1",
+    "db_snatch_v1",
+    "db_thruster_v1",
+    "push_press_v1",
+    "hang_clean_v1"
+  ],
+  "acceptedPresetIds": [],
+  "reviewQueuePath": "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-203917-593627.review.json",
+  "photosTriggered": false,
+  "filesWritten": [
+    "/Users/03761952/oriol/the-strength-period/data/ingestion/queues/ingestion-20260428-203917-593627.review.json"
+  ],
+  "sources": [
+    {
+      "sourceId": "bulk-x3-plyo-power",
+      "adapterId": "llm-json",
+      "candidateCount": 40
+    }
+  ],
+  "items": [
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:box_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "box_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "box_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:step_up_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "step_up_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "step_up_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:depth_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "depth_jump_v1",
+      "status": "duplicate",
+      "confidence": 1,
+      "reasons": [
+        "Canonical slug collides with existing exercise id."
+      ],
+      "canonicalId": "depth_jump_v1",
+      "duplicateOf": "depth_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:box_squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "box_squat_jump_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "box_squat_jump_v1",
+      "duplicateOf": "box_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:lateral_box_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "lateral_box_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "lateral_box_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:seated_box_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "seated_box_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "seated_box_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:broad_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "broad_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "broad_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:tuck_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "tuck_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "tuck_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:single_leg_box_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "single_leg_box_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "single_leg_box_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:bound_alternating_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "bound_alternating_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "bound_alternating_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_clean_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_clean_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_bear_hug_carry_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_bear_hug_carry_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_bear_hug_carry_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_shoulder_to_shoulder_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_shoulder_to_shoulder_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_shoulder_to_shoulder_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_zercher_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_zercher_squat_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "sandbag_zercher_squat_v1",
+      "duplicateOf": "sandbag_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_rotational_lunge_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_rotational_lunge_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_rotational_lunge_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_get_up_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_get_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_get_up_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_drag_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "sandbag_drag_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "sandbag_drag_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_pullup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_pullup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_pullup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_squat_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_squat_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_lunge_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_lunge_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_lunge_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_step_up_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_step_up_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_step_up_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_ruck_walk_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_ruck_walk_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_ruck_walk_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:weighted_vest_burpee_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "weighted_vest_burpee_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "weighted_vest_burpee_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:plyo_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "plyo_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "plyo_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:clap_pushup_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "clap_pushup_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "clap_pushup_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:burpee_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "burpee_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "burpee_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "squat_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "squat_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:split_squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "split_squat_jump_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "split_squat_jump_v1",
+      "duplicateOf": "squat_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:skater_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "skater_jump_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "skater_jump_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:mountain_climber_explosive_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "mountain_climber_explosive_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "mountain_climber_explosive_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:plank_jack_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "plank_jack_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "plank_jack_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:kb_snatch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "kb_snatch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "kb_snatch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:kb_double_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "kb_double_clean_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "kb_double_clean_v1",
+      "duplicateOf": "kb_clean_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:kb_double_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "kb_double_press_v1",
+      "status": "skipped",
+      "confidence": 1,
+      "reasons": [
+        "Pending manual review.",
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "canonicalId": "kb_double_press_v1",
+      "duplicateOf": "kb_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:db_snatch_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "db_snatch_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_snatch_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:db_thruster_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "db_thruster_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "db_thruster_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:push_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "push_press_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "push_press_v1"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:hang_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "sourceExternalId": "hang_clean_v1",
+      "status": "accepted",
+      "confidence": 1,
+      "reasons": [
+        "Accepted automatically."
+      ],
+      "canonicalId": "hang_clean_v1"
+    }
+  ]
+}

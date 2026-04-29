@@ -1,0 +1,61 @@
+{
+  "runId": "ingestion-20260428-203917-593627",
+  "createdAt": "2026-04-28T20:39:17.211Z",
+  "items": [
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:box_squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "box_squat_jump_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:sandbag_zercher_squat_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "sandbag_zercher_squat_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:split_squat_jump_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "split_squat_jump_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:kb_double_clean_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "kb_double_clean_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    },
+    {
+      "candidateId": "bulk-x3-plyo-power:exercise:kb_double_press_v1",
+      "kind": "exercise",
+      "sourceId": "bulk-x3-plyo-power",
+      "canonicalId": "kb_double_press_v1",
+      "confidence": 1,
+      "reasons": [
+        "Possible duplicate requires manual review (score=0.81)."
+      ],
+      "suggestedAction": "accept"
+    }
+  ]
+}
