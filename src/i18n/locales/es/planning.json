@@ -157,6 +157,7 @@
     "rest": "Descanso (s)",
     "tempo": "Tempo",
     "rpe": "RPE",
+    "filter_by_muscle": "Filtrar por grupo muscular",
     "no_results": "Ningún ejercicio coincidente",
     "deload_session": "Descarga"
   },

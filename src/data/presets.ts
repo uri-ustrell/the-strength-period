@@ -1,5 +1,4 @@
-import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
-import type { ExerciseTag, MuscleGroup } from '@/types/exercise'
+import type { ExerciseTag } from '@/types/exercise'
 import type {
   PresetExerciseEntry,
   PresetSessionTemplate,
@@ -12,7 +11,6 @@ export interface CustomPreset {
   id: string
   name: string
   durationWeeks: number
-  muscleDistribution: Partial<Record<MuscleGroup, number>>
   sessions?: PresetSessionTemplate[]
   weeklyProgression?: number
   weeklyProgressionRates?: WeekProgressionRate[]
@@ -25,7 +23,6 @@ export interface Preset {
   nameKey: string
   descriptionKey: string
   durationOptions: number[]
-  muscleDistribution: Partial<Record<MuscleGroup, number>>
   requiredTags: ExerciseTag[]
   autoRestrictions: string[]
   progressionType: ProgressionType
@@ -62,7 +59,6 @@ type ParsedCatalogPreset = {
   nameKey?: string
   descriptionKey?: string
   durationOptions?: number[]
-  muscleDistribution?: Partial<Record<MuscleGroup, number>>
   requiredTags?: ExerciseTag[]
   autoRestrictions?: string[]
   progressionType?: ProgressionType
@@ -94,7 +90,6 @@ const EXERCISE_TAGS: ExerciseTag[] = [
 ]
 
 const EXERCISE_TAG_SET = new Set<ExerciseTag>(EXERCISE_TAGS)
-const MUSCLE_GROUP_SET = new Set<MuscleGroup>(ALL_MUSCLE_GROUPS)
 const PROGRESSION_TYPE_SET = new Set<ProgressionType>(['linear', 'undulating', 'block'])
 
 // Suppress unused-var warning for the legacy reference list (kept only for documentation).
@@ -141,30 +136,6 @@ function toUniqueStringArray(value: unknown): string[] {
   }
 
   return values
-}
-
-function toCatalogMuscleDistribution(value: unknown): Partial<Record<MuscleGroup, number>> {
-  if (!isRecord(value)) {
-    return {}
-  }
-
-  const distribution: Partial<Record<MuscleGroup, number>> = {}
-
-  for (const [muscleGroup, percentage] of Object.entries(value).sort(([left], [right]) =>
-    left.localeCompare(right)
-  )) {
-    if (!MUSCLE_GROUP_SET.has(muscleGroup as MuscleGroup)) {
-      continue
-    }
-
-    if (typeof percentage !== 'number' || !Number.isFinite(percentage) || percentage <= 0) {
-      continue
-    }
-
-    distribution[muscleGroup as MuscleGroup] = percentage
-  }
-
-  return distribution
 }
 
 function toCatalogRequiredTags(value: unknown): ExerciseTag[] {
@@ -290,9 +261,6 @@ function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
     durationOptions: Array.isArray(value.durationOptions)
       ? toSortedUniqueNumbers(value.durationOptions)
       : undefined,
-    muscleDistribution: isRecord(value.muscleDistribution)
-      ? toCatalogMuscleDistribution(value.muscleDistribution)
-      : undefined,
     requiredTags: Array.isArray(value.requiredTags)
       ? toCatalogRequiredTags(value.requiredTags)
       : undefined,
@@ -345,7 +313,6 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     nameKey: parsedPreset.nameKey,
     descriptionKey: parsedPreset.descriptionKey,
     durationOptions: parsedPreset.durationOptions,
-    muscleDistribution: parsedPreset.muscleDistribution ?? {},
     requiredTags: parsedPreset.requiredTags ?? [],
     autoRestrictions: parsedPreset.autoRestrictions ?? [],
     progressionType: parsedPreset.progressionType ?? 'linear',

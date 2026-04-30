@@ -10,7 +10,8 @@ import {
   nextAvailableTemplateKey,
   TEMPLATE_KEYS,
 } from '@/services/planning/presetTemplates'
-import type { Exercise } from '@/types/exercise'
+import { ALL_MUSCLE_GROUPS, muscleGroupNameKeys } from '@/data/muscleGroups'
+import type { Exercise, MuscleGroup } from '@/types/exercise'
 import type { PresetExerciseEntry, PresetSessionTemplate, TemplateKey } from '@/types/planning'
 
 interface Props {
@@ -50,6 +51,7 @@ export const FaithfulExercisesStep = ({
   const [activeKey, setActiveKey] = useState<TemplateKey>(firstKey)
   const [pickerForRow, setPickerForRow] = useState<number | null>(null)
   const [pickerSearch, setPickerSearch] = useState('')
+  const [pickerMuscle, setPickerMuscle] = useState<MuscleGroup | null>(null)
   const [copyMenuOpen, setCopyMenuOpen] = useState(false)
 
   const missingSet = useMemo(() => new Set(missingExerciseIds ?? []), [missingExerciseIds])
@@ -96,10 +98,19 @@ export const FaithfulExercisesStep = ({
   const pickerCandidates = useMemo(() => {
     const q = pickerSearch.toLowerCase().trim()
     return filteredExercisePool.filter((ex) => {
+      if (pickerMuscle && !ex.primaryMuscles.includes(pickerMuscle)) return false
       if (!q) return true
       return t(ex.nameKey).toLowerCase().includes(q)
     })
-  }, [pickerSearch, filteredExercisePool, t])
+  }, [pickerSearch, pickerMuscle, filteredExercisePool, t])
+
+  const availableMuscleGroups = useMemo<MuscleGroup[]>(() => {
+    const present = new Set<MuscleGroup>()
+    for (const ex of filteredExercisePool) {
+      for (const m of ex.primaryMuscles) present.add(m)
+    }
+    return ALL_MUSCLE_GROUPS.filter((m) => present.has(m))
+  }, [filteredExercisePool])
 
   const updateActiveSession = (mut: (s: PresetSessionTemplate) => PresetSessionTemplate) => {
     if (activeIdx < 0) return
@@ -180,6 +191,7 @@ export const FaithfulExercisesStep = ({
     updateExercise(pickerForRow, (e) => ({ ...e, exerciseId }))
     setPickerForRow(null)
     setPickerSearch('')
+    setPickerMuscle(null)
   }
 
   const handleNameChange = (newName: string) => {
@@ -343,6 +355,7 @@ export const FaithfulExercisesStep = ({
                       onClick={() => {
                         setPickerForRow(isPicking ? null : rowIdx)
                         setPickerSearch('')
+                        setPickerMuscle(null)
                       }}
                       className="flex-1 text-left text-sm font-medium text-gray-800 hover:text-indigo-700 truncate"
                     >
@@ -380,6 +393,32 @@ export const FaithfulExercisesStep = ({
 
                   {isPicking && (
                     <div className="rounded-lg border border-indigo-200 bg-white p-2 space-y-2">
+                      {availableMuscleGroups.length > 0 && (
+                        <div
+                          role="toolbar"
+                          aria-label={t('planning:faithful.filter_by_muscle')}
+                          className="-mx-2 px-2 flex gap-1.5 overflow-x-auto pb-1"
+                        >
+                          {availableMuscleGroups.map((m) => {
+                            const selected = pickerMuscle === m
+                            return (
+                              <button
+                                key={m}
+                                type="button"
+                                aria-pressed={selected}
+                                onClick={() => setPickerMuscle(selected ? null : m)}
+                                className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium border transition-colors ${
+                                  selected
+                                    ? 'border-indigo-600 bg-indigo-600 text-white'
+                                    : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+                                }`}
+                              >
+                                {t(muscleGroupNameKeys[m])}
+                              </button>
+                            )
+                          })}
+                        </div>
+                      )}
                       <input
                         type="text"
                         value={pickerSearch}
@@ -393,16 +432,24 @@ export const FaithfulExercisesStep = ({
                             {t('planning:faithful.no_results')}
                           </p>
                         ) : (
-                          pickerCandidates.slice(0, 20).map((cand) => (
-                            <button
-                              key={cand.id}
-                              type="button"
-                              onClick={() => handleSelectFromPicker(cand.id)}
-                              className="block w-full text-left rounded-md px-2 py-1 text-sm text-gray-700 hover:bg-indigo-50"
-                            >
-                              {t(cand.nameKey)}
-                            </button>
-                          ))
+                          pickerCandidates.slice(0, 20).map((cand) => {
+                            const primary = cand.primaryMuscles[0]
+                            return (
+                              <button
+                                key={cand.id}
+                                type="button"
+                                onClick={() => handleSelectFromPicker(cand.id)}
+                                className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-left text-sm text-gray-700 hover:bg-indigo-50"
+                              >
+                                {primary && (
+                                  <span className="shrink-0 rounded-full bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-600">
+                                    {t(muscleGroupNameKeys[primary])}
+                                  </span>
+                                )}
+                                <span className="truncate">{t(cand.nameKey)}</span>
+                              </button>
+                            )
+                          })
                         )}
                       </div>
                     </div>

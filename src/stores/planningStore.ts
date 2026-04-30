@@ -34,7 +34,6 @@ interface PlanningStore {
     exercises: Exercise[],
     options?: {
       weeks?: number
-      muscleDistribution?: Record<string, number>
       progressionType?: ProgressionType
       weeklyProgression?: number
       weeklyProgressionRates?: WeekProgressionRate[]

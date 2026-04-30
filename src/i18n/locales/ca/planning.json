@@ -158,7 +158,8 @@
     "tempo": "Tempo",
     "rpe": "RPE",
     "no_results": "Cap exercici coincident",
-    "deload_session": "Descàrrega"
+    "deload_session": "Descàrrega",
+    "filter_by_muscle": "Filtra per grup muscular"
   },
   "preset_tags": {
     "anti_rotacio": "Antirotació",

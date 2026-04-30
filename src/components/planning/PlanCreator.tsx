@@ -13,11 +13,6 @@ import { hasExerciseRichSessions, PRESETS } from '@/data/presets'
 import { useExercises } from '@/hooks/useExercises'
 import { getConfig, setConfig } from '@/services/db/configRepository'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
-import type { MuscleGroupPriority } from '@/services/planning/muscleDistribution'
-import {
-  presetToMuscleGroupPriorities,
-  prioritiesToMuscleDistribution,
-} from '@/services/planning/muscleDistribution'
 import {
   buildDefaultProgressionRates,
   DEFAULT_CYCLE_WEEKS,
@@ -30,7 +25,7 @@ import {
 import { validatePresetExercises } from '@/services/planning/presetValidation'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
-import type { DayOfWeek, Equipment, ExerciseTag, MuscleGroup } from '@/types/exercise'
+import type { DayOfWeek, Equipment, ExerciseTag } from '@/types/exercise'
 import type { PresetSessionTemplate, WeekProgressionRate } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
 
@@ -62,15 +57,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [weeks, setWeeks] = useState(DEFAULT_CYCLE_WEEKS)
   const [daysPerWeek, setDaysPerWeek] = useState(userTrainingDays.length)
   const [minutesPerSess, setMinutesPerSess] = useState(userMinutes)
-  const [muscleGroupPriorities, setMuscleGroupPriorities] = useState<
-    Record<MuscleGroup, MuscleGroupPriority | null>
-  >(() => {
-    const initial: Record<string, MuscleGroupPriority | null> = {}
-    for (const mg of ALL_MUSCLE_GROUPS) {
-      initial[mg] = 'medium'
-    }
-    return initial as Record<MuscleGroup, MuscleGroupPriority | null>
-  })
   const [weeklyProgressionRates, setWeeklyProgressionRates] = useState<WeekProgressionRate[]>(() =>
     buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS)
   )
@@ -197,7 +183,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     weeks,
     daysPerWeek,
     minutesPerSess,
-    muscleGroupPriorities,
     step,
   ])
 
@@ -262,7 +247,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
     } else {
       setWeeklyProgressionRates(buildDefaultProgressionRates(initialWeeks))
     }
-    setMuscleGroupPriorities(presetToMuscleGroupPriorities(preset))
     if (preset.sessions && preset.sessions.length > 0) {
       setEditablePresetSessions(normalizeTemplates(preset.sessions))
     } else {
@@ -336,19 +320,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
       setWeeklyProgressionRates(buildDefaultProgressionRates(clampedWeeks))
     }
 
-    const priorities: Record<string, MuscleGroupPriority | null> = {}
-    for (const mg of ALL_MUSCLE_GROUPS) {
-      priorities[mg] = null
-    }
-    for (const [mg, pct] of Object.entries(cp.muscleDistribution)) {
-      if (ALL_MUSCLE_GROUPS.includes(mg as MuscleGroup)) {
-        if (pct >= 25) priorities[mg] = 'high'
-        else if (pct >= 10) priorities[mg] = 'medium'
-        else priorities[mg] = 'low'
-      }
-    }
-    setMuscleGroupPriorities(priorities as Record<MuscleGroup, MuscleGroupPriority | null>)
-
     setEditablePresetSessions(normalizeTemplates(cp.sessions))
 
     setSourceIsBuiltIn(false)
@@ -371,7 +342,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
       id,
       name: '',
       durationWeeks: DEFAULT_CYCLE_WEEKS,
-      muscleDistribution: {},
       weeklyProgressionRates: buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS),
       createdAt: new Date().toISOString(),
     }
@@ -389,8 +359,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const handleSaveAsPreset = async () => {
     const name = presetName.trim()
     if (!name) return
-
-    const muscleDistribution = prioritiesToMuscleDistribution(muscleGroupPriorities)
 
     const sessionsCopy =
       editablePresetSessions.length > 0
@@ -410,7 +378,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
               ...cp,
               name,
               durationWeeks: weeks,
-              muscleDistribution,
               sessions: sessionsCopy,
               weeklyProgressionRates,
               progressionType: selectedPreset?.progressionType ?? cp.progressionType ?? 'linear',
@@ -426,7 +393,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
         id: `custom_${crypto.randomUUID()}`,
         name,
         durationWeeks: weeks,
-        muscleDistribution,
         sessions: sessionsCopy,
         weeklyProgressionRates,
         progressionType: selectedPreset?.progressionType ?? 'linear',
