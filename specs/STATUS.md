@@ -29,7 +29,7 @@
 | 13 | Static Data API | ❌ Reverted | — |
 | 14 | Deterministic Planning | ✅ | Steps 2, 4 |
 | 15 | User-Owned LLM Assistant | ✅ | Step 14 |
-| 16 | Ethical Gamification | 🚧 Planned | Steps 8, 9, 14 |
+| 16 | Ethical Gamification | 🚧 In Progress | Steps 8, 9, 14 |
 | 17 | Formatter + Session Hooks | ✅ | — |
 | 18 | Multi-Source Content Ingestion Pipeline | ✅ | Steps 2, 7, 15 |
 | 19 | Preset & Session Template Redesign | ✅ | Steps 7, 14, 18 |
@@ -78,9 +78,16 @@
 - [x] i18n keys in ca/es/en (planning namespace, nested under `llm`)
 - [x] Build verification: zero errors
 
-### Step 16 — Ethical Gamification
-- [ ] Read and follow `specs/features/16-ethical-gamification.md` as source of truth before implementation
-- Spec extended (2026-05-04): added "Shared Gamification Core" + scalable "Aesthetic Variants" architecture with two initial variants (`retro-platformer`, `classic-boring`). Single shared logic/data; variants only re-skin presentation. `classic-boring` is the default for new users and is forced when `prefers-reduced-motion` is set.
+### Step 16 — Ethical Gamification 🚧 In Progress (Pre-execution gates complete)
+- Source of truth: `specs/features/16-ethical-gamification.md` (extended 2026-05-04 with Shared Gamification Core + scalable Aesthetic Variants; initial variants `retro-platformer` and `classic-boring`; `classic-boring` default; `prefers-reduced-motion` forces `classic-boring` without overwriting preference).
+- [x] Phase 0 — Source-of-truth read & dependency check (Steps 8/9/14 ✅; no contradictions in `tasks/todo.md`)
+- [x] Phase 1 — Behavioral risk brief for Phase A (no high-risk mechanics; reduced-motion override mitigated by runtime derivation)
+- [x] Phase 2 — UI/UX Integrity Gate: **INCREMENTAL** for Phase A (no IA change; full refactor deferred to Phase B)
+- [x] Phase 3 — Mechanic design & event model for Phase A: `UserConfig.aestheticVariant`, default `'classic-boring'`, Settings selector, optional onboarding step, reduced-motion hook, zero new telemetry/IDB
+- [x] Phase 4 — Implementation Plan Gate: ordered Phase A checklist (A1–A10) recorded in `tasks/todo.md`
+- [ ] Phase A implementation (see `tasks/todo.md` → "Step 16 — Phase A")
+- [ ] Phases B–E (Dashboard world-map / calendar, session execution skin, stats inventory skin, optional polish) — gated by their own pre-execution review
+- Phase B parity decision (2026-05-04): **strict parity from day one** — every Phase B+ surface ships `retro-platformer` and `classic-boring` together; no temporary single-variant releases.
 
 ### Step 19 — Preset & Session Template Redesign ✅ (spec: `specs/features/17-preset-sessions-redesign.md`)
 - [x] Read `specs/features/17-preset-sessions-redesign.md` end-to-end before starting

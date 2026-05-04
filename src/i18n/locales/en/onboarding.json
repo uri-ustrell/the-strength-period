@@ -4,6 +4,13 @@
   "next": "Next",
   "back": "Back",
   "finish": "Get Started",
+  "skip": "Skip",
+  "appearance": {
+    "title": "Pick the look",
+    "subtitle": "You can change this later in Settings. If you skip, we'll use Classic Boring.",
+    "shared_core_notice": "Aesthetic only. Goals, totems, planning and recovery are exactly the same.",
+    "reduced_motion_forced": "You're on Classic Boring because the system has reduced motion enabled."
+  },
   "step3": {
     "title": "Your training context",
     "subtitle": "Customize your plan",

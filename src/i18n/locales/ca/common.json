@@ -122,7 +122,23 @@
   },
   "settings": {
     "save": "Desar canvis",
-    "saved": "Desat ✓"
+    "saved": "Desat ✓",
+    "appearance": {
+      "title": "Aspecte",
+      "subtitle": "Tria com es veu l'app. Només canvia l'aspecte.",
+      "shared_core_notice": "Només canvia l'aspecte. Els objectius, els totems, la planificació i la recuperació són exactament els mateixos.",
+      "reduced_motion_forced": "Estàs en Classic Boring perquè el sistema té activada la reducció de moviment. Desactiva-la al sistema per poder triar una altra variant.",
+      "variant": {
+        "classic_boring": {
+          "label": "Classic Boring",
+          "description": "Aspecte d'app net i tranquil amb un toc retro discret. Sense parallax, sense àudio."
+        },
+        "retro_platformer": {
+          "label": "Retro Platformer",
+          "description": "Estètica de joc 8/16 bits amb metàfora de nivells i parallax. Àudio opcional."
+        }
+      }
+    }
   },
   "available_weights": {
     "title": "Pesos disponibles",

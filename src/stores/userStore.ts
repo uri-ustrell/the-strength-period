@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 import { getConfig, setConfig } from '@/services/db/configRepository'
 import type { DayOfWeek, Equipment } from '@/types/exercise'
-import type { AvailableWeights, UserConfig } from '@/types/user'
-import { DEFAULT_AVAILABLE_WEIGHTS } from '@/types/user'
+import type { AestheticVariant, AvailableWeights, UserConfig } from '@/types/user'
+import { DEFAULT_AESTHETIC_VARIANT, DEFAULT_AVAILABLE_WEIGHTS } from '@/types/user'
 
 interface UserStore {
   // State
@@ -11,6 +11,7 @@ interface UserStore {
   trainingDays: DayOfWeek[]
   minutesPerSession: number
   availableWeights: AvailableWeights
+  aestheticVariant: AestheticVariant
   onboardingCompleted: boolean
   isLoading: boolean
   error: string | null
@@ -21,6 +22,7 @@ interface UserStore {
   setTrainingDays: (days: DayOfWeek[]) => void
   setMinutesPerSession: (minutes: number) => void
   setAvailableWeights: (weights: AvailableWeights) => void
+  setAestheticVariant: (variant: AestheticVariant) => void
   completeOnboarding: () => Promise<void>
   loadOnboardingStatus: () => Promise<void>
   loadUserConfig: () => Promise<void>
@@ -36,7 +38,13 @@ function detectLanguage(): UserConfig['language'] {
     : 'ca'
 }
 
-function isValidUserConfig(value: unknown): value is UserConfig {
+/**
+ * Validates the shape of a persisted `UserConfig`. Optional fields may be
+ * absent (older configs) but, when present, must match their declared type.
+ *
+ * Exported for unit testing.
+ */
+export function isValidUserConfig(value: unknown): value is UserConfig {
   if (typeof value !== 'object' || value === null) return false
   const c = value as Record<string, unknown>
   if (!Array.isArray(c.equipment)) return false
@@ -54,6 +62,9 @@ function isValidUserConfig(value: unknown): value is UserConfig {
   ) {
     return false
   }
+  if (c.aestheticVariant !== undefined && typeof c.aestheticVariant !== 'string') {
+    return false
+  }
   return true
 }
 
@@ -63,6 +74,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
   trainingDays: [1, 3, 5],
   minutesPerSession: 45,
   availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
+  aestheticVariant: DEFAULT_AESTHETIC_VARIANT,
   onboardingCompleted: false,
   isLoading: true,
   error: null,
@@ -72,6 +84,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
   setTrainingDays: (days) => set({ trainingDays: days }),
   setMinutesPerSession: (minutes) => set({ minutesPerSession: minutes }),
   setAvailableWeights: (weights) => set({ availableWeights: weights }),
+  setAestheticVariant: (variant) => set({ aestheticVariant: variant }),
 
   completeOnboarding: async () => {
     set({ isLoading: true, error: null })
@@ -83,6 +96,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
         trainingDays: state.trainingDays,
         minutesPerSession: state.minutesPerSession,
         availableWeights: state.availableWeights,
+        aestheticVariant: state.aestheticVariant,
         onboardingCompleted: true,
       }
 
@@ -121,6 +135,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
         trainingDays: config.trainingDays ?? [1, 3, 5],
         minutesPerSession: config.minutesPerSession,
         availableWeights: config.availableWeights ?? { ...DEFAULT_AVAILABLE_WEIGHTS },
+        aestheticVariant: config.aestheticVariant ?? DEFAULT_AESTHETIC_VARIANT,
       })
     } catch (err) {
       set({ error: (err as Error).message })
@@ -134,6 +149,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
       trainingDays: [1, 3, 5],
       minutesPerSession: 45,
       availableWeights: { ...DEFAULT_AVAILABLE_WEIGHTS },
+      aestheticVariant: DEFAULT_AESTHETIC_VARIANT,
       onboardingCompleted: false,
       isLoading: false,
       error: null,

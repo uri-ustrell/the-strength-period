@@ -7,6 +7,31 @@
 
 ## Recent Changes
 
+### 2026-05-04 — Step 16 pre-execution gates
+
+Pre-execution phases for Step 16 (Ethical Gamification) executed by the Architect agent. No source code touched. Source of truth: `specs/features/16-ethical-gamification.md` (recently extended with "Shared Gamification Core", "Aesthetic Variants", and "Variant: Classic Boring" sections).
+
+**Phase 0 — Source-Of-Truth & Dependency Check.** Steps 8, 9, 14 confirmed ✅ in `specs/STATUS.md`. The feature spec has no internal contradictions. `tasks/todo.md` had no Step 16 items prior to this gate; no contradictions introduced.
+
+**Phase 1 — Behavioral Risk Brief (Phase A only).** Mechanics evaluated: `aestheticVariant` field (low), Settings selector (low), onboarding optional step (low–medium — mitigated by skippable + default-on-skip + descriptive copy), `prefers-reduced-motion` enforcement (medium — mitigated by deriving the effective variant at runtime and never writing the forced value to IDB, plus a Settings notice). No high-risk mechanic in Phase A.
+
+**Phase 2 — UI/UX Integrity Gate. Decision: INCREMENTAL.** Phase A only adds plumbing (one persisted field, one selector section, one optional onboarding step, one reduced-motion hook). It reskins no surface. Existing `UserConfig`, `userStore`, `Settings.tsx`, and `Onboarding/index.tsx` support these additions cleanly without IA refactor. The full UI/UX refactor policy is deferred to Phase B (Dashboard map/calendar reskin) where the IA actually changes.
+
+**Phase 3 — Mechanic Design & Event Model (Phase A).**
+- `UserConfig.aestheticVariant?: 'retro-platformer' | 'classic-boring' | string`, default `'classic-boring'`, exported as `DEFAULT_AESTHETIC_VARIANT`.
+- Migration for existing users: optional field; on read, missing values fall back to `'classic-boring'`. No write-back pass.
+- Settings UI: new "Aspecte / Apariencia / Appearance" section with radio cards, shared-core clarification copy, and a reduced-motion banner.
+- Onboarding contract: optional appearance step inserted before Step3Context; "Omet" leaves default `'classic-boring'`.
+- Reduced-motion detection: `usePrefersReducedMotion` hook subscribed to `matchMedia('(prefers-reduced-motion: reduce)')`; effective variant resolved by `useEffectiveAestheticVariant`. The persisted value is never overwritten by the override.
+- i18n keys added to ca/es/en under `common:settings.appearance.*` and `onboarding:appearance.*` (shared-core notice and reduced-motion forced notice copy verbatim from the spec).
+- Event model: zero new telemetry, zero new IDB stores (Guardrail #10).
+
+**Phase 4 — Implementation Plan Gate.** Ordered Phase A plan with acceptance criteria recorded in `tasks/todo.md` (steps A1–A10, including unit tests and verification gates).
+
+**Open questions / blockers:** none. Implementer agent may proceed with Phase A as written. Phases B–E remain blocked behind their respective design gates.
+
+---
+
 ### Comprehensive Code Review Pass — 30+ Fixes (2026-04-30)
 
 End-to-end review of `src/` plus targeted ingestion follow-ups. Performed in

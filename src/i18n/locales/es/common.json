@@ -122,7 +122,23 @@
   },
   "settings": {
     "save": "Guardar cambios",
-    "saved": "Guardado ✓"
+    "saved": "Guardado ✓",
+    "appearance": {
+      "title": "Apariencia",
+      "subtitle": "Elige cómo se ve la app. Solo cambia el aspecto.",
+      "shared_core_notice": "Solo cambia la apariencia. Los objetivos, los tótems, la planificación y la recuperación son exactamente los mismos.",
+      "reduced_motion_forced": "Estás en Classic Boring porque el sistema tiene activada la reducción de movimiento. Desactívala en el sistema para poder elegir otra variante.",
+      "variant": {
+        "classic_boring": {
+          "label": "Classic Boring",
+          "description": "Apariencia de app limpia y tranquila con un toque retro discreto. Sin parallax, sin audio."
+        },
+        "retro_platformer": {
+          "label": "Retro Platformer",
+          "description": "Estética de juego 8/16 bits con metáfora de niveles y parallax. Audio opcional."
+        }
+      }
+    }
   },
   "available_weights": {
     "title": "Pesos disponibles",

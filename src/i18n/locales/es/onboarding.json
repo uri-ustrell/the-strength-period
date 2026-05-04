@@ -4,6 +4,13 @@
   "next": "Siguiente",
   "back": "Atrás",
   "finish": "Empezar",
+  "skip": "Omitir",
+  "appearance": {
+    "title": "Elige la apariencia",
+    "subtitle": "Puedes cambiarlo más tarde en Configuración. Si lo omites, usamos Classic Boring.",
+    "shared_core_notice": "Solo cambia la apariencia. Los objetivos, los tótems, la planificación y la recuperación son exactamente los mismos.",
+    "reduced_motion_forced": "Estás en Classic Boring porque el sistema tiene activada la reducción de movimiento."
+  },
   "step3": {
     "title": "Tu contexto de entrenamiento",
     "subtitle": "Personaliza tu plan",

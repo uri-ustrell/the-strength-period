@@ -4,6 +4,13 @@
   "next": "Següent",
   "back": "Enrere",
   "finish": "Començar",
+  "skip": "Omet",
+  "appearance": {
+    "title": "Tria l'aspecte",
+    "subtitle": "Pots canviar-ho més tard a Configuració. Si ho omets, fem servir Classic Boring.",
+    "shared_core_notice": "Només canvia l'aspecte. Els objectius, els totems, la planificació i la recuperació són exactament els mateixos.",
+    "reduced_motion_forced": "Estàs en Classic Boring perquè el sistema té activada la reducció de moviment."
+  },
   "step3": {
     "title": "El teu context d'entrenament",
     "subtitle": "Personalitza el teu pla",

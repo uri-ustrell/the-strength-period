@@ -5,6 +5,59 @@
 
 ## Active Tasks
 
+### Step 16 — Phase A (Shared Core Plumbing + Variant Selector)
+
+Spec source of truth: `specs/features/16-ethical-gamification.md` (sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring").
+
+- [ ] A1. Extend `UserConfig` in `src/types/user.ts`
+  - Add optional `aestheticVariant?: 'retro-platformer' | 'classic-boring' | string`
+  - Export `DEFAULT_AESTHETIC_VARIANT = 'classic-boring'`
+  - AC: type compiles; no other type changes; default is `'classic-boring'`
+- [ ] A2. Update `src/stores/userStore.ts`
+  - Add `aestheticVariant` to state, default `DEFAULT_AESTHETIC_VARIANT`
+  - Add `setAestheticVariant(variant)` action
+  - Extend `isValidUserConfig`: accept optional string `aestheticVariant`
+  - `loadUserConfig`: hydrate with `config.aestheticVariant ?? DEFAULT_AESTHETIC_VARIANT`
+  - `completeOnboarding`: persist current `aestheticVariant`
+  - `reset`: reset to `DEFAULT_AESTHETIC_VARIANT`
+  - AC: existing configs without the field load without errors and end up on `classic-boring`; persistence round-trips a chosen variant; lint + build green
+- [ ] A3. Create `src/hooks/usePrefersReducedMotion.ts`
+  - Wrap `matchMedia('(prefers-reduced-motion: reduce)')` with subscribe/unsubscribe
+  - SSR-safe (return `false` if `window` is undefined)
+  - AC: hook returns live boolean and updates on OS preference change without reload
+- [ ] A4. Create `src/hooks/useEffectiveAestheticVariant.ts`
+  - Returns `reducedMotion ? 'classic-boring' : (persistedVariant ?? 'classic-boring')`
+  - Never writes to the store
+  - AC: forced override does not mutate persisted state; restoring OS reduced-motion off restores previous choice
+- [ ] A5. Add i18n keys (ca/es/en) — `common:settings.appearance.*` and `onboarding:appearance.*`
+  - Maintain key parity (run `npm run i18n:check`)
+  - AC: zero parity errors; keys present in all three locales
+- [ ] A6. Settings page — add "Aspecte" section in `src/pages/Settings.tsx`
+  - Variant radio group with thumbnail placeholder
+  - Shared-core notice copy beneath
+  - Reduced-motion banner when forced; selector disabled but persisted choice still indicated
+  - Wire to `setAestheticVariant`
+  - AC: changes are persisted; reduced-motion override does not overwrite persisted value; full keyboard navigation; AA contrast on banner
+- [ ] A7. Onboarding — insert optional appearance step
+  - Update `src/pages/Onboarding/index.tsx` to a 2-step flow (1: Appearance, 2: Step3Context)
+  - "Omet" button = no-op (keeps default `classic-boring`)
+  - AC: skip path completes onboarding with `classic-boring`; explicit pick persists; can navigate Back/Next without losing prior selections
+- [ ] A8. Tests
+  - Unit: `userStore` migration (config without `aestheticVariant` → defaults applied)
+  - Unit: `useEffectiveAestheticVariant` (reduced-motion override does not write store)
+  - Unit: `isValidUserConfig` rejects non-string `aestheticVariant`
+  - Manual / smoke: toggle OS reduced-motion → Settings selector disables and notice appears
+  - AC: all unit tests pass
+- [ ] A9. Verification gates
+  - `npm run i18n:check` green
+  - `npm run lint` green
+  - `npm run build` green
+  - AC: all three commands exit 0
+- [ ] A10. Update `specs/STATUS.md` Step 16 sub-bullets and append a Phase A completion entry to `specs/STATUS_HISTORY.md`
+  - AC: STATUS reflects Phase A done; no edits to `specs/features/16-ethical-gamification.md`
+
+Out of Phase A (deferred): variant-specific reskinning of any surface, totem catalog, recovery indicator, mascot, palette swap themes, sound layer, sticker book, biome system, world-map UI.
+
 ### Refactor: Restrict Generator Mode to "From-Zero" Onboarding Only
 - [ ] All curated presets must use Faithful mode (sessions[] explicit)
 - [ ] Generator mode (muscleDistribution-only) is reserved exclusively for the "from-zero / first-time user" experience where no preset is selected
