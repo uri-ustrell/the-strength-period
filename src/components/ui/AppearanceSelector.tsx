@@ -1,14 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import type { AestheticVariant } from '@/types/user'
 
-const VARIANTS: ReadonlyArray<{ key: AestheticVariant; i18nKey: 'classic_boring' | 'retro_platformer' }> = [
+const VARIANTS: ReadonlyArray<{
+  key: AestheticVariant
+  i18nKey: 'classic_boring' | 'retro_platformer'
+}> = [
   { key: 'classic-boring', i18nKey: 'classic_boring' },
   { key: 'retro-platformer', i18nKey: 'retro_platformer' },
 ]
 
 type Props = {
-  /** Currently effective variant (may be the reduced-motion override). */
-  effectiveVariant: AestheticVariant
   /** Persisted user choice — kept even when overridden by reduced motion. */
   persistedVariant: AestheticVariant
   onChange: (variant: AestheticVariant) => void
@@ -33,7 +34,6 @@ type Props = {
  * - The component never writes to the store on its own.
  */
 export const AppearanceSelector = ({
-  effectiveVariant,
   persistedVariant,
   onChange,
   reducedMotionForced,
@@ -58,7 +58,6 @@ export const AppearanceSelector = ({
       <div role="radiogroup" aria-label={t(`${keyPrefix}.title`)} className="space-y-2">
         {VARIANTS.map((variant) => {
           const checked = persistedVariant === variant.key
-          const isEffective = effectiveVariant === variant.key
           const disabled = reducedMotionForced && variant.key !== 'classic-boring'
           const labelId = `appearance-variant-label-${variant.key}`
           const descId = `appearance-variant-desc-${variant.key}`
@@ -90,11 +89,6 @@ export const AppearanceSelector = ({
               <div className="flex-1">
                 <div id={labelId} className="text-sm font-semibold text-gray-900">
                   {t(`${keyPrefix}.variant.${variant.i18nKey}.label`)}
-                  {isEffective && reducedMotionForced && variant.key === 'classic-boring' && (
-                    <span className="ml-2 rounded bg-amber-200 px-1.5 py-0.5 text-xs font-medium text-amber-900">
-                      ●
-                    </span>
-                  )}
                 </div>
                 <div id={descId} className="mt-1 text-xs text-gray-500">
                   {t(`${keyPrefix}.variant.${variant.i18nKey}.description`)}

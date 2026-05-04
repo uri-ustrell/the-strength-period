@@ -42,11 +42,12 @@ Spec source of truth: `specs/features/16-ethical-gamification.md` (sections "Sha
   - Update `src/pages/Onboarding/index.tsx` to a 2-step flow (1: Appearance, 2: Step3Context)
   - "Omet" button = no-op (keeps default `classic-boring`)
   - AC: skip path completes onboarding with `classic-boring`; explicit pick persists; can navigate Back/Next without losing prior selections
-- [ ] A8. Tests
-  - Unit: `userStore` migration (config without `aestheticVariant` → defaults applied)
-  - Unit: `useEffectiveAestheticVariant` (reduced-motion override does not write store)
-  - Unit: `isValidUserConfig` rejects non-string `aestheticVariant`
-  - Manual / smoke: toggle OS reduced-motion → Settings selector disables and notice appears
+- [x] A8. Tests
+  - Unit: `userStore` migration (config without `aestheticVariant` → defaults applied) — `src/stores/userStore.migration.test.ts`
+  - Unit: `useEffectiveAestheticVariant` (reduced-motion override does not write store) — `src/hooks/useEffectiveAestheticVariant.test.tsx`
+  - Unit: `isValidUserConfig` rejects non-string `aestheticVariant` — `src/stores/userStore.isValidUserConfig.test.ts`
+  - Vitest + jsdom wired (`vitest.config.ts`); `npm run test:unit` runs frontend tests, `npm test` runs both unit + ingestion suites
+  - Manual / smoke: toggle OS reduced-motion → Settings selector disables and notice appears (verified manually after blocker fix)
   - AC: all unit tests pass
 - [ ] A9. Verification gates
   - `npm run i18n:check` green

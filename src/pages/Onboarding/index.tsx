@@ -1,14 +1,14 @@
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 
 import { AppearanceSelector } from '@/components/ui/AppearanceSelector'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
-import { useEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVariant'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import { Step3Context } from '@/pages/Onboarding/Step3Context'
 import { useUserStore } from '@/stores/userStore'
+import { DEFAULT_AESTHETIC_VARIANT } from '@/types/user'
 
 const TOTAL_STEPS = 2
 
@@ -23,7 +23,6 @@ export const Onboarding = () => {
   const setAestheticVariant = useUserStore((s) => s.setAestheticVariant)
 
   const reducedMotionForced = usePrefersReducedMotion()
-  const effectiveAestheticVariant = useEffectiveAestheticVariant()
 
   // Step 1 = Appearance (optional, skippable). Step 2 = Step3Context (existing).
   const [step, setStep] = useState<1 | 2>(1)
@@ -32,6 +31,17 @@ export const Onboarding = () => {
 
   const goNext = () => setStep(2)
   const goBack = () => setStep(1)
+
+  /**
+   * Skip leaves the user on the default `classic-boring` variant. We make the
+   * intent explicit by writing the default through `setAestheticVariant` so the
+   * persisted value reflects the user's (implicit) choice rather than a stale
+   * pre-existing selection.
+   */
+  const handleSkip = () => {
+    setAestheticVariant(DEFAULT_AESTHETIC_VARIANT)
+    goNext()
+  }
 
   const handleFinish = async () => {
     if (!canFinish) return
@@ -62,7 +72,6 @@ export const Onboarding = () => {
                 namespace="onboarding"
                 keyPrefix="appearance"
                 persistedVariant={aestheticVariant}
-                effectiveVariant={effectiveAestheticVariant}
                 onChange={setAestheticVariant}
                 reducedMotionForced={reducedMotionForced}
               />
@@ -88,7 +97,7 @@ export const Onboarding = () => {
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={goNext}
+                onClick={handleSkip}
                 className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100"
               >
                 {t('skip')}

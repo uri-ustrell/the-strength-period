@@ -7,6 +7,95 @@
 
 ## Recent Changes
 
+### 2026-05-04 — Step 16 Phase A re-review
+
+Reviewer re-audit after Implementer's blocker fixes. Source of truth: `specs/features/16-ethical-gamification.md` ("Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring"). No source code modified.
+
+**✅ Pass (6)**
+- Blocker 1 closed: `src/i18n/locales/{ca,es,en}/onboarding.json` ship `appearance.variant.{classic_boring,retro_platformer}.{label,description}` (12 leaves) verbatim from `common:settings.appearance.variant.*`. `AppearanceSelector` resolves them via the `onboarding` namespace + `appearance` keyPrefix — no raw key strings rendered.
+- Blocker 2 closed: `vitest.config.ts` (jsdom, scoped to `src/**/*.test.{ts,tsx}`); devDeps `vitest`/`jsdom`/`@testing-library/{react,jest-dom}`; `package.json` scripts `test`, `test:unit`, `test:ingestion` wired. The 3 mandated tests (`userStore.migration`, `useEffectiveAestheticVariant`, `userStore.isValidUserConfig`) are present and structurally valid.
+- Warning 1 closed: `●` badge removed from `AppearanceSelector.tsx`; `effectiveVariant` prop dropped from API and call sites.
+- Warning 2 closed: Onboarding `handleSkip` explicitly calls `setAestheticVariant(DEFAULT_AESTHETIC_VARIANT)` before `goNext()`.
+- No regressions: shared-core invariants intact; reduced-motion override remains runtime-only and never written; a11y, security, conventions preserved.
+- Gates wiring verified for `i18n:check`, `lint`, `build`, `test`.
+
+**⚠️ Warnings (1, non-blocking)**
+- Onboarding `appearance.subtitle` and `appearance.reduced_motion_forced` are intentionally shorter than the Settings counterparts. By design — flagged only for future cross-surface copy parity if desired.
+
+**❌ Blockers (0)**
+
+**Verdict:** PASS. Phase A implementation complete. Phases B–E remain pending; Step 16 row stays "🚧 In Progress".
+
+### 2026-05-04 — Step 16 Phase A blocker fixes
+
+Implementer pass addressing the two blockers and two selected warnings from the 2026-05-04 reviewer audit. Spec untouched.
+
+**Blocker 1 — onboarding i18n parity for `variant.*` subtree.** Mirrored `common:settings.appearance.variant.{classic_boring,retro_platformer}.{label,description}` into `onboarding:appearance.variant.*` for ca/es/en (12 leaves). Copy is verbatim from the corresponding `common.json` keys; no new strings invented. `AppearanceSelector` keeps reading `appearance.variant.<key>.{label,description}` from the namespace passed in by its caller (`onboarding` for the optional onboarding step, `common` for Settings).
+
+**Blocker 2 — A8 unit tests + Vitest infra.** Added Vitest + jsdom + `@testing-library/react` + `@testing-library/jest-dom`. New `vitest.config.ts` scopes the runner to `src/**/*.test.{ts,tsx}` so the existing Node-test ingestion suite is untouched. Scripts: `test:unit` runs Vitest, `test:ingestion` keeps the Node runner, and `test` runs both sequentially.
+
+Tests (all passing):
+- `src/stores/userStore.isValidUserConfig.test.ts` — 6 cases. Accepts string and `undefined`, rejects number/object/null/boolean for `aestheticVariant`.
+- `src/stores/userStore.migration.test.ts` — mocks `@/services/db/configRepository`, calls `loadUserConfig` with a legacy `UserConfig` lacking `aestheticVariant`, asserts the store hydrates to `DEFAULT_AESTHETIC_VARIANT` and the rest of the fields round-trip cleanly.
+- `src/hooks/useEffectiveAestheticVariant.test.tsx` — `renderHook` against a stubbed `window.matchMedia`. Asserts (a) reduced-motion → returns `'classic-boring'` while persisted `'retro-platformer'` is preserved and `setAestheticVariant` is never called, and (b) the no-override path returns the persisted variant.
+
+**Warning 1 — redundant `●` badge.** Removed the amber dot from `AppearanceSelector` (the radio's `checked` state already conveys "active"). Dropped the now-unused `effectiveVariant` prop from the component and from both call sites (`Settings`, `Onboarding`), plus the dead `useEffectiveAestheticVariant` import in those pages.
+
+**Warning 2 — explicit Skip intent.** Onboarding's Skip button now calls `setAestheticVariant(DEFAULT_AESTHETIC_VARIANT)` before advancing, so the persisted choice reflects the user's (implicit) decision rather than relying on a pre-existing default. Imported `DEFAULT_AESTHETIC_VARIANT` from `@/types/user`.
+
+**Files added**
+- `vitest.config.ts`
+- `src/stores/userStore.isValidUserConfig.test.ts`
+- `src/stores/userStore.migration.test.ts`
+- `src/hooks/useEffectiveAestheticVariant.test.tsx`
+
+**Files modified**
+- `src/i18n/locales/{ca,es,en}/onboarding.json` — added `appearance.variant.*` subtree
+- `src/components/ui/AppearanceSelector.tsx` — removed `●` badge and `effectiveVariant` prop
+- `src/pages/Onboarding/index.tsx` — explicit `handleSkip`, dropped dead hook import + prop
+- `src/pages/Settings.tsx` — dropped dead hook import + `effectiveVariant` prop
+- `package.json` — added `vitest`/`@testing-library/react`/`@testing-library/jest-dom`/`jsdom` devDeps; `test` runs both suites; new `test:unit`
+- `tasks/todo.md` — A8 ticked
+- `specs/STATUS.md` — Phase A entry updated to "awaiting re-review" (FAIL annotation removed)
+
+**Verification**
+- `npm run i18n:check` → `[i18n:check] OK — 3 locales, 6 namespaces in parity.`
+- `npm run lint` → exit 0 (no output)
+- `npm run build` → `✓ built in 7.57s` then PWA `precache 7 entries`
+- `npm test` → `Test Files 3 passed (3) / Tests 9 passed (9)` for `test:unit`; `tests 3 / pass 3 / fail 0` for `test:ingestion`
+
+**Deviations from brief**
+- Added 6 cases (not just 1) to `isValidUserConfig` to exhaustively cover the contract — same file, no extra surface area.
+- Removed `effectiveVariant` from the `AppearanceSelector` API rather than leaving it as a dead prop, since the `●` badge was its only consumer. This eliminates two unused imports and keeps `noUnusedParameters` honest.
+- Did not install `@testing-library/jest-dom`'s matchers via a setup file (no DOM matchers needed by these three tests). The package is installed per the brief but no global setup is wired; future tests can add it as needed.
+
+### 2026-05-04 — Step 16 Phase A review
+
+Reviewer pass against `specs/features/16-ethical-gamification.md` ("Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring") and `tasks/todo.md` → "Step 16 — Phase A". No source code modified.
+
+**✅ Pass**
+- Shared core: single `aestheticVariant` field on existing `UserConfig`; zero variant-specific logic; zero new IDB stores.
+- `AestheticVariant` is an open string type; default `DEFAULT_AESTHETIC_VARIANT = 'classic-boring'`.
+- `prefers-reduced-motion` enforcement is purely runtime (`useEffectiveAestheticVariant` derives, never writes); persisted preference is preserved across toggles.
+- `userStore`: legacy configs without `aestheticVariant` hydrate to default; `setAestheticVariant`, `completeOnboarding`, `reset` round-trip the field; `isValidUserConfig` accepts optional string only.
+- `usePrefersReducedMotion`: SSR-safe, syncs after mount, `addEventListener('change', …)` with `addListener` fallback, full cleanup.
+- Settings: dedicated "Aspecte" section with reduced-motion banner (`role="status"`); selector disabled while persisted choice remains visible.
+- Onboarding: optional first step with Skip/Back/Next; default-on-skip behavior is `classic-boring`.
+- Guardrails: no guilt/urgency/shame copy; no paid gating; no telemetry.
+- Accessibility: radio-group semantics, `aria-labelledby`/`aria-describedby`, AA-friendly amber banner, 44px+ tap targets.
+- Security: no `any`, no `innerHTML`/`eval`, no logged secrets.
+
+**❌ Blockers**
+- `src/i18n/locales/{ca,es,en}/onboarding.json`: missing keys `appearance.variant.classic_boring.{label,description}` and `appearance.variant.retro_platformer.{label,description}` (12 leaves). `AppearanceSelector` reads from the `onboarding` namespace at the optional onboarding step; `npm run i18n:check` does not catch it because parity holds and no namespace fallback is configured. **Fix:** mirror the `variant.*` subtree from `common:settings.appearance` into `onboarding:appearance` for ca/es/en.
+- A8 unit tests not delivered. No frontend test runner is configured in `package.json` (`test` only runs ingestion). Missing: (1) `userStore` migration without `aestheticVariant`, (2) `useEffectiveAestheticVariant` does not mutate the store under reduced-motion override, (3) `isValidUserConfig` rejects non-string `aestheticVariant`. **Fix:** add Vitest + jsdom and the three tests, or formally descope A8.
+
+**⚠️ Warnings (non-blocking)**
+- `AppearanceSelector` "active now" `●` badge has no accessible name. Either remove or label.
+- Onboarding Skip and Next call the same handler. Recommend Skip explicitly call `setAestheticVariant(DEFAULT_AESTHETIC_VARIANT)` so intent is encoded, not implicit.
+- A8 manual smoke (toggle OS reduced-motion) not recorded. Add note on re-verification.
+
+**Verdict:** FAIL. Implementer to address blockers and re-request review.
+
 ### 2026-05-04 — Step 16 pre-execution gates
 
 Pre-execution phases for Step 16 (Ethical Gamification) executed by the Architect agent. No source code touched. Source of truth: `specs/features/16-ethical-gamification.md` (recently extended with "Shared Gamification Core", "Aesthetic Variants", and "Variant: Classic Boring" sections).

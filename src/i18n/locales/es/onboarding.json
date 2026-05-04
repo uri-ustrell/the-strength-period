@@ -9,7 +9,17 @@
     "title": "Elige la apariencia",
     "subtitle": "Puedes cambiarlo más tarde en Configuración. Si lo omites, usamos Classic Boring.",
     "shared_core_notice": "Solo cambia la apariencia. Los objetivos, los tótems, la planificación y la recuperación son exactamente los mismos.",
-    "reduced_motion_forced": "Estás en Classic Boring porque el sistema tiene activada la reducción de movimiento."
+    "reduced_motion_forced": "Estás en Classic Boring porque el sistema tiene activada la reducción de movimiento.",
+    "variant": {
+      "classic_boring": {
+        "label": "Classic Boring",
+        "description": "Apariencia de app limpia y tranquila con un toque retro discreto. Sin parallax, sin audio."
+      },
+      "retro_platformer": {
+        "label": "Retro Platformer",
+        "description": "Estética de juego 8/16 bits con metáfora de niveles y parallax. Audio opcional."
+      }
+    }
   },
   "step3": {
     "title": "Tu contexto de entrenamiento",

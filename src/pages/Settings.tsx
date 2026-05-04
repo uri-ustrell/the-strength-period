@@ -2,10 +2,9 @@ import { ArrowLeft, Check } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { AppearanceSelector } from '@/components/ui/AppearanceSelector'
 import { EquipmentChipSelector } from '@/components/onboarding/EquipmentChipSelector'
+import { AppearanceSelector } from '@/components/ui/AppearanceSelector'
 import { WeightSelector } from '@/components/ui/WeightSelector'
-import { useEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVariant'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import { useUserStore } from '@/stores/userStore'
 import type { DayOfWeek } from '@/types/exercise'
@@ -33,7 +32,6 @@ export const SettingsPage = () => {
   const completeOnboarding = useUserStore((s) => s.completeOnboarding)
 
   const reducedMotionForced = usePrefersReducedMotion()
-  const effectiveAestheticVariant = useEffectiveAestheticVariant()
 
   const [saved, setSaved] = useState(false)
   const navigateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -161,7 +159,6 @@ export const SettingsPage = () => {
             namespace="common"
             keyPrefix="settings.appearance"
             persistedVariant={aestheticVariant}
-            effectiveVariant={effectiveAestheticVariant}
             onChange={setAestheticVariant}
             reducedMotionForced={reducedMotionForced}
           />

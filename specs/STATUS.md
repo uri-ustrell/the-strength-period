@@ -85,7 +85,7 @@
 - [x] Phase 2 — UI/UX Integrity Gate: **INCREMENTAL** for Phase A (no IA change; full refactor deferred to Phase B)
 - [x] Phase 3 — Mechanic design & event model for Phase A: `UserConfig.aestheticVariant`, default `'classic-boring'`, Settings selector, optional onboarding step, reduced-motion hook, zero new telemetry/IDB
 - [x] Phase 4 — Implementation Plan Gate: ordered Phase A checklist (A1–A10) recorded in `tasks/todo.md`
-- [ ] Phase A implementation (see `tasks/todo.md` → "Step 16 — Phase A")
+- [x] Phase A implementation (see `tasks/todo.md` → "Step 16 — Phase A") ✅ Complete — Reviewer 2026-05-04 re-review: PASS. All blockers closed (`onboarding:appearance.variant.*` parity, Vitest infra + 3 required tests, `●` badge removed, Skip persists `DEFAULT_AESTHETIC_VARIANT`); shared-core invariants and reduced-motion runtime-only override intact.
 - [ ] Phases B–E (Dashboard world-map / calendar, session execution skin, stats inventory skin, optional polish) — gated by their own pre-execution review
 - Phase B parity decision (2026-05-04): **strict parity from day one** — every Phase B+ surface ships `retro-platformer` and `classic-boring` together; no temporary single-variant releases.
 

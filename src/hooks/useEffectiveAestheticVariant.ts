@@ -1,7 +1,7 @@
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import { useUserStore } from '@/stores/userStore'
 import type { AestheticVariant } from '@/types/user'
 import { DEFAULT_AESTHETIC_VARIANT } from '@/types/user'
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 /**
  * Pure resolver for the effective aesthetic variant.
@@ -17,7 +17,7 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
  */
 export function resolveEffectiveAestheticVariant(
   persisted: AestheticVariant | undefined,
-  prefersReducedMotion: boolean,
+  prefersReducedMotion: boolean
 ): AestheticVariant {
   if (prefersReducedMotion) return 'classic-boring'
   return persisted ?? DEFAULT_AESTHETIC_VARIANT
