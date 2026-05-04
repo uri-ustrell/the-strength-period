@@ -360,6 +360,9 @@ Metrics are split into positive outcomes and anti-addiction safety checks.
 - [ ] Metrics instrumentation exists for outcomes and safety checks.
 - [ ] QA checklist is completed before merge.
 - [ ] `npm run build` passes.
+- [ ] `aestheticVariant` selector is implemented in Settings and surfaced as an optional onboarding step; `classic-boring` is the safer default when skipped.
+- [ ] `prefers-reduced-motion` forces `classic-boring` and the Settings selector explains the override without overwriting the user's persisted preference.
+- [ ] Both `retro-platformer` and `classic-boring` variants ship with full surface coverage, parity on shared core, and independent guardrail cross-check sign-off.
 
 ## Step 16 Implementation Checklist
 
@@ -409,6 +412,148 @@ Metrics are split into positive outcomes and anti-addiction safety checks.
 The training surfaces of the app must feel like a retro platformer game, not like another generic Tailwind dashboard. The metaphor is deliberate: a workout is a level, a week is a world, a mesocycle is a quest. Aesthetic identity reinforces consistency motivation **without** introducing any pattern banned by the guardrails above.
 
 This section is purely additive. It does **not** replace, weaken or contradict any rule from the Non-Negotiable Guardrails or Forbidden Patterns sections. If a visual idea ever conflicts with those, the guardrails win and the visual idea is dropped.
+
+### Shared Gamification Core (Variant-Agnostic)
+
+The gamification system has **one and only one** logic, data model, and copy contract. Aesthetic variants (see next section) re-skin the presentation layer; they never branch the rules, the eligibility, or the persisted data.
+
+**Always shared across every variant — single source of truth:**
+
+- Milestone taxonomy and eligibility rules (consistency, recovery, preparation, injury-safe progression, reflection).
+- Totem catalog, identifiers, and deterministic granting logic (non-revocable, auditable).
+- Volume-based recovery indicator (inputs, formulas, three states, conservative defaults, pain-flag override).
+- Event instrumentation map and telemetry schema.
+- Copy guardrails, forbidden patterns, and language tone rules.
+- Patronage model constraints.
+- Persisted data model in `UserConfig`, milestone history, and session-derived state. No variant adds new IDB stores.
+- Accessibility contracts (i18n keys, AA contrast on functional overlays, `aria-*` semantics, keyboard navigation).
+
+**Variant-specific (presentation only):**
+
+- Visual layout (world map vs calendar, side-scroll level vs vertical card list).
+- Typography ratios (where pixel font appears, how much of the surface uses it).
+- Iconography (sprite-only, sprite + Lucide, Lucide-only).
+- Motion intensity and choreography (parallax vs stepped HUD only vs minimal transitions).
+- Palette saturation and background treatment (full master palette vs reduced-saturation derivative).
+- Optional audio layer (per-variant default; user opt-in always).
+
+**Hard rule:** any change to the shared core requires updating this spec; any change to a variant only touches that variant's section.
+
+### Aesthetic Variants
+
+The aesthetic layer is **multi-variant by design** and must remain extensible. New variants can be added in the future without touching the shared core.
+
+#### Variant Architecture
+
+- All variants share the same gamification core defined above.
+- Each variant is identified by a stable technical key and exposes ca/es/en visible labels via `i18next`.
+- Variant choice is persisted at `UserConfig.aestheticVariant` (existing store, no new IDB schema).
+- Adding a new variant must not require schema migrations: `aestheticVariant` is a free-form string with a documented allowlist.
+- Each variant must ship: full surface coverage (no half-skinned states), guardrail cross-check sign-off, full i18n coverage, accessibility audit.
+
+#### Initial Variants
+
+| Technical key | Visible label (en) | Default tone | Notes |
+|---|---|---|---|
+| `retro-platformer` | Retro Platformer | Game-forward, side-scroll metaphor, parallax | Full description in the rest of this section |
+| `classic-boring` | Classic Boring | App-forward, calendar metaphor, light retro accents | Full description in the next subsection |
+
+> The list is **open**: future variants (e.g. `terminal`, `paper-journal`, `high-contrast-only`) can be added by appending a row here, providing a variant-specific section, and shipping the surfaces.
+
+#### User Control
+
+- Selector lives in **Settings → Aspecte / Apariencia / Appearance**, exposing all available variants with a short preview thumbnail.
+- The onboarding flow includes an **optional** step letting the user pick a variant. Skippable: if skipped, the system applies `classic-boring` as the safer default for new users.
+- The selector clarifies in copy: *"Només canvia l'aspecte. Els objectius, els totems, la planificació i la recuperació són exactament els mateixos."*
+- Switching variants is instant, reversible, and never resets any progress, milestone, or session data.
+
+#### Calm Mode (Orthogonal)
+
+- Calm mode remains a separate, orthogonal toggle that disables motion-heavy effects and audio loops.
+- Calm mode combines with **any** variant. It is not a variant itself.
+
+#### `prefers-reduced-motion` Behavior
+
+- When the OS reports `prefers-reduced-motion: reduce`, the app **forces** `classic-boring` as the active variant regardless of the persisted preference.
+- The Settings selector clearly informs the user: *"Estàs en Classic Boring perquè el sistema té activada la reducció de moviment. Desactiva-la al sistema per poder triar una altra variant."*
+- The user's previously persisted variant is preserved (not overwritten) and restored automatically when `prefers-reduced-motion` is no longer reported.
+
+### Variant: Classic Boring
+
+`classic-boring` is the app-forward variant. It keeps a discreet retro touch so it visually rhymes with the rest of the app, but drops the platformer metaphor entirely. It is the default for new users and the forced variant when reduced-motion is requested.
+
+#### Visual Language
+
+- **Style direction:** clean, app-like surfaces with a light retro accent. No parallax, no scrolling levels, no sprite-stage compositions.
+- **Palette:** same master palette and per-week sub-palettes as `retro-platformer`, but with **reduced saturation** and **neutral backgrounds**. Sub-palettes appear as accent strips, header tints, and totem motif tones — never as full-bleed scenes.
+- **Typography:** the pixel display face is used **only** in section titles and HUD numbers (volume, time-remaining, set counters, RPE). All body copy, labels, and form text use the existing system font for maximum legibility.
+- **Iconography:** small retro pixel sprites for totems/milestones and for session state indicators (completed / in-progress / skipped / future). Tool surfaces and form controls keep Lucide icons.
+- **Motion:** stepped micro-animations on HUD numbers (count-up in steps, never smooth tweens). Discrete fade/slide transitions between views. No parallax. No ambient loops. Respect `prefers-reduced-motion` everywhere — degrades to instant state changes.
+
+#### Surface Treatments
+
+| Surface | Treatment in Classic Boring |
+|---|---|
+| Dashboard | Weekly calendar view with one row per week and one cell per scheduled session; cells show state (future, available, in-progress, completed, skipped) with small pixel icons and a tinted accent from the week's sub-palette |
+| Session execution (`/session`) | Vertical scroll. One card per exercise with timer and sets inline; compact HUD at top showing volume, elapsed time, and RPE summary using pixel-font numbers |
+| Stats / progress | Card grid of totems and milestones; each card shows the pixel sprite, the totem name, the date earned, and a tap-to-inspect detail panel with the exact deterministic rule that granted it |
+| Plan creator | Tool surface, app-clean (unchanged from current style) |
+| Settings | Tool surface, app-clean; hosts the variant selector |
+| Onboarding | Tool surface, app-clean; includes the optional variant-pick step |
+| Data import/export | Tool surface, app-clean (unchanged) |
+
+#### Navigation Metaphor — Calendar
+
+- **Mesocycle = plan.** Page-level header shows preset name + cycle index.
+- **Week = row.** One row per week with a label and the dominant accent color from the week's sub-palette.
+- **Session = cell.** State indicators only; tap to open the session view. Future cells are visually muted (low contrast frame) but never blocked from interaction — same lock-as-storytelling rule applies.
+- **Routing & data:** identical to `retro-platformer`, derived from existing `Mesocycle` state. Zero new persistence.
+
+#### Session Execution Surface
+
+- **Layout:** vertical scroll, one card per exercise. Each card contains the exercise name (system font), pixel-font set/rep counters, an inline rest timer, RPE input, and notes. Cards collapse once completed.
+- **HUD (top sticky bar):** elapsed time, total volume, average RPE — all in pixel-font numbers with stepped count-up animation. No meters, no gems, no level-clear frame.
+- **Rest timer:** compact pixel-font countdown inside the active card. SFX always disabled in this variant. No flashing or color-urgency states.
+- **Completion:** end-of-session summary card listing sets completed, RPE summary, and the recovery indicator state. No celebratory frame; a single calm acknowledgment line passes the forbidden-pattern review.
+
+#### Stats / Inventory Surface
+
+- Totems and milestones render as a responsive card grid.
+- Each card uses the pixel sprite from the shared totem catalog as the visual anchor; card body uses system font for the totem name, earned date, and family motif color.
+- Tapping a card opens a detail panel with the deterministic eligibility rule, exactly as in `retro-platformer`.
+- Recovery totems share the exact same card treatment as intensity totems (equal visual weight requirement is preserved).
+
+#### Sound
+
+- Audio layer is **disabled** in this variant. Both `sfx` and `music` channels are muted by default and the per-channel toggles are hidden from the Settings panel while `classic-boring` is active. No SFX during rest timer, no chime on session completion.
+- This is intentional: `classic-boring` is the calm/silent path. Users who want optional audio choose `retro-platformer` (or another future audio-bearing variant).
+
+#### Accessibility
+
+- Inherits all shared accessibility contracts.
+- Because motion is minimal and audio is disabled by default, this variant is the natural fit for `prefers-reduced-motion` and is forced in that scenario (with a Settings notice).
+- Calendar cells are tab-focusable in chronological order. Arrow keys move focus across cells. Each cell exposes `role="link"` with name `"Setmana N · Sessió M · {state}"`.
+
+#### Guardrail Cross-Check
+
+| Guardrail | Classic Boring compliance |
+|---|---|
+| Health over engagement | Calendar reflects schedule + recovery state; no nudges |
+| No punishment loops | Skipped cells are visually muted, never shamed |
+| No artificial urgency | No countdowns, no flashing timers, no urgency colors |
+| No exploitative monetization | No paid cosmetics, no paid variants |
+| Transparency first | Tap any totem card or HUD readout to inspect the deterministic rule |
+| Autonomy and control | Variant is user-selectable; Calm mode and audio toggles still apply where relevant |
+| Accessibility and inclusion | Reduced-motion safe by design, AA contrast, full keyboard nav |
+| Balanced copy | All summary copy reuses the shared copy pool |
+| Protect cognitive load | No celebratory frames; one acknowledgment per session end |
+| Data minimization | Zero new persisted state; aesthetic is derived |
+
+---
+
+### Variant: Retro Platformer
+
+> The remainder of this section describes the `retro-platformer` variant in full. The shared core above and the variant architecture apply equally to all current and future variants.
 
 ### Visual Language
 
@@ -464,7 +609,7 @@ Tool surfaces must remain frictionless and high-readability. The aesthetic separ
 
 - Pixel art must pass WCAG AA contrast for any text overlaid on it. Decorative pixel scenes do not need to pass contrast in isolation, but all functional text/icons rendered on top of them must.
 - Every game surface must have an equivalent `aria-label` description. Map nodes expose `role="link"` with name "Week N · Session M · {state}".
-- A "Classic mode" toggle in Settings switches all `game` surfaces to their Tailwind equivalent. Implementation order can ship game-only first if the Tailwind fallback is preserved for the same data.
+- The `classic-boring` variant (see Aesthetic Variants) acts as the app-clean equivalent of every game surface and is the forced variant when `prefers-reduced-motion` is set. Implementation order can ship `retro-platformer` first if `classic-boring` is preserved as the parity target for the same data.
 - Keyboard navigation: world map nodes are tab-focusable in chronological order. Arrow keys can move focus along the path.
 - All animation respects `prefers-reduced-motion`. No essential information is conveyed by motion alone.
 
@@ -480,7 +625,7 @@ Tool surfaces must remain frictionless and high-readability. The aesthetic separ
 - **No game engine** (Phaser/PixiJS) at v1. The metaphor is achieved by static composition + CSS motion, not real-time rendering.
 - **Asset pipeline:** all sprites authored as SVG with explicit pixel grid (`shape-rendering: crispEdges`); raster fallback only if a particular sprite cannot be expressed cleanly in SVG.
 - **Code splitting:** game surfaces lazy-loaded as a single chunk so tool surfaces (Settings/Onboarding/Plan creator) keep their current load cost.
-- **Persistence:** the aesthetic layer adds **zero new IndexedDB stores**. All game state derives from existing `Mesocycle`, `Session`, milestone, and config data. Aesthetic preferences (sound on/off, classic mode, reduced motion override) live under existing `UserConfig`.
+- **Persistence:** the aesthetic layer adds **zero new IndexedDB stores**. All game state derives from existing `Mesocycle`, `Session`, milestone, and config data. Aesthetic preferences (`aestheticVariant`, sound on/off, calm mode, reduced motion override) live under existing `UserConfig`.
 
 ### Tokens & Theming
 
@@ -496,8 +641,8 @@ Tool surfaces must remain frictionless and high-readability. The aesthetic separ
 | No artificial urgency | Locked nodes show "future" framing, never countdowns |
 | No exploitative monetization | No paid skins, no paid worlds, no cosmetic gating behind donation |
 | Transparency first | Tap any node, badge or HUD readout to inspect the deterministic rule |
-| Autonomy and control | Calm mode + Classic mode + per-channel audio toggles |
-| Accessibility and inclusion | Reduced motion, classic fallback, AA contrast, aria descriptions |
+| Autonomy and control | Variant selector + Calm mode + per-channel audio toggles |
+| Accessibility and inclusion | Reduced motion forces `classic-boring`, AA contrast, aria descriptions |
 | Balanced copy | Level names and clear-screen messages reviewed against forbidden patterns |
 | Protect cognitive load | Stepped HUD, no reward spam, max 1 celebration per session end |
 | Data minimization | Zero new persisted events; aesthetic is derived state |
@@ -513,13 +658,13 @@ Tool surfaces must remain frictionless and high-readability. The aesthetic separ
 
 ### Implementation Phasing (high-level — no estimates)
 
-1. **Phase A — Tokens & primitives.** Master palette, world sub-palettes, pixel font, base sprite primitives, Calm mode + Classic mode toggles wired to existing `UserConfig`.
+1. **Phase A — Tokens & primitives.** Master palette, world sub-palettes, pixel font, base sprite primitives, variant selector (`aestheticVariant`) + Calm mode toggle wired to existing `UserConfig`, and `prefers-reduced-motion` enforcement of `classic-boring`.
 2. **Phase B — World map for Dashboard.** Render existing mesocycle as map nodes; lock/unlock states; tap node opens current session view.
 3. **Phase C — Session execution skin.** Side-scroll layout, pixel HUD, rest timer styling, level-clear frame.
 4. **Phase D — Stats inventory skin.** Milestones rendered as collectible sprites with inspect cards.
 5. **Phase E — Optional polish.** Lottie/Rive micro-anims (level clear, totem reveal). Sound layer (off by default).
 
-Each phase ships with: Classic-mode parity, zero new persisted state, full i18n coverage, accessibility audit, guardrail cross-check sign-off.
+Each phase ships with: parity across every active variant (`retro-platformer` and `classic-boring` at v1), zero new persisted state, full i18n coverage, accessibility audit, guardrail cross-check sign-off.
 
 ### Extended Aesthetic Concepts
 
@@ -555,7 +700,7 @@ The following concepts extend the base aesthetic layer. Each has been validated 
   - **CGA** — high-contrast 4-color
   - **High-Contrast** — accessibility-first palette guaranteed AA on all overlays
 - Setting lives in `UserConfig.aestheticTheme`. Default value is `default`. No palette is gated behind any condition (no completion requirement, no payment, no streak).
-- The High-Contrast variant is recommended (and surfaced as a hint) when the user enables Classic Mode, but the user always has the final choice.
+  - The High-Contrast palette is recommended (and surfaced as a hint) when the user is on `classic-boring` or has `prefers-reduced-motion` active, but the user always has the final choice. Palette and aesthetic variant are independent axes.
 - All palettes ship as static CSS variable bundles; no runtime color conversion. Tailwind tokens for tool surfaces remain unchanged across themes.
 
 #### 5. Pixel Achievements / Sticker Book

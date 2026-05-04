@@ -80,6 +80,7 @@
 
 ### Step 16 — Ethical Gamification
 - [ ] Read and follow `specs/features/16-ethical-gamification.md` as source of truth before implementation
+- Spec extended (2026-05-04): added "Shared Gamification Core" + scalable "Aesthetic Variants" architecture with two initial variants (`retro-platformer`, `classic-boring`). Single shared logic/data; variants only re-skin presentation. `classic-boring` is the default for new users and is forced when `prefers-reduced-motion` is set.
 
 ### Step 19 — Preset & Session Template Redesign ✅ (spec: `specs/features/17-preset-sessions-redesign.md`)
 - [x] Read `specs/features/17-preset-sessions-redesign.md` end-to-end before starting
