@@ -56,7 +56,6 @@ interface Preset {
   durationOptions: number[]       // weeks
   muscleDistribution: Record<MuscleGroup, number>  // percentage
   requiredTags: ExerciseTag[]
-  autoRestrictions: string[]
   progressionType: ProgressionType
   profiles: UserProfile[]         // compatible profiles
   notes?: string

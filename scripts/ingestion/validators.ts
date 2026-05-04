@@ -267,12 +267,6 @@ function validateCanonicalPreset(preset: CanonicalPreset): ValidationResult {
     }
   }
 
-  for (const restriction of preset.autoRestrictions) {
-    if (!RESTRICTION_SET.has(restriction)) {
-      pushError(result, 'preset.autoRestrictions', `Unknown auto restriction: ${restriction}`)
-    }
-  }
-
   if (!PROGRESSION_TYPE_SET.has(preset.progressionType)) {
     pushError(
       result,

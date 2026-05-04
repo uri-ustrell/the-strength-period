@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { useExerciseStore } from '@/stores/exerciseStore'
 
@@ -11,5 +11,11 @@ export function useExercises() {
     }
   }, [exercises.length, isLoading, error, fetchExercises])
 
-  return { exercises, isLoading, error }
+  // Allow consumers to manually retry after a failed initial load. Without this
+  // a network blip on first paint left the catalog empty until full page reload.
+  const retry = useCallback(() => {
+    fetchExercises()
+  }, [fetchExercises])
+
+  return { exercises, isLoading, error, retry }
 }

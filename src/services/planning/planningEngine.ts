@@ -178,6 +178,11 @@ function generateFaithfulMesocycle(
       }
 
       const effectiveMultiplier = weekMultiplier * undulatingMultiplier
+      // When per-week rates are provided, the deload week is already baked into
+      // `effectiveMultiplier` (e.g. -40% → 0.6). In legacy slider mode it isn't,
+      // so we still need the constant `rule.deloadPercentage` for sets/weight.
+      const useWeeklyRates = weeklyProgressionRates !== undefined && weeklyProgressionRates.length > 0
+      const setsMultiplier = isDeload && !useWeeklyRates ? rule.deloadPercentage : effectiveMultiplier
 
       for (const entry of template.exercises) {
         const exercise = exerciseMap.get(entry.exerciseId)
@@ -195,9 +200,7 @@ function generateFaithfulMesocycle(
         let weightKg: number | undefined
 
         if (metric === 'weight') {
-          scaledSets = isDeload
-            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
-            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          scaledSets = Math.max(1, Math.round(baseSets * setsMultiplier))
           scaledReps = baseReps
 
           let baseWeight = 0
@@ -214,15 +217,11 @@ function generateFaithfulMesocycle(
 
           if (baseWeight > 0) {
             const exerciseWeights = resolveExerciseWeights(exercise, config)
-            const progressedWeight = baseWeight * weekMultiplier
-            // When per-week progression rates are provided, the rate already encodes
-            // the deload (e.g. -40%), so honour weekMultiplier instead of overriding
-            // with the constant rule.deloadPercentage.
-            const targetWeight = isDeload
-              ? weeklyProgressionRates && weeklyProgressionRates.length > 0
-                ? progressedWeight
-                : baseWeight * rule.deloadPercentage
-              : progressedWeight
+            // weekMultiplier already includes deload via the per-week rate when
+            // useWeeklyRates is true; otherwise apply the constant deload here.
+            const targetWeight = isDeload && !useWeeklyRates
+              ? baseWeight * rule.deloadPercentage
+              : baseWeight * weekMultiplier
             if (exerciseWeights && exerciseWeights.length > 0) {
               const sorted = [...exerciseWeights].sort((a, b) => a - b)
               weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
@@ -231,9 +230,7 @@ function generateFaithfulMesocycle(
             }
           }
         } else if (metric === 'reps') {
-          scaledSets = isDeload
-            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
-            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          scaledSets = Math.max(1, Math.round(baseSets * setsMultiplier))
           if (Array.isArray(baseReps)) {
             const midReps = (baseReps[0] + baseReps[1]) / 2
             scaledReps = isDeload
@@ -246,9 +243,7 @@ function generateFaithfulMesocycle(
           }
         } else {
           // seconds
-          scaledSets = isDeload
-            ? Math.max(1, Math.round(baseSets * rule.deloadPercentage))
-            : Math.max(1, Math.round(baseSets * effectiveMultiplier))
+          scaledSets = Math.max(1, Math.round(baseSets * setsMultiplier))
           if (Array.isArray(baseReps)) {
             scaledReps = isDeload
               ? baseReps

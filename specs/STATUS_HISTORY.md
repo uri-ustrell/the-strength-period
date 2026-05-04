@@ -7,6 +7,76 @@
 
 ## Recent Changes
 
+### Comprehensive Code Review Pass — 30+ Fixes (2026-04-30)
+
+End-to-end review of `src/` plus targeted ingestion follow-ups. Performed in
+four rounds (initial sweep → user-selected refactors → regression repair →
+remaining items). All rounds end with `npm run build`, `npm run lint`,
+`npm run i18n:check`, and `npm test` (ingestion suite) green.
+
+**Critical bug fixes**
+
+- Date/UTC drift: `toDateStr` rewritten to use local components; new
+  `parseLocalYMD` helper; `getISOWeek` reimplemented per ISO 8601 (Thursday
+  pivot, Jan-4 anchor) — eliminates wrong week labels at year boundaries and
+  in non-UTC timezones.
+- `aggregateAdherence` now walks ISO weeks via `listISOWeeksBetween`, filling
+  empty weeks with `completed: 0` instead of skipping them.
+- Planning engine: 1-week deload guard; `resolveWeekMultiplier` reordered so
+  per-week rates apply on the deload week too; sets/reps/weight all honour
+  `weeklyProgressionRates` consistently when present (legacy slider mode
+  retains the constant `rule.deloadPercentage`).
+- `mesocycleRepository.saveActiveMesocycle` performs the
+  swap-active-flag-then-put inside a single `readwrite` transaction.
+- `exportImport.importData` validates every record before clearing IDB stores;
+  `exportData` revokes the object URL in `finally`.
+- `sessionStore.finishSession` now caches `{ sessionId, completedAt }` in
+  `pendingSessionDraft` so a retry after a partial save reuses the same row
+  rather than inserting a duplicate.
+- `userStore.isValidUserConfig` validates `trainingDays` (array of numbers) and
+  `availableWeights` (object) — not just equipment + minutesPerSession.
+
+**UX/perf refactors**
+
+- `RestTimer` self-subscribes to `restSecondsRemaining` + `tickRest`; removed
+  from `useSession` API to stop the per-second tick re-rendering the whole
+  Session page tree. `useSession` slice uses `useShallow` excluding
+  tick-frequency fields.
+- `sessionStore` exposes `skipRest` and `finishEarly` actions (replacing
+  `useSessionStore.setState({...})` from the page).
+- `BottomNav` hides itself during an active session.
+- `WeightSelector` accepts comma decimal separator (`'1,5' → 1.5`).
+- `useExercises` exposes a `retry()` action so consumers can recover from a
+  failed initial catalog load without a full page reload.
+- `Modal` and `Settings` defensive cleanup of timers/refs to avoid
+  use-after-unmount.
+- `Onboarding` finish button disabled until equipment + trainingDays selected.
+- `WeightSelector` and `weightSnapping` use a small epsilon for floating-point
+  weight comparisons.
+
+**Catalog & validation hardening**
+
+- `exerciseCatalog` URL uses `import.meta.env.BASE_URL`; new `isValidExercise`
+  type guard filters malformed records (DEV-gated `console.warn`).
+- `Card`/`LoadingSpinner` props interfaces exported.
+- `LLMAssistant` and `llmAssistantService` size and CSV-injection guards
+  tightened.
+- `userStore.detectLanguage` whitelists `ca/es/en`.
+
+**Ingestion**
+
+- Removed `autoRestrictions` from `Preset` interface and downstream consumers
+  (`src/data/presets.ts`), as well as from ingestion `CanonicalPreset`,
+  `PresetCandidateInput`, `normalizers`, `validators`, `presetGenerator`
+  (including the LLM prompt example schema), and `llmJsonAdapter`. Existing
+  preset JSON files in `data/ingestion/presets/*.json` retain the field as a
+  no-op (silently ignored) for backward compatibility.
+
+**Tooling**
+
+- New `scripts/checkI18nParity.ts` + `npm run i18n:check` script: flattens
+  every locale namespace and reports missing/extra keys against `ca`.
+
 ### Step 19 — QA Pass Build Repair (2026-04-28)
 
 A previous implementer began the Round-2 QA Pass for Feature 17 but left the

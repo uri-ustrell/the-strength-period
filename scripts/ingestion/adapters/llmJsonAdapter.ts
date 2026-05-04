@@ -111,7 +111,6 @@ function toPresetPayload(raw: CandidateLike, sourceExternalId: string): PresetCa
       : undefined,
     muscleDistribution,
     requiredTags: toStringArray(raw.requiredTags),
-    autoRestrictions: toStringArray(raw.autoRestrictions),
     progressionType: typeof raw.progressionType === 'string' ? raw.progressionType : null,
     notes: typeof raw.notes === 'string' ? raw.notes : undefined,
     sessions: Array.isArray(raw.sessions)

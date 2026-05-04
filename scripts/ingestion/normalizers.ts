@@ -667,18 +667,6 @@ function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCan
     confidence -= Math.min(0.15, droppedTags * 0.03)
   }
 
-  const autoRestrictions = uniqueArray(
-    (payload.autoRestrictions ?? []).map(mapRestriction).filter(Boolean)
-  ) as RestrictionCondition[]
-
-  const droppedRestrictions = (payload.autoRestrictions ?? []).length - autoRestrictions.length
-  if (droppedRestrictions > 0) {
-    reviewReasons.push(
-      `${droppedRestrictions} auto restriction(s) were dropped because they are not canonical.`
-    )
-    confidence -= Math.min(0.15, droppedRestrictions * 0.04)
-  }
-
   const progressionType = mapProgressionType(payload.progressionType) ?? 'linear'
   if (!mapProgressionType(payload.progressionType)) {
     reviewReasons.push('Unknown progression type mapped to linear.')
@@ -705,7 +693,6 @@ function normalizePresetCandidate(input: CandidateEnvelope): NormalizedPresetCan
     durationOptions,
     ...(hasSessions ? {} : { muscleDistribution: normalizedDistribution }),
     requiredTags,
-    autoRestrictions,
     progressionType,
     notes: payload.notes?.trim() || payload.description?.trim() || undefined,
     ...(hasSessions ? { sessions } : {}),

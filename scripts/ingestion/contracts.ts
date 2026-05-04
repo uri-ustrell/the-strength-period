@@ -188,7 +188,6 @@ export type CanonicalPreset = {
   durationOptions: number[]
   muscleDistribution?: Partial<Record<MuscleGroup, number>>
   requiredTags: ExerciseTag[]
-  autoRestrictions: RestrictionCondition[]
   progressionType: ProgressionType
   notes?: string
   sessions?: PresetSessionTemplate[]
@@ -245,7 +244,6 @@ export type PresetCandidateInput = {
   durationOptions?: number[]
   muscleDistribution: Record<string, number>
   requiredTags?: string[]
-  autoRestrictions?: string[]
   progressionType?: string | null
   notes?: string
   sessions?: Array<{

@@ -34,6 +34,10 @@ interface SessionStore {
   isFinished: boolean
   isSaving: boolean
   error: string | null
+  /** When `finishSession` is in flight or has failed once, we keep the generated
+   *  IDs/timestamps here so a retry doesn't duplicate the row in IDB with a fresh
+   *  UUID and a slightly later `completedAt`. Cleared on success or on `reset`. */
+  pendingSessionDraft: { sessionId: string; completedAt: string } | null
 
   // Actions
   setPreviewSession: (session: GeneratedSession) => void
@@ -68,6 +72,7 @@ const initialState = {
   isFinished: false,
   isSaving: false,
   error: null,
+  pendingSessionDraft: null,
 }
 
 export const useSessionStore = create<SessionStore>((set, get) => ({
@@ -255,23 +260,28 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
 
     if (!generatedSession || !sessionStartedAt) return
 
-    set({ isSaving: true, error: null })
+    // Reuse the draft from a previous failed attempt so we never write two rows
+    // with different IDs but the same logical session.
+    const draft =
+      state.pendingSessionDraft ?? {
+        sessionId: crypto.randomUUID(),
+        completedAt: new Date().toISOString(),
+      }
+
+    set({ isSaving: true, error: null, pendingSessionDraft: draft })
 
     try {
-      const sessionId = crypto.randomUUID()
-      const now = new Date().toISOString()
-
       const setsWithSessionId = executedSets.map((s) => ({
         ...s,
-        sessionId,
+        sessionId: draft.sessionId,
       }))
 
       const session: ExecutedSession = {
-        id: sessionId,
+        id: draft.sessionId,
         sessionTemplateId: generatedSession.templateId,
-        date: toDateString(now),
+        date: toDateString(draft.completedAt),
         startedAt: sessionStartedAt,
-        completedAt: now,
+        completedAt: draft.completedAt,
         sets: setsWithSessionId,
         globalRpe,
         notes,
@@ -285,7 +295,7 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
         await markTemplateCompleted(mesocycleId, templateId)
       }
 
-      set({ isSaving: false })
+      set({ isSaving: false, pendingSessionDraft: null })
     } catch (err) {
       set({ error: (err as Error).message, isSaving: false })
     }

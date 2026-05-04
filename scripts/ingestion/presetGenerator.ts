@@ -6,10 +6,8 @@ import type {
   MergeWriteResult,
   NormalizedCandidate,
   PresetCatalogEntry,
-  RestrictionCondition,
   SourceLicenseMetadata,
 } from './contracts'
-import { CANONICAL_RESTRICTION_CONDITIONS } from './contracts'
 import { normalizeCandidate } from './normalizers'
 import {
   EXERCISE_CATALOG_PATH,
@@ -40,7 +38,6 @@ const PLANNING_LOCALE_PATHS: Record<SupportedLocale, string> = {
   en: resolve(ROOT_DIR, 'src/i18n/locales/en/planning.json'),
 }
 
-const CANONICAL_RESTRICTION_SET = new Set<string>(CANONICAL_RESTRICTION_CONDITIONS)
 const HARDCODED_PRESET_INGESTED_AT = '1970-01-01T00:00:00.000Z'
 
 type ClaudeResponse = {
@@ -366,12 +363,6 @@ function sortIngestedPresetTranslations(
   return sorted
 }
 
-function toCanonicalAutoRestrictions(values: string[]): RestrictionCondition[] {
-  return values.filter((value): value is RestrictionCondition =>
-    CANONICAL_RESTRICTION_SET.has(value)
-  )
-}
-
 type PresetSourceRecord = NonNullable<PresetCatalogEntry['ingestionMeta']>['sourceRecords'][number]
 
 function sourceRecordKey(record: PresetSourceRecord): string {
@@ -432,7 +423,6 @@ function buildHardcodedPresetCatalogEntry(
     durationOptions: [...preset.durationOptions].sort((left, right) => left - right),
     muscleDistribution: { ...preset.muscleDistribution },
     requiredTags: [...preset.requiredTags],
-    autoRestrictions: toCanonicalAutoRestrictions(preset.autoRestrictions),
     progressionType: preset.progressionType,
     ingestionMeta: {
       sourceRecords: [
@@ -680,7 +670,6 @@ async function requestClaudePresets(options: {
           abdominal: 40,
         },
         requiredTags: ['corredor'],
-        autoRestrictions: ['rehab_genoll'],
         progressionType: 'linear',
         weeklyProgression: 5,
         notes: 'string',
@@ -691,7 +680,6 @@ async function requestClaudePresets(options: {
         description: 'string',
         durationOptions: [4, 6, 8],
         requiredTags: ['corredor'],
-        autoRestrictions: ['rehab_genoll'],
         progressionType: 'linear',
         weeklyProgression: 3,
         notes: 'string',
@@ -819,9 +807,6 @@ function toCandidateEnvelope(raw: RawPresetPayload, index: number): CandidateEnv
           : {},
       requiredTags: Array.isArray(raw.requiredTags)
         ? raw.requiredTags.filter((value): value is string => typeof value === 'string')
-        : undefined,
-      autoRestrictions: Array.isArray(raw.autoRestrictions)
-        ? raw.autoRestrictions.filter((value): value is string => typeof value === 'string')
         : undefined,
       progressionType: typeof raw.progressionType === 'string' ? raw.progressionType : null,
       notes: typeof raw.notes === 'string' ? raw.notes : undefined,

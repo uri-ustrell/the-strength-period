@@ -33,11 +33,19 @@ function getISOWeek(dateStr: string): string {
     typeof yy === 'number' && typeof mm === 'number' && typeof dd === 'number'
       ? new Date(yy, mm - 1, dd)
       : new Date(dateStr)
-  const dayOfWeek = d.getDay() || 7
-  d.setDate(d.getDate() + 4 - dayOfWeek)
-  const yearStart = new Date(d.getFullYear(), 0, 1)
-  const weekNum = Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + 1) / 7)
-  return `${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`
+  // Strict ISO 8601 week-numbering year: the year of the Thursday of the
+  // current week decides the week's year. The first ISO week is the one that
+  // contains the first Thursday (i.e. Jan 4th's week).
+  const dayMon0 = (d.getDay() + 6) % 7 // 0=Mon ... 6=Sun
+  // Move `d` to the Thursday of the same ISO week.
+  d.setDate(d.getDate() - dayMon0 + 3)
+  const isoYear = d.getFullYear()
+  // Anchor week 1 as the week containing Jan 4th (always week 1 by ISO).
+  const week1Thursday = new Date(isoYear, 0, 4)
+  const week1ThursdayDayMon0 = (week1Thursday.getDay() + 6) % 7
+  week1Thursday.setDate(week1Thursday.getDate() - week1ThursdayDayMon0 + 3)
+  const weekNum = 1 + Math.round((d.getTime() - week1Thursday.getTime()) / (7 * 86400000))
+  return `${isoYear}-W${String(weekNum).padStart(2, '0')}`
 }
 
 /**

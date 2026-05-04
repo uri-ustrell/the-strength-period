@@ -1,8 +1,15 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-24
+> Last updated: 2026-04-30
 
 ## Current Phase: Step 19 Complete — Step 16 Planned
+
+> 2026-04-30 — Comprehensive code review pass completed across `src/`. 30+ fixes
+> applied (date/UTC drift, IDB transaction safety, planning engine deload
+> coherency with weekly progression rates, session store retry idempotency,
+> rest-timer re-render isolation, weight selector locale-friendly input,
+> exercise catalog retry, autoRestrictions deprecation across ingestion).
+> See `STATUS_HISTORY.md` for the detailed log.
 
 ## Steps Overview
 
