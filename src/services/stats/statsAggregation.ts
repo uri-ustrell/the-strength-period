@@ -27,12 +27,51 @@ export interface PRRecord {
 }
 
 function getISOWeek(dateStr: string): string {
-  const d = new Date(dateStr)
+  // Parse 'YYYY-MM-DD' as local date (avoid UTC drift across week boundaries).
+  const [yy, mm, dd] = dateStr.split('-').map(Number)
+  const d =
+    typeof yy === 'number' && typeof mm === 'number' && typeof dd === 'number'
+      ? new Date(yy, mm - 1, dd)
+      : new Date(dateStr)
   const dayOfWeek = d.getDay() || 7
   d.setDate(d.getDate() + 4 - dayOfWeek)
   const yearStart = new Date(d.getFullYear(), 0, 1)
   const weekNum = Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + 1) / 7)
   return `${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`
+}
+
+/**
+ * Returns every ISO week label (`YYYY-Www`) between `startDateStr` and `endDateStr`,
+ * inclusive. Used to fill empty weeks in adherence so a fully-skipped week shows
+ * up as 0 instead of being silently dropped from the chart.
+ */
+function listISOWeeksBetween(startDateStr: string, endDateStr: string): string[] {
+  const [sy, sm, sd] = startDateStr.split('-').map(Number)
+  const [ey, em, ed] = endDateStr.split('-').map(Number)
+  if ([sy, sm, sd, ey, em, ed].some((n) => typeof n !== 'number' || Number.isNaN(n))) {
+    return []
+  }
+  const cursor = new Date(sy!, sm! - 1, sd!)
+  const end = new Date(ey!, em! - 1, ed!)
+  const seen = new Set<string>()
+  const out: string[] = []
+  // Walk day-by-day collecting unique ISO week labels in chronological order.
+  while (cursor <= end) {
+    const label = getISOWeek(
+      `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, '0')}-${String(cursor.getDate()).padStart(2, '0')}`
+    )
+    if (!seen.has(label)) {
+      seen.add(label)
+      out.push(label)
+    }
+    cursor.setDate(cursor.getDate() + 7)
+  }
+  // Always include the final week of the range (the +7 step may overshoot).
+  const finalLabel = getISOWeek(endDateStr)
+  if (!seen.has(finalLabel)) {
+    out.push(finalLabel)
+  }
+  return out
 }
 
 export function buildExerciseMap(exercises: Exercise[]): Map<string, Exercise> {
@@ -113,15 +152,23 @@ export function aggregateAdherence(
   plannedPerWeek: number
 ): AdherenceDataPoint[] {
   const weekCompleted = new Map<string, number>()
+  const dates: string[] = []
 
   for (const s of sessions) {
     if (s.skipped || !s.completedAt) continue
     const week = getISOWeek(s.date)
     weekCompleted.set(week, (weekCompleted.get(week) ?? 0) + 1)
+    dates.push(s.date)
   }
 
-  const weeks = Array.from(weekCompleted.keys()).sort()
-  return weeks.map((week) => ({
+  if (dates.length === 0) return []
+
+  // Fill every week between the first and last completed session so that fully
+  // skipped weeks show up as 0 (otherwise adherence appears artificially inflated).
+  const sortedDates = [...dates].sort()
+  const allWeeks = listISOWeeksBetween(sortedDates[0]!, sortedDates[sortedDates.length - 1]!)
+
+  return allWeeks.map((week) => ({
     week: week.split('-')[1] ?? week,
     planned: plannedPerWeek,
     completed: weekCompleted.get(week) ?? 0,

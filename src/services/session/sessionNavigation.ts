@@ -39,7 +39,7 @@ export function computeNextAfterLog(
   if (executionMode === 'circuit') {
     const isLastExercise = currentExerciseIndex + 1 >= totalExercises
     const nextRound = currentRound + (isLastExercise ? 1 : 0)
-    const maxSets = Math.max(...allExerciseSets)
+    const maxSets = Math.max(...allExerciseSets, 1)
 
     if (isLastExercise && nextRound >= maxSets) {
       return {
@@ -119,7 +119,7 @@ export function computeNextAfterSkip(input: NavigationInput): NavigationResult {
   if (executionMode === 'circuit') {
     const isLastExercise = currentExerciseIndex + 1 >= totalExercises
     const nextRound = currentRound + (isLastExercise ? 1 : 0)
-    const maxSets = Math.max(...allExerciseSets)
+    const maxSets = Math.max(...allExerciseSets, 1)
 
     if (isLastExercise && nextRound >= maxSets) {
       return {

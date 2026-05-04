@@ -45,10 +45,10 @@ function resolveWeekMultiplier(
   weeklyProgressionRates: WeekProgressionRate[] | undefined,
   weeklyProgression: number
 ): number {
-  if (isDeload) return rule.deloadPercentage
-
   // QA-1: cumulative-vs-previous-week semantics. Each week's effective multiplier is
   // the product of (1 + pct/100) across all weeks up to and including the current week.
+  // When per-week rates are provided, they encode the deload (e.g. -40%) themselves,
+  // so honour them even on the deload week instead of overriding with the constant rule.
   if (weeklyProgressionRates && weeklyProgressionRates.length > 0) {
     let mult = 1
     for (let i = 0; i < week && i < weeklyProgressionRates.length; i++) {
@@ -56,6 +56,8 @@ function resolveWeekMultiplier(
     }
     return mult
   }
+
+  if (isDeload) return rule.deloadPercentage
 
   // Backward compat: cumulative slider formula (legacy presets).
   const scaledIncrease = rule.weeklyVolumeIncrease * (weeklyProgression / 10)
@@ -154,7 +156,9 @@ function generateFaithfulMesocycle(
     for (let dayIdx = 0; dayIdx < sessionsPerWeek; dayIdx++) {
       const template = presetSessions[dayIdx]
       if (!template) continue
-      const isDeload = template.isDeload === true || week === totalWeeks
+      // Treat the last week as deload only when the mesocycle has more than one week,
+      // otherwise a single-week plan would be entirely deload (unusable).
+      const isDeload = template.isDeload === true || (totalWeeks > 1 && week === totalWeeks)
       const weekMultiplier = resolveWeekMultiplier(
         week,
         isDeload,
@@ -211,7 +215,14 @@ function generateFaithfulMesocycle(
           if (baseWeight > 0) {
             const exerciseWeights = resolveExerciseWeights(exercise, config)
             const progressedWeight = baseWeight * weekMultiplier
-            const targetWeight = isDeload ? baseWeight * rule.deloadPercentage : progressedWeight
+            // When per-week progression rates are provided, the rate already encodes
+            // the deload (e.g. -40%), so honour weekMultiplier instead of overriding
+            // with the constant rule.deloadPercentage.
+            const targetWeight = isDeload
+              ? weeklyProgressionRates && weeklyProgressionRates.length > 0
+                ? progressedWeight
+                : baseWeight * rule.deloadPercentage
+              : progressedWeight
             if (exerciseWeights && exerciseWeights.length > 0) {
               const sorted = [...exerciseWeights].sort((a, b) => a - b)
               weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
@@ -283,8 +294,9 @@ function generateFaithfulMesocycle(
         mesocycleId,
         weekNumber: week,
         dayOfWeek:
-          config.trainingDays[dayIdx % config.trainingDays.length] ??
-          assignDayOfWeek(dayIdx, sessionsPerWeek),
+          (config.trainingDays.length > 0
+            ? config.trainingDays[dayIdx % config.trainingDays.length]
+            : undefined) ?? assignDayOfWeek(dayIdx, sessionsPerWeek),
         durationMinutes: sessionDuration,
         muscleGroupTargets,
         progressionType,

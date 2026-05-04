@@ -24,6 +24,10 @@ interface SessionStore {
   // Timer
   isResting: boolean
   restSecondsRemaining: number
+  /** Epoch ms when the current rest interval ends. Null when not resting. Drives a
+   *  background-safe countdown: tickRest recomputes from Date.now() so the timer
+   *  catches up after the tab was throttled or backgrounded. */
+  restEndsAt: number | null
   sessionStartedAt: string | null
 
   // UI state
@@ -41,6 +45,8 @@ interface SessionStore {
   updateCurrentExerciseWeight: (newWeight: number) => void
   startRest: (seconds: number) => void
   tickRest: () => void
+  skipRest: () => void
+  finishEarly: () => void
   finishSession: (globalRpe: number, notes?: string) => Promise<void>
   reset: () => void
 }
@@ -57,6 +63,7 @@ const initialState = {
   totalRounds: 0,
   isResting: false,
   restSecondsRemaining: 0,
+  restEndsAt: null,
   sessionStartedAt: null,
   isFinished: false,
   isSaving: false,
@@ -67,7 +74,13 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
   ...initialState,
 
   setPreviewSession: (session) => {
-    set({ generatedSession: session, executionMode: 'standard' })
+    // Reset all transient session state when a new preview is loaded so we can't
+    // inherit isFinished/executedSets/etc. from a previous run that would otherwise
+    // skip straight to the summary screen.
+    set({
+      ...initialState,
+      generatedSession: session,
+    })
   },
 
   removeExerciseFromPreview: (index) => {
@@ -170,6 +183,9 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
       isFinished: nav.isFinished,
       isResting: nav.isResting,
       restSecondsRemaining: nav.restSecondsRemaining,
+      restEndsAt: nav.isResting && nav.restSecondsRemaining > 0
+        ? Date.now() + nav.restSecondsRemaining * 1000
+        : null,
     })
   },
 
@@ -200,20 +216,37 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
       isFinished: nav.isFinished,
       isResting: nav.isResting,
       restSecondsRemaining: nav.restSecondsRemaining,
+      restEndsAt: nav.isResting && nav.restSecondsRemaining > 0
+        ? Date.now() + nav.restSecondsRemaining * 1000
+        : null,
     })
   },
 
   startRest: (seconds) => {
-    set({ isResting: true, restSecondsRemaining: seconds })
+    set({
+      isResting: true,
+      restSecondsRemaining: seconds,
+      restEndsAt: Date.now() + seconds * 1000,
+    })
   },
 
   tickRest: () => {
-    const { restSecondsRemaining } = get()
-    if (restSecondsRemaining <= 1) {
-      set({ isResting: false, restSecondsRemaining: 0 })
+    const { restEndsAt } = get()
+    if (restEndsAt === null) return
+    const remaining = Math.max(0, Math.ceil((restEndsAt - Date.now()) / 1000))
+    if (remaining <= 0) {
+      set({ isResting: false, restSecondsRemaining: 0, restEndsAt: null })
     } else {
-      set({ restSecondsRemaining: restSecondsRemaining - 1 })
+      set({ restSecondsRemaining: remaining })
     }
+  },
+
+  skipRest: () => {
+    set({ isResting: false, restSecondsRemaining: 0, restEndsAt: null })
+  },
+
+  finishEarly: () => {
+    set({ isFinished: true, isResting: false, restEndsAt: null, restSecondsRemaining: 0 })
   },
 
   finishSession: async (globalRpe, notes) => {

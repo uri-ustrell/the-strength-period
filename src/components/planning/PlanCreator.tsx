@@ -133,10 +133,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
         if (!cp.weeklyProgressionRates && cp.weeklyProgression !== undefined) {
           mutated = true
           const rates = migrateSliderToRates(cp.weeklyProgression, cp.durationWeeks)
-          // eslint-disable-next-line no-console
-          console.info(
-            `[migration] CustomPreset ${cp.id} migrated weeklyProgression → weeklyProgressionRates`
-          )
+          if (import.meta.env.DEV) {
+            // eslint-disable-next-line no-console
+            console.info(
+              `[migration] CustomPreset ${cp.id} migrated weeklyProgression → weeklyProgressionRates`
+            )
+          }
           return { ...cp, weeklyProgressionRates: rates }
         }
         return cp

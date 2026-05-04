@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { X, Repeat } from 'lucide-react'
 
 import { useSession } from '@/hooks/useSession'
-import { useSessionStore } from '@/stores/sessionStore'
 import { ActiveExercise } from '@/components/session/ActiveExercise'
 import { SetLogger } from '@/components/session/SetLogger'
 import { RestTimer } from '@/components/session/RestTimer'
@@ -24,7 +23,6 @@ export const Session = () => {
     currentRound,
     totalRounds,
     isResting,
-    restSecondsRemaining,
     sessionStartedAt,
     isFinished,
     isSaving,
@@ -33,8 +31,8 @@ export const Session = () => {
     logSet,
     skipSet,
     updateCurrentExerciseWeight,
-    tickRest,
     skipRest,
+    finishEarly,
     finishSession,
     reset,
   } = useSession()
@@ -63,9 +61,9 @@ export const Session = () => {
   }, [reset, navigate])
 
   const handleFinishEarly = useCallback(() => {
-    useSessionStore.setState({ isFinished: true, isResting: false })
+    finishEarly()
     setShowCancelConfirm(false)
-  }, [])
+  }, [finishEarly])
 
   if (!generatedSession) {
     return (
@@ -174,11 +172,7 @@ export const Session = () => {
             />
 
             {isResting ? (
-              <RestTimer
-                secondsRemaining={restSecondsRemaining}
-                onTick={tickRest}
-                onSkip={skipRest}
-              />
+              <RestTimer onSkip={skipRest} />
             ) : (
               <SetLogger
                 selectedExercise={currentExercise}

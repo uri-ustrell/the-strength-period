@@ -205,7 +205,13 @@ export function resolvePromptParams(params: {
 // --- CSV Generation ---
 
 function escapeCsvField(value: string): string {
-  if (value.includes(',') || value.includes('"') || value.includes(';') || value.includes('\n')) {
+  if (
+    value.includes(',') ||
+    value.includes('"') ||
+    value.includes(';') ||
+    value.includes('\n') ||
+    value.includes('\r')
+  ) {
     return `"${value.replace(/"/g, '""')}"`
   }
   return value
@@ -272,8 +278,8 @@ export function validateLLMResponse(
   const errors: ValidationError[] = []
   const warnings: ValidationError[] = []
 
-  // Size check
-  if (jsonString.length > MAX_PASTE_SIZE) {
+  // Size check (bytes, not UTF-16 code units)
+  if (new Blob([jsonString]).size > MAX_PASTE_SIZE) {
     return { valid: false, errors: [{ key: 'llm.error_invalid_json' }], warnings: [] }
   }
 

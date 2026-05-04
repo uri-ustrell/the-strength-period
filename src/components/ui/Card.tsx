@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
-interface Props {
+export interface CardProps {
   children: ReactNode
   className?: string
 }
 
-export const Card = ({ children, className = '' }: Props) => (
+export const Card = ({ children, className = '' }: CardProps) => (
   <div className={`rounded-2xl bg-white p-4 shadow-sm ${className}`}>{children}</div>
 )

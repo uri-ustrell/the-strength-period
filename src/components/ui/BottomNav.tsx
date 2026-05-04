@@ -12,6 +12,8 @@ import {
   X,
 } from 'lucide-react'
 
+import { useSessionStore } from '@/stores/sessionStore'
+
 const NAV_ITEMS = [
   { path: '/dashboard', labelKey: 'nav.dashboard', icon: LayoutDashboard },
   { path: '/planning', labelKey: 'nav.planning', icon: CalendarDays },
@@ -25,9 +27,14 @@ export const BottomNav = () => {
   const location = useLocation()
   const { t, i18n } = useTranslation('common')
   const [menuOpen, setMenuOpen] = useState(false)
+  // Hide the bottom nav while an active session is in progress to prevent
+  // accidental taps (sweaty hands at the gym) from leaving mid-workout.
+  const sessionStartedAt = useSessionStore((s) => s.sessionStartedAt)
+  const isFinished = useSessionStore((s) => s.isFinished)
 
   const showPaths = ['/dashboard', '/planning', '/session', '/stats', '/settings']
   if (!showPaths.includes(location.pathname)) return null
+  if (location.pathname === '/session' && sessionStartedAt && !isFinished) return null
 
   const currentLang = i18n.language?.substring(0, 2) ?? 'en'
 

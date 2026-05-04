@@ -11,8 +11,13 @@ export const Onboarding = () => {
   const navigate = useNavigate()
 
   const completeOnboarding = useUserStore((s) => s.completeOnboarding)
+  const equipment = useUserStore((s) => s.equipment)
+  const trainingDays = useUserStore((s) => s.trainingDays)
+
+  const canFinish = equipment.length > 0 && trainingDays.length > 0
 
   const handleFinish = async () => {
+    if (!canFinish) return
     await completeOnboarding()
     navigate('/dashboard')
   }
@@ -36,7 +41,8 @@ export const Onboarding = () => {
           <button
             type="button"
             onClick={handleFinish}
-            className="inline-flex items-center gap-1 rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            disabled={!canFinish}
+            className="inline-flex items-center gap-1 rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-300"
           >
             {t('finish')}
             <Check className="h-4 w-4" />

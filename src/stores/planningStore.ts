@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import {
   getActiveMesocycle,
   listMesocycles,
-  saveMesocycle,
+  saveActiveMesocycle,
   updateMesocycle,
 } from '@/services/db/mesocycleRepository'
 import { adjustLoad, skipSession, unskipSession } from '@/services/planning/planningAdjuster'
@@ -95,12 +95,10 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
     }
     set({ isLoading: true, error: null, missingExerciseIds: [] })
     try {
-      const current = await getActiveMesocycle()
-      if (current) {
-        await updateMesocycle(current.id, { active: false })
-      }
-      await saveMesocycle(generatedPreview)
-      set({ activeMesocycle: generatedPreview, generatedPreview: null, isLoading: false })
+      // Atomic swap: deactivate any current active + persist new active mesocycle
+      // in a single IDB transaction so we never end up with zero or two active plans.
+      await saveActiveMesocycle({ ...generatedPreview, active: true })
+      set({ activeMesocycle: { ...generatedPreview, active: true }, generatedPreview: null, isLoading: false })
     } catch (err) {
       set({ error: (err as Error).message, isLoading: false })
     }

@@ -1,5 +1,5 @@
 import { ArrowLeft, Check } from 'lucide-react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { EquipmentChipSelector } from '@/components/onboarding/EquipmentChipSelector'
@@ -28,10 +28,17 @@ export const SettingsPage = () => {
   const completeOnboarding = useUserStore((s) => s.completeOnboarding)
 
   const [saved, setSaved] = useState(false)
+  const navigateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     loadUserConfig()
   }, [loadUserConfig])
+
+  useEffect(() => {
+    return () => {
+      if (navigateTimerRef.current) clearTimeout(navigateTimerRef.current)
+    }
+  }, [])
 
   const toggleDay = (day: DayOfWeek) => {
     if (trainingDays.includes(day)) {
@@ -44,7 +51,8 @@ export const SettingsPage = () => {
   const handleSave = useCallback(async () => {
     await completeOnboarding()
     setSaved(true)
-    setTimeout(() => {
+    if (navigateTimerRef.current) clearTimeout(navigateTimerRef.current)
+    navigateTimerRef.current = setTimeout(() => {
       navigate(-1)
     }, FEEDBACK_CONFIRM_MS)
   }, [completeOnboarding, navigate])

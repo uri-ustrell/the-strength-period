@@ -24,7 +24,6 @@ export interface Preset {
   descriptionKey: string
   durationOptions: number[]
   requiredTags: ExerciseTag[]
-  autoRestrictions: string[]
   progressionType: ProgressionType
   notes?: string
   /** Required: 1–4 faithful session templates with non-empty exercises (length === sessionsPerWeek). */
@@ -60,7 +59,6 @@ type ParsedCatalogPreset = {
   descriptionKey?: string
   durationOptions?: number[]
   requiredTags?: ExerciseTag[]
-  autoRestrictions?: string[]
   progressionType?: ProgressionType
   notes?: string
   sessions?: PresetSessionTemplate[]
@@ -264,9 +262,6 @@ function parseCatalogPreset(value: unknown): ParsedCatalogPreset | undefined {
     requiredTags: Array.isArray(value.requiredTags)
       ? toCatalogRequiredTags(value.requiredTags)
       : undefined,
-    autoRestrictions: Array.isArray(value.autoRestrictions)
-      ? toUniqueStringArray(value.autoRestrictions)
-      : undefined,
     progressionType: toCatalogProgressionType(value.progressionType),
     notes: toTrimmedString(value.notes),
     sessions: parseCatalogSessions(value.sessions),
@@ -290,7 +285,7 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
 
   // QA-7: Preset.sessions is required (1–4 entries), with non-empty exercises.
   if (!parsedPreset.sessions || parsedPreset.sessions.length === 0) {
-    if (typeof console !== 'undefined') {
+    if (import.meta.env.DEV && typeof console !== 'undefined') {
       // eslint-disable-next-line no-console
       console.warn(`[presets] Skipping ${parsedPreset.id}: missing faithful sessions[].`)
     }
@@ -314,7 +309,6 @@ function buildPresetFromCatalog(parsedPreset: ParsedCatalogPreset): Preset | und
     descriptionKey: parsedPreset.descriptionKey,
     durationOptions: parsedPreset.durationOptions,
     requiredTags: parsedPreset.requiredTags ?? [],
-    autoRestrictions: parsedPreset.autoRestrictions ?? [],
     progressionType: parsedPreset.progressionType ?? 'linear',
     notes: parsedPreset.notes,
     sessions,

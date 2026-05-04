@@ -82,7 +82,9 @@ export const Dashboard = () => {
       setWeeklySetCount(sets.length)
     }
     fetchRecent()
-  }, [])
+    // Refresh recent sessions / weekly set count whenever the active mesocycle changes
+    // (e.g. after generating a new plan or finishing a session that may have toggled it).
+  }, [activeMesocycle?.id])
 
   const streak = useMemo(() => calculateStreak(recentSessions), [recentSessions])
 
@@ -122,7 +124,7 @@ export const Dashboard = () => {
     const generated = generateSession(
       nextSession,
       exercises,
-      recentSessions.flatMap((s) => s.sets.map((set) => set.exerciseId)),
+      recentSessions.flatMap((s) => (s.sets ?? []).map((set) => set.exerciseId)),
       equipment
     )
     setPreviewSession(generated)
@@ -138,7 +140,7 @@ export const Dashboard = () => {
       loadTarget: { sets: 3, reps: [8, 12] as [number, number], rpe: 7, restSeconds: 90 },
     }))
     const template: SessionTemplate = {
-      id: `quick_${crypto.randomUUID()}`,
+      id: 'quick',
       mesocycleId: 'quick',
       weekNumber: 1,
       dayOfWeek: todayDow,

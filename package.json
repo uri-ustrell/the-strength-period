@@ -17,6 +17,7 @@
     "ingest": "tsx scripts/runIngestion.ts",
     "photos": "tsx scripts/generateExercisePhotos.ts",
     "presets": "tsx scripts/generatePresetBatch.ts",
+    "i18n:check": "tsx scripts/checkI18nParity.ts",
     "preview": "vite preview",
     "lint": "tsc --noEmit"
   },

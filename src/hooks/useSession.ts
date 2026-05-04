@@ -1,74 +1,72 @@
-import { useCallback } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 
 import { useSessionStore } from '@/stores/sessionStore'
-import type { GeneratedSession } from '@/services/exercises/sessionGenerator'
-import type { ExecutionMode } from '@/stores/sessionStore'
 
+/**
+ * Granular selectors so each consumer only re-renders on the slice it actually
+ * uses. The previous implementation subscribed to the whole store, which made
+ * `Session`, `ActiveExercise` and `SetLogger` re-render every second during the
+ * rest countdown — wasting battery and causing visual jank on slow devices.
+ *
+ * Note: `restSecondsRemaining` and `isResting` are intentionally NOT part of
+ * the shallow group below because they change every tick. They are exposed via
+ * separate selectors and only the `RestTimer` branch of `Session` actually
+ * reads them, so the rest of the tree stays stable during a rest interval.
+ */
 export function useSession() {
-  const store = useSessionStore()
-
-  const setPreviewSession = useCallback(
-    (session: GeneratedSession) => {
-      store.setPreviewSession(session)
-    },
-    [store.setPreviewSession]
+  const state = useSessionStore(
+    useShallow((s) => ({
+      generatedSession: s.generatedSession,
+      executedSets: s.executedSets,
+      executionMode: s.executionMode,
+      currentExerciseIndex: s.currentExerciseIndex,
+      currentSetIndex: s.currentSetIndex,
+      currentRound: s.currentRound,
+      totalRounds: s.totalRounds,
+      sessionStartedAt: s.sessionStartedAt,
+      isFinished: s.isFinished,
+      isSaving: s.isSaving,
+      error: s.error,
+    }))
   )
 
-  const startSession = useCallback(
-    (session?: GeneratedSession) => {
-      store.startSession(session)
-    },
-    [store.startSession]
-  )
+  // Tick-frequency slices live on their own selectors. `Session` only consumes
+  // `isResting` (a boolean that flips ~once per set, not per second). The
+  // per-second `restSecondsRemaining` is read directly by `RestTimer` so the
+  // rest of the page tree stays stable during a rest interval.
+  const isResting = useSessionStore((s) => s.isResting)
 
-  const logSet = useCallback(
-    (repsActual: number, weightActual?: number) => {
-      store.logSet(repsActual, weightActual)
-    },
-    [store.logSet]
-  )
+  // Zustand action references are stable across renders, so we can grab them
+  // once without useCallback wrappers.
+  const setPreviewSession = useSessionStore((s) => s.setPreviewSession)
+  const removeExerciseFromPreview = useSessionStore((s) => s.removeExerciseFromPreview)
+  const startSession = useSessionStore((s) => s.startSession)
+  const setExecutionMode = useSessionStore((s) => s.setExecutionMode)
+  const logSet = useSessionStore((s) => s.logSet)
+  const skipSet = useSessionStore((s) => s.skipSet)
+  const updateCurrentExerciseWeight = useSessionStore((s) => s.updateCurrentExerciseWeight)
+  const skipRest = useSessionStore((s) => s.skipRest)
+  const finishEarly = useSessionStore((s) => s.finishEarly)
+  const finishSession = useSessionStore((s) => s.finishSession)
+  const reset = useSessionStore((s) => s.reset)
 
-  const skipRest = useCallback(() => {
-    useSessionStore.setState({ isResting: false, restSecondsRemaining: 0 })
-  }, [])
-
-  const setExecutionMode = useCallback(
-    (mode: ExecutionMode) => {
-      store.setExecutionMode(mode)
-    },
-    [store.setExecutionMode]
-  )
-
-  const currentExercise = store.generatedSession?.exercises[store.currentExerciseIndex] ?? null
+  const currentExercise =
+    state.generatedSession?.exercises[state.currentExerciseIndex] ?? null
 
   return {
-    // State
-    generatedSession: store.generatedSession,
-    executedSets: store.executedSets,
-    executionMode: store.executionMode,
-    currentExerciseIndex: store.currentExerciseIndex,
-    currentSetIndex: store.currentSetIndex,
-    currentRound: store.currentRound,
-    totalRounds: store.totalRounds,
-    isResting: store.isResting,
-    restSecondsRemaining: store.restSecondsRemaining,
-    sessionStartedAt: store.sessionStartedAt,
-    isFinished: store.isFinished,
-    isSaving: store.isSaving,
-    error: store.error,
+    ...state,
+    isResting,
     currentExercise,
-
-    // Actions
     setPreviewSession,
-    removeExerciseFromPreview: store.removeExerciseFromPreview,
+    removeExerciseFromPreview,
     startSession,
-    logSet,
-    skipSet: store.skipSet,
-    updateCurrentExerciseWeight: store.updateCurrentExerciseWeight,
-    tickRest: store.tickRest,
-    skipRest,
     setExecutionMode,
-    finishSession: store.finishSession,
-    reset: store.reset,
+    logSet,
+    skipSet,
+    updateCurrentExerciseWeight,
+    skipRest,
+    finishEarly,
+    finishSession,
+    reset,
   }
 }

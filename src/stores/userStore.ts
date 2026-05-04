@@ -27,6 +27,36 @@ interface UserStore {
   reset: () => void
 }
 
+const SUPPORTED_LANGUAGES: ReadonlyArray<UserConfig['language']> = ['ca', 'es', 'en']
+
+function detectLanguage(): UserConfig['language'] {
+  const raw = localStorage.getItem('i18nextLng')?.slice(0, 2) ?? ''
+  return (SUPPORTED_LANGUAGES as ReadonlyArray<string>).includes(raw)
+    ? (raw as UserConfig['language'])
+    : 'ca'
+}
+
+function isValidUserConfig(value: unknown): value is UserConfig {
+  if (typeof value !== 'object' || value === null) return false
+  const c = value as Record<string, unknown>
+  if (!Array.isArray(c.equipment)) return false
+  if (typeof c.minutesPerSession !== 'number') return false
+  // trainingDays may be missing in older configs; if present, it must be an array of numbers.
+  if (
+    c.trainingDays !== undefined &&
+    (!Array.isArray(c.trainingDays) || !c.trainingDays.every((d) => typeof d === 'number'))
+  ) {
+    return false
+  }
+  if (
+    c.availableWeights !== undefined &&
+    (typeof c.availableWeights !== 'object' || c.availableWeights === null)
+  ) {
+    return false
+  }
+  return true
+}
+
 export const useUserStore = create<UserStore>((set, get) => ({
   currentStep: 1,
   equipment: [],
@@ -48,7 +78,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
     try {
       const state = get()
       const config: UserConfig = {
-        language: (localStorage.getItem('i18nextLng') as UserConfig['language']) || 'ca',
+        language: detectLanguage(),
         equipment: state.equipment,
         trainingDays: state.trainingDays,
         minutesPerSession: state.minutesPerSession,
@@ -77,15 +107,21 @@ export const useUserStore = create<UserStore>((set, get) => ({
 
   loadUserConfig: async () => {
     try {
-      const config = (await getConfig('userConfig')) as UserConfig | null
-      if (config) {
-        set({
-          equipment: config.equipment,
-          trainingDays: config.trainingDays ?? [1, 3, 5],
-          minutesPerSession: config.minutesPerSession,
-          availableWeights: config.availableWeights ?? { ...DEFAULT_AVAILABLE_WEIGHTS },
-        })
+      const raw = await getConfig('userConfig')
+      if (raw === null) return
+      if (!isValidUserConfig(raw)) {
+        if (import.meta.env.DEV) {
+          console.warn('[userStore] Invalid userConfig in IDB, ignoring and keeping defaults')
+        }
+        return
       }
+      const config = raw
+      set({
+        equipment: config.equipment,
+        trainingDays: config.trainingDays ?? [1, 3, 5],
+        minutesPerSession: config.minutesPerSession,
+        availableWeights: config.availableWeights ?? { ...DEFAULT_AVAILABLE_WEIGHTS },
+      })
     } catch (err) {
       set({ error: (err as Error).message })
     }

@@ -1,7 +1,27 @@
 import type { ExecutedSession } from '@/types/session'
 
 export function toDateStr(d: Date): string {
-  return d.toISOString().slice(0, 10)
+  // Use local date components to avoid UTC offset shifting the date around midnight.
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
+function parseLocalYMD(dateStr: string): Date {
+  // Parse 'YYYY-MM-DD' as local midnight (not UTC, which would shift in negative TZ offsets).
+  const [y, m, d] = dateStr.split('-').map(Number)
+  if (
+    typeof y !== 'number' ||
+    typeof m !== 'number' ||
+    typeof d !== 'number' ||
+    Number.isNaN(y) ||
+    Number.isNaN(m) ||
+    Number.isNaN(d)
+  ) {
+    return new Date(dateStr)
+  }
+  return new Date(y, m - 1, d)
 }
 
 export function getTodayDow(): 1 | 2 | 3 | 4 | 5 | 6 | 7 {
@@ -14,7 +34,7 @@ export function getSessionDate(
   weekNumber: number,
   dayOfWeek: number
 ): Date {
-  const start = new Date(mesocycleStartDate)
+  const start = parseLocalYMD(mesocycleStartDate)
   // Find the Monday of the week containing startDate
   const startDow = start.getDay() // 0=Sun, 1=Mon, ..., 6=Sat
   const mondayOffset = startDow === 0 ? -6 : 1 - startDow

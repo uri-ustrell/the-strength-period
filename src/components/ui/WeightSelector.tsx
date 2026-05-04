@@ -88,8 +88,9 @@ export const WeightSelector = ({
   const addCustomWeight = (equipmentKey: WeightEquipment) => {
     const raw = customInputs[equipmentKey]?.trim()
     if (!raw) return
-    const value = parseFloat(raw)
-    if (isNaN(value) || value <= 0 || value > 500) return
+    // Use Number(...) instead of parseFloat so trailing garbage like "12abc" is rejected.
+    const value = Number(raw)
+    if (!Number.isFinite(value) || value <= 0 || value > 500) return
     const equipmentConfig = EQUIPMENT_CONFIG.find((config) => config.key === equipmentKey)
     if (!equipmentConfig) return
 

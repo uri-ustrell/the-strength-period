@@ -58,7 +58,11 @@ export const LLMAssistant = ({
 
   // Save personal notes on blur
   const handleNotesBlur = useCallback(() => {
-    setConfig('llmPersonalNotes', personalNotes)
+    setConfig('llmPersonalNotes', personalNotes).catch((err) => {
+      if (import.meta.env.DEV) {
+        console.warn('[LLMAssistant] Failed to persist personal notes', err)
+      }
+    })
   }, [personalNotes])
 
   // Build training days array from daysPerWeek
@@ -153,7 +157,7 @@ export const LLMAssistant = ({
     const presetId = preset?.id ?? 'llm_custom'
     const mesocycle = convertToMesocycle(validationResult.parsed, presetId, exerciseMap)
     onImport(mesocycle)
-  }, [validationResult, preset, config, exerciseMap, onImport])
+  }, [validationResult, preset, exerciseMap, onImport])
 
   const notesLength = personalNotes.length
   const notesCountColor =

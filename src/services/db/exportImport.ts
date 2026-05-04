@@ -32,15 +32,18 @@ export async function exportData(): Promise<void> {
 
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
-  const date = new Date().toISOString().slice(0, 10)
+  try {
+    const date = new Date().toISOString().slice(0, 10)
 
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `the-strength-period-${date}.json`
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `the-strength-period-${date}.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+  } finally {
+    URL.revokeObjectURL(url)
+  }
 }
 
 function isValidExportData(data: unknown): data is ExportData {
@@ -56,12 +59,34 @@ function isValidExportData(data: unknown): data is ExportData {
   )
 }
 
+function hasStringId(item: unknown): item is { id: string } {
+  return typeof item === 'object' && item !== null && typeof (item as { id?: unknown }).id === 'string'
+}
+
+function isValidConfigEntry(item: unknown): item is { key: string; value: unknown; updatedAt: string } {
+  if (typeof item !== 'object' || item === null) return false
+  const e = item as Record<string, unknown>
+  return typeof e.key === 'string' && typeof e.updatedAt === 'string'
+}
+
 export async function importData(file: File): Promise<{ success: boolean; error?: string }> {
   try {
     const text = await file.text()
     const parsed: unknown = JSON.parse(text)
 
     if (!isValidExportData(parsed)) {
+      return { success: false, error: 'invalid_format' }
+    }
+
+    // Validate every element BEFORE touching IDB so we never half-wipe user data.
+    if (!parsed.config.every(isValidConfigEntry)) {
+      return { success: false, error: 'invalid_format' }
+    }
+    if (
+      !parsed.mesocycles.every(hasStringId) ||
+      !parsed.sessions.every(hasStringId) ||
+      !parsed.executedSets.every(hasStringId)
+    ) {
       return { success: false, error: 'invalid_format' }
     }
 

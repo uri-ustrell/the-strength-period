@@ -1,27 +1,39 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { useSessionStore } from '@/stores/sessionStore'
+
 interface Props {
-  secondsRemaining: number
-  onTick: () => void
   onSkip: () => void
 }
 
-export const RestTimer = ({ secondsRemaining, onTick, onSkip }: Props) => {
+export const RestTimer = ({ onSkip }: Props) => {
   const { t } = useTranslation('common')
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  // Subscribe directly to the timer slice so only this component re-renders on
+  // every tick, not the whole `Session` page tree.
+  const secondsRemaining = useSessionStore((s) => s.restSecondsRemaining)
+  const tickRest = useSessionStore((s) => s.tickRest)
+  const onTickRef = useRef(tickRest)
+  onTickRef.current = tickRest
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      onTick()
-    }, 1000)
+    // Tick immediately so the displayed value catches up after mount or
+    // after the tab returns from background (where setInterval is throttled).
+    onTickRef.current()
+    const interval = setInterval(() => onTickRef.current(), 1000)
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        onTickRef.current()
       }
     }
-  }, [onTick])
+    document.addEventListener('visibilitychange', handleVisibility)
+
+    return () => {
+      clearInterval(interval)
+      document.removeEventListener('visibilitychange', handleVisibility)
+    }
+  }, [])
 
   const minutes = Math.floor(secondsRemaining / 60)
   const seconds = secondsRemaining % 60

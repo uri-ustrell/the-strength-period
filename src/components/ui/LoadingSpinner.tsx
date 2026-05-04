@@ -1,8 +1,8 @@
-interface Props {
+export interface LoadingSpinnerProps {
   size?: number
 }
 
-export const LoadingSpinner = ({ size = 20 }: Props) => (
+export const LoadingSpinner = ({ size = 20 }: LoadingSpinnerProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className="animate-spin">
     <circle
       cx="12"
