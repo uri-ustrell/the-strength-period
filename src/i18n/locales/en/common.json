@@ -58,7 +58,36 @@
     "primary_muscles": "Primary muscles",
     "instructions": "Instructions",
     "weight_lower": "Lower weight",
-    "weight_higher": "Higher weight"
+    "weight_higher": "Higher weight",
+    "set": {
+      "aria": "Exercise {{exercise}} · Set {{set}} of {{total}} · {{state}}",
+      "state": {
+        "pending": "Pending",
+        "active": "Active",
+        "completed": "Completed",
+        "skipped": "Skipped"
+      }
+    },
+    "hud": {
+      "label": {
+        "elapsed": "Elapsed",
+        "volume": "Volume",
+        "sets": "Sets",
+        "rpe": "Mean RPE"
+      }
+    },
+    "rest": {
+      "skip_aria": "Skip rest"
+    },
+    "completion": {
+      "calm": {
+        "headline": "Session done.",
+        "body": "Your work is logged. Recovery starts now."
+      },
+      "retro": {
+        "level_clear": "Level clear!"
+      }
+    }
   },
   "execution_mode": {
     "standard": "Standard",

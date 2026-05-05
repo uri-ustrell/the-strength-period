@@ -93,8 +93,15 @@
   - [x] Phase 3 — Mechanic design: `DashboardMapModel`, `<DashboardMap>` contract, `theme.dashboard.*` tokens, shared a11y contract, i18n surface defined; zero new IDB / zero new telemetry confirmed
   - [x] Phase 4 — Implementation plan gate: B1–B11 ordered checklist with ACs in `tasks/todo.md`, both variants in parity at every step
   - [x] Phase B implementation (B1–B11) ✅ Complete — Reviewer 2026-05-04: PASS WITH MINOR; warnings addressed 2026-05-04 (see `specs/STATUS_HISTORY.md` → "2026-05-04 — Step 16 Phase B warning fixes"). Shared `buildDashboardMap` selector + `RetroWorldMap`/`ClassicCalendar` ship together off the same model; zero new IDB / zero new telemetry preserved.
-- [ ] Phases B–E (Dashboard world-map / calendar, session execution skin, stats inventory skin, optional polish) — gated by their own pre-execution review
-- Phase B parity decision (2026-05-04): **strict parity from day one** — every Phase B+ surface ships `retro-platformer` and `classic-boring` together; no temporary single-variant releases.
+- **Phase C (Session Execution parity: Retro Level Run + Classic Cards) — pre-execution gates ✅ (2026-05-04, architect)**
+  - [x] Phase 0 — Source-of-truth & dependency check (Phase A/B complete; spec patched with additive "Phase C Shared Contracts (Session Execution)" subsection covering canonical per-set state model, HUD contract, rest-timer contract, completion-frame contract, a11y contract, token namespaces, audio gating contract, zero-IDB/zero-telemetry)
+  - [x] Phase 1 — Behavioral risk brief (no high-risk; medium risks mitigated: rest-timer no-urgency, completion-frame separation, skip-not-shame, audio gating)
+  - [x] Phase 2 — UI/UX Integrity Gate: **INCREMENTAL with shared adapter** (Session.tsx IA preserved; one shared `buildSessionExecutionModel` selector + `<SessionExecution>` router + `<RetroLevelRun>`/`<ClassicSessionCards>` renderers selected via `useEffectiveAestheticVariant()`)
+  - [x] Phase 3 — Mechanic design: `SessionExecutionModel`, `<SessionExecution>` contract, `theme.session.*` tokens, shared a11y contract, i18n surface defined; audio gating contract; zero new IDB / zero new telemetry confirmed
+  - [x] Phase 4 — Implementation plan gate: C1–C12 ordered checklist with ACs in `tasks/todo.md`, both variants in parity at every step
+  - [x] Phase C implementation (C1–C12) ✅ Complete — Implementer 2026-05-04 (see `specs/STATUS_HISTORY.md` → "2026-05-04 — Step 16 Phase C implementation"). Shared `buildSessionExecutionModel` selector + `<SessionExecution>` router + `RetroLevelRun`/`ClassicSessionCards` renderers ship together off the same model; zero new IDB / zero new telemetry preserved; cross-variant parity test in place.
+- [ ] Phases D–E (stats inventory skin, optional polish) — gated by their own pre-execution review
+- Phase C parity decision (2026-05-04): **strict parity from day one** — `RetroLevelRun` and `ClassicSessionCards` ship together off the same `SessionExecutionModel`; no temporary single-variant releases.
 
 ### Step 19 — Preset & Session Template Redesign ✅ (spec: `specs/features/17-preset-sessions-redesign.md`)
 - [x] Read `specs/features/17-preset-sessions-redesign.md` end-to-end before starting

@@ -593,6 +593,58 @@ The retro term "locked" is **presentation-only** for `future`; the model never e
 
 ---
 
+### Phase C Shared Contracts (Session Execution) — added 2026-05-04
+
+These contracts apply equally to every Phase C+ variant. They consolidate parity-critical details that were under-specified in the per-variant Session Execution Surface paragraphs.
+
+#### Canonical Per-Set State Model (shared across all variants)
+
+The shared session-execution model exposes exactly four set states:
+
+| State | Meaning | Visual mapping (retro-platformer) | Visual mapping (classic-boring) |
+|---|---|---|---|
+| `pending` | Future set in the current or upcoming exercise | Dim platform tile | Muted card row |
+| `active` | The set currently being logged | Highlighted platform with marker | Card row with accent ring |
+| `completed` | A set with a logged `ExecutedSet` record | Coin-flag stamp | Card row with check pixel sprite |
+| `skipped` | A set the user explicitly skipped | Greyed branch (never shamed) | Muted row with strike pixel sprite (never shamed) |
+
+Per-set states derive deterministically from `executedSets`, `currentExerciseIndex`, and `currentSetIndex`. The model is read-only; renderers never derive state from `variant`.
+
+#### Shared HUD Contract
+
+Both variants render the same four HUD readouts at the top of the session execution surface: `elapsed`, `volume (kg)`, `sets completed / total`, `mean RPE`. Numbers animate in stepped count-up only (no smooth tweens). No meters, no gems, no level-clear frame in the HUD. `prefers-reduced-motion` collapses count-up to instant updates. HUD numbers live in a single `aria-live="polite"` region per readout.
+
+#### Rest-Timer Contract
+
+The rest timer is a monotonic seconds-remaining readout. **No color shift, no flashing, no escalation** as the timer approaches zero — in either variant. Retro may play an opt-in chime at exactly t=0; Classic is always silent. Both variants expose the same Skip Rest action with identical semantics.
+
+#### Completion-Frame Contract
+
+End-of-session derives a shared `SessionCompletionModel` (sets done, mean RPE, recovery hint, total volume, elapsed minutes). Classic renders a single calm acknowledgement line (`session.completion.calm.headline` + `.body`). Retro additionally renders a "level clear" frame using `session.completion.retro.*` keys. Classic MUST NOT reference any `session.completion.retro.*` key — enforced by review and by render-test assertion.
+
+#### Shared Accessibility Contract
+
+- Each set surface exposes `role="button"`, `aria-pressed={state === 'completed'}`, and an accessible name resolved via `common.session.set.aria` with placeholders `{{exercise}}`, `{{set}}`, `{{total}}`, `{{state}}` (state resolved through `common.session.set.state.<state>`).
+- Tab order: top-down through HUD → current exercise card → set logger controls → rest timer (when active) → cancel/finish controls.
+- Enter/Space on the active set triggers `actions.logSet`; non-active sets are read-only.
+- HUD readouts are wrapped in `aria-live="polite"` regions; rest-timer countdown is `polite` (never `assertive`) to honor the no-urgency rule.
+- `prefers-reduced-motion` is honored at the variant-resolution layer (`useEffectiveAestheticVariant`); both renderers also collapse internal step animations to instant updates when the OS reports reduced motion.
+
+#### Token Namespaces
+
+- `theme.session.*` — shared session tokens (set-state colors, rest-timer color, HUD numbers/labels, week accent reuse). Consumed by both renderers.
+- `theme.game.session.*` — retro-platformer-only extras (platform color, sprite scale, checkpoint color). Never read by `classic-boring`.
+
+#### Audio Gating Contract
+
+`classic-boring` is silent. The audio service short-circuits at its public entrypoints when the effective variant is not `retro-platformer`. Audio toggles remain hidden from Settings while `classic-boring` is active (already specified). A render test asserts that no `<audio>` element mounts in `classic-boring`.
+
+#### Persistence & Telemetry
+
+Phase C introduces **zero** new IDB stores and **zero** new telemetry events. The session execution model is derived state recomputed each render from `generatedSession`, `executedSets`, and the current navigation slice of `sessionStore`.
+
+---
+
 ### Variant: Retro Platformer
 
 > The remainder of this section describes the `retro-platformer` variant in full. The shared core above and the variant architecture apply equally to all current and future variants.

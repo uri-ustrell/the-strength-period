@@ -1,14 +1,14 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { X, Repeat } from 'lucide-react'
 
 import { useSession } from '@/hooks/useSession'
-import { ActiveExercise } from '@/components/session/ActiveExercise'
-import { SetLogger } from '@/components/session/SetLogger'
-import { RestTimer } from '@/components/session/RestTimer'
+import { useSessionStore } from '@/stores/sessionStore'
+import { SessionExecution } from '@/components/session/SessionExecution'
 import { SessionSummary } from '@/components/session/SessionSummary'
 import { SessionPreStart } from '@/components/session/SessionPreStart'
+import { buildSessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 
 export const Session = () => {
   const { t } = useTranslation('common')
@@ -36,6 +36,47 @@ export const Session = () => {
     finishSession,
     reset,
   } = useSession()
+
+  // Read the per-second rest countdown directly from the store so the model
+  // memo sees fresh values without forcing the whole page tree to subscribe
+  // to it (the inner `RestTimer` already drives its own subscription).
+  const restSecondsRemaining = useSessionStore((s) => s.restSecondsRemaining)
+
+  const sessionExecutionModel = useMemo(
+    () =>
+      buildSessionExecutionModel({
+        generatedSession,
+        executedSets,
+        executionMode,
+        currentExerciseIndex,
+        currentSetIndex,
+        currentRound,
+        totalRounds,
+        isResting,
+        restSecondsRemaining,
+        sessionStartedAt,
+        isFinished,
+        nowMs: Date.now(),
+      }),
+    [
+      generatedSession,
+      executedSets,
+      executionMode,
+      currentExerciseIndex,
+      currentSetIndex,
+      currentRound,
+      totalRounds,
+      isResting,
+      restSecondsRemaining,
+      sessionStartedAt,
+      isFinished,
+    ]
+  )
+
+  const sessionExecutionActions = useMemo(
+    () => ({ logSet, skipSet, skipRest, updateCurrentExerciseWeight }),
+    [logSet, skipSet, skipRest, updateCurrentExerciseWeight]
+  )
 
   const handleFinish = useCallback(
     async (globalRpe: number, notes?: string) => {
@@ -162,26 +203,10 @@ export const Session = () => {
         )}
 
         {currentExercise && (
-          <>
-            <ActiveExercise
-              selectedExercise={currentExercise}
-              exerciseIndex={currentExerciseIndex}
-              totalExercises={generatedSession.exercises.length}
-              currentSet={currentSetIndex}
-              onWeightChange={updateCurrentExerciseWeight}
-            />
-
-            {isResting ? (
-              <RestTimer onSkip={skipRest} />
-            ) : (
-              <SetLogger
-                selectedExercise={currentExercise}
-                currentSet={currentSetIndex}
-                onComplete={logSet}
-                onSkipSet={skipSet}
-              />
-            )}
-          </>
+          <SessionExecution
+            model={sessionExecutionModel}
+            actions={sessionExecutionActions}
+          />
         )}
 
         {error && <p className="text-center text-sm text-red-600">{t('errors.generic')}</p>}

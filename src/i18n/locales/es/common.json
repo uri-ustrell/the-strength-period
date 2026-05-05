@@ -58,7 +58,36 @@
     "primary_muscles": "Músculos principales",
     "instructions": "Instrucciones",
     "weight_lower": "Peso inferior",
-    "weight_higher": "Peso superior"
+    "weight_higher": "Peso superior",
+    "set": {
+      "aria": "Ejercicio {{exercise}} · Serie {{set}} de {{total}} · {{state}}",
+      "state": {
+        "pending": "Pendiente",
+        "active": "Activa",
+        "completed": "Completada",
+        "skipped": "Saltada"
+      }
+    },
+    "hud": {
+      "label": {
+        "elapsed": "Tiempo",
+        "volume": "Volumen",
+        "sets": "Series",
+        "rpe": "RPE medio"
+      }
+    },
+    "rest": {
+      "skip_aria": "Saltar el descanso"
+    },
+    "completion": {
+      "calm": {
+        "headline": "Sesión hecha.",
+        "body": "Tu trabajo queda registrado. Ahora empieza la recuperación."
+      },
+      "retro": {
+        "level_clear": "¡Nivel superado!"
+      }
+    }
   },
   "execution_mode": {
     "standard": "Estándar",

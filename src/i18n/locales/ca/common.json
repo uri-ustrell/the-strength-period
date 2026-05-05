@@ -58,7 +58,36 @@
     "primary_muscles": "Músculs principals",
     "instructions": "Instruccions",
     "weight_lower": "Pes inferior",
-    "weight_higher": "Pes superior"
+    "weight_higher": "Pes superior",
+    "set": {
+      "aria": "Exercici {{exercise}} · Sèrie {{set}} de {{total}} · {{state}}",
+      "state": {
+        "pending": "Pendent",
+        "active": "Activa",
+        "completed": "Completada",
+        "skipped": "Saltada"
+      }
+    },
+    "hud": {
+      "label": {
+        "elapsed": "Temps",
+        "volume": "Volum",
+        "sets": "Sèries",
+        "rpe": "RPE mitjà"
+      }
+    },
+    "rest": {
+      "skip_aria": "Saltar el descans"
+    },
+    "completion": {
+      "calm": {
+        "headline": "Sessió feta.",
+        "body": "La feina queda registrada. Ara comença la recuperació."
+      },
+      "retro": {
+        "level_clear": "Nivell superat!"
+      }
+    }
   },
   "execution_mode": {
     "standard": "Estàndard",

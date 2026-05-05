@@ -5,6 +5,81 @@
 
 ## Active Tasks
 
+### Step 16 — Phase C (Session Execution Parity: Retro Level Run + Classic Cards)
+
+Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments → Session execution row + "Session Execution Surface" subsection), "Variant: Retro Platformer" (Session Execution Surface subsection), and the additive "Phase C Shared Contracts (Session Execution)" subsection.
+
+**Strict parity rule (2026-05-04):** every item below ships `retro-platformer` and `classic-boring` together off the same `SessionExecutionModel`. No item is "done" if either variant is missing or out of parity. No item is "done" if any forbidden pattern (countdown urgency colors, level-clear copy in classic-boring, shame copy on skipped set, randomized rewards) appears in either variant.
+
+- [x] C1. Add the shared session token namespace
+  - File: `src/index.css`
+  - Add CSS variables under `--theme-session-*` (set-state colors mirroring dashboard semantics; rest-timer fg/bg with NO red/urgency variant; HUD fg/muted/accent; sets-completed accent reuses `--theme-dashboard-week-accent`). Add retro-only `--theme-game-session-*` (platform, sprite scale, checkpoint).
+  - AC: tokens compile; both renderers can consume `--theme-session-*`; `ClassicSessionCards` does NOT read any `--theme-game-session-*` (verified by grep in C11); `npm run build` green.
+
+- [x] C2. Add i18n keys (ca/es/en parity)
+  - Files: `src/i18n/locales/{ca,es,en}/common.json`
+  - New keys (under `session.*`): `set.aria` (`"Exercise {{exercise}} · Set {{set}} of {{total}} · {{state}}"` + ca/es), `set.state.pending`, `set.state.active`, `set.state.completed`, `set.state.skipped`, `hud.label.elapsed`, `hud.label.volume`, `hud.label.sets`, `hud.label.rpe`, `rest.skip_aria`, `completion.calm.headline`, `completion.calm.body`, `completion.retro.level_clear`.
+  - AC: `npm run i18n:check` exit 0; identical key set across the three locales; copy passes forbidden-pattern review (no shame, no urgency, no fear).
+
+- [x] C3. Implement the shared selector
+  - File: `src/services/session/buildSessionExecutionModel.ts`
+  - Signature per Phase C Shared Contracts (see spec). Pure function: no IO, no React, no `matchMedia`, no direct store reads. `nowMs` injected.
+  - Type exports in same file: `SessionExecutionModel`, `ExerciseBlock`, `SetNode`, `SetExecutionState`, `RestState`.
+  - Deterministic per-set state derivation: `executedSets` match → `completed`; explicit skip marker → `skipped`; matches `currentExerciseIndex/currentSetIndex` AND `!isResting` → `active`; ambiguous past sets → `pending` (never speculatively `skipped`).
+  - AC: pure function; ordering matches `sessionNavigation` outputs; no React imports.
+
+- [x] C4. Unit-test the selector
+  - File: `src/services/session/buildSessionExecutionModel.test.ts`
+  - Cases: empty session, all-pending, single-active, with-rest (active set is still `active`, NOT a separate "resting" set state), some-completed-some-pending, skipped-set derivation, circuit-mode round counter passthrough, HUD volume math, `meanRpe = null` when no per-set RPE, `nowMs` injection determinism, finished session state.
+  - AC: all cases pass under `npm run test:unit`.
+
+- [x] C5. Implement `RetroLevelRun` renderer
+  - File: `src/components/session/RetroLevelRun.tsx`
+  - Renders the model as a horizontal level strip with one platform per exercise, one coin per set; sticky top HUD with pixel-font numbers and stepped count-up (CSS-based, no requestAnimationFrame loops); active set composes the existing `SetLogger`; resting state composes `RestTimer` with retro chrome but identical underlying behavior; node aria per `session.set.aria`. NO color escalation on the rest timer. NO randomized copy. Optional chime at t=0 only.
+  - Reads tokens via `--theme-session-*` and `--theme-game-session-*` only.
+  - AC: keyboard nav per spec (Tab + Enter/Space on active set); AA contrast on functional overlays; click/keyboard semantics identical to classic; reduced-motion collapses step animation to instant.
+
+- [x] C6. Implement `ClassicSessionCards` renderer
+  - File: `src/components/session/ClassicSessionCards.tsx`
+  - Renders the model as a vertical card list (one card per exercise) with sticky top HUD using pixel-font numbers and the same stepped count-up (CSS only). Active card composes existing `SetLogger`; resting state composes `RestTimer` with classic chrome; completed cards collapse. NEVER reads `--theme-game-session-*`. NEVER references `session.completion.retro.*` keys.
+  - AC: keyboard nav identical to retro; AA contrast on muted set rows; click/keyboard semantics identical to retro; render test asserts no `<audio>` mounts.
+
+- [x] C7. Implement `SessionExecution` variant router
+  - File: `src/components/session/SessionExecution.tsx`
+  - Calls `useEffectiveAestheticVariant()` and renders `RetroLevelRun` or `ClassicSessionCards` off the same `model` + `actions`. Trivial — pattern matches `DashboardMap`.
+  - AC: switching the persisted variant in Settings instantly switches renderer; OS reduced-motion forces `classic-boring` without writing the store (already enforced by hook).
+
+- [x] C8. Wire `SessionExecution` into `Session.tsx`
+  - File: `src/pages/Session.tsx`
+  - Replace the inline `<ActiveExercise> + ({isResting ? <RestTimer/> : <SetLogger/>})` block (the `currentExercise &&` branch) with `<SessionExecution model={buildSessionExecutionModel({...store slice, nowMs: Date.now()})} actions={{logSet, skipSet, skipRest, updateCurrentExerciseWeight}} />`. Memoize `model` on the relevant store slice keys to avoid recomputing on unrelated re-renders.
+  - Keep pre-start branch, finished branch (existing `<SessionSummary>`), cancel-confirm dialog, and error rendering unchanged.
+  - AC: no behavior regression vs current Session page; same routing target on completion (`navigate('/dashboard')`); both variants render correctly off the same call.
+
+- [x] C9. Audio gating
+  - File: `src/services/audio/sessionAudio.ts` (new)
+  - Single entrypoint API: `playRestEndChime()`, `playSetCompleteBlip()`. First lines short-circuit when `getEffectiveAestheticVariantSnapshot() !== 'retro-platformer'` OR when user-opt-in flag is false (read from existing `userStore` channels — no new persistence).
+  - AC: classic render test asserts zero `<audio>` mounts and zero invocations across a full set/rest cycle; retro test asserts chime fires once at t=0 only when opted in.
+
+- [x] C10. Render parity tests for both variants
+  - Files: `src/components/session/RetroLevelRun.test.tsx`, `src/components/session/ClassicSessionCards.test.tsx`, `src/components/session/SessionExecution.test.tsx`
+  - Each renderer test renders the same `SessionExecutionModel` fixture and asserts: every set surface is a `button` with `aria-pressed`, exposes `session.set.aria` with the correct state token, click on active set invokes `actions.logSet`, skip invokes `actions.skipSet`, rest-timer skip invokes `actions.skipRest`. Cross-variant `SessionExecution.test.tsx` renders the router twice (once per persisted variant), asserts identical `data-set-state` orderings, identical interaction outcomes, and that switching the variant flips the rendered subtree (`retro-platform-*` vs `classic-card-*`) while the model object remains byte-identical (JSON snapshot).
+  - Forbidden-pattern guard: assert `session.completion.retro.*` keys are NOT present in the rendered classic tree; assert no element with class/test-id implying urgency colors on the rest timer in either variant.
+  - AC: all tests pass under `npm run test:unit`.
+
+- [x] C11. Smoke test (both variants)
+  - Manual checklist: with `retro-platformer`, run a full session — set complete, set skip, rest start/skip, finish-early, finish-and-save. Repeat in `classic-boring`. Toggle OS reduced-motion → renderer flips to `classic-boring` while persisted Settings selection stays. Confirm: no audio in classic, optional chime in retro at t=0, no color escalation on rest timer in either variant, completion-frame copy is calm in classic and "level clear" in retro, skipped sets are visually muted (never shamed). Run `grep -R '--theme-game-session' src/components/session/ClassicSessionCards.tsx` → expect zero matches.
+  - AC: every flow succeeds in both variants; reduced-motion override does not corrupt persisted choice; lint grep passes.
+
+- [x] C12. Verification gates
+  - `npm run i18n:check` exit 0
+  - `npm run lint` exit 0
+  - `npm run build` exit 0
+  - `npm test` (both `test:unit` and `test:ingestion`) exit 0
+  - Update `specs/STATUS.md` Step 16 Phase C sub-bullet to mark C1–C12 done; append a Phase C completion entry to `specs/STATUS_HISTORY.md`.
+  - AC: all four gate commands exit 0; STATUS files reflect Phase C done.
+
+Out of Phase C (deferred to Phase D/E): stats/inventory skin (Phase D), Lottie/Rive polish (Phase E), per-set RPE persistence (out of scope; `meanRpe` stays `null` until a future ticket).
+
 ### Step 16 — Phase B (Dashboard Parity: World Map + Calendar)
 
 Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments + Navigation Metaphor — Calendar), "Variant: Retro Platformer" (Navigation Metaphor — World Map), and the additive "Phase B Shared Contracts (Dashboard)" subsection.

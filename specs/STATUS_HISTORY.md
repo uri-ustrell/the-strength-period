@@ -7,6 +7,93 @@
 
 ## Recent Changes
 
+### 2026-05-04 — Step 16 Phase C implementation
+
+Implementer pass shipping Phase C end-to-end (Session Execution skin parity: `retro-platformer` Level Run + `classic-boring` Cards). Strict parity preserved — both variants render off the same `SessionExecutionModel` and the same `actions`.
+
+**Files created**
+- `src/services/session/buildSessionExecutionModel.ts` — pure selector (C3); exports `SessionExecutionModel`, `ExerciseBlock`, `SetNode`, `SetExecutionState`, `RestState`, `BuildSessionExecutionInput`. No React, no IO, no `matchMedia`. `nowMs` injected.
+- `src/services/session/buildSessionExecutionModel.test.ts` — 11 cases covering empty / all-pending / single-active / with-rest / some-completed / skipped derivation / circuit-mode round counter passthrough / HUD volume math / `meanRpe = null` when no per-set RPE / `nowMs` determinism / finished state (C4).
+- `src/services/audio/sessionAudio.ts` — single-entry audio API; both `playRestEndChime()` and `playSetCompleteBlip()` short-circuit when the effective variant ≠ `retro-platformer` or when user opt-in is off (C9). No new persistence channel.
+- `src/components/session/SessionHudReadouts.tsx` — shared HUD readout primitive consumed by both renderers.
+- `src/components/session/RetroLevelRun.tsx` (C5) and `src/components/session/ClassicSessionCards.tsx` (C6) — variant renderers off the same model + actions; identical click/keyboard semantics; identical `data-set-state` ordering; classic NEVER reads `--theme-game-session-*` and NEVER references `session.completion.retro.*` (verified by C11 grep guard, see below).
+- `src/components/session/SessionExecution.tsx` — variant router (C7); 1:1 mirror of `DashboardMap` from Phase B.
+- `src/components/session/RetroLevelRun.test.tsx` (4 tests) and `src/components/session/ClassicSessionCards.test.tsx` (4 tests) — per-renderer assertions: every set surface is a `<button>` with `aria-pressed`, exposes `session.set.aria` with the correct state token; click on active set invokes `actions.logSet`; SetLogger Skip → `actions.skipSet`; RestTimer Skip → `actions.skipRest`. Classic test asserts zero `<audio>` mounts and zero retro-completion-copy leakage.
+- `src/components/session/SessionExecution.test.tsx` — **C10 cross-variant parity test (added in this pass)**. Renders the router twice off the same `SessionExecutionModel` (once per persisted aesthetic variant), asserts: identical `[data-set-state]` orderings and identical session-id orderings across variants; click on the active set in BOTH variants invokes `actions.logSet`; `JSON.stringify(model)` is byte-identical before/after each render (no mutation); switching variant flips the rendered subtree (`retro-set-*`/`retro-platform-*` present in retro pass and absent in classic pass; `classic-set-*`/`classic-card-*` vice versa). Forbidden-pattern guard: `session.completion.retro.*` copy ("Level clear" / "Nivell completat") never appears in the classic tree, neither in-progress nor finished.
+
+**Files modified**
+- `src/index.css` — added `--theme-session-*` shared tokens and retro-only `--theme-game-session-*` tokens (C1); rest-timer color tokens have NO red/urgency variant.
+- `src/i18n/locales/{ca,es,en}/common.json` — added `session.set.aria`, `session.set.state.{pending,active,completed,skipped}`, `session.hud.label.{elapsed,volume,sets,rpe}`, `session.rest.skip_aria`, `session.completion.calm.{headline,body}`, `session.completion.retro.level_clear` to all three locales (C2). Parity verified by `npm run i18n:check`.
+- `src/pages/Session.tsx` — replaced the inline `<ActiveExercise> + ({isResting ? <RestTimer/> : <SetLogger/>})` block with `<SessionExecution model={buildSessionExecutionModel({...store slice, nowMs: Date.now()})} actions={...} />` (C8). Pre-start, finished (`SessionSummary`), cancel-confirm dialog and error rendering branches unchanged. Model memoized on the relevant store-slice keys.
+
+**Type-fix patch applied to the renderer test fixtures (this pass)**
+- `GeneratedSession` fixture now includes the required `mesocycleId: 'm-1'` and `estimatedDurationMinutes: 30` fields and drops the `as GeneratedSession` cast.
+- `ExecutedSet` literal in the test fixture replaced its phantom `timestamp` field with the real `completedAt` field (and adds the required `id`, `sessionId`, `sessionTemplateId`, `date` fields per `src/types/session.ts`). Same fix mirrored in `RetroLevelRun.test.tsx`, `ClassicSessionCards.test.tsx`, and the new `SessionExecution.test.tsx`.
+
+**C11 grep guards** (forbidden-pattern checks against `src/components/session/ClassicSessionCards.tsx`)
+- `grep -n -- '--theme-game-session' src/components/session/ClassicSessionCards.tsx` → **1 match, line 60** — inside the file-header doc comment block (`* - Reads exclusively --theme-session-* tokens. NEVER reads any --theme-game-session-* token (verified by C11 grep guard).`). NOT a code reference; doc-comment match only. ✅
+- `grep -n 'completion\.retro' src/components/session/ClassicSessionCards.tsx` → **1 match, line 61** — same doc-comment block (`* - NEVER references session.completion.retro.* keys (Completion-Frame Contract); ...`). NOT a code reference; doc-comment match only. ✅
+- Both matches are explicitly the documented C11 guard sentinels living in the JSDoc header. The actual rendering code uses only `--theme-session-*` and only `session.completion.calm.*` keys.
+
+**Verification gates (last lines of each command)**
+- `npm run i18n:check` → `[i18n:check] OK — 3 locales, 6 namespaces in parity.` ✅
+- `npm run lint` → `tsc --noEmit` (no output, exit 0) ✅
+- `npm run build` →
+  ```
+  PWA v1.2.0
+  mode      generateSW
+  precache  7 entries (1347.41 KiB)
+  ```
+  exit 0 ✅
+- `npm test` → `Test Files  11 passed (11) / Tests  47 passed (47)` (unit) + `tests 3 / pass 3 / fail 0` (ingestion) ✅
+
+**Test counts**
+- Phase C unit suites added/touched in this pass:
+  - `src/services/session/buildSessionExecutionModel.test.ts` — 11 tests
+  - `src/components/session/RetroLevelRun.test.tsx` — 4 tests
+  - `src/components/session/ClassicSessionCards.test.tsx` — 4 tests
+  - `src/components/session/SessionExecution.test.tsx` — 2 tests (cross-variant parity + forbidden-pattern guard)
+- Total project unit tests: **47 passed across 11 files**; ingestion: **3 passed**.
+
+**Hard-rule compliance** — strict variant parity off the same model, zero new IDB stores, zero new telemetry, no `matchMedia` outside Phase A's `useEffectiveAestheticVariant` hook, ca/es/en parity, named exports throughout, no urgency colors on the rest timer, no shame copy on skipped sets, no retro tokens or retro completion keys leaking into classic.
+
+#### Reviewer follow-up 2026-05-04: warnings + N1 fixed
+
+- **W1 — `playSetCompleteBlip` gated away from `ClassicSessionCards`.** Removed the two cosmetic invocations (and the now-unused import) from `src/components/session/ClassicSessionCards.tsx`. Parity contract is on model + actions, not on mirroring no-op audio calls. `src/components/session/ClassicSessionCards.test.tsx` now mocks `@/services/audio/sessionAudio` and asserts `playSetCompleteBlip` is invoked **0 times** across a full set/rest cycle (per-card click → SetLogger complete → enter rest → skip rest).
+- **W2 — C9 retro positive-fire audio test added.** New `src/services/audio/sessionAudio.test.ts` (focused unit test) asserts `playRestEndChime` constructs the `AudioContext` exactly once when the persisted variant is `retro-platformer`, and is a no-op (zero `AudioContext` constructions) when the variant is `classic-boring`. Same gating verified for `playSetCompleteBlip`. Tests against the audio module's gating logic directly — strongest invariant, no renderer plumbing.
+- **N1 — Dead Catalan regex fixed.** `src/components/session/SessionExecution.test.tsx` updated: the cross-variant guard now matches the actual ca copy `Nivell superat!` (regex `/nivell superat/i`) instead of the non-existent `nivell completat`. Both assertion sites (in-progress + finished states) updated.
+
+**Verification (all green)** — `npm run i18n:check` (3 locales, 6 namespaces in parity), `npm run lint` (clean), `npm run build` (clean), `npm test` → **51 passed across 12 files** (was 47 across 11; +1 file `sessionAudio.test.ts` with 3 tests, +1 test in `ClassicSessionCards.test.tsx`).
+
+---
+
+### 2026-05-04 — Step 16 Phase C pre-execution gates
+
+Architect pass running the four pre-execution gates for Phase C (Session Execution skin parity: `retro-platformer` Level Run + `classic-boring` Cards). Implementer-touchable artefacts only — no source code changes.
+
+**Phase 0.** Confirmed Phase A and Phase B ✅; identified seven spec gaps in the per-variant Session Execution Surface paragraphs (per-set state taxonomy, HUD readout names, rest-timer state contract, completion-frame contract, audio gating contract, shared CSS token namespace, set-advancement a11y contract). Patched the spec with an additive "Phase C Shared Contracts (Session Execution) — added 2026-05-04" subsection at the same nesting level as the existing "Phase B Shared Contracts (Dashboard)" block.
+
+**Phase 1.** Behavioral risk brief: zero high-risk mechanics; four medium-risk mechanics with explicit mitigations (rest-timer no-urgency rule, completion-frame strict separation, skip-not-shame copy, audio gating short-circuit in `classic-boring`).
+
+**Phase 2.** UI/UX Integrity Gate: **INCREMENTAL with shared adapter** (Phase B template). `Session.tsx` IA (pre-start → active → finished) is preserved; the inline `<ActiveExercise> + <SetLogger>/<RestTimer>` block will be replaced by a `<SessionExecution model={...} actions={...} />` router that selects `RetroLevelRun` or `ClassicSessionCards` via `useEffectiveAestheticVariant`. Existing primitives (`ActiveExercise`, `SetLogger`, `RestTimer`, `SessionSummary`) are composed unchanged. Cancel-confirm dialog, finished branch, error rendering, and pre-start branch stay as-is.
+
+**Phase 3.** Defined shared `SessionExecutionModel` (pure selector in `src/services/session/buildSessionExecutionModel.ts`); variant renderer contract `SessionExecutionProps = { model, actions }`; new CSS token namespace `--theme-session-*` (with retro-only `--theme-game-session-*` extras); a11y contract for set surfaces (`role="button"`, `aria-pressed`, `aria-live="polite"` HUD regions, `polite` rest-timer countdown); i18n surface under `common.session.*` with strict separation between `session.completion.calm.*` (both variants) and `session.completion.retro.*` (retro only); audio gating contract (single entrypoint, short-circuits when effective variant ≠ `retro-platformer`). Zero new IDB stores, zero new telemetry confirmed.
+
+**Phase 4.** Wrote ordered Phase C checklist C1–C12 to `tasks/todo.md` with ACs per item and explicit verification gates.
+
+**Spec patches**
+- `specs/features/16-ethical-gamification.md`: appended "Phase C Shared Contracts (Session Execution) — added 2026-05-04" subsection between the existing Phase B contracts block and the `### Variant: Retro Platformer` heading. Additive only; no existing copy modified.
+
+**Files touched**
+- `specs/features/16-ethical-gamification.md` (additive subsection)
+- `specs/STATUS.md` (Phase C sub-bullets under Step 16)
+- `tasks/todo.md` (Phase C checklist C1–C12)
+- `specs/STATUS_HISTORY.md` (this entry)
+
+**Verdict.** Phase C is pre-cleared for the Implementer. Strict parity rule reaffirmed: `RetroLevelRun` and `ClassicSessionCards` ship together off the same `SessionExecutionModel`; no temporary single-variant releases.
+
+---
+
 ### 2026-05-04 — Step 16 Phase B warning fixes
 
 Implementer pass closing the four non-blocking warnings from the 2026-05-04 Phase B reviewer audit. Spec untouched; no new IDB stores, no telemetry, no `matchMedia` reads outside Phase A hooks.

@@ -58,3 +58,38 @@ body {
   --theme-dashboard-week-accent-muted-5: #fef3c7; /* amber-100 */
   --theme-dashboard-week-accent-muted-6: #ffe4e6; /* rose-100 */
 }
+
+/*
+ * --- Step 16 Phase C: Shared Session Execution Tokens -----------------------
+ *
+ * Spec: specs/features/16-ethical-gamification.md → "Phase C Shared Contracts
+ * (Session Execution)" → "Token Namespaces" + "Rest-Timer Contract".
+ *
+ * Both `retro-platformer` and `classic-boring` renderers consume these
+ * variables off the same `SessionExecutionModel`. The rest timer namespace
+ * has NO red/urgency variant by design (no escalation, no flashing — see the
+ * Rest-Timer Contract). The HUD `accent` shade reuses the dashboard
+ * week-accent token so weeks remain visually coherent across surfaces.
+ */
+:root {
+  /* Per-set state colors (shared, no red, no shaming on `skipped`). */
+  --theme-session-set-pending: #cbd5e1; /* slate-300 */
+  --theme-session-set-active: #6366f1; /* indigo-500 */
+  --theme-session-set-completed: #10b981; /* emerald-500 */
+  --theme-session-set-skipped: #94a3b8; /* slate-400 */
+
+  /* Rest timer — single calm pair, intentionally NO urgency variant. */
+  --theme-session-rest-fg: #1e3a8a; /* indigo-900 */
+  --theme-session-rest-bg: #e0e7ff; /* indigo-100 */
+
+  /* HUD readouts. `accent` reuses the dashboard week accent so the surface
+   * inherits the active week's tint without re-deriving the palette. */
+  --theme-session-hud-fg: #0f172a; /* slate-900 */
+  --theme-session-hud-muted: #64748b; /* slate-500 */
+  --theme-session-hud-accent: var(--theme-dashboard-week-accent, #6366f1);
+
+  /* Retro-platformer-only extras. Never read by `classic-boring`. */
+  --theme-game-session-platform: #fcd34d; /* amber-300 — retro platform tile */
+  --theme-game-session-checkpoint: #10b981; /* emerald-500 — coin/flag stamp */
+  --theme-game-session-sprite-scale: 2; /* integer multiplier for pixel sprites */
+}
