@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-
-import type { SessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
+import type { SessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 
 /**
  * Step 16 Phase C — Shared session HUD.
@@ -65,16 +64,14 @@ export const SessionHudReadouts = ({ model, variant }: Props) => {
       ? 'font-mono text-lg font-bold tabular-nums'
       : 'font-mono text-lg font-semibold tabular-nums'
 
-  const meanRpeDisplay =
-    model.hud.meanRpe === null ? '—' : Math.round(model.hud.meanRpe * 10) / 10
+  const meanRpeDisplay = model.hud.meanRpe === null ? '—' : Math.round(model.hud.meanRpe * 10) / 10
 
   return (
     <div
       className={wrapper}
       data-testid={`session-hud-${variant}`}
       style={{
-        backgroundColor:
-          variant === 'retro' ? 'var(--theme-session-hud-accent)' : undefined,
+        backgroundColor: variant === 'retro' ? 'var(--theme-session-hud-accent)' : undefined,
         color: 'var(--theme-session-hud-fg)',
       }}
     >

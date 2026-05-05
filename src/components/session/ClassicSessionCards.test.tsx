@@ -1,16 +1,16 @@
-import { cleanup, render, screen, fireEvent } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { ClassicSessionCards } from '@/components/session/ClassicSessionCards'
-import { useUserStore } from '@/stores/userStore'
+import * as sessionAudio from '@/services/audio/sessionAudio'
+import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import {
-  buildSessionExecutionModel,
   type BuildSessionExecutionInput,
+  buildSessionExecutionModel,
   type SessionExecutionModel,
 } from '@/services/session/buildSessionExecutionModel'
+import { useUserStore } from '@/stores/userStore'
 import type { Exercise } from '@/types/exercise'
-import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
-import * as sessionAudio from '@/services/audio/sessionAudio'
 import '@/i18n'
 
 vi.mock('@/services/audio/sessionAudio', async () => {

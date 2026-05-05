@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-
-import { useSessionStore } from '@/stores/sessionStore'
 import { playRestEndChime } from '@/services/audio/sessionAudio'
+import { useSessionStore } from '@/stores/sessionStore'
 
 interface Props {
   onSkip: () => void

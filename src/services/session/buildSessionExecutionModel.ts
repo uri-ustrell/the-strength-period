@@ -1,7 +1,7 @@
-import type { Exercise } from '@/types/exercise'
-import type { ExecutedSet } from '@/types/session'
 import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import type { ExecutionMode } from '@/stores/sessionStore'
+import type { Exercise } from '@/types/exercise'
+import type { ExecutedSet } from '@/types/session'
 
 /**
  * Step 16 Phase C — Shared session-execution model.
@@ -195,9 +195,7 @@ function computeHud(
   }
 
   const elapsedSec =
-    sessionStartedAtMs !== null
-      ? Math.max(0, Math.floor((nowMs - sessionStartedAtMs) / 1000))
-      : 0
+    sessionStartedAtMs !== null ? Math.max(0, Math.floor((nowMs - sessionStartedAtMs) / 1000)) : 0
 
   return {
     elapsedSec,

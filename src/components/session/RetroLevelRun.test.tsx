@@ -1,15 +1,15 @@
-import { cleanup, render, screen, fireEvent } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { RetroLevelRun } from '@/components/session/RetroLevelRun'
-import { useUserStore } from '@/stores/userStore'
+import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import {
-  buildSessionExecutionModel,
   type BuildSessionExecutionInput,
+  buildSessionExecutionModel,
   type SessionExecutionModel,
 } from '@/services/session/buildSessionExecutionModel'
+import { useUserStore } from '@/stores/userStore'
 import type { Exercise } from '@/types/exercise'
-import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import '@/i18n'
 
 function setMatchMedia(matches: boolean) {

@@ -1,5 +1,5 @@
-import { useUserStore } from '@/stores/userStore'
 import { resolveEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVariant'
+import { useUserStore } from '@/stores/userStore'
 
 /**
  * Step 16 Phase C — Session audio service (C9).
@@ -45,7 +45,8 @@ function isAudioEnabled(): boolean {
 function ensureContext(): AudioContext | null {
   if (typeof window === 'undefined') return null
   const Ctor =
-    window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+    window.AudioContext ??
+    (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
   if (!Ctor) return null
   return new Ctor()
 }

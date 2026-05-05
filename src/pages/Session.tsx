@@ -1,14 +1,13 @@
+import { Repeat, X } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { X, Repeat } from 'lucide-react'
-
-import { useSession } from '@/hooks/useSession'
-import { useSessionStore } from '@/stores/sessionStore'
 import { SessionExecution } from '@/components/session/SessionExecution'
-import { SessionSummary } from '@/components/session/SessionSummary'
 import { SessionPreStart } from '@/components/session/SessionPreStart'
+import { SessionSummary } from '@/components/session/SessionSummary'
+import { useSession } from '@/hooks/useSession'
 import { buildSessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
+import { useSessionStore } from '@/stores/sessionStore'
 
 export const Session = () => {
   const { t } = useTranslation('common')
@@ -203,10 +202,7 @@ export const Session = () => {
         )}
 
         {currentExercise && (
-          <SessionExecution
-            model={sessionExecutionModel}
-            actions={sessionExecutionActions}
-          />
+          <SessionExecution model={sessionExecutionModel} actions={sessionExecutionActions} />
         )}
 
         {error && <p className="text-center text-sm text-red-600">{t('errors.generic')}</p>}

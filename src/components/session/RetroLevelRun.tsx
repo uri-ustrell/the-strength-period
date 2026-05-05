@@ -1,22 +1,21 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-
-import type {
-  ExerciseBlock,
-  SessionExecutionModel,
-  SetExecutionState,
-  SetNode,
-} from '@/services/session/buildSessionExecutionModel'
 import { ActiveExercise } from '@/components/session/ActiveExercise'
-import { SetLogger } from '@/components/session/SetLogger'
 import { RestTimer } from '@/components/session/RestTimer'
 import { SessionHudReadouts } from '@/components/session/SessionHudReadouts'
+import { SetLogger } from '@/components/session/SetLogger'
 import {
   SET_STATE_VAR,
   useSetAriaLabel,
   useSetStateLabel,
 } from '@/components/session/sessionExecutionShared'
 import { playSetCompleteBlip } from '@/services/audio/sessionAudio'
+import type {
+  ExerciseBlock,
+  SessionExecutionModel,
+  SetExecutionState,
+  SetNode,
+} from '@/services/session/buildSessionExecutionModel'
 
 export type SessionExecutionActions = {
   logSet: (repsActual: number, weightActual?: number) => void
@@ -69,8 +68,7 @@ export const RetroLevelRun = ({ model, actions }: Props) => {
     [actions]
   )
 
-  const activeBlock =
-    model.exerciseBlocks[model.currentExerciseIndex] ?? null
+  const activeBlock = model.exerciseBlocks[model.currentExerciseIndex] ?? null
 
   return (
     <div className="space-y-3" data-testid="retro-level-run">

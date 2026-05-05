@@ -2,14 +2,14 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { SessionExecution } from '@/components/session/SessionExecution'
-import { useUserStore } from '@/stores/userStore'
+import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import {
-  buildSessionExecutionModel,
   type BuildSessionExecutionInput,
+  buildSessionExecutionModel,
   type SessionExecutionModel,
 } from '@/services/session/buildSessionExecutionModel'
+import { useUserStore } from '@/stores/userStore'
 import type { Exercise } from '@/types/exercise'
-import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import '@/i18n'
 
 /**
@@ -144,8 +144,8 @@ describe('SessionExecution — cross-variant parity', () => {
     expect(JSON.stringify(model)).toBe(modelSnapshot)
     const retroSetButtons = screen.getAllByTestId(/^retro-set-/)
     const retroStates = retroSetButtons.map((el) => el.getAttribute('data-set-state'))
-    const retroIds = retroSetButtons.map(
-      (el) => (el.getAttribute('data-testid') ?? '').replace('retro-set-', '')
+    const retroIds = retroSetButtons.map((el) =>
+      (el.getAttribute('data-testid') ?? '').replace('retro-set-', '')
     )
     // Retro-only marker present; classic-only marker absent.
     expect(screen.queryAllByTestId(/^retro-platform-/).length).toBeGreaterThan(0)
@@ -174,8 +174,8 @@ describe('SessionExecution — cross-variant parity', () => {
     expect(JSON.stringify(model)).toBe(modelSnapshot)
     const classicSetButtons = screen.getAllByTestId(/^classic-set-/)
     const classicStates = classicSetButtons.map((el) => el.getAttribute('data-set-state'))
-    const classicIds = classicSetButtons.map(
-      (el) => (el.getAttribute('data-testid') ?? '').replace('classic-set-', '')
+    const classicIds = classicSetButtons.map((el) =>
+      (el.getAttribute('data-testid') ?? '').replace('classic-set-', '')
     )
     expect(screen.queryAllByTestId(/^classic-card-/).length).toBeGreaterThan(0)
     expect(screen.queryAllByTestId(/^retro-set-/)).toHaveLength(0)

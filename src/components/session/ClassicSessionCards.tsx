@@ -1,22 +1,21 @@
+import { Check, Circle, Minus, Play } from 'lucide-react'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Check, Circle, Minus, Play } from 'lucide-react'
-
+import { ActiveExercise } from '@/components/session/ActiveExercise'
+import { RestTimer } from '@/components/session/RestTimer'
+import { SessionHudReadouts } from '@/components/session/SessionHudReadouts'
+import { SetLogger } from '@/components/session/SetLogger'
+import {
+  SET_STATE_VAR,
+  useSetAriaLabel,
+  useSetStateLabel,
+} from '@/components/session/sessionExecutionShared'
 import type {
   ExerciseBlock,
   SessionExecutionModel,
   SetExecutionState,
   SetNode,
 } from '@/services/session/buildSessionExecutionModel'
-import { ActiveExercise } from '@/components/session/ActiveExercise'
-import { SetLogger } from '@/components/session/SetLogger'
-import { RestTimer } from '@/components/session/RestTimer'
-import { SessionHudReadouts } from '@/components/session/SessionHudReadouts'
-import {
-  SET_STATE_VAR,
-  useSetAriaLabel,
-  useSetStateLabel,
-} from '@/components/session/sessionExecutionShared'
 
 export type SessionExecutionActions = {
   logSet: (repsActual: number, weightActual?: number) => void
@@ -82,8 +81,7 @@ export const ClassicSessionCards = ({ model, actions }: Props) => {
     [actions]
   )
 
-  const activeBlock =
-    model.exerciseBlocks[model.currentExerciseIndex] ?? null
+  const activeBlock = model.exerciseBlocks[model.currentExerciseIndex] ?? null
 
   return (
     <div className="space-y-3" data-testid="classic-session-cards">
@@ -144,16 +142,10 @@ export const ClassicSessionCards = ({ model, actions }: Props) => {
           className="rounded-lg border border-gray-200 bg-white p-3 text-center"
           data-testid="classic-completion-calm"
         >
-          <p
-            className="text-sm font-semibold"
-            style={{ color: 'var(--theme-session-hud-fg)' }}
-          >
+          <p className="text-sm font-semibold" style={{ color: 'var(--theme-session-hud-fg)' }}>
             {t('session.completion.calm.headline')}
           </p>
-          <p
-            className="mt-0.5 text-xs"
-            style={{ color: 'var(--theme-session-hud-muted)' }}
-          >
+          <p className="mt-0.5 text-xs" style={{ color: 'var(--theme-session-hud-muted)' }}>
             {t('session.completion.calm.body')}
           </p>
         </div>
@@ -184,9 +176,7 @@ const ClassicCard = ({ block, isActive, ariaName, stateLabel, onActiveSetClick }
         data-collapsed="true"
       >
         <div className="flex items-center justify-between">
-          <span className="truncate text-xs font-medium text-gray-700">
-            {exerciseName}
-          </span>
+          <span className="truncate text-xs font-medium text-gray-700">{exerciseName}</span>
           <Check
             size={14}
             strokeWidth={2.5}
@@ -207,9 +197,7 @@ const ClassicCard = ({ block, isActive, ariaName, stateLabel, onActiveSetClick }
       data-collapsed="false"
     >
       <div className="mb-1.5 flex items-center justify-between">
-        <span className="truncate text-xs font-semibold text-gray-700">
-          {exerciseName}
-        </span>
+        <span className="truncate text-xs font-semibold text-gray-700">{exerciseName}</span>
       </div>
       <div className="flex flex-wrap items-center gap-1.5" role="list">
         {block.sets.map((node) => (
