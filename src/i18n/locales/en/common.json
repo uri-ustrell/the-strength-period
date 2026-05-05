@@ -113,7 +113,18 @@
     "session_today": "Today's session",
     "next_session": "Next session",
     "session_for_date": "Session for {{date}}",
-    "minutes": "min"
+    "minutes": "min",
+    "session_aria": "Week {{week}} · Session {{session}} · {{state}}",
+    "future_hint": "Future session — open to preview",
+    "deload_label": "Deload",
+    "week_label": "Week {{week}}",
+    "state": {
+      "future": "Future",
+      "available": "Available",
+      "in_progress": "In progress",
+      "completed": "Completed",
+      "skipped": "Skipped"
+    }
   },
   "errors": {
     "db_error": "Error accessing local data. Please try again.",

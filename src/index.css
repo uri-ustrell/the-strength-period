@@ -19,3 +19,42 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+/*
+ * --- Step 16 Phase B: Shared Dashboard Tokens -------------------------------
+ *
+ * Spec: specs/features/16-ethical-gamification.md → "Phase B Shared Contracts
+ * (Dashboard)". Both `retro-platformer` and `classic-boring` renderers consume
+ * these variables off the same DashboardMapModel. No red is used for any state
+ * (no shaming on `skipped`).
+ *
+ * Per-week accent: deterministic mapping `weekIndex % 6` against the six-color
+ * palette. The retro variant uses the saturated `-300` shade; classic-boring
+ * uses the muted `-100` shade via `--theme-dashboard-week-accent-muted`.
+ * Renderers read `--theme-dashboard-week-accent` and
+ * `--theme-dashboard-week-accent-muted` (set per-week via inline style).
+ */
+:root {
+  /* Canonical session state colors (shared, no red, no shaming). */
+  --theme-dashboard-state-future: #cbd5e1; /* slate-300 */
+  --theme-dashboard-state-available: #6366f1; /* indigo-500 */
+  --theme-dashboard-state-in-progress: #f59e0b; /* amber-500 */
+  --theme-dashboard-state-completed: #10b981; /* emerald-500 */
+  --theme-dashboard-state-skipped: #94a3b8; /* slate-400 */
+
+  /* Week accent palette (saturated, retro-platformer). 6 colors, indexed 1..6. */
+  --theme-dashboard-week-accent-1: #a5b4fc; /* indigo-300 */
+  --theme-dashboard-week-accent-2: #7dd3fc; /* sky-300 */
+  --theme-dashboard-week-accent-3: #5eead4; /* teal-300 */
+  --theme-dashboard-week-accent-4: #6ee7b7; /* emerald-300 */
+  --theme-dashboard-week-accent-5: #fcd34d; /* amber-300 */
+  --theme-dashboard-week-accent-6: #fda4af; /* rose-300 */
+
+  /* Week accent palette — muted variants (classic-boring). */
+  --theme-dashboard-week-accent-muted-1: #e0e7ff; /* indigo-100 */
+  --theme-dashboard-week-accent-muted-2: #e0f2fe; /* sky-100 */
+  --theme-dashboard-week-accent-muted-3: #ccfbf1; /* teal-100 */
+  --theme-dashboard-week-accent-muted-4: #d1fae5; /* emerald-100 */
+  --theme-dashboard-week-accent-muted-5: #fef3c7; /* amber-100 */
+  --theme-dashboard-week-accent-muted-6: #ffe4e6; /* rose-100 */
+}

@@ -7,6 +7,81 @@
 
 ## Recent Changes
 
+### 2026-05-04 — Step 16 Phase B warning fixes
+
+Implementer pass closing the four non-blocking warnings from the 2026-05-04 Phase B reviewer audit. Spec untouched; no new IDB stores, no telemetry, no `matchMedia` reads outside Phase A hooks.
+
+**Warning 1 — cross-variant parity test.** Added `src/components/dashboard/DashboardMap.test.tsx`. Renders `<DashboardMap />` against the same `buildDashboardMap` fixture twice (once per persisted `aestheticVariant`), mocks `matchMedia` like the other Phase B tests, and asserts: identical `[data-state]` order, identical `sessionId` routing across variants, that switching the variant flips the rendered subtree (`retro-node-*` vs `classic-cell-*`), and that the underlying model object is byte-identical (JSON snapshot) before and after each render.
+
+**Warning 2 — localized week aria-label.** Added `dashboard.week_label` to `src/i18n/locales/{ca,es,en}/common.json` (ca "Setmana {{week}}", es "Semana {{week}}", en "Week {{week}}"). Replaced the hardcoded English `aria-label` on the per-week `role="list"` wrappers in `src/components/dashboard/RetroWorldMap.tsx` and `src/components/dashboard/ClassicCalendar.tsx` with `t('dashboard.week_label', { week: week.weekNumber })`. Dropped the "world" suffix per spec.
+
+**Warning 3 — in-progress color via CSS token.** In `src/components/dashboard/ClassicCalendar.tsx`, removed the hardcoded `ring-amber-500/60` Tailwind utility from the cell className. The ring width (`ring-2`) stays in className; the ring color is now driven by `--tw-ring-color: var(--theme-dashboard-state-in-progress)` via inline style (typed via a `React.CSSProperties & Record<string, string>` cast for the custom property). Replaced the `Pause` icon's `text-amber-700` with `style={{ color: 'var(--theme-dashboard-state-in-progress)' }}`. Visual result is equivalent (the token resolves to the same amber).
+
+**Warning 4 — B2 surface documentation drift.** Updated `tasks/todo.md` → "Step 16 — Phase B" → B2 to list `deload_label` and the new `week_label` alongside the previously documented keys, and ticked B2 as done.
+
+**Files touched**
+- `src/components/dashboard/DashboardMap.test.tsx` (new)
+- `src/components/dashboard/RetroWorldMap.tsx`
+- `src/components/dashboard/ClassicCalendar.tsx`
+- `src/i18n/locales/ca/common.json`
+- `src/i18n/locales/es/common.json`
+- `src/i18n/locales/en/common.json`
+- `tasks/todo.md`
+- `specs/STATUS.md`
+- `specs/STATUS_HISTORY.md` (this entry)
+
+**Verification (last lines)**
+- `npm run i18n:check` → `[i18n:check] OK — 3 locales, 6 namespaces in parity.`
+- `npm run lint` → exit 0, no output.
+- `npm run build` → `✓ built in 6.42s` + PWA precache regenerated.
+- `npm test` → unit `Test Files  7 passed (7) / Tests  26 passed (26)`; ingestion `tests 3 / pass 3 / fail 0`.
+
+**Verdict:** All four warnings closed. Phase B remains complete; Step 16 row stays "🚧 In Progress" pending Phases C–E.
+
+### 2026-05-04 — Step 16 Phase B review
+
+Reviewer pass on Phase B implementation. No source code modified.
+
+**✅ Pass (13)** — tokens, i18n parity, pure selector with deterministic state derivation, 9 selector test cases, both variant renderers (`RetroWorldMap`, `ClassicCalendar`) with `role="link"` + canonical aria + identical routing + arrow-key matrix nav, `DashboardMap` router consuming `useEffectiveAestheticVariant`, Block 2 wired without touching Blocks 1/3, per-variant render tests, gates green, test infra (`src/test-setup.ts` with jest-dom + `afterEach(cleanup)` referenced from `vitest.config.ts setupFiles`), hard rules upheld (zero new IDB, zero new telemetry, no `matchMedia` outside Phase A hooks), strict parity preserved.
+
+**⚠️ Warnings (4, non-blocking)**
+- Missing third B9 parity test (`<DashboardMap />` rendered twice across variants asserting tree parity). Fix: add `src/components/dashboard/DashboardMap.test.tsx`.
+- Hardcoded English aria-label on per-week wrappers (`RetroWorldMap.tsx:131`, `ClassicCalendar.tsx:123`). Fix: add `dashboard.week_label` with `{{week}}` placeholder.
+- Hardcoded Tailwind amber utilities in `ClassicCalendar.tsx:148` (`ring-amber-500/60`) and `:160` (`text-amber-700`) bypass `--theme-dashboard-state-in-progress`. Fix: drive via inline CSS var.
+- `dashboard.deload_label` consumed by both renderers without being declared in the B2 i18n surface. Parity holds; flagged for traceability.
+
+**❌ Blockers (0)**
+
+**Verdict:** PASS WITH MINOR. Phase B complete. Phases C–E pending; Step 16 row stays "🚧 In Progress".
+
+### 2026-05-04 — Step 16 Phase B pre-execution gates
+
+Architect pass for Phase B (Dashboard reskin under strict parity: `retro-platformer` world map + `classic-boring` calendar). No source code modified.
+
+**Phase 0 — Source-Of-Truth & Dependency Check.** Phase A confirmed complete. Steps 8/9/14 met. Two spec gaps detected and patched in `specs/features/16-ethical-gamification.md` via a single additive "Phase B Shared Contracts (Dashboard)" subsection appended after the Classic Boring "Guardrail Cross-Check" table:
+1. Session-state name parity — declared canonical model `future | available | in-progress | completed | skipped`; the retro "locked" term is presentation-only for `future`.
+2. Under-specified parity details — added shared a11y contract (`dashboard.session_aria` template, keyboard nav), per-week sub-palette resolution (`weekIndex % palette.length`, muted token for `classic-boring`), token namespaces (`theme.dashboard.*` shared, `theme.game.*` retro-only), and explicit zero-IDB / zero-telemetry confirmation.
+
+**Phase 1 — Behavioral Risk Brief.** No high-risk Phase B mechanic. Two medium risks (lock-as-storytelling visual confusion in retro; muted future cells reading as blocked in calendar) mitigated by keeping the actionable target identical across variants and explicit i18n copy. Reduced-motion and keyboard nav inherit from Phase A.
+
+**Phase 2 — UI/UX Integrity Gate.** Decision: **INCREMENTAL with a thin shared adapter** (not a full refactor). Architecture: shared selector `buildDashboardMap` + two variant renderers (`RetroWorldMap`, `ClassicCalendar`) selected at runtime by `useEffectiveAestheticVariant()`. Both variants ship together off the same model.
+
+**Phase 3 — Mechanic Design.**
+- Shared model: `DashboardMapModel = { weeks: WeekRow[] }`, `WeekRow = { weekNumber, isDeload, sessions: SessionNode[] }`, `SessionNode = { id, weekNumber, dayOfWeek, state, muscleGroups }`.
+- Builder: `buildDashboardMap(mesocycle, previewSessionId?)` at `src/services/dashboard/buildDashboardMap.ts` — pure, deterministic.
+- Renderers: `src/components/dashboard/{DashboardMap,RetroWorldMap,ClassicCalendar}.tsx`.
+- Tokens: `--theme-dashboard-*` shared, `--theme-game-*` retro-only.
+- i18n surface (namespace `common`): `dashboard.session_aria`, `dashboard.state.*` (5 keys), `dashboard.future_hint`.
+- Zero new IDB stores; zero new telemetry events.
+
+**Phase 4 — Implementation Plan Gate.** Ordered B1–B11 plan with acceptance criteria appended to `tasks/todo.md`.
+
+**Files modified by this pass**
+- `specs/features/16-ethical-gamification.md` — additive "Phase B Shared Contracts (Dashboard)" subsection.
+- `specs/STATUS.md` — Phase B sub-bullets appended under Step 16.
+- `specs/STATUS_HISTORY.md` — this entry.
+- `tasks/todo.md` — Phase B checklist appended.
+
 ### 2026-05-04 — Step 16 Phase A re-review
 
 Reviewer re-audit after Implementer's blocker fixes. Source of truth: `specs/features/16-ethical-gamification.md` ("Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring"). No source code modified.

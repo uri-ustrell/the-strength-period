@@ -113,7 +113,18 @@
     "session_today": "Sesión de hoy",
     "next_session": "Próxima sesión",
     "session_for_date": "Sesión del {{date}}",
-    "minutes": "min"
+    "minutes": "min",
+    "session_aria": "Semana {{week}} · Sesión {{session}} · {{state}}",
+    "future_hint": "Sesión futura — abre para previsualizar",
+    "deload_label": "Descarga",
+    "week_label": "Semana {{week}}",
+    "state": {
+      "future": "Futura",
+      "available": "Disponible",
+      "in_progress": "En curso",
+      "completed": "Completada",
+      "skipped": "Omitida"
+    }
   },
   "errors": {
     "db_error": "Error accediendo a los datos locales. Inténtalo de nuevo.",

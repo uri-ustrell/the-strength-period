@@ -549,6 +549,48 @@ The aesthetic layer is **multi-variant by design** and must remain extensible. N
 | Protect cognitive load | No celebratory frames; one acknowledgment per session end |
 | Data minimization | Zero new persisted state; aesthetic is derived |
 
+### Phase B Shared Contracts (Dashboard) — added 2026-05-04
+
+These contracts apply equally to every Phase B+ variant. They consolidate parity-critical details that were under-specified in the per-variant sections.
+
+#### Canonical Session State Model (shared across all variants)
+
+The shared dashboard model exposes exactly five session states:
+
+| State | Meaning | Visual mapping (retro-platformer) | Visual mapping (classic-boring) |
+|---|---|---|---|
+| `future` | Scheduled but not yet the next pending session | Silhouetted node ("locked" storytelling, never blocking) | Muted cell with low-contrast frame |
+| `available` | Next pending session per `weekNumber` then `dayOfWeek` ordering | Subtle highlight pulse | Accent-tinted cell with subtle outline |
+| `in-progress` | Session currently being executed (`previewSession.id` matches) | Animated marker | Cell with active-state ring |
+| `completed` | `SessionTemplate.completed === true` | Checkpoint flag with deterministic stamp | Cell with check pixel sprite |
+| `skipped` | `SessionTemplate.skipped === true` | Greyed branch (never shamed) | Muted cell with strike pixel sprite (never shamed) |
+
+The retro term "locked" is **presentation-only** for `future`; the model never emits a `locked` state. The lock-as-storytelling rule is preserved: every state is interactable in both variants — visual treatment never gates routing.
+
+#### Shared Accessibility Contract
+
+- Each session surface (node or cell) exposes `role="link"`.
+- The accessible name is rendered via the i18n key `dashboard.session_aria` with placeholders `{{week}}`, `{{session}}`, `{{state}}`, where `{{state}}` is one of the five canonical states resolved through `dashboard.state.<state>` (ca/es/en).
+- Tab order: chronological by `weekNumber` then `dayOfWeek`.
+- Arrow keys: ←/→ move focus along the same week; ↑/↓ move focus across weeks.
+- `prefers-reduced-motion` is honored at the variant-resolution layer (`useEffectiveAestheticVariant`); no Phase B code reads `matchMedia` directly.
+
+#### Per-Week Sub-Palette Resolution
+
+- Master palette tokens live under the CSS variable namespace `--theme-dashboard-*` (shared across variants).
+- Each week resolves a sub-palette token (`--theme-dashboard-week-accent`) via deterministic mapping `weekIndex % palette.length` against the active variant's master palette.
+- `classic-boring` uses the same mapping but renders the accent at reduced saturation (token `--theme-dashboard-week-accent-muted`).
+- Sub-palette resolution is computed at render time from `weekNumber`; it is never persisted.
+
+#### Token Namespaces
+
+- `theme.dashboard.*` — shared dashboard tokens (state colors, week accents, spacing scale). Consumed by both renderers.
+- `theme.game.*` — retro-platformer-only extras (parallax depth, sprite scale). Never read by `classic-boring`.
+
+#### Persistence & Telemetry
+
+- Phase B introduces **zero** new IDB stores and **zero** new telemetry events. The dashboard map is derived state recomputed from `Mesocycle`, `SessionTemplate.completed/skipped`, and the previewSession id.
+
 ---
 
 ### Variant: Retro Platformer

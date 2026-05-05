@@ -113,7 +113,18 @@
     "session_today": "Sessió d'avui",
     "next_session": "Pròxima sessió",
     "session_for_date": "Sessió de {{date}}",
-    "minutes": "min"
+    "minutes": "min",
+    "session_aria": "Setmana {{week}} · Sessió {{session}} · {{state}}",
+    "future_hint": "Sessió futura — obre per previsualitzar",
+    "deload_label": "Descàrrega",
+    "week_label": "Setmana {{week}}",
+    "state": {
+      "future": "Futura",
+      "available": "Disponible",
+      "in_progress": "En curs",
+      "completed": "Completada",
+      "skipped": "Omesa"
+    }
   },
   "errors": {
     "db_error": "Error accedint a les dades locals. Torna-ho a intentar.",

@@ -5,6 +5,63 @@
 
 ## Active Tasks
 
+### Step 16 — Phase B (Dashboard Parity: World Map + Calendar)
+
+Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments + Navigation Metaphor — Calendar), "Variant: Retro Platformer" (Navigation Metaphor — World Map), and the additive "Phase B Shared Contracts (Dashboard)" subsection.
+
+**Strict parity rule (2026-05-04):** every item below ships `retro-platformer` and `classic-boring` together off the same `DashboardMapModel`. No item is "done" if either variant is missing or out of parity.
+
+- [ ] B1. Add the shared dashboard token namespace
+  - File: `src/index.css`
+  - Add CSS variables under `--theme-dashboard-*` (state colors for `future`/`available`/`in-progress`/`completed`/`skipped`; week-accent palette array; muted variants for `classic-boring`).
+  - AC: tokens compile; both renderers can consume them; no Tailwind config change required; `npm run build` green.
+- [x] B2. Add i18n keys (ca/es/en parity)
+  - Files: `src/i18n/locales/{ca,es,en}/common.json`
+  - Keys (under `dashboard.*`): `session_aria` (`"Week {{week}} · Session {{session}} · {{state}}"` and locale equivalents), `state.future`, `state.available`, `state.in_progress`, `state.completed`, `state.skipped`, `future_hint`, `deload_label`, `week_label` (`"Week {{week}}"` and locale equivalents).
+  - AC: `npm run i18n:check` exit 0; identical key set across the three locales.
+- [ ] B3. Implement the shared selector
+  - File: `src/services/dashboard/buildDashboardMap.ts`
+  - Signature: `export function buildDashboardMap(mesocycle: Mesocycle, previewSessionId?: string): DashboardMapModel`
+  - Type exports in same file: `DashboardMapModel`, `WeekRow`, `SessionNode`, `SessionNodeState`.
+  - Deterministic state derivation: `completed` → `'completed'`; `skipped` → `'skipped'`; matches `previewSessionId` → `'in-progress'`; first un-completed un-skipped by `(weekNumber, dayOfWeek)` order → `'available'`; everything else → `'future'`.
+  - AC: pure function (no IO, no React); state ordering matches Phase A spec; no `matchMedia` reads.
+- [ ] B4. Unit-test the selector
+  - File: `src/services/dashboard/buildDashboardMap.test.ts`
+  - Cases: empty mesocycle, all-future, single-available, in-progress override (preview id), all-completed, mixed completed/skipped, multi-week ordering, deload week tagging.
+  - AC: all cases pass under `npm run test:unit`.
+- [ ] B5. Implement `RetroWorldMap` renderer
+  - File: `src/components/dashboard/RetroWorldMap.tsx`
+  - Renders each `WeekRow` as a "world" with nodes laid out along a path; visual states map per the canonical table; `future` rendered as silhouette ("lock = storytelling only"); each node = `role="link"`, name from `dashboard.session_aria`, click = `setPreviewSession` + navigate `/session`.
+  - Reads tokens via `--theme-dashboard-*` and `--theme-game-*` only; no `matchMedia` calls.
+  - AC: keyboard nav (Tab + arrows) per spec; AA contrast on functional overlays; node click routes identically to `classic-boring` cell click.
+- [ ] B6. Implement `ClassicCalendar` renderer
+  - File: `src/components/dashboard/ClassicCalendar.tsx`
+  - Renders one row per week, one cell per session; cells show small pixel state icons + week-accent tint at reduced saturation; `future` cells visually muted but interactable.
+  - `role="link"`, same i18n a11y name, identical routing.
+  - AC: keyboard nav per spec; AA contrast on muted state; identical click behavior to retro.
+- [ ] B7. Implement `DashboardMap` variant router
+  - File: `src/components/dashboard/DashboardMap.tsx`
+  - Calls `useEffectiveAestheticVariant()` and renders `RetroWorldMap` or `ClassicCalendar` off the same `model` prop.
+  - AC: changing the persisted variant in Settings instantly switches renderer; OS reduced-motion forces `classic-boring` without writing the store (already enforced by hook).
+- [ ] B8. Wire `DashboardMap` into `Dashboard.tsx`
+  - File: `src/pages/Dashboard.tsx`
+  - Replace the existing "Block 2: Your Plan" 7-day strip with `<DashboardMap model={buildDashboardMap(activeMesocycle, previewSession?.id)} />` when an active mesocycle exists. Keep the existing empty-state path. Keep Block 1 (Next/Today) and Block 3 (Last 4 weeks) unchanged.
+  - AC: no regression on shared blocks; same routing target on session click; both variants render correctly off the same call.
+- [ ] B9. Render parity tests for both variants
+  - Files: `src/components/dashboard/RetroWorldMap.test.tsx`, `src/components/dashboard/ClassicCalendar.test.tsx`
+  - Each test renders the same `DashboardMapModel` fixture and asserts: every node/cell is a `link`, exposes the `dashboard.session_aria` name with the correct state token, click invokes the routing callback. A third test renders `<DashboardMap />` twice (once per persisted variant) and asserts the two trees come from the same model with no state divergence.
+  - AC: all three tests pass under `npm run test:unit`.
+- [ ] B10. Smoke test routing (both variants)
+  - Manual checklist: with `retro-platformer` selected, click a `future` node → preview opens; same with `available`, `in-progress`, `completed`, `skipped`. Repeat in `classic-boring`. Toggle OS reduced-motion → renderer flips to `classic-boring` while persisted Settings selection stays on `retro-platformer`.
+  - AC: every state opens identically in both variants; reduced-motion override does not corrupt persisted choice.
+- [ ] B11. Verification gates
+  - `npm run i18n:check` exit 0
+  - `npm run lint` exit 0
+  - `npm run build` exit 0
+  - `npm test` (both `test:unit` and `test:ingestion`) exit 0
+  - Update `specs/STATUS.md` Step 16 Phase B sub-bullet to mark B1–B11 done; append a Phase B completion entry to `specs/STATUS_HISTORY.md`.
+  - AC: all four gate commands exit 0; STATUS files reflect Phase B done.
+
 ### Step 16 — Phase A (Shared Core Plumbing + Variant Selector)
 
 Spec source of truth: `specs/features/16-ethical-gamification.md` (sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring").

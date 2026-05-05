@@ -86,6 +86,13 @@
 - [x] Phase 3 — Mechanic design & event model for Phase A: `UserConfig.aestheticVariant`, default `'classic-boring'`, Settings selector, optional onboarding step, reduced-motion hook, zero new telemetry/IDB
 - [x] Phase 4 — Implementation Plan Gate: ordered Phase A checklist (A1–A10) recorded in `tasks/todo.md`
 - [x] Phase A implementation (see `tasks/todo.md` → "Step 16 — Phase A") ✅ Complete — Reviewer 2026-05-04 re-review: PASS. All blockers closed (`onboarding:appearance.variant.*` parity, Vitest infra + 3 required tests, `●` badge removed, Skip persists `DEFAULT_AESTHETIC_VARIANT`); shared-core invariants and reduced-motion runtime-only override intact.
+- **Phase B (Dashboard parity: World Map + Calendar) — pre-execution gates ✅ (2026-05-04, architect)**
+  - [x] Phase 0 — Source-of-truth & dependency check (Phase A complete; spec patched with additive "Phase B Shared Contracts (Dashboard)" subsection covering canonical state model, a11y contract, sub-palette resolution, token namespaces, zero-IDB/zero-telemetry)
+  - [x] Phase 1 — Behavioral risk brief (no high-risk; two medium risks mitigated: lock-as-storytelling, muted future cells)
+  - [x] Phase 2 — UI/UX Integrity Gate: **INCREMENTAL with shared adapter** (no full refactor; one shared `buildDashboardMap` + two thin variant renderers selected via `useEffectiveAestheticVariant()`)
+  - [x] Phase 3 — Mechanic design: `DashboardMapModel`, `<DashboardMap>` contract, `theme.dashboard.*` tokens, shared a11y contract, i18n surface defined; zero new IDB / zero new telemetry confirmed
+  - [x] Phase 4 — Implementation plan gate: B1–B11 ordered checklist with ACs in `tasks/todo.md`, both variants in parity at every step
+  - [x] Phase B implementation (B1–B11) ✅ Complete — Reviewer 2026-05-04: PASS WITH MINOR; warnings addressed 2026-05-04 (see `specs/STATUS_HISTORY.md` → "2026-05-04 — Step 16 Phase B warning fixes"). Shared `buildDashboardMap` selector + `RetroWorldMap`/`ClassicCalendar` ship together off the same model; zero new IDB / zero new telemetry preserved.
 - [ ] Phases B–E (Dashboard world-map / calendar, session execution skin, stats inventory skin, optional polish) — gated by their own pre-execution review
 - Phase B parity decision (2026-05-04): **strict parity from day one** — every Phase B+ surface ships `retro-platformer` and `classic-boring` together; no temporary single-variant releases.
 

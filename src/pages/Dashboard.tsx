@@ -2,7 +2,9 @@ import { CalendarPlus, ChevronDown, ChevronUp, Dumbbell, Flame, Play } from 'luc
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { DashboardMap } from '@/components/dashboard/DashboardMap'
 import { useExercises } from '@/hooks/useExercises'
+import { buildDashboardMap } from '@/services/dashboard/buildDashboardMap'
 import { listSessionsByDateRange, listSetsByDateRange } from '@/services/db/sessionRepository'
 import { generateSession } from '@/services/exercises/sessionGenerator'
 import { usePlanningStore } from '@/stores/planningStore'
@@ -33,8 +35,6 @@ const MAIN_MUSCLE_GROUPS: MuscleGroup[] = [
   'lumbar',
 ]
 
-const DAY_KEYS = ['', '1', '2', '3', '4', '5', '6', '7'] as const
-
 export const Dashboard = () => {
   const { t, i18n } = useTranslation(['common', 'planning', 'muscles'])
   const navigate = useNavigate()
@@ -46,6 +46,7 @@ export const Dashboard = () => {
   const equipment = useUserStore((s) => s.equipment)
   const minutesPerSession = useUserStore((s) => s.minutesPerSession)
   const setPreviewSession = useSessionStore((s) => s.setPreviewSession)
+  const previewSessionTemplateId = useSessionStore((s) => s.generatedSession?.templateId)
 
   const [recentSessions, setRecentSessions] = useState<ExecutedSession[]>([])
   const [weeklySetCount, setWeeklySetCount] = useState(0)
@@ -98,9 +99,8 @@ export const Dashboard = () => {
       .sort((a, b) => a.weekNumber - b.weekNumber || a.dayOfWeek - b.dayOfWeek)[0]
   }, [activeMesocycle])
 
-  // Current week follows the next pending session, not calendar time
-  const currentWeek =
-    nextSession?.weekNumber ?? (activeMesocycle ? activeMesocycle.durationWeeks : 0)
+  // Phase B: weekly progression is rendered inside `<DashboardMap />` (derived
+  // from the shared model). The legacy "current week" + 7-day-strip locals are gone.
 
   const nextSessionDate = useMemo(() => {
     if (!nextSession || !activeMesocycle) return undefined
@@ -112,12 +112,8 @@ export const Dashboard = () => {
     return toDateStr(nextSessionDate) === toDateStr(new Date())
   }, [nextSessionDate])
 
-  const thisWeekSessions = useMemo(() => {
-    if (!activeMesocycle) return []
-    return activeMesocycle.sessions
-      .filter((s) => s.weekNumber === currentWeek)
-      .sort((a, b) => a.dayOfWeek - b.dayOfWeek)
-  }, [activeMesocycle, currentWeek])
+  // Phase B replaced the 7-day strip; per-week details are derived inside
+  // `<DashboardMap />` from the shared model.
 
   const handleStartSession = useCallback(() => {
     if (!nextSession || exercises.length === 0) return
@@ -130,6 +126,30 @@ export const Dashboard = () => {
     setPreviewSession(generated)
     navigate('/session')
   }, [nextSession, exercises, recentSessions, equipment, setPreviewSession, navigate])
+
+  // Phase B: deterministic dashboard model derived from the active mesocycle.
+  // Recomputed inline (cheap, pure) — no extra IDB stores per spec.
+  const dashboardMapModel = useMemo(
+    () => (activeMesocycle ? buildDashboardMap(activeMesocycle, previewSessionTemplateId) : null),
+    [activeMesocycle, previewSessionTemplateId]
+  )
+
+  const handleSelectMapSession = useCallback(
+    (sessionId: string) => {
+      if (!activeMesocycle || exercises.length === 0) return
+      const tmpl = activeMesocycle.sessions.find((s) => s.id === sessionId)
+      if (!tmpl) return
+      const generated = generateSession(
+        tmpl,
+        exercises,
+        recentSessions.flatMap((s) => (s.sets ?? []).map((set) => set.exerciseId)),
+        equipment
+      )
+      setPreviewSession(generated)
+      navigate('/session')
+    },
+    [activeMesocycle, exercises, recentSessions, equipment, setPreviewSession, navigate]
+  )
 
   const handleQuickSession = useCallback(() => {
     if (exercises.length === 0 || selectedMuscleGroups.length === 0) return
@@ -359,34 +379,11 @@ export const Dashboard = () => {
             {t('dashboard.your_plan')}
           </h2>
 
-          {activeMesocycle ? (
+          {activeMesocycle && dashboardMapModel ? (
             <>
-              {/* 7 day strip */}
-              <div className="flex gap-1 mb-3">
-                {([1, 2, 3, 4, 5, 6, 7] as const).map((day) => {
-                  const session = thisWeekSessions.find((s) => s.dayOfWeek === day)
-                  const isToday = day === todayDow
-                  let dotColor = 'bg-gray-200'
-                  if (session?.completed) dotColor = 'bg-green-500'
-                  else if (session?.skipped) dotColor = 'bg-gray-400'
-                  else if (session) dotColor = 'bg-indigo-500'
-
-                  return (
-                    <div
-                      key={day}
-                      className={`flex flex-1 flex-col items-center gap-1 rounded-lg py-1.5 ${
-                        isToday ? 'bg-indigo-50' : ''
-                      }`}
-                    >
-                      <span
-                        className={`text-[10px] font-medium ${isToday ? 'text-indigo-600' : 'text-gray-400'}`}
-                      >
-                        {t(`planning:day_short.${DAY_KEYS[day]}`)}
-                      </span>
-                      <div className={`h-2.5 w-2.5 rounded-full ${dotColor}`} />
-                    </div>
-                  )
-                })}
+              {/* Phase B: variant-aware world map / calendar derived from the active mesocycle. */}
+              <div className="mb-3">
+                <DashboardMap model={dashboardMapModel} onSelectSession={handleSelectMapSession} />
               </div>
 
               <div className="flex gap-2">
