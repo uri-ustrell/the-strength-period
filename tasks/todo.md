@@ -5,6 +5,90 @@
 
 ## Active Tasks
 
+### Step 16 — Phase D (Stats / Inventory Parity: Retro Inventory Shelf + Classic Totem Grid)
+
+Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments → Stats/progress row + "Stats / Inventory Surface" subsection), "Variant: Retro Platformer" (Stats / Inventory Surface subsection), and the additive "Phase D Shared Contracts (Stats / Inventory)" subsection.
+
+**Strict parity rule (2026-05-04):** every item below ships `retro-platformer` and `classic-boring` together off the same `TotemInventoryModel`. No item is "done" if either variant is missing or out of parity. No item is "done" if any forbidden rendering (locked silhouettes, streak counters on the inventory, time-window toggle on totems, peer comparison, randomized rarity, shame copy on empty state, celebration spam) appears in either variant.
+
+**Scope lock:** Phase D adds a **new totem-inventory section** to `Stats.tsx`, slotted between the period selector and the existing `VolumeChart` section. The existing analytics sections (volume / progression / adherence / PR table / export-import) remain UNCHANGED in Phase D and are out of scope.
+
+- [x] D1. Add the shared stats token namespace
+  - File: `src/index.css`
+  - Add CSS variables under `--theme-stats-*` (totem-state colors `earned`/`available` with NO red, family motif colors reusing `--theme-dashboard-week-accent-N`, slot background, empty-state muted text, inspect-panel surface). Add retro-only `--theme-game-stats-*` (shelf bg, slot border thickness, sprite scale, pickup-chime envelope params).
+  - AC: tokens compile; both renderers can consume `--theme-stats-*`; `ClassicTotemGrid` does NOT read any `--theme-game-stats-*` (verified by grep in D11); `npm run build` green.
+
+- [x] D2. Add i18n keys (ca/es/en parity)
+  - Files: `src/i18n/locales/{ca,es,en}/stats.json`
+  - New keys (under `totem.*`): `section_title`, `family.consistency`, `family.recovery`, `family.reflection`, `state.earned`, `state.available`, `aria` (template `"{{name}} · {{family}} · {{state}}"`), `empty.calm`, `reachable_link`, `earned_on` (template `"Earned {{date}}"`), and per-totem `<id>.name` + `<id>.rule` for the eight catalog entries (`first_session`, `first_week`, `three_weeks_present`, `eight_week_rhythm`, `return_after_break`, `first_mesocycle_complete`, `first_deload_honored`, `rpe_awareness`).
+  - AC: `npm run i18n:check` exit 0; identical key set across the three locales; copy passes forbidden-pattern review (no shame on empty state, no urgency, no peer comparison, no superlatives, no "rare/legendary").
+
+- [x] D3. Implement the shared selector
+  - File: `src/services/stats/buildTotemInventoryModel.ts`
+  - Exports: `TotemInventoryModel`, `TotemEntry`, `TotemFamily`, `TotemState`, `TotemId`, `TOTEM_CATALOG_V1`, `buildTotemInventoryModel`.
+  - Pure function: no React, no IO, no `matchMedia`, no direct store reads; `nowMs` injected. Inputs `{ executedSessions, executedSets, mesocycles, nowMs }`; output `{ totems: TotemEntry[] }` ordered by family then catalog index.
+  - Each `TotemEntry`: `{ id, family, state, earnedDateISO | null, ruleI18nKey, nameI18nKey }`. `state` is `'earned' | 'available'` only — never `'locked'`.
+  - Eligibility rules per the locked v1 catalog in the spec. Reuse `isDeloadSession` heuristic from `buildDashboardMap` for the deload-honored totem.
+  - AC: pure function; deterministic; consistent ordering; no React imports; no `Date.now()`.
+
+- [x] D4. Unit-test the selector
+  - File: `src/services/stats/buildTotemInventoryModel.test.ts`
+  - Cases: empty history → all `available`; first-session edge; three-weeks-present positive (3 consecutive ISO weeks) and negative (one week skipped); eight-week-rhythm positive and negative; return-after-break positive (15-day gap) and negative (13-day gap); first-mesocycle-complete positive vs pending session; first-deload-honored using a deload-marked session; rpe-awareness positive (5 sessions all-set RPE) and negative; ordering invariant (Consistency → Recovery → Reflection); `nowMs` injection determinism.
+  - AC: all cases pass under `npm run test:unit`.
+
+- [x] D5. Implement `RetroInventoryShelf` renderer
+  - File: `src/components/stats/RetroInventoryShelf.tsx`
+  - Pixel-art "inventory shelf" grouped by family. Earned totems → filled pixel sprite + earned-date stamp. Unearned totems → **unexplored terrain** (NOT silhouettes — see Forbidden Renderings). Inspect panel opens inline beneath activated totem (non-modal, no scroll lock); shows rule text from `totem.<id>.rule`. Empty state → `stats:totem.empty.calm` only.
+  - Reads tokens via `--theme-stats-*` and `--theme-game-stats-*` only. Optional pickup chime via `statsAudio.playTotemInspect()` on inspect activation.
+  - AC: keyboard nav (Tab + arrow-key matrix); AA contrast; reduced-motion collapses decorative animation; render test asserts no locked silhouettes / "?" tile elements for `state === 'available'`.
+
+- [x] D6. Implement `ClassicTotemGrid` renderer
+  - File: `src/components/stats/ClassicTotemGrid.tsx`
+  - Responsive card grid grouped by family. Earned totems → pixel sprite + system-font name + earned-date footer + family motif color stripe. Unearned totems are NOT in the main grid; only accessible via "What can I earn?" disclosure (`stats:totem.reachable_link`). Inspect panel opens inline (non-modal). Empty state → `stats:totem.empty.calm` only.
+  - NEVER reads `--theme-game-stats-*`. NEVER mounts an `<audio>` element. NEVER calls any `statsAudio.*` function.
+  - AC: keyboard nav identical to retro; AA contrast on family-stripe rows; render test asserts no `<audio>` mounts and no streak-counter element mounts.
+
+- [x] D7. Implement `TotemInventory` variant router
+  - File: `src/components/stats/TotemInventory.tsx`
+  - Calls `useEffectiveAestheticVariant()` and renders `RetroInventoryShelf` or `ClassicTotemGrid` off the same `model`. Trivial — pattern matches `DashboardMap` and `SessionExecution`.
+  - AC: switching the persisted variant in Settings instantly switches renderer; OS reduced-motion forces `classic-boring` without writing the store.
+
+- [x] D8. Wire `TotemInventory` into `Stats.tsx`
+  - File: `src/pages/Stats.tsx`
+  - Insert a new `<section>` between the period-selector header `<div>` and the `VolumeChart` `<section>`. Renders `<TotemInventory model={buildTotemInventoryModel({ executedSessions: allSessions, executedSets: allSets, mesocycles: [...], nowMs: Date.now() })} />`.
+  - The totem model uses the **full history** (call `listAllSessions` / `listAllSets` regardless of the period selector), because totems are cumulative and time-window-agnostic by spec. Memoize on `[allSessions, allSets, activeMesocycle]`.
+  - Add `stats:totem.section_title` as the section heading.
+  - The existing analytics sections remain UNCHANGED.
+  - AC: no behavior regression on the analytics sections; period selector still scopes only the analytics; both variants render the totem section correctly.
+
+- [x] D9. Audio gating
+  - File: `src/services/audio/statsAudio.ts` (new)
+  - Single entrypoint API: `playTotemInspect()`. First lines short-circuit when effective variant ≠ `'retro-platformer'` OR when `sfx` opt-in flag is false. Single-fire per inspect-open; second activation within the same open inspect panel is a no-op until the panel collapses.
+  - AC: classic test asserts zero `<audio>` mounts and zero invocations on inspect activation; retro test asserts chime fires exactly once on first inspect activation when opted in, and zero times when not opted in.
+
+- [x] D10. Render parity tests for both variants
+  - Files: `src/components/stats/RetroInventoryShelf.test.tsx`, `src/components/stats/ClassicTotemGrid.test.tsx`, `src/components/stats/TotemInventory.test.tsx`
+  - Each renderer test renders the same `TotemInventoryModel` fixture and asserts: every totem surface is a `button` with `aria-pressed`, exposes `stats:totem.aria` with the correct family + state token, click on a totem opens the inspect panel inline (no modal), ESC and second activation collapse it.
+  - Cross-variant `TotemInventory.test.tsx` renders the router twice (once per persisted variant) off the same fixture, asserts identical totem-id orderings, identical interaction outcomes, and that switching the variant flips the rendered subtree (`retro-totem-*` vs `classic-totem-*`) while the model object remains byte-identical (JSON snapshot).
+  - Forbidden-rendering guards (assert ZERO matches across both variants):
+    - No `data-testid` matching `/streak-counter|streak-banner/`.
+    - No `data-testid` matching `/locked-silhouette|totem-question-mark/` for any `state === 'available'` totem.
+    - No `data-testid` matching `/time-window|period-selector/` inside the totem section.
+    - No `data-testid` matching `/peer-comparison|leaderboard/`.
+    - No `data-testid` matching `/rarity-tier-(rare|epic|legendary)/`.
+  - AC: all tests pass under `npm run test:unit`.
+
+- [x] D11. Verification gates
+  - `npm run i18n:check` exit 0
+  - `npm run lint` exit 0
+  - `npm run build` exit 0
+  - `npm test` (both `test:unit` and `test:ingestion`) exit 0
+  - Grep guards: `grep -R '\-\-theme-game-stats' src/components/stats/ClassicTotemGrid.tsx` → 0 matches (excluding doc comments). `grep -R 'statsAudio' src/components/stats/ClassicTotemGrid.tsx` → 0 matches.
+  - Update `specs/STATUS.md` Step 16 Phase D sub-bullet to mark D1–D11 done; append a Phase D completion entry to `specs/STATUS_HISTORY.md`.
+  - AC: all gate commands exit 0; STATUS files reflect Phase D done.
+
+Out of Phase D (deferred to Phase E or beyond): warm-up totems, pain-flag totems, session-note totems, honest-check-in totem, measured-step totem, recovery-read totem, first-rest-day-honored totem, possible re-skin of existing analytics charts under variants, Lottie/Rive polish on totem-earn animations, additional totem families.
+
 ### Step 16 — Phase C (Session Execution Parity: Retro Level Run + Classic Cards)
 
 Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments → Session execution row + "Session Execution Surface" subsection), "Variant: Retro Platformer" (Session Execution Surface subsection), and the additive "Phase C Shared Contracts (Session Execution)" subsection.

@@ -23,5 +23,55 @@
   "week_label": "S{{num}}",
   "sessions": "Sessions",
   "sets": "Sèries",
-  "export_import": "Exporta / Importa"
+  "export_import": "Exporta / Importa",
+  "totem": {
+    "section_title": "Reconeixements",
+    "family": {
+      "consistency": "Constància",
+      "recovery": "Recuperació",
+      "reflection": "Reflexió"
+    },
+    "state": {
+      "earned": "obtingut",
+      "available": "disponible"
+    },
+    "aria": "{{name}} · {{family}} · {{state}}",
+    "empty": {
+      "calm": "El teu camí encara no ha posat cap marca. Vine quan puguis — el viatge és llarg i no hi ha pressa."
+    },
+    "reachable_link": "Què puc obtenir?",
+    "earned_on": "Obtingut el {{date}}",
+    "first_session": {
+      "name": "Primera Sessió",
+      "rule": "S'atorga després de completar una sessió completa."
+    },
+    "first_week": {
+      "name": "Primera Setmana",
+      "rule": "S'atorga quan es completa almenys una sessió dins d'una setmana ISO."
+    },
+    "three_weeks_present": {
+      "name": "Tres Setmanes Presents",
+      "rule": "S'atorga després de completar almenys una sessió en tres setmanes ISO consecutives."
+    },
+    "eight_week_rhythm": {
+      "name": "Ritme de Vuit Setmanes",
+      "rule": "S'atorga després de completar almenys una sessió en vuit setmanes ISO consecutives."
+    },
+    "return_after_break": {
+      "name": "Tornada Després d'una Pausa",
+      "rule": "S'atorga quan completes una sessió com a mínim 14 dies després de l'anterior."
+    },
+    "first_mesocycle_complete": {
+      "name": "Primer Mesocicle Complet",
+      "rule": "S'atorga quan cada sessió no saltada d'un mesocicle es completa."
+    },
+    "first_deload_honored": {
+      "name": "Primer Descàrrec Honrat",
+      "rule": "S'atorga després de completar una sessió marcada com a part d'una setmana de descàrrec."
+    },
+    "rpe_awareness": {
+      "name": "Consciència RPE",
+      "rule": "S'atorga després de cinc sessions on cada sèrie inclou un valor RPE."
+    }
+  }
 }

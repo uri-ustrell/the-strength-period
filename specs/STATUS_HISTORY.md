@@ -7,6 +7,136 @@
 
 ## Recent Changes
 
+### 2026-05-04 — Step 16 Phase D implementation
+
+Implementer pass closing out the D1–D11 checklist for Phase D (Stats / Inventory parity: `RetroInventoryShelf` + `ClassicTotemGrid` ship together off the same `TotemInventoryModel`). Strict parity from day one; no new IDB; no new telemetry; no `matchMedia` outside Phase A hooks; ca/es/en parity; named exports only.
+
+**Files created:**
+- `src/services/stats/buildTotemInventoryModel.ts` (D3) — pure deterministic selector, `TOTEM_CATALOG_V1` (8 entries: `first_session`, `first_week`, `three_weeks_present`, `eight_week_rhythm`, `return_after_break`, `first_mesocycle_complete`, `first_deload_honored`, `rpe_awareness`), grouped by family (Consistency → Recovery → Reflection), `nowMs` injected.
+- `src/services/stats/buildTotemInventoryModel.test.ts` (D4) — eligibility edges, ordering invariant, `nowMs` determinism.
+- `src/components/stats/totemInventoryShared.ts` — shared a11y/copy/aria helpers consumed by both renderers off the same model.
+- `src/components/stats/RetroInventoryShelf.tsx` (D5) — pixel-art shelf, unexplored-terrain treatment for unearned totems, inline non-modal inspect, optional pickup chime via `statsAudio.playTotemInspect()`.
+- `src/components/stats/ClassicTotemGrid.tsx` (D6) — responsive card grid, family stripe, "What can I earn?" disclosure for unearned, no `<audio>` mount, no `statsAudio` import.
+- `src/components/stats/TotemInventory.tsx` (D7) — variant router via `useEffectiveAestheticVariant()`.
+- `src/components/stats/RetroInventoryShelf.test.tsx`, `src/components/stats/ClassicTotemGrid.test.tsx`, `src/components/stats/TotemInventory.test.tsx` (D10) — per-renderer + cross-variant parity tests with forbidden-rendering guards (no streak counter, no locked silhouettes for available totems, no time-window selector inside totem section, no peer comparison, no rarity tiers).
+- `src/services/audio/statsAudio.ts` (D9) — single-fire `playTotemInspect()`, gated on effective variant; mirrors `sessionAudio` structure.
+- `src/services/audio/statsAudio.test.ts` (D9) — variant gating + single-fire latch + re-arm after `resetTotemInspect()`.
+
+**Files modified:**
+- `src/pages/Stats.tsx` (D8) — inserted `<TotemInventory>` section between the period selector and `VolumeChart`, fed by `buildTotemInventoryModel({ executedSessions, executedSets, mesocycles, nowMs })` over the FULL history (totems are cumulative; period selector still scopes only the analytics sections). Memoized on `[allSessions, allSets, activeMesocycle]`.
+- `src/index.css` (D1) — added `--theme-stats-*` shared tokens (totem-state colors with NO red, family motif colors reusing dashboard week-accent palette, slot bg, empty-state muted, inspect-panel surface) and retro-only `--theme-game-stats-*` (shelf bg, slot border thickness, sprite scale, pickup-chime envelope params).
+- `src/i18n/locales/{ca,es,en}/stats.json` (D2) — new `totem.*` keys (`section_title`, `family.*`, `state.*`, `aria`, `empty.calm`, `reachable_link`, `earned_on`, plus per-totem `<id>.name` + `<id>.rule` for the eight catalog entries) — verified by `npm run i18n:check`.
+- `src/services/audio/statsAudio.ts` + `src/services/audio/statsAudio.test.ts` (post-impl fix) — Option B applied: added a non-barrel-exported `__resetStatsAudioForTests()` that clears both the single-fire latch AND the cached `AudioContext`. Production `resetTotemInspect()` keeps cache-preservation semantics (no resource churn between inspect-opens within a Stats session). Test `beforeEach`/`afterEach` now call `__resetStatsAudioForTests()` so the cached mock context from a prior test does not leak into the next, fixing the `re-arms after resetTotemInspect` failure (`createOscillator` undefined access). All 86 unit tests pass.
+
+**Final test count:** `Test Files  17 passed (17)` / `Tests  86 passed (86)` (vitest) plus 3/3 in `test:ingestion`.
+
+**D11 grep guard results** (`src/components/stats/ClassicTotemGrid.tsx`):
+- `grep -n -- '--theme-game-stats' src/components/stats/ClassicTotemGrid.tsx` → 1 match on line 37, **inside the file's contract doc-comment block** (`"This renderer NEVER reads any --theme-game-stats-* token (verified by D11 grep guard)"`). No production code matches. Acceptable per spec ("0 matches excluding doc comments").
+- `grep -n 'statsAudio' src/components/stats/ClassicTotemGrid.tsx` → 1 match on line 38, same doc-comment block (`"NEVER imports / calls statsAudio"`). No `import` and no call site. Acceptable per spec.
+
+**Verification gates — last 3 lines each:**
+
+`npm run i18n:check`:
+```
+> tsx scripts/checkI18nParity.ts
+
+[i18n:check] OK — 3 locales, 6 namespaces in parity.
+```
+
+`npm run lint`:
+```
+> the-strength-period@0.1.0 lint
+> tsc --noEmit
+```
+(zero output ⇒ zero TypeScript errors)
+
+`npm run build`:
+```
+files generated
+  dist/sw.js
+  dist/workbox-cee25bd0.js
+```
+
+`npm test`:
+```
+ Test Files  17 passed (17)
+      Tests  86 passed (86)
+   Duration  2.34s
+```
+plus `test:ingestion`: `tests 3 / pass 3 / fail 0`.
+
+Phase D parity decision honored: every Phase D surface ships `retro-platformer` and `classic-boring` together off the same `TotemInventoryModel`. Existing quantitative analytics in `Stats.tsx` remain variant-agnostic and unchanged in Phase D.
+
+#### Reviewer follow-up 2026-05-04: W1 aria-describedby fixed
+
+Addressed the single warning from the Phase D reviewer audit (W1 — Shared Accessibility Contract: earned-date must be exposed via `aria-describedby` pointing at a hidden span).
+
+**Files modified:**
+- `src/components/stats/RetroInventoryShelf.tsx` — totem `<button>` now sets `aria-describedby={isEarned && earnedOnLabel ? 'totem-date-<id>' : undefined}`; renders an adjacent `sr-only` `<span id="totem-date-<id>">` with the formatted earned-date (reusing the existing `useEarnedOnLabel()` shared helper, no duplicated formatting). Unearned totems get neither the attribute nor the span.
+- `src/components/stats/ClassicTotemGrid.tsx` — same pattern on the earned-card `<button>`. Unearned totems are not rendered as buttons in the main grid (they live only in the "What can I earn?" disclosure), so they trivially carry no `aria-describedby`. Visible footer date kept as-is — the hidden span is purely additive for screen-reader users who don't traverse into the inspect panel.
+- `src/components/stats/RetroInventoryShelf.test.tsx`, `src/components/stats/ClassicTotemGrid.test.tsx` — added assertions that earned buttons have `aria-describedby="totem-date-<id>"` matching a hidden `sr-only` span with non-empty text, and that unearned totems carry no such attribute / span.
+
+No new translation keys (the existing `totem.earned_on` key is reused via `useEarnedOnLabel()`); no new IDB; no new telemetry; no `matchMedia` outside Phase A hooks; named exports only.
+
+**Verification gates — last 3 lines each:**
+
+`npm run i18n:check`:
+```
+> tsx scripts/checkI18nParity.ts
+
+[i18n:check] OK — 3 locales, 6 namespaces in parity.
+```
+
+`npm run lint`:
+```
+> the-strength-period@0.1.0 lint
+> tsc --noEmit
+```
+(zero output ⇒ zero TypeScript errors)
+
+`npm run build`:
+```
+✓ built in 7.16s
+…
+  dist/sw.js
+  dist/workbox-cee25bd0.js
+```
+
+`npm test`:
+```
+ Test Files  17 passed (17)
+      Tests  88 passed (88)
+   Duration  8.58s
+```
+plus `test:ingestion`: `tests 3 / pass 3 / fail 0`. Test count rose from 86 → 88 (one new earned-date a11y assertion in each of the two renderer suites).
+
+### 2026-05-04 — Step 16 Phase D pre-execution gates
+
+Architect pass running the four pre-execution gates for Phase D (Stats / Inventory skin parity: `retro-platformer` Inventory Shelf + `classic-boring` Totem Card Grid). Implementer-touchable artefacts only — no source code changes.
+
+**Phase 0.** Confirmed Phase A, B, C ✅. Locked Phase D scope to the **totem inventory surface only**, embedded in the existing `/stats` page; the existing quantitative analytics (volume / progression / adherence / PR table) stay variant-agnostic and out of Phase D scope. Identified ten spec gaps in the per-variant "Stats / Inventory Surface" paragraphs (no v1 totem enumeration, no evaluator signature, no inventory taxonomy lock, no empty-state contract, no `--theme-stats-*` token namespace, no explicit forbidden-renderings list, no audio gating for inspect chime, no a11y contract for the inspect panel, no deferred-totem list, no zero-IDB / zero-telemetry confirmation). Patched the spec with an additive "Phase D Shared Contracts (Stats / Inventory) — added 2026-05-04" subsection at the same nesting level as the existing "Phase B Shared Contracts (Dashboard)" and "Phase C Shared Contracts (Session Execution)" blocks.
+
+**Phase 1.** Behavioral risk brief: zero high-risk mechanics; six medium-risk mechanics with explicit mitigations (collect-them-all compulsion → no locked silhouettes; streak-as-pressure → no current-streak counter, totems are permanent; comparison framing → zero peer signal anywhere on the surface; shame-on-empty → `stats:totem.empty.calm` calm copy; randomized rewards → deterministic eligibility only, rule visible in inspect panel; retro audio nag → opt-in chime on inspect activation only, single-fire).
+
+**Phase 2.** UI/UX Integrity Gate: **INCREMENTAL with shared adapter** (Phase B/C template). Existing `Stats.tsx` IA preserved (header → period selector → analytics sections → export/import). A new totem-inventory section is slotted between the period selector and the `VolumeChart` section via a `<TotemInventory model={...} />` router that selects `RetroInventoryShelf` or `ClassicTotemGrid` via `useEffectiveAestheticVariant`. Period selector is scoped only to the analytics charts (totems are time-window-agnostic by spec).
+
+**Phase 3.** Defined shared `TotemInventoryModel` (pure selector in `src/services/stats/buildTotemInventoryModel.ts`); variant renderer contract `TotemInventoryProps = { model }`; new CSS token namespace `--theme-stats-*` (with retro-only `--theme-game-stats-*` extras); a11y contract for totem surfaces (`role="button"`, `aria-pressed`, non-modal inline disclosure for inspect panel, no `aria-live`); i18n surface under `stats:totem.*` with the v1 catalog locked at eight deterministic totems (first-session, first-week, three-weeks-present, eight-week-rhythm, return-after-break, first-mesocycle-complete, first-deload-honored, rpe-awareness); audio gating contract via a new `statsAudio` module mirroring Phase C's `sessionAudio` short-circuit pattern; explicit deferred-to-Phase-E totem list. Zero new IDB stores, zero new telemetry confirmed.
+
+**Phase 4.** Wrote ordered Phase D checklist D1–D11 to `tasks/todo.md` with ACs per item and explicit verification gates.
+
+**Spec patches**
+- `specs/features/16-ethical-gamification.md`: appended "Phase D Shared Contracts (Stats / Inventory) — added 2026-05-04" subsection between the existing Phase C contracts block and the `### Variant: Retro Platformer` heading. Additive only; no existing copy modified.
+
+**Files touched**
+- `specs/features/16-ethical-gamification.md` (additive subsection)
+- `specs/STATUS.md` (Phase D sub-bullets under Step 16)
+- `tasks/todo.md` (Phase D checklist D1–D11)
+- `specs/STATUS_HISTORY.md` (this entry)
+
+**Verdict.** Phase D is pre-cleared for the Implementer. Strict parity rule reaffirmed: `RetroInventoryShelf` and `ClassicTotemGrid` ship together off the same `TotemInventoryModel`; no temporary single-variant releases. Existing analytics sections in `Stats.tsx` remain unchanged in Phase D.
+
+---
+
 ### 2026-05-04 — Step 16 Phase C implementation
 
 Implementer pass shipping Phase C end-to-end (Session Execution skin parity: `retro-platformer` Level Run + `classic-boring` Cards). Strict parity preserved — both variants render off the same `SessionExecutionModel` and the same `actions`.

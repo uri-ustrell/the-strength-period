@@ -23,5 +23,55 @@
   "week_label": "W{{num}}",
   "sessions": "Sessions",
   "sets": "Sets",
-  "export_import": "Export / Import"
+  "export_import": "Export / Import",
+  "totem": {
+    "section_title": "Achievements",
+    "family": {
+      "consistency": "Consistency",
+      "recovery": "Recovery",
+      "reflection": "Reflection"
+    },
+    "state": {
+      "earned": "earned",
+      "available": "available"
+    },
+    "aria": "{{name}} · {{family}} · {{state}}",
+    "empty": {
+      "calm": "Your path hasn't placed a marker yet. Show up when you can — the journey is long, and there's no rush."
+    },
+    "reachable_link": "What can I earn?",
+    "earned_on": "Earned {{date}}",
+    "first_session": {
+      "name": "First Session",
+      "rule": "Granted after completing one full session."
+    },
+    "first_week": {
+      "name": "First Week",
+      "rule": "Granted when at least one session is completed within an ISO week."
+    },
+    "three_weeks_present": {
+      "name": "Three Weeks Present",
+      "rule": "Granted after completing at least one session in three consecutive ISO weeks."
+    },
+    "eight_week_rhythm": {
+      "name": "Eight-Week Rhythm",
+      "rule": "Granted after completing at least one session in eight consecutive ISO weeks."
+    },
+    "return_after_break": {
+      "name": "Return After a Break",
+      "rule": "Granted when you complete a session at least 14 days after the previous one."
+    },
+    "first_mesocycle_complete": {
+      "name": "First Mesocycle Complete",
+      "rule": "Granted when every non-skipped session of a mesocycle is completed."
+    },
+    "first_deload_honored": {
+      "name": "First Deload Honored",
+      "rule": "Granted after completing a session marked as part of a deload week."
+    },
+    "rpe_awareness": {
+      "name": "RPE Awareness",
+      "rule": "Granted after five sessions in which every set carries an RPE value."
+    }
+  }
 }

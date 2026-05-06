@@ -1,29 +1,30 @@
-import { useEffect, useState, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Trophy } from 'lucide-react'
-
-import type { ExecutedSession, ExecutedSet } from '@/types/session'
-import { useExercises } from '@/hooks/useExercises'
-import { usePlanningStore } from '@/stores/planningStore'
-import {
-  listSessionsByDateRange,
-  listSetsByDateRange,
-  listAllSessions,
-  listAllSets,
-} from '@/services/db/sessionRepository'
-import {
-  buildExerciseMap,
-  aggregateVolume,
-  aggregateProgression,
-  aggregateAdherence,
-  aggregatePRs,
-} from '@/services/stats/statsAggregation'
-import { toDateStr } from '@/utils/dateHelpers'
-import { VolumeChart } from '@/components/stats/VolumeChart'
-import { ProgressionChart } from '@/components/stats/ProgressionChart'
-import { AdherenceChart } from '@/components/stats/AdherenceChart'
+import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ExportButton } from '@/components/data/ExportButton'
 import { ImportButton } from '@/components/data/ImportButton'
+import { AdherenceChart } from '@/components/stats/AdherenceChart'
+import { ProgressionChart } from '@/components/stats/ProgressionChart'
+import { TotemInventory } from '@/components/stats/TotemInventory'
+import { VolumeChart } from '@/components/stats/VolumeChart'
+import { useExercises } from '@/hooks/useExercises'
+import {
+  listAllSessions,
+  listAllSets,
+  listSessionsByDateRange,
+  listSetsByDateRange,
+} from '@/services/db/sessionRepository'
+import { buildTotemInventoryModel } from '@/services/stats/buildTotemInventoryModel'
+import {
+  aggregateAdherence,
+  aggregatePRs,
+  aggregateProgression,
+  aggregateVolume,
+  buildExerciseMap,
+} from '@/services/stats/statsAggregation'
+import { usePlanningStore } from '@/stores/planningStore'
+import type { ExecutedSession, ExecutedSet } from '@/types/session'
+import { toDateStr } from '@/utils/dateHelpers'
 
 type Period = 'week' | 'month' | 'all'
 
@@ -37,11 +38,33 @@ export const Stats = () => {
   const [period, setPeriod] = useState<Period>('month')
   const [sessions, setSessions] = useState<ExecutedSession[]>([])
   const [sets, setSets] = useState<ExecutedSet[]>([])
+  // Full-history snapshots, used by the totem inventory which is
+  // time-window-agnostic (Phase D Shared Contracts). The period selector
+  // above does NOT scope these.
+  const [allSessionsHistory, setAllSessionsHistory] = useState<ExecutedSession[]>([])
+  const [allSetsHistory, setAllSetsHistory] = useState<ExecutedSet[]>([])
   const [selectedExerciseId, setSelectedExerciseId] = useState<string>('')
 
   useEffect(() => {
     loadActive()
   }, [loadActive])
+
+  // Always load the full session/set history for the totem inventory model.
+  // Phase D requires totems to be cumulative and time-window-agnostic, so
+  // they cannot reuse the period-scoped `sessions`/`sets` above.
+  useEffect(() => {
+    let cancelled = false
+    const fetchAll = async () => {
+      const [allSessions, allSets] = await Promise.all([listAllSessions(), listAllSets()])
+      if (cancelled) return
+      setAllSessionsHistory(allSessions)
+      setAllSetsHistory(allSets)
+    }
+    fetchAll()
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -90,6 +113,18 @@ export const Stats = () => {
 
   const prRecords = useMemo(() => aggregatePRs(sets), [sets])
 
+  // Phase D — derive totem inventory from FULL history (period-agnostic).
+  const totemModel = useMemo(
+    () =>
+      buildTotemInventoryModel({
+        executedSessions: allSessionsHistory,
+        executedSets: allSetsHistory,
+        mesocycles: activeMesocycle ? [activeMesocycle] : [],
+        nowMs: Date.now(),
+      }),
+    [allSessionsHistory, allSetsHistory, activeMesocycle]
+  )
+
   const exercisesWithSets = useMemo(() => {
     const ids = new Set(sets.map((s) => s.exerciseId))
     return exercises.filter((ex) => ids.has(ex.id))
@@ -126,6 +161,11 @@ export const Stats = () => {
       </div>
 
       <div className="space-y-4 px-5 pt-4">
+        {/* Phase D — Totem Inventory (full history, time-window-agnostic). */}
+        <section className="rounded-2xl bg-white p-4 shadow-sm" data-testid="stats-totem-section">
+          <TotemInventory model={totemModel} />
+        </section>
+
         {/* Volume Chart */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
           <VolumeChart data={volumeData} muscleGroups={muscleGroups} />

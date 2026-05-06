@@ -645,6 +645,113 @@ Phase C introduces **zero** new IDB stores and **zero** new telemetry events. Th
 
 ---
 
+### Phase D Shared Contracts (Stats / Inventory) — added 2026-05-04
+
+These contracts apply equally to every Phase D+ variant. They consolidate parity-critical details that were under-specified in the per-variant "Stats / Inventory Surface" paragraphs.
+
+#### Scope Lock
+
+The Stats / Inventory surface is **one surface** (the totem inventory), embedded inside the existing `/stats` page. Phase D **does not** re-skin or modify the existing quantitative analytics (volume chart, progression chart, adherence chart, PR table, export/import). Those sections remain variant-agnostic tool surfaces and are out of Phase D scope (re-evaluated only in Phase E if a guardrail issue is discovered).
+
+#### Canonical Totem Model (shared across all variants)
+
+The shared totem-inventory model exposes a totem catalog (static, in-memory, ships with the app) and a derived per-totem state computed from existing IDB data (`ExecutedSession[]`, `ExecutedSet[]`, `Mesocycle[]`). The model is **time-window-agnostic** and **cumulative**: there is no "this week" / "all time" toggle on the inventory surface. Totems, once earned, are permanent.
+
+Each totem has exactly two states:
+
+| State | Meaning | Visual mapping (retro-platformer) | Visual mapping (classic-boring) |
+|---|---|---|---|
+| `earned` | The deterministic eligibility rule has fired at least once over the user's full history | Filled pixel sprite in its inventory slot, with earned-date stamp | Card with sprite, family motif color stripe, and earned-date footer |
+| `available` | Eligibility rule has NOT yet fired | Empty inventory slot rendered as **unexplored terrain** (silhouette is forbidden — see "Forbidden Renderings" below) | Compact "What can I earn?" entry in a separate "Reachable" disclosure region (NEVER shown side-by-side with earned cards) |
+
+The retro term "shelf slot" and the classic term "card" are presentation-only. The model never emits a `locked` state, and no totem is ever rendered as a greyed/silhouetted "you missed this" card in either variant.
+
+#### v1 Totem Catalog (deterministic, locked)
+
+The v1 catalog ships **eight** totems whose eligibility is fully derivable from currently-persisted data. Totems requiring inputs the app does not yet track (warm-up event, pain flag, session note, planning load adjustment) are **deferred** and explicitly named in the "Deferred to Phase E" subsection at the end of this contract.
+
+| ID | Family | Rule (deterministic) | i18n key root |
+|---|---|---|---|
+| `first-session` | Consistency | `executedSessions.filter(s => !s.skipped && s.completedAt).length >= 1` | `stats:totem.first_session` |
+| `first-week` | Consistency | At least one ISO week contains ≥1 completed session | `stats:totem.first_week` |
+| `three-weeks-present` | Consistency | ≥1 completed session in each of 3 consecutive ISO weeks | `stats:totem.three_weeks_present` |
+| `eight-week-rhythm` | Consistency | ≥1 completed session in each of 8 consecutive ISO weeks | `stats:totem.eight_week_rhythm` |
+| `return-after-break` | Consistency | Two completed sessions exist whose `date` are ≥14 calendar days apart with no completed session in between | `stats:totem.return_after_break` |
+| `first-mesocycle-complete` | Consistency | At least one `Mesocycle` exists where every non-skipped `SessionTemplate` is `completed === true` | `stats:totem.first_mesocycle_complete` |
+| `first-deload-honored` | Recovery | At least one completed session whose template carries the deload marker (per the heuristic in `buildDashboardMap.isDeloadSession`) | `stats:totem.first_deload_honored` |
+| `rpe-awareness` | Reflection | At least 5 distinct sessions in which **every** logged `ExecutedSet` for that session has a numeric `rpe` | `stats:totem.rpe_awareness` |
+
+Earned date for each totem = the `date` of the latest `ExecutedSession` (or the eligibility-tipping event) that satisfied the rule.
+
+The catalog is exposed as a **static, exhaustive constant** in the model module (`TOTEM_CATALOG_V1`); the inspect detail panel renders the same eligibility text via i18n so the rule is auditable from the UI (transparency requirement).
+
+#### Forbidden Renderings (Phase D)
+
+The following are forbidden in either variant; reviewer enforcement and a render-test guard are required:
+
+- **Locked silhouettes / "?" tiles for unearned totems.** "Unearned" must never visually imply scarcity, missed opportunity, or "collect them all" pressure.
+- **Streak counters or streak banners** on the inventory surface (consistency totems are awarded permanently — there is no "current streak" readout to lose).
+- **Time-window selectors** scoped to the inventory (no week / month / all toggle on totems).
+- **Comparison framing** ("X% of users have this", "ranked Nth", peer leaderboards). The system has no peers, by design.
+- **Randomized rarity tiers** ("legendary", "epic", drop chances). Tiers, if introduced later, must be deterministic and explained.
+- **Shame copy on empty state.** When `model.totems.every(t => t.state === 'available')` the surface MUST render the i18n key `stats:totem.empty.calm` (a single calm acknowledgement) and a non-pressuring "What can I earn?" link to the Reachable disclosure.
+- **Celebration spam.** The earn-acknowledgement (Phase E if any) is at most one per session-end, never a popup interrupt.
+
+#### Shared Accessibility Contract
+
+- Each totem surface (slot or card) exposes `role="button"` (it opens an inspect detail panel) and `aria-pressed={detailPanelOpen}`.
+- Accessible name is rendered via the i18n key `stats:totem.aria` with placeholders `{{name}}`, `{{family}}`, `{{state}}`, where `{{state}}` is one of `earned | available` resolved through `stats:totem.state.<state>`.
+- The earned-date is exposed via `aria-describedby` pointing at a hidden span with the formatted date.
+- Tab order: by family (Consistency → Recovery → Reflection in that fixed order), then by catalog index inside each family. Arrow keys move focus across the grid (←/→ same family row; ↑/↓ across families).
+- The inspect detail panel is a **non-modal disclosure** (no focus trap, no scroll lock) that opens inline beneath the activated totem; ESC and a second activation collapse it. This avoids modality on a low-stakes inspection action and stays compatible with screen-reader linear flow.
+- `prefers-reduced-motion` is honored at the variant-resolution layer (`useEffectiveAestheticVariant`); no Phase D code reads `matchMedia` directly.
+- `aria-live` is **not** used on this surface — totem state is computed once per render from history; there is no live ticking number.
+
+#### Token Namespaces
+
+- `theme.stats.*` — shared inventory tokens (totem-state colors, family motif colors, slot background, empty-state muted text, inspect-panel surface). Consumed by both renderers. No red used for any state. Family motif colors reuse the dashboard week-accent palette so the surfaces stay visually coherent.
+- `theme.game.stats.*` — retro-platformer-only extras (shelf wood color, sprite scale for inventory items, slot border thickness, opt-in pickup-chime envelope params). **Never** read by `classic-boring`.
+
+#### i18n Surface
+
+All keys land under the `stats` namespace (existing) and are added to ca/es/en in parity (enforced by `npm run i18n:check`):
+
+- `stats:totem.section_title` — "Achievements" / "Reconeixements" / "Reconocimientos" (calm wording — not "Trophies" or "Rewards").
+- `stats:totem.family.<family>` — labels for `consistency | recovery | reflection`.
+- `stats:totem.state.<state>` — labels for `earned | available`.
+- `stats:totem.aria` — accessible-name template `{{name}} · {{family}} · {{state}}`.
+- `stats:totem.<id>.name` and `stats:totem.<id>.rule` for each of the 8 catalog entries (16 keys × 3 locales).
+- `stats:totem.empty.calm` — calm acknowledgement when zero totems are earned (no shame).
+- `stats:totem.reachable_link` — "What can I earn?" disclosure trigger label.
+- `stats:totem.earned_on` — "Earned {{date}}" date-prefix template.
+
+#### Audio Gating Contract
+
+- `classic-boring` is silent on the inventory surface (no audio mounts, no SFX). Enforced by the same `sessionAudio`-style short-circuit pattern from Phase C, in a new `statsAudio` module exposing `playTotemInspect()`.
+- `retro-platformer` MAY play an opt-in pickup chime **on inspect activation only** (never on hover, never on focus-traversal), and only when the existing `sfx` opt-in flag is true. Single-fire per inspect; subsequent activations within the same inspect-open session are silent until the panel collapses and re-opens.
+- The pickup chime is **never** used to draw the user's attention to an unearned totem.
+
+#### Persistence & Telemetry
+
+Phase D introduces **zero** new IDB stores and **zero** new telemetry events. The totem inventory model is derived state recomputed once per render of the Stats page from `listAllSessions()` + `listAllSets()` (already used by analytics) and the active mesocycle for the deload-honored rule.
+
+#### Deferred to Phase E (explicit list)
+
+The following totems from the broader "Totem Taxonomy" cannot ship in Phase D because the underlying signal is not currently persisted. They are explicitly deferred:
+
+- **Warm-Up Habit**, **Triple Preparation** — require a per-set / per-block warm-up marker.
+- **Pain Signal Respected** — requires a pain-flag input on `ExecutedSession`/`ExecutedSet`.
+- **First Note**, **Consistent Logger** — require a session-notes field on `ExecutedSession`.
+- **Honest Check-In** — requires a planning-side load-adjustment audit trail.
+- **Measured Step** — requires a planning-side weekly progression audit trail.
+- **Five Deloads Honored** (as a separate totem) — folded into a future "Deload Family" expansion.
+- **Recovery Read** — requires the recovery indicator to be implemented and instrumented.
+- **First Rest Day Honored** — requires a deterministic "planned rest day" marker distinct from "no session scheduled".
+
+Each deferred totem is added once its underlying event lands in the data model, without breaking the Phase D model contract (the catalog is an additive constant).
+
+---
+
 ### Variant: Retro Platformer
 
 > The remainder of this section describes the `retro-platformer` variant in full. The shared core above and the variant architecture apply equally to all current and future variants.

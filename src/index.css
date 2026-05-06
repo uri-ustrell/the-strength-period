@@ -93,3 +93,44 @@ body {
   --theme-game-session-checkpoint: #10b981; /* emerald-500 — coin/flag stamp */
   --theme-game-session-sprite-scale: 2; /* integer multiplier for pixel sprites */
 }
+
+/*
+ * --- Step 16 Phase D: Shared Stats / Inventory Tokens ----------------------
+ *
+ * Spec: specs/features/16-ethical-gamification.md → "Phase D Shared Contracts
+ * (Stats / Inventory)" → "Token Namespaces". Both `retro-platformer`
+ * (`RetroInventoryShelf`) and `classic-boring` (`ClassicTotemGrid`) renderers
+ * consume `--theme-stats-*` off the same `TotemInventoryModel`. The retro-only
+ * `--theme-game-stats-*` namespace is NEVER read by `classic-boring` (verified
+ * by the D11 grep guard).
+ *
+ * No red is used on any totem state — there is no "missed" / "lost" semantic
+ * by design (totems are permanent, never revoked).
+ *
+ * Family motif colors reuse the dashboard week-accent palette so the surfaces
+ * stay visually coherent across dashboard / session / stats.
+ */
+:root {
+  /* Canonical totem state colors (shared, two states only — no `locked`). */
+  --theme-stats-totem-earned: #10b981; /* emerald-500 — earned, calm */
+  --theme-stats-totem-available: #cbd5e1; /* slate-300 — neutral, never shamed */
+
+  /* Family motif colors — reused from the dashboard week-accent palette so
+   * weeks and totem families share the same visual vocabulary. */
+  --theme-stats-family-consistency: var(--theme-dashboard-week-accent-1, #a5b4fc); /* indigo-300 */
+  --theme-stats-family-recovery: var(--theme-dashboard-week-accent-3, #5eead4); /* teal-300 */
+  --theme-stats-family-reflection: var(--theme-dashboard-week-accent-5, #fcd34d); /* amber-300 */
+
+  /* Surface chrome (slot background, empty-state muted text, inspect panel). */
+  --theme-stats-slot-bg: #f8fafc; /* slate-50 */
+  --theme-stats-empty-muted: #64748b; /* slate-500 */
+  --theme-stats-inspect-bg: #ffffff; /* white inspect panel */
+  --theme-stats-inspect-fg: #0f172a; /* slate-900 */
+
+  /* Retro-platformer-only extras. NEVER read by `classic-boring`. */
+  --theme-game-stats-shelf-bg: #fef3c7; /* amber-100 — wood-shelf tone */
+  --theme-game-stats-slot-border: 2px; /* slot border thickness */
+  --theme-game-stats-sprite-scale: 2; /* integer multiplier for pixel sprites */
+  --theme-game-stats-chime-attack-ms: 8; /* pickup-chime envelope (attack) */
+  --theme-game-stats-chime-decay-ms: 120; /* pickup-chime envelope (decay) */
+}

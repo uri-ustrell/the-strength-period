@@ -23,5 +23,55 @@
   "week_label": "S{{num}}",
   "sessions": "Sesiones",
   "sets": "Series",
-  "export_import": "Exportar / Importar"
+  "export_import": "Exportar / Importar",
+  "totem": {
+    "section_title": "Reconocimientos",
+    "family": {
+      "consistency": "Constancia",
+      "recovery": "Recuperación",
+      "reflection": "Reflexión"
+    },
+    "state": {
+      "earned": "obtenido",
+      "available": "disponible"
+    },
+    "aria": "{{name}} · {{family}} · {{state}}",
+    "empty": {
+      "calm": "Tu camino aún no ha colocado ninguna marca. Ven cuando puedas — el viaje es largo y no hay prisa."
+    },
+    "reachable_link": "¿Qué puedo obtener?",
+    "earned_on": "Obtenido el {{date}}",
+    "first_session": {
+      "name": "Primera Sesión",
+      "rule": "Se otorga tras completar una sesión completa."
+    },
+    "first_week": {
+      "name": "Primera Semana",
+      "rule": "Se otorga cuando se completa al menos una sesión dentro de una semana ISO."
+    },
+    "three_weeks_present": {
+      "name": "Tres Semanas Presentes",
+      "rule": "Se otorga tras completar al menos una sesión en tres semanas ISO consecutivas."
+    },
+    "eight_week_rhythm": {
+      "name": "Ritmo de Ocho Semanas",
+      "rule": "Se otorga tras completar al menos una sesión en ocho semanas ISO consecutivas."
+    },
+    "return_after_break": {
+      "name": "Regreso Tras una Pausa",
+      "rule": "Se otorga cuando completas una sesión al menos 14 días después de la anterior."
+    },
+    "first_mesocycle_complete": {
+      "name": "Primer Mesociclo Completo",
+      "rule": "Se otorga cuando cada sesión no saltada de un mesociclo se completa."
+    },
+    "first_deload_honored": {
+      "name": "Primera Descarga Honrada",
+      "rule": "Se otorga tras completar una sesión marcada como parte de una semana de descarga."
+    },
+    "rpe_awareness": {
+      "name": "Conciencia RPE",
+      "rule": "Se otorga tras cinco sesiones donde cada serie incluye un valor RPE."
+    }
+  }
 }
