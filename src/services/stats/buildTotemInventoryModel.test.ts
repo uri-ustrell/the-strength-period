@@ -4,6 +4,7 @@ import {
   type BuildTotemInventoryInput,
   buildTotemInventoryModel,
   TOTEM_CATALOG_V1,
+  TOTEM_CATALOG_V2,
 } from '@/services/stats/buildTotemInventoryModel'
 import type { Mesocycle, SessionTemplate } from '@/types/planning'
 import type { ExecutedSession, ExecutedSet } from '@/types/session'
@@ -103,9 +104,9 @@ function baseInput(overrides: Partial<BuildTotemInventoryInput> = {}): BuildTote
 }
 
 describe('buildTotemInventoryModel', () => {
-  it('returns the full v1 catalog with all `available` on empty history', () => {
+  it('returns the full v2 catalog with all `available` on empty history', () => {
     const m = buildTotemInventoryModel(baseInput())
-    expect(m.totems).toHaveLength(TOTEM_CATALOG_V1.length)
+    expect(m.totems).toHaveLength(TOTEM_CATALOG_V2.length)
     expect(m.totems.every((t) => t.state === 'available')).toBe(true)
     expect(m.totems.every((t) => t.earnedDateISO === null)).toBe(true)
   })
@@ -116,9 +117,10 @@ describe('buildTotemInventoryModel', () => {
     const firstRecovery = families.indexOf('recovery')
     const firstReflection = families.indexOf('reflection')
     const lastConsistency = families.lastIndexOf('consistency')
+    const lastRecovery = families.lastIndexOf('recovery')
     expect(lastConsistency).toBeLessThan(firstRecovery)
-    expect(firstRecovery).toBeLessThan(firstReflection)
-    expect(m.totems.map((t) => t.id)).toEqual(TOTEM_CATALOG_V1.map((c) => c.id))
+    expect(lastRecovery).toBeLessThan(firstReflection)
+    expect(m.totems.map((t) => t.id)).toEqual(TOTEM_CATALOG_V2.map((c) => c.id))
   })
 
   it('marks `first-session` earned after one completed session', () => {
@@ -347,5 +349,379 @@ describe('buildTotemInventoryModel', () => {
     expect(JSON.stringify(buildTotemInventoryModel(input1))).toBe(
       JSON.stringify(buildTotemInventoryModel(input2))
     )
+  })
+})
+
+describe('five-deloads-honored', () => {
+  it('positive — 5 distinct deload ISO weeks (one session each) earns on the 5th week date', () => {
+    const tpls = [
+      makeTemplate('t1', 1, 1, { isDeload: true }),
+      makeTemplate('t2', 2, 1, { isDeload: true }),
+      makeTemplate('t3', 3, 1, { isDeload: true }),
+      makeTemplate('t4', 4, 1, { isDeload: true }),
+      makeTemplate('t5', 5, 1, { isDeload: true }),
+    ]
+    const m = buildTotemInventoryModel(
+      baseInput({
+        mesocycles: [makeMesocycle('m1', tpls)],
+        executedSessions: [
+          makeSession('s1', 't1', '2026-01-05'), // ISO week 2
+          makeSession('s2', 't2', '2026-01-12'), // ISO week 3
+          makeSession('s3', 't3', '2026-01-19'), // ISO week 4
+          makeSession('s4', 't4', '2026-01-26'), // ISO week 5
+          makeSession('s5', 't5', '2026-02-02'), // ISO week 6 — tipping
+        ],
+      })
+    )
+    const t = m.totems.find((x) => x.id === 'five-deloads-honored')
+    expect(t?.state).toBe('earned')
+    expect(t?.earnedDateISO).toBe('2026-02-02')
+  })
+
+  it('negative — only 4 distinct deload weeks stays available', () => {
+    const tpls = [
+      makeTemplate('t1', 1, 1, { isDeload: true }),
+      makeTemplate('t2', 2, 1, { isDeload: true }),
+      makeTemplate('t3', 3, 1, { isDeload: true }),
+      makeTemplate('t4', 4, 1, { isDeload: true }),
+    ]
+    const m = buildTotemInventoryModel(
+      baseInput({
+        mesocycles: [makeMesocycle('m1', tpls)],
+        executedSessions: [
+          makeSession('s1', 't1', '2026-01-05'),
+          makeSession('s2', 't2', '2026-01-12'),
+          makeSession('s3', 't3', '2026-01-19'),
+          makeSession('s4', 't4', '2026-01-26'),
+        ],
+      })
+    )
+    const t = m.totems.find((x) => x.id === 'five-deloads-honored')
+    expect(t?.state).toBe('available')
+    expect(t?.earnedDateISO).toBeNull()
+  })
+
+  it('negative — 5 deload sessions all in the same ISO week stays available', () => {
+    const tpls = [
+      makeTemplate('t1', 1, 1, { isDeload: true }),
+      makeTemplate('t2', 1, 2, { isDeload: true }),
+      makeTemplate('t3', 1, 3, { isDeload: true }),
+      makeTemplate('t4', 1, 4, { isDeload: true }),
+      makeTemplate('t5', 1, 5, { isDeload: true }),
+    ]
+    const m = buildTotemInventoryModel(
+      baseInput({
+        mesocycles: [makeMesocycle('m1', tpls)],
+        executedSessions: [
+          // All within the same ISO week (Mon–Fri 2026-01-05…-09).
+          makeSession('s1', 't1', '2026-01-05'),
+          makeSession('s2', 't2', '2026-01-06'),
+          makeSession('s3', 't3', '2026-01-07'),
+          makeSession('s4', 't4', '2026-01-08'),
+          makeSession('s5', 't5', '2026-01-09'),
+        ],
+      })
+    )
+    expect(m.totems.find((x) => x.id === 'five-deloads-honored')?.state).toBe('available')
+  })
+
+  it('positive — 5 deload weeks split across 2 mesocycles (cross-mesocycle by design)', () => {
+    const tplsA = [
+      makeTemplate('a1', 1, 1, { isDeload: true }),
+      makeTemplate('a2', 2, 1, { isDeload: true }),
+      makeTemplate('a3', 3, 1, { isDeload: true }),
+    ]
+    const tplsB = [
+      makeTemplate('b1', 1, 1, { isDeload: true }),
+      makeTemplate('b2', 2, 1, { isDeload: true }),
+    ]
+    const m = buildTotemInventoryModel(
+      baseInput({
+        mesocycles: [makeMesocycle('mA', tplsA), makeMesocycle('mB', tplsB)],
+        executedSessions: [
+          makeSession('sa1', 'a1', '2026-01-05'), // ISO week 2
+          makeSession('sa2', 'a2', '2026-01-12'), // 3
+          makeSession('sa3', 'a3', '2026-01-19'), // 4
+          makeSession('sb1', 'b1', '2026-02-02'), // 6
+          makeSession('sb2', 'b2', '2026-02-09'), // 7 — tipping
+        ],
+      })
+    )
+    const t = m.totems.find((x) => x.id === 'five-deloads-honored')
+    expect(t?.state).toBe('earned')
+    expect(t?.earnedDateISO).toBe('2026-02-09')
+  })
+})
+
+describe('catalog ordering invariant (V2)', () => {
+  it('every V1 id appears in the model and `five-deloads-honored` sits in the recovery family band', () => {
+    const m = buildTotemInventoryModel(baseInput())
+    const ids = m.totems.map((t) => t.id)
+    for (const v1 of TOTEM_CATALOG_V1) {
+      expect(ids).toContain(v1.id)
+    }
+    expect(ids).toContain('five-deloads-honored')
+    const five = m.totems.find((t) => t.id === 'five-deloads-honored')
+    expect(five?.family).toBe('recovery')
+    // Sits inside the recovery band: after the last consistency, before the first reflection.
+    const families = m.totems.map((t) => t.family)
+    const idx = ids.indexOf('five-deloads-honored')
+    expect(idx).toBeGreaterThan(families.lastIndexOf('consistency'))
+    expect(idx).toBeLessThan(families.indexOf('reflection'))
+  })
+
+  it('no other catalog entries gained or lost (V2 == V1 + {five-deloads-honored, first-rest-day-honored, warm-up-habit, triple-preparation})', () => {
+    const m = buildTotemInventoryModel(baseInput())
+    expect(m.totems).toHaveLength(TOTEM_CATALOG_V1.length + 4)
+    expect(new Set(m.totems.map((t) => t.id))).toEqual(
+      new Set([
+        ...TOTEM_CATALOG_V1.map((c) => c.id),
+        'five-deloads-honored',
+        'first-rest-day-honored',
+        'warm-up-habit',
+        'triple-preparation',
+      ])
+    )
+  })
+})
+
+describe('Phase E4a — preparation family (warm-up-habit, triple-preparation)', () => {
+  it('preparation totems sit between recovery and reflection (FAMILY_ORDER invariant)', () => {
+    const m = buildTotemInventoryModel(baseInput())
+    const families = m.totems.map((t) => t.family)
+    const lastRecovery = families.lastIndexOf('recovery')
+    const firstPreparation = families.indexOf('preparation')
+    const lastPreparation = families.lastIndexOf('preparation')
+    const firstReflection = families.indexOf('reflection')
+    expect(firstPreparation).toBeGreaterThan(lastRecovery)
+    expect(lastPreparation).toBeLessThan(firstReflection)
+    const prepIds = m.totems.filter((t) => t.family === 'preparation').map((t) => t.id)
+    expect(prepIds).toEqual(['warm-up-habit', 'triple-preparation'])
+  })
+
+  function makeWarmupSession(id: string, date: string, withWarmup: boolean): {
+    session: ExecutedSession
+    sets: ExecutedSet[]
+  } {
+    const session = makeSession(id, `t-${id}`, date)
+    const sets: ExecutedSet[] = []
+    if (withWarmup) {
+      const s = makeSet(id, 'ex1', 1, date)
+      s.isWarmup = true
+      sets.push(s)
+    }
+    sets.push(makeSet(id, 'ex1', withWarmup ? 2 : 1, date))
+    return { session, sets }
+  }
+
+  it('warm-up-habit: 9 qualifying sessions stays available', () => {
+    const records = Array.from({ length: 9 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, true)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    expect(m.totems.find((t) => t.id === 'warm-up-habit')?.state).toBe('available')
+  })
+
+  it('warm-up-habit: 10 qualifying sessions earns at the 10th session date', () => {
+    const records = Array.from({ length: 10 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, true)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    const t = m.totems.find((x) => x.id === 'warm-up-habit')
+    expect(t?.state).toBe('earned')
+    expect(t?.earnedDateISO).toBe('2026-04-10')
+  })
+
+  it('warm-up-habit: only sessions with at least one warm-up set count', () => {
+    // 12 sessions, only 8 with a warm-up set → still available.
+    const records = Array.from({ length: 12 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, i < 8)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    expect(m.totems.find((t) => t.id === 'warm-up-habit')?.state).toBe('available')
+  })
+
+  it('triple-preparation: 4-session warm-up streak stays available', () => {
+    const records = Array.from({ length: 4 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, true)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    expect(m.totems.find((t) => t.id === 'triple-preparation')?.state).toBe('available')
+  })
+
+  it('triple-preparation: 5-session warm-up streak earns at the 5th date', () => {
+    const records = Array.from({ length: 5 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, true)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    const t = m.totems.find((x) => x.id === 'triple-preparation')
+    expect(t?.state).toBe('earned')
+    expect(t?.earnedDateISO).toBe('2026-04-05')
+  })
+
+  it('triple-preparation: a session without a warm-up resets the streak', () => {
+    // Pattern: W W W _ W W W W (longest streak = 4) → not earned.
+    const flags = [true, true, true, false, true, true, true, true]
+    const records = flags.map((withWarmup, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, withWarmup)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    expect(m.totems.find((t) => t.id === 'triple-preparation')?.state).toBe('available')
+  })
+
+  it('triple-preparation: 6-session warm-up streak earns at the 5th date', () => {
+    const records = Array.from({ length: 6 }, (_, i) =>
+      makeWarmupSession(`s${i}`, `2026-04-${String(i + 1).padStart(2, '0')}`, true)
+    )
+    const m = buildTotemInventoryModel(
+      baseInput({
+        executedSessions: records.map((r) => r.session),
+        executedSets: records.flatMap((r) => r.sets),
+      })
+    )
+    expect(m.totems.find((t) => t.id === 'triple-preparation')?.earnedDateISO).toBe('2026-04-05')
+  })
+})
+
+/**
+ * Phase E4f — first-rest-day-honored evaluator tests.
+ *
+ * Spec: `specs/features/16-ethical-gamification.md` →
+ * "Phase E sub-phase E4f — Rest-day family". Time-relative evaluator —
+ * uses a fixed `nowMs` so the "today" boundary is deterministic.
+ *
+ * Calendar fixture: `startDate = 2025-06-02` (a Monday), so:
+ *   week 1 day 1 → 2025-06-02 (past)
+ *   week 1 day 7 → 2025-06-08 (past)
+ *   week 2 day 1 → 2025-06-09 (past)
+ *   week 2 day 7 → 2025-06-15 (today)
+ *   week 3 day 1 → 2025-06-16 (tomorrow)
+ */
+describe('Phase E4f — first-rest-day-honored', () => {
+  const NOW_MS_E4F = Date.UTC(2025, 5, 15) // 2025-06-15T00:00:00Z → todayISO = '2025-06-15'
+
+  function makeRestDayTemplate(
+    id: string,
+    weekNumber: number,
+    dayOfWeek: SessionTemplate['dayOfWeek']
+  ): SessionTemplate {
+    return {
+      id,
+      mesocycleId: 'm-rest',
+      weekNumber,
+      dayOfWeek,
+      durationMinutes: 0,
+      muscleGroupTargets: [],
+      progressionType: 'linear',
+      restrictions: [],
+      completed: false,
+      skipped: false,
+      isPlannedRestDay: true,
+    }
+  }
+
+  function makeRestMeso(sessions: SessionTemplate[]): Mesocycle {
+    return {
+      id: 'm-rest',
+      name: 'rest fixture',
+      presetId: 'p',
+      startDate: '2025-06-02',
+      durationWeeks: Math.max(1, ...sessions.map((s) => s.weekNumber)),
+      sessions,
+      createdAt: '2025-06-01T00:00:00.000Z',
+      active: true,
+    }
+  }
+
+  function getEntry(input: BuildTotemInventoryInput) {
+    const m = buildTotemInventoryModel({ ...input, nowMs: NOW_MS_E4F })
+    return m.totems.find((t) => t.id === 'first-rest-day-honored')
+  }
+
+  it('1) no planned rest days → available', () => {
+    const meso = makeRestMeso([]) // no sessions of any kind
+    const entry = getEntry(baseInput({ mesocycles: [meso] }))
+    expect(entry?.state).toBe('available')
+    expect(entry?.earnedDateISO).toBeNull()
+  })
+
+  it('2) one future planned rest day (tomorrow) → available', () => {
+    const meso = makeRestMeso([makeRestDayTemplate('rd-future', 3, 1)]) // 2025-06-16
+    const entry = getEntry(baseInput({ mesocycles: [meso] }))
+    expect(entry?.state).toBe('available')
+    expect(entry?.earnedDateISO).toBeNull()
+  })
+
+  it('3) one planned rest day === today → available (today exclusive)', () => {
+    const meso = makeRestMeso([makeRestDayTemplate('rd-today', 2, 7)]) // 2025-06-15
+    const entry = getEntry(baseInput({ mesocycles: [meso] }))
+    expect(entry?.state).toBe('available')
+    expect(entry?.earnedDateISO).toBeNull()
+  })
+
+  it('4) one past planned rest day, no executions on that date → earned', () => {
+    const meso = makeRestMeso([makeRestDayTemplate('rd-past', 1, 1)]) // 2025-06-02
+    const entry = getEntry(baseInput({ mesocycles: [meso] }))
+    expect(entry?.state).toBe('earned')
+    expect(entry?.earnedDateISO).toBe('2025-06-02')
+  })
+
+  it('5) one past planned rest day, ExecutedSession.date matches → available (honor broken)', () => {
+    const meso = makeRestMeso([makeRestDayTemplate('rd-past', 1, 1)]) // 2025-06-02
+    const exec = makeSession('exec-on-rest', 'unrelated-tpl', '2025-06-02')
+    const entry = getEntry(baseInput({ mesocycles: [meso], executedSessions: [exec] }))
+    expect(entry?.state).toBe('available')
+    expect(entry?.earnedDateISO).toBeNull()
+  })
+
+  it('6) two past planned rest days, both honored → earned, returns the EARLIER date', () => {
+    const meso = makeRestMeso([
+      makeRestDayTemplate('rd-a', 1, 1), // 2025-06-02
+      makeRestDayTemplate('rd-b', 2, 1), // 2025-06-09
+    ])
+    const entry = getEntry(baseInput({ mesocycles: [meso] }))
+    expect(entry?.state).toBe('earned')
+    expect(entry?.earnedDateISO).toBe('2025-06-02')
+  })
+
+  it('7) two past planned rest days, only the second honored → earned, returns the second date', () => {
+    const meso = makeRestMeso([
+      makeRestDayTemplate('rd-a', 1, 1), // 2025-06-02 (broken by exec)
+      makeRestDayTemplate('rd-b', 2, 1), // 2025-06-09 (honored)
+    ])
+    const exec = makeSession('exec-broke-a', 'unrelated-tpl', '2025-06-02')
+    const entry = getEntry(baseInput({ mesocycles: [meso], executedSessions: [exec] }))
+    expect(entry?.state).toBe('earned')
+    expect(entry?.earnedDateISO).toBe('2025-06-09')
   })
 })

@@ -13,6 +13,7 @@ import type {
   Mesocycle,
   PresetSessionTemplate,
   ProgressionType,
+  SessionTemplate,
   WeekProgressionRate,
 } from '@/types/planning'
 import type { UserConfig } from '@/types/user'
@@ -47,6 +48,11 @@ interface PlanningStore {
   loadAll: () => Promise<void>
   skipSessionAction: (templateId: string) => Promise<void>
   unskipSessionAction: (templateId: string) => Promise<void>
+  markRestDay: (
+    weekNumber: number,
+    dayOfWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  ) => Promise<void>
+  unmarkRestDay: (templateId: string) => Promise<void>
   adjustLoadAction: (
     templateId: string,
     muscleGroup: string,
@@ -147,6 +153,68 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
     set({ isLoading: true, error: null })
     try {
       const updated = unskipSession(activeMesocycle, templateId)
+      await updateMesocycle(updated.id, updated)
+      set({ activeMesocycle: updated, isLoading: false })
+    } catch (err) {
+      set({ error: (err as Error).message, isLoading: false })
+    }
+  },
+
+  /**
+   * Phase E4f — Materialise a minimal rest-day SessionTemplate into the active
+   * mesocycle for the given (weekNumber, dayOfWeek) slot. No-op when a session
+   * already exists in that slot (rest-day capture is for empty slots only).
+   */
+  markRestDay: async (weekNumber, dayOfWeek) => {
+    const { activeMesocycle } = get()
+    if (!activeMesocycle) return
+    const occupied = activeMesocycle.sessions.some(
+      (s) => s.weekNumber === weekNumber && s.dayOfWeek === dayOfWeek
+    )
+    if (occupied) return
+    const restDay: SessionTemplate = {
+      id: crypto.randomUUID(),
+      mesocycleId: activeMesocycle.id,
+      weekNumber,
+      dayOfWeek,
+      durationMinutes: 0,
+      muscleGroupTargets: [],
+      progressionType: 'linear',
+      restrictions: [],
+      exerciseAssignments: [],
+      completed: false,
+      skipped: false,
+      isPlannedRestDay: true,
+    }
+    const updated: Mesocycle = {
+      ...activeMesocycle,
+      sessions: [...activeMesocycle.sessions, restDay],
+    }
+    set({ isLoading: true, error: null })
+    try {
+      await updateMesocycle(updated.id, updated)
+      set({ activeMesocycle: updated, isLoading: false })
+    } catch (err) {
+      set({ error: (err as Error).message, isLoading: false })
+    }
+  },
+
+  /**
+   * Phase E4f — Remove a previously-materialised rest-day SessionTemplate from
+   * the active mesocycle. Only operates on rest-day templates; ignores other
+   * sessions defensively so a stray call never deletes real training data.
+   */
+  unmarkRestDay: async (templateId) => {
+    const { activeMesocycle } = get()
+    if (!activeMesocycle) return
+    const target = activeMesocycle.sessions.find((s) => s.id === templateId)
+    if (!target || target.isPlannedRestDay !== true) return
+    const updated: Mesocycle = {
+      ...activeMesocycle,
+      sessions: activeMesocycle.sessions.filter((s) => s.id !== templateId),
+    }
+    set({ isLoading: true, error: null })
+    try {
       await updateMesocycle(updated.id, updated)
       set({ activeMesocycle: updated, isLoading: false })
     } catch (err) {

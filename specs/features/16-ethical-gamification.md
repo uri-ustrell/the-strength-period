@@ -425,7 +425,7 @@ The gamification system has **one and only one** logic, data model, and copy con
 - Event instrumentation map and telemetry schema.
 - Copy guardrails, forbidden patterns, and language tone rules.
 - Patronage model constraints.
-- Persisted data model in `UserConfig`, milestone history, and session-derived state. No variant adds new IDB stores.
+- Persisted data model in `UserConfig`, milestone history, and session-derived state. No variant adds new IDB stores. (Phase A–D constraint. **Phase E lifts this constraint** to ship deferred totems whose underlying signals require new persisted fields and one new audit-log store; see "Phase E Shared Contracts (Polish + Deferred Totems)" below. The "no variant-specific persistence" rule still holds: any new field/store is **shared core**, written equally regardless of `aestheticVariant`.)
 - Accessibility contracts (i18n keys, AA contrast on functional overlays, `aria-*` semantics, keyboard navigation).
 
 **Variant-specific (presentation only):**
@@ -651,7 +651,9 @@ These contracts apply equally to every Phase D+ variant. They consolidate parity
 
 #### Scope Lock
 
-The Stats / Inventory surface is **one surface** (the totem inventory), embedded inside the existing `/stats` page. Phase D **does not** re-skin or modify the existing quantitative analytics (volume chart, progression chart, adherence chart, PR table, export/import). Those sections remain variant-agnostic tool surfaces and are out of Phase D scope (re-evaluated only in Phase E if a guardrail issue is discovered).
+The Stats / Inventory surface is **one surface** (the totem inventory), embedded inside the existing `/stats` page. Phase D **does not** re-skin or modify the existing quantitative analytics (volume chart, progression chart, adherence chart, PR table, export/import). Those sections remain variant-agnostic tool surfaces and are out of **Phase D** scope.
+
+> **Scope-lock lifted in Phase E (2026-05-04):** Phase E3 explicitly re-skins `VolumeChart`, `ProgressionChart`, and `AdherenceChart` under a strict-parity wrapper. The PR table and export/import section remain variant-agnostic. See "Phase E Shared Contracts (Polish + Deferred Totems)" below.
 
 #### Canonical Totem Model (shared across all variants)
 
@@ -749,6 +751,193 @@ The following totems from the broader "Totem Taxonomy" cannot ship in Phase D be
 - **First Rest Day Honored** — requires a deterministic "planned rest day" marker distinct from "no session scheduled".
 
 Each deferred totem is added once its underlying event lands in the data model, without breaking the Phase D model contract (the catalog is an additive constant).
+
+---
+
+### Phase E Shared Contracts (Polish + Deferred Totems) — added 2026-05-04
+
+These contracts apply equally to every Phase E+ variant. They consolidate parity-critical details for the four Phase E sub-areas (E1 earn-acknowledgement, E2 Rive microanims, E3 chart variant theming, E4 deferred totems).
+
+#### Scope (Phase E)
+
+Phase E ships:
+1. **E1** — End-of-session earn-acknowledgement frame (max 1 per session-end, inline, never a modal interrupt, both variants in parity).
+2. **E2** — Rive microanims (`@rive-app/react-canvas`) for retro-only surfaces, with mandatory license documentation per `.riv` file and a static fallback path.
+3. **E3** — Variant theming for the three analytics charts (`VolumeChart`, `ProgressionChart`, `AdherenceChart`). Lifts the Phase D scope-lock for those charts. PR table and export/import stay variant-agnostic.
+4. **E4** — All Phase D-deferred totems, sub-divided by family (E4a–g). Each sub-phase = mini-feature (schema migration + capture UI + evaluator + i18n + parity render in inspect panel + tests).
+
+#### Phase F prerequisite (called out here)
+
+The "Recovery Read" totem (originally listed for E4e) requires the **Volume-Based Recovery Indicator** (already designed in §"Volume-Based Recovery Estimation" of this file) to be implemented and instrumented first. The indicator does not yet exist in `src/`. Recovery-Read is therefore moved into a new **Phase F — Recovery Indicator (volume-based)** that lands the indicator service, capture point, and inspect surface. E4e ships in Phase F, not Phase E.
+
+#### E1 — Earn-Acknowledgement Frame Contract
+
+The shared session-completion model (`SessionCompletionModel`, defined in Phase C) is extended with a new optional `totemAcknowledgement: SessionCompletionTotemPayload | null` field, computed at end-of-session by diffing the totem-inventory state **before** vs **after** the completion of the session being finished:
+
+```ts
+type SessionCompletionTotemPayload = {
+  sessionId: string              // just-finished session id; key for in-component idempotency latch
+  newlyEarnedIds: TotemId[]      // ordered by FAMILY_ORDER then TOTEM_CATALOG_V2 index
+  primaryTotemId: TotemId        // first of newlyEarnedIds; the focus of the frame
+  earnedDateISO: string          // copy-prefix for the inline ack (the YYYY-MM-DD of the just-finished session)
+}
+```
+
+Selector signature (pure, no IO, no React):
+
+```ts
+function buildSessionCompletionTotemPayload(input: {
+  totemsBefore: TotemInventoryModel
+  totemsAfter: TotemInventoryModel
+}): SessionCompletionTotemPayload | null
+```
+
+Returns `null` when no new totem earned (zero new IDs) — in which case **nothing** renders. No "you didn't earn anything today" copy; no shame.
+
+Renderer contract: `<EarnAcknowledgement payload={...} variant={...} />` (router by `useEffectiveAestheticVariant()`):
+- **Classic** — single inline acknowledgement line below the calm completion frame: `session.completion.totem_ack.calm.headline` + `.body`. No superlatives.
+- **Retro** — pixel-art frame inline (NEVER a modal/popup), with optional Rive `totem-earn` flash (E2). Reuses `session.completion.totem_ack.retro.*` keys. If multiple totems were newly earned, the frame highlights `primaryTotemId` only and lists secondary IDs inline as a calm bullet list — never as separate frames.
+
+Mounting point: inside `<SessionExecution>` finished branch, **after** the existing completion frame and **before** any navigation CTA. At most one mount per session-finished render. Re-finishing the same session does not re-render the frame (idempotency latch keyed by `sessionId`).
+
+Parity contract: render tests assert that `classic-boring` never references any `session.completion.totem_ack.retro.*` key, and that the retro variant renders zero modals (`role="dialog"` count === 0).
+
+#### E2 — Rive Integration Contract
+
+Runtime: `@rive-app/react-canvas` (~210KB minified). Lazy-loaded as a dynamic import inside the retro chunk only; **never** loaded by `classic-boring` paths.
+
+Wrapper component:
+
+```tsx
+<RiveAnim
+  src="/anims/totem-earn.riv"
+  artboard="default"
+  stateMachine="State Machine 1"
+  fallback={<StaticSpriteFallback name="totem-earn" />}
+  ariaLabel="Totem earned animation"
+/>
+```
+
+Wrapper rules (enforced):
+1. Renders `fallback` (and **does not load** the Rive runtime) when ANY of: `useEffectiveAestheticVariant() !== 'retro-platformer'` OR `prefers-reduced-motion: reduce` is reported.
+2. Imports the `@rive-app/react-canvas` module via dynamic `import()` so the runtime is excluded from the classic chunk.
+3. All `.riv` files live under `public/anims/` and ship with an adjacent `public/anims/<name>.LICENSE.md` documenting: source URL, author, license type (CC0 / CC-BY-X.Y / Custom-Authored), attribution string (if required), and a one-line description of the animation. CI grep guard enforces 1:1 pairing.
+4. Animations needed in v1: `totem-earn.riv` (E1 retro flash), `level-clear.riv` (retro session completion accent), `dashboard-cell-appear.riv` (optional retro dashboard transition). For each, spec author marks one of:
+   - **CC0/CC-BY candidate from Rive Community** (preferred — search and document)
+   - **Custom-authored in Rive Editor** (fallback if no community match clears license review)
+5. No `.riv` ships without an audited `LICENSE.md`. Reviewer enforcement.
+
+Bundle-weight tradeoff: explicitly accepted. Code-splitting and lazy loading keep the retro-only weight isolated; `classic-boring` users pay zero Rive bytes.
+
+#### E3 — Chart Variant Theming Contract
+
+Scope (E3-only): `VolumeChart`, `ProgressionChart`, `AdherenceChart`. Out of scope: PR table, export/import section.
+
+Approach: **wrapper, not fork.** The three chart components stay as-is. A new `<ChartThemeProvider>` wraps each chart instance and resolves CSS variables via the active variant:
+- Shared tokens: `--theme-charts-axis-fg`, `--theme-charts-grid`, `--theme-charts-tooltip-bg`, `--theme-charts-tooltip-fg`, `--theme-charts-legend-fg`, `--theme-charts-series-1..N` (consumed by both variants; classic uses current Tailwind palette; retro uses an AA-audited subset of the master retro palette).
+- Retro-only overrides: `--theme-game-charts-axis-font` (pixel display face), `--theme-game-charts-axis-letter-spacing`, `--theme-game-charts-tick-stroke`. **Never** read by classic.
+
+Strict parity contract:
+- Classic renders identically to its current Tailwind treatment (regression test asserts zero pixel-font usage on tooltip body / data labels in classic).
+- Retro applies pixel font to **axis ticks and legend labels only** (NOT to tooltip body text or numeric data labels — readability guardrail).
+- AA contrast audited for retro chart text on chart background (axis fg vs grid bg ≥ 4.5:1).
+- `prefers-reduced-motion` collapses any chart entrance transition to instant in both variants.
+
+#### E4 — Deferred Totems Contract (Sub-Phases)
+
+All new persisted fields are **shared core** (variant-agnostic). All capture UIs are **optional and silent** — never block the existing flow, never add a mandatory field, never display shame copy on absence.
+
+Catalog evolution: a new exported constant `TOTEM_CATALOG_V2` extends `TOTEM_CATALOG_V1` additively (V1 entries unchanged; new entries appended at the end of their family group). The `buildTotemInventoryModel` selector grows additional eligibility branches; ordering invariant preserved.
+
+##### Schema migration baseline (shared across E4a–g)
+
+IDB version bump: **1 → 2**, single migration. New optional fields on existing record types (`ExecutedSet.isWarmup`, `ExecutedSession.painFlag`, `SessionTemplate.isPlannedRestDay`) are additive at the type level — IDB is schemaless within object stores so no field-level migration is required. Records written before v2 simply lack these fields, and evaluators treat absence as the safe default. New object store `planningAuditLog` is created in the v2 upgrade. `exportImport.ts` bumps the export `version` from `1` to `2` and accepts both on import (backward-compat).
+
+##### E4a — Warm-Up family (`warm-up-habit`, `triple-preparation`)
+
+- **Type change:** `ExecutedSet` gains `isWarmup?: boolean` (default `false` semantically; absence === `false`).
+- **Capture UI:** small toggle in `SetLogger` labelled "Warm-up set" (i18n `session:set.warmup_toggle`). Default unchecked. Persists via existing `addExecutedSet` path.
+- **TotemFamily extension:** if `preparation` family is added, extend the union to `'consistency' | 'recovery' | 'reflection' | 'preparation'` and update `FAMILY_ORDER` to `['consistency','recovery','preparation','reflection']`.
+- **Evaluators (added to `TOTEM_CATALOG_V2`):**
+  - `warm-up-habit` — earned when ≥10 sessions have ≥1 `isWarmup === true` set.
+  - `triple-preparation` — earned when 3 consecutive completed sessions each have at least one `isWarmup === true` set.
+
+##### E4b — Pain-Flag family (`pain-signal-respected`)
+
+- **Type change:** `ExecutedSession` gains `painFlag?: 'none' | 'mild' | 'severe'`.
+- **Capture UI:** small **dismissible** post-session prompt (`session:completion.pain_check.prompt`) with three calm options + "Skip". Never blocks navigation. Never re-prompts within the same session.
+- **Evaluator:** `pain-signal-respected` — earned when at least one session has `painFlag` ∈ `{'mild','severe'}` AND that session has `skipped === true` OR the session immediately following it has reduced volume ≥ 10% lower than the rolling 3-session pre-flag mean. Heuristic captures: "logged pain → adjusted next session".
+- **Critical guardrail:** the totem rewards the *act of flagging and adjusting*, NEVER mentions the pain itself in the totem name/copy. Pain history is **not** aggregated into any analytics surface in Phase E.
+
+##### E4c — Notes family (`first-note`, `consistent-logger`)
+
+- **Type change:** `ExecutedSession.notes?: string` already exists. **No schema change needed.**
+- **Capture UI:** optional `<textarea>` on the session-completion summary card. Saving is automatic on blur; empty submission stores `undefined`.
+- **Evaluators:** `first-note` (any non-empty note), `consistent-logger` (≥10 sessions with non-empty notes).
+
+##### E4d — Planning audit-trail family (`honest-check-in`, `measured-step`)
+
+- **New IDB store:** `planningAuditLog` (created in v2 migration), additive append-only. Type:
+  ```ts
+  type PlanningAuditEvent = {
+    id: string                          // ulid/uuid
+    mesocycleId: string
+    eventType: 'load-adjustment' | 'progression-applied'
+    occurredAtISO: string
+    payload:
+      | { kind: 'load-adjustment'; sessionTemplateId: string; previousLoadKg: number; newLoadKg: number; reason: 'rpe-high' | 'pain-flag' | 'manual' }
+      | { kind: 'progression-applied'; weekNumber: number; appliedPct: number; withinPolicyBounds: boolean }
+  }
+  ```
+- **Capture point:** at planning-time. Both emissions are write-through, never blocking the planning UI.
+- **Evaluators:**
+  - `honest-check-in` — earned when at least one `load-adjustment` event with `reason: 'rpe-high'` exists, AND the session immediately preceding it has at least one `executedSet.rpe >= 9`.
+  - `measured-step` — earned when 4 consecutive `progression-applied` events all have `withinPolicyBounds === true`.
+- **Retention policy:** rolling 365 days; older events pruned at app start (one-shot pass). Dedup per `(mesocycleId, sessionTemplateId, eventType, dayKey)`.
+
+##### E4e — Recovery family (`recovery-read`) — DEFERRED to Phase F
+
+`recovery-read` requires the Volume-Based Recovery Indicator (designed in §"Volume-Based Recovery Estimation") to be implemented and instrumented first. The indicator does NOT yet exist in `src/`. Phase E does NOT ship `recovery-read`. It moves to **Phase F**, which scopes:
+1. Implement the recovery indicator selector per the existing spec section.
+2. Surface the indicator on the session planning view and dashboard (advisory only, no blocking, no countdown).
+3. Document the formula in the in-app help section (transparency requirement).
+4. Instrument an `ExecutedSession.recoveryReadAt?: string` capture event for the totem evaluator.
+5. Land `recovery-read` totem evaluator: earned when 3 distinct sessions have `recoveryReadAt` populated (i.e., the user consulted the indicator before scheduling).
+
+Phase F runs its own pre-execution gates. Phase E proceeds without E4e.
+
+##### E4f — Rest-day family (`first-rest-day-honored`)
+
+- **Type change:** `SessionTemplate` gains `isPlannedRestDay?: boolean` (default `false`). Distinguishes a planned rest day from "no session scheduled on this dayOfWeek".
+- **Capture point:** plan creator UI gains a small "Rest day" marker per day-of-week slot.
+- **Evaluator:** `first-rest-day-honored` — earned when at least one `SessionTemplate` has `isPlannedRestDay === true` AND there exists no `ExecutedSession` with that template's `dayOfWeek` in that template's week.
+
+##### E4g — Deload family expansion (`five-deloads-honored`)
+
+- **No new schema.** Builds on existing `isDeloadSession` heuristic.
+- **Evaluator:** `five-deloads-honored` — earned when 5 distinct ISO weeks each contain at least one completed deload session.
+- **Recommended ship-first warm-up item** (zero schema risk, exercises the `TOTEM_CATALOG_V2` plumbing).
+
+#### Phase E Forbidden Renderings (additive to Phase D's list)
+
+- **Modal / popup** for the earn-acknowledgement (E1). Inline only.
+- **"You didn't earn a totem"** copy or any null-state celebration acknowledgement (E1).
+- **Auto-replay** of Rive animations (E2) — fire-once per render, never loop.
+- **Pixel font on chart tooltip body or data labels** (E3) — readability guardrail.
+- **Aggregated pain-history visualization** (E4b) — pain data is per-session only, never trended into a chart in Phase E.
+- **Mandatory** capture fields for warm-up, pain-flag, or notes (E4a–c).
+- **Audit-log surface that exposes raw entries to the user** (E4d) — log is consumed by evaluators only, never rendered as a "your adjustments" feed (avoids meta-tracking compulsion).
+
+#### Phase E Persistence & Telemetry
+
+Phase E introduces:
+- **One** new IDB object store: `planningAuditLog` (E4d).
+- **Three** new optional record fields: `ExecutedSet.isWarmup`, `ExecutedSession.painFlag`, `SessionTemplate.isPlannedRestDay`. (`ExecutedSession.notes` already exists.)
+- **Zero** new telemetry events (the system has no telemetry pipeline by design).
+- **One** IDB version bump (1 → 2) with no-op migration for existing records.
+- **One** export-format version bump (1 → 2) with backward-compat import.
+
+All other Phase E surfaces (E1, E2, E3) introduce **zero** new persistence and **zero** new telemetry.
 
 ---
 

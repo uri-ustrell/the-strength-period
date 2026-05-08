@@ -6,7 +6,7 @@ import type { SelectedExercise } from '@/services/exercises/sessionGenerator'
 interface Props {
   selectedExercise: SelectedExercise
   currentSet: number
-  onComplete: (repsActual: number, weightActual?: number) => void
+  onComplete: (repsActual: number, weightActual?: number, isWarmup?: boolean) => void
   onSkipSet: () => void
 }
 
@@ -18,11 +18,13 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
 
   const [repsActual, setRepsActual] = useState(defaultReps)
   const [weightActual, setWeightActual] = useState(weightKg ?? 0)
+  const [isWarmup, setIsWarmup] = useState(false)
 
   const handleComplete = () => {
-    onComplete(repsActual, weightKg !== undefined ? weightActual : undefined)
+    onComplete(repsActual, weightKg !== undefined ? weightActual : undefined, isWarmup)
     setRepsActual(defaultReps)
     setWeightActual(weightKg ?? 0)
+    setIsWarmup(false)
   }
 
   return (
@@ -96,6 +98,16 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
             </div>
           </div>
         )}
+
+        <label className="flex items-center gap-2 text-sm text-gray-700">
+          <input
+            type="checkbox"
+            checked={isWarmup}
+            onChange={(e) => setIsWarmup(e.target.checked)}
+            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          />
+          <span>{t('session.set_logger.warmup_toggle.label')}</span>
+        </label>
 
         <button
           type="button"

@@ -186,6 +186,8 @@ function computeHud(
   let rpeSum = 0
   let rpeCount = 0
   for (const set of executedSets) {
+    // Warm-ups excluded per Phase E4a
+    if (set.isWarmup === true) continue
     const weight = set.weightKgActual ?? set.weightKgPlanned ?? 0
     volumeKg += weight * set.repsActual
     if (typeof set.rpe === 'number') {

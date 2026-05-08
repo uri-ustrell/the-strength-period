@@ -369,5 +369,11 @@
       "name": "Zero → Progressió (Setmanes 5–10)",
       "description": "Segon bloc per a persones que han completat les 4 setmanes inicials. 2–3 sessions/setmana de 20–25 minuts. Introdueix exercicis compostos bàsics amb càrrega molt lleugera."
     }
+  },
+  "rest_day": {
+    "label": "Dia de descans",
+    "mark_button": "Marca aquest dia com a dia de descans",
+    "unmark_button": "Desmarca el dia de descans",
+    "preview_description": "Dia de descans planificat. Honora'l no entrenant avui."
   }
 }

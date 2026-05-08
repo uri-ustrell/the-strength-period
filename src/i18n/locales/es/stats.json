@@ -29,6 +29,7 @@
     "family": {
       "consistency": "Constancia",
       "recovery": "Recuperación",
+      "preparation": "Preparación",
       "reflection": "Reflexión"
     },
     "state": {
@@ -69,9 +70,25 @@
       "name": "Primera Descarga Honrada",
       "rule": "Se otorga tras completar una sesión marcada como parte de una semana de descarga."
     },
+    "five_deloads_honored": {
+      "name": "Cinco Descargas Honradas",
+      "rule": "Se otorga tras completar sesiones de descarga en cinco semanas diferentes de tu entrenamiento."
+    },
     "rpe_awareness": {
       "name": "Conciencia RPE",
       "rule": "Se otorga tras cinco sesiones donde cada serie incluye un valor RPE."
+    },
+    "warm_up_habit": {
+      "name": "Hábito de calentamiento",
+      "rule": "Has empezado 10 sesiones con al menos una serie de calentamiento."
+    },
+    "triple_preparation": {
+      "name": "Cinco preparaciones seguidas",
+      "rule": "Has empezado 5 sesiones seguidas con una serie de calentamiento."
+    },
+    "first_rest_day_honored": {
+      "name": "Primer día de descanso honrado",
+      "rule": "Se otorga cuando marcas un día de descanso en tu plan y lo dejas pasar sin entrenar."
     }
   }
 }

@@ -27,6 +27,9 @@ export function useSession() {
       isFinished: s.isFinished,
       isSaving: s.isSaving,
       error: s.error,
+      lastFinishedSessionId: s.lastFinishedSessionId,
+      lastFinishedSessionDateISO: s.lastFinishedSessionDateISO,
+      lastFinishedSessionCompletedAtISO: s.lastFinishedSessionCompletedAtISO,
     }))
   )
 

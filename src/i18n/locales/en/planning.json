@@ -369,5 +369,11 @@
       "name": "Zero → Progression (Weeks 5–10)",
       "description": "Second block for people who have completed the initial 4 weeks. 2–3 sessions/week of 20–25 minutes. Introduces basic compound exercises with very light load."
     }
+  },
+  "rest_day": {
+    "label": "Rest day",
+    "mark_button": "Mark this day as a rest day",
+    "unmark_button": "Unmark rest day",
+    "preview_description": "Planned rest day. Honor it by not training today."
   }
 }

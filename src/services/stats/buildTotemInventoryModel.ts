@@ -29,9 +29,13 @@ export type TotemId =
   | 'return-after-break'
   | 'first-mesocycle-complete'
   | 'first-deload-honored'
+  | 'five-deloads-honored'
+  | 'first-rest-day-honored'
   | 'rpe-awareness'
+  | 'warm-up-habit'
+  | 'triple-preparation'
 
-export type TotemFamily = 'consistency' | 'recovery' | 'reflection'
+export type TotemFamily = 'consistency' | 'recovery' | 'preparation' | 'reflection'
 
 export type TotemState = 'earned' | 'available'
 
@@ -68,9 +72,9 @@ export type BuildTotemInventoryInput = {
  * Locked v1 totem catalog (deterministic, exhaustive). Order is the canonical
  * tab order: Consistency → Recovery → Reflection, then by catalog index.
  *
- * Adding a totem here is the only supported way to extend the inventory; the
- * catalog is intentionally additive so deferred totems (warm-up, pain-flag,
- * notes, …) can land later without breaking the contract.
+ * V1 is FROZEN for historical reference and parity tests. The selector now
+ * consumes {@link TOTEM_CATALOG_V2}. Adding a totem is done by extending V2
+ * (or a future V3) — never by mutating V1.
  */
 export const TOTEM_CATALOG_V1: ReadonlyArray<TotemCatalogEntry> = [
   {
@@ -121,6 +125,63 @@ export const TOTEM_CATALOG_V1: ReadonlyArray<TotemCatalogEntry> = [
     nameI18nKey: 'stats:totem.rpe_awareness.name',
     ruleI18nKey: 'stats:totem.rpe_awareness.rule',
   },
+]
+
+/**
+ * V2 catalog — additive extension of {@link TOTEM_CATALOG_V1}. V1 stays
+ * frozen for historical reference; the live selector consumes V2.
+ *
+ * Phase E sub-phase E4a appends the `preparation` family band between
+ * `recovery` and `reflection`. Family order is enforced by
+ * {@link FAMILY_ORDER}; the catalog array below is hand-ordered to match.
+ */
+export const TOTEM_CATALOG_V2: ReadonlyArray<TotemCatalogEntry> = [
+  // Insert the new recovery entry inside the recovery band to preserve the
+  // canonical family order (Consistency → Recovery → Preparation → Reflection).
+  ...TOTEM_CATALOG_V1.slice(
+    0,
+    TOTEM_CATALOG_V1.findIndex((e) => e.id === 'first-deload-honored') + 1
+  ),
+  {
+    id: 'five-deloads-honored',
+    family: 'recovery',
+    nameI18nKey: 'stats:totem.five_deloads_honored.name',
+    ruleI18nKey: 'stats:totem.five_deloads_honored.rule',
+  },
+  // Phase E4f — rest-day recovery totem (single-shot).
+  {
+    id: 'first-rest-day-honored',
+    family: 'recovery',
+    nameI18nKey: 'stats:totem.first_rest_day_honored.name',
+    ruleI18nKey: 'stats:totem.first_rest_day_honored.rule',
+  },
+  // Phase E4a — preparation band.
+  {
+    id: 'warm-up-habit',
+    family: 'preparation',
+    nameI18nKey: 'stats:totem.warm_up_habit.name',
+    ruleI18nKey: 'stats:totem.warm_up_habit.rule',
+  },
+  {
+    id: 'triple-preparation',
+    family: 'preparation',
+    nameI18nKey: 'stats:totem.triple_preparation.name',
+    ruleI18nKey: 'stats:totem.triple_preparation.rule',
+  },
+  ...TOTEM_CATALOG_V1.slice(
+    TOTEM_CATALOG_V1.findIndex((e) => e.id === 'first-deload-honored') + 1
+  ),
+]
+
+/**
+ * Canonical family render order (Phase D + E4a). Renderers MUST iterate
+ * families in this order; within each family, totems follow catalog index.
+ */
+export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = [
+  'consistency',
+  'recovery',
+  'preparation',
+  'reflection',
 ]
 
 /**
@@ -250,6 +311,87 @@ function evalFirstDeloadHonored(input: BuildTotemInventoryInput): string | null 
   return null
 }
 
+/**
+ * Five distinct deload ISO weeks (cross-mesocycle by design). Returns the
+ * earliest completed deload-session date in the 5th distinct deload ISO
+ * week chronologically (the eligibility-tipping event), or `null` until
+ * five distinct deload ISO weeks have been honored.
+ */
+function evalFiveDeloadsHonored(input: BuildTotemInventoryInput): string | null {
+  const templateById = new Map<string, SessionTemplate>()
+  for (const m of input.mesocycles) {
+    for (const t of m.sessions) templateById.set(t.id, t)
+  }
+  const earliestByWeek = new Map<number, string>()
+  for (const s of completedSessionsSorted(input)) {
+    const tpl = templateById.get(s.sessionTemplateId)
+    if (!tpl || !isDeloadSession(tpl)) continue
+    const ord = isoWeekOrdinal(s.date)
+    if (!earliestByWeek.has(ord)) earliestByWeek.set(ord, s.date)
+  }
+  if (earliestByWeek.size < 5) return null
+  const sortedKeys = [...earliestByWeek.keys()].sort((a, b) => a - b)
+  const tippingWeek = sortedKeys[4]
+  return tippingWeek !== undefined ? (earliestByWeek.get(tippingWeek) ?? null) : null
+}
+
+/**
+ * Phase E4f — earned when ≥1 SessionTemplate has `isPlannedRestDay === true`,
+ * its planned calendar date is strictly past today (UTC, today exclusive),
+ * and no ExecutedSession.date matches that rest-day date. Returns the
+ * earliest honored rest-day calendar date (chronological).
+ *
+ * First time-relative evaluator — uses `input.nowMs` for the "today" boundary.
+ */
+function evalFirstRestDayHonored(input: BuildTotemInventoryInput): string | null {
+  const todayISO = new Date(input.nowMs).toISOString().slice(0, 10)
+  const executedDates = new Set<string>()
+  for (const s of input.executedSessions) executedDates.add(s.date)
+
+  const honoredDates: string[] = []
+  for (const meso of input.mesocycles) {
+    for (const tpl of meso.sessions) {
+      if (tpl.isPlannedRestDay !== true) continue
+      const restDateISO = plannedSessionDateUTC(meso.startDate, tpl.weekNumber, tpl.dayOfWeek)
+      if (restDateISO >= todayISO) continue // today exclusive — only strictly past dates count.
+      if (executedDates.has(restDateISO)) continue // honor broken: a session was executed on the rest day.
+      honoredDates.push(restDateISO)
+    }
+  }
+  if (honoredDates.length === 0) return null
+  honoredDates.sort()
+  return honoredDates[0] ?? null
+}
+
+/**
+ * UTC-pure analogue of `getSessionDate` from `@/utils/dateHelpers`. Mirrors
+ * the Monday-anchored week math (ISO `dayOfWeek` 1..7) but operates entirely
+ * in UTC so the result is deterministic against `input.nowMs` (also UTC).
+ */
+function plannedSessionDateUTC(
+  mesocycleStartDateISO: string,
+  weekNumber: number,
+  dayOfWeek: number
+): string {
+  const [y, m, d] = mesocycleStartDateISO.split('-').map(Number)
+  if (
+    typeof y !== 'number' ||
+    typeof m !== 'number' ||
+    typeof d !== 'number' ||
+    Number.isNaN(y) ||
+    Number.isNaN(m) ||
+    Number.isNaN(d)
+  ) {
+    return mesocycleStartDateISO
+  }
+  const startMs = Date.UTC(y, m - 1, d)
+  const startDow = new Date(startMs).getUTCDay() // 0=Sun..6=Sat
+  const mondayOffsetDays = startDow === 0 ? -6 : 1 - startDow
+  const totalOffsetDays = mondayOffsetDays + (weekNumber - 1) * 7 + (dayOfWeek - 1)
+  const restMs = startMs + totalOffsetDays * 86400000
+  return new Date(restMs).toISOString().slice(0, 10)
+}
+
 function evalRpeAwareness(input: BuildTotemInventoryInput): string | null {
   // Group sets by sessionId; collect sessions in which EVERY logged set
   // carries a numeric `rpe`. The 5th such session's date is the tipping date.
@@ -274,6 +416,58 @@ function evalRpeAwareness(input: BuildTotemInventoryInput): string | null {
   return eligibleDates[4] ?? null
 }
 
+/**
+ * Phase E4a — preparation family helpers. Both totems share the same
+ * predicate: a session "qualifies" iff at least one of its executed sets
+ * is marked `isWarmup === true`. Sessions without `completedAt` or marked
+ * skipped are excluded.
+ */
+function sessionHasWarmup(sessionId: string, sets: ReadonlyArray<ExecutedSet>): boolean {
+  for (const s of sets) {
+    if (s.sessionId === sessionId && s.isWarmup === true) return true
+  }
+  return false
+}
+
+/** Number of distinct completed sessions with a warm-up set required to earn `warm-up-habit`. */
+const WARMUP_HABIT_SESSIONS = 10
+/** Number of consecutive completed sessions with a warm-up set required to earn `triple-preparation`. */
+const PREPARATION_STREAK_REQUIRED = 5
+
+/**
+ * Cumulative threshold: the user has started ≥ `WARMUP_HABIT_SESSIONS` distinct
+ * completed sessions with at least one warm-up set. Tipping date = the date of
+ * the threshold-th qualifying session (chronological).
+ */
+function evalWarmupHabit(input: BuildTotemInventoryInput): string | null {
+  const completed = completedSessionsSorted(input)
+  const qualifying = completed.filter((s) => sessionHasWarmup(s.id, input.executedSets))
+  if (qualifying.length < WARMUP_HABIT_SESSIONS) return null
+  return qualifying[WARMUP_HABIT_SESSIONS - 1]?.date ?? null
+}
+
+/**
+ * Streak threshold: `PREPARATION_STREAK_REQUIRED` consecutive completed sessions
+ * (in chronological order, no skipped intervening sessions) each carry a warm-up
+ * set. Tipping date = the date of the streak-completing session.
+ *
+ * Note: the totem id `triple-preparation` is retained for stability; the
+ * threshold has been locked at 5 by user decision (Phase E4a).
+ */
+function evalConsecutivePreparationStreak(input: BuildTotemInventoryInput): string | null {
+  const completed = completedSessionsSorted(input)
+  let streak = 0
+  for (const s of completed) {
+    if (sessionHasWarmup(s.id, input.executedSets)) {
+      streak += 1
+      if (streak >= PREPARATION_STREAK_REQUIRED) return s.date
+    } else {
+      streak = 0
+    }
+  }
+  return null
+}
+
 const EVALUATORS: Record<TotemId, (input: BuildTotemInventoryInput) => string | null> = {
   'first-session': evalFirstSession,
   'first-week': evalFirstWeek,
@@ -282,7 +476,11 @@ const EVALUATORS: Record<TotemId, (input: BuildTotemInventoryInput) => string | 
   'return-after-break': evalReturnAfterBreak,
   'first-mesocycle-complete': evalFirstMesocycleComplete,
   'first-deload-honored': evalFirstDeloadHonored,
+  'five-deloads-honored': evalFiveDeloadsHonored,
+  'first-rest-day-honored': evalFirstRestDayHonored,
   'rpe-awareness': evalRpeAwareness,
+  'warm-up-habit': evalWarmupHabit,
+  'triple-preparation': evalConsecutivePreparationStreak,
 }
 
 /**
@@ -295,7 +493,7 @@ export function buildTotemInventoryModel(input: BuildTotemInventoryInput): Totem
   // time-relative rules); current v1 evaluators are time-window-agnostic.
   void input.nowMs
 
-  const totems: TotemEntry[] = TOTEM_CATALOG_V1.map((entry) => {
+  const totems: TotemEntry[] = TOTEM_CATALOG_V2.map((entry) => {
     const earnedDateISO = EVALUATORS[entry.id](input)
     return {
       id: entry.id,

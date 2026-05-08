@@ -18,7 +18,7 @@ import type {
 } from '@/services/session/buildSessionExecutionModel'
 
 export type SessionExecutionActions = {
-  logSet: (repsActual: number, weightActual?: number) => void
+  logSet: (repsActual: number, weightActual?: number, isWarmup?: boolean) => void
   skipSet: () => void
   skipRest: () => void
   updateCurrentExerciseWeight: (newWeight: number) => void
@@ -128,8 +128,8 @@ export const ClassicSessionCards = ({ model, actions }: Props) => {
                 restSeconds: activeBlock.restSeconds,
               }}
               currentSet={model.currentSetIndex}
-              onComplete={(reps, weight) => {
-                actions.logSet(reps, weight)
+              onComplete={(reps, weight, isWarmup) => {
+                actions.logSet(reps, weight, isWarmup)
               }}
               onSkipSet={actions.skipSet}
             />

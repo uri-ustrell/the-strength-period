@@ -1,5 +1,5 @@
-import type { ExecutedSession, ExecutedSet } from '@/types/session'
 import type { Exercise } from '@/types/exercise'
+import type { ExecutedSession, ExecutedSet } from '@/types/session'
 
 export interface VolumeDataPoint {
   week: string
@@ -98,6 +98,8 @@ export function aggregateVolume(
   const allMuscles = new Set<string>()
 
   for (const s of sets) {
+    // Warm-ups excluded per Phase E4a
+    if (s.isWarmup === true) continue
     const ex = exerciseMap.get(s.exerciseId)
     if (!ex) continue
     const week = getISOWeek(s.date)
@@ -134,6 +136,8 @@ export function aggregateProgression(
 
   for (const s of sets) {
     if (s.exerciseId !== exerciseId) continue
+    // Warm-ups excluded per Phase E4a (PR / progression detection ignores warm-up sets).
+    if (s.isWarmup === true) continue
     const weight = s.weightKgActual ?? 0
     const volume = weight * s.repsActual
 
@@ -187,6 +191,8 @@ export function aggregatePRs(sets: ExecutedSet[]): PRRecord[] {
   const prs = new Map<string, PRRecord>()
 
   for (const s of sets) {
+    // Warm-ups excluded per Phase E4a (PR detection ignores warm-up sets).
+    if (s.isWarmup === true) continue
     const weight = s.weightKgActual ?? 0
     const volume = weight * s.repsActual
 

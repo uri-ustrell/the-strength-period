@@ -107,7 +107,24 @@
   - [x] Phase 3 — Mechanic design: `TotemInventoryModel`, `<TotemInventory>` contract, `theme.stats.*` tokens (+ retro-only `theme.game.stats.*`), shared a11y contract (non-modal inline inspect disclosure), i18n surface under `stats:totem.*` defined; audio gating contract via `statsAudio`; v1 catalog of 8 totems locked; zero new IDB / zero new telemetry confirmed
   - [x] Phase 4 — Implementation plan gate: D1–D11 ordered checklist with ACs in `tasks/todo.md`, both variants in parity at every step
   - [x] Phase D implementation (D1–D11) ✅ Complete — Implementer 2026-05-04 (see `specs/STATUS_HISTORY.md` → "2026-05-04 — Step 16 Phase D implementation"). Shared `buildTotemInventoryModel` selector + `<TotemInventory>` router + `RetroInventoryShelf`/`ClassicTotemGrid` renderers ship together off the same model; zero new IDB / zero new telemetry preserved; cross-variant parity test in place.
-- [ ] Phase E (optional polish: Lottie/Rive, sound layer expansion, possible analytics-chart variant theming) — gated by its own pre-execution review
+- **Phase E (Final polish + deferred totems: earn-ack frame, Rive microanims, chart variant theming, deferred totems by family) — pre-execution gates ✅ (2026-05-04, architect)**
+  - [x] Phase 0 — Source-of-truth & dependency check (Phase A/B/C/D complete; spec patched: Phase D chart scope-lock lifted, "zero new IDB stores" constraint scoped to Phase A–D, additive "Phase E Shared Contracts (Polish + Deferred Totems)" subsection appended covering E1 earn-ack contract, E2 Rive wrapper + license manifest, E3 chart theming wrapper, E4 deferred-totem families with v1→v2 IDB migration baseline + `TOTEM_CATALOG_V2`)
+  - [x] Phase 1 — Behavioral risk brief (two high-risk items mitigated: E2 motion-sickness/license → wrapper short-circuit + mandatory `*.LICENSE.md`; E4b shame-on-pain-flag → totem rewards act-of-flagging, no pain copy, no aggregated pain history; medium risks per sub-phase mitigated)
+  - [x] Phase 2 — UI/UX Integrity Gate: **INCREMENTAL with shared adapter** for all sub-phases (E1 extends `SessionCompletionModel`; E2 single `<RiveAnim>` wrapper retro-only lazy-loaded; E3 `<ChartThemeProvider>` wraps existing chart components without fork; E4 grows `TOTEM_CATALOG_V2` additively + per-family local capture UIs)
+  - [x] Phase 3 — Mechanic design: contracts for `SessionCompletionTotemPayload`, `<EarnAcknowledgement>`, `<RiveAnim>`, `<ChartThemeProvider>`, `--theme-charts-*` / `--theme-game-charts-*` namespaces, schema migration baseline (IDB v1→v2 additive + export format v1→v2 backward-compat), per-family evaluator signatures + i18n keys
+  - [x] Phase 4 — Implementation plan gate: ordered Phase E sub-phase checklist (E4g → E1 → E3 → E4a → E4f → E4b → E4c → E4d → E2; E4e moves to Phase F) recorded in `tasks/todo.md` with per-sub-phase mini-gate / implementer / reviewer cycles
+  - [x] E4g — Deload-family expansion (`five-deloads-honored`) — evaluator-only, ship first
+  - [x] E1 — Earn-acknowledgement frame
+  - [x] E3 — Chart variant theming (`VolumeChart`, `ProgressionChart`, `AdherenceChart`)
+  - [x] E4a — Warm-Up family (`warm-up-habit`, `triple-preparation`)
+  - [x] E4f — Rest-day family (`first-rest-day-honored`)
+  - [ ] E4b — Pain-flag family (`pain-signal-respected`)
+  - [ ] E4c — Notes family (`first-note`, `consistent-logger`)
+  - [ ] E4d — Planning audit-trail family (`honest-check-in`, `measured-step`) — adds `planningAuditLog` IDB store
+  - [ ] E2 — Rive microanims (`@rive-app/react-canvas` ~210KB lazy retro chunk)
+- **Phase F (Volume-based Recovery Indicator) — prerequisite for E4e (`recovery-read` totem) — pre-execution gates pending**
+  - Recovery indicator does NOT exist in `src/` (verified 2026-05-04 by grep `recoveryIndicator|recoveryState|RecoveryState|recoveryHint` → 0 matches). Phase F implements the spec section §"Volume-Based Recovery Estimation" (selector, advisory surfacing on planning + dashboard, transparency doc, capture event). Once Phase F lands, **E4e (`recovery-read`)** ships as part of Phase F.
+- Phase E parity decision (2026-05-04): **strict parity from day one** for E1, E3, and E4 inspect-panel rendering of new totems. E2 is intentionally retro-only (classic-boring is silent + still + AA-safe by design); the `<RiveAnim>` wrapper enforces fallback for classic and reduced-motion users.
 - Phase B parity decision (2026-05-04): **strict parity from day one** — every Phase B+ surface ships `retro-platformer` and `classic-boring` together; no temporary single-variant releases.
 - Phase C parity decision (2026-05-04): **strict parity from day one** — `RetroLevelRun` and `ClassicSessionCards` ship together off the same `SessionExecutionModel`; no temporary single-variant releases.
 - Phase D parity decision (2026-05-04): **strict parity from day one** — `RetroInventoryShelf` and `ClassicTotemGrid` ship together off the same `TotemInventoryModel`; no temporary single-variant releases. Existing quantitative analytics in `Stats.tsx` remain variant-agnostic in Phase D.

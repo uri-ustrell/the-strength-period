@@ -3,7 +3,14 @@ import type { Mesocycle } from '@/types/planning'
 import type { ExecutedSession, ExecutedSet } from '@/types/session'
 
 interface ExportData {
-  version: 1
+  /**
+   * Export-format version.
+   *  - `1`: Phase 0 baseline.
+   *  - `2`: Phase E4a/E4f baseline. Adds optional `ExecutedSet.isWarmup` and
+   *         optional `SessionTemplate.isPlannedRestDay` (both additive — no
+   *         field-level transform required). Import accepts both `1` and `2`.
+   */
+  version: 1 | 2
   exportedAt: string
   config: Array<{ key: string; value: unknown; updatedAt: string }>
   mesocycles: Mesocycle[]
@@ -22,7 +29,7 @@ export async function exportData(): Promise<void> {
   ])
 
   const data: ExportData = {
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
     config,
     mesocycles,
@@ -50,7 +57,7 @@ function isValidExportData(data: unknown): data is ExportData {
   if (typeof data !== 'object' || data === null) return false
   const d = data as Record<string, unknown>
   return (
-    d.version === 1 &&
+    (d.version === 1 || d.version === 2) &&
     typeof d.exportedAt === 'string' &&
     Array.isArray(d.config) &&
     Array.isArray(d.mesocycles) &&

@@ -1,10 +1,9 @@
 import { create } from 'zustand'
-
-import type { ExecutedSet, ExecutedSession } from '@/types/session'
+import { markTemplateCompleted, saveSession } from '@/services/db/sessionRepository'
 import type { GeneratedSession } from '@/services/exercises/sessionGenerator'
-import { saveSession, markTemplateCompleted } from '@/services/db/sessionRepository'
-import { computeNextAfterLog, computeNextAfterSkip } from '@/services/session/sessionNavigation'
 import type { NavigationInput } from '@/services/session/sessionNavigation'
+import { computeNextAfterLog, computeNextAfterSkip } from '@/services/session/sessionNavigation'
+import type { ExecutedSession, ExecutedSet } from '@/types/session'
 
 export type ExecutionMode = 'standard' | 'circuit'
 
@@ -38,13 +37,31 @@ interface SessionStore {
    *  IDs/timestamps here so a retry doesn't duplicate the row in IDB with a fresh
    *  UUID and a slightly later `completedAt`. Cleared on success or on `reset`. */
   pendingSessionDraft: { sessionId: string; completedAt: string } | null
+  /**
+   * Step 16 Phase E sub-phase E1 — last successfully finished session id.
+   * Persists across the cleared `pendingSessionDraft` so the page-level
+   * earn-acknowledgement effect can identify which session to diff against.
+   * Cleared by `reset`. `null` until at least one session has been saved
+   * via `finishSession`.
+   */
+  lastFinishedSessionId: string | null
+  /** ISO `YYYY-MM-DD` of `lastFinishedSessionId`. Derived from `completedAt`. */
+  lastFinishedSessionDateISO: string | null
+  /**
+   * Step 16 Phase E sub-phase E1 (W5 fix) — full ISO timestamp of the moment
+   * the session flipped to finished (mint time). Carried alongside
+   * `lastFinishedSessionId` so the page-level synthesized `ExecutedSession`
+   * can use the real `completedAt` instead of midnight-UTC of the date
+   * string. Cleared by `reset`.
+   */
+  lastFinishedSessionCompletedAtISO: string | null
 
   // Actions
   setPreviewSession: (session: GeneratedSession) => void
   removeExerciseFromPreview: (index: number) => void
   startSession: (session?: GeneratedSession) => void
   setExecutionMode: (mode: ExecutionMode) => void
-  logSet: (repsActual: number, weightActual?: number) => void
+  logSet: (repsActual: number, weightActual?: number, isWarmup?: boolean) => void
   skipSet: () => void
   updateCurrentExerciseWeight: (newWeight: number) => void
   startRest: (seconds: number) => void
@@ -56,6 +73,26 @@ interface SessionStore {
 }
 
 const toDateString = (iso: string): string => iso.slice(0, 10)
+
+/**
+ * Step 16 Phase E sub-phase E1 (N1 fix) — at the moment `isFinished` flips to
+ * true (auto-finish via the last set, or `finishEarly`) we mint the session id
+ * + `completedAt` and expose them on the store so the page-level
+ * earn-acknowledgement pipeline can render synchronously, BEFORE the user
+ * taps Save & close. The same draft is later reused inside `finishSession`
+ * so the eventually-persisted IDB row carries the same id the ack frame
+ * keyed off — no duplicate row, no id drift.
+ */
+const buildFinishMeta = () => {
+  const completedAt = new Date().toISOString()
+  const sessionId = crypto.randomUUID()
+  return {
+    pendingSessionDraft: { sessionId, completedAt },
+    lastFinishedSessionId: sessionId,
+    lastFinishedSessionDateISO: toDateString(completedAt),
+    lastFinishedSessionCompletedAtISO: completedAt,
+  }
+}
 
 const initialState = {
   generatedSession: null,
@@ -73,6 +110,9 @@ const initialState = {
   isSaving: false,
   error: null,
   pendingSessionDraft: null,
+  lastFinishedSessionId: null,
+  lastFinishedSessionDateISO: null,
+  lastFinishedSessionCompletedAtISO: null,
 }
 
 export const useSessionStore = create<SessionStore>((set, get) => ({
@@ -132,7 +172,7 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
     set({ generatedSession: { ...generatedSession, exercises } })
   },
 
-  logSet: (repsActual, weightActual) => {
+  logSet: (repsActual, weightActual, isWarmup) => {
     const state = get()
     const {
       generatedSession,
@@ -164,6 +204,7 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
       weightKgPlanned: currentExercise.weightKg,
       weightKgActual: weightActual,
       completedAt: new Date().toISOString(),
+      ...(isWarmup ? { isWarmup: true } : {}),
     }
 
     const updatedSets = [...executedSets, newSet]
@@ -188,9 +229,11 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
       isFinished: nav.isFinished,
       isResting: nav.isResting,
       restSecondsRemaining: nav.restSecondsRemaining,
-      restEndsAt: nav.isResting && nav.restSecondsRemaining > 0
-        ? Date.now() + nav.restSecondsRemaining * 1000
-        : null,
+      restEndsAt:
+        nav.isResting && nav.restSecondsRemaining > 0
+          ? Date.now() + nav.restSecondsRemaining * 1000
+          : null,
+      ...(nav.isFinished ? buildFinishMeta() : {}),
     })
   },
 
@@ -221,9 +264,11 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
       isFinished: nav.isFinished,
       isResting: nav.isResting,
       restSecondsRemaining: nav.restSecondsRemaining,
-      restEndsAt: nav.isResting && nav.restSecondsRemaining > 0
-        ? Date.now() + nav.restSecondsRemaining * 1000
-        : null,
+      restEndsAt:
+        nav.isResting && nav.restSecondsRemaining > 0
+          ? Date.now() + nav.restSecondsRemaining * 1000
+          : null,
+      ...(nav.isFinished ? buildFinishMeta() : {}),
     })
   },
 
@@ -251,7 +296,13 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
   },
 
   finishEarly: () => {
-    set({ isFinished: true, isResting: false, restEndsAt: null, restSecondsRemaining: 0 })
+    set({
+      isFinished: true,
+      isResting: false,
+      restEndsAt: null,
+      restSecondsRemaining: 0,
+      ...buildFinishMeta(),
+    })
   },
 
   finishSession: async (globalRpe, notes) => {
@@ -262,11 +313,10 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
 
     // Reuse the draft from a previous failed attempt so we never write two rows
     // with different IDs but the same logical session.
-    const draft =
-      state.pendingSessionDraft ?? {
-        sessionId: crypto.randomUUID(),
-        completedAt: new Date().toISOString(),
-      }
+    const draft = state.pendingSessionDraft ?? {
+      sessionId: crypto.randomUUID(),
+      completedAt: new Date().toISOString(),
+    }
 
     set({ isSaving: true, error: null, pendingSessionDraft: draft })
 
@@ -295,7 +345,13 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
         await markTemplateCompleted(mesocycleId, templateId)
       }
 
-      set({ isSaving: false, pendingSessionDraft: null })
+      set({
+        isSaving: false,
+        pendingSessionDraft: null,
+        lastFinishedSessionId: draft.sessionId,
+        lastFinishedSessionDateISO: toDateString(draft.completedAt),
+        lastFinishedSessionCompletedAtISO: draft.completedAt,
+      })
     } catch (err) {
       set({ error: (err as Error).message, isSaving: false })
     }

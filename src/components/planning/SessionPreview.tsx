@@ -33,6 +33,26 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
     return map
   }, [session.exerciseAssignments, exercises])
 
+  // Phase E4f — planned rest days short-circuit: render a calm "rest" view
+  // with no exercise list, no skip/log CTAs. Honoring is by NOT executing.
+  if (session.isPlannedRestDay === true) {
+    return (
+      <div className="rounded-lg bg-slate-50 px-3 py-2">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-medium text-slate-500">
+            {t(`planning:day_short.${DAY_KEYS[session.dayOfWeek]}`)}
+          </span>
+          <span className="text-xs font-semibold text-slate-700">
+            {t('planning:rest_day.label')}
+          </span>
+        </div>
+        <p className="mt-1 text-[11px] text-slate-500">
+          {t('planning:rest_day.preview_description')}
+        </p>
+      </div>
+    )
+  }
+
   const totalSets = session.muscleGroupTargets.reduce((sum, mg) => sum + mg.loadTarget.sets, 0)
 
   if (compact) {

@@ -39,6 +39,11 @@
     "reps_actual": "Repeticions fetes",
     "weight_actual": "Pes usat (kg)",
     "complete_set": "Completar sèrie",
+    "set_logger": {
+      "warmup_toggle": {
+        "label": "Escalfament"
+      }
+    },
     "skip_rest": "Saltar descans",
     "summary": "Resum de la sessió",
     "exercises_done": "Exercicis completats",
@@ -86,6 +91,18 @@
       },
       "retro": {
         "level_clear": "Nivell superat!"
+      },
+      "totem_ack": {
+        "calm": {
+          "headline": "Nova fita",
+          "body": "Has aconseguit: {{totemName}}.",
+          "also_earned": "També has aconseguit: {{names}}."
+        },
+        "retro": {
+          "headline": "Tòtem aconseguit",
+          "body": "{{totemName}} desbloquejat.",
+          "also_earned": "També desbloquejat: {{names}}."
+        }
       }
     }
   },

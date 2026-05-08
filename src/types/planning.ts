@@ -59,6 +59,8 @@ export type SessionTemplate = {
   exerciseAssignments?: ExerciseAssignment[]
   completed: boolean
   skipped: boolean
+  /** When true, this template represents a planned rest day (no exercises). Honoring it (not training that day) earns the rest-day totem (Phase E4f). */
+  isPlannedRestDay?: boolean
 }
 
 export type Mesocycle = {

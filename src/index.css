@@ -119,6 +119,7 @@ body {
    * weeks and totem families share the same visual vocabulary. */
   --theme-stats-family-consistency: var(--theme-dashboard-week-accent-1, #a5b4fc); /* indigo-300 */
   --theme-stats-family-recovery: var(--theme-dashboard-week-accent-3, #5eead4); /* teal-300 */
+  --theme-stats-family-preparation: var(--theme-dashboard-week-accent-2, #c4b5fd); /* violet-300 — Phase E4a */
   --theme-stats-family-reflection: var(--theme-dashboard-week-accent-5, #fcd34d); /* amber-300 */
 
   /* Surface chrome (slot background, empty-state muted text, inspect panel). */
@@ -133,4 +134,41 @@ body {
   --theme-game-stats-sprite-scale: 2; /* integer multiplier for pixel sprites */
   --theme-game-stats-chime-attack-ms: 8; /* pickup-chime envelope (attack) */
   --theme-game-stats-chime-decay-ms: 120; /* pickup-chime envelope (decay) */
+}
+
+/*
+ * --- Step 16 Phase E sub-phase E3: Shared Analytics Chart Tokens -----------
+ *
+ * Spec: specs/features/16-ethical-gamification.md → "Phase E Shared Contracts
+ * (Polish + Deferred Totems) → E3 — Chart Variant Theming Contract".
+ *
+ * Both `retro-platformer` and `classic-boring` renderers consume the shared
+ * `--theme-charts-*` tokens via the `<ChartThemeProvider>` wrapper around
+ * each chart instance. Classic charts inherit these `:root` defaults
+ * unchanged (zero pixel font, current Tailwind palette). Retro overrides
+ * the same tokens at the wrapper scope and additionally provides retro-only
+ * `--theme-game-charts-*` tokens (axis font, letter spacing, tick stroke)
+ * that are NEVER read by the classic variant.
+ *
+ * `MUSCLE_COLORS` in `VolumeChart.tsx` is intentionally NOT tokenized — it
+ * encodes data identity (per-muscle hue) and stays variant-agnostic.
+ *
+ * AA contrast on white card background (`bg-white` on each <section> in
+ * `Stats.tsx`) audited in `src/utils/contrast.test.ts`:
+ *   - axis-fg #64748b vs #ffffff   = 4.55:1  (≥ 4.5)
+ *   - legend-fg #64748b vs #ffffff = 4.55:1  (≥ 4.5)
+ *   - tooltip-fg #0f172a vs #ffffff = 18.69:1 (≥ 4.5)
+ */
+:root {
+  --theme-charts-axis-fg: #64748b; /* slate-500 */
+  --theme-charts-grid: #f0f0f0;
+  --theme-charts-tooltip-bg: #ffffff;
+  --theme-charts-tooltip-fg: #0f172a; /* slate-900 */
+  --theme-charts-legend-fg: #64748b; /* slate-500 */
+  --theme-charts-series-1: #6366f1; /* indigo-500 */
+  --theme-charts-series-2: #14b8a6; /* teal-500 */
+  --theme-charts-series-3: #c7d2fe; /* indigo-200 */
+  --theme-charts-series-4: #f59e0b; /* amber-500 */
+  --theme-charts-series-5: #8b5cf6; /* violet-500 */
+  --theme-charts-series-6: #3b82f6; /* blue-500 */
 }

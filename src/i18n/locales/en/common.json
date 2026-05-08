@@ -39,6 +39,11 @@
     "reps_actual": "Reps done",
     "weight_actual": "Weight used (kg)",
     "complete_set": "Complete set",
+    "set_logger": {
+      "warmup_toggle": {
+        "label": "Warm-up"
+      }
+    },
     "skip_rest": "Skip rest",
     "summary": "Session summary",
     "exercises_done": "Exercises completed",
@@ -86,6 +91,18 @@
       },
       "retro": {
         "level_clear": "Level clear!"
+      },
+      "totem_ack": {
+        "calm": {
+          "headline": "New milestone",
+          "body": "You earned: {{totemName}}.",
+          "also_earned": "Also earned: {{names}}."
+        },
+        "retro": {
+          "headline": "Totem earned",
+          "body": "{{totemName}} unlocked.",
+          "also_earned": "Also unlocked: {{names}}."
+        }
       }
     }
   },

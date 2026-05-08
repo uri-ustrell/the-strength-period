@@ -39,6 +39,11 @@
     "reps_actual": "Repeticiones hechas",
     "weight_actual": "Peso usado (kg)",
     "complete_set": "Completar serie",
+    "set_logger": {
+      "warmup_toggle": {
+        "label": "Calentamiento"
+      }
+    },
     "skip_rest": "Saltar descanso",
     "summary": "Resumen de la sesión",
     "exercises_done": "Ejercicios completados",
@@ -86,6 +91,18 @@
       },
       "retro": {
         "level_clear": "¡Nivel superado!"
+      },
+      "totem_ack": {
+        "calm": {
+          "headline": "Nuevo hito",
+          "body": "Has conseguido: {{totemName}}.",
+          "also_earned": "También has conseguido: {{names}}."
+        },
+        "retro": {
+          "headline": "Tótem obtenido",
+          "body": "{{totemName}} desbloqueado.",
+          "also_earned": "También desbloqueado: {{names}}."
+        }
       }
     }
   },

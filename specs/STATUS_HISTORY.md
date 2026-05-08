@@ -7,6 +7,545 @@
 
 ## Recent Changes
 
+### 2026-05-08 — Step 16 Phase E sub-phase E4f review + i18n blocker fix
+
+**Reviewer verdict:** initial FAIL (one shipping blocker), now PASS-WITH-NOTES after fix.
+
+**Blocker B1 (FIXED):** All 6 i18n keys (`stats.totem.first_rest_day_honored.{name,rule}` × 3 locales + `planning.rest_day.{label,mark_button,unmark_button,preview_description}` × 3 locales) were claimed-as-shipped in the implementation entry but were absent from every locale file. Reviewer caught this via direct file inspection. `npm run i18n:check` did not detect the gap because it only verifies symmetric parity across locales — when keys are missing identically in ALL three, parity holds. Tests passed because they assert on totem ids, not resolved copy.
+
+**User-visible impact (had we shipped):** WeekView "+" affordance, rest-day card in SessionPreview, and the `first-rest-day-honored` totem in the inspect panel would all render literal i18n key strings (`planning:rest_day.label`, `stats:totem.first_rest_day_honored.name`, etc.) instead of localized copy. Catastrophic for the very feature E4f ships, and a direct guardrail violation.
+
+**Fix applied (2026-05-08):**
+- Added `first_rest_day_honored.{name,rule}` to all 3 `stats.json` after `triple_preparation` (idiomatic CA/ES copy, calm tone, no shame language).
+- Added `rest_day.{label,mark_button,unmark_button,preview_description}` to all 3 `planning.json` (top-level). Dropped `short_label` per reviewer recommendation (no source consumer).
+- Re-verified all 4 gates: i18n parity ✓ · lint 0 errors ✓ · 146/146 tests ✓ · build success ✓.
+- Updated `/memories/repo/i18n-parity.md` to document the parity-only limitation and the new "grep source after adding keys" verification step.
+
+**Reviewer non-blocking notes (carried forward):**
+- W1 — `plannedSessionDateUTC` duplicates Monday-anchored math from `getSessionDate` (intentional: UTC vs local-time). Recommend back-reference JSDoc in `getSessionDate`.
+- W2 — `WeekView` capture buttons gated by `activeMesocycle?.id === mesocycle.id`; if WeekView is ever rendered for the active meso in a read-only context, write affordances would leak. Optional `readOnly?: boolean` prop suggested. No current leak found.
+- W3 — `unmarkRestDay` defensive guard is silent on non-rest-day ids. Acceptable per JSDoc rationale.
+- I1 — No `exportImport.ts` round-trip tests exist (none before, none added). `version: 1 | 2` accept logic + `version: 2` emit unverified by tests. Recommended follow-up.
+- I2 — `payload!` non-null assertions in `buildSessionCompletionTotemPayload.test.ts` confirmed style-only (each block precedes with `expect(payload).not.toBeNull()`).
+
+**Outcome:** E4f closed cleanly after blocker fix. All warnings non-blocking; carried as known polish items.
+
+---
+
+### 2026-05-08 — Step 16 Phase E sub-phase E4f implementation (rest-day family — full scope)
+
+**Scope:** First time-relative totem evaluator + first per-empty-slot planning capture surface. Ships ONE new totem (`first-rest-day-honored`) inside the existing `recovery` family. No `TotemFamily` / `FAMILY_ORDER` change. No IDB schema bump (additive optional field on embedded JSON record).
+
+**Files modified — UI / planning plumbing (prior dispatch):**
+- `src/types/planning.ts` — `SessionTemplate.isPlannedRestDay?: boolean` (additive optional).
+- `src/stores/planningStore.ts` — `markRestDay` / `unmarkRestDay` actions (toggle by week/day, append minimal rest-day template or remove).
+- `src/components/planning/WeekView.tsx` — per-empty-slot "Mark as rest day" capture surface (active mesocycle only, neutral non-red dot).
+- `src/components/planning/SessionPreview.tsx` — distinct rest-day rendering (no shame copy).
+- `src/services/db/database.ts` — comment clarification only (no v3 bump; baseline already at v2).
+- `src/services/db/exportImport.ts` — bumped to `version: 2` with `1 | 2` accept type (backward-compat import).
+- `src/i18n/locales/{ca,es,en}/planning.json` — `planning.rest_day.*` keys.
+- `src/i18n/locales/{ca,es,en}/stats.json` — `stats.totem.first_rest_day_honored.*` keys.
+
+**Files modified — catalog + evaluator + tests (this pass):**
+- `src/services/stats/buildTotemInventoryModel.ts`:
+  - Extended `TotemId` union with `'first-rest-day-honored'` (placed alphabetically/logically near other recovery totems).
+  - Inserted catalog entry into `TOTEM_CATALOG_V2` AFTER `five-deloads-honored` and BEFORE the preparation band entries (preserves canonical family order Consistency → Recovery → Preparation → Reflection).
+  - Added `evalFirstRestDayHonored(input)` — first time-relative evaluator. Honor predicate: `isPlannedRestDay === true` AND planned calendar date strictly past `todayISO` (UTC, today exclusive) AND no `ExecutedSession.date` matches that rest-day date. Returns the EARLIEST honored rest-day calendar date (chronological).
+  - Added `plannedSessionDateUTC(startDate, weekNumber, dayOfWeek)` — UTC-pure analogue of `getSessionDate` from `@/utils/dateHelpers`. Mirrors the Monday-anchored ISO `dayOfWeek` math but operates entirely in UTC for determinism against `input.nowMs`. Inlined here (rather than importing the local-Date helper) to keep the evaluator a pure function with no timezone leakage.
+  - Wired `'first-rest-day-honored': evalFirstRestDayHonored` into the `EVALUATORS` map.
+- `src/services/stats/buildTotemInventoryModel.test.ts` — appended `Phase E4f — first-rest-day-honored` describe block with 7 cases (fixed `nowMs = Date.UTC(2025, 5, 15)` → `todayISO = '2025-06-15'`; mesocycle `startDate = 2025-06-02` Monday-anchored fixture):
+  1. No planned rest days → `available`.
+  2. One future planned rest day (tomorrow, 2025-06-16) → `available`.
+  3. One planned rest day === today (2025-06-15) → `available` (today exclusive).
+  4. One past planned rest day (2025-06-02), no executions → `earned`, date `'2025-06-02'`.
+  5. One past planned rest day with `ExecutedSession.date` match → `available` (honor broken).
+  6. Two past planned rest days (2025-06-02 + 2025-06-09), both honored → `earned`, returns the EARLIER (`'2025-06-02'`).
+  7. Two past planned rest days, only the second honored → `earned`, returns the second (`'2025-06-09'`).
+  - Also bumped the catalog-invariant test (`V2 == V1 + {five-deloads-honored, first-rest-day-honored, warm-up-habit, triple-preparation}`, length `+ 4`).
+- `src/services/session/buildSessionCompletionTotemPayload.test.ts` — appended `Phase E4f — first-rest-day-honored earn-ack diff` describe with 1 case: before `available` + after `earned` → `newlyEarnedIds` contains `'first-rest-day-honored'` AND `primaryTotemId === 'first-rest-day-honored'` (only newly-earned totem in the diff). No selector change required — the id-driven diff already covers the new totem.
+
+**Verification:**
+- `npm run i18n:check` → ✅ 3 locales / 6 namespaces in parity.
+- `npm run lint` (`tsc --noEmit`) → ✅ 0 errors.
+- `npx vitest run` → ✅ 146/146 tests pass (was 138 → +8: 7 evaluator cases + 1 earn-ack diff).
+- `npm run build` → ✅ success.
+
+**Outcome:** Phase E sub-phase E4f closed. Locked Phase E order is now: E4g ✅ → E1 ✅ → E3 ✅ → E4a ✅ → E4f ✅ → E4b → E4c → E4d → E2 (E4e moved to Phase F).
+
+---
+
+### 2026-05-08 — Step 16 Phase E sub-phase E4f pre-execution mini-gate (rest-day family)
+
+**Architect verdict:** GO with 3 Open Questions, all resolved by user.
+
+**User-locked decisions:**
+1. **Bump export version 1→2** (with backward-compat: import accepts both `1` and `2`).
+2. **Ship ONLY `first-rest-day-honored`** (single-shot; defer cumulative/streak variants).
+3. **WeekView per-empty-slot capture surface** (active mesocycle; not in PlanCreator wizard).
+
+**Schema:** `SessionTemplate.isPlannedRestDay?: boolean` added. **No IDB version bump** — DB already at v2 (E4a covers all three E4 additive optional fields per spec baseline). Field is additive optional on an embedded JSON record (`Mesocycle.sessions[]`); IDB schemaless within object stores.
+
+**Family:** Reuse existing `'recovery'` family (no `TotemFamily` / `FAMILY_ORDER` change). Catalog: ONE new entry `first-rest-day-honored`, inserted after `five-deloads-honored` in the recovery band.
+
+**Capture surface:** Per-empty-slot "Mark as rest day" button in `WeekView`, materialising a minimal rest-day `SessionTemplate` with `isPlannedRestDay: true`. Distinct neutral dot color (NEVER red — "no shame copy" guardrail). Toggle action in `planningStore` (`markRestDay` / `unmarkRestDay`).
+
+**Evaluator:** `evalFirstRestDayHonored` — earned when ≥1 `SessionTemplate` has `isPlannedRestDay === true` AND its calendar date is strictly past today (UTC) AND no `ExecutedSession.date` matches. Tipping = earliest honored rest-day calendar date. First time-relative evaluator (uses `input.nowMs`).
+
+**Earn-ack:** Zero changes to `buildSessionCompletionTotemPayload` — diff-driven path already covers the new id. Earn-ack fires opportunistically on next session finish; no background trigger by design.
+
+**Out-of-scope guardrails restated:** no `painFlag` (E4b), no notes UI (E4c), no `planningAuditLog` (E4d), no `Executed*` changes, no chart/dashboard/aggregation changes, no warm-up touch (E4a closed), no `MUSCLE_COLORS` change.
+
+**Verdict:** GO. Implementer to dispatch with all 3 user decisions locked.
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E4a fix pass (W1 + W3 + W4)
+
+User-locked fixes for the three reviewer warnings (all confirmed via `vscode_askQuestions`):
+
+**W1 — Totem name aligned with 5-streak threshold (id stable):**
+- `src/i18n/locales/en/stats.json`: `triple_preparation.name` "Triple preparation" → "Five preparations in a row".
+- `src/i18n/locales/ca/stats.json`: "Triple preparació" → "Cinc preparacions seguides".
+- `src/i18n/locales/es/stats.json`: "Triple preparación" → "Cinco preparaciones seguidas".
+- Totem id `triple-preparation` retained for catalog stability (Phase E is pre-launch, no migration cost; renaming just the user-facing copy is the cleaner scope).
+
+**W2 — Misleading function name renamed:**
+- `src/services/stats/buildTotemInventoryModel.ts`: `evalTriplePreparation` → `evalConsecutivePreparationStreak`. JSDoc updated to clarify the id retention. EVALUATORS map entry updated.
+
+**W3 — A11y duplication removed:**
+- `src/components/session/SetLogger.tsx`: dropped `aria-label` attribute from the warm-up `<input type="checkbox">`. The implicit `<label>` association via the visible `<span>` ("Warm-up") now names the control naturally for screen readers (consistent visible + accessible name).
+- Removed now-unused `session.set_logger.warmup_toggle.aria_label` key from all three locale `common.json` files.
+
+**W4 — Threshold constants extracted:**
+- `src/services/stats/buildTotemInventoryModel.ts`: introduced `WARMUP_HABIT_SESSIONS = 10` and `PREPARATION_STREAK_REQUIRED = 5` named constants. Both evaluators now reference the constants instead of inline literals; `qualifying[9]` replaced with `qualifying[WARMUP_HABIT_SESSIONS - 1]`.
+
+**Verification (final post-fix):**
+- `npm run i18n:check` → ✅ 3 locales / 6 namespaces in parity
+- `npm run lint` (`tsc --noEmit`) → ✅ 0 errors
+- `npx vitest run` → ✅ 138/138 tests pass (no regression — tests reference only ids, not display copy)
+- `npm run build` → ✅ success
+
+**Outcome:** Phase E sub-phase E4a fully closed. All reviewer warnings resolved per user-locked decisions.
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E4a review (warm-up family)
+
+**Reviewer verdict:** PASS-WITH-NOTES. No blockers.
+
+**Audit confirmed:**
+- All 3 user-locked decisions correctly applied (volume/PR exclusion via strict `=== true` filter at 4 sites — `buildSessionExecutionModel.ts:190`, `statsAggregation.ts:102/140/195`; both totems shipped; thresholds 10/5).
+- IDB v1→v2 migration safe (`oldVersion`-guarded blocks, additive optional field).
+- Backward compatibility correct: existing rows with `isWarmup === undefined` fall through and count toward volume/PR.
+- E1 selector picks up new totems with no code change (catalog + FAMILY_ORDER drive ranking).
+- Family ordering invariant test passes; mirror constant in `totemInventoryShared.ts` updated.
+- Scope minimal: every touched file has a clear E4a rationale (plumbing, family band CSS, fixture, renderer constants).
+- i18n strict parity with idiomatic Catalan/Spanish copy (not transliterated).
+- 138/138 tests green; lint 0 errors; build success; i18n parity.
+
+**Warnings flagged (non-blocking):**
+- **W1 — Totem name vs threshold dissonance.** Id `triple-preparation` and localized name "Triple preparation"/"Triple preparació"/"Triple preparación" imply 3, but rule + evaluator require 5. Rule body in all locales correctly says "5 sessions" — internal copy inconsistency. Surfaced to user for decision (rename to e.g. "Five-in-a-row preparation" / lower threshold to 3 / accept).
+- **W2 — Function name `evalTriplePreparation` is misleading.** Same root cause as W1; internal naming only. Recommend rename to `evalConsecutivePreparationStreak` or extract `STREAK_REQUIRED = 5` constant.
+- **W3 — A11y duplication on warm-up toggle.** `SetLogger.tsx:103-110` — `<input>` has both implicit `<label>` association (visible "Warm-up") and `aria-label` ("Mark this set as a warm-up"). `aria-label` overrides → screen readers announce the longer string. Both work; recommend dropping `aria-label` to let visible label name the control.
+- **W4 — Magic numbers.** Thresholds inlined (`< 10`, `>= 5`, `qualifying[9]`). Extracting named constants would aid auditability. Style improvement, consistent with existing code.
+
+**Info (no action required):**
+- I1 — IDB migration test deferred (no jsdom IDB harness in repo). Backfill when E4d lands `planningAuditLog`.
+- I2 — `exportImport.ts` v1→v2 deferred (forward-compatible since additive optional).
+- I3 — `EVALUATOR_REGISTRY` vs `EVALUATORS` cosmetic identifier mismatch in task summary.
+- I4 — `sessionHasWarmup` is O(N·M); fine for realistic history sizes.
+
+**Outcome:** E4a closed pending user decision on W1+W2 naming dissonance. Whether to fix in this sub-phase or carry forward as a known issue is a user call.
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E4a implementation (warm-up family)
+
+**Scope:** First IDB schema bump (v1→v2, additive no-op), first `preparation` family entries in `TOTEM_CATALOG_V2`, per-set warm-up toggle in `SetLogger`, two new totems (`warm-up-habit` cumulative ≥10, `triple-preparation` streak ≥5). Warm-up sets are excluded from training-volume aggregation AND from PR / progression detection per user-locked decision.
+
+**User-locked decisions applied:**
+1. Warm-ups excluded from volume aggregation AND PR detection (`set.isWarmup === true` filtered out in HUD volume, weekly muscle volume, progression chart, and PR table).
+2. Both totems shipped (`warm-up-habit` cumulative + `triple-preparation` streak).
+3. Thresholds: `warm-up-habit` ≥ 10 qualifying sessions; `triple-preparation` = 5 consecutive qualifying sessions.
+
+**Files modified:**
+- [src/types/session.ts](src/types/session.ts) — added `ExecutedSet.isWarmup?: boolean` (additive optional).
+- [src/services/db/database.ts](src/services/db/database.ts) — IDB version 1 → 2; `upgrade(db, oldVersion)` switch with `oldVersion < 1` baseline schema block and `oldVersion < 2` E4a no-op block (additive field needs no schema change).
+- [src/stores/sessionStore.ts](src/stores/sessionStore.ts) — `logSet` signature extended to `(repsActual, weightActual?, isWarmup?)`; spreads `{ isWarmup: true }` onto the persisted `ExecutedSet` only when truthy (keeps stored rows minimal for non-warm-up sets).
+- [src/components/session/SetLogger.tsx](src/components/session/SetLogger.tsx) — added warm-up checkbox toggle between weight input and complete-set CTA. Local `useState` (default `false`); resets after each logged set. `aria-label` from `common:session.set_logger.warmup_toggle.aria_label`. `onComplete` signature extended to forward `isWarmup`.
+- [src/components/session/RetroLevelRun.tsx](src/components/session/RetroLevelRun.tsx) — `SessionExecutionActions.logSet` signature extended; `onComplete` callback forwards `isWarmup`.
+- [src/components/session/ClassicSessionCards.tsx](src/components/session/ClassicSessionCards.tsx) — same signature/forwarding change as retro variant (strict parity).
+- [src/services/session/buildSessionExecutionModel.ts](src/services/session/buildSessionExecutionModel.ts) — `computeHud` skips warm-up sets when summing `volumeKg` (RPE mean kept on all logged sets — RPE is a self-report independent of work-set classification).
+- [src/services/stats/statsAggregation.ts](src/services/stats/statsAggregation.ts) — `aggregateVolume` (weekly muscle volume), `aggregateProgression` (per-exercise weight/volume series), and `aggregatePRs` (PR table) all filter out `isWarmup === true` sets.
+- [src/services/stats/buildTotemInventoryModel.ts](src/services/stats/buildTotemInventoryModel.ts) — extended `TotemId` union with `'warm-up-habit'` + `'triple-preparation'`; extended `TotemFamily` union with `'preparation'`; appended both entries inside the new `preparation` band of `TOTEM_CATALOG_V2` (between `five-deloads-honored` and `rpe-awareness`); added exported `FAMILY_ORDER = ['consistency','recovery','preparation','reflection']`; added private `sessionHasWarmup` helper + `evalWarmupHabit` (10th qualifying-session date) + `evalTriplePreparation` (5th-of-streak date); registered both in `EVALUATORS`.
+- [src/components/stats/totemInventoryShared.ts](src/components/stats/totemInventoryShared.ts) — extended `FAMILY_ORDER` and `FAMILY_VAR` to include `preparation` (renderers automatically pick up the new family band).
+- [src/index.css](src/index.css) — added `--theme-stats-family-preparation: var(--theme-dashboard-week-accent-2, #c4b5fd)` token (violet-300, distinct from the other 3 family motifs; reused dashboard week-accent-2 to keep the visual vocabulary).
+- [src/i18n/locales/{ca,es,en}/stats.json](src/i18n/locales/en/stats.json) — added `totem.family.preparation`, `totem.warm_up_habit.{name,rule}`, `totem.triple_preparation.{name,rule}` (3 locales × 5 keys = 15 strings).
+- [src/i18n/locales/{ca,es,en}/common.json](src/i18n/locales/en/common.json) — added nested `session.set_logger.warmup_toggle.{label,aria_label}` (3 locales × 2 keys = 6 strings).
+
+**Tests added/changed:**
+- [src/services/stats/buildTotemInventoryModel.test.ts](src/services/stats/buildTotemInventoryModel.test.ts) — updated catalog count assertion (V1 + 3); new `Phase E4a — preparation family` describe block with 8 tests covering family-band ordering invariant, `warm-up-habit` 9/10/mixed cases, `triple-preparation` 4/5/broken/6 cases.
+- [src/services/session/buildSessionExecutionModel.test.ts](src/services/session/buildSessionExecutionModel.test.ts) — added `excludes warm-up sets from volumeKg (Phase E4a)` test (2 warm-up + 3 work sets → volume 1400, count 5).
+- SetLogger render test deferred — there is no existing SetLogger.test.tsx in the repo (per user instructions: "only if SetLogger has existing tests; if none, defer").
+- IDB migration test deferred — there is no existing jsdom IDB test harness; the additive-optional shape is exercised implicitly by every selector that filters `isWarmup === true`.
+
+**Test counts:** 129 → 138 (+9 = 8 new totem tests + 1 new volume-filter test). All 25 test files pass.
+
+**Verification (final, all four gates green):**
+- `npm run i18n:check` → ✅ exit 0 (3 locales / 6 namespaces in parity)
+- `npm run lint` (`tsc --noEmit`) → ✅ exit 0 (after adding `preparation` to `FAMILY_VAR` map to satisfy `Record<TotemFamily, string>` exhaustiveness)
+- `npx vitest run` → ✅ exit 0, 138/138 tests pass across 25 files
+- `npm run build` → ✅ exit 0, dist generated, PWA precache 7 entries / 1379.95 KiB
+
+**Deviations from the user-approved plan:**
+1. `exportImport.ts` version bump (E4a.8) **deferred** — not in user-locked scope and the additive-optional `isWarmup` field is forward-compatible: a v1 export round-tripped through v2 import (and vice versa) preserves all data; older records read as `isWarmup === undefined` → naturally classified as work-sets. Recorded as **DEFERRED** in [tasks/todo.md](tasks/todo.md).
+2. PR detection — repo has no dedicated 1RM/personal-record service; PR semantics live in `aggregatePRs` + `aggregateProgression` (statsAggregation). Both received the warm-up filter with inline `// Warm-ups excluded per Phase E4a` comments. No "PR system" was invented.
+3. SetLogger render test — no pre-existing `SetLogger.test.tsx` in repo, so the toggle UI is exercised indirectly via the parent renderer tests (which still pass post-edit). Followed user instruction "if none, defer".
+4. IDB migration test — no existing jsdom IDB harness in `src/services/db/`; deferred per the same "additive-only schema, no behavioral migration code" rationale.
+
+**Out of scope (preserved):** `MUSCLE_COLORS`, `planningAuditLog`, `painFlag`, `isPlannedRestDay`, recovery indicator, Rive wrapper, chart theming surfaces, dashboard map, planning surfaces. Zero new IDB stores. Zero `console.*` calls added.
+
+**Outcome:** Phase E sub-phase E4a closed. Locked Phase E order is now: E4g ✅ → E1 ✅ → E3 ✅ → E4a ✅ → E4f → E4b → E4c → E4d → E2 (E4e moved to Phase F).
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E4a pre-execution mini-gate (warm-up family)
+
+**Scope:** First IDB schema bump (v1→v2, additive no-op), first `preparation` family entry in `TOTEM_CATALOG_V2`, per-set warm-up toggle in `SetLogger`, two new totems (`warm-up-habit`, `triple-preparation`).
+
+**Architect mini-gate:** 🟡 GO (conditional). Source-verified:
+- `FAMILY_ORDER` currently `['consistency','recovery','reflection']`; spec mandates insertion at index 2 → `['consistency','recovery','preparation','reflection']`.
+- `TOTEM_CATALOG_V2` shape (E4g pattern) reusable; new entries appended in preparation band between `five-deloads-honored` (recovery) and `rpe-awareness` (reflection).
+- IDB at version 1 in [src/services/db/database.ts](src/services/db/database.ts); bump to 2 with `oldVersion`-guarded upgrade and explicit no-op block for E4a.
+- `SetLogger` has clean insertion point between weight input and complete-set CTA; `logSet` signature extended to `(reps, weight?, isWarmup?)`; default false on absence (back-compat).
+- E1 selector `buildSessionCompletionTotemPayload` requires no code change — diff + ordering rules pick up new totems automatically once `FAMILY_ORDER` and catalog are extended.
+- Volume aggregator at `buildSessionExecutionModel.ts:185-190` currently includes warm-up sets — flagged as Open Question.
+
+**Open questions surfaced to user:**
+1. Volume aggregator: include or exclude warm-up sets? (Architect recommends exclude — truthful-UX bias; expands manifest by ~3 files.)
+2. Ship one totem or two? (Architect recommends both per spec — same primitive.)
+
+**Out-of-scope guardrails restated:** no `planningAuditLog` (E4d), no `painFlag` (E4b), no `isPlannedRestDay` (E4f), no `MUSCLE_COLORS` change.
+
+**Verdict:** GO pending Q1/Q2 answers before implementer dispatch.
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E3 implementation (chart variant theming)
+
+**Scope:** Lift the Phase D chart scope-lock with a wrapper-only theming layer for the three analytics charts (`VolumeChart`, `ProgressionChart`, `AdherenceChart`). Strict variant parity (retro-platformer ↔ classic-boring) with retro-only pixel-font on axis ticks and legend, system font everywhere else.
+
+**Architect mini-gate:** GO. Hex tokens + AA audit ratios pre-cleared:
+- Classic axis-fg `#64748b` vs `#ffffff` ≈ 4.82:1 (AA pass)
+- Retro axis-fg `#1f2937` vs `#ffffff` ≈ 12.63:1 (AAA pass)
+- Retro tooltip-fg `#0f172a` on tooltip-bg `#fef3c7` ≈ 17.4:1 (AAA pass)
+
+**Implementation:**
+- NEW [src/components/stats/ChartThemeProvider.tsx](src/components/stats/ChartThemeProvider.tsx) — variant-aware wrapper. Reads `useEffectiveAestheticVariant` (collapses to classic under reduced-motion) + `usePrefersReducedMotion`. Exposes `useChartTheme()` returning `{ isAnimationActive }`. Retro branch injects 11 CSS vars inline on a wrapper `<div>`. Classic branch relies on `:root` defaults.
+- MODIFIED [src/index.css](src/index.css) — declared 11 classic-default `--theme-charts-*` tokens at `:root` scope (`axis-fg`, `grid`, `tooltip-bg`, `tooltip-fg`, `legend-fg`, `series-1..6`).
+- MODIFIED [src/components/stats/VolumeChart.tsx](src/components/stats/VolumeChart.tsx), [ProgressionChart.tsx](src/components/stats/ProgressionChart.tsx), [AdherenceChart.tsx](src/components/stats/AdherenceChart.tsx) — axis ticks/stroke, `<CartesianGrid>`, `<Tooltip>` (with `fontFamily: 'inherit'` on `contentStyle`/`labelStyle`/`itemStyle`), and `<Legend>` wrapper now consume `--theme-charts-*` tokens. ProgressionChart series-1/2 + AdherenceChart series-3/1 use token vars. **VolumeChart `MUSCLE_COLORS` intentionally unchanged** (data identity per architect decision). All series read `isAnimationActive` from `useChartTheme()` and pass to `<Area>`/`<Line>`/`<Bar>`.
+- MODIFIED [src/pages/Stats.tsx](src/pages/Stats.tsx) — wraps each of the three charts in `<ChartThemeProvider>`. PR table + export/import sections deliberately NOT wrapped.
+- NEW tests:
+  - [src/components/stats/ChartThemeProvider.test.tsx](src/components/stats/ChartThemeProvider.test.tsx) — classic vs retro CSS-var injection, reduced-motion `isAnimationActive=false`, reduced-motion+retro collapse to classic.
+  - [src/components/stats/VolumeChart.test.tsx](src/components/stats/VolumeChart.test.tsx), [ProgressionChart.test.tsx](src/components/stats/ProgressionChart.test.tsx), [AdherenceChart.test.tsx](src/components/stats/AdherenceChart.test.tsx) — per-chart parity guards with `vi.mock('recharts', ...)` stubbing `ResponsiveContainer` to fixed 600×300 via `cloneElement` + typed cast.
+  - [src/utils/contrast.test.ts](src/utils/contrast.test.ts) — inline WCAG 2.1 contrast helper + 6-ratio AA audit (all pass ≥ 4.5).
+
+**Test-side adaptations:**
+- AdherenceChart bar `<path>` rectangles render in jsdom but Recharts swallows the `fill` attribute on inactive bars (no layout/animation lifecycle), so `AdherenceChart.test.tsx` asserts series-3/series-1 fills via `path.recharts-legend-icon` (legend swatches do carry the resolved `fill="var(--theme-charts-series-N)"`). Inline comment in test explains the rationale. Reviewer flagged as W1 (coverage gap, non-blocking).
+- Mock pattern uses `React.cloneElement(children as React.ReactElement<{ width?: number; height?: number }>, { width: 600, height: 300 })` to satisfy TS.
+
+**Verification (final):**
+- `npm run i18n:check` → ✅ 3 locales / 6 namespaces in parity (no copy added in E3)
+- `npm run lint` (`tsc --noEmit`) → ✅ 0 errors
+- `npx vitest run` → ✅ **129/129 tests pass** (was 113 pre-E3, +16 from E3: 4 ChartThemeProvider + 2 each VolumeChart/ProgressionChart/AdherenceChart + 6 contrast)
+- `npm run build` → ✅ success
+
+**Reviewer verdict:** PASS-WITH-NOTES (B1 — STATUS docs not yet updated — addressed in this commit). Warnings:
+- W1 — Bar `fill` parity asserted via legend-icon proxy; recommend strengthening to actual bar `<path>` fills in a future pass (non-blocking; legend swatches do prove token wiring is correct).
+- W2 — Spec phrase "axis fg vs grid bg ≥ 4.5:1" interpreted as card-bg `#ffffff` (the actual surface behind chart text), not grid-line color. Architect to confirm spec wording later.
+- I1/I2/I3 — minor: double `matchMedia` read (behaviorally identical), `as string` cast pattern matches Phase B/C precedents, comment ratio `4.55:1` for `#64748b` vs `#ffffff` slightly off (actual ≈ 4.82, still ≥ 4.5).
+
+**Out of scope (preserved):** PR table, export/import, dashboard, session, planning, MUSCLE_COLORS, Recharts version, i18n locale files. Zero new IDB stores. Zero copy added.
+
+**Outcome:** Phase E sub-phase E3 closed. Locked Phase E order is now: E4g ✅ → E1 ✅ → E3 ✅ → E4a → E4f → E4b → E4c → E4d → E2 (E4e moved to Phase F).
+
+---
+
+### 2026-05-07 — Step 16 Phase E sub-phase E1 W4+W5 follow-up
+
+Closes the two non-blocking warnings flagged on the previous E1 fix pass.
+`tasks/todo.md` and `specs/STATUS.md` E1 boxes stay checked. No spec
+changes, no i18n copy changes.
+
+- **W4 (history-load race flicker).** The ack frame is now gated on a new
+  `historyLoaded: boolean` local in [src/pages/Session.tsx](src/pages/Session.tsx).
+  The `useEffect` that lazy-loads `listAllSessions()` + `listAllSets()` on
+  the `isFinished` flip flips `historyLoaded` to `true` only AFTER both
+  setters resolve, and back to `false` when `isFinished` returns to
+  `false`. The `totemAckPayload` `useMemo` now early-returns `null` until
+  `historyLoaded === true`, so returning users no longer see entry-tier
+  totems (`first-session`, etc.) flicker as false-positive newly earned
+  during the ~10–50 ms IDB fetch window.
+- **W5 (synthesized completedAt = midnight UTC).** Added new state field
+  `lastFinishedSessionCompletedAtISO: string | null` to
+  [src/stores/sessionStore.ts](src/stores/sessionStore.ts), minted alongside
+  `lastFinishedSessionId` inside `buildFinishMeta()` (covers `logSet`,
+  `skipSet`, `finishEarly`) and again at end of `finishSession`, cleared
+  in `reset()`. Re-exported via [src/hooks/useSession.ts](src/hooks/useSession.ts).
+  `Session.tsx` now uses it as the synthesized session's `completedAt`,
+  with the previous midnight-UTC string kept only as a defensive
+  fallback. Future time-of-day evaluators get the actual mint moment.
+- **Tests.** +1 file (`src/stores/sessionStore.test.ts`, 3 tests covering
+  initial null, mint on flip, reset clear) + 2 W4 contract tests appended
+  to [src/services/session/buildSessionCompletionTotemPayload.test.ts](src/services/session/buildSessionCompletionTotemPayload.test.ts).
+  Total: 113 tests across 20 files (was 108 / 19).
+- **Verification (all exit 0).** `npm run i18n:check` → OK 3 locales /
+  6 namespaces. `npm run lint` → 0 errors. `npx vitest run` → 113 passed.
+  `npm run build` → 0 errors, PWA precache 7 entries / 1373.64 KiB.
+
+### 2026-05-04 — Step 16 Phase E sub-phase E1 fix pass (N1 timing + W1 tokens + W3 parity)
+
+Reviewer raised a REJECT verdict on the initial E1 pass. Fix pass below;
+`tasks/todo.md` and `specs/STATUS.md` E1 boxes stay checked. No spec changes.
+
+**N1 — Earn-acknowledgement frame never displayed in production (lifecycle).**
+Two coupled defects fixed together:
+
+1. `lastFinishedSessionId` / `lastFinishedSessionDateISO` were only minted
+   inside `finishSession()` (i.e. after the user tapped Save & close, which
+   was immediately followed by `reset()` + `navigate('/dashboard')`). The
+   ack frame therefore never had a chance to render with a non-null payload.
+   Fix in `src/stores/sessionStore.ts`: introduced a private `buildFinishMeta()`
+   helper that mints `pendingSessionDraft` + `lastFinishedSessionId` +
+   `lastFinishedSessionDateISO` together at the moment `isFinished` flips.
+   Helper is spread into the `set()` payload for the auto-finish branch of
+   `logSet`, the auto-finish branch of `skipSet`, and `finishEarly`. The
+   subsequent `finishSession()` reuses the existing draft so the persisted
+   IDB row carries the same id the ack frame keyed off — no duplicate row,
+   no id drift. `reset()` clears them back to `null` (unchanged).
+2. `useEffect([isFinished, …])` in `Session.tsx` lazy-loads
+   `allSessionsHistory` from IDB on the `isFinished` flip; at that instant
+   the just-finished session is NOT yet persisted, so `totemsAfter` would
+   still equal `totemsBefore`. Fix in `src/pages/Session.tsx`: synthesize an
+   in-memory `ExecutedSession` from the live store state
+   (`lastFinishedSessionId`, `lastFinishedSessionDateISO`, `generatedSession`,
+   `sessionStartedAt`, `executedSets`) and merge it into the inputs of
+   `buildTotemInventoryModel` for `totemsAfter` only. `totemsBefore` keeps
+   the existing filter-by-id approach (no-op while the session is not in
+   history yet, but still correct). Per-set `rpe` is preserved on the
+   spread, so the V1 `evalRpeAwareness` evaluator sees the same data the
+   eventually-persisted row will carry.
+
+**W1 — undeclared CSS tokens in `EarnAcknowledgement.tsx`.** The retro
+variant previously referenced `--theme-game-session-frame-{bg,border,fg}`
+and `--theme-game-display-font`, none of which are declared in
+`src/index.css`. Replaced with the existing Phase C retro tokens already
+used by `RetroLevelRun` / `SessionHudReadouts`:
+`--theme-game-session-checkpoint` (surface),
+`--theme-game-session-platform` (border),
+`--theme-session-hud-fg` (foreground). Display font reuses Tailwind
+`font-mono` — the same convention as `RetroLevelRun`'s level-clear stamp,
+so no new CSS variable was introduced (avoids growing the namespace for a
+single component). Token grep confirms all three are declared in
+`src/index.css`. Comment block at the head of `RetroEarnAcknowledgement`
+documents the reuse rationale.
+
+**W3 — strengthened render-parity test.** Added a new nested
+`describe('key-isolation parity (W3)', …)` block in
+`src/components/session/EarnAcknowledgement.test.tsx` (two tests, sentinel-key
+approach via `vi.spyOn(i18next, 't')`). Each test asserts: (a) at least one
+`session.completion.totem_ack.*` key was resolved in that variant, (b) every
+resolved key includes the variant's segment (`.calm.` for classic, `.retro.`
+for retro), and (c) zero keys include the opposite variant's segment. This
+catches accidental cross-variant key resolution even if the rendered copy
+between variants happens to share substrings in future translations. All
+five pre-existing tests preserved as-is (no coverage weakening).
+
+**Out of scope (per task constraints):** `<SessionSummary>` slot prop wiring,
+`buildSessionCompletionTotemPayload` selector logic (only added the N1
+regression-guard test), `<EarnAcknowledgement>` variant routing, Phase A/B/C/D
+code, IDB schema, `exportImport`, type files. None of these were modified.
+
+**N1 regression guard test.** Added a fresh
+`describe('Regression N1 — synthesized in-memory session unlocks totems
+pre-persist', …)` block in
+`src/services/session/buildSessionCompletionTotemPayload.test.ts`. The test
+constructs two `TotemInventoryModel` snapshots manually: `totemsBefore` from
+empty history and `totemsAfter` from the synthesized just-finished session
+alone. Asserts that the selector emits a non-null payload with
+`primaryTotemId === 'first-session'` (the V1 catalog automatically unlocks
+the consistency-family entry-tier totem on the very first session) and that
+`sessionId` / `earnedDateISO` round-trip. Avoids mounting `<Session>` so the
+test stays fast and decoupled from page-level effects.
+
+**Files modified (fix pass):**
+- `src/stores/sessionStore.ts` — added `buildFinishMeta()` helper; spread
+  into `logSet` (auto-finish branch), `skipSet` (auto-finish branch), and
+  `finishEarly`; `finishSession` now reuses the draft id when minting the
+  IDB row.
+- `src/pages/Session.tsx` — synthesized just-finished `ExecutedSession`
+  merged into `totemsAfter` inputs; added `lastFinishedSessionDateISO` /
+  `lastFinishedSessionId` consumption via `useSession`.
+- `src/components/session/EarnAcknowledgement.tsx` — retro variant
+  re-pointed at existing Phase C tokens + Tailwind `font-mono`; added
+  `// TODO(E2): Rive autoplay hook will fire here on first-show per session.`
+  immediately above the `useRef` latch line (W2 informational fix).
+- `src/components/session/EarnAcknowledgement.test.tsx` — appended
+  W3 key-isolation parity describe block (2 new tests).
+- `src/services/session/buildSessionCompletionTotemPayload.test.ts` —
+  appended N1 regression-guard describe block (1 new test).
+
+**Test counts.** Before fix pass: 105 tests across 19 files (per the initial
+E1 implementation entry). After fix pass: **108 tests across 19 files** (+3:
+two W3 parity tests in `EarnAcknowledgement.test.tsx`, one N1 regression
+guard in `buildSessionCompletionTotemPayload.test.ts`). The
+`EarnAcknowledgement` file now reports 7 tests (was 5); the
+`buildSessionCompletionTotemPayload` file now reports 7 tests (was 6).
+
+**Verification (all exit 0):**
+
+- `npm run i18n:check` — 3 locales × 6 namespaces in parity (`EXIT=0`).
+- `npm run lint` — `tsc --noEmit` clean (`EXIT=0`).
+- `npx vitest run` — 19 files / 108 tests passing (`EXIT=0`).
+- `npm run build` — Vite + PWA build succeeded (`EXIT=0`).
+
+**Constraints honored:** named exports only, ca/es/en strict parity, no
+`console.warn` / `console.error`, no `<dialog>` / `role="dialog"` /
+`aria-modal`, no Phase A/B/C/D regressions, no schema/type/exportImport
+changes, real `ExecutedSession` shape (per `src/types/session.ts`) used for
+the synthesized record (no invented fields).
+
+---
+
+### 2026-05-04 — Step 16 Phase E sub-phase E1 implementation (earn-acknowledgement frame)
+
+Shipped the inline earn-acknowledgement frame surfaced after a session is
+finished. Architect-confirmed deviations applied:
+
+1. Mount point is `<SessionSummary>` via a new optional `topAccessory?: ReactNode`
+   prop, injected from `Session.tsx`'s `if (isFinished)` early-return branch.
+   `<SessionExecution>` is unmounted in the finished state in production, so the
+   ack must live on the summary tree rather than inside the execution router.
+2. No `SessionCompletionModel` extension. The payload is derived by a stand-alone
+   pure selector `buildSessionCompletionTotemPayload({ totemsBefore, totemsAfter,
+   sessionId, dateISO })` and passed in as a prop alongside pre-localized
+   `primaryName` / `secondaryNames`.
+
+**Files added:**
+
+- `src/services/session/buildSessionCompletionTotemPayload.ts` — pure selector
+  that diffs `TotemInventoryModel` snapshots and emits the ordered newly-earned
+  list (sorted by `FAMILY_ORDER` then `TOTEM_CATALOG_V2` index). Returns `null`
+  when zero new totems were earned.
+- `src/services/session/buildSessionCompletionTotemPayload.test.ts` — six
+  vitest cases: zero-new (states equal), zero-new (no earned in either),
+  single-new echo of `sessionId`/`dateISO`, multi-family ordering by
+  `FAMILY_ORDER`, intra-family ordering by V2 catalog index, and the
+  defensive `null` for the impossible "after missing a before" case.
+- `src/components/session/EarnAcknowledgement.tsx` — variant router using
+  `useEffectiveAestheticVariant()`. Emits `null` when the payload is `null`
+  (no shame copy on zero-new). Internal `RetroEarnAcknowledgement` /
+  `ClassicEarnAcknowledgement` subcomponents share **no** i18n key tree:
+  classic reads only `session.completion.totem_ack.calm.*` and retro reads
+  only `session.completion.totem_ack.retro.*`. NEVER renders a `<dialog>`,
+  `role="dialog"`, `role="alertdialog"`, or `aria-modal`. A `useRef` latched
+  on `payload.sessionId` reserves the autoplay slot for the E2 Rive flash.
+- `src/components/session/EarnAcknowledgement.test.tsx` — five RTL cases:
+  null payload renders nothing; classic renders calm copy and never mounts a
+  dialog; retro renders pixel copy and never mounts a dialog; multi-totem
+  renders one frame with primary + `also_earned` line; idempotent re-render
+  with the same payload produces identical output.
+
+**Files modified:**
+
+- `src/components/session/SessionSummary.tsx` — added optional
+  `topAccessory?: ReactNode` slot rendered between the summary numbers card
+  and the RPE/notes card. Default `undefined` preserves the pre-E1 layout.
+- `src/stores/sessionStore.ts` — exposed `lastFinishedSessionId` and
+  `lastFinishedSessionDateISO` on the public state. They are populated on
+  `finishSession` success (derived from the existing draft cache) and
+  cleared by `reset`.
+- `src/hooks/useSession.ts` — re-exports the two new selectors via the
+  shared shallow group.
+- `src/pages/Session.tsx` — finished branch now lazy-loads the full
+  `listAllSessions`/`listAllSets` history (and ensures `activeMesocycle` is
+  loaded), builds `totemsBefore` (history minus the just-finished session)
+  and `totemsAfter` (full history) via `buildTotemInventoryModel`, computes
+  the payload, resolves the localized `primaryName` / `secondaryNames`, and
+  passes them through to `<SessionSummary topAccessory={...}>`. Pre-start,
+  in-progress, and error branches are unchanged.
+- `src/i18n/locales/{en,ca,es}/common.json` — added
+  `session.completion.totem_ack.{calm,retro}.{headline,body,also_earned}`
+  in strict ca/es/en parity (`npm run i18n:check` exits 0).
+
+**Verification (all exit 0):**
+
+- `npm run i18n:check` — 3 locales × 6 namespaces in parity
+- `npm run lint` — `tsc --noEmit` clean
+- `npx vitest run` — 105 tests passing across 19 files (was 94 / 17; +11
+  tests across 2 new files)
+- `npm run build` — Vite + PWA build succeeded
+
+---
+
+### 2026-05-04 — Step 16 Phase E sub-phase E4g implementation (`five-deloads-honored`)
+
+Implemented the deload-family expansion totem (evaluator-only, no schema or capture-UI changes).
+
+**Files modified:**
+- `src/services/stats/buildTotemInventoryModel.ts` — extended `TotemId` with `'five-deloads-honored'`; added `TOTEM_CATALOG_V2` (V1 stays frozen, inserts the new entry inside the recovery family band to preserve canonical Consistency → Recovery → Reflection ordering); added `evalFiveDeloadsHonored` evaluator (mirrors `evalFirstDeloadHonored`'s template lookup, then aggregates earliest completion date per ISO-week ordinal via existing `isoWeekOrdinal` / `completedSessionsSorted` helpers, returns earliest date in the 5th distinct deload week chronologically); selector now maps over `TOTEM_CATALOG_V2`.
+- `src/services/stats/buildTotemInventoryModel.test.ts` — added `describe('five-deloads-honored', …)` with 4 cases (5 distinct weeks → earned on tipping date; 4 weeks → available; all 5 sessions in same ISO week → available; 5 weeks across 2 mesocycles → earned) plus `describe('catalog ordering invariant (V2)', …)` (V1 ids preserved, new totem inside recovery band, count == V1 + 1). Existing V1 catalog-equality assertion updated to V2. Selector test count: 18 → 24.
+- `src/components/stats/__fixtures__/totemFixture.ts` — switched fixture from `TOTEM_CATALOG_V1` to `TOTEM_CATALOG_V2` so the existing render parity tests in `RetroInventoryShelf.test.tsx` and `ClassicTotemGrid.test.tsx` automatically iterate the new totem (same earned/available branches, same `useEarnedOnLabel` + `aria-describedby` plumbing — no per-totem assertions needed).
+- `src/i18n/locales/{en,ca,es}/stats.json` — inserted `totem.five_deloads_honored.{name,rule}` after `first_deload_honored` (English: "Five Deloads Honored"; Catalan: "Cinc Descàrrecs Honrats"; Spanish: "Cinco Descargas Honradas").
+- `specs/STATUS.md`, `tasks/todo.md` — E4g items marked complete.
+
+**Verification:** `npm run i18n:check` ✅ · `npm run lint` ✅ · `npm test` ✅ (94 unit tests + 3 ingestion) · `npm run build` ✅.
+
+**Out of scope (per architect mini-gate):** no `src/types/**` changes, no IDB schema/migration, no export/import touch, no capture UI, no `FAMILY_ORDER` change, no dashboard touch, no `isDeloadSession` change, no Phase A/B/C/D file edits.
+
+---
+
+### 2026-05-04 — Step 16 Phase E pre-execution gates
+
+Architect pass for Step 16 **Phase E** (final polish: earn-acknowledgement frame, Rive microanims, chart variant theming, all deferred totems). Phase A/B/C/D confirmed ✅ via `specs/STATUS.md`.
+
+**Spec patches applied to `specs/features/16-ethical-gamification.md`:**
+1. Phase D scope-lock for analytics charts **lifted** (Phase D §"Scope Lock" annotated; Phase E3 explicitly re-skins `VolumeChart`, `ProgressionChart`, `AdherenceChart`; PR table + export/import remain variant-agnostic).
+2. "Zero new IDB stores" constraint **scoped to Phase A–D** (Shared Gamification Core bullet annotated; Phase E lifts it for `planningAuditLog` and three additive optional fields, all shared core / variant-agnostic).
+3. New additive subsection **"Phase E Shared Contracts (Polish + Deferred Totems)"** appended right before `### Variant: Retro Platformer`. Covers:
+   - E1 — `SessionCompletionTotemPayload` selector + `<EarnAcknowledgement>` renderer contract; max one inline frame per session-end; null on zero-earn (no shame); strict parity render-test contract.
+   - E2 — `<RiveAnim>` wrapper contract: lazy-loaded `@rive-app/react-canvas` (~210KB) for retro only; static fallback when `prefers-reduced-motion` OR variant !== retro; mandatory adjacent `*.LICENSE.md` per `.riv` (CI grep guard); v1 anim list (`totem-earn`, `level-clear`, `dashboard-cell-appear`) flagged community-vs-custom.
+   - E3 — `<ChartThemeProvider>` wrapper injecting `--theme-charts-*` (shared) + `--theme-game-charts-*` (retro-only) via CSS variables; pixel font restricted to axis ticks + legend (NEVER tooltip body / data labels) for readability; AA contrast audit required.
+   - E4 — sub-divided by family (E4a warm-up, E4b pain-flag, E4c notes, E4d audit-trail, E4e recovery-read **DEFERRED to Phase F**, E4f rest-day, E4g deload-expansion). Schema migration baseline: IDB v1→v2, additive `planningAuditLog` store, three optional fields on existing record types, no destructive changes; export format v1→v2 with backward-compat import.
+   - `TOTEM_CATALOG_V2` additive extension of V1; potential `TotemFamily` union extension to add `'preparation'`.
+   - Phase E forbidden renderings (additive to Phase D's list).
+
+**UI/UX gate decisions per sub-phase:**
+
+| Sub-phase | Decision | Rationale |
+|---|---|---|
+| E1 | INCREMENTAL with shared adapter | Extend existing `SessionCompletionModel`; no IA change |
+| E2 | INCREMENTAL (additive primitive) | Single `<RiveAnim>` wrapper, retro-only consumers, lazy-loaded |
+| E3 | INCREMENTAL with shared adapter | `<ChartThemeProvider>` wraps existing chart components; no fork |
+| E4a–g | INCREMENTAL per family | `TOTEM_CATALOG_V2` appends to V1; selector grows branches; capture UIs are local optional inputs |
+
+**Behavioral risk brief (condensed):**
+- E1 medium (spam/popup-creep/FOMO) → max 1 inline ack per session-end; null on zero-earn.
+- E2 high (motion-sickness, license violations) → wrapper short-circuits on reduced-motion + classic; mandatory `*.LICENSE.md` adjacent per `.riv`.
+- E3 medium (readability, AA contrast) → pixel font restricted to axis/legend; AA audit gate.
+- E4a medium (warm-up compliance theater) → optional toggle, no shame copy.
+- E4b high (shame on pain flag) → totem rewards *act of flagging+adjusting*, never mentions pain in name/copy; no aggregated pain-history surface.
+- E4c low → any non-empty note qualifies.
+- E4d medium (audit-log bloat) → 365-day retention pruning on app start; dedup per (mesocycle, template, day, type); no user-facing log surface.
+- E4e blocked on Phase F → recovery indicator unimplemented in `src/` (verified by grep `recoveryIndicator|recoveryState|RecoveryState|recoveryHint` → 0 matches).
+- E4f, E4g low.
+
+**Recovery indicator codebase verification:** confirmed not implemented. New **Phase F — Recovery Indicator (volume-based)** is required as prerequisite to E4e; Phase F implements the existing §"Volume-Based Recovery Estimation" spec section (selector, capture point, advisory surfacing, transparency doc). E4e's `recovery-read` totem ships in Phase F, not Phase E.
+
+**Recommended sub-phase order (easiest → biggest unknown):** E4g → E1 → E3 → E4a → E4f → E4b → E4c → E4d → E2 → (Phase F) → E4e. Each sub-phase runs its own architect pre-execution mini-gate, implementer pass, reviewer pass, and warnings-fix cycle.
+
+**No source code modified.** Deliverables are spec patches + plan; implementer passes to follow per sub-phase.
+
 ### 2026-05-04 — Step 16 Phase D implementation
 
 Implementer pass closing out the D1–D11 checklist for Phase D (Stats / Inventory parity: `RetroInventoryShelf` + `ClassicTotemGrid` ship together off the same `TotemInventoryModel`). Strict parity from day one; no new IDB; no new telemetry; no `matchMedia` outside Phase A hooks; ca/es/en parity; named exports only.

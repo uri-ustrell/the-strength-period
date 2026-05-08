@@ -29,6 +29,7 @@
     "family": {
       "consistency": "Consistency",
       "recovery": "Recovery",
+      "preparation": "Preparation",
       "reflection": "Reflection"
     },
     "state": {
@@ -69,9 +70,25 @@
       "name": "First Deload Honored",
       "rule": "Granted after completing a session marked as part of a deload week."
     },
+    "five_deloads_honored": {
+      "name": "Five Deloads Honored",
+      "rule": "Granted after completing deload sessions in five different weeks of your training."
+    },
     "rpe_awareness": {
       "name": "RPE Awareness",
       "rule": "Granted after five sessions in which every set carries an RPE value."
+    },
+    "warm_up_habit": {
+      "name": "Warm-up habit",
+      "rule": "Started 10 sessions with at least one warm-up set."
+    },
+    "triple_preparation": {
+      "name": "Five preparations in a row",
+      "rule": "Began 5 sessions in a row with a warm-up set."
+    },
+    "first_rest_day_honored": {
+      "name": "First rest day honored",
+      "rule": "Granted when you mark a rest day on your plan and let that day pass without training."
     }
   }
 }

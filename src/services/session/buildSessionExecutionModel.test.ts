@@ -1,12 +1,11 @@
 import { describe, expect, it } from 'vitest'
-
+import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 import {
-  buildSessionExecutionModel,
   type BuildSessionExecutionInput,
+  buildSessionExecutionModel,
 } from '@/services/session/buildSessionExecutionModel'
 import type { Exercise } from '@/types/exercise'
 import type { ExecutedSet } from '@/types/session'
-import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
 
 const NOW_MS = 1_700_000_000_000
 const STARTED_AT = new Date(NOW_MS - 60_000).toISOString() // 60s ago
@@ -184,7 +183,11 @@ describe('buildSessionExecutionModel', () => {
         executedSets: [
           makeExecutedSet('a', 1, { repsActual: 10, weightKgActual: 50 }),
           makeExecutedSet('a', 2, { repsActual: 8, weightKgActual: 60 }),
-          makeExecutedSet('a', 3, { repsActual: 8, weightKgActual: undefined, weightKgPlanned: 40 }),
+          makeExecutedSet('a', 3, {
+            repsActual: 8,
+            weightKgActual: undefined,
+            weightKgPlanned: 40,
+          }),
         ],
         sessionStartedAt: STARTED_AT,
       })
@@ -192,6 +195,28 @@ describe('buildSessionExecutionModel', () => {
     // 10*50 + 8*60 + 8*40 = 500 + 480 + 320 = 1300
     expect(m.hud.volumeKg).toBe(1300)
     expect(m.hud.setsCompleted).toBe(3)
+  })
+
+  it('excludes warm-up sets from volumeKg (Phase E4a)', () => {
+    const m = buildSessionExecutionModel(
+      baseInput({
+        generatedSession: makeGeneratedSession(makeSelected('a', 5)),
+        executedSets: [
+          // 2 warm-up sets — must NOT contribute to volume.
+          makeExecutedSet('a', 1, { repsActual: 5, weightKgActual: 20, isWarmup: true }),
+          makeExecutedSet('a', 2, { repsActual: 5, weightKgActual: 30, isWarmup: true }),
+          // 3 work sets — only these count.
+          makeExecutedSet('a', 3, { repsActual: 10, weightKgActual: 50 }),
+          makeExecutedSet('a', 4, { repsActual: 8, weightKgActual: 60 }),
+          makeExecutedSet('a', 5, { repsActual: 6, weightKgActual: 70 }),
+        ],
+        sessionStartedAt: STARTED_AT,
+      })
+    )
+    // Work sets only: 10*50 + 8*60 + 6*70 = 500 + 480 + 420 = 1400
+    expect(m.hud.volumeKg).toBe(1400)
+    // setsCompleted is the raw count of logged sets (warm-ups still happened).
+    expect(m.hud.setsCompleted).toBe(5)
   })
 
   it('returns meanRpe = null when no executed set carries an explicit RPE', () => {
@@ -209,10 +234,7 @@ describe('buildSessionExecutionModel', () => {
     const m = buildSessionExecutionModel(
       baseInput({
         generatedSession: makeGeneratedSession(makeSelected('a', 2)),
-        executedSets: [
-          makeExecutedSet('a', 1, { rpe: 7 }),
-          makeExecutedSet('a', 2, { rpe: 9 }),
-        ],
+        executedSets: [makeExecutedSet('a', 1, { rpe: 7 }), makeExecutedSet('a', 2, { rpe: 9 })],
         sessionStartedAt: STARTED_AT,
       })
     )

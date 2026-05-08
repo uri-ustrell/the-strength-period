@@ -13,12 +13,18 @@ import type { TotemEntry, TotemFamily, TotemState } from '@/services/stats/build
  * state-label and family-label resolution stay in exactly one place.
  */
 
-export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = ['consistency', 'recovery', 'reflection']
+export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = [
+  'consistency',
+  'recovery',
+  'preparation',
+  'reflection',
+]
 
 /** Maps a totem family to its motif color CSS variable. Shared across both renderers. */
 export const FAMILY_VAR: Record<TotemFamily, string> = {
   consistency: 'var(--theme-stats-family-consistency)',
   recovery: 'var(--theme-stats-family-recovery)',
+  preparation: 'var(--theme-stats-family-preparation)',
   reflection: 'var(--theme-stats-family-reflection)',
 }
 

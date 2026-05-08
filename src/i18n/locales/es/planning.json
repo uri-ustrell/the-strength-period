@@ -369,5 +369,11 @@
       "name": "Cero → Progresión (Semanas 5–10)",
       "description": "Segundo bloque para personas que han completado las 4 semanas iniciales. 2–3 sesiones/semana de 20–25 minutos. Introduce ejercicios compuestos básicos con carga muy ligera."
     }
+  },
+  "rest_day": {
+    "label": "Día de descanso",
+    "mark_button": "Marca este día como día de descanso",
+    "unmark_button": "Desmarcar día de descanso",
+    "preview_description": "Día de descanso planificado. Hónralo no entrenando hoy."
   }
 }

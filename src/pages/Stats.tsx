@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ExportButton } from '@/components/data/ExportButton'
 import { ImportButton } from '@/components/data/ImportButton'
 import { AdherenceChart } from '@/components/stats/AdherenceChart'
+import { ChartThemeProvider } from '@/components/stats/ChartThemeProvider'
 import { ProgressionChart } from '@/components/stats/ProgressionChart'
 import { TotemInventory } from '@/components/stats/TotemInventory'
 import { VolumeChart } from '@/components/stats/VolumeChart'
@@ -168,7 +169,9 @@ export const Stats = () => {
 
         {/* Volume Chart */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <VolumeChart data={volumeData} muscleGroups={muscleGroups} />
+          <ChartThemeProvider>
+            <VolumeChart data={volumeData} muscleGroups={muscleGroups} />
+          </ChartThemeProvider>
         </section>
 
         {/* Progression Chart */}
@@ -187,7 +190,9 @@ export const Stats = () => {
             ))}
           </select>
           {selectedExerciseId ? (
-            <ProgressionChart data={progressionData} exerciseName={selectedExerciseName} />
+            <ChartThemeProvider>
+              <ProgressionChart data={progressionData} exerciseName={selectedExerciseName} />
+            </ChartThemeProvider>
           ) : (
             <p className="text-sm text-gray-400 text-center py-8">{t('stats:select_exercise')}</p>
           )}
@@ -195,7 +200,9 @@ export const Stats = () => {
 
         {/* Adherence Chart */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <AdherenceChart data={adherenceData} />
+          <ChartThemeProvider>
+            <AdherenceChart data={adherenceData} />
+          </ChartThemeProvider>
         </section>
 
         {/* PR Tracker Table */}

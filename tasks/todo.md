@@ -5,6 +5,119 @@
 
 ## Active Tasks
 
+### Step 16 — Phase E (Final Polish + Deferred Totems)
+
+Spec source of truth: `specs/features/16-ethical-gamification.md` — additive subsection "Phase E Shared Contracts (Polish + Deferred Totems)" (covers E1 earn-ack, E2 Rive, E3 chart theming, E4a–g deferred totems with v1→v2 IDB migration baseline). Phase D scope-lock for analytics charts is **lifted** by Phase E3. The "zero new IDB stores" rule is **scoped to Phase A–D** — Phase E adds one shared `planningAuditLog` store + three additive optional fields on existing record types.
+
+**Strict parity rule:** E1, E3, and the inspect-panel rendering of all new E4 totems ship `retro-platformer` and `classic-boring` together off the same shared model. E2 is intentionally retro-only with a static fallback for classic + reduced-motion (enforced by `<RiveAnim>` wrapper).
+
+**Sub-phase order (easiest → biggest unknown):** E4g → E1 → E3 → E4a → E4f → E4b → E4c → E4d → E2. **E4e is moved to Phase F** (recovery indicator prerequisite). Each sub-phase runs its own pre-execution mini-gate (architect re-runs), implementer pass, reviewer pass, warnings-fix cycle.
+
+#### E4g — Deload-family expansion (`five-deloads-honored`) — SHIP FIRST
+
+- [x] E4g.1 Architect mini-gate: re-confirm spec, no schema change required, evaluator-only.
+- [x] E4g.2 Add `TOTEM_CATALOG_V2` constant in `src/services/stats/buildTotemInventoryModel.ts`, appending `five-deloads-honored` (family `recovery`).
+- [x] E4g.3 Evaluator: 5 distinct ISO weeks each containing ≥1 completed deload session (reuse existing `isDeloadSession` heuristic from `buildDashboardMap`).
+- [x] E4g.4 i18n: `stats:totem.five_deloads_honored.{name,rule}` ca/es/en. Run `npm run i18n:check`.
+- [x] E4g.5 Tests: positive (5 deload weeks across history), negative (4 deload weeks), ordering invariant preserved.
+- [x] E4g.6 Parity render: both `RetroInventoryShelf` and `ClassicTotemGrid` show the new totem in inspect with rule text.
+- [x] E4g.7 Reviewer pass + warnings fix. Update STATUS.md + STATUS_HISTORY.md.
+- AC: `npm run lint`, `npm run build`, `npm test`, `npm run i18n:check` all exit 0; both variants render the totem; no other catalog entries changed.
+
+#### E1 — Earn-Acknowledgement Frame
+
+- [x] E1.1 Architect mini-gate.
+- [x] E1.2 Extend `SessionCompletionModel` with `totemAcknowledgement: SessionCompletionTotemPayload | null`. Add pure selector `buildSessionCompletionTotemPayload({ totemsBefore, totemsAfter })` returning newly-earned IDs diff (or `null` on zero-new).
+- [x] E1.3 Implement `<EarnAcknowledgement payload variant />` router with `RetroEarnAcknowledgement` (pixel-art inline frame, NEVER modal) and `ClassicEarnAcknowledgement` (single inline calm line).
+- [x] E1.4 Mount inside `<SessionExecution>` finished branch, after existing completion frame, before nav CTAs. Idempotency latch keyed by `sessionId`.
+- [x] E1.5 i18n: `session:completion.totem_ack.calm.{headline,body}`, `session:completion.totem_ack.retro.{headline,body}` ca/es/en (passes forbidden-pattern review: no superlatives, no urgency).
+- [x] E1.6 Tests: selector unit (zero-new → null; one-new; multi-new → primary + secondaries); render parity (classic never references `*.retro.*` keys; retro count of `role="dialog"` === 0); idempotency (re-render after finish does not re-mount).
+- [x] E1.7 Reviewer + warnings + STATUS update.
+- AC: zero-totem case renders nothing; both variants pass strict parity; modal count zero in both.
+
+#### E3 — Chart Variant Theming
+
+- [x] E3.1 Architect mini-gate.
+- [x] E3.2 Add shared tokens `--theme-charts-{axis-fg,grid,tooltip-bg,tooltip-fg,legend-fg,series-1..N}` and retro-only `--theme-game-charts-{axis-font,axis-letter-spacing,tick-stroke}` in `src/index.css`. AA contrast audit on retro chart text against chart bg (≥ 4.5:1).
+- [x] E3.3 Implement `<ChartThemeProvider>` wrapper that sets the variable scope on a parent `<div>` based on `useEffectiveAestheticVariant()`.
+- [x] E3.4 Wrap each `VolumeChart`, `ProgressionChart`, `AdherenceChart` instance in `Stats.tsx` with `<ChartThemeProvider>`. Pass `isAnimationActive={!reducedMotion}` to Recharts components.
+- [x] E3.5 Pixel-font usage limited to `<XAxis>`/`<YAxis>` tick labels and `<Legend>` only. Tooltip body and data labels keep system font in BOTH variants.
+- [x] E3.6 Tests: render-test asserts retro tooltip body has no pixel-font class; classic chart text matches current Tailwind treatment (snapshot or computed-style assertion); AA contrast unit-tested via token color values.
+- [x] E3.7 Reviewer + warnings + STATUS update.
+- AC: PR table + export/import unchanged; retro charts pass AA; classic charts visually identical to pre-E3.
+
+#### E4a — Warm-Up family (`warm-up-habit`, `triple-preparation`)
+
+- [x] E4a.1 Architect mini-gate. Decide: extend `TotemFamily` to include `'preparation'` (recommended) or fold into `'reflection'`. If extended: update `FAMILY_ORDER` to `['consistency','recovery','preparation','reflection']` and add `stats:totem.family.preparation` ca/es/en.
+- [x] E4a.2 IDB v1→v2 migration: implement `upgrade(db, oldVersion)` switch in `src/services/db.ts` (or wherever schema lives — read first). No object-store changes for this sub-phase (additive optional field on `ExecutedSet`).
+- [x] E4a.3 Type change: `ExecutedSet.isWarmup?: boolean` in `src/types/session.ts`.
+- [x] E4a.4 Capture UI: warm-up toggle in `SetLogger` (i18n `session:set_logger.warmup_toggle`). Default unchecked. Persists via existing add-set path.
+- [x] E4a.5 Add evaluators to `TOTEM_CATALOG_V2`: `warm-up-habit` (10 sessions with ≥1 warmup set), `triple-preparation` (5 consecutive sessions each with ≥1 warmup set — user-locked threshold).
+- [x] E4a.6 i18n: `stats:totem.warm_up_habit.{name,rule}`, `stats:totem.triple_preparation.{name,rule}`, `common:session.set_logger.warmup_toggle.{label,aria_label}` ca/es/en.
+- [x] E4a.7 Tests: evaluator unit (positive/negative both rules) + volume-aggregator filter test. Migration test deferred (jsdom IDB harness not yet established); render test for toggle deferred (no existing SetLogger test in repo).
+- [ ] E4a.8 `exportImport.ts` version bump 1→2 with backward-compat import. **DEFERRED** — not in user-approved scope; additive optional field is forward-compatible (older exports lacking `isWarmup` evaluate as not-warmup naturally).
+- [x] E4a.9 Reviewer + warnings + STATUS update.
+
+#### E4f — Rest-day family (`first-rest-day-honored`)
+
+- [ ] E4f.1 Architect mini-gate.
+- [ ] E4f.2 Type change: `SessionTemplate.isPlannedRestDay?: boolean`.
+- [ ] E4f.3 Capture UI: small "Rest day" marker in plan creator per day-of-week slot.
+- [ ] E4f.4 Evaluator: ≥1 `SessionTemplate` with `isPlannedRestDay === true` AND no `ExecutedSession` logged on that template's `(weekNumber, dayOfWeek)`.
+- [ ] E4f.5 i18n: `stats:totem.first_rest_day_honored.{name,rule}`, `planning:session_template.rest_day_marker` ca/es/en.
+- [ ] E4f.6 Tests: evaluator + plan-creator render + parity inspect.
+- [ ] E4f.7 Reviewer + warnings + STATUS update.
+
+#### E4b — Pain-flag family (`pain-signal-respected`)
+
+- [ ] E4b.1 Architect mini-gate. Re-confirm copy-pool review: totem rewards act-of-flagging-and-adjusting, NEVER references the pain itself in name/copy.
+- [ ] E4b.2 Type change: `ExecutedSession.painFlag?: 'none' | 'mild' | 'severe'`.
+- [ ] E4b.3 Capture UI: dismissible post-session prompt (`session:completion.pain_check.prompt`) with three calm options + Skip. Never blocks navigation. Never re-prompts within same session.
+- [ ] E4b.4 Evaluator per spec heuristic (flag of mild/severe → adjusted next session: skipped or volume reduced ≥10% vs rolling 3-session pre-flag mean).
+- [ ] E4b.5 i18n: `stats:totem.pain_signal_respected.{name,rule}`, `session:completion.pain_check.{prompt,option_none,option_mild,option_severe,skip,thanks}` ca/es/en.
+- [ ] E4b.6 Forbidden-pattern audit on copy: zero shame, zero clinical alarm, zero medical claim. Reviewer enforced.
+- [ ] E4b.7 Tests: evaluator unit, prompt render parity, inspect parity, dismissibility test, no-aggregated-pain-history surface (assert no `data-testid="pain-history"` exists).
+- [ ] E4b.8 Reviewer + warnings + STATUS update.
+
+#### E4c — Notes family (`first-note`, `consistent-logger`)
+
+- [ ] E4c.1 Architect mini-gate. Confirm `ExecutedSession.notes?: string` already exists (no schema change for the field).
+- [ ] E4c.2 Capture UI: optional `<textarea>` on session-completion summary; placeholder `session:completion.notes_placeholder`; auto-save on blur; empty stores `undefined`.
+- [ ] E4c.3 Evaluators in `TOTEM_CATALOG_V2`: `first-note` (any non-empty note), `consistent-logger` (≥10 sessions with non-empty notes).
+- [ ] E4c.4 i18n: `stats:totem.first_note.{name,rule}`, `stats:totem.consistent_logger.{name,rule}`, `session:completion.notes_placeholder` ca/es/en.
+- [ ] E4c.5 Tests: evaluator unit, textarea parity render (both variants), inspect parity.
+- [ ] E4c.6 Reviewer + warnings + STATUS update.
+
+#### E4d — Planning audit-trail family (`honest-check-in`, `measured-step`)
+
+- [ ] E4d.1 Architect mini-gate. Confirm append-only additive design; never mutates existing `Mesocycle` records.
+- [ ] E4d.2 IDB migration: create `planningAuditLog` object store (keyPath `id`, index `by-mesocycleId`) inside the v2 `upgrade` block.
+- [ ] E4d.3 Add `PlanningAuditEvent` type and `planningAuditRepository` (append, listByMesocycle, prune-older-than-365-days).
+- [ ] E4d.4 Capture point: emit `load-adjustment` (reason `rpe-high`) when user reduces load on next session after RPE ≥ 9; emit `progression-applied` from planning engine on weekly progression. Both write-through, never block UI. Dedup per `(mesocycleId, sessionTemplateId, eventType, dayKey)`.
+- [ ] E4d.5 Evaluators in `TOTEM_CATALOG_V2`: `honest-check-in` (load-adjustment after RPE ≥ 9 session), `measured-step` (4 consecutive `progression-applied` events all `withinPolicyBounds === true`).
+- [ ] E4d.6 i18n: `stats:totem.honest_check_in.{name,rule}`, `stats:totem.measured_step.{name,rule}` ca/es/en.
+- [ ] E4d.7 Retention: prune events older than 365 days at app start (one-shot pass).
+- [ ] E4d.8 `exportImport.ts` includes `planningAuditLog`; backward-compat import defaults missing array to `[]`.
+- [ ] E4d.9 Tests: evaluator unit, repository unit (append, dedup, prune), no user-facing audit-log surface (assert no `data-testid="planning-audit-feed"` exists).
+- [ ] E4d.10 Reviewer + warnings + STATUS update.
+
+#### E2 — Rive microanims (LAST — biggest unknown)
+
+- [ ] E2.1 Architect mini-gate. Confirm community asset search outcomes for `totem-earn`, `level-clear`, `dashboard-cell-appear`. For each, decide: CC0/CC-BY community asset OR custom-authored in Rive Editor.
+- [ ] E2.2 Add `@rive-app/react-canvas` to `package.json` (~210KB). Ensure code-split: dynamic `import()` inside the wrapper.
+- [ ] E2.3 Implement `<RiveAnim src artboard stateMachine fallback ariaLabel />` wrapper. Short-circuit to `fallback` (and skip the dynamic import) when `useEffectiveAestheticVariant() !== 'retro-platformer'` OR `prefers-reduced-motion: reduce`.
+- [ ] E2.4 Add `.riv` files under `public/anims/<name>.riv`. For each, add adjacent `public/anims/<name>.LICENSE.md` documenting source URL, author, license, attribution, description.
+- [ ] E2.5 CI grep guard: every `*.riv` in `public/anims/` has a matching `*.LICENSE.md` (script `npm run anims:check`).
+- [ ] E2.6 Wire `totem-earn.riv` into retro variant of `<EarnAcknowledgement>` (E1). Wire `level-clear.riv` into `RetroLevelRun` completion accent. Optional: `dashboard-cell-appear.riv` for retro dashboard transitions.
+- [ ] E2.7 Provide `StaticSpriteFallback` SVG fallback per anim (so classic + reduced-motion still render meaningful state).
+- [ ] E2.8 Tests: wrapper unit (variant gating, reduced-motion gating, dynamic-import skipped on classic); render test asserts no `<canvas>` mounts in classic; bundle-size test (retro chunk includes Rive runtime; classic chunk excludes it).
+- [ ] E2.9 Reviewer + warnings + STATUS update.
+- AC: zero Rive bytes shipped to classic users; all `.riv` have audited `LICENSE.md`; `prefers-reduced-motion` always renders fallback; auto-replay disabled (fire-once per render).
+
+#### E4e — Recovery family (`recovery-read`) — DEFERRED to Phase F
+
+Blocked: the volume-based recovery indicator does not exist in `src/` (verified 2026-05-04 — grep `recoveryIndicator|recoveryState|RecoveryState|recoveryHint` → 0 matches). Ships in **Phase F — Recovery Indicator (volume-based)** which implements the existing spec section §"Volume-Based Recovery Estimation" (selector, advisory surfacing on planning + dashboard, transparency doc in help, capture event), then lands the `recovery-read` totem evaluator (≥3 sessions with `recoveryReadAt` populated). Phase F runs its own pre-execution gates.
+
 ### Step 16 — Phase D (Stats / Inventory Parity: Retro Inventory Shelf + Classic Totem Grid)
 
 Spec source of truth: `specs/features/16-ethical-gamification.md` — sections "Shared Gamification Core", "Aesthetic Variants", "Variant: Classic Boring" (Surface Treatments → Stats/progress row + "Stats / Inventory Surface" subsection), "Variant: Retro Platformer" (Stats / Inventory Surface subsection), and the additive "Phase D Shared Contracts (Stats / Inventory)" subsection.

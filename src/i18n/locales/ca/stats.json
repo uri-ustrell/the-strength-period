@@ -29,6 +29,7 @@
     "family": {
       "consistency": "Constància",
       "recovery": "Recuperació",
+      "preparation": "Preparació",
       "reflection": "Reflexió"
     },
     "state": {
@@ -69,9 +70,25 @@
       "name": "Primer Descàrrec Honrat",
       "rule": "S'atorga després de completar una sessió marcada com a part d'una setmana de descàrrec."
     },
+    "five_deloads_honored": {
+      "name": "Cinc Descàrrecs Honrats",
+      "rule": "S'atorga després de completar sessions de descàrrec en cinc setmanes diferents del teu entrenament."
+    },
     "rpe_awareness": {
       "name": "Consciència RPE",
       "rule": "S'atorga després de cinc sessions on cada sèrie inclou un valor RPE."
+    },
+    "warm_up_habit": {
+      "name": "Hàbit d'escalfament",
+      "rule": "Has començat 10 sessions amb almenys una sèrie d'escalfament."
+    },
+    "triple_preparation": {
+      "name": "Cinc preparacions seguides",
+      "rule": "Has començat 5 sessions seguides amb una sèrie d'escalfament."
+    },
+    "first_rest_day_honored": {
+      "name": "Primer dia de descans honrat",
+      "rule": "S'atorga quan marques un dia de descans al teu pla i el deixes passar sense entrenar."
     }
   }
 }

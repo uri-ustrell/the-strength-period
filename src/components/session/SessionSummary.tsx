@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { type ReactNode, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import type { ExecutedSet } from '@/types/session'
@@ -9,6 +9,12 @@ interface Props {
   isSaving: boolean
   onFinish: (globalRpe: number, notes?: string) => void
   onDiscard?: () => void
+  /**
+   * Step 16 Phase E sub-phase E1 — earn-acknowledgement mount slot.
+   * Rendered between the summary numbers card and the RPE/notes card.
+   * `undefined` (default) preserves the pre-E1 layout exactly.
+   */
+  topAccessory?: ReactNode
 }
 
 export const SessionSummary = ({
@@ -17,6 +23,7 @@ export const SessionSummary = ({
   isSaving,
   onFinish,
   onDiscard,
+  topAccessory,
 }: Props) => {
   const { t } = useTranslation(['common', 'exercises'])
   const [globalRpe, setGlobalRpe] = useState(7)
@@ -62,6 +69,8 @@ export const SessionSummary = ({
           </div>
         </div>
       </div>
+
+      {topAccessory}
 
       <div className="rounded-2xl bg-white p-5 shadow-sm">
         <label htmlFor="rpe-slider" className="mb-2 block text-sm font-semibold text-gray-700">

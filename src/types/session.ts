@@ -11,6 +11,8 @@ export type ExecutedSet = {
   weightKgActual?: number
   rpe?: number
   completedAt: string
+  /** When true, set is a warm-up — excluded from training volume and PR detection (Phase E4a). */
+  isWarmup?: boolean
 }
 
 export type ExecutedSession = {
