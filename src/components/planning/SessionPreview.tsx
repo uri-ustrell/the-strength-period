@@ -1,9 +1,8 @@
+import { ChevronDown, ChevronRight, Clock, Dumbbell, Target } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Clock, Target, ChevronRight, ChevronDown, Dumbbell } from 'lucide-react'
-
-import type { SessionTemplate } from '@/types/planning'
 import { useExerciseStore } from '@/stores/exerciseStore'
+import type { SessionTemplate } from '@/types/planning'
 
 interface Props {
   session: SessionTemplate

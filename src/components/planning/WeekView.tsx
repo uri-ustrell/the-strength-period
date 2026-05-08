@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
-
-import type { Mesocycle, SessionTemplate } from '@/types/planning'
 import { SessionPreview } from '@/components/planning/SessionPreview'
 import { usePlanningStore } from '@/stores/planningStore'
+import type { Mesocycle, SessionTemplate } from '@/types/planning'
 
 interface Props {
   mesocycle: Mesocycle
