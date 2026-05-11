@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { playRestEndChime } from '@/services/audio/sessionAudio'
 import { useSessionStore } from '@/stores/sessionStore'
 
 interface Props {
@@ -15,20 +14,10 @@ export const RestTimer = ({ onSkip }: Props) => {
   const tickRest = useSessionStore((s) => s.tickRest)
   const onTickRef = useRef(tickRest)
   onTickRef.current = tickRest
-  // Track whether the t=0 chime fired for the current rest cycle. The cycle
-  // is identified by `restEndsAt`; when it changes we reset the latch so the
-  // chime can fire once per future rest.
-  const restEndsAt = useSessionStore((s) => s.restEndsAt)
-  const chimeCycleRef = useRef<number | null>(null)
-  useEffect(() => {
-    chimeCycleRef.current = null
-  }, [restEndsAt])
-  useEffect(() => {
-    if (secondsRemaining === 0 && restEndsAt !== null && chimeCycleRef.current !== restEndsAt) {
-      chimeCycleRef.current = restEndsAt
-      playRestEndChime()
-    }
-  }, [secondsRemaining, restEndsAt])
+  // Note: the rest-end chime is fired by the store inside `tickRest` itself
+  // — see `sessionStore.tickRest` for the rationale (this component would
+  // otherwise unmount on the same tick that hits zero, so a render-driven
+  // chime would never fire).
 
   useEffect(() => {
     // Tick immediately so the displayed value catches up after mount or

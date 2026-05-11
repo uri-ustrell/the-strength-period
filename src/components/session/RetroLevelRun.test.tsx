@@ -139,7 +139,7 @@ describe('RetroLevelRun — render', () => {
     expect(active.getAttribute('data-set-state')).toBe('active')
   })
 
-  it('clicking the active set invokes actions.logSet', () => {
+  it('clicking the active set is a no-op (logging happens via SetLogger)', () => {
     const logSet = vi.fn()
     const model = makeModel()
     render(
@@ -153,8 +153,10 @@ describe('RetroLevelRun — render', () => {
         }}
       />
     )
-    fireEvent.click(screen.getByTestId('retro-set-0-1'))
-    expect(logSet).toHaveBeenCalledTimes(1)
+    const activeCoin = screen.getByTestId('retro-set-0-1')
+    expect(activeCoin).toBeDisabled()
+    fireEvent.click(activeCoin)
+    expect(logSet).not.toHaveBeenCalled()
   })
 
   it('clicking the SetLogger complete button invokes logSet; skip invokes skipSet', () => {

@@ -124,6 +124,13 @@ export const TOTEM_CATALOG_V1: ReadonlyArray<TotemCatalogEntry> = [
     family: 'reflection',
     nameI18nKey: 'stats:totem.rpe_awareness.name',
     ruleI18nKey: 'stats:totem.rpe_awareness.rule',
+    // TODO(rpe-awareness): The evaluator (`evalRpeAwareness`) requires a
+    // per-set `rpe` value that the session execution surface never captures
+    // today (only a global session RPE is logged). Until per-set RPE is
+    // added, this totem can never be earned in production. The catalog
+    // entry stays so existing tests + the i18n keys keep working; consider
+    // either capturing per-set RPE or relaxing the evaluator before
+    // shipping it as a discoverable goal.
   },
 ]
 

@@ -1,5 +1,5 @@
-import { FAMILY_ORDER } from '@/components/stats/totemInventoryShared'
 import {
+  FAMILY_ORDER,
   TOTEM_CATALOG_V2,
   type TotemId,
   type TotemInventoryModel,

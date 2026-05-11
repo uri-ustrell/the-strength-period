@@ -9,6 +9,7 @@ import { ProgressionChart } from '@/components/stats/ProgressionChart'
 import { TotemInventory } from '@/components/stats/TotemInventory'
 import { VolumeChart } from '@/components/stats/VolumeChart'
 import { useExercises } from '@/hooks/useExercises'
+import { closeStatsAudio } from '@/services/audio/statsAudio'
 import {
   listAllSessions,
   listAllSets,
@@ -49,6 +50,15 @@ export const Stats = () => {
   useEffect(() => {
     loadActive()
   }, [loadActive])
+
+  // Release the cached `AudioContext`(s) the stats audio service may have
+  // allocated for the totem inspect chime when the user navigates away
+  // from this page. Otherwise the contexts leak across SPA navigations.
+  useEffect(() => {
+    return () => {
+      closeStatsAudio()
+    }
+  }, [])
 
   // Always load the full session/set history for the totem inventory model.
   // Phase D requires totems to be cumulative and time-window-agnostic, so

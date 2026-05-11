@@ -64,6 +64,12 @@ export function playTotemInspect(): void {
     chimeCache = { audioCtx }
   }
   const { audioCtx } = chimeCache
+  // iOS Safari (and some desktop browsers) suspend a fresh AudioContext
+  // until a user gesture; resume() is a no-op when already running and
+  // never throws synchronously.
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume().catch(() => {})
+  }
   try {
     const osc = audioCtx.createOscillator()
     const gain = audioCtx.createGain()
@@ -100,4 +106,22 @@ export function resetTotemInspect(): void {
 export function __resetStatsAudioForTests(): void {
   chimeFiredForCurrentInspect = false
   chimeCache = null
+}
+
+/**
+ * Releases the cached `AudioContext` used by the stats audio surface.
+ * Pages that mount the stats UI (currently `Stats.tsx`) MUST invoke this
+ * on unmount so we don't leak audio resources between visits.
+ */
+export function closeStatsAudio(): void {
+  const cache = chimeCache
+  chimeCache = null
+  chimeFiredForCurrentInspect = false
+  if (!cache) return
+  try {
+    cache.audioCtx.close().catch(() => {})
+  } catch {
+    // close() throws synchronously on already-closed contexts in some
+    // browsers; nothing actionable here.
+  }
 }

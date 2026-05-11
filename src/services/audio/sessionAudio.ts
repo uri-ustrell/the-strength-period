@@ -64,6 +64,12 @@ export function playRestEndChime(): void {
     restEndCache = { audioCtx }
   }
   const { audioCtx } = restEndCache
+  // iOS Safari (and some desktop browsers) suspend a fresh AudioContext
+  // until a user gesture; resume() is a no-op when already running and
+  // never throws synchronously, so we ignore the returned promise.
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume().catch(() => {})
+  }
   try {
     const osc = audioCtx.createOscillator()
     const gain = audioCtx.createGain()
@@ -91,6 +97,9 @@ export function playSetCompleteBlip(): void {
     setCompleteCache = { audioCtx }
   }
   const { audioCtx } = setCompleteCache
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume().catch(() => {})
+  }
   try {
     const osc = audioCtx.createOscillator()
     const gain = audioCtx.createGain()
@@ -104,4 +113,34 @@ export function playSetCompleteBlip(): void {
   } catch {
     // see above
   }
+}
+
+/**
+ * Releases the cached `AudioContext`s used by the session audio surface.
+ * Pages that mount the session UI (currently `Session.tsx`) MUST invoke
+ * this on unmount so we don't leak audio resources between visits — the
+ * caches are module-scoped and survive component teardown otherwise.
+ */
+export function closeSessionAudio(): void {
+  const caches = [restEndCache, setCompleteCache]
+  restEndCache = null
+  setCompleteCache = null
+  for (const cache of caches) {
+    if (!cache) continue
+    try {
+      cache.audioCtx.close().catch(() => {})
+    } catch {
+      // close() throws synchronously on already-closed contexts in some
+      // browsers; nothing actionable here.
+    }
+  }
+}
+
+/**
+ * Test-only: fully resets module-level cached AudioContexts. Production
+ * code should call {@link closeSessionAudio} instead.
+ */
+export function __resetSessionAudioForTests(): void {
+  restEndCache = null
+  setCompleteCache = null
 }

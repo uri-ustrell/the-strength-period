@@ -1,4 +1,3 @@
-import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ActiveExercise } from '@/components/session/ActiveExercise'
 import { RestTimer } from '@/components/session/RestTimer'
@@ -59,14 +58,11 @@ export const RetroLevelRun = ({ model, actions }: Props) => {
   const ariaName = useSetAriaLabel()
   const stateLabel = useSetStateLabel()
 
-  const onActiveSetClick = useCallback(
-    (block: ExerciseBlock) => {
-      const plannedReps = Array.isArray(block.reps) ? block.reps[1] : block.reps
-      playSetCompleteBlip()
-      actions.logSet(plannedReps, block.weightKg)
-    },
-    [actions]
-  )
+  // The active coin is intentionally non-interactive: completing a set MUST
+  // go through the SetLogger so the user-edited reps/weight/`isWarmup` flag
+  // are preserved. A previous implementation invoked `actions.logSet` from
+  // the coin click using planned values, silently discarding the SetLogger
+  // input — see review CRITICAL/HIGH from 11/05/2026.
 
   const activeBlock = model.exerciseBlocks[model.currentExerciseIndex] ?? null
 
@@ -85,7 +81,6 @@ export const RetroLevelRun = ({ model, actions }: Props) => {
               block={block}
               ariaName={ariaName}
               stateLabel={stateLabel}
-              onActiveSetClick={() => onActiveSetClick(block)}
             />
           ))}
         </div>
@@ -149,10 +144,9 @@ type PlatformProps = {
   block: ExerciseBlock
   ariaName: ReturnType<typeof useSetAriaLabel>
   stateLabel: ReturnType<typeof useSetStateLabel>
-  onActiveSetClick: () => void
 }
 
-const RetroPlatform = ({ block, ariaName, stateLabel, onActiveSetClick }: PlatformProps) => {
+const RetroPlatform = ({ block, ariaName, stateLabel }: PlatformProps) => {
   return (
     <div
       className="flex flex-col items-center gap-1"
@@ -167,7 +161,6 @@ const RetroPlatform = ({ block, ariaName, stateLabel, onActiveSetClick }: Platfo
             node={node}
             ariaName={ariaName}
             stateLabel={stateLabel}
-            onActiveSetClick={onActiveSetClick}
           />
         ))}
       </div>
@@ -185,11 +178,9 @@ type CoinProps = {
   node: SetNode
   ariaName: ReturnType<typeof useSetAriaLabel>
   stateLabel: ReturnType<typeof useSetStateLabel>
-  onActiveSetClick: () => void
 }
 
-const RetroCoin = ({ block, node, ariaName, stateLabel, onActiveSetClick }: CoinProps) => {
-  const isActive = node.state === 'active'
+const RetroCoin = ({ block, node, ariaName, stateLabel }: CoinProps) => {
   const label = ariaName(block.exerciseIndex + 1, node.setNumber, block.sets.length, node.state)
   return (
     <button
@@ -200,15 +191,14 @@ const RetroCoin = ({ block, node, ariaName, stateLabel, onActiveSetClick }: Coin
       title={stateLabel(node.state)}
       data-set-state={node.state}
       data-testid={`retro-set-${block.exerciseIndex}-${node.setIndex}`}
-      onClick={isActive ? onActiveSetClick : undefined}
-      disabled={!isActive}
+      disabled
       className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-900 font-mono text-xs font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 ${
         STATE_TILE_CLASS[node.state]
       }`}
       style={{
         backgroundColor: SET_STATE_VAR[node.state],
         color: '#0f172a',
-        cursor: isActive ? 'pointer' : 'default',
+        cursor: 'default',
       }}
     >
       {node.setNumber}

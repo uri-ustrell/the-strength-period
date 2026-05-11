@@ -1,6 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
-import type { TotemEntry, TotemFamily, TotemState } from '@/services/stats/buildTotemInventoryModel'
+import {
+  FAMILY_ORDER,
+  type TotemEntry,
+  type TotemFamily,
+  type TotemState,
+} from '@/services/stats/buildTotemInventoryModel'
 
 /**
  * Step 16 Phase D — Shared helpers for totem-inventory renderers.
@@ -11,14 +16,14 @@ import type { TotemEntry, TotemFamily, TotemState } from '@/services/stats/build
  * Same pattern as `dashboardMapShared` (Phase B) / `sessionExecutionShared`
  * (Phase C): both variant renderers import these so the aria contract,
  * state-label and family-label resolution stay in exactly one place.
+ *
+ * `FAMILY_ORDER` is owned by the service layer (`buildTotemInventoryModel`)
+ * because both pure model code (e.g. `buildSessionCompletionTotemPayload`)
+ * and renderers depend on it; we re-export it here so existing component
+ * imports keep working.
  */
 
-export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = [
-  'consistency',
-  'recovery',
-  'preparation',
-  'reflection',
-]
+export { FAMILY_ORDER }
 
 /** Maps a totem family to its motif color CSS variable. Shared across both renderers. */
 export const FAMILY_VAR: Record<TotemFamily, string> = {

@@ -8,6 +8,7 @@ import { SessionPreStart } from '@/components/session/SessionPreStart'
 import { SessionSummary } from '@/components/session/SessionSummary'
 import { useSession } from '@/hooks/useSession'
 import { listAllSessions, listAllSets } from '@/services/db/sessionRepository'
+import { closeSessionAudio } from '@/services/audio/sessionAudio'
 import { buildSessionCompletionTotemPayload } from '@/services/session/buildSessionCompletionTotemPayload'
 import { buildSessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 import { buildTotemInventoryModel } from '@/services/stats/buildTotemInventoryModel'
@@ -89,6 +90,12 @@ export const Session = () => {
   const handleFinish = useCallback(
     async (globalRpe: number, notes?: string) => {
       await finishSession(globalRpe, notes)
+      // If the IDB write failed, `finishSession` keeps `pendingSessionDraft`
+      // and surfaces `error`. We MUST NOT reset/navigate here — that would
+      // wipe the executed sets + draft and the session would be irrecoverable.
+      // The `SessionSummary` already renders the error banner and the user
+      // can retry by tapping Save again.
+      if (useSessionStore.getState().error) return
       reset()
       navigate('/dashboard')
     },
@@ -113,6 +120,14 @@ export const Session = () => {
     finishEarly()
     setShowCancelConfirm(false)
   }, [finishEarly])
+
+  // Release the cached `AudioContext`(s) the session audio service may
+  // have allocated when the user navigates away from this page.
+  useEffect(() => {
+    return () => {
+      closeSessionAudio()
+    }
+  }, [])
 
   // Step 16 Phase E sub-phase E1 — earn-acknowledgement payload pipeline.
   // Lazy-load the full session/set history exactly when `isFinished` flips to

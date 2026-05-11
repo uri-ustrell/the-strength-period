@@ -4,7 +4,7 @@ import { useEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVaria
 import type { SessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 
 export type SessionExecutionActions = {
-  logSet: (repsActual: number, weightActual?: number) => void
+  logSet: (repsActual: number, weightActual?: number, isWarmup?: boolean) => void
   skipSet: () => void
   skipRest: () => void
   updateCurrentExerciseWeight: (newWeight: number) => void

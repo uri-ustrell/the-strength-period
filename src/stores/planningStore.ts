@@ -110,7 +110,7 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
     }
   },
 
-  discardGenerated: () => set({ generatedPreview: null }),
+  discardGenerated: () => set({ generatedPreview: null, missingExerciseIds: [] }),
 
   setGeneratedPreview: (mesocycle) => set({ generatedPreview: mesocycle }),
 

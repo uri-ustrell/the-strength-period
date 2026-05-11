@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { playRestEndChime } from '@/services/audio/sessionAudio'
 import { markTemplateCompleted, saveSession } from '@/services/db/sessionRepository'
 import type { GeneratedSession } from '@/services/exercises/sessionGenerator'
 import type { NavigationInput } from '@/services/session/sessionNavigation'
@@ -285,6 +286,13 @@ export const useSessionStore = create<SessionStore>((set, get) => ({
     if (restEndsAt === null) return
     const remaining = Math.max(0, Math.ceil((restEndsAt - Date.now()) / 1000))
     if (remaining <= 0) {
+      // Fire the rest-end chime BEFORE clearing the rest state. The
+      // RestTimer component would otherwise unmount on the same tick that
+      // sees `secondsRemaining === 0`, so a render-driven chime never gets
+      // a chance to fire (the RetroPlatformer C9 audio surface depends on
+      // this). The audio service short-circuits when the variant is not
+      // `retro-platformer`, so classic remains silent.
+      playRestEndChime()
       set({ isResting: false, restSecondsRemaining: 0, restEndsAt: null })
     } else {
       set({ restSecondsRemaining: remaining })

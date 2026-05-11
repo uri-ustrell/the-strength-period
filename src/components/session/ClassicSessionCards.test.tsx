@@ -149,7 +149,7 @@ describe('ClassicSessionCards — render', () => {
     expect(completed.getAttribute('aria-pressed')).toBe('true')
   })
 
-  it('clicking the active set invokes actions.logSet', () => {
+  it('clicking the active set is a no-op (logging happens via SetLogger)', () => {
     const logSet = vi.fn()
     const model = makeModel()
     render(
@@ -163,8 +163,10 @@ describe('ClassicSessionCards — render', () => {
         }}
       />
     )
-    fireEvent.click(screen.getByTestId('classic-set-0-1'))
-    expect(logSet).toHaveBeenCalledTimes(1)
+    const activeRow = screen.getByTestId('classic-set-0-1')
+    expect(activeRow).toBeDisabled()
+    fireEvent.click(activeRow)
+    expect(logSet).not.toHaveBeenCalled()
   })
 
   it('SetLogger complete invokes logSet; skip invokes skipSet; rest skip invokes skipRest', () => {

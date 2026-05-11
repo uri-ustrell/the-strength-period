@@ -1,5 +1,4 @@
 import { Check, Circle, Minus, Play } from 'lucide-react'
-import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ActiveExercise } from '@/components/session/ActiveExercise'
 import { RestTimer } from '@/components/session/RestTimer'
@@ -70,16 +69,11 @@ export const ClassicSessionCards = ({ model, actions }: Props) => {
   const ariaName = useSetAriaLabel()
   const stateLabel = useSetStateLabel()
 
-  const onActiveSetClick = useCallback(
-    (block: ExerciseBlock) => {
-      const plannedReps = Array.isArray(block.reps) ? block.reps[1] : block.reps
-      // Audio is a retro-only affordance; the parity contract is on model
-      // + actions, not cosmetic-call mirroring. `classic-boring` is silent
-      // by construction — `playSetCompleteBlip` is never invoked here.
-      actions.logSet(plannedReps, block.weightKg)
-    },
-    [actions]
-  )
+  // The active set row is intentionally non-interactive: completing a set
+  // MUST go through the SetLogger so the user-edited reps/weight/`isWarmup`
+  // flag are preserved. A previous implementation invoked `actions.logSet`
+  // from the row click using planned values, silently discarding the
+  // SetLogger input — see review CRITICAL/HIGH from 11/05/2026.
 
   const activeBlock = model.exerciseBlocks[model.currentExerciseIndex] ?? null
 
@@ -95,7 +89,6 @@ export const ClassicSessionCards = ({ model, actions }: Props) => {
             isActive={block.exerciseIndex === model.currentExerciseIndex && !model.isFinished}
             ariaName={ariaName}
             stateLabel={stateLabel}
-            onActiveSetClick={() => onActiveSetClick(block)}
           />
         ))}
       </div>
@@ -159,10 +152,9 @@ type CardProps = {
   isActive: boolean
   ariaName: ReturnType<typeof useSetAriaLabel>
   stateLabel: ReturnType<typeof useSetStateLabel>
-  onActiveSetClick: () => void
 }
 
-const ClassicCard = ({ block, isActive, ariaName, stateLabel, onActiveSetClick }: CardProps) => {
+const ClassicCard = ({ block, isActive, ariaName, stateLabel }: CardProps) => {
   const { t } = useTranslation('common')
   const exerciseName = t(block.exercise.nameKey, { defaultValue: block.exercise.id })
   const allCompleted = block.sets.every((n) => n.state === 'completed')
@@ -207,7 +199,6 @@ const ClassicCard = ({ block, isActive, ariaName, stateLabel, onActiveSetClick }
             node={node}
             ariaName={ariaName}
             stateLabel={stateLabel}
-            onActiveSetClick={onActiveSetClick}
           />
         ))}
       </div>
@@ -220,10 +211,9 @@ type RowProps = {
   node: SetNode
   ariaName: ReturnType<typeof useSetAriaLabel>
   stateLabel: ReturnType<typeof useSetStateLabel>
-  onActiveSetClick: () => void
 }
 
-const ClassicSetRow = ({ block, node, ariaName, stateLabel, onActiveSetClick }: RowProps) => {
+const ClassicSetRow = ({ block, node, ariaName, stateLabel }: RowProps) => {
   const isActive = node.state === 'active'
   const Icon = STATE_ICON[node.state]
   const label = ariaName(block.exerciseIndex + 1, node.setNumber, block.sets.length, node.state)
@@ -244,8 +234,7 @@ const ClassicSetRow = ({ block, node, ariaName, stateLabel, onActiveSetClick }: 
       title={stateLabel(node.state)}
       data-set-state={node.state}
       data-testid={`classic-set-${block.exerciseIndex}-${node.setIndex}`}
-      onClick={isActive ? onActiveSetClick : undefined}
-      disabled={!isActive}
+      disabled
       className={`flex h-8 min-w-[2rem] items-center justify-center gap-1 rounded-md border border-gray-300 px-2 font-mono text-xs font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
         STATE_ROW_CLASS[node.state]
       }`}

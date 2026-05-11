@@ -158,7 +158,7 @@ export const RetroInventoryShelf = ({ model }: RetroInventoryShelfProps) => {
               {familyLabel(group.family)}
             </span>
           </div>
-          <ul className="grid grid-cols-3 gap-2" role="list" aria-label={familyLabel(group.family)}>
+          <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8" role="list" aria-label={familyLabel(group.family)}>
             {group.totems.map((totem, colIdx) => {
               const isOpen = openId === totem.id
               const isEarned = totem.state === 'earned'

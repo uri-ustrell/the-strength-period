@@ -151,9 +151,9 @@ describe('SessionExecution — cross-variant parity', () => {
     expect(screen.queryAllByTestId(/^retro-platform-/).length).toBeGreaterThan(0)
     expect(screen.queryAllByTestId(/^classic-card-/)).toHaveLength(0)
     expect(screen.queryAllByTestId('classic-session-cards')).toHaveLength(0)
-    // Click the active set → logSet fires.
+    // Click the active set → no-op (logging is wired through SetLogger).
     fireEvent.click(screen.getByTestId('retro-set-0-1'))
-    expect(retroLogSet).toHaveBeenCalledTimes(1)
+    expect(retroLogSet).not.toHaveBeenCalled()
     unmountRetro()
     cleanup()
 
@@ -181,7 +181,7 @@ describe('SessionExecution — cross-variant parity', () => {
     expect(screen.queryAllByTestId(/^retro-set-/)).toHaveLength(0)
     expect(screen.queryAllByTestId('retro-level-run')).toHaveLength(0)
     fireEvent.click(screen.getByTestId('classic-set-0-1'))
-    expect(classicLogSet).toHaveBeenCalledTimes(1)
+    expect(classicLogSet).not.toHaveBeenCalled()
 
     // ── parity assertions ─────────────────────────────────────────────
     expect(classicStates).toEqual(retroStates)
