@@ -1,4 +1,3 @@
-import { resolveEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVariant'
 import { useUserStore } from '@/stores/userStore'
 
 /**
@@ -29,17 +28,9 @@ let setCompleteCache: { audioCtx: AudioContext } | null = null
 
 function isAudioEnabled(): boolean {
   if (typeof window === 'undefined') return false
-  const persisted = useUserStore.getState().aestheticVariant
-  // Note: we deliberately pass `false` for `prefersReducedMotion` here. The
-  // variant override is enforced by the render layer; the audio service only
-  // cares about the user's persisted choice — if they explicitly picked
-  // retro-platformer, they opted into the audio surface.
-  const effective = resolveEffectiveAestheticVariant(persisted, false)
-  if (effective !== 'retro-platformer') return false
-  // TODO: wire user opt-in flag (e.g. `userStore.audioOptIn`) once the
-  // Settings UI exposes it (Phase E). Until then, opting into the variant
-  // gates the audio surface.
-  return true
+  // Feature 17: single, explicit user opt-in. Default is `false` so the
+  // app is silent unless the user enables it from Settings.
+  return useUserStore.getState().audioOptIn === true
 }
 
 function ensureContext(): AudioContext | null {

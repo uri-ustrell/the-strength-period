@@ -3,9 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { EquipmentChipSelector } from '@/components/onboarding/EquipmentChipSelector'
-import { AppearanceSelector } from '@/components/ui/AppearanceSelector'
 import { WeightSelector } from '@/components/ui/WeightSelector'
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import { useUserStore } from '@/stores/userStore'
 import type { DayOfWeek } from '@/types/exercise'
 import { FEEDBACK_CONFIRM_MS } from '@/utils/uiTiming'
@@ -27,11 +25,9 @@ export const SettingsPage = () => {
   const setMinutesPerSession = useUserStore((s) => s.setMinutesPerSession)
   const availableWeights = useUserStore((s) => s.availableWeights)
   const setAvailableWeights = useUserStore((s) => s.setAvailableWeights)
-  const aestheticVariant = useUserStore((s) => s.aestheticVariant)
-  const setAestheticVariant = useUserStore((s) => s.setAestheticVariant)
+  const audioOptIn = useUserStore((s) => s.audioOptIn)
+  const setAudioOptIn = useUserStore((s) => s.setAudioOptIn)
   const completeOnboarding = useUserStore((s) => s.completeOnboarding)
-
-  const reducedMotionForced = usePrefersReducedMotion()
 
   const [saved, setSaved] = useState(false)
   const navigateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -150,18 +146,27 @@ export const SettingsPage = () => {
           />
         </section>
 
-        {/* Appearance / Aesthetic variant */}
+        {/* Audio opt-in */}
         <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase tracking-wide">
-            {t('common:settings.appearance.title')}
-          </h2>
-          <AppearanceSelector
-            namespace="common"
-            keyPrefix="settings.appearance"
-            persistedVariant={aestheticVariant}
-            onChange={setAestheticVariant}
-            reducedMotionForced={reducedMotionForced}
-          />
+          <label className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              checked={audioOptIn}
+              onChange={(e) => setAudioOptIn(e.target.checked)}
+              className="mt-1"
+              data-testid="settings-audio-opt-in"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-gray-900">
+                {t('common:settings.audio.title', { defaultValue: 'So' })}
+              </span>
+              <span className="block text-xs text-gray-500">
+                {t('common:settings.audio.description', {
+                  defaultValue: 'Activa tons curts en finalitzar el descans i la sessió.',
+                })}
+              </span>
+            </span>
+          </label>
         </section>
 
         {/* Save button */}

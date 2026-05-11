@@ -1,4 +1,3 @@
-import { resolveEffectiveAestheticVariant } from '@/hooks/useEffectiveAestheticVariant'
 import { useUserStore } from '@/stores/userStore'
 
 /**
@@ -26,15 +25,8 @@ let chimeFiredForCurrentInspect = false
 
 function isAudioEnabled(): boolean {
   if (typeof window === 'undefined') return false
-  const persisted = useUserStore.getState().aestheticVariant
-  // Variant override is enforced by the render layer; the audio service
-  // only cares about the user's persisted choice.
-  const effective = resolveEffectiveAestheticVariant(persisted, false)
-  if (effective !== 'retro-platformer') return false
-  // TODO: wire user opt-in flag (`userStore.audioOptIn`) once the Settings
-  // UI exposes it (Phase E). Until then, opting into the variant gates
-  // the audio surface.
-  return true
+  // Feature 17: single, explicit user opt-in (default `false`).
+  return useUserStore.getState().audioOptIn === true
 }
 
 function ensureContext(): AudioContext | null {

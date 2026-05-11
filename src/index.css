@@ -1,13 +1,91 @@
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/fira-code/400.css';
+@import '@fontsource/fira-code/500.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Feature 17 — "Progreso Jugable" design tokens.
+ *
+ * The app is dark-only by design. All colors live as CSS variables on
+ * :root so React components can reference them via Tailwind's `bg-bg`,
+ * `text-text-primary`, etc. or directly as `var(--color-accent)`.
+ *
+ * Family colors map the four totem families introduced in Feature 16's
+ * service layer (consistency / recovery / preparation / reflection).
+ * The dual-skin variants (classic-boring / retro-platformer) introduced
+ * in Step 16 are GONE — there is one design now.
+ */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+
+  /* Surfaces */
+  --color-bg: #1e1b2e;
+  --color-surface: #2d2a3f;
+  --color-surface-elevated: #3a3654;
+
+  /* Accents */
+  --color-accent: #ff6b4a;
+  --color-highlight: #f9a826;
+  --color-success: #2dd4bf;
+
+  /* Typography colors */
+  --color-text-primary: #f3f4f6;
+  --color-text-muted: #9ca3af;
+
+  /* Borders */
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Family motif colors (totems / dashboard week tint) */
+  --color-family-consistency: #ff6b4a;
+  --color-family-recovery: #2dd4bf;
+  --color-family-preparation: #f9a826;
+  --color-family-reflection: #a78bfa;
+
+  /* Charts (dark-native) */
+  --color-chart-axis: #9ca3af;
+  --color-chart-grid: rgba(255, 255, 255, 0.06);
+  --color-chart-tooltip-bg: #2d2a3f;
+  --color-chart-tooltip-fg: #f3f4f6;
+  --color-chart-legend: #9ca3af;
+  --color-chart-series-1: #ff6b4a;
+  --color-chart-series-2: #2dd4bf;
+  --color-chart-series-3: #f9a826;
+  --color-chart-series-4: #a78bfa;
+  --color-chart-series-5: #60a5fa;
+  --color-chart-series-6: #f472b6;
+
+  /* Legacy chart aliases (bridged so existing chart code keeps working). */
+  --theme-charts-axis-fg: var(--color-chart-axis);
+  --theme-charts-grid: var(--color-chart-grid);
+  --theme-charts-tooltip-bg: var(--color-chart-tooltip-bg);
+  --theme-charts-tooltip-fg: var(--color-chart-tooltip-fg);
+  --theme-charts-legend-fg: var(--color-chart-legend);
+  --theme-charts-series-1: var(--color-chart-series-1);
+  --theme-charts-series-2: var(--color-chart-series-2);
+  --theme-charts-series-3: var(--color-chart-series-3);
+  --theme-charts-series-4: var(--color-chart-series-4);
+  --theme-charts-series-5: var(--color-chart-series-5);
+  --theme-charts-series-6: var(--color-chart-series-6);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,160 +93,31 @@
 }
 
 body {
-  margin: 0;
   min-width: 320px;
-  min-height: 100vh;
 }
 
-/*
- * --- Step 16 Phase B: Shared Dashboard Tokens -------------------------------
- *
- * Spec: specs/features/16-ethical-gamification.md → "Phase B Shared Contracts
- * (Dashboard)". Both `retro-platformer` and `classic-boring` renderers consume
- * these variables off the same DashboardMapModel. No red is used for any state
- * (no shaming on `skipped`).
- *
- * Per-week accent: deterministic mapping `weekIndex % 6` against the six-color
- * palette. The retro variant uses the saturated `-300` shade; classic-boring
- * uses the muted `-100` shade via `--theme-dashboard-week-accent-muted`.
- * Renderers read `--theme-dashboard-week-accent` and
- * `--theme-dashboard-week-accent-muted` (set per-week via inline style).
- */
-:root {
-  /* Canonical session state colors (shared, no red, no shaming). */
-  --theme-dashboard-state-future: #cbd5e1; /* slate-300 */
-  --theme-dashboard-state-available: #6366f1; /* indigo-500 */
-  --theme-dashboard-state-in-progress: #f59e0b; /* amber-500 */
-  --theme-dashboard-state-completed: #10b981; /* emerald-500 */
-  --theme-dashboard-state-skipped: #94a3b8; /* slate-400 */
-
-  /* Week accent palette (saturated, retro-platformer). 6 colors, indexed 1..6. */
-  --theme-dashboard-week-accent-1: #a5b4fc; /* indigo-300 */
-  --theme-dashboard-week-accent-2: #7dd3fc; /* sky-300 */
-  --theme-dashboard-week-accent-3: #5eead4; /* teal-300 */
-  --theme-dashboard-week-accent-4: #6ee7b7; /* emerald-300 */
-  --theme-dashboard-week-accent-5: #fcd34d; /* amber-300 */
-  --theme-dashboard-week-accent-6: #fda4af; /* rose-300 */
-
-  /* Week accent palette — muted variants (classic-boring). */
-  --theme-dashboard-week-accent-muted-1: #e0e7ff; /* indigo-100 */
-  --theme-dashboard-week-accent-muted-2: #e0f2fe; /* sky-100 */
-  --theme-dashboard-week-accent-muted-3: #ccfbf1; /* teal-100 */
-  --theme-dashboard-week-accent-muted-4: #d1fae5; /* emerald-100 */
-  --theme-dashboard-week-accent-muted-5: #fef3c7; /* amber-100 */
-  --theme-dashboard-week-accent-muted-6: #ffe4e6; /* rose-100 */
+.tabular {
+  font-variant-numeric: tabular-nums;
 }
 
-/*
- * --- Step 16 Phase C: Shared Session Execution Tokens -----------------------
- *
- * Spec: specs/features/16-ethical-gamification.md → "Phase C Shared Contracts
- * (Session Execution)" → "Token Namespaces" + "Rest-Timer Contract".
- *
- * Both `retro-platformer` and `classic-boring` renderers consume these
- * variables off the same `SessionExecutionModel`. The rest timer namespace
- * has NO red/urgency variant by design (no escalation, no flashing — see the
- * Rest-Timer Contract). The HUD `accent` shade reuses the dashboard
- * week-accent token so weeks remain visually coherent across surfaces.
- */
-:root {
-  /* Per-set state colors (shared, no red, no shaming on `skipped`). */
-  --theme-session-set-pending: #cbd5e1; /* slate-300 */
-  --theme-session-set-active: #6366f1; /* indigo-500 */
-  --theme-session-set-completed: #10b981; /* emerald-500 */
-  --theme-session-set-skipped: #94a3b8; /* slate-400 */
-
-  /* Rest timer — single calm pair, intentionally NO urgency variant. */
-  --theme-session-rest-fg: #1e3a8a; /* indigo-900 */
-  --theme-session-rest-bg: #e0e7ff; /* indigo-100 */
-
-  /* HUD readouts. `accent` reuses the dashboard week accent so the surface
-   * inherits the active week's tint without re-deriving the palette. */
-  --theme-session-hud-fg: #0f172a; /* slate-900 */
-  --theme-session-hud-muted: #64748b; /* slate-500 */
-  --theme-session-hud-accent: var(--theme-dashboard-week-accent, #6366f1);
-
-  /* Retro-platformer-only extras. Never read by `classic-boring`. */
-  --theme-game-session-platform: #fcd34d; /* amber-300 — retro platform tile */
-  --theme-game-session-checkpoint: #10b981; /* emerald-500 — coin/flag stamp */
-  --theme-game-session-sprite-scale: 2; /* integer multiplier for pixel sprites */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
 }
 
-/*
- * --- Step 16 Phase D: Shared Stats / Inventory Tokens ----------------------
- *
- * Spec: specs/features/16-ethical-gamification.md → "Phase D Shared Contracts
- * (Stats / Inventory)" → "Token Namespaces". Both `retro-platformer`
- * (`RetroInventoryShelf`) and `classic-boring` (`ClassicTotemGrid`) renderers
- * consume `--theme-stats-*` off the same `TotemInventoryModel`. The retro-only
- * `--theme-game-stats-*` namespace is NEVER read by `classic-boring` (verified
- * by the D11 grep guard).
- *
- * No red is used on any totem state — there is no "missed" / "lost" semantic
- * by design (totems are permanent, never revoked).
- *
- * Family motif colors reuse the dashboard week-accent palette so the surfaces
- * stay visually coherent across dashboard / session / stats.
- */
-:root {
-  /* Canonical totem state colors (shared, two states only — no `locked`). */
-  --theme-stats-totem-earned: #10b981; /* emerald-500 — earned, calm */
-  --theme-stats-totem-available: #cbd5e1; /* slate-300 — neutral, never shamed */
-
-  /* Family motif colors — reused from the dashboard week-accent palette so
-   * weeks and totem families share the same visual vocabulary. */
-  --theme-stats-family-consistency: var(--theme-dashboard-week-accent-1, #a5b4fc); /* indigo-300 */
-  --theme-stats-family-recovery: var(--theme-dashboard-week-accent-3, #5eead4); /* teal-300 */
-  --theme-stats-family-preparation: var(--theme-dashboard-week-accent-2, #c4b5fd); /* violet-300 — Phase E4a */
-  --theme-stats-family-reflection: var(--theme-dashboard-week-accent-5, #fcd34d); /* amber-300 */
-
-  /* Surface chrome (slot background, empty-state muted text, inspect panel). */
-  --theme-stats-slot-bg: #f8fafc; /* slate-50 */
-  --theme-stats-empty-muted: #64748b; /* slate-500 */
-  --theme-stats-inspect-bg: #ffffff; /* white inspect panel */
-  --theme-stats-inspect-fg: #0f172a; /* slate-900 */
-
-  /* Retro-platformer-only extras. NEVER read by `classic-boring`. */
-  --theme-game-stats-shelf-bg: #fef3c7; /* amber-100 — wood-shelf tone */
-  --theme-game-stats-slot-border: 2px; /* slot border thickness */
-  --theme-game-stats-sprite-scale: 2; /* integer multiplier for pixel sprites */
-  --theme-game-stats-chime-attack-ms: 8; /* pickup-chime envelope (attack) */
-  --theme-game-stats-chime-decay-ms: 120; /* pickup-chime envelope (decay) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
-/*
- * --- Step 16 Phase E sub-phase E3: Shared Analytics Chart Tokens -----------
- *
- * Spec: specs/features/16-ethical-gamification.md → "Phase E Shared Contracts
- * (Polish + Deferred Totems) → E3 — Chart Variant Theming Contract".
- *
- * Both `retro-platformer` and `classic-boring` renderers consume the shared
- * `--theme-charts-*` tokens via the `<ChartThemeProvider>` wrapper around
- * each chart instance. Classic charts inherit these `:root` defaults
- * unchanged (zero pixel font, current Tailwind palette). Retro overrides
- * the same tokens at the wrapper scope and additionally provides retro-only
- * `--theme-game-charts-*` tokens (axis font, letter spacing, tick stroke)
- * that are NEVER read by the classic variant.
- *
- * `MUSCLE_COLORS` in `VolumeChart.tsx` is intentionally NOT tokenized — it
- * encodes data identity (per-muscle hue) and stays variant-agnostic.
- *
- * AA contrast on white card background (`bg-white` on each <section> in
- * `Stats.tsx`) audited in `src/utils/contrast.test.ts`:
- *   - axis-fg #64748b vs #ffffff   = 4.55:1  (≥ 4.5)
- *   - legend-fg #64748b vs #ffffff = 4.55:1  (≥ 4.5)
- *   - tooltip-fg #0f172a vs #ffffff = 18.69:1 (≥ 4.5)
- */
-:root {
-  --theme-charts-axis-fg: #64748b; /* slate-500 */
-  --theme-charts-grid: #f0f0f0;
-  --theme-charts-tooltip-bg: #ffffff;
-  --theme-charts-tooltip-fg: #0f172a; /* slate-900 */
-  --theme-charts-legend-fg: #64748b; /* slate-500 */
-  --theme-charts-series-1: #6366f1; /* indigo-500 */
-  --theme-charts-series-2: #14b8a6; /* teal-500 */
-  --theme-charts-series-3: #c7d2fe; /* indigo-200 */
-  --theme-charts-series-4: #f59e0b; /* amber-500 */
-  --theme-charts-series-5: #8b5cf6; /* violet-500 */
-  --theme-charts-series-6: #3b82f6; /* blue-500 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

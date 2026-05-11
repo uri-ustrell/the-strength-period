@@ -2,46 +2,44 @@ import { describe, expect, it } from 'vitest'
 import { isValidUserConfig } from '@/stores/userStore'
 
 /**
- * `isValidUserConfig` contract test for the optional `aestheticVariant` field.
- *
- * Spec: `specs/features/16-ethical-gamification.md` — the persisted variant
- * is an optional free-form string. The validator must reject any non-string
- * value (number, object, array, boolean) while still accepting `undefined`
- * (legacy configs).
+ * Feature 17 contract test for the optional `audioOptIn` field on
+ * `UserConfig`. The `aestheticVariant` field is gone and the validator
+ * silently ignores any leftover legacy keys.
  */
-
 const baseConfig = {
   language: 'ca',
-  equipment: ['pes_corporal'],
+  equipment: [],
   trainingDays: [1, 3, 5],
   minutesPerSession: 45,
   availableWeights: { manueles: [], barra: [] },
   onboardingCompleted: true,
 }
 
-describe('isValidUserConfig — aestheticVariant', () => {
-  it('accepts the field when it is a string', () => {
-    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: 'classic-boring' })).toBe(true)
+describe('isValidUserConfig — audioOptIn', () => {
+  it('accepts a missing audioOptIn', () => {
+    expect(isValidUserConfig(baseConfig)).toBe(true)
   })
 
-  it('accepts the field when it is undefined (legacy config)', () => {
-    expect(isValidUserConfig({ ...baseConfig })).toBe(true)
+  it('accepts a boolean audioOptIn', () => {
+    expect(isValidUserConfig({ ...baseConfig, audioOptIn: true })).toBe(true)
+    expect(isValidUserConfig({ ...baseConfig, audioOptIn: false })).toBe(true)
   })
 
-  it('rejects a numeric aestheticVariant', () => {
-    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: 42 })).toBe(false)
+  it('rejects a non-boolean audioOptIn', () => {
+    expect(isValidUserConfig({ ...baseConfig, audioOptIn: 'yes' })).toBe(false)
+    expect(isValidUserConfig({ ...baseConfig, audioOptIn: 1 })).toBe(false)
+    expect(isValidUserConfig({ ...baseConfig, audioOptIn: null })).toBe(false)
   })
 
-  it('rejects an object aestheticVariant', () => {
-    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: { name: 'x' } })).toBe(false)
+  it('tolerates a leftover legacy aestheticVariant field', () => {
+    expect(
+      isValidUserConfig({ ...baseConfig, aestheticVariant: 'retro-platformer' })
+    ).toBe(true)
   })
 
-  it('rejects a null aestheticVariant', () => {
-    // `typeof null === 'object'`, not `'string'` — must be rejected.
-    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: null })).toBe(false)
-  })
-
-  it('rejects a boolean aestheticVariant', () => {
-    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: true })).toBe(false)
+  it('still rejects fundamentally invalid shapes', () => {
+    expect(isValidUserConfig(null)).toBe(false)
+    expect(isValidUserConfig({})).toBe(false)
+    expect(isValidUserConfig({ ...baseConfig, equipment: 'all' })).toBe(false)
   })
 })
