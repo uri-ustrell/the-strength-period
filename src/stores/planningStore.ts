@@ -48,10 +48,7 @@ interface PlanningStore {
   loadAll: () => Promise<void>
   skipSessionAction: (templateId: string) => Promise<void>
   unskipSessionAction: (templateId: string) => Promise<void>
-  markRestDay: (
-    weekNumber: number,
-    dayOfWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7
-  ) => Promise<void>
+  markRestDay: (weekNumber: number, dayOfWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7) => Promise<void>
   unmarkRestDay: (templateId: string) => Promise<void>
   adjustLoadAction: (
     templateId: string,
@@ -104,7 +101,11 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
       // Atomic swap: deactivate any current active + persist new active mesocycle
       // in a single IDB transaction so we never end up with zero or two active plans.
       await saveActiveMesocycle({ ...generatedPreview, active: true })
-      set({ activeMesocycle: { ...generatedPreview, active: true }, generatedPreview: null, isLoading: false })
+      set({
+        activeMesocycle: { ...generatedPreview, active: true },
+        generatedPreview: null,
+        isLoading: false,
+      })
     } catch (err) {
       set({ error: (err as Error).message, isLoading: false })
     }

@@ -175,9 +175,7 @@ export const TOTEM_CATALOG_V2: ReadonlyArray<TotemCatalogEntry> = [
     nameI18nKey: 'stats:totem.triple_preparation.name',
     ruleI18nKey: 'stats:totem.triple_preparation.rule',
   },
-  ...TOTEM_CATALOG_V1.slice(
-    TOTEM_CATALOG_V1.findIndex((e) => e.id === 'first-deload-honored') + 1
-  ),
+  ...TOTEM_CATALOG_V1.slice(TOTEM_CATALOG_V1.findIndex((e) => e.id === 'first-deload-honored') + 1),
 ]
 
 /**
