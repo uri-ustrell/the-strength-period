@@ -207,18 +207,18 @@ export const Dashboard = () => {
     : ''
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-bg pb-20">
       {/* Header */}
-      <div className="bg-white px-5 pt-6 pb-4 shadow-sm">
+      <div className="bg-surface px-5 pt-6 pb-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-900">{t('dashboard.greeting')}</h1>
-            <p className="text-sm text-gray-500 capitalize">{dateStr}</p>
+            <h1 className="text-xl font-bold text-text-primary">{t('dashboard.greeting')}</h1>
+            <p className="text-sm text-text-muted capitalize">{dateStr}</p>
           </div>
           {streak > 0 && (
-            <div className="flex items-center gap-1 rounded-full bg-orange-50 px-3 py-1.5">
-              <Flame size={16} className="text-orange-500" />
-              <span className="text-sm font-semibold text-orange-600">{streak}</span>
+            <div className="flex items-center gap-1 rounded-full bg-highlight/10 px-3 py-1.5">
+              <Flame size={16} className="text-highlight" />
+              <span className="text-sm font-semibold text-highlight">{streak}</span>
             </div>
           )}
         </div>
@@ -226,8 +226,8 @@ export const Dashboard = () => {
 
       <div className="space-y-4 px-5 pt-4">
         {/* Block 1: Today / Next session */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide mb-3">
             {nextSession && !isNextSessionToday
               ? t('dashboard.next_session')
               : t('dashboard.today')}
@@ -235,8 +235,8 @@ export const Dashboard = () => {
 
           {nextSession ? (
             <div className="space-y-3">
-              <div className="rounded-xl bg-indigo-50 p-3">
-                <p className="text-sm font-medium text-indigo-900 mb-2">
+              <div className="rounded-xl bg-accent/10 p-3">
+                <p className="text-sm font-medium text-accent mb-2">
                   {isNextSessionToday
                     ? t('dashboard.session_today')
                     : t('dashboard.session_for_date', { date: nextSessionDateStr })}
@@ -245,13 +245,13 @@ export const Dashboard = () => {
                   {nextSession.muscleGroupTargets.map((mg) => (
                     <span
                       key={mg.muscleGroup}
-                      className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs text-indigo-700"
+                      className="rounded-full bg-accent/20 px-2 py-0.5 text-xs text-accent"
                     >
                       {t(`muscles:${mg.muscleGroup}`)}
                     </span>
                   ))}
                 </div>
-                <p className="mt-2 text-xs text-indigo-600">
+                <p className="mt-2 text-xs text-accent">
                   {nextSession.durationMinutes} {t('dashboard.minutes')} ·{' '}
                   {nextSession.muscleGroupTargets.reduce((s, mg) => s + mg.loadTarget.sets, 0)}{' '}
                   {t('common:session.sets').toLowerCase()}
@@ -260,7 +260,7 @@ export const Dashboard = () => {
               <button
                 type="button"
                 onClick={handleStartSession}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors"
               >
                 <Play size={18} fill="white" />
                 {t('dashboard.start_session')}
@@ -268,12 +268,12 @@ export const Dashboard = () => {
             </div>
           ) : activeMesocycle ? (
             <div className="space-y-3">
-              <p className="text-sm text-gray-500">{t('dashboard.rest_day')}</p>
+              <p className="text-sm text-text-muted">{t('dashboard.rest_day')}</p>
 
               <button
                 type="button"
                 onClick={() => setQuickExpanded(!quickExpanded)}
-                className="flex w-full items-center justify-between rounded-lg bg-indigo-50 px-4 py-2.5 text-sm font-medium text-indigo-700"
+                className="flex w-full items-center justify-between rounded-lg bg-accent/10 px-4 py-2.5 text-sm font-medium text-accent"
               >
                 <span className="flex items-center gap-1.5">
                   <Dumbbell size={16} />
@@ -283,10 +283,10 @@ export const Dashboard = () => {
               </button>
 
               {quickExpanded && (
-                <div className="space-y-3 rounded-xl border border-gray-200 bg-white p-3">
+                <div className="space-y-3 rounded-xl border border-border-subtle bg-surface p-3">
                   {/* Duration */}
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">{t('dashboard.minutes')}:</span>
+                    <span className="text-xs text-text-muted">{t('dashboard.minutes')}:</span>
                     <div className="flex gap-1">
                       {[30, 45, 60, 75].map((m) => (
                         <button
@@ -295,8 +295,8 @@ export const Dashboard = () => {
                           onClick={() => setQuickMinutes(m)}
                           className={`rounded-lg px-3 py-1 text-xs font-medium transition-colors ${
                             quickMinutes === m
-                              ? 'bg-indigo-600 text-white'
-                              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                              ? 'bg-accent text-white'
+                              : 'bg-surface-elevated text-text-muted hover:bg-surface-elevated'
                           }`}
                         >
                           {m}′
@@ -307,7 +307,7 @@ export const Dashboard = () => {
 
                   {/* Muscle groups */}
                   <div>
-                    <span className="text-xs text-gray-500 mb-1.5 block">
+                    <span className="text-xs text-text-muted mb-1.5 block">
                       {t('planning:muscleDistribution')}:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -320,8 +320,8 @@ export const Dashboard = () => {
                             onClick={() => toggleMuscleGroup(mg)}
                             className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
                               selected
-                                ? 'bg-indigo-600 text-white'
-                                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                                ? 'bg-accent text-white'
+                                : 'bg-surface-elevated text-text-muted hover:bg-surface-elevated'
                             }`}
                           >
                             {t(`muscles:${mg}`)}
@@ -336,7 +336,7 @@ export const Dashboard = () => {
                     type="button"
                     onClick={handleQuickSession}
                     disabled={selectedMuscleGroups.length === 0}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors disabled:opacity-50"
                   >
                     <Play size={16} fill="white" />
                     {t('dashboard.start_session')}
@@ -346,11 +346,11 @@ export const Dashboard = () => {
             </div>
           ) : (
             <div className="space-y-3">
-              <p className="text-sm text-gray-500">{t('dashboard.no_plan')}</p>
+              <p className="text-sm text-text-muted">{t('dashboard.no_plan')}</p>
               <button
                 type="button"
                 onClick={() => navigate('/planning')}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors"
               >
                 <CalendarPlus size={18} />
                 {t('dashboard.create_plan')}
@@ -359,14 +359,14 @@ export const Dashboard = () => {
           )}
 
           {/* Weekly load bar */}
-          <div className="mt-4 pt-3 border-t border-gray-100">
-            <div className="flex items-center justify-between text-xs text-gray-500 mb-1">
+          <div className="mt-4 pt-3 border-t border-border-subtle">
+            <div className="flex items-center justify-between text-xs text-text-muted mb-1">
               <span>{t('dashboard.weekly_load')}</span>
               <span>{t('dashboard.sets_this_week', { count: weeklySetCount })}</span>
             </div>
-            <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+            <div className="h-2 rounded-full bg-surface-elevated overflow-hidden">
               <div
-                className="h-full rounded-full bg-indigo-500 transition-all"
+                className="h-full rounded-full bg-accent/100 transition-all"
                 style={{ width: `${Math.min(100, (weeklySetCount / 80) * 100)}%` }}
               />
             </div>
@@ -374,8 +374,8 @@ export const Dashboard = () => {
         </section>
 
         {/* Block 2: Your Plan */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide mb-3">
             {t('dashboard.your_plan')}
           </h2>
 
@@ -390,7 +390,7 @@ export const Dashboard = () => {
                 <button
                   type="button"
                   onClick={() => navigate('/planning')}
-                  className="flex-1 rounded-lg border border-gray-200 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                  className="flex-1 rounded-lg border border-border-subtle py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors"
                 >
                   {t('dashboard.view_plan')}
                 </button>
@@ -398,11 +398,11 @@ export const Dashboard = () => {
             </>
           ) : (
             <div className="text-center py-4">
-              <p className="text-sm text-gray-400 mb-3">{t('dashboard.no_plan')}</p>
+              <p className="text-sm text-text-muted/70 mb-3">{t('dashboard.no_plan')}</p>
               <button
                 type="button"
                 onClick={() => navigate('/planning')}
-                className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 transition-colors"
+                className="rounded-lg bg-accent/20 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/30 transition-colors"
               >
                 {t('dashboard.create_plan')}
               </button>
@@ -411,32 +411,32 @@ export const Dashboard = () => {
         </section>
 
         {/* Block 3: Last 4 Weeks Summary */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide mb-3">
             {t('dashboard.last_weeks')}
           </h2>
 
           {recentSessions.length > 0 ? (
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <p className="text-2xl font-bold text-indigo-600">
+                <p className="text-2xl font-bold text-accent">
                   {recentSessions.filter((s) => !s.skipped && s.completedAt).length}
                 </p>
-                <p className="text-xs text-gray-500">{t('common:session.exercises_done')}</p>
+                <p className="text-xs text-text-muted">{t('common:session.exercises_done')}</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-teal-600">{weeklySetCount}</p>
-                <p className="text-xs text-gray-500">{t('dashboard.volume')}</p>
+                <p className="text-2xl font-bold text-success">{weeklySetCount}</p>
+                <p className="text-xs text-text-muted">{t('dashboard.volume')}</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-orange-600">
+                <p className="text-2xl font-bold text-highlight">
                   {streak > 0 ? `${streak}d` : '—'}
                 </p>
-                <p className="text-xs text-gray-500">{t('dashboard.adherence')}</p>
+                <p className="text-xs text-text-muted">{t('dashboard.adherence')}</p>
               </div>
             </div>
           ) : (
-            <p className="text-sm text-gray-400 text-center py-4">{t('dashboard.no_plan')}</p>
+            <p className="text-sm text-text-muted/70 text-center py-4">{t('dashboard.no_plan')}</p>
           )}
         </section>
       </div>

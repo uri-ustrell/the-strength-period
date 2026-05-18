@@ -56,8 +56,8 @@ export const SessionHudReadouts = ({ model, variant }: Props) => {
 
   const wrapper =
     variant === 'retro'
-      ? 'grid grid-cols-2 gap-2 sm:grid-cols-4 rounded-md border-2 border-gray-900/10 p-2'
-      : 'grid grid-cols-2 gap-2 sm:grid-cols-4 rounded-lg border border-gray-200 p-2 bg-white'
+      ? 'grid grid-cols-2 gap-2 sm:grid-cols-4 rounded-md border-2 border-border-strong p-2'
+      : 'grid grid-cols-2 gap-2 sm:grid-cols-4 rounded-lg border border-border-subtle p-2 bg-surface'
 
   const valueClass =
     variant === 'retro'

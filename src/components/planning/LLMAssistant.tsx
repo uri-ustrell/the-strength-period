@@ -161,21 +161,21 @@ export const LLMAssistant = ({
 
   const notesLength = personalNotes.length
   const notesCountColor =
-    notesLength >= 500 ? 'text-red-500' : notesLength >= 400 ? 'text-amber-500' : 'text-gray-400'
+    notesLength >= 500 ? 'text-warning' : notesLength >= 400 ? 'text-amber-500' : 'text-text-muted/70'
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onBack} className="text-gray-400 hover:text-gray-600">
+        <button type="button" onClick={onBack} className="text-text-muted/70 hover:text-text-primary">
           <ArrowLeft size={20} />
         </button>
-        <h2 className="text-lg font-semibold text-gray-900">{t('planning:llm.title')}</h2>
+        <h2 className="text-lg font-semibold text-text-primary">{t('planning:llm.title')}</h2>
       </div>
 
       {/* How to use */}
-      <div className="rounded-xl border border-indigo-200 bg-indigo-50 p-4">
-        <h3 className="text-sm font-semibold text-indigo-900 mb-2">
+      <div className="rounded-xl border border-indigo-200 bg-accent/10 p-4">
+        <h3 className="text-sm font-semibold text-accent mb-2">
           {t('planning:llm.how_to_use')}
         </h3>
         <ol className="list-decimal list-inside space-y-1 text-sm text-indigo-800">
@@ -191,7 +191,7 @@ export const LLMAssistant = ({
 
       {/* Personal notes */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-text-primary mb-1">
           {t('planning:llm.personal_notes')}
         </label>
         <textarea
@@ -200,55 +200,55 @@ export const LLMAssistant = ({
           onBlur={handleNotesBlur}
           maxLength={500}
           placeholder={t('planning:llm.personal_notes_placeholder')}
-          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 min-h-[80px] resize-y"
+          className="w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40 min-h-[80px] resize-y"
         />
         <p className={`text-xs mt-1 text-right ${notesCountColor}`}>{notesLength}/500</p>
       </div>
 
       {/* Prompt display */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-text-primary mb-1">
           {t('planning:llm.prompt_section')}
         </label>
         <textarea
           id="llm-prompt-display"
           readOnly
           value={prompt}
-          className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-mono focus:outline-none max-h-64 overflow-y-auto resize-none min-h-[160px]"
+          className="w-full rounded-lg border border-border-subtle bg-bg px-3 py-2 text-xs font-mono focus:outline-none max-h-64 overflow-y-auto resize-none min-h-[160px]"
         />
         <button
           type="button"
           onClick={handleCopyPrompt}
-          className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+          className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-border-strong px-3 py-1.5 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors"
         >
-          {copyFeedback ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
+          {copyFeedback ? <Check size={14} className="text-success" /> : <Copy size={14} />}
           {copyFeedback ? t('planning:llm.copied') : t('planning:llm.copy_prompt')}
         </button>
       </div>
 
       {/* CSV download */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-text-primary mb-1">
           {t('planning:llm.catalog_section')}
         </label>
-        <p className="text-xs text-gray-500 mb-2">
+        <p className="text-xs text-text-muted mb-2">
           {t('planning:llm.catalog_count', { count: filteredExercises.length })}
         </p>
         <button
           type="button"
           onClick={handleDownloadCsv}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong px-3 py-1.5 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors"
         >
           <Download size={14} />
           {t('planning:llm.download_csv')}
         </button>
       </div>
 
-      <hr className="border-gray-200" />
+      <hr className="border-border-subtle" />
 
       {/* JSON paste */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-text-primary mb-1">
           {t('planning:llm.paste_section')}
         </label>
         <textarea
@@ -258,13 +258,13 @@ export const LLMAssistant = ({
             setValidationResult(null)
           }}
           placeholder={t('planning:llm.paste_placeholder')}
-          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-xs font-mono focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 min-h-[160px] resize-y"
+          className="w-full rounded-lg border border-border-subtle px-3 py-2 text-xs font-mono focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40 min-h-[160px] resize-y"
         />
         <button
           type="button"
           onClick={handleValidate}
           disabled={!jsonInput.trim()}
-          className="mt-2 rounded-xl bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition-colors disabled:opacity-50"
+          className="mt-2 rounded-xl bg-accent px-6 py-2 text-sm font-medium text-white hover:brightness-110 transition-colors disabled:opacity-50"
         >
           {t('planning:llm.validate')}
         </button>
@@ -275,14 +275,14 @@ export const LLMAssistant = ({
         <div className="space-y-3">
           {/* Errors */}
           {validationResult.errors.length > 0 && (
-            <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+            <div className="rounded-xl border border-warning/40 bg-warning/10 p-4">
               <h4 className="text-sm font-semibold text-red-800 mb-2 flex items-center gap-1.5">
                 <XCircle size={16} />
                 {t('planning:llm.errors_title')}
               </h4>
               <ul className="space-y-1">
                 {validationResult.errors.map((err, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-sm text-red-700">
+                  <li key={i} className="flex items-start gap-1.5 text-sm text-warning">
                     <span className="shrink-0 mt-0.5">✕</span>
                     <span>{t(`planning:${err.key}`, err.params ?? {})}</span>
                   </li>
@@ -293,7 +293,7 @@ export const LLMAssistant = ({
 
           {/* Success */}
           {validationResult.valid && validationResult.parsed && (
-            <div className="rounded-xl border border-green-200 bg-green-50 p-4">
+            <div className="rounded-xl border border-green-200 bg-success/10 p-4">
               <p className="text-sm font-semibold text-green-800 flex items-center gap-1.5">
                 <CheckCircle size={16} />
                 {t('planning:llm.valid_plan', {
@@ -306,7 +306,7 @@ export const LLMAssistant = ({
 
           {/* Warnings */}
           {validationResult.warnings.length > 0 && (
-            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+            <div className="rounded-xl border border-amber-200 bg-highlight/10 p-4">
               <h4 className="text-sm font-semibold text-amber-800 mb-2 flex items-center gap-1.5">
                 <AlertTriangle size={16} />
                 {t('planning:llm.warnings_title')}
@@ -327,7 +327,7 @@ export const LLMAssistant = ({
             <button
               type="button"
               onClick={handleImport}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors"
             >
               <Check size={16} />
               {t('planning:llm.import_plan')}

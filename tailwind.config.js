@@ -1,22 +1,32 @@
 /** @type {import('tailwindcss').Config} */
+const withOpacity = (varName) => `rgb(var(${varName}) / <alpha-value>)`
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        bg: 'var(--color-bg)',
-        surface: 'var(--color-surface)',
-        'surface-elevated': 'var(--color-surface-elevated)',
-        accent: 'var(--color-accent)',
-        highlight: 'var(--color-highlight)',
-        success: 'var(--color-success)',
-        'text-primary': 'var(--color-text-primary)',
-        'text-muted': 'var(--color-text-muted)',
-        'family-consistency': 'var(--color-family-consistency)',
-        'family-recovery': 'var(--color-family-recovery)',
-        'family-preparation': 'var(--color-family-preparation)',
-        'family-reflection': 'var(--color-family-reflection)',
+        bg: withOpacity('--color-bg'),
+        surface: withOpacity('--color-surface'),
+        'surface-elevated': withOpacity('--color-surface-elevated'),
+        accent: withOpacity('--color-accent'),
+        highlight: withOpacity('--color-highlight'),
+        success: withOpacity('--color-success'),
+        warning: withOpacity('--color-warning'),
+        'text-primary': withOpacity('--color-text-primary'),
+        'text-muted': withOpacity('--color-text-muted'),
+        'family-consistency': withOpacity('--color-family-consistency'),
+        'family-recovery': withOpacity('--color-family-recovery'),
+        'family-preparation': withOpacity('--color-family-preparation'),
+        'family-reflection': withOpacity('--color-family-reflection'),
+        'border-subtle': 'rgb(var(--color-border-subtle) / 0.08)',
+        'border-strong': 'rgb(var(--color-border-strong) / 0.16)',
+      },
+      borderColor: {
+        DEFAULT: 'rgb(var(--color-border-subtle) / 0.08)',
+        subtle: 'rgb(var(--color-border-subtle) / 0.08)',
+        strong: 'rgb(var(--color-border-strong) / 0.16)',
       },
       fontFamily: {
         display: ['Space Grotesk', 'system-ui', 'sans-serif'],

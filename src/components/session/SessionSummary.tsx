@@ -45,25 +45,25 @@ export const SessionSummary = ({
 
   return (
     <div className="space-y-5">
-      <div className="rounded-2xl bg-white p-5 shadow-sm">
-        <h2 className="mb-4 text-xl font-bold text-gray-900">{t('common:session.summary')}</h2>
+      <div className="rounded-2xl bg-surface p-5 shadow-sm">
+        <h2 className="mb-4 text-xl font-bold text-text-primary">{t('common:session.summary')}</h2>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-lg bg-green-50 p-4 text-center">
-            <p className="text-xs text-green-600">{t('common:session.exercises_done')}</p>
-            <p className="text-2xl font-bold text-green-900">{exercisesDone}</p>
+          <div className="rounded-lg bg-success/10 p-4 text-center">
+            <p className="text-xs text-success">{t('common:session.exercises_done')}</p>
+            <p className="text-2xl font-bold text-success">{exercisesDone}</p>
           </div>
-          <div className="rounded-lg bg-blue-50 p-4 text-center">
-            <p className="text-xs text-blue-600">{t('common:session.total_sets')}</p>
-            <p className="text-2xl font-bold text-blue-900">{totalSets}</p>
+          <div className="rounded-lg bg-accent/10 p-4 text-center">
+            <p className="text-xs text-accent">{t('common:session.total_sets')}</p>
+            <p className="text-2xl font-bold text-accent">{totalSets}</p>
           </div>
-          <div className="rounded-lg bg-purple-50 p-4 text-center">
-            <p className="text-xs text-purple-600">{t('common:session.total_volume')}</p>
-            <p className="text-2xl font-bold text-purple-900">{Math.round(totalVolume)}</p>
+          <div className="rounded-lg bg-family-reflection/10 p-4 text-center">
+            <p className="text-xs text-family-reflection">{t('common:session.total_volume')}</p>
+            <p className="text-2xl font-bold text-family-reflection">{Math.round(totalVolume)}</p>
           </div>
-          <div className="rounded-lg bg-amber-50 p-4 text-center">
-            <p className="text-xs text-amber-600">{t('common:session.total_time')}</p>
-            <p className="text-2xl font-bold text-amber-900">
+          <div className="rounded-lg bg-highlight/10 p-4 text-center">
+            <p className="text-xs text-highlight">{t('common:session.total_time')}</p>
+            <p className="text-2xl font-bold text-highlight">
               {elapsedMinutes} {t('common:session.minutes')}
             </p>
           </div>
@@ -72,8 +72,8 @@ export const SessionSummary = ({
 
       {topAccessory}
 
-      <div className="rounded-2xl bg-white p-5 shadow-sm">
-        <label htmlFor="rpe-slider" className="mb-2 block text-sm font-semibold text-gray-700">
+      <div className="rounded-2xl bg-surface p-5 shadow-sm">
+        <label htmlFor="rpe-slider" className="mb-2 block text-sm font-semibold text-text-primary">
           {t('common:session.rpe_prompt')}
         </label>
         <div className="flex items-center gap-4">
@@ -84,16 +84,16 @@ export const SessionSummary = ({
             max={10}
             value={globalRpe}
             onChange={(e) => setGlobalRpe(parseInt(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-indigo-600"
+            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-surface-elevated accent-accent"
           />
-          <span className="min-w-[2rem] text-center text-2xl font-bold text-indigo-600">
+          <span className="min-w-[2rem] text-center text-2xl font-bold text-accent">
             {globalRpe}
           </span>
         </div>
       </div>
 
-      <div className="rounded-2xl bg-white p-5 shadow-sm">
-        <label htmlFor="session-notes" className="mb-2 block text-sm font-semibold text-gray-700">
+      <div className="rounded-2xl bg-surface p-5 shadow-sm">
+        <label htmlFor="session-notes" className="mb-2 block text-sm font-semibold text-text-primary">
           {t('common:session.notes_placeholder')}
         </label>
         <textarea
@@ -101,7 +101,7 @@ export const SessionSummary = ({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           rows={3}
-          className="w-full resize-none rounded-xl border border-gray-300 p-3 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full resize-none rounded-xl border border-border-strong p-3 text-sm text-text-primary placeholder-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder={t('common:session.notes_placeholder')}
         />
       </div>
@@ -120,7 +120,7 @@ export const SessionSummary = ({
           type="button"
           onClick={onDiscard}
           disabled={isSaving}
-          className="w-full rounded-xl border border-gray-300 bg-white py-3 text-sm font-medium text-gray-600 disabled:opacity-50 active:bg-gray-50"
+          className="w-full rounded-xl border border-border-strong bg-surface py-3 text-sm font-medium text-text-muted disabled:opacity-50 active:bg-bg"
         >
           {t('common:session_control.discard')}
         </button>

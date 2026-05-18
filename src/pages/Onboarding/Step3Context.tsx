@@ -30,19 +30,19 @@ export const Step3Context = () => {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-900">{t('step3.title')}</h2>
-        <p className="mt-1 text-gray-500">{t('step3.subtitle')}</p>
+        <h2 className="text-2xl font-bold text-text-primary">{t('step3.title')}</h2>
+        <p className="mt-1 text-text-muted">{t('step3.subtitle')}</p>
       </div>
 
       {/* Equipment */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.equipment')}</h3>
+        <h3 className="mb-3 text-sm font-semibold text-text-primary">{t('step3.equipment')}</h3>
         <EquipmentChipSelector selected={equipment} onChange={setEquipment} />
       </div>
 
       {/* Training days */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.trainingDays')}</h3>
+        <h3 className="mb-3 text-sm font-semibold text-text-primary">{t('step3.trainingDays')}</h3>
         <div className="flex gap-2">
           {ALL_DAYS.map((day) => {
             const selected = trainingDays.includes(day)
@@ -53,8 +53,8 @@ export const Step3Context = () => {
                 onClick={() => toggleDay(day)}
                 className={`flex h-10 w-10 items-center justify-center rounded-full text-xs font-semibold transition-all ${
                   selected
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-indigo-100'
+                    ? 'bg-accent text-white'
+                    : 'bg-surface-elevated text-text-muted hover:bg-accent/20'
                 }`}
               >
                 {t(`step3.dayNames.${day}`)}
@@ -66,7 +66,7 @@ export const Step3Context = () => {
 
       {/* Minutes per session */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-700">{t('step3.minutesPerSession')}</h3>
+        <h3 className="mb-3 text-sm font-semibold text-text-primary">{t('step3.minutesPerSession')}</h3>
         <div className="flex flex-wrap gap-2">
           {MINUTES_OPTIONS.map((mins) => (
             <button
@@ -75,8 +75,8 @@ export const Step3Context = () => {
               onClick={() => setMinutesPerSession(mins)}
               className={`rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all ${
                 minutesPerSession === mins
-                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                  : 'border-gray-200 text-gray-600 hover:border-indigo-300'
+                  ? 'border-accent bg-accent/10 text-accent'
+                  : 'border-border-subtle text-text-muted hover:border-accent/40'
               }`}
             >
               {mins}′
@@ -88,10 +88,10 @@ export const Step3Context = () => {
       {/* Available Weights */}
       {(equipment.includes('manueles') || equipment.includes('barra')) && (
         <div>
-          <h3 className="mb-1 text-sm font-semibold text-gray-700">
+          <h3 className="mb-1 text-sm font-semibold text-text-primary">
             {t('step3.availableWeights')}
           </h3>
-          <p className="mb-3 text-xs text-gray-400">{t('step3.availableWeightsHint')}</p>
+          <p className="mb-3 text-xs text-text-muted/70">{t('step3.availableWeightsHint')}</p>
           <WeightSelector
             equipment={equipment}
             availableWeights={availableWeights}

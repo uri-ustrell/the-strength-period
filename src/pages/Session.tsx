@@ -6,6 +6,7 @@ import { EarnAcknowledgement } from '@/components/session/EarnAcknowledgement'
 import { SessionExecution } from '@/components/session/SessionExecution'
 import { SessionPreStart } from '@/components/session/SessionPreStart'
 import { SessionSummary } from '@/components/session/SessionSummary'
+import { ConfettiBurst } from '@/components/ui/ConfettiBurst'
 import { useSession } from '@/hooks/useSession'
 import { closeSessionAudio } from '@/services/audio/sessionAudio'
 import { listAllSessions, listAllSets } from '@/services/db/sessionRepository'
@@ -264,12 +265,12 @@ export const Session = () => {
 
   if (!generatedSession) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-50 p-6">
-        <p className="text-gray-500">{t('session.no_session')}</p>
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-bg p-6">
+        <p className="text-text-muted">{t('session.no_session')}</p>
         <button
           type="button"
           onClick={() => navigate('/planning')}
-          className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white active:bg-indigo-700"
+          className="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white active:bg-accent"
         >
           {t('session.go_planning')}
         </button>
@@ -283,7 +284,8 @@ export const Session = () => {
 
   if (isFinished) {
     return (
-      <div className="min-h-screen bg-gray-50 p-4 pb-24">
+      <div className="min-h-screen bg-bg p-4 pb-24">
+        <ConfettiBurst trigger={isFinished} />
         <SessionSummary
           executedSets={executedSets}
           sessionStartedAt={sessionStartedAt}
@@ -298,21 +300,21 @@ export const Session = () => {
             />
           }
         />
-        {error && <p className="mt-3 text-center text-sm text-red-600">{t('errors.db_error')}</p>}
+        {error && <p className="mt-3 text-center text-sm text-warning">{t('errors.db_error')}</p>}
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 pb-24">
+    <div className="min-h-screen bg-bg p-4 pb-24">
       <div className="mx-auto max-w-lg space-y-4">
         {/* Cancel button */}
         <div className="flex items-center justify-between">
           {/* Circuit round indicator (read-only) */}
           {executionMode === 'circuit' ? (
-            <div className="flex items-center gap-1 rounded-lg bg-indigo-50 px-3 py-1.5">
-              <Repeat size={14} className="text-indigo-600" />
-              <span className="text-sm font-medium text-indigo-700">
+            <div className="flex items-center gap-1 rounded-lg bg-accent/10 px-3 py-1.5">
+              <Repeat size={14} className="text-accent" />
+              <span className="text-sm font-medium text-accent">
                 {t('execution_mode.circuit_round', {
                   current: currentRound + 1,
                   total: totalRounds,
@@ -326,7 +328,7 @@ export const Session = () => {
           <button
             type="button"
             onClick={handleCancelClick}
-            className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm text-red-500 hover:bg-red-50 transition-colors"
+            className="flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm text-warning hover:bg-warning/10 transition-colors"
           >
             <X size={16} />
             {t('session_control.cancel')}
@@ -335,13 +337,13 @@ export const Session = () => {
 
         {/* Cancel confirmation dialog */}
         {showCancelConfirm && (
-          <div className="rounded-xl border border-red-200 bg-red-50 p-4 space-y-3">
+          <div className="rounded-xl border border-warning/40 bg-warning/10 p-4 space-y-3">
             <p className="text-sm text-red-800">{t('session_control.discard_confirm')}</p>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={() => setShowCancelConfirm(false)}
-                className="flex-1 rounded-lg bg-white border border-gray-300 py-2 text-sm font-medium text-gray-700"
+                className="flex-1 rounded-lg bg-surface border border-border-strong py-2 text-sm font-medium text-text-primary"
               >
                 {t('session_control.keep_training')}
               </button>
@@ -349,7 +351,7 @@ export const Session = () => {
                 <button
                   type="button"
                   onClick={handleFinishEarly}
-                  className="flex-1 rounded-lg bg-indigo-100 py-2 text-sm font-medium text-indigo-700"
+                  className="flex-1 rounded-lg bg-accent/20 py-2 text-sm font-medium text-accent"
                 >
                   {t('session_control.save_partial')}
                 </button>
@@ -357,7 +359,7 @@ export const Session = () => {
               <button
                 type="button"
                 onClick={handleCancelConfirm}
-                className="flex-1 rounded-lg bg-red-600 py-2 text-sm font-medium text-white"
+                className="flex-1 rounded-lg bg-warning py-2 text-sm font-medium text-white"
               >
                 {t('session_control.discard')}
               </button>
@@ -369,7 +371,7 @@ export const Session = () => {
           <SessionExecution model={sessionExecutionModel} actions={sessionExecutionActions} />
         )}
 
-        {error && <p className="text-center text-sm text-red-600">{t('errors.generic')}</p>}
+        {error && <p className="text-center text-sm text-warning">{t('errors.generic')}</p>}
       </div>
     </div>
   )

@@ -8,29 +8,29 @@ export const Landing = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-surface px-4">
       <LanguageSelector />
-      <h1 className="text-4xl font-bold text-gray-900 text-center">{t('landing.title')}</h1>
-      <p className="mt-2 text-xl text-gray-500 text-center">{t('landing.subtitle')}</p>
+      <h1 className="text-4xl font-bold text-text-primary text-center">{t('landing.title')}</h1>
+      <p className="mt-2 text-xl text-text-muted text-center">{t('landing.subtitle')}</p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-3 max-w-3xl">
         <div className="flex flex-col items-center text-center p-4">
-          <Brain className="h-10 w-10 text-indigo-600 mb-3" />
-          <p className="text-sm text-gray-700">{t('landing.feature_ai')}</p>
+          <Brain className="h-10 w-10 text-accent mb-3" />
+          <p className="text-sm text-text-primary">{t('landing.feature_ai')}</p>
         </div>
         <div className="flex flex-col items-center text-center p-4">
-          <HardDrive className="h-10 w-10 text-green-600 mb-3" />
-          <p className="text-sm text-gray-700">{t('landing.feature_local')}</p>
+          <HardDrive className="h-10 w-10 text-success mb-3" />
+          <p className="text-sm text-text-primary">{t('landing.feature_local')}</p>
         </div>
         <div className="flex flex-col items-center text-center p-4">
-          <Shield className="h-10 w-10 text-amber-600 mb-3" />
-          <p className="text-sm text-gray-700">{t('landing.feature_privacy')}</p>
+          <Shield className="h-10 w-10 text-highlight mb-3" />
+          <p className="text-sm text-text-primary">{t('landing.feature_privacy')}</p>
         </div>
       </div>
 
       <button
         onClick={() => navigate('/onboarding')}
-        className="mt-10 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+        className="mt-10 px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:brightness-110 transition-colors"
       >
         {t('landing.cta')}
       </button>

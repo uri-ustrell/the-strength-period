@@ -48,19 +48,19 @@ export const Planning = () => {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
+      <div className="flex min-h-screen items-center justify-center bg-bg">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-accent border-t-transparent" />
       </div>
     )
   }
 
   if (!activeMesocycle || showCreator) {
     return (
-      <div className="min-h-screen bg-gray-50 pb-20">
-        <div className="bg-white px-5 pt-6 pb-4 shadow-sm">
-          <h1 className="text-xl font-bold text-gray-900">{t('planning:title')}</h1>
+      <div className="min-h-screen bg-bg pb-20">
+        <div className="bg-surface px-5 pt-6 pb-4 shadow-sm">
+          <h1 className="text-xl font-bold text-text-primary">{t('planning:title')}</h1>
           {!activeMesocycle && (
-            <p className="text-sm text-gray-500 mt-1">{t('planning:createFirst')}</p>
+            <p className="text-sm text-text-muted mt-1">{t('planning:createFirst')}</p>
           )}
         </div>
         <div className="px-5 pt-4">
@@ -71,13 +71,13 @@ export const Planning = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-bg pb-20">
       {/* Header */}
-      <div className="bg-white px-5 pt-6 pb-4 shadow-sm">
+      <div className="bg-surface px-5 pt-6 pb-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-900">{t('planning:active_plan')}</h1>
-            <p className="text-sm text-gray-500">
+            <h1 className="text-xl font-bold text-text-primary">{t('planning:active_plan')}</h1>
+            <p className="text-sm text-text-muted">
               {activeMesocycle.name} — {t('planning:week')} {currentWeek}/
               {activeMesocycle.durationWeeks}
             </p>
@@ -86,7 +86,7 @@ export const Planning = () => {
             <button
               type="button"
               onClick={() => setShowCreator(true)}
-              className="rounded-lg bg-indigo-100 p-2 text-indigo-600 hover:bg-indigo-200 transition-colors"
+              className="rounded-lg bg-accent/20 p-2 text-accent hover:bg-accent/30 transition-colors"
               title={t('common:dashboard.create_plan')}
             >
               <Plus size={18} />
@@ -94,7 +94,7 @@ export const Planning = () => {
             <button
               type="button"
               onClick={handleDeactivate}
-              className="rounded-lg bg-red-50 p-2 text-red-500 hover:bg-red-100 transition-colors"
+              className="rounded-lg bg-warning/10 p-2 text-warning hover:bg-warning/20 transition-colors"
               title={t('planning:deactivate')}
             >
               <Power size={18} />

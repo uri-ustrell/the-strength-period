@@ -43,7 +43,7 @@ export const WeightSelector = ({
 
   if (!hasWeightEquipment) {
     return (
-      <p className="text-sm text-gray-400 italic">
+      <p className="text-sm text-text-muted/70 italic">
         {t('common:available_weights.no_equipment_hint')}
       </p>
     )
@@ -134,7 +134,7 @@ export const WeightSelector = ({
 
         return (
           <div key={key}>
-            <h4 className="mb-2 text-sm font-medium text-gray-600">{t(labelKey(key))}</h4>
+            <h4 className="mb-2 text-sm font-medium text-text-muted">{t(labelKey(key))}</h4>
             <div className="flex flex-wrap gap-1.5">
               {allWeights.map((w) => {
                 const isSelected = selected.includes(w)
@@ -146,8 +146,8 @@ export const WeightSelector = ({
                     onClick={() => toggleWeight(key, w, allWeights)}
                     className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-all ${
                       isSelected
-                        ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                        : 'border-gray-200 text-gray-500 hover:border-indigo-300'
+                        ? 'border-accent bg-accent/10 text-accent'
+                        : 'border-border-subtle text-text-muted hover:border-accent/40'
                     } ${isCustom ? 'ring-1 ring-indigo-200' : ''}`}
                   >
                     {w}
@@ -171,12 +171,12 @@ export const WeightSelector = ({
                   }
                 }}
                 placeholder={t('common:available_weights.add_placeholder')}
-                className="w-20 rounded-lg border border-gray-200 px-2 py-1.5 text-xs focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-20 rounded-lg border border-border-subtle px-2 py-1.5 text-xs focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
               />
               <button
                 type="button"
                 onClick={() => addCustomWeight(key)}
-                className="flex items-center gap-1 rounded-lg border border-gray-200 px-2.5 py-1.5 text-xs font-medium text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors"
+                className="flex items-center gap-1 rounded-lg border border-border-subtle px-2.5 py-1.5 text-xs font-medium text-text-muted hover:border-accent/40 hover:text-accent transition-colors"
               >
                 <Plus size={12} />
                 {t('common:available_weights.add_custom')}

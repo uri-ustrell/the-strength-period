@@ -43,15 +43,15 @@ export const RestTimer = ({ onSkip }: Props) => {
   const display = `${minutes}:${seconds.toString().padStart(2, '0')}`
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-indigo-50 p-8 shadow-sm">
-      <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-indigo-600">
+    <div className="flex flex-col items-center rounded-2xl bg-accent/10 p-8 shadow-sm">
+      <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
         {t('session.rest')}
       </p>
-      <p className="mb-6 font-mono text-6xl font-bold text-indigo-900">{display}</p>
+      <p className="mb-6 font-mono text-6xl font-bold text-accent">{display}</p>
       <button
         type="button"
         onClick={onSkip}
-        className="rounded-xl bg-white px-8 py-3 text-sm font-semibold text-indigo-600 shadow-sm active:bg-gray-50"
+        className="rounded-xl bg-surface px-8 py-3 text-sm font-semibold text-accent shadow-sm active:bg-bg"
       >
         {t('session.skip_rest')}
       </button>

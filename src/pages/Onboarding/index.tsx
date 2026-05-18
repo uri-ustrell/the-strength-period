@@ -30,14 +30,14 @@ export const Onboarding = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-8">
+    <div className="min-h-screen bg-bg px-4 py-8">
       <LanguageSelector />
       <div className="mx-auto max-w-lg">
         <div className="mb-4 text-center">
-          <h1 className="text-lg font-semibold text-indigo-600">{t('title')}</h1>
+          <h1 className="text-lg font-semibold text-accent">{t('title')}</h1>
         </div>
 
-        <div className="rounded-2xl bg-white p-6 shadow-sm">
+        <div className="rounded-2xl bg-surface p-6 shadow-sm">
           <Step3Context />
         </div>
 
@@ -46,7 +46,7 @@ export const Onboarding = () => {
             type="button"
             onClick={handleFinish}
             disabled={!canFinish}
-            className="inline-flex items-center gap-1 rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+            className="inline-flex items-center gap-1 rounded-lg bg-accent px-6 py-2 text-sm font-medium text-white hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {t('finish')}
             <Check className="h-4 w-4" />

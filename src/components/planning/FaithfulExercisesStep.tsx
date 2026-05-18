@@ -207,20 +207,20 @@ export const FaithfulExercisesStep = ({
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onBack} className="text-gray-400 hover:text-gray-600">
+        <button type="button" onClick={onBack} className="text-text-muted/70 hover:text-text-primary">
           <ArrowLeft size={20} />
         </button>
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-semibold text-text-primary">
             {t('planning:faithful.exercises_title')}
           </h2>
-          <p className="text-xs text-gray-500 mt-0.5">{t('planning:faithful.exercises_desc')}</p>
+          <p className="text-xs text-text-muted mt-0.5">{t('planning:faithful.exercises_desc')}</p>
         </div>
       </div>
 
       {headerExtra}
 
-      <div className="flex items-stretch border-b border-gray-200">
+      <div className="flex items-stretch border-b border-border-subtle">
         {visibleTabKeys.map((key) => {
           const session = editablePresetSessions.find((s) => s.templateKey === key)
           const label = session?.name || key
@@ -234,14 +234,14 @@ export const FaithfulExercisesStep = ({
               onClick={() => setActiveKey(key)}
               className={`flex-1 px-3 py-2 text-sm font-medium border-b-2 transition-colors flex items-center justify-center gap-1.5 ${
                 active
-                  ? 'border-indigo-600 text-indigo-700'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'border-accent text-accent'
+                  : 'border-transparent text-text-muted hover:text-text-primary'
               }`}
             >
               <span>{label}</span>
               {hasMissing && (
                 <span
-                  className="inline-block h-1.5 w-1.5 rounded-full bg-red-500"
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-warning/100"
                   aria-label="missing exercises"
                 />
               )}
@@ -260,7 +260,7 @@ export const FaithfulExercisesStep = ({
           disabled={!canAddTemplate}
           title={canAddTemplate ? t('planning:add_template') : t('planning:max_templates_warning')}
           aria-label={t('planning:add_template')}
-          className="px-3 py-2 text-sm font-medium text-indigo-600 hover:text-indigo-800 disabled:text-gray-300 disabled:cursor-not-allowed"
+          className="px-3 py-2 text-sm font-medium text-accent hover:text-indigo-800 disabled:text-text-muted disabled:cursor-not-allowed"
         >
           <Plus size={16} />
         </button>
@@ -274,7 +274,7 @@ export const FaithfulExercisesStep = ({
               value={activeSession.name}
               onChange={(e) => handleNameChange(e.target.value)}
               placeholder={activeSession.templateKey}
-              className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="flex-1 rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
               aria-label={t('planning:template_name')}
             />
             {otherKeys.length > 0 && (
@@ -282,13 +282,13 @@ export const FaithfulExercisesStep = ({
                 <button
                   type="button"
                   onClick={() => setCopyMenuOpen((o) => !o)}
-                  className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="flex items-center gap-1 rounded-lg border border-border-subtle px-3 py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated"
                 >
                   <Copy size={14} />
                   {t('planning:copy_to')}
                 </button>
                 {copyMenuOpen && (
-                  <div className="absolute right-0 mt-1 z-10 rounded-lg border border-gray-200 bg-white shadow-md py-1 min-w-[100px]">
+                  <div className="absolute right-0 mt-1 z-10 rounded-lg border border-border-subtle bg-surface shadow-md py-1 min-w-[100px]">
                     {otherKeys.map((k) => {
                       const target = editablePresetSessions.find((s) => s.templateKey === k)
                       return (
@@ -296,7 +296,7 @@ export const FaithfulExercisesStep = ({
                           key={k}
                           type="button"
                           onClick={() => handleCopyTo(k)}
-                          className="block w-full px-3 py-1.5 text-left text-sm text-gray-700 hover:bg-gray-50"
+                          className="block w-full px-3 py-1.5 text-left text-sm text-text-primary hover:bg-surface-elevated"
                         >
                           {target?.name || k}
                         </button>
@@ -316,7 +316,7 @@ export const FaithfulExercisesStep = ({
                   : t('planning:min_templates_warning')
               }
               aria-label={t('planning:delete_template')}
-              className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-500 hover:bg-red-50 hover:text-red-600 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-gray-500"
+              className="rounded-lg border border-border-subtle px-3 py-2 text-sm font-medium text-text-muted hover:bg-warning/10 hover:text-warning disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-text-muted"
             >
               <Trash2 size={14} />
             </button>
@@ -324,11 +324,11 @@ export const FaithfulExercisesStep = ({
 
           <div className="space-y-2 max-h-[50vh] overflow-y-auto">
             {activeSession.exercises.length === 0 && (
-              <div className="rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 px-4 py-6 text-center">
-                <p className="text-sm font-medium text-gray-600">
+              <div className="rounded-lg border-2 border-dashed border-border-subtle bg-bg px-4 py-6 text-center">
+                <p className="text-sm font-medium text-text-muted">
                   {t('planning:empty_template_title')}
                 </p>
-                <p className="mt-1 text-xs text-gray-400">{t('planning:empty_template_body')}</p>
+                <p className="mt-1 text-xs text-text-muted/70">{t('planning:empty_template_body')}</p>
               </div>
             )}
             {activeSession.exercises.map((entry, rowIdx) => {
@@ -341,11 +341,11 @@ export const FaithfulExercisesStep = ({
                 <div
                   key={`row-${rowIdx}-${entry.exerciseId}`}
                   className={`rounded-lg border p-3 space-y-2 ${
-                    isMissing ? 'border-red-300 bg-red-50' : 'border-gray-100 bg-gray-50'
+                    isMissing ? 'border-warning/60 bg-warning/10' : 'border-border-subtle bg-bg'
                   }`}
                 >
                   {isMissing && (
-                    <p className="text-xs font-medium text-red-700">
+                    <p className="text-xs font-medium text-warning">
                       {t('planning:error_missing_exercises_row')}
                     </p>
                   )}
@@ -357,7 +357,7 @@ export const FaithfulExercisesStep = ({
                         setPickerSearch('')
                         setPickerMuscle(null)
                       }}
-                      className="flex-1 text-left text-sm font-medium text-gray-800 hover:text-indigo-700 truncate"
+                      className="flex-1 text-left text-sm font-medium text-text-primary hover:text-accent truncate"
                     >
                       {exercise
                         ? t(exercise.nameKey)
@@ -367,7 +367,7 @@ export const FaithfulExercisesStep = ({
                       type="button"
                       onClick={() => handleMoveExercise(rowIdx, -1)}
                       disabled={rowIdx === 0}
-                      className="rounded p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                      className="rounded p-1 text-text-muted/70 hover:text-text-primary disabled:opacity-30"
                       aria-label="up"
                     >
                       <ArrowUp size={14} />
@@ -376,7 +376,7 @@ export const FaithfulExercisesStep = ({
                       type="button"
                       onClick={() => handleMoveExercise(rowIdx, 1)}
                       disabled={rowIdx === activeSession.exercises.length - 1}
-                      className="rounded p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                      className="rounded p-1 text-text-muted/70 hover:text-text-primary disabled:opacity-30"
                       aria-label="down"
                     >
                       <ArrowDown size={14} />
@@ -384,7 +384,7 @@ export const FaithfulExercisesStep = ({
                     <button
                       type="button"
                       onClick={() => handleRemoveExercise(rowIdx)}
-                      className="rounded p-1 text-gray-400 hover:text-red-600"
+                      className="rounded p-1 text-text-muted/70 hover:text-warning"
                       aria-label={t('planning:remove_exercise')}
                     >
                       <X size={14} />
@@ -392,7 +392,7 @@ export const FaithfulExercisesStep = ({
                   </div>
 
                   {isPicking && (
-                    <div className="rounded-lg border border-indigo-200 bg-white p-2 space-y-2">
+                    <div className="rounded-lg border border-indigo-200 bg-surface p-2 space-y-2">
                       {availableMuscleGroups.length > 0 && (
                         <div
                           role="toolbar"
@@ -409,8 +409,8 @@ export const FaithfulExercisesStep = ({
                                 onClick={() => setPickerMuscle(selected ? null : m)}
                                 className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium border transition-colors ${
                                   selected
-                                    ? 'border-indigo-600 bg-indigo-600 text-white'
-                                    : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+                                    ? 'border-accent bg-accent text-white'
+                                    : 'border-border-subtle bg-surface text-text-muted hover:bg-surface-elevated'
                                 }`}
                               >
                                 {t(muscleGroupNameKeys[m])}
@@ -424,11 +424,11 @@ export const FaithfulExercisesStep = ({
                         value={pickerSearch}
                         onChange={(e) => setPickerSearch(e.target.value)}
                         placeholder={t('planning:faithful.search_exercise')}
-                        className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        className="w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                       />
                       <div className="max-h-32 overflow-y-auto space-y-0.5">
                         {pickerCandidates.length === 0 ? (
-                          <p className="text-xs text-gray-400 py-1">
+                          <p className="text-xs text-text-muted/70 py-1">
                             {t('planning:faithful.no_results')}
                           </p>
                         ) : (
@@ -439,10 +439,10 @@ export const FaithfulExercisesStep = ({
                                 key={cand.id}
                                 type="button"
                                 onClick={() => handleSelectFromPicker(cand.id)}
-                                className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-left text-sm text-gray-700 hover:bg-indigo-50"
+                                className="flex w-full items-center gap-2 rounded-md px-2 py-1 text-left text-sm text-text-primary hover:bg-accent/10"
                               >
                                 {primary && (
-                                  <span className="shrink-0 rounded-full bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-gray-600">
+                                  <span className="shrink-0 rounded-full bg-surface-elevated px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-text-muted">
                                     {t(muscleGroupNameKeys[primary])}
                                   </span>
                                 )}
@@ -457,7 +457,7 @@ export const FaithfulExercisesStep = ({
 
                   <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                     <div>
-                      <label className="block text-xs text-gray-500">
+                      <label className="block text-xs text-text-muted">
                         {t('planning:faithful.sets')}
                       </label>
                       <input
@@ -471,13 +471,13 @@ export const FaithfulExercisesStep = ({
                             sets: Math.max(1, Math.min(20, Number(e.target.value) || 1)),
                           }))
                         }
-                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        className="mt-0.5 w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                       />
                     </div>
 
                     <div className="sm:col-span-2">
                       <div className="flex items-center justify-between">
-                        <span className="block text-xs text-gray-500">
+                        <span className="block text-xs text-text-muted">
                           {t('planning:faithful.reps')}
                         </span>
                         <button
@@ -490,7 +490,7 @@ export const FaithfulExercisesStep = ({
                               return { ...x, reps: [x.reps, x.reps + 2] as [number, number] }
                             })
                           }
-                          className="text-[10px] uppercase tracking-wide text-indigo-600 hover:text-indigo-800"
+                          className="text-[10px] uppercase tracking-wide text-accent hover:text-indigo-800"
                         >
                           {repsIsRange ? t('planning:reps_fixed') : t('planning:reps_range')}
                         </button>
@@ -510,9 +510,9 @@ export const FaithfulExercisesStep = ({
                                 return { ...x, reps: [lo, hi] as [number, number] }
                               })
                             }}
-                            className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                           />
-                          <span className="text-xs text-gray-400">–</span>
+                          <span className="text-xs text-text-muted/70">–</span>
                           <input
                             type="number"
                             min={1}
@@ -526,7 +526,7 @@ export const FaithfulExercisesStep = ({
                                 return { ...x, reps: [lo, hi] as [number, number] }
                               })
                             }}
-                            className="w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                           />
                         </div>
                       ) : (
@@ -541,13 +541,13 @@ export const FaithfulExercisesStep = ({
                               reps: Math.max(1, Number(e.target.value) || 1),
                             }))
                           }
-                          className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          className="mt-0.5 w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                         />
                       )}
                     </div>
 
                     <div>
-                      <label className="block text-xs text-gray-500">
+                      <label className="block text-xs text-text-muted">
                         {t('planning:faithful.rest')}
                       </label>
                       <input
@@ -562,12 +562,12 @@ export const FaithfulExercisesStep = ({
                             restSeconds: Math.max(0, Number(e.target.value) || 0),
                           }))
                         }
-                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        className="mt-0.5 w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs text-gray-500">kg</label>
+                      <label className="block text-xs text-text-muted">kg</label>
                       <input
                         type="number"
                         min={0}
@@ -587,7 +587,7 @@ export const FaithfulExercisesStep = ({
                             return { ...x, initialLoadKg: v }
                           })
                         }}
-                        className="mt-0.5 w-full rounded-md border border-gray-200 px-2 py-1 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        className="mt-0.5 w-full rounded-md border border-border-subtle px-2 py-1 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                       />
                     </div>
                   </div>
@@ -599,7 +599,7 @@ export const FaithfulExercisesStep = ({
           <button
             type="button"
             onClick={handleAddExercise}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-indigo-300 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-50"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-accent/40 py-2 text-sm font-medium text-accent hover:bg-accent/10"
           >
             <Plus size={14} />
             {t('planning:add_exercise')}
@@ -611,7 +611,7 @@ export const FaithfulExercisesStep = ({
         type="button"
         onClick={onGenerate}
         disabled={!isComplete || generateDisabled}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {t(generateLabelKey ?? 'planning:next')}
       </button>

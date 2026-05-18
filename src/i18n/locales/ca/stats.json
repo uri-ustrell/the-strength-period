@@ -37,9 +37,7 @@
       "available": "disponible"
     },
     "aria": "{{name}} · {{family}} · {{state}}",
-    "empty": {
-      "calm": "El teu camí encara no ha posat cap marca. Vine quan puguis — el viatge és llarg i no hi ha pressa."
-    },
+    "empty": "El teu camí encara no ha posat cap marca. Vine quan puguis — el viatge és llarg i no hi ha pressa.",
     "reachable_link": "Què puc obtenir?",
     "earned_on": "Obtingut el {{date}}",
     "first_session": {

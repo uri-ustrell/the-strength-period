@@ -29,7 +29,7 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
 
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-semibold text-gray-900">
+      <h3 className="text-sm font-semibold text-text-primary">
         {t('week')} {weekNumber}
       </h3>
 
@@ -42,17 +42,17 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
             session && (session.completed || completedTemplateIds?.has(session.id))
           const isSkipped = session?.skipped
 
-          let dotColor = 'bg-gray-200'
+          let dotColor = 'bg-surface-elevated'
           if (session && isRestDay) dotColor = 'bg-slate-300'
-          else if (session && isCompleted) dotColor = 'bg-green-500'
+          else if (session && isCompleted) dotColor = 'bg-success/100'
           else if (session && isSkipped) dotColor = 'bg-gray-400'
-          else if (session) dotColor = 'bg-indigo-500'
+          else if (session) dotColor = 'bg-accent/100'
 
           const dayShort = t(`day_short.${DAY_KEYS[day]}`)
 
           return (
             <div key={day} className="flex flex-1 flex-col items-center gap-1">
-              <span className="text-[10px] font-medium text-gray-400">{dayShort}</span>
+              <span className="text-[10px] font-medium text-text-muted/70">{dayShort}</span>
               {session && isRestDay && isActive ? (
                 <button
                   type="button"
@@ -71,7 +71,7 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
                   }}
                   aria-label={t('rest_day.mark_button')}
                   aria-pressed="false"
-                  className="flex h-2.5 w-2.5 items-center justify-center rounded-full text-[8px] leading-none text-gray-400 hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1"
+                  className="flex h-2.5 w-2.5 items-center justify-center rounded-full text-[8px] leading-none text-text-muted/70 hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-1"
                 >
                   <span aria-hidden="true">+</span>
                 </button>
@@ -93,7 +93,7 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
             ))}
         </div>
       ) : (
-        <p className="text-xs text-gray-400 text-center py-2">{t('no_sessions_week')}</p>
+        <p className="text-xs text-text-muted/70 text-center py-2">{t('no_sessions_week')}</p>
       )}
     </div>
   )

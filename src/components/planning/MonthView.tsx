@@ -18,8 +18,8 @@ export const MonthView = ({ mesocycle, currentWeek, completedTemplateIds }: Prop
           key={weekNum}
           className={`rounded-xl border p-4 ${
             weekNum === currentWeek
-              ? 'border-indigo-300 bg-indigo-50/50'
-              : 'border-gray-200 bg-white'
+              ? 'border-accent/40 bg-accent/10/50'
+              : 'border-border-subtle bg-surface'
           }`}
         >
           <WeekView

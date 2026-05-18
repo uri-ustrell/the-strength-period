@@ -7,6 +7,113 @@
 
 ## Recent Changes
 
+### 2026-05-05 — Feature 17 "Progreso Jugable" — Phase 1 (visual + structural)
+
+**Scope:** Replace the Step 16 dual-skin (`classic-boring` + `retro-platformer`)
+with a single dark identity ("Progreso Jugable"). Spec:
+`specs/features/17-progreso-jugable.md`.
+
+**Deletions (~18 files):**
+- Variant renderers: `ClassicCalendar`, `RetroWorldMap`, `ClassicSessionCards`,
+  `RetroLevelRun`, `ClassicTotemGrid`, `RetroInventoryShelf`, plus matching tests.
+- Shared variant helpers: `dashboardMapShared`, `sessionExecutionShared`,
+  `totemInventoryShared`.
+- `useEffectiveAestheticVariant` hook + test.
+- `AppearanceSelector` component.
+- Step 16 chart parity tests (`AdherenceChart.test.tsx`,
+  `ChartThemeProvider.test.tsx`, `ProgressionChart.test.tsx`,
+  `VolumeChart.test.tsx`) — to be replaced by single-skin coverage.
+- `statsAudio.test.ts` (variant-gated; replaced by new opt-in gate test).
+
+**Single-renderer rewrites:**
+- `DashboardMap` → period strip of week→sessions with state class
+  (`future`/`available`/`in-progress`/`completed`/`skipped`).
+- `SessionExecution` → single card list with `ActiveExercise` + `RestTimer` +
+  `SetLogger` + `SessionHudReadouts`. Set rows are decorative; logging
+  remains exclusively through `SetLogger.onComplete`.
+- `EarnAcknowledgement` → inline section, neutral i18n keys
+  (`session.completion.totem_ack.{headline,body,also_earned}`). NEVER a modal.
+  Idempotency latch on `payload.sessionId` retained.
+- `TotemInventory` → responsive grid of badges grouped by family. Locked
+  totems remain visible (60% opacity + rule hint), never hidden.
+- `ChartThemeProvider` → wrapper-only, no variant branching. Tokens via `:root`.
+
+**Tokens & fonts (`tailwind.config.js` + `src/index.css`):**
+- Dark-only `:root`. Surfaces `#1e1b2e` / `#2d2a3f` / `#3a3654`. Accent coral
+  `#ff6b4a`, highlight mustard `#f9a826`, success mint `#2dd4bf`.
+- Family motif: consistency=coral, recovery=mint, preparation=mustard,
+  reflection=violet (`#a78bfa`).
+- Borders `border-subtle` (rgba 0.08) and `border-strong` (rgba 0.16) added.
+- Fonts: `font-display` Space Grotesk, `font-body` Inter, `font-mono` Fira Code
+  (via `@fontsource`).
+- `prefers-reduced-motion: reduce` global override forces all animation
+  durations to `0.001ms`.
+- Chart tokens dark-native; legacy `--theme-charts-*` aliases bridged for
+  back-compat.
+
+**Audio opt-in migration:**
+- `aestheticVariant` removed from `UserConfig` and `userStore`.
+- New `audioOptIn?: boolean` field on `UserConfig`; default `false`.
+- `setAudioOptIn` action on `userStore`. `isValidUserConfig` tolerates legacy
+  `aestheticVariant` field for forward migration.
+- `sessionAudio` + `statsAudio` now gate on `useUserStore.getState().audioOptIn`
+  instead of variant.
+- Settings UI exposes a checkbox toggle with `settings.audio.title` /
+  `settings.audio.description` keys.
+
+**Primitives shipped (`src/components/ui/`):**
+- `Card` — "Cristal de Progreso" surface (variants: default, elevated, flush).
+- `Button` — coral pill primary, secondary outline, danger, ghost. All with
+  `active:scale-[0.96]` press-bounce.
+- `EmptyState` — quiet centered fallback for screens with no data.
+- `ConfettiBurst` — `canvas-confetti` wrapper. Strict no-op under
+  `prefers-reduced-motion: reduce`. Single-fire per `trigger` rising edge.
+- `BottomNav` (Dock) — frosted-glass floating navigation reskin with
+  `aria-current` on active tab.
+
+**i18n collapse (ca/es/en):**
+- Removed: `session.completion.calm.*`, `session.completion.retro.*`,
+  `session.completion.totem_ack.calm.*`, `session.completion.totem_ack.retro.*`,
+  `settings.appearance.*`, `onboarding:appearance.*`, `stats:totem.empty.calm`.
+- Added: `settings.audio.title`, `settings.audio.description`.
+- Collapsed: `session.completion.totem_ack.{headline,body,also_earned}`,
+  `session.completion.{headline,body}`, `stats:totem.empty` (string).
+- Parity verified: `npm run i18n:check` green (3 locales × 6 namespaces).
+
+**Mass restyle (~30 files):**
+- Two automated `sed` passes substituted Tailwind classes
+  (`bg-white`/`bg-gray-*`/`bg-indigo-*`/`text-gray-*`/`border-gray-*`/
+  `bg-green-*`/`bg-blue-*`/`bg-purple-*`/`bg-amber-*`/`text-orange-*`/
+  `text-teal-*`/`text-red-*`) with the new semantic tokens
+  (`bg-surface`/`bg-bg`/`bg-accent`/`text-text-primary`/`text-text-muted`/
+  `border-border-subtle`/`text-success`/`text-highlight`/`text-warning`).
+- Pages restyled: Landing, Dashboard, Planning, Session, Stats, Settings,
+  Onboarding/index + Step3Context.
+- Components restyled: dashboard, session, stats, planning, onboarding, ui.
+
+**Integration:**
+- `Session` page composes `<ConfettiBurst trigger={isFinished} />` at the
+  completion screen — fires exactly once when the user finishes a session
+  (and is a no-op under reduced motion).
+
+**Verification at checkpoint:**
+- `npm run build` ✅
+- `npm test` (91/91 unit + 3/3 ingestion) ✅
+- `npm run i18n:check` ✅ (3 locales × 6 namespaces in parity)
+
+**Known follow-ups (Phase 2 of Feature 17, not in this checkpoint):**
+- Polish primitives: `RpeSelector` (10 mint squares), `RestTimerBar`
+  (full-width coral that empties + pulse mint at T-3s + flip mint at T=0),
+  `TotemBadge` hexagonal SVG.
+- Replacement single-renderer behavior tests for `SessionExecution`,
+  `DashboardMap`, `TotemInventory`, `EarnAcknowledgement`, `ChartThemeProvider`.
+- New tests: `ConfettiBurst` no-op under reduced motion; `BottomNav`
+  `aria-current` semantics; primitive interaction tests.
+- Visual sweep / per-screen polish for the restyled pages (the mass `sed`
+  pass is structurally correct but not fine-tuned per layout).
+- Update `tasks/lessons.md` with the "stateless subagent silently truncates
+  on mega-prompts" lesson.
+
 ### 2026-05-08 — Step 16 Phase E sub-phase E4f review + i18n blocker fix
 
 **Reviewer verdict:** initial FAIL (one shipping blocker), now PASS-WITH-NOTES after fix.

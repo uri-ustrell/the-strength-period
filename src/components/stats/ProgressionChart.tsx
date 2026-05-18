@@ -28,7 +28,7 @@ export const ProgressionChart = ({ data, exerciseName }: Props) => {
 
   if (data.length === 0) {
     return (
-      <div className="flex items-center justify-center py-12 text-sm text-gray-400">
+      <div className="flex items-center justify-center py-12 text-sm text-text-muted/70">
         {t('no_data')}
       </div>
     )
@@ -36,7 +36,7 @@ export const ProgressionChart = ({ data, exerciseName }: Props) => {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-gray-900">
+      <h3 className="text-sm font-semibold text-text-primary">
         {t('progression')} — {exerciseName}
       </h3>
       <ResponsiveContainer width="100%" height={250}>

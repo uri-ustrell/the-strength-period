@@ -37,9 +37,7 @@
       "available": "available"
     },
     "aria": "{{name}} · {{family}} · {{state}}",
-    "empty": {
-      "calm": "Your path hasn't placed a marker yet. Show up when you can — the journey is long, and there's no rush."
-    },
+    "empty": "Your path hasn't placed a marker yet. Show up when you can — the journey is long, and there's no rush.",
     "reachable_link": "What can I earn?",
     "earned_on": "Earned {{date}}",
     "first_session": {

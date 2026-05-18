@@ -1,9 +1,25 @@
 # Implementation Status — The Strength Period
 
-> Last updated: 2026-04-30
+> Last updated: 2026-05-05
 
-## Current Phase: Step 19 Complete — Step 16 Planned
+## Current Phase: Feature 17 "Progreso Jugable" — In Progress (Visual restyle Phase 1 complete)
 
+> 2026-05-05 — **Feature 17 "Progreso Jugable" rollout (Phase 1 — visual + structural).**
+> The Step 16 dual-skin (`classic-boring` + `retro-platformer`) is REVERTED.
+> Replaced by a single dark identity: tokens (coral/mint/mustard/violet) on
+> `#1e1b2e` bg with `Space Grotesk / Inter / Fira Code`. Routers collapsed
+> to single renderers (`DashboardMap`, `SessionExecution`, `EarnAcknowledgement`,
+> `TotemInventory`, `ChartThemeProvider`). New primitives shipped: `Card`,
+> `Button` (coral pill), `EmptyState`, `ConfettiBurst` (canvas-confetti, no-op
+> under `prefers-reduced-motion`), `Dock` (frosted-glass `BottomNav`). Audio
+> gate moved from `aestheticVariant` to explicit `audioOptIn` opt-in (default
+> `false`) with toggle in Settings. i18n collapsed: `*.retro.*` / `*.calm.*`
+> / `appearance.*` keys removed; `settings.audio.*` added; ca/es/en parity
+> preserved. Mass restyle of 30+ pages/components from gray/indigo/white
+> Tailwind classes to the new semantic tokens. Spec at
+> `specs/features/17-progreso-jugable.md`. Build + 91/91 unit + 3/3
+> ingestion + i18n parity all green at checkpoint.
+>
 > 2026-04-30 — Comprehensive code review pass completed across `src/`. 30+ fixes
 > applied (date/UTC drift, IDB transaction safety, planning engine deload
 > coherency with weekly progression rates, session store retry idempotency,
@@ -78,7 +94,18 @@
 - [x] i18n keys in ca/es/en (planning namespace, nested under `llm`)
 - [x] Build verification: zero errors
 
-### Step 16 — Ethical Gamification 🚧 In Progress (Pre-execution gates complete)
+### Step 16 — Ethical Gamification ⚠️ Phase A–E REVERTED in Feature 17 "Progreso Jugable" (2026-05-05)
+
+> The dual-skin (`classic-boring` + `retro-platformer`) variant routing,
+> `aestheticVariant` field, `useEffectiveAestheticVariant` hook,
+> `AppearanceSelector`, and all Classic*/Retro* variant renderers have been
+> removed in favor of a single dark identity. The shared model contracts
+> (`buildDashboardMap`, `buildSessionExecutionModel`, `buildTotemInventoryModel`,
+> `buildSessionCompletionTotemPayload`) and the totem catalog **stay** — only
+> the dual-renderer routers are gone. Audio gating moved to a new explicit
+> `audioOptIn` user setting. See Feature 17 spec for migration details.
+
+#### Step 16 — Ethical Gamification 🚧 In Progress (Pre-execution gates complete) [HISTORICAL]
 - Source of truth: `specs/features/16-ethical-gamification.md` (extended 2026-05-04 with Shared Gamification Core + scalable Aesthetic Variants; initial variants `retro-platformer` and `classic-boring`; `classic-boring` default; `prefers-reduced-motion` forces `classic-boring` without overwriting preference).
 - [x] Phase 0 — Source-of-truth read & dependency check (Steps 8/9/14 ✅; no contradictions in `tasks/todo.md`)
 - [x] Phase 1 — Behavioral risk brief for Phase A (no high-risk mechanics; reduced-motion override mitigated by runtime derivation)

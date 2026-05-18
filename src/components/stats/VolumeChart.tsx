@@ -54,7 +54,7 @@ export const VolumeChart = ({ data, muscleGroups }: Props) => {
 
   if (data.length === 0) {
     return (
-      <div className="flex items-center justify-center py-12 text-sm text-gray-400">
+      <div className="flex items-center justify-center py-12 text-sm text-text-muted/70">
         {t('stats:no_data')}
       </div>
     )
@@ -62,7 +62,7 @@ export const VolumeChart = ({ data, muscleGroups }: Props) => {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-gray-900">{t('stats:volume_by_muscle')}</h3>
+      <h3 className="text-sm font-semibold text-text-primary">{t('stats:volume_by_muscle')}</h3>
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart data={data} margin={{ top: 5, right: 5, left: -20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--theme-charts-grid)" />

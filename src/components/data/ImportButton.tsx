@@ -45,16 +45,16 @@ export const ImportButton = () => {
         type="button"
         onClick={() => fileRef.current?.click()}
         disabled={loading}
-        className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50"
+        className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border-subtle py-3 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors disabled:opacity-50"
       >
         <Upload size={16} />
         {loading ? t('data.importing') : t('data.import')}
       </button>
       {status === 'success' && (
-        <p className="text-xs text-green-600 text-center">{t('data.importSuccess')}</p>
+        <p className="text-xs text-success text-center">{t('data.importSuccess')}</p>
       )}
       {status === 'error' && (
-        <p className="text-xs text-red-500 text-center">{t('data.importError')}</p>
+        <p className="text-xs text-warning text-center">{t('data.importError')}</p>
       )}
     </div>
   )

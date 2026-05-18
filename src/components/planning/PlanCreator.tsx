@@ -462,7 +462,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
   if (step === 'preset') {
     return (
       <div className="space-y-4">
-        <h2 className="text-lg font-semibold text-gray-900">{t('planning:selectPreset')}</h2>
+        <h2 className="text-lg font-semibold text-text-primary">{t('planning:selectPreset')}</h2>
 
         {/* Search filter */}
         <input
@@ -470,7 +470,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           value={presetSearch}
           onChange={(e) => setPresetSearch(e.target.value)}
           placeholder={t('planning:search_presets')}
-          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
         />
 
         {/* Tag filter */}
@@ -489,8 +489,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   }
                   className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
                     active
-                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                      : 'border-gray-200 text-gray-500 hover:border-indigo-300'
+                      ? 'border-accent bg-accent/10 text-accent'
+                      : 'border-border-subtle text-text-muted hover:border-accent/40'
                   }`}
                 >
                   {t(`planning:preset_tags.${tag}`)}
@@ -502,7 +502,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {/* Equipment filter */}
         <div>
-          <p className="text-xs font-medium text-gray-500 mb-1.5">
+          <p className="text-xs font-medium text-text-muted mb-1.5">
             {t('planning:equipment_filter')}
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -519,8 +519,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   }
                   className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
                     active
-                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                      : 'border-gray-200 text-gray-500 hover:border-indigo-300'
+                      ? 'border-accent bg-accent/10 text-accent'
+                      : 'border-border-subtle text-text-muted hover:border-accent/40'
                   }`}
                 >
                   {t(`onboarding:equipment.${eq}`)}
@@ -547,14 +547,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
                 }
                 className={`rounded-xl border-2 p-4 text-left transition-colors ${
                   incompatible
-                    ? 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
-                    : 'border-gray-200 hover:border-indigo-400 hover:bg-indigo-50'
+                    ? 'border-border-subtle bg-bg opacity-60 cursor-not-allowed'
+                    : 'border-border-subtle hover:border-indigo-400 hover:bg-accent/10'
                 }`}
               >
-                <h3 className="font-medium text-sm text-gray-900">{t(preset.nameKey)}</h3>
-                <p className="mt-1 text-xs text-gray-500">{t(preset.descriptionKey)}</p>
+                <h3 className="font-medium text-sm text-text-primary">{t(preset.nameKey)}</h3>
+                <p className="mt-1 text-xs text-text-muted">{t(preset.descriptionKey)}</p>
                 {incompatible && (
-                  <span className="mt-2 inline-block rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
+                  <span className="mt-2 inline-block rounded-full bg-warning/20 px-2 py-0.5 text-[10px] font-medium text-warning">
                     {t('planning:incompatible_days_badge', { count: required })}
                   </span>
                 )}
@@ -565,7 +565,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {customPresets.length > 0 && (
           <>
-            <h3 className="text-sm font-medium text-gray-500 mt-4">
+            <h3 className="text-sm font-medium text-text-muted mt-4">
               {t('planning:saved_presets')}
             </h3>
             <div className="grid grid-cols-2 gap-3">
@@ -585,16 +585,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
                     }
                     className={`rounded-xl border-2 p-4 text-left transition-colors relative group ${
                       incompatible
-                        ? 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
-                        : 'border-gray-200 hover:border-indigo-400 hover:bg-indigo-50'
+                        ? 'border-border-subtle bg-bg opacity-60 cursor-not-allowed'
+                        : 'border-border-subtle hover:border-indigo-400 hover:bg-accent/10'
                     }`}
                   >
-                    <h3 className="font-medium text-sm text-gray-900">{cp.name}</h3>
-                    <p className="mt-1 text-xs text-gray-500">
+                    <h3 className="font-medium text-sm text-text-primary">{cp.name}</h3>
+                    <p className="mt-1 text-xs text-text-muted">
                       {cp.durationWeeks} {t('planning:weeks')}
                     </p>
                     {incompatible && (
-                      <span className="mt-2 inline-block rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
+                      <span className="mt-2 inline-block rounded-full bg-warning/20 px-2 py-0.5 text-[10px] font-medium text-warning">
                         {t('planning:incompatible_days_badge', { count: required })}
                       </span>
                     )}
@@ -605,7 +605,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
                           e.stopPropagation()
                           handleSelectCustomPreset(cp, true)
                         }}
-                        className="rounded-full p-1 text-gray-300 hover:text-indigo-600 hover:bg-indigo-50"
+                        className="rounded-full p-1 text-text-muted hover:text-accent hover:bg-accent/10"
                         aria-label={t('planning:edit_preset')}
                       >
                         <span className="text-xs font-medium">{t('planning:edit_preset')}</span>
@@ -616,7 +616,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
                           e.stopPropagation()
                           handleDeleteCustomPreset(cp.id)
                         }}
-                        className="rounded-full p-1 text-gray-300 hover:text-red-500 hover:bg-red-50"
+                        className="rounded-full p-1 text-text-muted hover:text-warning hover:bg-warning/10"
                         aria-label={t('planning:delete_preset')}
                       >
                         <X size={14} />
@@ -633,12 +633,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
         <button
           type="button"
           onClick={handleCreateFromScratch}
-          className="w-full rounded-xl border-2 border-dashed border-indigo-300 p-4 text-left transition-colors hover:border-indigo-500 hover:bg-indigo-50"
+          className="w-full rounded-xl border-2 border-dashed border-accent/40 p-4 text-left transition-colors hover:border-accent hover:bg-accent/10"
         >
-          <h3 className="font-medium text-sm text-indigo-700">
+          <h3 className="font-medium text-sm text-accent">
             {t('planning:create_from_scratch')}
           </h3>
-          <p className="mt-1 text-xs text-gray-500">{t('planning:create_from_scratch_desc')}</p>
+          <p className="mt-1 text-xs text-text-muted">{t('planning:create_from_scratch_desc')}</p>
         </button>
       </div>
     )
@@ -656,11 +656,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
           <button
             type="button"
             onClick={() => setStep(isFaithfulMode ? 'exercises' : 'preset')}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-text-muted/70 hover:text-text-primary"
           >
             <ArrowLeft size={20} />
           </button>
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-semibold text-text-primary">
             {editingPresetId
               ? t('planning:editing_preset', { name: presetName || '…' })
               : t('planning:configure')}
@@ -669,7 +669,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {/* Inline preset name (working copy) */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-text-primary">
             {t('planning:preset_name_label')}
           </label>
           <input
@@ -677,16 +677,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
             value={presetName}
             onChange={(e) => setPresetName(e.target.value)}
             placeholder={t('planning:preset_name_placeholder')}
-            className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="mt-1 w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
           />
           {!presetName.trim() && (
-            <p className="mt-1 text-xs text-gray-400">{t('planning:preset_name_required')}</p>
+            <p className="mt-1 text-xs text-text-muted/70">{t('planning:preset_name_required')}</p>
           )}
         </div>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-text-primary">
               {t('planning:weeks_per_cycle_label')}
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -697,15 +697,15 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   onClick={() => setWeeks(w)}
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     weeks === w
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-accent text-white'
+                      : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
                   }`}
                 >
                   {w} {t('planning:weeks')}
                 </button>
               ))}
             </div>
-            <p className="mt-1 text-xs text-gray-400">
+            <p className="mt-1 text-xs text-text-muted/70">
               {weeks === 1
                 ? t('planning:weeks_per_cycle_only_deload')
                 : t('planning:weeks_per_cycle_hint')}
@@ -713,7 +713,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-text-primary">
               {t('planning:days_per_week')}
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -732,8 +732,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
                     onClick={() => setDaysPerWeek(d)}
                     className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                       daysPerWeek === d
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-accent text-white'
+                        : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
                     }`}
                   >
                     {d}
@@ -742,14 +742,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
               })()}
             </div>
             {editablePresetSessions.length > 0 && (
-              <p className="mt-1 text-xs text-gray-400">
+              <p className="mt-1 text-xs text-text-muted/70">
                 {t('planning:days_per_week_locked', { count: editablePresetSessions.length })}
               </p>
             )}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-text-primary">
               {t('planning:minutes_per_session')}
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -760,8 +760,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   onClick={() => setMinutesPerSess(m)}
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     minutesPerSess === m
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-accent text-white'
+                      : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
                   }`}
                 >
                   {m} {t('common:dashboard.minutes')}
@@ -784,7 +784,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
             type="button"
             onClick={handleSaveAsPreset}
             disabled={!presetName.trim()}
-            className="rounded-lg bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 disabled:opacity-50"
+            className="rounded-lg bg-accent/20 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/30 disabled:opacity-50"
           >
             {t('planning:save_as_preset')}
           </button>
@@ -794,25 +794,25 @@ export const PlanCreator = ({ onComplete }: Props) => {
           type="button"
           onClick={handleGenerate}
           disabled={exercises.length === 0}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors disabled:opacity-50"
         >
           {t('planning:generate_instant')}
         </button>
 
         <div className="flex items-center gap-3">
-          <hr className="flex-1 border-gray-200" />
-          <span className="text-xs text-gray-400">{t('planning:llm.or_separator')}</span>
-          <hr className="flex-1 border-gray-200" />
+          <hr className="flex-1 border-border-subtle" />
+          <span className="text-xs text-text-muted/70">{t('planning:llm.or_separator')}</span>
+          <hr className="flex-1 border-border-subtle" />
         </div>
 
         <button
           type="button"
           onClick={() => setStep('llm-assistant')}
           disabled={filteredExercisePool.length === 0}
-          className="flex w-full flex-col items-center gap-1 rounded-xl border-2 border-indigo-200 py-3 text-indigo-700 font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50"
+          className="flex w-full flex-col items-center gap-1 rounded-xl border-2 border-indigo-200 py-3 text-accent font-medium hover:bg-accent/10 transition-colors disabled:opacity-50"
         >
           <span>✨ {t('planning:llm.use_llm')}</span>
-          <span className="text-xs font-normal text-gray-500">
+          <span className="text-xs font-normal text-text-muted">
             {t('planning:llm.use_llm_desc')}
           </span>
         </button>
@@ -825,11 +825,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
       // Empty state: no preset selected (e.g. orphan navigation). Send back to preset.
       return (
         <div className="space-y-4">
-          <p className="text-sm text-gray-500">{t('planning:empty_template_body')}</p>
+          <p className="text-sm text-text-muted">{t('planning:empty_template_body')}</p>
           <button
             type="button"
             onClick={() => setStep('preset')}
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:brightness-110"
           >
             {t('planning:back_to_presets')}
           </button>
@@ -903,12 +903,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
     if (error) {
       return (
         <div className="space-y-4 text-center py-12">
-          <p className="text-red-500">{t('planning:errorGenerating')}</p>
-          <p className="text-sm text-gray-500">{error}</p>
+          <p className="text-warning">{t('planning:errorGenerating')}</p>
+          <p className="text-sm text-text-muted">{error}</p>
           <button
             type="button"
             onClick={() => setStep('exercises')}
-            className="rounded-lg bg-gray-100 px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200"
+            className="rounded-lg bg-surface-elevated px-6 py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated"
           >
             {t('planning:retry')}
           </button>
@@ -919,11 +919,11 @@ export const PlanCreator = ({ onComplete }: Props) => {
     if (!generatedPreview) {
       return (
         <div className="space-y-4 text-center py-12">
-          <p className="text-gray-500">{t('planning:errorGenerating')}</p>
+          <p className="text-text-muted">{t('planning:errorGenerating')}</p>
           <button
             type="button"
             onClick={() => setStep('exercises')}
-            className="rounded-lg bg-gray-100 px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200"
+            className="rounded-lg bg-surface-elevated px-6 py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated"
           >
             {t('planning:back')}
           </button>
@@ -953,19 +953,19 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">{t('planning:preview')}</h2>
-          <span className="text-sm text-gray-500">
+          <h2 className="text-lg font-semibold text-text-primary">{t('planning:preview')}</h2>
+          <span className="text-sm text-text-muted">
             {i18n?.exists(generatedPreview.name) ? t(generatedPreview.name) : generatedPreview.name}{' '}
             — {generatedPreview.durationWeeks} {t('planning:weeks')}
           </span>
         </div>
 
         {error === 'PRESET_EXERCISES_MISSING' && storeMissingIds.length > 0 && (
-          <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+          <div className="rounded-xl border border-warning/40 bg-warning/10 p-4">
             <p className="text-sm font-medium text-red-800">
               {t('planning:error_missing_exercises', { count: storeMissingIds.length })}
             </p>
-            <ul className="mt-2 list-disc pl-5 text-xs text-red-700">
+            <ul className="mt-2 list-disc pl-5 text-xs text-warning">
               {storeMissingIds.map((id) => (
                 <li key={id}>{id}</li>
               ))}
@@ -974,8 +974,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
         )}
 
         {weeklyProgressionRates.length > 0 && (
-          <div className="rounded-xl border border-gray-200 bg-white p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+          <div className="rounded-xl border border-border-subtle bg-surface p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-2">
               {t('planning:weeklyProgression')}
             </p>
             <ProgressionSparkline rates={weeklyProgressionRates} />
@@ -984,14 +984,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {requiredEquipment.length > 0 && (
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-2">
               {t('planning:preview_required_equipment')}
             </p>
             <div className="flex flex-wrap gap-1.5">
               {requiredEquipment.map((eq) => (
                 <span
                   key={eq}
-                  className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700"
+                  className="rounded-full bg-surface-elevated px-2.5 py-1 text-xs text-text-primary"
                 >
                   {t(`onboarding:equipment.${eq}`)}
                 </span>
@@ -1004,8 +1004,8 @@ export const PlanCreator = ({ onComplete }: Props) => {
           {Array.from(weekMap.entries())
             .sort(([a], [b]) => a - b)
             .map(([weekNum, sessions]) => (
-              <div key={weekNum} className="rounded-xl border border-gray-200 bg-white p-4">
-                <h3 className="font-medium text-gray-900 mb-2">
+              <div key={weekNum} className="rounded-xl border border-border-subtle bg-surface p-4">
+                <h3 className="font-medium text-text-primary mb-2">
                   {t('planning:week')} {weekNum}
                 </h3>
                 <div className="space-y-2">
@@ -1021,21 +1021,21 @@ export const PlanCreator = ({ onComplete }: Props) => {
           <button
             type="button"
             onClick={handleDiscard}
-            className="flex-1 rounded-xl border border-gray-300 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            className="flex-1 rounded-xl border border-border-strong py-3 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors"
           >
             {t('planning:discard')}
           </button>
           <button
             type="button"
             onClick={() => setStep('exercises')}
-            className="flex-1 rounded-xl border border-indigo-200 py-3 text-sm font-medium text-indigo-700 hover:bg-indigo-50 transition-colors"
+            className="flex-1 rounded-xl border border-indigo-200 py-3 text-sm font-medium text-accent hover:bg-accent/10 transition-colors"
           >
             {t('planning:modify_plan')}
           </button>
           <button
             type="button"
             onClick={handleSave}
-            className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-indigo-600 py-3 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
+            className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-accent py-3 text-sm font-medium text-white hover:brightness-110 transition-colors"
           >
             <Check size={16} />
             {t('planning:start_plan')}

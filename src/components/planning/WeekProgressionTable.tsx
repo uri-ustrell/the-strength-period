@@ -41,14 +41,14 @@ export const WeekProgressionTable = ({ weeks, rates, onChange }: WeekProgression
   const tooltip = t('week_progression_pct_aria')
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white">
-      <div className="px-3 py-2 border-b border-gray-100 space-y-1">
-        <p className="text-sm font-medium text-gray-700">{t('week_progression_table')}</p>
-        <p className="text-xs text-gray-500 leading-relaxed">
+    <div className="rounded-xl border border-border-subtle bg-surface">
+      <div className="px-3 py-2 border-b border-border-subtle space-y-1">
+        <p className="text-sm font-medium text-text-primary">{t('week_progression_table')}</p>
+        <p className="text-xs text-text-muted leading-relaxed">
           {t('week_progression_table_long_desc')}
         </p>
       </div>
-      <div className="px-3 py-2 border-b border-gray-100">
+      <div className="px-3 py-2 border-b border-border-subtle">
         <ProgressionSparkline rates={normalizedRates} />
       </div>
       <div className="divide-y divide-gray-100">
@@ -56,7 +56,7 @@ export const WeekProgressionTable = ({ weeks, rates, onChange }: WeekProgression
           const isDeload = rate < 0
           return (
             <div key={week} className="flex items-center gap-3 px-3 py-2">
-              <span className="text-sm text-gray-600 w-20 shrink-0">
+              <span className="text-sm text-text-muted w-20 shrink-0">
                 {t('week_label', { n: week })}
               </span>
               <div className="flex items-center gap-1" title={tooltip}>
@@ -65,15 +65,15 @@ export const WeekProgressionTable = ({ weeks, rates, onChange }: WeekProgression
                   step={1}
                   value={rate}
                   onChange={(e) => handleChange(week, e.target.value)}
-                  className="w-20 rounded-md border border-gray-200 px-2 py-1 text-sm text-right focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-20 rounded-md border border-border-subtle px-2 py-1 text-sm text-right focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
                   aria-label={t('week_label', { n: week })}
                 />
-                <span className="text-xs text-gray-400" title={tooltip}>
+                <span className="text-xs text-text-muted/70" title={tooltip}>
                   %
                 </span>
               </div>
               {isDeload && (
-                <span className="text-xs font-medium text-amber-600">{t('deload_week_hint')}</span>
+                <span className="text-xs font-medium text-highlight">{t('deload_week_hint')}</span>
               )}
             </div>
           )

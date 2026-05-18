@@ -25,17 +25,17 @@ export const SessionPreStart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 pb-24">
+    <div className="min-h-screen bg-bg p-4 pb-24">
       <div className="mx-auto max-w-lg space-y-4">
-        <h1 className="text-xl font-bold text-gray-900">{t('common:session.preview_title')}</h1>
-        <p className="text-sm text-gray-500">
+        <h1 className="text-xl font-bold text-text-primary">{t('common:session.preview_title')}</h1>
+        <p className="text-sm text-text-muted">
           {orderedExercises.length} {t('common:session.exercises_count')} · ~
           {generatedSession.estimatedDurationMinutes} {t('common:session.minutes')}
         </p>
 
         {/* Execution mode selector */}
-        <div className="rounded-xl bg-white p-4 shadow-sm">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">
+        <div className="rounded-xl bg-surface p-4 shadow-sm">
+          <h3 className="text-sm font-semibold text-text-primary mb-3">
             {t('common:session.order_mode')}
           </h3>
           <div className="flex gap-2">
@@ -44,15 +44,15 @@ export const SessionPreStart = () => {
               onClick={() => setExecutionMode('standard')}
               className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                 executionMode === 'standard'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-accent text-white'
+                  : 'bg-surface-elevated text-text-muted hover:bg-surface-elevated'
               }`}
             >
               <ListOrdered size={16} />
               <div className="text-left">
                 <div>{t('common:execution_mode.standard')}</div>
                 <div
-                  className={`text-xs ${executionMode === 'standard' ? 'text-indigo-200' : 'text-gray-400'}`}
+                  className={`text-xs ${executionMode === 'standard' ? 'text-indigo-200' : 'text-text-muted/70'}`}
                 >
                   {t('common:execution_mode.standard_desc')}
                 </div>
@@ -63,15 +63,15 @@ export const SessionPreStart = () => {
               onClick={() => setExecutionMode('circuit')}
               className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                 executionMode === 'circuit'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-accent text-white'
+                  : 'bg-surface-elevated text-text-muted hover:bg-surface-elevated'
               }`}
             >
               <Repeat size={16} />
               <div className="text-left">
                 <div>{t('common:execution_mode.circuit')}</div>
                 <div
-                  className={`text-xs ${executionMode === 'circuit' ? 'text-indigo-200' : 'text-gray-400'}`}
+                  className={`text-xs ${executionMode === 'circuit' ? 'text-indigo-200' : 'text-text-muted/70'}`}
                 >
                   {t('common:execution_mode.circuit_desc')}
                 </div>
@@ -89,31 +89,31 @@ export const SessionPreStart = () => {
             const representativeImage =
               se.exercise.images.find((img) => img.isRepresentative) ?? se.exercise.images[0]
             return (
-              <div key={`${se.exercise.id}-${index}`} className="rounded-xl bg-white p-4 shadow-sm">
+              <div key={`${se.exercise.id}-${index}`} className="rounded-xl bg-surface p-4 shadow-sm">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3 flex-1">
                     {representativeImage && (
                       <img
                         src={representativeImage.url}
                         alt={representativeImage.alt}
-                        className="h-10 w-10 rounded-lg object-cover bg-indigo-50 shrink-0 mt-0.5"
+                        className="h-10 w-10 rounded-lg object-cover bg-accent/10 shrink-0 mt-0.5"
                       />
                     )}
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-gray-900">
+                      <h3 className="text-sm font-semibold text-text-primary">
                         {t(se.exercise.nameKey, { ns: 'exercises', defaultValue: se.exercise.id })}
                       </h3>
                       <div className="mt-1 flex flex-wrap gap-1">
                         {se.exercise.primaryMuscles.map((m) => (
                           <span
                             key={m}
-                            className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-600"
+                            className="rounded-full bg-accent/10 px-2 py-0.5 text-xs text-accent"
                           >
                             {t(`muscles:${m}`)}
                           </span>
                         ))}
                       </div>
-                      <div className="mt-2 flex gap-3 text-xs text-gray-500">
+                      <div className="mt-2 flex gap-3 text-xs text-text-muted">
                         <span>
                           {se.sets} {t('common:session.sets').toLowerCase()}
                         </span>
@@ -131,7 +131,7 @@ export const SessionPreStart = () => {
                     <button
                       type="button"
                       onClick={() => removeExerciseFromPreview(index)}
-                      className="ml-2 rounded-lg p-1.5 text-gray-300 hover:bg-red-50 hover:text-red-500 transition-colors"
+                      className="ml-2 rounded-lg p-1.5 text-text-muted hover:bg-warning/10 hover:text-warning transition-colors"
                       aria-label={t('common:session.remove_exercise')}
                     >
                       <Trash2 size={16} />
@@ -148,7 +148,7 @@ export const SessionPreStart = () => {
           type="button"
           onClick={handleStart}
           disabled={orderedExercises.length === 0}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-4 text-white font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-4 text-white font-semibold hover:brightness-110 transition-colors disabled:opacity-50"
         >
           <Play size={20} fill="white" />
           {t('common:session.start')}

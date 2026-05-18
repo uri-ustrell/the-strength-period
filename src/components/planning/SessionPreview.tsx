@@ -56,7 +56,7 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
 
   if (compact) {
     return (
-      <div className="rounded-lg bg-gray-50 overflow-hidden">
+      <div className="rounded-lg bg-bg overflow-hidden">
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
@@ -64,25 +64,25 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
         >
           <div className="flex items-center gap-2">
             {isExpanded ? (
-              <ChevronDown size={14} className="text-gray-400 shrink-0" />
+              <ChevronDown size={14} className="text-text-muted/70 shrink-0" />
             ) : (
-              <ChevronRight size={14} className="text-gray-400 shrink-0" />
+              <ChevronRight size={14} className="text-text-muted/70 shrink-0" />
             )}
-            <span className="text-xs font-medium text-gray-500">
+            <span className="text-xs font-medium text-text-muted">
               {t(`planning:day_short.${DAY_KEYS[session.dayOfWeek]}`)}
             </span>
             <div className="flex flex-wrap gap-1">
               {session.muscleGroupTargets.map((mg) => (
                 <span
                   key={mg.muscleGroup}
-                  className="rounded bg-indigo-100 px-1.5 py-0.5 text-[10px] font-medium text-indigo-700"
+                  className="rounded bg-accent/20 px-1.5 py-0.5 text-[10px] font-medium text-accent"
                 >
                   {t(`muscles:${mg.muscleGroup}`)}
                 </span>
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0 ml-2">
+          <div className="flex items-center gap-2 text-xs text-text-muted shrink-0 ml-2">
             <span>{totalSets}s</span>
             <span>{session.durationMinutes}min</span>
           </div>
@@ -92,11 +92,11 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
           <div className="px-3 pb-2 space-y-1">
             {session.muscleGroupTargets.map((mg) => (
               <div key={mg.muscleGroup}>
-                <div className="flex items-center justify-between rounded bg-white border border-gray-100 px-2.5 py-1.5">
-                  <span className="text-xs font-medium text-indigo-700">
+                <div className="flex items-center justify-between rounded bg-surface border border-border-subtle px-2.5 py-1.5">
+                  <span className="text-xs font-medium text-accent">
                     {t(`muscles:${mg.muscleGroup}`)}
                   </span>
-                  <div className="flex gap-2.5 text-[10px] text-gray-500">
+                  <div className="flex gap-2.5 text-[10px] text-text-muted">
                     <span>
                       {mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)}
                     </span>
@@ -109,8 +109,8 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
                 </div>
                 {exercisesByMuscle[mg.muscleGroup]?.map((ex) => (
                   <div key={ex.id} className="flex items-center gap-1.5 pl-4 py-0.5">
-                    <Dumbbell size={10} className="text-gray-300 shrink-0" />
-                    <span className="text-[10px] text-gray-400">
+                    <Dumbbell size={10} className="text-text-muted shrink-0" />
+                    <span className="text-[10px] text-text-muted/70">
                       {t(ex.name, { ns: 'exercises', defaultValue: ex.id })}
                     </span>
                   </div>
@@ -124,12 +124,12 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
   }
 
   return (
-    <div className="rounded-lg border border-gray-100 bg-white p-3">
+    <div className="rounded-lg border border-border-subtle bg-surface p-3">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-gray-900">
+        <span className="text-sm font-medium text-text-primary">
           {t(`planning:day_short.${DAY_KEYS[session.dayOfWeek]}`)}
         </span>
-        <div className="flex items-center gap-3 text-xs text-gray-500">
+        <div className="flex items-center gap-3 text-xs text-text-muted">
           <span className="flex items-center gap-1">
             <Target size={12} />
             {totalSets} {t('planning:sessions').toLowerCase()}
@@ -144,7 +144,7 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
         {session.muscleGroupTargets.map((mg) => (
           <span
             key={mg.muscleGroup}
-            className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700"
+            className="rounded-full bg-accent/10 px-2 py-0.5 text-xs text-accent"
           >
             {t(`muscles:${mg.muscleGroup}`)} ({mg.loadTarget.sets}×{formatReps(mg.loadTarget.reps)})
           </span>

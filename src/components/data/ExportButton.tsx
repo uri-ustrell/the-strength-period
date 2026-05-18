@@ -27,12 +27,12 @@ export const ExportButton = () => {
         type="button"
         onClick={handleExport}
         disabled={loading}
-        className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50"
+        className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border-subtle py-3 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors disabled:opacity-50"
       >
         <Download size={16} />
         {loading ? t('data.exporting') : t('data.export')}
       </button>
-      {error && <p className="text-xs text-red-500 text-center">{t('data.exportError')}</p>}
+      {error && <p className="text-xs text-warning text-center">{t('data.exportError')}</p>}
     </div>
   )
 }

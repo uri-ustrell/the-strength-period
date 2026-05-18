@@ -60,33 +60,33 @@ export const SettingsPage = () => {
   }, [completeOnboarding, navigate])
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-24">
+    <div className="min-h-screen bg-bg pb-24">
       {/* Header */}
-      <div className="bg-white px-5 pt-6 pb-4 shadow-sm">
+      <div className="bg-surface px-5 pt-6 pb-4 shadow-sm">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="rounded-lg p-1 text-gray-400 hover:text-gray-600"
+            className="rounded-lg p-1 text-text-muted/70 hover:text-text-primary"
           >
             <ArrowLeft size={20} />
           </button>
-          <h1 className="text-xl font-bold text-gray-900">{t('common:nav.settings')}</h1>
+          <h1 className="text-xl font-bold text-text-primary">{t('common:nav.settings')}</h1>
         </div>
       </div>
 
       <div className="mx-auto max-w-lg space-y-6 px-5 pt-4">
         {/* Equipment */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold text-text-muted uppercase tracking-wide">
             {t('onboarding:step3.equipment')}
           </h2>
           <EquipmentChipSelector selected={equipment} onChange={setEquipment} />
         </section>
 
         {/* Training days */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold text-text-muted uppercase tracking-wide">
             {t('onboarding:step3.trainingDays')}
           </h2>
           <div className="flex gap-2">
@@ -99,8 +99,8 @@ export const SettingsPage = () => {
                   onClick={() => toggleDay(day)}
                   className={`flex h-10 w-10 items-center justify-center rounded-full text-xs font-semibold transition-all ${
                     selected
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-indigo-100'
+                      ? 'bg-accent text-white'
+                      : 'bg-surface-elevated text-text-muted hover:bg-accent/20'
                   }`}
                 >
                   {t(`onboarding:step3.dayNames.${day}`)}
@@ -111,8 +111,8 @@ export const SettingsPage = () => {
         </section>
 
         {/* Minutes per session */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold text-text-muted uppercase tracking-wide">
             {t('onboarding:step3.minutesPerSession')}
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -123,8 +123,8 @@ export const SettingsPage = () => {
                 onClick={() => setMinutesPerSession(mins)}
                 className={`rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all ${
                   minutesPerSession === mins
-                    ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                    : 'border-gray-200 text-gray-600 hover:border-indigo-300'
+                    ? 'border-accent bg-accent/10 text-accent'
+                    : 'border-border-subtle text-text-muted hover:border-accent/40'
                 }`}
               >
                 {mins}′
@@ -134,11 +134,11 @@ export const SettingsPage = () => {
         </section>
 
         {/* Available Weights */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <h2 className="mb-1 text-sm font-semibold text-gray-500 uppercase tracking-wide">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
+          <h2 className="mb-1 text-sm font-semibold text-text-muted uppercase tracking-wide">
             {t('common:available_weights.title')}
           </h2>
-          <p className="mb-3 text-xs text-gray-400">{t('common:available_weights.subtitle')}</p>
+          <p className="mb-3 text-xs text-text-muted/70">{t('common:available_weights.subtitle')}</p>
           <WeightSelector
             equipment={equipment}
             availableWeights={availableWeights}
@@ -147,7 +147,7 @@ export const SettingsPage = () => {
         </section>
 
         {/* Audio opt-in */}
-        <section className="rounded-2xl bg-white p-4 shadow-sm">
+        <section className="rounded-2xl bg-surface p-4 shadow-sm">
           <label className="flex items-start gap-3">
             <input
               type="checkbox"
@@ -157,10 +157,10 @@ export const SettingsPage = () => {
               data-testid="settings-audio-opt-in"
             />
             <span>
-              <span className="block text-sm font-semibold text-gray-900">
+              <span className="block text-sm font-semibold text-text-primary">
                 {t('common:settings.audio.title', { defaultValue: 'So' })}
               </span>
-              <span className="block text-xs text-gray-500">
+              <span className="block text-xs text-text-muted">
                 {t('common:settings.audio.description', {
                   defaultValue: 'Activa tons curts en finalitzar el descans i la sessió.',
                 })}
@@ -173,7 +173,7 @@ export const SettingsPage = () => {
         <button
           type="button"
           onClick={handleSave}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors"
         >
           <Check size={18} />
           {saved ? t('common:settings.saved') : t('common:settings.save')}

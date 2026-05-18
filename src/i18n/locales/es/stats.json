@@ -37,9 +37,7 @@
       "available": "disponible"
     },
     "aria": "{{name}} · {{family}} · {{state}}",
-    "empty": {
-      "calm": "Tu camino aún no ha colocado ninguna marca. Ven cuando puedas — el viaje es largo y no hay prisa."
-    },
+    "empty": "Tu camino aún no ha colocado ninguna marca. Ven cuando puedas — el viaje es largo y no hay prisa.",
     "reachable_link": "¿Qué puedo obtener?",
     "earned_on": "Obtenido el {{date}}",
     "first_session": {

@@ -85,24 +85,12 @@
       "skip_aria": "Skip rest"
     },
     "completion": {
-      "calm": {
-        "headline": "Session done.",
-        "body": "Your work is logged. Recovery starts now."
-      },
-      "retro": {
-        "level_clear": "Level clear!"
-      },
+      "headline": "Session done.",
+      "body": "Your work is logged. Recovery starts now.",
       "totem_ack": {
-        "calm": {
-          "headline": "New milestone",
-          "body": "You earned: {{totemName}}.",
-          "also_earned": "Also earned: {{names}}."
-        },
-        "retro": {
-          "headline": "Totem earned",
-          "body": "{{totemName}} unlocked.",
-          "also_earned": "Also unlocked: {{names}}."
-        }
+        "headline": "New totem",
+        "body": "You earned the {{totemName}} totem.",
+        "also_earned": "Also earned: {{names}}."
       }
     }
   },
@@ -180,21 +168,9 @@
   "settings": {
     "save": "Save changes",
     "saved": "Saved ✓",
-    "appearance": {
-      "title": "Appearance",
-      "subtitle": "Pick how the app looks. Aesthetic only.",
-      "shared_core_notice": "Aesthetic only. Goals, totems, planning and recovery are exactly the same.",
-      "reduced_motion_forced": "You're on Classic Boring because the system has reduced motion enabled. Turn it off in your system to choose another variant.",
-      "variant": {
-        "classic_boring": {
-          "label": "Classic Boring",
-          "description": "Calm, app-forward look with a light retro accent. No parallax, no audio."
-        },
-        "retro_platformer": {
-          "label": "Retro Platformer",
-          "description": "8/16-bit game aesthetic with level metaphor and parallax. Optional audio."
-        }
-      }
+    "audio": {
+      "title": "Sound",
+      "description": "Play short cues when rest periods and the session end."
     }
   },
   "available_weights": {
