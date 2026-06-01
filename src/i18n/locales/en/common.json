@@ -81,9 +81,6 @@
         "rpe": "Mean RPE"
       }
     },
-    "rest": {
-      "skip_aria": "Skip rest"
-    },
     "completion": {
       "headline": "Session done.",
       "body": "Your work is logged. Recovery starts now.",

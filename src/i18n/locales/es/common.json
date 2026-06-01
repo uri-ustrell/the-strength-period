@@ -81,9 +81,6 @@
         "rpe": "RPE medio"
       }
     },
-    "rest": {
-      "skip_aria": "Saltar el descanso"
-    },
     "completion": {
       "headline": "Sesión hecha.",
       "body": "Tu trabajo queda registrado. Ahora empieza la recuperación.",

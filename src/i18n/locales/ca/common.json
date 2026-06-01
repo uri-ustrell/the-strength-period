@@ -81,9 +81,6 @@
         "rpe": "RPE mitjà"
       }
     },
-    "rest": {
-      "skip_aria": "Saltar el descans"
-    },
     "completion": {
       "headline": "Sessió feta.",
       "body": "La feina queda registrada. Ara comença la recuperació.",

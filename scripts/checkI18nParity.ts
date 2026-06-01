@@ -9,6 +9,7 @@
  */
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { findDuplicateKeys } from './findDuplicateKeys'
 
 const LOCALES_DIR = join(process.cwd(), 'src/i18n/locales')
 const REFERENCE_LANG = 'ca'
@@ -56,6 +57,26 @@ const namespaces = readdirSync(join(LOCALES_DIR, REFERENCE_LANG)).filter((f) => 
 
 let problems = 0
 
+// Pre-pass: detect duplicate keys in every locale file. `JSON.parse` collapses
+// duplicates silently, so this must run on the raw text before parity checks.
+for (const lang of languages) {
+  for (const ns of namespaces) {
+    const file = join(LOCALES_DIR, lang, ns)
+    let raw: string
+    try {
+      raw = readFileSync(file, 'utf-8')
+    } catch {
+      continue // missing-file divergence is reported by the parity loop below
+    }
+    const duplicates = findDuplicateKeys(raw)
+    if (duplicates.length > 0) {
+      problems++
+      console.error(`\n[i18n:check] ${lang}/${ns} has ${duplicates.length} duplicate key(s):`)
+      for (const path of duplicates) console.error(`  ! ${path}`)
+    }
+  }
+}
+
 for (const ns of namespaces) {
   const referenceKeys = new Set(flattenKeys(loadNamespace(REFERENCE_LANG, ns)))
 
@@ -87,7 +108,9 @@ for (const ns of namespaces) {
 }
 
 if (problems === 0) {
-  console.log(`[i18n:check] OK — ${languages.length} locales, ${namespaces.length} namespaces in parity.`)
+  console.log(
+    `[i18n:check] OK — ${languages.length} locales, ${namespaces.length} namespaces in parity.`
+  )
   process.exit(0)
 }
 

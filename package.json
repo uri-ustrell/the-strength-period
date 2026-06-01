@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run test:unit && npm run test:ingestion",
     "test:unit": "vitest run",
-    "test:ingestion": "tsx --test scripts/ingestion/**/*.test.ts",
+    "test:ingestion": "tsx --test \"scripts/**/*.test.ts\"",
     "dev": "vite",
     "dev:api": "vercel dev",
     "dev:frontend": "VITE_MOCK_API=false vite",

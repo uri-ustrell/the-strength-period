@@ -42,7 +42,17 @@
 
 ## P1 — Correctness & quality gates
 
-### [ ] 1. Fix duplicate `rest` i18n key + detect duplicates in parity script
+### [x] 1. Fix duplicate `rest` i18n key + detect duplicates in parity script
+
+> Done 2026-06-01. Removed the dead `session.rest` object (the `skip_aria` key,
+> unused in `src/`) from ca/es/en `common.json`, restoring `session.rest` as the
+> string label consumed by `RestTimer`, `SessionPreview`, `SessionPreStart`.
+> Added `scripts/findDuplicateKeys.ts` (string-aware tokenizer) + a pre-pass in
+> `checkI18nParity.ts` and a `node:test` suite (`scripts/findDuplicateKeys.test.ts`);
+> broadened the `test:ingestion` glob to `scripts/**/*.test.ts`. Verified:
+> i18n parity OK, 0 Biome `noDuplicateObjectKeys`, tsc clean, 91 unit + 10 script
+> tests green, regression guard confirmed (injected duplicate → non-zero exit).
+
 
 **Problem.** The key `session.rest` is declared twice in `ca/common.json`,
 `es/common.json`, and `en/common.json` (line 26). `JSON.parse` silently keeps
