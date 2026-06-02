@@ -161,13 +161,21 @@ export const LLMAssistant = ({
 
   const notesLength = personalNotes.length
   const notesCountColor =
-    notesLength >= 500 ? 'text-warning' : notesLength >= 400 ? 'text-amber-500' : 'text-text-muted/70'
+    notesLength >= 500
+      ? 'text-warning'
+      : notesLength >= 400
+        ? 'text-amber-500'
+        : 'text-text-muted/70'
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onBack} className="text-text-muted/70 hover:text-text-primary">
+        <button
+          type="button"
+          onClick={onBack}
+          className="text-text-muted/70 hover:text-text-primary"
+        >
           <ArrowLeft size={20} />
         </button>
         <h2 className="text-lg font-semibold text-text-primary">{t('planning:llm.title')}</h2>
@@ -175,9 +183,7 @@ export const LLMAssistant = ({
 
       {/* How to use */}
       <div className="rounded-xl border border-indigo-200 bg-accent/10 p-4">
-        <h3 className="text-sm font-semibold text-accent mb-2">
-          {t('planning:llm.how_to_use')}
-        </h3>
+        <h3 className="text-sm font-semibold text-accent mb-2">{t('planning:llm.how_to_use')}</h3>
         <ol className="list-decimal list-inside space-y-1 text-sm text-indigo-800">
           <li>{t('planning:llm.step_1')}</li>
           <li>{t('planning:llm.step_2')}</li>
@@ -191,10 +197,14 @@ export const LLMAssistant = ({
 
       {/* Personal notes */}
       <div>
-        <label className="block text-sm font-medium text-text-primary mb-1">
+        <label
+          htmlFor="llm-personal-notes"
+          className="block text-sm font-medium text-text-primary mb-1"
+        >
           {t('planning:llm.personal_notes')}
         </label>
         <textarea
+          id="llm-personal-notes"
           value={personalNotes}
           onChange={(e) => setPersonalNotes(e.target.value.slice(0, 500))}
           onBlur={handleNotesBlur}
@@ -207,7 +217,10 @@ export const LLMAssistant = ({
 
       {/* Prompt display */}
       <div>
-        <label className="block text-sm font-medium text-text-primary mb-1">
+        <label
+          htmlFor="llm-prompt-display"
+          className="block text-sm font-medium text-text-primary mb-1"
+        >
           {t('planning:llm.prompt_section')}
         </label>
         <textarea
@@ -228,9 +241,9 @@ export const LLMAssistant = ({
 
       {/* CSV download */}
       <div>
-        <label className="block text-sm font-medium text-text-primary mb-1">
+        <p className="block text-sm font-medium text-text-primary mb-1">
           {t('planning:llm.catalog_section')}
-        </label>
+        </p>
         <p className="text-xs text-text-muted mb-2">
           {t('planning:llm.catalog_count', { count: filteredExercises.length })}
         </p>
@@ -248,10 +261,14 @@ export const LLMAssistant = ({
 
       {/* JSON paste */}
       <div>
-        <label className="block text-sm font-medium text-text-primary mb-1">
+        <label
+          htmlFor="llm-json-input"
+          className="block text-sm font-medium text-text-primary mb-1"
+        >
           {t('planning:llm.paste_section')}
         </label>
         <textarea
+          id="llm-json-input"
           value={jsonInput}
           onChange={(e) => {
             setJsonInput(e.target.value)
@@ -281,8 +298,11 @@ export const LLMAssistant = ({
                 {t('planning:llm.errors_title')}
               </h4>
               <ul className="space-y-1">
-                {validationResult.errors.map((err, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-sm text-warning">
+                {validationResult.errors.map((err) => (
+                  <li
+                    key={`${err.key}:${JSON.stringify(err.params ?? {})}`}
+                    className="flex items-start gap-1.5 text-sm text-warning"
+                  >
                     <span className="shrink-0 mt-0.5">✕</span>
                     <span>{t(`planning:${err.key}`, err.params ?? {})}</span>
                   </li>
@@ -312,8 +332,11 @@ export const LLMAssistant = ({
                 {t('planning:llm.warnings_title')}
               </h4>
               <ul className="space-y-1">
-                {validationResult.warnings.map((warn, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-sm text-amber-700">
+                {validationResult.warnings.map((warn) => (
+                  <li
+                    key={`${warn.key}:${JSON.stringify(warn.params ?? {})}`}
+                    className="flex items-start gap-1.5 text-sm text-amber-700"
+                  >
                     <span className="shrink-0 mt-0.5">⚠</span>
                     <span>{t(`planning:${warn.key}`, warn.params ?? {})}</span>
                   </li>

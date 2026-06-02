@@ -138,7 +138,9 @@ export const SettingsPage = () => {
           <h2 className="mb-1 text-sm font-semibold text-text-muted uppercase tracking-wide">
             {t('common:available_weights.title')}
           </h2>
-          <p className="mb-3 text-xs text-text-muted/70">{t('common:available_weights.subtitle')}</p>
+          <p className="mb-3 text-xs text-text-muted/70">
+            {t('common:available_weights.subtitle')}
+          </p>
           <WeightSelector
             equipment={equipment}
             availableWeights={availableWeights}

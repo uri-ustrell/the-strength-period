@@ -33,6 +33,7 @@ export const LanguageSelector = () => {
           {LANGUAGES.map((lang) => (
             <button
               key={lang}
+              type="button"
               onClick={() => handleChange(lang)}
               className={`w-full text-left px-4 py-2 text-sm hover:bg-surface-elevated transition-colors ${
                 currentLang === lang ? 'font-semibold text-accent' : 'text-text-primary'
@@ -44,6 +45,7 @@ export const LanguageSelector = () => {
         </div>
       )}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-3 py-2 bg-surface border border-border-subtle rounded-full shadow-md hover:shadow-lg hover:border-border-strong transition-all text-sm font-medium text-text-primary"
         aria-label={t(`language.${currentLang}`)}

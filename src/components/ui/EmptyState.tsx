@@ -14,13 +14,7 @@ export interface EmptyStateProps {
  * Quiet, centered. Used wherever a screen has no data yet (no plan, no
  * sessions logged, no totems unlocked). Never punitive.
  */
-export const EmptyState = ({
-  icon,
-  headline,
-  body,
-  action,
-  className = '',
-}: EmptyStateProps) => (
+export const EmptyState = ({ icon, headline, body, action, className = '' }: EmptyStateProps) => (
   <div
     className={`flex flex-col items-center gap-3 rounded-2xl border border-border-subtle bg-surface p-8 text-center ${className}`}
     role="status"

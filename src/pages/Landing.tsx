@@ -29,6 +29,7 @@ export const Landing = () => {
       </div>
 
       <button
+        type="button"
         onClick={() => navigate('/onboarding')}
         className="mt-10 px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:brightness-110 transition-colors"
       >

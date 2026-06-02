@@ -20,7 +20,8 @@
     "presets": "tsx scripts/generatePresetBatch.ts",
     "i18n:check": "tsx scripts/checkI18nParity.ts",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "npm run lint:biome && npm run lint:types",
+    "lint:types": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",

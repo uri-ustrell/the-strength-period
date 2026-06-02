@@ -67,10 +67,14 @@ function isValidExportData(data: unknown): data is ExportData {
 }
 
 function hasStringId(item: unknown): item is { id: string } {
-  return typeof item === 'object' && item !== null && typeof (item as { id?: unknown }).id === 'string'
+  return (
+    typeof item === 'object' && item !== null && typeof (item as { id?: unknown }).id === 'string'
+  )
 }
 
-function isValidConfigEntry(item: unknown): item is { key: string; value: unknown; updatedAt: string } {
+function isValidConfigEntry(
+  item: unknown
+): item is { key: string; value: unknown; updatedAt: string } {
   if (typeof item !== 'object' || item === null) return false
   const e = item as Record<string, unknown>
   return typeof e.key === 'string' && typeof e.updatedAt === 'string'

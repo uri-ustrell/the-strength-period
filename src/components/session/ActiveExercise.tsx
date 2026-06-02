@@ -146,15 +146,15 @@ export const ActiveExercise = ({
               {t('common:session.instructions')}
             </summary>
             <ol className="list-inside list-decimal space-y-1 text-sm text-text-muted">
-              {instructions.map((instruction: string, i: number) => (
-                <li key={i}>{instruction}</li>
+              {instructions.map((instruction: string) => (
+                <li key={instruction}>{instruction}</li>
               ))}
             </ol>
             {exercise.images.length > 0 && (
               <div className="flex gap-2 mt-2 overflow-x-auto pb-2">
-                {exercise.images.map((img, i) => (
+                {exercise.images.map((img) => (
                   <img
-                    key={i}
+                    key={img.url}
                     src={img.url}
                     alt={img.alt}
                     className="h-24 w-24 rounded-lg object-cover bg-accent/10 shrink-0"

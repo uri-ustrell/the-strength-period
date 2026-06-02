@@ -82,7 +82,21 @@ is already gone.
 
 ---
 
-### [ ] 2. Add Biome lint to the quality gate (`lint` script + CI)
+### [x] 2. Add Biome lint to the quality gate (`lint` script + CI)
+
+> Done 2026-06-01. Fixed all 37 blocking Biome errors (24 a11y: button types,
+> redundant roles, svg title, semantic `ul`/`li`, aria roles, label associations,
+> accessible Modal backdrop; 8 array-keys; 2 effect-dep triggers via justified
+> ignores; 3 CSS `@tailwind` false-positives via `noUnknownAtRules: off`).
+> Wired `lint` = `lint:biome && lint:types`; added `.github/workflows/ci.yml`
+> (lint + format:check + i18n:check + test + build on push/PR). Excluded generated
+> artifacts (`data/`, `public/exercises/exercises.json`, `mockServiceWorker.js`)
+> from Biome and normalized formatting repo-wide so `format:check` is green.
+> Added i18n `common:close` (ca/es/en parity). Remaining 56 warnings are
+> `noNonNullAssertion` (#3) + mechanical (#5) and are non-blocking by design.
+> Verified: `npm run lint` exit 0, format:check clean, i18n OK, 91+10 tests,
+> build OK, and gate-proof (injected error → lint fails).
+
 
 **Problem.** `CONVENTIONS.md` declares Biome "the source of truth" for lint, but
 `npm run lint` only runs `tsc --noEmit`. Biome currently reports 40 errors /

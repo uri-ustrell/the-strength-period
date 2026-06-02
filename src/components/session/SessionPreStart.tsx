@@ -89,7 +89,11 @@ export const SessionPreStart = () => {
             const representativeImage =
               se.exercise.images.find((img) => img.isRepresentative) ?? se.exercise.images[0]
             return (
-              <div key={`${se.exercise.id}-${index}`} className="rounded-xl bg-surface p-4 shadow-sm">
+              <div
+                // biome-ignore lint/suspicious/noArrayIndexKey: positional preview slot; the same exercise id may repeat, so index is the stable per-slot identity
+                key={`${se.exercise.id}-${index}`}
+                className="rounded-xl bg-surface p-4 shadow-sm"
+              >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3 flex-1">
                     {representativeImage && (

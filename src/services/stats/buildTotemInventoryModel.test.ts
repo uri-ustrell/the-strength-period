@@ -499,7 +499,11 @@ describe('Phase E4a — preparation family (warm-up-habit, triple-preparation)',
     expect(prepIds).toEqual(['warm-up-habit', 'triple-preparation'])
   })
 
-  function makeWarmupSession(id: string, date: string, withWarmup: boolean): {
+  function makeWarmupSession(
+    id: string,
+    date: string,
+    withWarmup: boolean
+  ): {
     session: ExecutedSession
     sets: ExecutedSet[]
   } {

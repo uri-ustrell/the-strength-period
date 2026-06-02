@@ -170,7 +170,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
   }, [editablePresetSessions.length, daysPerWeek])
 
-  // Mark working copy as dirty whenever a tracked field changes.
+  // Mark working copy as dirty whenever a tracked field changes. The listed deps
+  // are intentional change-triggers (not read in the body), so the effect re-runs
+  // and flags dirtiness when any tracked field mutates.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: deps are intentional dirty-tracking triggers, not values read by the effect
   useEffect(() => {
     if (suppressDirtyRef.current) {
       suppressDirtyRef.current = false
@@ -635,9 +638,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
           onClick={handleCreateFromScratch}
           className="w-full rounded-xl border-2 border-dashed border-accent/40 p-4 text-left transition-colors hover:border-accent hover:bg-accent/10"
         >
-          <h3 className="font-medium text-sm text-accent">
-            {t('planning:create_from_scratch')}
-          </h3>
+          <h3 className="font-medium text-sm text-accent">{t('planning:create_from_scratch')}</h3>
           <p className="mt-1 text-xs text-text-muted">{t('planning:create_from_scratch_desc')}</p>
         </button>
       </div>
@@ -669,10 +670,14 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         {/* Inline preset name (working copy) */}
         <div>
-          <label className="block text-sm font-medium text-text-primary">
+          <label
+            htmlFor="preset-name-input"
+            className="block text-sm font-medium text-text-primary"
+          >
             {t('planning:preset_name_label')}
           </label>
           <input
+            id="preset-name-input"
             type="text"
             value={presetName}
             onChange={(e) => setPresetName(e.target.value)}
@@ -686,9 +691,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-text-primary">
+            <p className="block text-sm font-medium text-text-primary">
               {t('planning:weeks_per_cycle_label')}
-            </label>
+            </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {cycleWeekOptions.map((w) => (
                 <button
@@ -713,9 +718,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-primary">
+            <p className="block text-sm font-medium text-text-primary">
               {t('planning:days_per_week')}
-            </label>
+            </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {(() => {
                 // In faithful mode, only the exact number of templates is selectable.
@@ -749,9 +754,9 @@ export const PlanCreator = ({ onComplete }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-primary">
+            <p className="block text-sm font-medium text-text-primary">
               {t('planning:minutes_per_session')}
-            </label>
+            </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {[30, 45, 60, 75, 90].map((m) => (
                 <button

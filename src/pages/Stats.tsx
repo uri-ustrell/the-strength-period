@@ -204,7 +204,9 @@ export const Stats = () => {
               <ProgressionChart data={progressionData} exerciseName={selectedExerciseName} />
             </ChartThemeProvider>
           ) : (
-            <p className="text-sm text-text-muted/70 text-center py-8">{t('stats:select_exercise')}</p>
+            <p className="text-sm text-text-muted/70 text-center py-8">
+              {t('stats:select_exercise')}
+            </p>
           )}
         </section>
 
@@ -260,7 +262,9 @@ export const Stats = () => {
 
         {/* Export / Import */}
         <section className="rounded-2xl bg-surface p-4 shadow-sm">
-          <h3 className="text-sm font-semibold text-text-primary mb-3">{t('stats:export_import')}</h3>
+          <h3 className="text-sm font-semibold text-text-primary mb-3">
+            {t('stats:export_import')}
+          </h3>
           <div className="flex gap-3">
             <ExportButton />
             <ImportButton />

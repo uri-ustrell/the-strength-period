@@ -93,7 +93,10 @@ export const SessionSummary = ({
       </div>
 
       <div className="rounded-2xl bg-surface p-5 shadow-sm">
-        <label htmlFor="session-notes" className="mb-2 block text-sm font-semibold text-text-primary">
+        <label
+          htmlFor="session-notes"
+          className="mb-2 block text-sm font-semibold text-text-primary"
+        >
           {t('common:session.notes_placeholder')}
         </label>
         <textarea

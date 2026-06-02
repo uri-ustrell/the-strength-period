@@ -32,9 +32,7 @@ describe('isValidUserConfig — audioOptIn', () => {
   })
 
   it('tolerates a leftover legacy aestheticVariant field', () => {
-    expect(
-      isValidUserConfig({ ...baseConfig, aestheticVariant: 'retro-platformer' })
-    ).toBe(true)
+    expect(isValidUserConfig({ ...baseConfig, aestheticVariant: 'retro-platformer' })).toBe(true)
   })
 
   it('still rejects fundamentally invalid shapes', () => {

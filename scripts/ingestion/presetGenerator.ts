@@ -413,9 +413,7 @@ function mergeHardcodedPresetCatalogEntry(
   }
 }
 
-function buildHardcodedPresetCatalogEntry(
-  preset: (typeof PRESETS)[number]
-): PresetCatalogEntry {
+function buildHardcodedPresetCatalogEntry(preset: (typeof PRESETS)[number]): PresetCatalogEntry {
   return {
     id: preset.id,
     nameKey: preset.nameKey,

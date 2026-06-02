@@ -151,11 +151,11 @@ const SessionCard = ({ block, isActive }: CardProps) => {
       <div className="mb-1.5 flex items-center justify-between">
         <span className="truncate text-xs font-semibold text-text-primary">{exerciseName}</span>
       </div>
-      <div className="flex flex-wrap items-center gap-1.5" role="list">
+      <ul className="flex flex-wrap items-center gap-1.5">
         {block.sets.map((node) => (
           <SetRow key={node.setIndex} block={block} node={node} />
         ))}
-      </div>
+      </ul>
     </div>
   )
 }
@@ -165,8 +165,7 @@ type RowProps = { block: ExerciseBlock; node: SetNode }
 const SetRow = ({ block, node }: RowProps) => {
   const Icon = STATE_ICON[node.state]
   return (
-    <span
-      role="listitem"
+    <li
       data-set-state={node.state}
       data-testid={`session-set-${block.exerciseIndex}-${node.setIndex}`}
       aria-label={`Set ${node.setNumber} of ${block.sets.length} — ${node.state}`}
@@ -174,6 +173,6 @@ const SetRow = ({ block, node }: RowProps) => {
     >
       <Icon size={12} strokeWidth={2.5} aria-hidden="true" />
       <span className="tabular">{node.setNumber}</span>
-    </span>
+    </li>
   )
 }

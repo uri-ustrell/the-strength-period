@@ -67,7 +67,10 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
 
         {weightKg !== undefined && (
           <div>
-            <label htmlFor="weight-input" className="mb-1 block text-sm font-medium text-text-primary">
+            <label
+              htmlFor="weight-input"
+              className="mb-1 block text-sm font-medium text-text-primary"
+            >
               {t('session.weight_actual')}
             </label>
             <div className="flex items-center gap-3">

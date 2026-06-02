@@ -53,8 +53,7 @@ export function useSession() {
   const finishSession = useSessionStore((s) => s.finishSession)
   const reset = useSessionStore((s) => s.reset)
 
-  const currentExercise =
-    state.generatedSession?.exercises[state.currentExerciseIndex] ?? null
+  const currentExercise = state.generatedSession?.exercises[state.currentExerciseIndex] ?? null
 
   return {
     ...state,

@@ -53,7 +53,11 @@ export const DashboardMap = ({ model, onSelectSession }: DashboardMapProps) => {
   return (
     <div className="space-y-4" data-testid="dashboard-period-strip">
       {model.weeks.map((week) => (
-        <section key={week.weekNumber} className="space-y-2" data-testid={`week-${week.weekNumber}`}>
+        <section
+          key={week.weekNumber}
+          className="space-y-2"
+          data-testid={`week-${week.weekNumber}`}
+        >
           <header className="flex items-baseline justify-between">
             <h3 className="font-display text-sm font-semibold text-text-primary">
               {t('dashboard.week_label', {
@@ -67,7 +71,7 @@ export const DashboardMap = ({ model, onSelectSession }: DashboardMapProps) => {
               </span>
             ) : null}
           </header>
-          <ul className="flex flex-wrap gap-2" role="list">
+          <ul className="flex flex-wrap gap-2">
             {week.sessions.map((session) => (
               <li key={session.sessionId}>
                 <button

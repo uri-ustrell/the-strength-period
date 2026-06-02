@@ -66,7 +66,9 @@ export const Step3Context = () => {
 
       {/* Minutes per session */}
       <div>
-        <h3 className="mb-3 text-sm font-semibold text-text-primary">{t('step3.minutesPerSession')}</h3>
+        <h3 className="mb-3 text-sm font-semibold text-text-primary">
+          {t('step3.minutesPerSession')}
+        </h3>
         <div className="flex flex-wrap gap-2">
           {MINUTES_OPTIONS.map((mins) => (
             <button

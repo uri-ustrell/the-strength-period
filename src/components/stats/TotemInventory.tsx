@@ -50,7 +50,6 @@ export const TotemInventory = ({ model }: TotemInventoryProps) => {
           </header>
           <ul
             className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8"
-            role="list"
             aria-label={t(`totem.family.${family}`)}
           >
             {totems.map((totem) => (
@@ -79,6 +78,7 @@ const TotemBadge = ({ totem }: BadgeProps) => {
     <div
       data-testid={`totem-${totem.id}`}
       data-state={totem.state}
+      role="img"
       aria-label={`${name} — ${stateLabel}`}
       className={`flex aspect-square flex-col items-center justify-center gap-1 rounded-2xl border p-2 text-center ${
         earned
@@ -95,9 +95,7 @@ const TotemBadge = ({ totem }: BadgeProps) => {
       <span className="line-clamp-2 font-mono text-[10px] font-semibold uppercase tracking-wide text-text-primary">
         {name}
       </span>
-      {!earned && (
-        <span className="line-clamp-2 text-[9px] text-text-muted">{rule}</span>
-      )}
+      {!earned && <span className="line-clamp-2 text-[9px] text-text-muted">{rule}</span>}
     </div>
   )
 }

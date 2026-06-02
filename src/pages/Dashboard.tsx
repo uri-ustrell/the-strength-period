@@ -70,6 +70,7 @@ export const Dashboard = () => {
     setQuickMinutes(minutesPerSession)
   }, [minutesPerSession])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: activeMesocycle?.id is an intentional refresh trigger, not a value read by the effect
   useEffect(() => {
     const fetchRecent = async () => {
       const now = new Date()

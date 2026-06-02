@@ -59,7 +59,7 @@ export const ProgressionSparkline = ({ rates, height = 60, className }: Props) =
         const isDeloadSegment = p.v < 0 || next.v < 0
         return (
           <line
-            key={`seg-${i}`}
+            key={`seg-${p.x}`}
             x1={p.x}
             y1={p.y}
             x2={next.x}
@@ -71,8 +71,14 @@ export const ProgressionSparkline = ({ rates, height = 60, className }: Props) =
           />
         )
       })}
-      {points.map((p, i) => (
-        <circle key={`pt-${i}`} cx={p.x} cy={p.y} r={2.5} fill={p.v < 0 ? '#d97706' : '#4f46e5'} />
+      {points.map((p) => (
+        <circle
+          key={`pt-${p.x}`}
+          cx={p.x}
+          cy={p.y}
+          r={2.5}
+          fill={p.v < 0 ? '#d97706' : '#4f46e5'}
+        />
       ))}
     </svg>
   )

@@ -74,7 +74,7 @@ npm run dev
 - `npm run dev:frontend`: frontend-only Vite mode with mock API disabled (`VITE_MOCK_API=false`)
 - `npm run build`: TypeScript check + Vite production build
 - `npm run preview`: serve production build locally
-- `npm run lint`: TypeScript check only
+- `npm run lint`: Biome lint + TypeScript check (`lint:biome` + `lint:types`)
 - `npm run ingest`: run Step 18 multi-source ingestion (`scripts/runIngestion.ts`)
 - `npm run photos`: run Step 18 exercise photo pipeline (`scripts/generateExercisePhotos.ts`)
 - `npm run presets`: run Step 18 preset batch pipeline (`scripts/generatePresetBatch.ts`)

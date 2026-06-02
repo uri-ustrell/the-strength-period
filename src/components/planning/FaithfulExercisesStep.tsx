@@ -207,7 +207,11 @@ export const FaithfulExercisesStep = ({
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onBack} className="text-text-muted/70 hover:text-text-primary">
+        <button
+          type="button"
+          onClick={onBack}
+          className="text-text-muted/70 hover:text-text-primary"
+        >
           <ArrowLeft size={20} />
         </button>
         <div>
@@ -241,12 +245,14 @@ export const FaithfulExercisesStep = ({
               <span>{label}</span>
               {hasMissing && (
                 <span
+                  role="img"
                   className="inline-block h-1.5 w-1.5 rounded-full bg-warning/100"
                   aria-label="missing exercises"
                 />
               )}
               {!hasMissing && isEmpty && (
                 <span
+                  role="img"
                   className="inline-block h-1.5 w-1.5 rounded-full bg-amber-400"
                   aria-label="empty template"
                 />
@@ -328,7 +334,9 @@ export const FaithfulExercisesStep = ({
                 <p className="text-sm font-medium text-text-muted">
                   {t('planning:empty_template_title')}
                 </p>
-                <p className="mt-1 text-xs text-text-muted/70">{t('planning:empty_template_body')}</p>
+                <p className="mt-1 text-xs text-text-muted/70">
+                  {t('planning:empty_template_body')}
+                </p>
               </div>
             )}
             {activeSession.exercises.map((entry, rowIdx) => {
@@ -339,6 +347,7 @@ export const FaithfulExercisesStep = ({
 
               return (
                 <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: positional slot; the same exercise id may repeat, so rowIdx is the stable per-slot identity (row UI state is also keyed by index)
                   key={`row-${rowIdx}-${entry.exerciseId}`}
                   className={`rounded-lg border p-3 space-y-2 ${
                     isMissing ? 'border-warning/60 bg-warning/10' : 'border-border-subtle bg-bg'
@@ -457,10 +466,14 @@ export const FaithfulExercisesStep = ({
 
                   <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                     <div>
-                      <label className="block text-xs text-text-muted">
+                      <label
+                        htmlFor={`row-${rowIdx}-sets`}
+                        className="block text-xs text-text-muted"
+                      >
                         {t('planning:faithful.sets')}
                       </label>
                       <input
+                        id={`row-${rowIdx}-sets`}
                         type="number"
                         min={1}
                         max={20}
@@ -547,10 +560,14 @@ export const FaithfulExercisesStep = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs text-text-muted">
+                      <label
+                        htmlFor={`row-${rowIdx}-rest`}
+                        className="block text-xs text-text-muted"
+                      >
                         {t('planning:faithful.rest')}
                       </label>
                       <input
+                        id={`row-${rowIdx}-rest`}
                         type="number"
                         min={0}
                         max={600}
@@ -567,8 +584,11 @@ export const FaithfulExercisesStep = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs text-text-muted">kg</label>
+                      <label htmlFor={`row-${rowIdx}-kg`} className="block text-xs text-text-muted">
+                        kg
+                      </label>
                       <input
+                        id={`row-${rowIdx}-kg`}
                         type="number"
                         min={0}
                         step={0.5}

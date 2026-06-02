@@ -181,8 +181,10 @@ function generateFaithfulMesocycle(
       // When per-week rates are provided, the deload week is already baked into
       // `effectiveMultiplier` (e.g. -40% → 0.6). In legacy slider mode it isn't,
       // so we still need the constant `rule.deloadPercentage` for sets/weight.
-      const useWeeklyRates = weeklyProgressionRates !== undefined && weeklyProgressionRates.length > 0
-      const setsMultiplier = isDeload && !useWeeklyRates ? rule.deloadPercentage : effectiveMultiplier
+      const useWeeklyRates =
+        weeklyProgressionRates !== undefined && weeklyProgressionRates.length > 0
+      const setsMultiplier =
+        isDeload && !useWeeklyRates ? rule.deloadPercentage : effectiveMultiplier
 
       for (const entry of template.exercises) {
         const exercise = exerciseMap.get(entry.exerciseId)
@@ -219,9 +221,10 @@ function generateFaithfulMesocycle(
             const exerciseWeights = resolveExerciseWeights(exercise, config)
             // weekMultiplier already includes deload via the per-week rate when
             // useWeeklyRates is true; otherwise apply the constant deload here.
-            const targetWeight = isDeload && !useWeeklyRates
-              ? baseWeight * rule.deloadPercentage
-              : baseWeight * weekMultiplier
+            const targetWeight =
+              isDeload && !useWeeklyRates
+                ? baseWeight * rule.deloadPercentage
+                : baseWeight * weekMultiplier
             if (exerciseWeights && exerciseWeights.length > 0) {
               const sorted = [...exerciseWeights].sort((a, b) => a - b)
               weightKg = snapToAvailableWeight(targetWeight, sorted, 'nearest')
