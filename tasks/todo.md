@@ -120,7 +120,17 @@ is already gone.
 
 ---
 
-### [ ] 3. Remove non-null assertions (`!`) — restore strict type safety
+### [x] 3. Remove non-null assertions (`!`) — restore strict type safety
+
+> Done 2026-06-01. Removed all 47 `noNonNullAssertion` (20 production + 27 test).
+> Added `src/utils/assertDefined.ts` (throws + narrows) for genuine invariants
+> (`#root`, test fixture access) and exported `parseLocalYMD` from `dateHelpers`
+> for reuse. Production fixes use nullish-coalescing behind existing guards,
+> get-or-create Maps, captured consts for closures (ActiveExercise), and
+> narrowing guards. Verified: `npx biome lint` 0 noNonNullAssertion (warnings
+> 56→9, remainder owned by #5), `npm run lint` exit 0, format:check clean,
+> 91 unit + 10 script tests green, build OK.
+
 
 **Problem.** 47 `lint/style/noNonNullAssertion` violations. `CONVENTIONS.md`
 promises "no `any`, no implicit returns" strictness; each `!` is an unchecked

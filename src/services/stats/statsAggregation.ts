@@ -1,5 +1,6 @@
 import type { Exercise } from '@/types/exercise'
 import type { ExecutedSession, ExecutedSet } from '@/types/session'
+import { parseLocalYMD } from '@/utils/dateHelpers'
 
 export interface VolumeDataPoint {
   week: string
@@ -54,13 +55,11 @@ function getISOWeek(dateStr: string): string {
  * up as 0 instead of being silently dropped from the chart.
  */
 function listISOWeeksBetween(startDateStr: string, endDateStr: string): string[] {
-  const [sy, sm, sd] = startDateStr.split('-').map(Number)
-  const [ey, em, ed] = endDateStr.split('-').map(Number)
-  if ([sy, sm, sd, ey, em, ed].some((n) => typeof n !== 'number' || Number.isNaN(n))) {
+  const cursor = parseLocalYMD(startDateStr)
+  const end = parseLocalYMD(endDateStr)
+  if (Number.isNaN(cursor.getTime()) || Number.isNaN(end.getTime())) {
     return []
   }
-  const cursor = new Date(sy!, sm! - 1, sd!)
-  const end = new Date(ey!, em! - 1, ed!)
   const seen = new Set<string>()
   const out: string[] = []
   // Walk day-by-day collecting unique ISO week labels in chronological order.
@@ -104,8 +103,11 @@ export function aggregateVolume(
     if (!ex) continue
     const week = getISOWeek(s.date)
 
-    if (!weekMuscles.has(week)) weekMuscles.set(week, new Map())
-    const muscles = weekMuscles.get(week)!
+    let muscles = weekMuscles.get(week)
+    if (!muscles) {
+      muscles = new Map()
+      weekMuscles.set(week, muscles)
+    }
 
     for (const mg of ex.primaryMuscles) {
       allMuscles.add(mg)
@@ -118,7 +120,7 @@ export function aggregateVolume(
 
   const data: VolumeDataPoint[] = weeks.map((week) => {
     const entry: VolumeDataPoint = { week: week.split('-')[1] ?? week }
-    const muscles = weekMuscles.get(week)!
+    const muscles = weekMuscles.get(week) ?? new Map<string, number>()
     for (const mg of muscleGroups) {
       entry[mg] = muscles.get(mg) ?? 0
     }
@@ -178,7 +180,10 @@ export function aggregateAdherence(
   // Fill every week between the first and last completed session so that fully
   // skipped weeks show up as 0 (otherwise adherence appears artificially inflated).
   const sortedDates = [...dates].sort()
-  const allWeeks = listISOWeeksBetween(sortedDates[0]!, sortedDates[sortedDates.length - 1]!)
+  const first = sortedDates[0]
+  const last = sortedDates[sortedDates.length - 1]
+  if (!first || !last) return []
+  const allWeeks = listISOWeeksBetween(first, last)
 
   return allWeeks.map((week) => ({
     week: week.split('-')[1] ?? week,

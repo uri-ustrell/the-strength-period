@@ -61,8 +61,8 @@ export function buildSessionCompletionTotemPayload(
       return catalogRank(a) - catalogRank(b)
     })
 
-  if (newlyEarnedIds.length === 0) return null
-  const primaryTotemId = newlyEarnedIds[0]!
+  const primaryTotemId = newlyEarnedIds[0]
+  if (primaryTotemId === undefined) return null
 
   return {
     sessionId: input.sessionId,

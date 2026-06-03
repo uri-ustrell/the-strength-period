@@ -8,6 +8,7 @@ import type {
 } from '@/services/stats/buildTotemInventoryModel'
 import { buildTotemInventoryModel } from '@/services/stats/buildTotemInventoryModel'
 import type { ExecutedSession } from '@/types/session'
+import { assertDefined } from '@/utils/assertDefined'
 
 /**
  * Step 16 Phase E sub-phase E1 — selector unit tests.
@@ -79,10 +80,10 @@ describe('buildSessionCompletionTotemPayload', () => {
       dateISO: '2026-05-04',
     })
     expect(payload).not.toBeNull()
-    expect(payload!.newlyEarnedIds).toEqual(['first-session'])
-    expect(payload!.primaryTotemId).toBe('first-session')
-    expect(payload!.earnedDateISO).toBe('2026-05-04')
-    expect(payload!.sessionId).toBe('session-abc')
+    expect(assertDefined(payload).newlyEarnedIds).toEqual(['first-session'])
+    expect(assertDefined(payload).primaryTotemId).toBe('first-session')
+    expect(assertDefined(payload).earnedDateISO).toBe('2026-05-04')
+    expect(assertDefined(payload).sessionId).toBe('session-abc')
   })
 
   it('orders multi-family newly-earned by FAMILY_ORDER (consistency → recovery → reflection)', () => {
@@ -104,12 +105,12 @@ describe('buildSessionCompletionTotemPayload', () => {
       dateISO: '2026-05-04',
     })
     expect(payload).not.toBeNull()
-    expect(payload!.newlyEarnedIds).toEqual([
+    expect(assertDefined(payload).newlyEarnedIds).toEqual([
       'first-session',
       'first-deload-honored',
       'rpe-awareness',
     ])
-    expect(payload!.primaryTotemId).toBe('first-session')
+    expect(assertDefined(payload).primaryTotemId).toBe('first-session')
   })
 
   it('orders intra-family newly-earned by TOTEM_CATALOG_V2 index', () => {
@@ -130,8 +131,11 @@ describe('buildSessionCompletionTotemPayload', () => {
       sessionId: 's',
       dateISO: '2026-05-04',
     })
-    expect(payload!.newlyEarnedIds).toEqual(['first-deload-honored', 'five-deloads-honored'])
-    expect(payload!.primaryTotemId).toBe('first-deload-honored')
+    expect(assertDefined(payload).newlyEarnedIds).toEqual([
+      'first-deload-honored',
+      'five-deloads-honored',
+    ])
+    expect(assertDefined(payload).primaryTotemId).toBe('first-deload-honored')
   })
 
   it('returns null when the after snapshot is missing a totem present in before (totems never un-earn — safe behavior, not a crash)', () => {
@@ -195,9 +199,9 @@ describe('Regression N1 \u2014 synthesized in-memory session unlocks totems pre-
     })
 
     expect(payload).not.toBeNull()
-    expect(payload!.primaryTotemId).toBe('first-session')
-    expect(payload!.sessionId).toBe('just-finished-session-uuid')
-    expect(payload!.earnedDateISO).toBe('2026-05-04')
+    expect(assertDefined(payload).primaryTotemId).toBe('first-session')
+    expect(assertDefined(payload).sessionId).toBe('just-finished-session-uuid')
+    expect(assertDefined(payload).earnedDateISO).toBe('2026-05-04')
   })
 })
 
@@ -246,7 +250,7 @@ describe('Regression W4 — ack payload gated on history-loaded boolean', () => 
     const payload = !historyLoaded ? null : buildSessionCompletionTotemPayload(args)
 
     expect(payload).not.toBeNull()
-    expect(payload!.newlyEarnedIds).toEqual(['first-week'])
+    expect(assertDefined(payload).newlyEarnedIds).toEqual(['first-week'])
   })
 })
 
@@ -265,7 +269,7 @@ describe('Phase E4f — first-rest-day-honored earn-ack diff', () => {
       dateISO: '2025-06-15',
     })
     expect(payload).not.toBeNull()
-    expect(payload!.newlyEarnedIds).toContain('first-rest-day-honored')
-    expect(payload!.primaryTotemId).toBe('first-rest-day-honored')
+    expect(assertDefined(payload).newlyEarnedIds).toContain('first-rest-day-honored')
+    expect(assertDefined(payload).primaryTotemId).toBe('first-rest-day-honored')
   })
 })

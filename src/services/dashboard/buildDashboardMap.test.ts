@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { buildDashboardMap } from '@/services/dashboard/buildDashboardMap'
 import type { Mesocycle, SessionTemplate } from '@/types/planning'
+import { assertDefined } from '@/utils/assertDefined'
 
 function makeSession(
   id: string,
@@ -47,8 +48,11 @@ describe('buildDashboardMap', () => {
   it('marks only the first pending session as available; rest are future', () => {
     const sessions = [makeSession('s1', 1, 1), makeSession('s2', 1, 3), makeSession('s3', 2, 1)]
     const model = buildDashboardMap(makeMeso(sessions))
-    expect(model.weeks[0]!.sessions.map((n) => n.state)).toEqual(['available', 'future'])
-    expect(model.weeks[1]!.sessions[0]!.state).toBe('future')
+    expect(assertDefined(model.weeks[0]).sessions.map((n) => n.state)).toEqual([
+      'available',
+      'future',
+    ])
+    expect(assertDefined(assertDefined(model.weeks[1]).sessions[0]).state).toBe('future')
   })
 
   it('all-future when nothing is pending and no preview (every node is future) — degenerate empty case is empty', () => {
@@ -108,10 +112,10 @@ describe('buildDashboardMap', () => {
     const model = buildDashboardMap(makeMeso(sessions, 3))
     expect(model.weeks.map((w) => w.weekNumber)).toEqual([1, 2, 3])
     expect(model.weeks.map((w) => w.weekIndex)).toEqual([0, 1, 2])
-    expect(model.weeks[0]!.sessions.map((n) => n.sessionId)).toEqual(['s2', 's1'])
-    expect(model.weeks[0]!.sessions.map((n) => n.sessionIndexInWeek)).toEqual([1, 2])
+    expect(assertDefined(model.weeks[0]).sessions.map((n) => n.sessionId)).toEqual(['s2', 's1'])
+    expect(assertDefined(model.weeks[0]).sessions.map((n) => n.sessionIndexInWeek)).toEqual([1, 2])
     // First pending in chronological order is s2 (week 1, day 1).
-    expect(model.weeks[0]!.sessions[0]!.state).toBe('available')
+    expect(assertDefined(assertDefined(model.weeks[0]).sessions[0]).state).toBe('available')
   })
 
   it('deload week tagging: every session in the week marked isDeload yields a deload row', () => {

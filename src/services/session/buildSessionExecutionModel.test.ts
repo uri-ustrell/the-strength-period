@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { GeneratedSession, SelectedExercise } from '@/services/exercises/sessionGenerator'
+import { assertDefined } from '@/utils/assertDefined'
 import {
   type BuildSessionExecutionInput,
   buildSessionExecutionModel,
@@ -110,7 +111,7 @@ describe('buildSessionExecutionModel', () => {
         sessionStartedAt: STARTED_AT,
       })
     )
-    const states = m.exerciseBlocks[0]!.sets.map((s) => s.state)
+    const states = assertDefined(m.exerciseBlocks[0]).sets.map((s) => s.state)
     expect(states).toEqual(['active', 'pending', 'pending'])
     expect(m.hud.setsTotal).toBe(3)
   })
@@ -126,7 +127,7 @@ describe('buildSessionExecutionModel', () => {
         sessionStartedAt: STARTED_AT,
       })
     )
-    const states = m.exerciseBlocks[0]!.sets.map((s) => s.state)
+    const states = assertDefined(m.exerciseBlocks[0]).sets.map((s) => s.state)
     expect(states).toEqual(['completed', 'active', 'pending'])
     expect(m.rest).toEqual({ isResting: true, secondsRemaining: 45 })
   })
@@ -141,8 +142,14 @@ describe('buildSessionExecutionModel', () => {
         sessionStartedAt: STARTED_AT,
       })
     )
-    expect(m.exerciseBlocks[0]!.sets.map((s) => s.state)).toEqual(['completed', 'completed'])
-    expect(m.exerciseBlocks[1]!.sets.map((s) => s.state)).toEqual(['active', 'pending'])
+    expect(assertDefined(m.exerciseBlocks[0]).sets.map((s) => s.state)).toEqual([
+      'completed',
+      'completed',
+    ])
+    expect(assertDefined(m.exerciseBlocks[1]).sets.map((s) => s.state)).toEqual([
+      'active',
+      'pending',
+    ])
     expect(m.hud.setsCompleted).toBe(2)
   })
 
@@ -156,7 +163,7 @@ describe('buildSessionExecutionModel', () => {
         sessionStartedAt: STARTED_AT,
       })
     )
-    expect(m.exerciseBlocks[0]!.sets.map((s) => s.state)).toEqual([
+    expect(assertDefined(m.exerciseBlocks[0]).sets.map((s) => s.state)).toEqual([
       'completed',
       'skipped',
       'active',
@@ -264,7 +271,7 @@ describe('buildSessionExecutionModel', () => {
       })
     )
     expect(m.isFinished).toBe(true)
-    const states = m.exerciseBlocks[0]!.sets.map((s) => s.state)
+    const states = assertDefined(m.exerciseBlocks[0]).sets.map((s) => s.state)
     expect(states).toEqual(['completed', 'completed'])
   })
 })

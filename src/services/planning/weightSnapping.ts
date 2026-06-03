@@ -11,7 +11,7 @@ export function snapToAvailableWeight(
 
   if (direction === 'up') {
     const higher = sorted.find((w) => w >= targetKg)
-    return higher ?? sorted[sorted.length - 1]!
+    return higher ?? sorted[sorted.length - 1] ?? targetKg
   }
 
   if (direction === 'down') {
@@ -19,11 +19,11 @@ export function snapToAvailableWeight(
     // If no candidate is <= target, fall back to the smallest available weight
     // (which is still > target). The previous code returned the smallest too
     // but its semantics were unclear; we keep the behaviour and document it.
-    return lower ?? sorted[0]!
+    return lower ?? sorted[0] ?? targetKg
   }
 
   // nearest
-  let closest = sorted[0]!
+  let closest = sorted[0] ?? targetKg
   let minDiff = Math.abs(targetKg - closest)
 
   for (const w of sorted) {
@@ -57,7 +57,7 @@ export function getAdjacentWeights(
   }
 
   return {
-    lower: currentIndex > 0 ? sorted[currentIndex - 1]! : null,
-    higher: currentIndex < sorted.length - 1 ? sorted[currentIndex + 1]! : null,
+    lower: currentIndex > 0 ? (sorted[currentIndex - 1] ?? null) : null,
+    higher: currentIndex < sorted.length - 1 ? (sorted[currentIndex + 1] ?? null) : null,
   }
 }

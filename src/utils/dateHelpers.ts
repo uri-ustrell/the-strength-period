@@ -8,7 +8,7 @@ export function toDateStr(d: Date): string {
   return `${y}-${m}-${day}`
 }
 
-function parseLocalYMD(dateStr: string): Date {
+export function parseLocalYMD(dateStr: string): Date {
   // Parse 'YYYY-MM-DD' as local midnight (not UTC, which would shift in negative TZ offsets).
   const [y, m, d] = dateStr.split('-').map(Number)
   if (

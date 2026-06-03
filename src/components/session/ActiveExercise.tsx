@@ -46,6 +46,10 @@ export const ActiveExercise = ({
     weightKg !== undefined && exerciseWeightList.length > 0
       ? getAdjacentWeights(weightKg, exerciseWeightList)
       : null
+  // Hoist into consts so the `!= null` guards narrow them inside the onClick
+  // closures (a member access like `adjacent.lower` would not narrow there).
+  const lowerWeight = adjacent?.lower ?? null
+  const higherWeight = adjacent?.higher ?? null
 
   return (
     <div className="rounded-2xl bg-surface p-5 shadow-sm">
@@ -96,10 +100,10 @@ export const ActiveExercise = ({
           <div className="rounded-lg bg-bg p-3 text-center">
             <p className="text-xs text-text-muted">{t('common:session.weight_kg')}</p>
             <div className="flex items-center justify-center gap-1">
-              {adjacent?.lower != null && onWeightChange && (
+              {lowerWeight != null && onWeightChange && (
                 <button
                   type="button"
-                  onClick={() => onWeightChange(adjacent.lower!)}
+                  onClick={() => onWeightChange(lowerWeight)}
                   className="rounded p-0.5 text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
                   aria-label={t('common:session.weight_lower')}
                 >
@@ -107,10 +111,10 @@ export const ActiveExercise = ({
                 </button>
               )}
               <p className="text-lg font-bold text-text-primary">{weightKg}</p>
-              {adjacent?.higher != null && onWeightChange && (
+              {higherWeight != null && onWeightChange && (
                 <button
                   type="button"
-                  onClick={() => onWeightChange(adjacent.higher!)}
+                  onClick={() => onWeightChange(higherWeight)}
                   className="rounded p-0.5 text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
                   aria-label={t('common:session.weight_higher')}
                 >

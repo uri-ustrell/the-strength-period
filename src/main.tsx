@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from '@/App'
+import { assertDefined } from '@/utils/assertDefined'
 import '@/i18n'
 import '@/index.css'
 
@@ -14,7 +15,9 @@ async function enableMocking() {
 enableMocking()
   .catch((err) => console.error('MSW failed to start:', err))
   .then(() => {
-    createRoot(document.getElementById('root')!).render(
+    createRoot(
+      assertDefined(document.getElementById('root'), 'Root element #root not found')
+    ).render(
       <StrictMode>
         <App />
       </StrictMode>

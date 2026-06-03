@@ -939,8 +939,12 @@ export const PlanCreator = ({ onComplete }: Props) => {
     const weekMap = new Map<number, typeof generatedPreview.sessions>()
     for (const session of generatedPreview.sessions) {
       const w = session.weekNumber
-      if (!weekMap.has(w)) weekMap.set(w, [])
-      weekMap.get(w)!.push(session)
+      let list = weekMap.get(w)
+      if (!list) {
+        list = []
+        weekMap.set(w, list)
+      }
+      list.push(session)
     }
 
     // Equipment chips: collect unique equipment used by all assigned exercises
