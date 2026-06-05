@@ -153,7 +153,29 @@ runtime-crash surface that bypasses that guarantee.
 
 ---
 
-### [ ] 4. Fix `useExhaustiveDependencies` effects
+### [x] 4. Fix `useExhaustiveDependencies` effects
+
+> Done 2026-06-05. Both effects were "intentional re-run trigger" patterns that
+> task #2 had parked behind justified `biome-ignore`s. Resolved each on its
+> merits:
+> - **PlanCreator** dirty-tracking effect (watched 6 fields it never read, plus a
+>   `suppressDirtyRef` hack to skip the post-load run): replaced with event-driven
+>   `markDirty()` wired into the 6 user-edit setters. Programmatic loaders keep
+>   using the raw setters + `setDirty(false)`, so loads — and the reactive
+>   resize/snap effects — no longer flag dirtiness. Removed the effect, the
+>   `suppressDirtyRef`, and the now-unused `useRef` import. This also fixes a
+>   latent bug where a resize/snap firing after a load could mark dirty past the
+>   single `suppressDirtyRef` skip.
+> - **Dashboard** recent-activity effect re-fetches a date-range query when the
+>   active mesocycle id changes; the body genuinely does not read the id, so it is
+>   a legitimate re-run trigger (eslint-plugin-react-hooks accepts it; only
+>   Biome's stricter rule objects). Kept a tightened suppression with a full
+>   rationale rather than adding dead code to appease the linter, and added a
+>   `cancelled` guard so a superseded fetch can't write stale state.
+>
+> Verified: `biome lint` reports 0 `useExhaustiveDependencies`, tsc clean,
+> 91/91 unit tests green, build OK. No PlanCreator/Dashboard unit tests exist, so
+> behaviour was reasoned through the call sites (wizard dirtiness, preset loads).
 
 **Problem.** Two effects declare more deps than they use, risking effects that
 re-fire incorrectly or mask real missing deps.

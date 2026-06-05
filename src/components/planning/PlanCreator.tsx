@@ -1,5 +1,5 @@
 import { ArrowLeft, Check, X } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
@@ -66,7 +66,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const [editingPresetId, setEditingPresetId] = useState<string | null>(null)
   const [sourceIsBuiltIn, setSourceIsBuiltIn] = useState(false)
   const [dirty, setDirty] = useState(false)
-  const suppressDirtyRef = useRef(false)
 
   // Faithful mode state: editable preset sessions
   const [editablePresetSessions, setEditablePresetSessions] = useState<PresetSessionTemplate[]>([])
@@ -170,26 +169,16 @@ export const PlanCreator = ({ onComplete }: Props) => {
     }
   }, [editablePresetSessions.length, daysPerWeek])
 
-  // Mark working copy as dirty whenever a tracked field changes. The listed deps
-  // are intentional change-triggers (not read in the body), so the effect re-runs
-  // and flags dirtiness when any tracked field mutates.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: deps are intentional dirty-tracking triggers, not values read by the effect
-  useEffect(() => {
-    if (suppressDirtyRef.current) {
-      suppressDirtyRef.current = false
-      return
-    }
+  // Flag the working copy as dirty in response to a user edit. Tracked-field
+  // setters are wrapped at their call sites to call this. Programmatic loaders
+  // (selecting/creating a preset) use the raw setters and reset `setDirty(false)`
+  // themselves, so loads — and the reactive resize/snap effects above — never
+  // flag dirtiness. Edits only happen on the configure/exercises steps; the guard
+  // mirrors the previous behaviour of ignoring changes on preset/preview.
+  const markDirty = () => {
     if (step === 'preset' || step === 'preview') return
     setDirty(true)
-  }, [
-    editablePresetSessions,
-    weeklyProgressionRates,
-    presetName,
-    weeks,
-    daysPerWeek,
-    minutesPerSess,
-    step,
-  ])
+  }
 
   const guardedNavigate = (action: () => void) => {
     if (dirty) {
@@ -202,7 +191,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const resetWizard = () => {
-    suppressDirtyRef.current = true
     setStep('preset')
     setSelectedPreset(null)
     setEditingPresetId(null)
@@ -240,7 +228,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const enterWizardWithPreset = (preset: Preset) => {
-    suppressDirtyRef.current = true
     setSelectedPreset(preset)
     const rawInitialWeeks = preset.durationOptions[0] ?? DEFAULT_CYCLE_WEEKS
     const initialWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, rawInitialWeeks))
@@ -312,7 +299,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
-    suppressDirtyRef.current = true
     setSelectedPreset(null)
     // Clamp legacy CustomPreset durations (could be > 4 from older app versions) to the new 1..4 range.
     const clampedWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, cp.durationWeeks))
@@ -341,7 +327,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   const handleCreateFromScratch = () => {
-    suppressDirtyRef.current = true
     const id = `custom_${crypto.randomUUID()}`
     const blankPreset: CustomPreset = {
       id,
@@ -680,7 +665,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
             id="preset-name-input"
             type="text"
             value={presetName}
-            onChange={(e) => setPresetName(e.target.value)}
+            onChange={(e) => {
+              setPresetName(e.target.value)
+              markDirty()
+            }}
             placeholder={t('planning:preset_name_placeholder')}
             className="mt-1 w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
           />
@@ -699,7 +687,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
                 <button
                   key={w}
                   type="button"
-                  onClick={() => setWeeks(w)}
+                  onClick={() => {
+                    setWeeks(w)
+                    markDirty()
+                  }}
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     weeks === w
                       ? 'bg-accent text-white'
@@ -734,7 +725,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
                   <button
                     key={d}
                     type="button"
-                    onClick={() => setDaysPerWeek(d)}
+                    onClick={() => {
+                      setDaysPerWeek(d)
+                      markDirty()
+                    }}
                     className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                       daysPerWeek === d
                         ? 'bg-accent text-white'
@@ -762,7 +756,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
                 <button
                   key={m}
                   type="button"
-                  onClick={() => setMinutesPerSess(m)}
+                  onClick={() => {
+                    setMinutesPerSess(m)
+                    markDirty()
+                  }}
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     minutesPerSess === m
                       ? 'bg-accent text-white'
@@ -780,7 +777,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
           <WeekProgressionTable
             weeks={weeks}
             rates={weeklyProgressionRates}
-            onChange={setWeeklyProgressionRates}
+            onChange={(rates) => {
+              setWeeklyProgressionRates(rates)
+              markDirty()
+            }}
           />
         </div>
 
@@ -844,7 +844,10 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return (
       <FaithfulExercisesStep
         editablePresetSessions={editablePresetSessions}
-        onSessionsChange={setEditablePresetSessions}
+        onSessionsChange={(sessions) => {
+          setEditablePresetSessions(sessions)
+          markDirty()
+        }}
         exercises={exercises}
         filteredExercisePool={filteredExercisePool}
         onBack={() => setStep('preset')}

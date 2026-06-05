@@ -70,22 +70,34 @@ export const Dashboard = () => {
     setQuickMinutes(minutesPerSession)
   }, [minutesPerSession])
 
+  // Load the last 90 days of sessions + this week's set count on mount, and
+  // refresh whenever the active mesocycle changes (e.g. after generating a new
+  // plan). The query is date-range based and does not read `activeMesocycle`,
+  // so the id is a pure re-run trigger rather than a value the body consumes —
+  // the idiomatic React pattern (which eslint-plugin-react-hooks accepts).
+  // Biome's stricter rule flags it as an unnecessary dependency; suppressed
+  // because dropping it would silence the intended refresh. A `cancelled` guard
+  // discards results from a fetch that the next trigger has already superseded.
   // biome-ignore lint/correctness/useExhaustiveDependencies: activeMesocycle?.id is an intentional refresh trigger, not a value read by the effect
   useEffect(() => {
+    let cancelled = false
     const fetchRecent = async () => {
       const now = new Date()
       const past = new Date(now)
       past.setDate(past.getDate() - 90)
       const sessions = await listSessionsByDateRange(toDateStr(past), toDateStr(now))
+      if (cancelled) return
       setRecentSessions(sessions)
 
       const weekStart = getWeekStart(now)
       const sets = await listSetsByDateRange(toDateStr(weekStart), toDateStr(now))
+      if (cancelled) return
       setWeeklySetCount(sets.length)
     }
     fetchRecent()
-    // Refresh recent sessions / weekly set count whenever the active mesocycle changes
-    // (e.g. after generating a new plan or finishing a session that may have toggled it).
+    return () => {
+      cancelled = true
+    }
   }, [activeMesocycle?.id])
 
   const streak = useMemo(() => calculateStreak(recentSessions), [recentSessions])
