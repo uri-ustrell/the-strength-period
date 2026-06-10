@@ -83,7 +83,7 @@ export const SessionSummary = ({
             min={1}
             max={10}
             value={globalRpe}
-            onChange={(e) => setGlobalRpe(parseInt(e.target.value))}
+            onChange={(e) => setGlobalRpe(parseInt(e.target.value, 10))}
             className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-surface-elevated accent-accent"
           />
           <span className="min-w-[2rem] text-center text-2xl font-bold text-accent">

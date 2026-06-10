@@ -52,7 +52,7 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
               inputMode="numeric"
               min={0}
               value={repsActual}
-              onChange={(e) => setRepsActual(Math.max(0, parseInt(e.target.value) || 0))}
+              onChange={(e) => setRepsActual(Math.max(0, parseInt(e.target.value, 10) || 0))}
               className="h-12 w-20 rounded-xl border border-border-strong text-center text-xl font-bold text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent"
             />
             <button

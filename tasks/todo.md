@@ -198,7 +198,28 @@ re-fire incorrectly or mask real missing deps.
 
 ---
 
-### [ ] 5. Auto-fixable lint cleanup (mechanical)
+### [x] 5. Auto-fixable lint cleanup (mechanical)
+
+> Done 2026-06-09. Cleared the remaining 20 diagnostics; `biome lint` is now 0
+> warnings / 0 infos. Note Biome classified all of these as *unsafe* fixes, so
+> `biome lint --write` applied nothing — each was done by hand:
+> - `useParseIntRadix` (2): added radix `10` in `SetLogger.tsx`, `SessionSummary.tsx`.
+> - `useOptionalChain` (3): `api/generate-plan.ts` (`parsed?.mesocycle`),
+>   `scripts/ingestion/photoPipeline.ts`, `scripts/regenFaithfulPresets.cjs`.
+> - `useNodejsImportProtocol` (4): `node:` prefix in `vite.config.ts`, `verify.cjs`,
+>   `regenFaithfulPresets.cjs`.
+> - `useTemplate` (5): template literals in `verify.cjs` + `regenFaithfulPresets.cjs`.
+> - `noUnusedVariables` (2) → became dead code + one unused param: removed the dead
+>   `isMobilityOnly` block and the unused `tags` local in `buildPool`, then dropped
+>   `buildPool`'s now-unused `preset` param and updated its single call site.
+> - `noImportantStyles` (4): kept — the `prefers-reduced-motion` reset in
+>   `index.css` genuinely needs `!important` to beat component/utility animation
+>   declarations. Documented inline and scoped a `biome-ignore-start/-end` range
+>   suppression to just that block (rule stays active for the rest of the file).
+> `noArrayIndexKey`/`useArrowFunction`/`noRedundantRoles` were already cleared by
+> tasks #2–#3; CSS `noUnknownAtRules` is off in `biome.json`. Verified: lint 0,
+> format:check clean, i18n parity OK, tsc clean, 91 unit + script tests green,
+> build OK, `node --check` on both `.cjs` scripts.
 
 **Problem.** Remaining low-risk violations: `noArrayIndexKey` (8),
 `useTemplate` (5), `useNodejsImportProtocol` (4), `useOptionalChain` (4),

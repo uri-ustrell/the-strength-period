@@ -239,7 +239,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const parsed = extractJson(rawText) as { mesocycle?: unknown }
 
-    if (!parsed || !parsed.mesocycle) {
+    if (!parsed?.mesocycle) {
       console.error('Invalid mesocycle structure:', JSON.stringify(parsed).substring(0, 500))
       return res.status(502).json({ error: 'Invalid plan structure from AI service' })
     }

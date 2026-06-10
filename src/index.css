@@ -121,6 +121,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Accessibility override: when the user asks for reduced motion we must neutralise
+     every animation/transition regardless of where it was declared. `!important` is
+     intentional and required here — without it, component- or utility-level animation
+     declarations (higher specificity / later cascade) would win and defeat the reset. */
+  /* biome-ignore-start lint/complexity/noImportantStyles: reduced-motion reset must override all component/utility animation declarations */
   *,
   *::before,
   *::after {
@@ -129,4 +134,5 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  /* biome-ignore-end lint/complexity/noImportantStyles: end reduced-motion reset override */
 }

@@ -412,7 +412,7 @@ async function selectExerciseIdsByMode(
 
   for (const exercise of exercises) {
     const representative = representativeImageUrl(exercise)
-    if (!representative || !representative.startsWith('/exercises/images/')) {
+    if (!representative?.startsWith('/exercises/images/')) {
       missingExerciseIds.push(exercise.id)
       continue
     }

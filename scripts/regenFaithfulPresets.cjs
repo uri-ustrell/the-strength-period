@@ -11,8 +11,8 @@
  * - Produces a markdown report at data/ingestion/reports/qa17-faithful-presets.md
  */
 
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
 const ROOT = path.resolve(__dirname, '..')
 const CATALOG_PATH = path.join(ROOT, 'data/ingestion/presets/catalog.json')
@@ -92,12 +92,6 @@ function archetypeFor(preset) {
   const isRehabLumbar = tags.has('rehab_lumbar')
   const isRehabAnkle = tags.has('rehab_turmell')
   const isRehabAny = isRehabKnee || isRehabLumbar || isRehabAnkle || id.startsWith('rehab_')
-  const isMobilityOnly =
-    (id.startsWith('mobilitat_') ||
-      id.startsWith('rutina_mobilitat_') ||
-      id === 'mobilitat_prevencio') &&
-    !tags.has('corredor') === false &&
-    !tags.has('core_estabilitat')
   // Override: explicit mobility-only ids
   const mobilityOnlyIds = new Set([
     'mobilitat_prevencio',
@@ -334,8 +328,7 @@ const SHAPES = {
 }
 
 // Build pool of candidate exercises for a preset.
-function buildPool(preset, archetypeInfo) {
-  const tags = new Set(preset.requiredTags || [])
+function buildPool(archetypeInfo) {
   const { isRehabKnee, isRehabLumbar, isRehabAnkle } = archetypeInfo
 
   let pool = exercisesValid.slice()
@@ -453,7 +446,7 @@ reportLines.push(
 reportLines.push(
   `- Dropped \`pilates\`-equipment exercise IDs: ${[...droppedPilatesIds]
     .sort()
-    .map((s) => '`' + s + '`')
+    .map((s) => `\`${s}\``)
     .join(', ')}`
 )
 reportLines.push('')
@@ -467,7 +460,7 @@ reportLines.push('|---|---|---|---|---|---|')
 const warnings = []
 const newCatalog = catalog.map((preset, idx) => {
   const archetypeInfo = archetypeFor(preset)
-  const pool = buildPool(preset, archetypeInfo)
+  const pool = buildPool(archetypeInfo)
   if (pool.length < 12) {
     warnings.push(`[${preset.id}] thin pool: only ${pool.length} candidate exercises`)
   }
@@ -502,7 +495,7 @@ const newCatalog = catalog.map((preset, idx) => {
     })
   }
 
-  const weeks = (preset.durationOptions && preset.durationOptions[0]) || 6
+  const weeks = preset.durationOptions?.[0] || 6
   const weeklyProgressionRates = buildWeeklyProgressionRates(weeks)
 
   // Compose new preset, preserving all existing fields except `sessions`.
@@ -515,7 +508,7 @@ const newCatalog = catalog.map((preset, idx) => {
   const counts = sessions.map((s) => s.exercises.length).join('/')
   reportLines.push(
     `| ${idx} | \`${preset.id}\` | ${archetypeInfo.archetype} | ${counts} | ${weeks} | ${
-      swappedOut.length === 0 ? '—' : swappedOut.map((s) => '`' + s + '`').join(', ')
+      swappedOut.length === 0 ? '—' : swappedOut.map((s) => `\`${s}\``).join(', ')
     } |`
   )
 
@@ -523,7 +516,7 @@ const newCatalog = catalog.map((preset, idx) => {
 })
 
 // ---------- Write ----------
-fs.writeFileSync(CATALOG_PATH, JSON.stringify(newCatalog, null, 2) + '\n', 'utf8')
+fs.writeFileSync(CATALOG_PATH, `${JSON.stringify(newCatalog, null, 2)}\n`, 'utf8')
 
 if (warnings.length > 0) {
   reportLines.push('')
@@ -546,7 +539,7 @@ reportLines.push(`- Total exercise entries: ${totalEntries}`)
 reportLines.push(`- Warnings: ${warnings.length}`)
 
 fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
-fs.writeFileSync(REPORT_PATH, reportLines.join('\n') + '\n', 'utf8')
+fs.writeFileSync(REPORT_PATH, `${reportLines.join('\n')}\n`, 'utf8')
 
 console.log(
   `Wrote ${newCatalog.length} presets, ${totalSessions} sessions, ${totalEntries} entries.`
