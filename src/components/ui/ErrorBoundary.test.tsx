@@ -16,14 +16,12 @@ describe('ErrorBoundary', () => {
     render(
       <ErrorBoundary>
         <Boom />
-      </ErrorBoundary>,
+      </ErrorBoundary>
     )
 
     expect(screen.getByRole('heading')).toBeInTheDocument()
     // Reload action — name matches any of the three locales.
-    expect(
-      screen.getByRole('button', { name: /reload|recarrega|recargar/i }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /reload|recarrega|recargar/i })).toBeInTheDocument()
     // The export escape hatch is present so the user can back up before reloading.
     expect(screen.getByRole('button', { name: /export|exporta/i })).toBeInTheDocument()
 
@@ -34,7 +32,7 @@ describe('ErrorBoundary', () => {
     render(
       <ErrorBoundary>
         <p>healthy content</p>
-      </ErrorBoundary>,
+      </ErrorBoundary>
     )
 
     expect(screen.getByText('healthy content')).toBeInTheDocument()
