@@ -161,7 +161,10 @@
   "errors": {
     "db_error": "Error accedint a les dades locals. Torna-ho a intentar.",
     "ai_error": "Error generant el pla. Intenta-ho de nou.",
-    "generic": "S'ha produït un error. Torna-ho a intentar."
+    "generic": "S'ha produït un error. Torna-ho a intentar.",
+    "boundary_title": "Alguna cosa ha anat malament",
+    "boundary_message": "L'aplicació ha tingut un error inesperat. Les teves dades estan segures en aquest dispositiu: pots exportar-ne una còpia abans de recarregar.",
+    "boundary_reload": "Recarrega l'aplicació"
   },
   "settings": {
     "save": "Desar canvis",

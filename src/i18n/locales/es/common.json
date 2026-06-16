@@ -161,7 +161,10 @@
   "errors": {
     "db_error": "Error accediendo a los datos locales. Inténtalo de nuevo.",
     "ai_error": "Error generando el plan. Inténtalo de nuevo.",
-    "generic": "Se ha producido un error. Inténtalo de nuevo."
+    "generic": "Se ha producido un error. Inténtalo de nuevo.",
+    "boundary_title": "Algo ha salido mal",
+    "boundary_message": "La aplicación ha tenido un error inesperado. Tus datos están seguros en este dispositivo: puedes exportar una copia antes de recargar.",
+    "boundary_reload": "Recargar la aplicación"
   },
   "settings": {
     "save": "Guardar cambios",

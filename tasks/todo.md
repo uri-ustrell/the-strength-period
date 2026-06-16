@@ -285,7 +285,20 @@ on pages specifically "for lazy loading". Hurts first load on the mobile target.
 
 ---
 
-### [ ] 7. Add a root Error Boundary with recovery + data export
+### [x] 7. Add a root Error Boundary with recovery + data export
+
+> Done 2026-06-16. Added `src/components/ui/ErrorBoundary.tsx` — a class
+> component (the documented exception to the functional-only convention, noted
+> inline) using `getDerivedStateFromError` + `componentDidCatch` (logs to
+> console). Its `ErrorFallback` (functional) shows an i18n'd title + message, a
+> "Reload app" `Button` (`window.location.reload()`), and reuses the existing
+> `ExportButton` so the user can back up IndexedDB before recovering. Wired into
+> `App.tsx` wrapping `<OnboardingGuard>` (inside `BrowserRouter`). Added
+> `errors.boundary_title` / `boundary_message` / `boundary_reload` to ca/es/en
+> `common.json` (parity OK). Added `ErrorBoundary.test.tsx` (2 tests: throwing
+> child renders the fallback heading + reload + export buttons; healthy child
+> renders untouched). Verified: lint 0, format:check clean, i18n parity OK,
+> 93/93 unit tests green, build OK.
 
 **Problem.** No `ErrorBoundary` exists anywhere. A render error on any route
 produces a blank screen. For a no-backend, local-first app this can strand the

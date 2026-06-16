@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { BottomNav } from '@/components/ui/BottomNav'
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { useUserStore } from '@/stores/userStore'
 
@@ -57,20 +58,22 @@ const OnboardingGuard = ({ children }: { children: React.ReactNode }) => {
 export const App = () => {
   return (
     <BrowserRouter>
-      <OnboardingGuard>
-        <Suspense fallback={<RouteFallback />}>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/onboarding" element={<Onboarding />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/planning" element={<Planning />} />
-            <Route path="/session" element={<Session />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/settings" element={<SettingsPage />} />
-          </Routes>
-        </Suspense>
-        <BottomNav />
-      </OnboardingGuard>
+      <ErrorBoundary>
+        <OnboardingGuard>
+          <Suspense fallback={<RouteFallback />}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/planning" element={<Planning />} />
+              <Route path="/session" element={<Session />} />
+              <Route path="/stats" element={<Stats />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Routes>
+          </Suspense>
+          <BottomNav />
+        </OnboardingGuard>
+      </ErrorBoundary>
     </BrowserRouter>
   )
 }

@@ -161,7 +161,10 @@
   "errors": {
     "db_error": "Error accessing local data. Please try again.",
     "ai_error": "Error generating plan. Please try again.",
-    "generic": "An error occurred. Please try again."
+    "generic": "An error occurred. Please try again.",
+    "boundary_title": "Something went wrong",
+    "boundary_message": "The app hit an unexpected error. Your data is safe on this device — you can export a backup before reloading.",
+    "boundary_reload": "Reload app"
   },
   "settings": {
     "save": "Save changes",
