@@ -246,7 +246,20 @@ re-fire incorrectly or mask real missing deps.
 
 ## P2 — Architecture & performance
 
-### [ ] 6. Code-split routes with `React.lazy` + Vite manual chunks
+### [x] 6. Code-split routes with `React.lazy` + Vite manual chunks
+
+> Done 2026-06-16. Converted all 7 routes in `App.tsx` to `React.lazy` (using the
+> `.then((m) => ({ default: m.X }))` mapping so pages keep the codebase's named
+> exports) and wrapped `<Routes>` in `<Suspense>` with a `RouteFallback` reusing
+> the existing `LoadingSpinner`. Added `build.rollupOptions.output.manualChunks`
+> in `vite.config.ts` splitting `react-vendor` (react/react-dom/react-router-dom),
+> `recharts`, and `i18n` (i18next + react-i18next + langdetector). `canvas-confetti`
+> was already dynamically imported (own chunk). Result: entry chunk **1,350 kB →
+> 441 kB** (gzip 363 → 124 kB); the >500 kB warning is gone. recharts (391 kB)
+> now loads only on `/stats`; each route is its own chunk (Landing 2.6, Settings
+> 4.4, Dashboard 14, Stats 20, Session 33, Planning 63 kB). Verified: `npm run
+> lint` exit 0, format:check clean, i18n parity OK, 91 unit + 10 script tests
+> green, build OK with no chunk-size warning.
 
 **Problem.** Production build is a single `index.js` of ~1.3 MB (uncompressed)
 with zero `lazy()`/`Suspense`, despite `CONVENTIONS.md` allowing default exports
