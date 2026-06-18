@@ -323,7 +323,31 @@ user with locally-stored data and no escape hatch.
 
 ---
 
-### [ ] 8. Refactor `PlanCreator.tsx` (1,049 lines, ~20 `useState`)
+### [x] 8. Refactor `PlanCreator.tsx` (1,049 lines, ~20 `useState`)
+
+> Done 2026-06-18. Moved the wizard state machine into a scoped Zustand store
+> `src/stores/planCreatorStore.ts` (chosen over `useReducer`), collapsing all 18
+> `useState` calls into one store: `step`, `selectedPreset`, `weeks`,
+> `daysPerWeek`, `minutesPerSession`, `weeklyProgressionRates`, `presetName`,
+> `editingPresetId`, `sourceIsBuiltIn`, `dirty`, `editablePresetSessions`,
+> `missingExerciseIds`. The store also folds in the two reactive effects (rate
+> resize on `setWeeks`, day-snap on session change) as part of the relevant
+> actions and exposes explicit transitions (`loadPreset`, `loadCustomPreset`,
+> `createFromScratch`, `startNowPreview`, `presetSaved`/`presetUpdated`,
+> `discard`, `initWizard`). Extracted the three inline screens into focused
+> components under `src/components/planning/steps/` — `PresetSelectStep`
+> (owns its own search/tag/equipment filter state), `ConfigureStep`, `PreviewStep`
+> — alongside the pre-existing `FaithfulExercisesStep`/`LLMAssistant`. `PlanCreator`
+> is now a 389-line orchestrator (was 1,061) holding only side-effecting handlers
+> (custom-preset load/migration, save, generate, save-as-preset) + 2 local
+> `useState` for loaded data (`customPresets`) and the exercises-step completion
+> gate (`templatesComplete`). Dropped the dead `void`-ed reserved helpers
+> (`guardedNavigate`, `resetWizard`, `availableMuscleGroups`). Added pure
+> `derivePresetSetup`/`deriveCustomSetup` exports + `planCreatorStore.test.ts`
+> (13 tests: init, weeks-resize, dirty-on-edit-steps-only, day-snap, all load
+> transitions, save/discard, week clamping). Verified: lint 0, format:check clean,
+> i18n parity OK, tsc clean, 106 unit tests green (was 93), build OK (no chunk
+> warning).
 
 **Problem.** The plan-creation wizard holds its entire multi-step state machine
 inline, making it hard to reason about and test. It is the largest component in

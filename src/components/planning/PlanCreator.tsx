@@ -1,38 +1,35 @@
-import { ArrowLeft, Check, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaithfulExercisesStep } from '@/components/planning/FaithfulExercisesStep'
 import { LLMAssistant } from '@/components/planning/LLMAssistant'
-import { ProgressionSparkline } from '@/components/planning/ProgressionSparkline'
-import { SessionPreview } from '@/components/planning/SessionPreview'
-import { WeekProgressionTable } from '@/components/planning/WeekProgressionTable'
-import { ALL_EQUIPMENT } from '@/data/equipmentCatalog'
-import { ALL_MUSCLE_GROUPS } from '@/data/muscleGroups'
+import { ConfigureStep } from '@/components/planning/steps/ConfigureStep'
+import { PresetSelectStep } from '@/components/planning/steps/PresetSelectStep'
+import { PreviewStep } from '@/components/planning/steps/PreviewStep'
 import type { CustomPreset, Preset } from '@/data/presets'
-import { hasExerciseRichSessions, PRESETS } from '@/data/presets'
+import { hasExerciseRichSessions } from '@/data/presets'
 import { useExercises } from '@/hooks/useExercises'
 import { getConfig, setConfig } from '@/services/db/configRepository'
 import { filterExercises } from '@/services/exercises/exerciseFilter'
-import {
-  buildDefaultProgressionRates,
-  DEFAULT_CYCLE_WEEKS,
-  MAX_CYCLE_WEEKS,
-  MIN_CYCLE_WEEKS,
-  migrateSliderToRates,
-  normalizeTemplates,
-  resizeProgressionRates,
-} from '@/services/planning/presetTemplates'
+import { migrateSliderToRates, normalizeTemplates } from '@/services/planning/presetTemplates'
 import { validatePresetExercises } from '@/services/planning/presetValidation'
+import { usePlanCreatorStore } from '@/stores/planCreatorStore'
 import { usePlanningStore } from '@/stores/planningStore'
 import { useUserStore } from '@/stores/userStore'
-import type { DayOfWeek, Equipment, ExerciseTag } from '@/types/exercise'
-import type { PresetSessionTemplate, WeekProgressionRate } from '@/types/planning'
+import type { DayOfWeek } from '@/types/exercise'
 import type { UserConfig } from '@/types/user'
-
-type Step = 'preset' | 'exercises' | 'configure' | 'preview' | 'llm-assistant'
 
 interface Props {
   onComplete?: () => void
+}
+
+/** Spread `daysPerWeek` training days evenly across the week when it differs from the profile. */
+const resolveTrainingDays = (userDays: DayOfWeek[], daysPerWeek: number): DayOfWeek[] => {
+  if (daysPerWeek === userDays.length) return userDays
+  const spacing = 7 / daysPerWeek
+  return Array.from(
+    { length: daysPerWeek },
+    (_, i) => Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek
+  )
 }
 
 export const PlanCreator = ({ onComplete }: Props) => {
@@ -52,77 +49,57 @@ export const PlanCreator = ({ onComplete }: Props) => {
   const error = usePlanningStore((s) => s.error)
   const storeMissingIds = usePlanningStore((s) => s.missingExerciseIds)
 
-  const [step, setStep] = useState<Step>('preset')
-  const [selectedPreset, setSelectedPreset] = useState<Preset | null>(null)
-  const [weeks, setWeeks] = useState(DEFAULT_CYCLE_WEEKS)
-  const [daysPerWeek, setDaysPerWeek] = useState(userTrainingDays.length)
-  const [minutesPerSess, setMinutesPerSess] = useState(userMinutes)
-  const [weeklyProgressionRates, setWeeklyProgressionRates] = useState<WeekProgressionRate[]>(() =>
-    buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS)
-  )
+  // Wizard machine state + transitions live in a scoped store (see planCreatorStore).
+  const step = usePlanCreatorStore((s) => s.step)
+  const selectedPreset = usePlanCreatorStore((s) => s.selectedPreset)
+  const weeks = usePlanCreatorStore((s) => s.weeks)
+  const daysPerWeek = usePlanCreatorStore((s) => s.daysPerWeek)
+  const minutesPerSession = usePlanCreatorStore((s) => s.minutesPerSession)
+  const weeklyProgressionRates = usePlanCreatorStore((s) => s.weeklyProgressionRates)
+  const presetName = usePlanCreatorStore((s) => s.presetName)
+  const editingPresetId = usePlanCreatorStore((s) => s.editingPresetId)
+  const sourceIsBuiltIn = usePlanCreatorStore((s) => s.sourceIsBuiltIn)
+  const editablePresetSessions = usePlanCreatorStore((s) => s.editablePresetSessions)
+  const missingExerciseIds = usePlanCreatorStore((s) => s.missingExerciseIds)
 
+  const setStep = usePlanCreatorStore((s) => s.setStep)
+  const setWeeks = usePlanCreatorStore((s) => s.setWeeks)
+  const setDaysPerWeek = usePlanCreatorStore((s) => s.setDaysPerWeek)
+  const setMinutes = usePlanCreatorStore((s) => s.setMinutes)
+  const setRates = usePlanCreatorStore((s) => s.setRates)
+  const setPresetName = usePlanCreatorStore((s) => s.setPresetName)
+  const editSessions = usePlanCreatorStore((s) => s.editSessions)
+  const setMissingExerciseIds = usePlanCreatorStore((s) => s.setMissingExerciseIds)
+  const loadPreset = usePlanCreatorStore((s) => s.loadPreset)
+  const loadCustomPreset = usePlanCreatorStore((s) => s.loadCustomPreset)
+  const createFromScratch = usePlanCreatorStore((s) => s.createFromScratch)
+  const startNowPreview = usePlanCreatorStore((s) => s.startNowPreview)
+  const presetSaved = usePlanCreatorStore((s) => s.presetSaved)
+  const presetUpdated = usePlanCreatorStore((s) => s.presetUpdated)
+  const discard = usePlanCreatorStore((s) => s.discard)
+
+  // Loaded data + exercises-step completion gate stay local — they aren't wizard
+  // machine state.
   const [customPresets, setCustomPresets] = useState<CustomPreset[]>([])
-  const [presetName, setPresetName] = useState('')
-  const [editingPresetId, setEditingPresetId] = useState<string | null>(null)
-  const [sourceIsBuiltIn, setSourceIsBuiltIn] = useState(false)
-  const [dirty, setDirty] = useState(false)
-
-  // Faithful mode state: editable preset sessions
-  const [editablePresetSessions, setEditablePresetSessions] = useState<PresetSessionTemplate[]>([])
-
-  // Gates for the new wizard order (preset → exercises → configure → preview)
   const [templatesComplete, setTemplatesComplete] = useState(false)
-  const [missingExerciseIds, setMissingExerciseIds] = useState<string[]>([])
 
-  // Derived: is this preset in faithful mode? (always true now for built-in & custom presets)
+  // Seed defaults from the user profile and start from a fresh `preset` step on
+  // mount. Read the profile via getState so this runs exactly once (mirroring the
+  // previous useState initializers) without reactive deps.
+  useEffect(() => {
+    const { trainingDays, minutesPerSession: mins } = useUserStore.getState()
+    usePlanCreatorStore.getState().initWizard({
+      daysPerWeek: trainingDays.length,
+      minutesPerSession: mins,
+    })
+  }, [])
+
+  // Always true for built-in & custom presets (they carry session templates).
   const isFaithfulMode = useMemo(
     () => hasExerciseRichSessions(selectedPreset) || editablePresetSessions.length > 0,
     [selectedPreset, editablePresetSessions]
   )
 
-  // Preset filter state
-  const [presetSearch, setPresetSearch] = useState('')
-  const [selectedTags, setSelectedTags] = useState<ExerciseTag[]>([])
-  const [equipmentFilter, setEquipmentFilter] = useState<Equipment[]>(() => [...equipment])
-
-  // Collect all unique tags from presets for the tag filter
-  const allPresetTags = useMemo(() => {
-    const tags = new Set<ExerciseTag>()
-    for (const p of PRESETS) {
-      for (const tag of p.requiredTags) tags.add(tag)
-    }
-    return Array.from(tags)
-  }, [])
-
-  const filteredPresets = useMemo(() => {
-    const eqSet = new Set(equipmentFilter)
-    return PRESETS.filter((p) => {
-      if (presetSearch.trim()) {
-        const name = t(p.nameKey).toLowerCase()
-        const desc = t(p.descriptionKey).toLowerCase()
-        const q = presetSearch.toLowerCase()
-        if (!name.includes(q) && !desc.includes(q)) return false
-      }
-      if (selectedTags.length > 0) {
-        if (!selectedTags.some((tag) => p.requiredTags.includes(tag))) return false
-      }
-      // Equipment filter: check if preset exercises use only equipment in the filter
-      if (eqSet.size > 0 && p.sessions && p.sessions.length > 0) {
-        const presetExerciseIds = new Set<string>()
-        for (const s of p.sessions) {
-          for (const e of s.exercises) presetExerciseIds.add(e.exerciseId)
-        }
-        const presetExercises = exercises.filter((ex) => presetExerciseIds.has(ex.id))
-        if (presetExercises.length > 0) {
-          const usesUnavailableEquipment = presetExercises.some((ex) =>
-            ex.equipment.some((eq) => eq !== 'pes_corporal' && !eqSet.has(eq))
-          )
-          if (usesUnavailableEquipment) return false
-        }
-      }
-      return true
-    })
-  }, [presetSearch, selectedTags, equipmentFilter, exercises, t])
   useEffect(() => {
     const loadCustomPresets = async () => {
       const stored = (await getConfig('customPresets')) as CustomPreset[] | null
@@ -150,128 +127,17 @@ export const PlanCreator = ({ onComplete }: Props) => {
     loadCustomPresets()
   }, [])
 
-  // Resize progression rates when `weeks` changes (preserve edited values).
-  useEffect(() => {
-    setWeeklyProgressionRates((prev) => {
-      if (prev.length === weeks) return prev
-      return resizeProgressionRates(prev, weeks)
-    })
-  }, [weeks])
-
-  // Lock days/week to the number of preset templates while in faithful mode.
-  // Faithful presets define exactly N templates (today: 4) and the engine
-  // generates one session per template per week, so any other value would be
-  // silently ignored. Snap the user's choice to the only compatible option.
-  useEffect(() => {
-    const len = editablePresetSessions.length
-    if (len > 0 && daysPerWeek !== len) {
-      setDaysPerWeek(len)
-    }
-  }, [editablePresetSessions.length, daysPerWeek])
-
-  // Flag the working copy as dirty in response to a user edit. Tracked-field
-  // setters are wrapped at their call sites to call this. Programmatic loaders
-  // (selecting/creating a preset) use the raw setters and reset `setDirty(false)`
-  // themselves, so loads — and the reactive resize/snap effects above — never
-  // flag dirtiness. Edits only happen on the configure/exercises steps; the guard
-  // mirrors the previous behaviour of ignoring changes on preset/preview.
-  const markDirty = () => {
-    if (step === 'preset' || step === 'preview') return
-    setDirty(true)
-  }
-
-  const guardedNavigate = (action: () => void) => {
-    if (dirty) {
-      const confirmed = window.confirm(
-        `${t('planning:preset_unsaved_changes_title')}\n\n${t('planning:preset_unsaved_changes_body')}`
-      )
-      if (!confirmed) return
-    }
-    action()
-  }
-
-  const resetWizard = () => {
-    setStep('preset')
-    setSelectedPreset(null)
-    setEditingPresetId(null)
-    setSourceIsBuiltIn(false)
-    setPresetName('')
-    setEditablePresetSessions([])
-    setDirty(false)
-  }
-  // Reserved for future exit-with-confirmation hooks (Feature 17 QA polish)
-  void guardedNavigate
-  void resetWizard
-
   const filteredExercisePool = useMemo(() => {
-    return filterExercises(exercises, {
-      equipment,
-    })
+    return filterExercises(exercises, { equipment })
   }, [exercises, equipment])
-
-  const availableMuscleGroups = useMemo(() => {
-    return ALL_MUSCLE_GROUPS.filter((mg) =>
-      filteredExercisePool.some(
-        (ex) => ex.primaryMuscles.includes(mg) || ex.secondaryMuscles.includes(mg)
-      )
-    )
-  }, [filteredExercisePool])
-
-  // Reserve hook for future autofill from distribution (Feature 17 QA-7 B7)
-  void availableMuscleGroups
-
-  const handleSelectPreset = (preset: Preset) => {
-    // Run the deterministic generator immediately and route to preview.
-    // The preview screen now exposes "Modificar el pla" so users can still
-    // jump back into the wizard without an intermediate modal.
-    handleStartNow(preset)
-  }
-
-  const enterWizardWithPreset = (preset: Preset) => {
-    setSelectedPreset(preset)
-    const rawInitialWeeks = preset.durationOptions[0] ?? DEFAULT_CYCLE_WEEKS
-    const initialWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, rawInitialWeeks))
-    setWeeks(initialWeeks)
-    if (preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0) {
-      setWeeklyProgressionRates(resizeProgressionRates(preset.weeklyProgressionRates, initialWeeks))
-    } else if (preset.weeklyProgression !== undefined) {
-      setWeeklyProgressionRates(migrateSliderToRates(preset.weeklyProgression, initialWeeks))
-    } else {
-      setWeeklyProgressionRates(buildDefaultProgressionRates(initialWeeks))
-    }
-    if (preset.sessions && preset.sessions.length > 0) {
-      setEditablePresetSessions(normalizeTemplates(preset.sessions))
-    } else {
-      setEditablePresetSessions(normalizeTemplates(undefined))
-    }
-    setEditingPresetId(null)
-    setSourceIsBuiltIn(true)
-    setPresetName('')
-    setMissingExerciseIds([])
-    setDirty(false)
-    setStep('exercises')
-  }
 
   const handleStartNow = (preset: Preset) => {
     // QA-4 "Comença ara": generate + save with zero extra steps using UserConfig defaults.
-    const rawInitialWeeks = preset.durationOptions[0] ?? DEFAULT_CYCLE_WEEKS
-    const initialWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, rawInitialWeeks))
-    const ratesSource =
-      preset.weeklyProgressionRates && preset.weeklyProgressionRates.length > 0
-        ? preset.weeklyProgressionRates
-        : preset.weeklyProgression !== undefined
-          ? migrateSliderToRates(preset.weeklyProgression, initialWeeks)
-          : buildDefaultProgressionRates(initialWeeks)
-    const rates = resizeProgressionRates(ratesSource, initialWeeks)
     const sessions = normalizeTemplates(preset.sessions)
-
-    // Validate before launching
     const validation = validatePresetExercises(sessions, exercises)
     if (!validation.ok) {
-      setMissingExerciseIds(validation.missingIds)
-      // Fall back to opening the wizard so user can fix the missing IDs
-      enterWizardWithPreset(preset)
-      setStep('exercises')
+      // Fall back to opening the wizard so the user can fix the missing IDs.
+      loadPreset(preset)
       return
     }
 
@@ -284,59 +150,19 @@ export const PlanCreator = ({ onComplete }: Props) => {
       onboardingCompleted: true,
       availableWeights: availableWeightsState,
     }
+    // startNowPreview re-derives weeks/rates/sessions and moves to the preview
+    // step; read the resolved values back to generate from exactly that setup.
+    startNowPreview(preset)
+    const next = usePlanCreatorStore.getState()
     generate(preset.id, config, exercises, {
-      weeks: initialWeeks,
-      weeklyProgressionRates: rates,
-      presetSessions: sessions,
+      weeks: next.weeks,
+      weeklyProgressionRates: next.weeklyProgressionRates,
+      presetSessions: next.editablePresetSessions,
     })
-    // Move to preview step so the generated mesocycle is visible; user can save from there.
-    setSelectedPreset(preset)
-    setEditablePresetSessions(sessions)
-    setWeeks(initialWeeks)
-    setWeeklyProgressionRates(rates)
-    setSourceIsBuiltIn(true)
-    setStep('preview')
   }
 
-  const handleSelectCustomPreset = (cp: CustomPreset, editing = false) => {
-    setSelectedPreset(null)
-    // Clamp legacy CustomPreset durations (could be > 4 from older app versions) to the new 1..4 range.
-    const clampedWeeks = Math.max(MIN_CYCLE_WEEKS, Math.min(MAX_CYCLE_WEEKS, cp.durationWeeks))
-    setWeeks(clampedWeeks)
-    if (cp.weeklyProgressionRates && cp.weeklyProgressionRates.length > 0) {
-      setWeeklyProgressionRates(resizeProgressionRates(cp.weeklyProgressionRates, clampedWeeks))
-    } else if (cp.weeklyProgression !== undefined) {
-      setWeeklyProgressionRates(migrateSliderToRates(cp.weeklyProgression, clampedWeeks))
-    } else {
-      setWeeklyProgressionRates(buildDefaultProgressionRates(clampedWeeks))
-    }
-
-    setEditablePresetSessions(normalizeTemplates(cp.sessions))
-
-    setSourceIsBuiltIn(false)
-    if (editing) {
-      setEditingPresetId(cp.id)
-      setPresetName(cp.name)
-    } else {
-      setEditingPresetId(cp.id)
-      setPresetName(cp.name)
-    }
-    setMissingExerciseIds([])
-    setDirty(false)
-    setStep('exercises')
-  }
-
-  const handleCreateFromScratch = () => {
-    const id = `custom_${crypto.randomUUID()}`
-    const blankPreset: CustomPreset = {
-      id,
-      name: '',
-      durationWeeks: DEFAULT_CYCLE_WEEKS,
-      weeklyProgressionRates: buildDefaultProgressionRates(DEFAULT_CYCLE_WEEKS),
-      createdAt: new Date().toISOString(),
-    }
-    handleSelectCustomPreset(blankPreset, true)
-    setEditingPresetId(null) // not yet persisted
+  const handleSelectCustomPreset = (cp: CustomPreset) => {
+    loadCustomPreset(cp)
   }
 
   const handleDeleteCustomPreset = async (id: string) => {
@@ -377,6 +203,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
       )
       await setConfig('customPresets', updated)
       setCustomPresets(updated)
+      presetUpdated()
     } else {
       // Auto-fork built-in preset OR create from scratch -> new CustomPreset
       const newPreset: CustomPreset = {
@@ -391,39 +218,26 @@ export const PlanCreator = ({ onComplete }: Props) => {
       const updated = [...customPresets, newPreset]
       await setConfig('customPresets', updated)
       setCustomPresets(updated)
-      setEditingPresetId(newPreset.id)
-      setSourceIsBuiltIn(false)
-      setSelectedPreset(null)
+      presetSaved(newPreset.id)
     }
-
-    setDirty(false)
   }
 
   const handleGenerate = () => {
     // Faithful-only path now that built-in & custom presets always carry sessions.
     const validation = validatePresetExercises(editablePresetSessions, exercises)
     if (!validation.ok) {
-      setMissingExerciseIds(validation.missingIds)
       // Stay on exercises so the user can fix the offending rows
+      setMissingExerciseIds(validation.missingIds)
       setStep('exercises')
       return
     }
     setMissingExerciseIds([])
 
-    let trainingDays: DayOfWeek[] = userTrainingDays
-    if (daysPerWeek !== userTrainingDays.length) {
-      const spacing = 7 / daysPerWeek
-      trainingDays = Array.from(
-        { length: daysPerWeek },
-        (_, i) => Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek
-      )
-    }
-
     const config: UserConfig = {
       language: i18n.language as 'ca' | 'es' | 'en',
       equipment,
-      trainingDays,
-      minutesPerSession: minutesPerSess,
+      trainingDays: resolveTrainingDays(userTrainingDays, daysPerWeek),
+      minutesPerSession,
       onboardingCompleted: true,
       availableWeights: availableWeightsState,
     }
@@ -443,385 +257,46 @@ export const PlanCreator = ({ onComplete }: Props) => {
 
   const handleDiscard = () => {
     discardGenerated()
-    setStep('preset')
-    setSelectedPreset(null)
+    discard()
   }
 
   if (step === 'preset') {
     return (
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold text-text-primary">{t('planning:selectPreset')}</h2>
-
-        {/* Search filter */}
-        <input
-          type="text"
-          value={presetSearch}
-          onChange={(e) => setPresetSearch(e.target.value)}
-          placeholder={t('planning:search_presets')}
-          className="w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
-        />
-
-        {/* Tag filter */}
-        {allPresetTags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {allPresetTags.map((tag) => {
-              const active = selectedTags.includes(tag)
-              return (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() =>
-                    setSelectedTags((prev) =>
-                      active ? prev.filter((t) => t !== tag) : [...prev, tag]
-                    )
-                  }
-                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
-                    active
-                      ? 'border-accent bg-accent/10 text-accent'
-                      : 'border-border-subtle text-text-muted hover:border-accent/40'
-                  }`}
-                >
-                  {t(`planning:preset_tags.${tag}`)}
-                </button>
-              )
-            })}
-          </div>
-        )}
-
-        {/* Equipment filter */}
-        <div>
-          <p className="text-xs font-medium text-text-muted mb-1.5">
-            {t('planning:equipment_filter')}
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {ALL_EQUIPMENT.map((eq) => {
-              const active = equipmentFilter.includes(eq)
-              return (
-                <button
-                  key={eq}
-                  type="button"
-                  onClick={() =>
-                    setEquipmentFilter((prev) =>
-                      active ? prev.filter((e) => e !== eq) : [...prev, eq]
-                    )
-                  }
-                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
-                    active
-                      ? 'border-accent bg-accent/10 text-accent'
-                      : 'border-border-subtle text-text-muted hover:border-accent/40'
-                  }`}
-                >
-                  {t(`onboarding:equipment.${eq}`)}
-                </button>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          {filteredPresets.map((preset) => {
-            const required = preset.sessions?.length ?? 0
-            const incompatible = required > userTrainingDays.length
-            return (
-              <button
-                key={preset.id}
-                type="button"
-                onClick={() => handleSelectPreset(preset)}
-                disabled={incompatible}
-                title={
-                  incompatible
-                    ? t('planning:incompatible_days_tooltip', { count: required })
-                    : undefined
-                }
-                className={`rounded-xl border-2 p-4 text-left transition-colors ${
-                  incompatible
-                    ? 'border-border-subtle bg-bg opacity-60 cursor-not-allowed'
-                    : 'border-border-subtle hover:border-indigo-400 hover:bg-accent/10'
-                }`}
-              >
-                <h3 className="font-medium text-sm text-text-primary">{t(preset.nameKey)}</h3>
-                <p className="mt-1 text-xs text-text-muted">{t(preset.descriptionKey)}</p>
-                {incompatible && (
-                  <span className="mt-2 inline-block rounded-full bg-warning/20 px-2 py-0.5 text-[10px] font-medium text-warning">
-                    {t('planning:incompatible_days_badge', { count: required })}
-                  </span>
-                )}
-              </button>
-            )
-          })}
-        </div>
-
-        {customPresets.length > 0 && (
-          <>
-            <h3 className="text-sm font-medium text-text-muted mt-4">
-              {t('planning:saved_presets')}
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {customPresets.map((cp) => {
-                const required = cp.sessions?.length ?? 0
-                const incompatible = required > userTrainingDays.length
-                return (
-                  <button
-                    key={cp.id}
-                    type="button"
-                    onClick={() => handleSelectCustomPreset(cp)}
-                    disabled={incompatible}
-                    title={
-                      incompatible
-                        ? t('planning:incompatible_days_tooltip', { count: required })
-                        : undefined
-                    }
-                    className={`rounded-xl border-2 p-4 text-left transition-colors relative group ${
-                      incompatible
-                        ? 'border-border-subtle bg-bg opacity-60 cursor-not-allowed'
-                        : 'border-border-subtle hover:border-indigo-400 hover:bg-accent/10'
-                    }`}
-                  >
-                    <h3 className="font-medium text-sm text-text-primary">{cp.name}</h3>
-                    <p className="mt-1 text-xs text-text-muted">
-                      {cp.durationWeeks} {t('planning:weeks')}
-                    </p>
-                    {incompatible && (
-                      <span className="mt-2 inline-block rounded-full bg-warning/20 px-2 py-0.5 text-[10px] font-medium text-warning">
-                        {t('planning:incompatible_days_badge', { count: required })}
-                      </span>
-                    )}
-                    <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-all">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleSelectCustomPreset(cp, true)
-                        }}
-                        className="rounded-full p-1 text-text-muted hover:text-accent hover:bg-accent/10"
-                        aria-label={t('planning:edit_preset')}
-                      >
-                        <span className="text-xs font-medium">{t('planning:edit_preset')}</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleDeleteCustomPreset(cp.id)
-                        }}
-                        className="rounded-full p-1 text-text-muted hover:text-warning hover:bg-warning/10"
-                        aria-label={t('planning:delete_preset')}
-                      >
-                        <X size={14} />
-                      </button>
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
-          </>
-        )}
-
-        {/* Create from scratch */}
-        <button
-          type="button"
-          onClick={handleCreateFromScratch}
-          className="w-full rounded-xl border-2 border-dashed border-accent/40 p-4 text-left transition-colors hover:border-accent hover:bg-accent/10"
-        >
-          <h3 className="font-medium text-sm text-accent">{t('planning:create_from_scratch')}</h3>
-          <p className="mt-1 text-xs text-text-muted">{t('planning:create_from_scratch_desc')}</p>
-        </button>
-      </div>
+      <PresetSelectStep
+        exercises={exercises}
+        userEquipment={equipment}
+        userTrainingDays={userTrainingDays}
+        customPresets={customPresets}
+        onSelectPreset={handleStartNow}
+        onSelectCustomPreset={handleSelectCustomPreset}
+        onDeleteCustomPreset={handleDeleteCustomPreset}
+        onCreateFromScratch={createFromScratch}
+      />
     )
   }
 
   if (step === 'configure') {
-    // Cycle length is now constrained to 1..4 weeks regardless of legacy preset.durationOptions.
-    const cycleWeekOptions = Array.from(
-      { length: MAX_CYCLE_WEEKS - MIN_CYCLE_WEEKS + 1 },
-      (_, i) => MIN_CYCLE_WEEKS + i
-    )
     return (
-      <div className="space-y-6">
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setStep(isFaithfulMode ? 'exercises' : 'preset')}
-            className="text-text-muted/70 hover:text-text-primary"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <h2 className="text-lg font-semibold text-text-primary">
-            {editingPresetId
-              ? t('planning:editing_preset', { name: presetName || '…' })
-              : t('planning:configure')}
-          </h2>
-        </div>
-
-        {/* Inline preset name (working copy) */}
-        <div>
-          <label
-            htmlFor="preset-name-input"
-            className="block text-sm font-medium text-text-primary"
-          >
-            {t('planning:preset_name_label')}
-          </label>
-          <input
-            id="preset-name-input"
-            type="text"
-            value={presetName}
-            onChange={(e) => {
-              setPresetName(e.target.value)
-              markDirty()
-            }}
-            placeholder={t('planning:preset_name_placeholder')}
-            className="mt-1 w-full rounded-lg border border-border-subtle px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40"
-          />
-          {!presetName.trim() && (
-            <p className="mt-1 text-xs text-text-muted/70">{t('planning:preset_name_required')}</p>
-          )}
-        </div>
-
-        <div className="space-y-4">
-          <div>
-            <p className="block text-sm font-medium text-text-primary">
-              {t('planning:weeks_per_cycle_label')}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {cycleWeekOptions.map((w) => (
-                <button
-                  key={w}
-                  type="button"
-                  onClick={() => {
-                    setWeeks(w)
-                    markDirty()
-                  }}
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    weeks === w
-                      ? 'bg-accent text-white'
-                      : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
-                  }`}
-                >
-                  {w} {t('planning:weeks')}
-                </button>
-              ))}
-            </div>
-            <p className="mt-1 text-xs text-text-muted/70">
-              {weeks === 1
-                ? t('planning:weeks_per_cycle_only_deload')
-                : t('planning:weeks_per_cycle_hint')}
-            </p>
-          </div>
-
-          <div>
-            <p className="block text-sm font-medium text-text-primary">
-              {t('planning:days_per_week')}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {(() => {
-                // In faithful mode, only the exact number of templates is selectable.
-                // Built-in & custom presets are always length-4 today, so users will
-                // see a single 4-day chip. The copy below explains why.
-                const sessionsPerWeek = editablePresetSessions.length
-                const allOptions = [2, 3, 4, 5, 6]
-                const options =
-                  sessionsPerWeek > 0 ? allOptions.filter((d) => d === sessionsPerWeek) : allOptions
-                return options.map((d) => (
-                  <button
-                    key={d}
-                    type="button"
-                    onClick={() => {
-                      setDaysPerWeek(d)
-                      markDirty()
-                    }}
-                    className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                      daysPerWeek === d
-                        ? 'bg-accent text-white'
-                        : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
-                    }`}
-                  >
-                    {d}
-                  </button>
-                ))
-              })()}
-            </div>
-            {editablePresetSessions.length > 0 && (
-              <p className="mt-1 text-xs text-text-muted/70">
-                {t('planning:days_per_week_locked', { count: editablePresetSessions.length })}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <p className="block text-sm font-medium text-text-primary">
-              {t('planning:minutes_per_session')}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {[30, 45, 60, 75, 90].map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  onClick={() => {
-                    setMinutesPerSess(m)
-                    markDirty()
-                  }}
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    minutesPerSess === m
-                      ? 'bg-accent text-white'
-                      : 'bg-surface-elevated text-text-primary hover:bg-surface-elevated'
-                  }`}
-                >
-                  {m} {t('common:dashboard.minutes')}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <WeekProgressionTable
-            weeks={weeks}
-            rates={weeklyProgressionRates}
-            onChange={(rates) => {
-              setWeeklyProgressionRates(rates)
-              markDirty()
-            }}
-          />
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-2">
-          <button
-            type="button"
-            onClick={handleSaveAsPreset}
-            disabled={!presetName.trim()}
-            className="rounded-lg bg-accent/20 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/30 disabled:opacity-50"
-          >
-            {t('planning:save_as_preset')}
-          </button>
-        </div>
-
-        <button
-          type="button"
-          onClick={handleGenerate}
-          disabled={exercises.length === 0}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-white font-medium hover:brightness-110 transition-colors disabled:opacity-50"
-        >
-          {t('planning:generate_instant')}
-        </button>
-
-        <div className="flex items-center gap-3">
-          <hr className="flex-1 border-border-subtle" />
-          <span className="text-xs text-text-muted/70">{t('planning:llm.or_separator')}</span>
-          <hr className="flex-1 border-border-subtle" />
-        </div>
-
-        <button
-          type="button"
-          onClick={() => setStep('llm-assistant')}
-          disabled={filteredExercisePool.length === 0}
-          className="flex w-full flex-col items-center gap-1 rounded-xl border-2 border-indigo-200 py-3 text-accent font-medium hover:bg-accent/10 transition-colors disabled:opacity-50"
-        >
-          <span>✨ {t('planning:llm.use_llm')}</span>
-          <span className="text-xs font-normal text-text-muted">
-            {t('planning:llm.use_llm_desc')}
-          </span>
-        </button>
-      </div>
+      <ConfigureStep
+        presetName={presetName}
+        weeks={weeks}
+        daysPerWeek={daysPerWeek}
+        minutesPerSession={minutesPerSession}
+        weeklyProgressionRates={weeklyProgressionRates}
+        editablePresetSessions={editablePresetSessions}
+        editingPresetId={editingPresetId}
+        generateDisabled={exercises.length === 0}
+        llmDisabled={filteredExercisePool.length === 0}
+        onBack={() => setStep(isFaithfulMode ? 'exercises' : 'preset')}
+        onPresetNameChange={setPresetName}
+        onWeeksChange={setWeeks}
+        onDaysChange={setDaysPerWeek}
+        onMinutesChange={setMinutes}
+        onRatesChange={setRates}
+        onSaveAsPreset={handleSaveAsPreset}
+        onGenerate={handleGenerate}
+        onUseLLM={() => setStep('llm-assistant')}
+      />
     )
   }
 
@@ -844,10 +319,7 @@ export const PlanCreator = ({ onComplete }: Props) => {
     return (
       <FaithfulExercisesStep
         editablePresetSessions={editablePresetSessions}
-        onSessionsChange={(sessions) => {
-          setEditablePresetSessions(sessions)
-          markDirty()
-        }}
+        onSessionsChange={editSessions}
         exercises={exercises}
         filteredExercisePool={filteredExercisePool}
         onBack={() => setStep('preset')}
@@ -861,25 +333,6 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   if (step === 'llm-assistant') {
-    // Build trainingDays from daysPerWeek override
-    let trainingDays: DayOfWeek[] = userTrainingDays
-    if (daysPerWeek !== userTrainingDays.length) {
-      const spacing = 7 / daysPerWeek
-      trainingDays = Array.from(
-        { length: daysPerWeek },
-        (_, i) => Math.min(7, Math.max(1, Math.round(1 + i * spacing))) as DayOfWeek
-      )
-    }
-
-    const llmConfig: UserConfig = {
-      language: 'ca',
-      equipment,
-      trainingDays,
-      minutesPerSession: minutesPerSess,
-      onboardingCompleted: true,
-      availableWeights: availableWeightsState,
-    }
-
     const positives = weeklyProgressionRates.map((r) => r.progressionPct).filter((p) => p >= 0)
     const llmWeeklyProgression =
       positives.length > 0
@@ -889,13 +342,22 @@ export const PlanCreator = ({ onComplete }: Props) => {
           )
         : 5
 
+    const llmConfig: UserConfig = {
+      language: 'ca',
+      equipment,
+      trainingDays: resolveTrainingDays(userTrainingDays, daysPerWeek),
+      minutesPerSession,
+      onboardingCompleted: true,
+      availableWeights: availableWeightsState,
+    }
+
     return (
       <LLMAssistant
         preset={selectedPreset}
         config={llmConfig}
         weeks={weeks}
         daysPerWeek={daysPerWeek}
-        minutesPerSession={minutesPerSess}
+        minutesPerSession={minutesPerSession}
         weeklyProgression={llmWeeklyProgression}
         filteredExercises={filteredExercisePool}
         onImport={(mesocycle) => {
@@ -908,152 +370,18 @@ export const PlanCreator = ({ onComplete }: Props) => {
   }
 
   if (step === 'preview') {
-    if (error) {
-      return (
-        <div className="space-y-4 text-center py-12">
-          <p className="text-warning">{t('planning:errorGenerating')}</p>
-          <p className="text-sm text-text-muted">{error}</p>
-          <button
-            type="button"
-            onClick={() => setStep('exercises')}
-            className="rounded-lg bg-surface-elevated px-6 py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated"
-          >
-            {t('planning:retry')}
-          </button>
-        </div>
-      )
-    }
-
-    if (!generatedPreview) {
-      return (
-        <div className="space-y-4 text-center py-12">
-          <p className="text-text-muted">{t('planning:errorGenerating')}</p>
-          <button
-            type="button"
-            onClick={() => setStep('exercises')}
-            className="rounded-lg bg-surface-elevated px-6 py-2 text-sm font-medium text-text-primary hover:bg-surface-elevated"
-          >
-            {t('planning:back')}
-          </button>
-        </div>
-      )
-    }
-
-    const weekMap = new Map<number, typeof generatedPreview.sessions>()
-    for (const session of generatedPreview.sessions) {
-      const w = session.weekNumber
-      let list = weekMap.get(w)
-      if (!list) {
-        list = []
-        weekMap.set(w, list)
-      }
-      list.push(session)
-    }
-
-    // Equipment chips: collect unique equipment used by all assigned exercises
-    const exerciseMap = new Map(exercises.map((e) => [e.id, e]))
-    const equipmentSet = new Set<string>()
-    for (const session of generatedPreview.sessions) {
-      for (const a of session.exerciseAssignments ?? []) {
-        const ex = exerciseMap.get(a.exerciseId)
-        if (!ex) continue
-        for (const eq of ex.equipment) equipmentSet.add(eq)
-      }
-    }
-    const requiredEquipment = Array.from(equipmentSet).sort()
-
     return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-text-primary">{t('planning:preview')}</h2>
-          <span className="text-sm text-text-muted">
-            {i18n?.exists(generatedPreview.name) ? t(generatedPreview.name) : generatedPreview.name}{' '}
-            — {generatedPreview.durationWeeks} {t('planning:weeks')}
-          </span>
-        </div>
-
-        {error === 'PRESET_EXERCISES_MISSING' && storeMissingIds.length > 0 && (
-          <div className="rounded-xl border border-warning/40 bg-warning/10 p-4">
-            <p className="text-sm font-medium text-red-800">
-              {t('planning:error_missing_exercises', { count: storeMissingIds.length })}
-            </p>
-            <ul className="mt-2 list-disc pl-5 text-xs text-warning">
-              {storeMissingIds.map((id) => (
-                <li key={id}>{id}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {weeklyProgressionRates.length > 0 && (
-          <div className="rounded-xl border border-border-subtle bg-surface p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-2">
-              {t('planning:weeklyProgression')}
-            </p>
-            <ProgressionSparkline rates={weeklyProgressionRates} />
-          </div>
-        )}
-
-        {requiredEquipment.length > 0 && (
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-2">
-              {t('planning:preview_required_equipment')}
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {requiredEquipment.map((eq) => (
-                <span
-                  key={eq}
-                  className="rounded-full bg-surface-elevated px-2.5 py-1 text-xs text-text-primary"
-                >
-                  {t(`onboarding:equipment.${eq}`)}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <div className="space-y-4 max-h-[50vh] overflow-y-auto">
-          {Array.from(weekMap.entries())
-            .sort(([a], [b]) => a - b)
-            .map(([weekNum, sessions]) => (
-              <div key={weekNum} className="rounded-xl border border-border-subtle bg-surface p-4">
-                <h3 className="font-medium text-text-primary mb-2">
-                  {t('planning:week')} {weekNum}
-                </h3>
-                <div className="space-y-2">
-                  {sessions.map((session) => (
-                    <SessionPreview key={session.id} session={session} compact />
-                  ))}
-                </div>
-              </div>
-            ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-2">
-          <button
-            type="button"
-            onClick={handleDiscard}
-            className="flex-1 rounded-xl border border-border-strong py-3 text-sm font-medium text-text-primary hover:bg-surface-elevated transition-colors"
-          >
-            {t('planning:discard')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setStep('exercises')}
-            className="flex-1 rounded-xl border border-indigo-200 py-3 text-sm font-medium text-accent hover:bg-accent/10 transition-colors"
-          >
-            {t('planning:modify_plan')}
-          </button>
-          <button
-            type="button"
-            onClick={handleSave}
-            className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-accent py-3 text-sm font-medium text-white hover:brightness-110 transition-colors"
-          >
-            <Check size={16} />
-            {t('planning:start_plan')}
-          </button>
-        </div>
-      </div>
+      <PreviewStep
+        generatedPreview={generatedPreview}
+        error={error}
+        storeMissingIds={storeMissingIds}
+        weeklyProgressionRates={weeklyProgressionRates}
+        exercises={exercises}
+        onRetry={() => setStep('exercises')}
+        onDiscard={handleDiscard}
+        onModify={() => setStep('exercises')}
+        onSave={handleSave}
+      />
     )
   }
 
