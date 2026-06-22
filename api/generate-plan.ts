@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { GeminiPlanSchema } from '../src/types/planSchema'
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
@@ -237,14 +238,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(502).json({ error: 'Empty response from AI service' })
     }
 
-    const parsed = extractJson(rawText) as { mesocycle?: unknown }
+    const parsed = extractJson(rawText)
+    const validation = GeminiPlanSchema.safeParse(parsed)
 
-    if (!parsed?.mesocycle) {
-      console.error('Invalid mesocycle structure:', JSON.stringify(parsed).substring(0, 500))
+    if (!validation.success) {
+      console.error('Invalid plan structure:', JSON.stringify(validation.error.issues).substring(0, 500))
       return res.status(502).json({ error: 'Invalid plan structure from AI service' })
     }
 
-    return res.status(200).json(parsed)
+    return res.status(200).json(validation.data)
   } catch (err) {
     console.error('Generate plan error:', err)
     return res.status(500).json({ error: 'Internal server error' })

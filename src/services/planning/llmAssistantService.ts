@@ -6,30 +6,8 @@ import type {
   MuscleGroupTarget,
   SessionTemplate,
 } from '@/types/planning'
-
-// --- LLM Response Types ---
-
-export type LLMExercise = {
-  exerciseId: string
-  sets: number
-  reps: number | [number, number]
-  weightKg?: number
-  rpe?: number
-  restSeconds: number
-}
-
-export type LLMSession = {
-  weekNumber: number
-  dayOfWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7
-  durationMinutes: number
-  exercises: LLMExercise[]
-}
-
-export type LLMPlanResponse = {
-  name: string
-  durationWeeks: number
-  sessions: LLMSession[]
-}
+import { LLMPlanResponseSchema, type LLMExercise, type LLMPlanResponse, type LLMSession } from '@/types/planSchema'
+export type { LLMExercise, LLMPlanResponse, LLMSession }
 
 // --- Validation Types ---
 
@@ -265,10 +243,6 @@ function stripMarkdownFences(input: string): string {
   return trimmed.trim()
 }
 
-function isValidDayOfWeek(v: unknown): v is 1 | 2 | 3 | 4 | 5 | 6 | 7 {
-  return typeof v === 'number' && Number.isInteger(v) && v >= 1 && v <= 7
-}
-
 export function validateLLMResponse(
   jsonString: string,
   validExerciseIds: Set<string>,
@@ -278,144 +252,56 @@ export function validateLLMResponse(
   const errors: ValidationError[] = []
   const warnings: ValidationError[] = []
 
-  // Size check (bytes, not UTF-16 code units)
   if (new Blob([jsonString]).size > MAX_PASTE_SIZE) {
     return { valid: false, errors: [{ key: 'llm.error_invalid_json' }], warnings: [] }
   }
 
-  // Strip markdown fences
   const cleaned = stripMarkdownFences(jsonString)
 
-  // Parse JSON
-  let parsed: unknown
+  let rawParsed: unknown
   try {
-    parsed = JSON.parse(cleaned)
+    rawParsed = JSON.parse(cleaned)
   } catch {
     return { valid: false, errors: [{ key: 'llm.error_invalid_json' }], warnings: [] }
   }
 
-  // Rule 2: Top-level structure
-  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+  const structResult = LLMPlanResponseSchema.safeParse(rawParsed)
+  if (!structResult.success) {
+    const issue = structResult.error.issues[0]
+    const path = issue?.path ?? []
+    if (path.length >= 4 && path[0] === 'sessions' && path[2] === 'exercises') {
+      return {
+        valid: false,
+        errors: [{ key: 'llm.error_invalid_exercise', params: { session: (path[1] as number) + 1, index: (path[3] as number) + 1 } }],
+        warnings: [],
+      }
+    }
+    if (path.length >= 2 && path[0] === 'sessions') {
+      return {
+        valid: false,
+        errors: [{ key: 'llm.error_invalid_session', params: { index: (path[1] as number) + 1 } }],
+        warnings: [],
+      }
+    }
     return { valid: false, errors: [{ key: 'llm.error_missing_fields' }], warnings: [] }
   }
 
-  const obj = parsed as Record<string, unknown>
-
-  if (
-    typeof obj.name !== 'string' ||
-    typeof obj.durationWeeks !== 'number' ||
-    obj.durationWeeks < 1 ||
-    !Array.isArray(obj.sessions) ||
-    obj.sessions.length === 0
-  ) {
-    return { valid: false, errors: [{ key: 'llm.error_missing_fields' }], warnings: [] }
-  }
-
-  const sessions = obj.sessions as unknown[]
-
-  // Track sessions for warning checks
+  const plan = structResult.data
   const allSessionExercises: string[][] = []
 
-  // Rule 3 & 4: Validate each session
-  for (let si = 0; si < sessions.length; si++) {
-    const session = sessions[si] as Record<string, unknown>
+  for (const [si, session] of plan.sessions.entries()) {
     const sessionIndex = si + 1
-
-    if (
-      typeof session !== 'object' ||
-      session === null ||
-      typeof session.weekNumber !== 'number' ||
-      session.weekNumber < 1 ||
-      !isValidDayOfWeek(session.dayOfWeek) ||
-      typeof session.durationMinutes !== 'number' ||
-      session.durationMinutes <= 0 ||
-      !Array.isArray(session.exercises) ||
-      (session.exercises as unknown[]).length === 0
-    ) {
-      errors.push({
-        key: 'llm.error_invalid_session',
-        params: { index: sessionIndex },
-      })
-      allSessionExercises.push([])
-      continue
-    }
-
-    const exs = session.exercises as unknown[]
     const sessionExerciseIds: string[] = []
-    const sessionPrimaryMuscles: Map<MuscleGroup, number> = new Map()
+    const sessionPrimaryMuscles = new Map<MuscleGroup, number>()
 
-    for (let ei = 0; ei < exs.length; ei++) {
-      const ex = exs[ei] as Record<string, unknown>
-      const exIndex = ei + 1
-
-      // Rule 4: basic structure
-      if (
-        typeof ex !== 'object' ||
-        ex === null ||
-        typeof ex.exerciseId !== 'string' ||
-        typeof ex.sets !== 'number' ||
-        ex.sets < 1 ||
-        ex.sets > 10 ||
-        typeof ex.restSeconds !== 'number' ||
-        ex.restSeconds < 15 ||
-        ex.restSeconds > 300
-      ) {
-        errors.push({
-          key: 'llm.error_invalid_exercise',
-          params: { session: sessionIndex, index: exIndex },
-        })
-        continue
-      }
-
-      // Validate reps
-      const reps = ex.reps
-      const repsValid =
-        (typeof reps === 'number' && reps > 0) ||
-        (Array.isArray(reps) &&
-          reps.length === 2 &&
-          typeof reps[0] === 'number' &&
-          typeof reps[1] === 'number' &&
-          reps[0] > 0 &&
-          reps[0] <= reps[1])
-
-      if (!repsValid) {
-        errors.push({
-          key: 'llm.error_invalid_exercise',
-          params: { session: sessionIndex, index: exIndex },
-        })
-        continue
-      }
-
-      // Rule 5: exerciseId must exist
+    for (const ex of session.exercises) {
       if (!validExerciseIds.has(ex.exerciseId)) {
-        errors.push({
-          key: 'llm.error_unknown_exercise',
-          params: { exerciseId: ex.exerciseId },
-        })
-        continue
-      }
-
-      // Rule 6: weightKg
-      if (ex.weightKg !== undefined && (typeof ex.weightKg !== 'number' || ex.weightKg <= 0)) {
-        errors.push({
-          key: 'llm.error_invalid_weight',
-          params: { exerciseId: ex.exerciseId },
-        })
-        continue
-      }
-
-      // Rule 7: rpe
-      if (ex.rpe !== undefined && (typeof ex.rpe !== 'number' || ex.rpe < 1 || ex.rpe > 10)) {
-        errors.push({
-          key: 'llm.error_invalid_rpe',
-          params: { exerciseId: ex.exerciseId },
-        })
+        errors.push({ key: 'llm.error_unknown_exercise', params: { exerciseId: ex.exerciseId } })
         continue
       }
 
       sessionExerciseIds.push(ex.exerciseId)
 
-      // Track primary muscles for W2
       const catalogEx = exerciseMap.get(ex.exerciseId)
       if (catalogEx) {
         const primaryMuscle = catalogEx.primaryMuscles[0]
@@ -428,64 +314,39 @@ export function validateLLMResponse(
 
     allSessionExercises.push(sessionExerciseIds)
 
-    // W2: Duplicate muscle in same session
     for (const [muscle, count] of sessionPrimaryMuscles.entries()) {
       if (count > 1) {
-        warnings.push({
-          key: 'llm.warn_duplicate_muscle',
-          params: { muscle, session: sessionIndex },
-        })
+        warnings.push({ key: 'llm.warn_duplicate_muscle', params: { muscle, session: sessionIndex } })
       }
     }
 
-    // W3: Duration mismatch
     let estimatedSeconds = 0
-    for (const rawEx of exs) {
-      const ex = rawEx as Record<string, unknown>
-      if (
-        typeof ex.exerciseId !== 'string' ||
-        typeof ex.sets !== 'number' ||
-        typeof ex.restSeconds !== 'number'
-      )
-        continue
+    for (const ex of session.exercises) {
       const catalogEx = exerciseMap.get(ex.exerciseId)
       if (catalogEx) {
-        const sets = ex.sets
-        const seriesDuration = catalogEx.estimatedSeriesDurationSeconds
-        estimatedSeconds += sets * seriesDuration + (sets - 1) * ex.restSeconds
+        estimatedSeconds +=
+          ex.sets * catalogEx.estimatedSeriesDurationSeconds + (ex.sets - 1) * ex.restSeconds
       }
     }
     const estimatedMinutes = Math.round(estimatedSeconds / 60)
     const targetMinutes = minutesPerSession
     if (estimatedMinutes > targetMinutes * 1.1 || estimatedMinutes < targetMinutes * 0.5) {
-      warnings.push({
-        key: 'llm.warn_duration_mismatch',
-        params: { session: sessionIndex, estimated: estimatedMinutes, target: targetMinutes },
-      })
+      warnings.push({ key: 'llm.warn_duration_mismatch', params: { session: sessionIndex, estimated: estimatedMinutes, target: targetMinutes } })
     }
   }
 
-  // W1: Consecutive session exercise overlap
   for (let i = 1; i < allSessionExercises.length; i++) {
     const prev = allSessionExercises[i - 1] ?? []
     const curr = allSessionExercises[i] ?? []
     for (const exId of curr) {
       if (prev.includes(exId)) {
-        warnings.push({
-          key: 'llm.warn_consecutive_exercise',
-          params: { exerciseId: exId },
-        })
+        warnings.push({ key: 'llm.warn_consecutive_exercise', params: { exerciseId: exId } })
       }
     }
   }
 
-  // W4: durationWeeks mismatch
-  const maxWeek = Math.max(
-    ...sessions
-      .filter((s): s is Record<string, unknown> => typeof s === 'object' && s !== null)
-      .map((s) => (typeof s.weekNumber === 'number' ? s.weekNumber : 0))
-  )
-  if (maxWeek !== (obj.durationWeeks as number)) {
+  const maxWeek = Math.max(...plan.sessions.map((s) => s.weekNumber))
+  if (maxWeek !== plan.durationWeeks) {
     warnings.push({ key: 'llm.warn_weeks_mismatch' })
   }
 
@@ -493,26 +354,7 @@ export function validateLLMResponse(
     return { valid: false, errors, warnings }
   }
 
-  // Build typed response
-  const response: LLMPlanResponse = {
-    name: obj.name as string,
-    durationWeeks: obj.durationWeeks as number,
-    sessions: (obj.sessions as Record<string, unknown>[]).map((s) => ({
-      weekNumber: s.weekNumber as number,
-      dayOfWeek: s.dayOfWeek as 1 | 2 | 3 | 4 | 5 | 6 | 7,
-      durationMinutes: s.durationMinutes as number,
-      exercises: (s.exercises as Record<string, unknown>[]).map((e) => ({
-        exerciseId: e.exerciseId as string,
-        sets: e.sets as number,
-        reps: e.reps as number | [number, number],
-        weightKg: e.weightKg as number | undefined,
-        rpe: e.rpe as number | undefined,
-        restSeconds: e.restSeconds as number,
-      })),
-    })),
-  }
-
-  return { valid: true, errors: [], warnings, parsed: response }
+  return { valid: true, errors: [], warnings, parsed: plan }
 }
 
 // --- Conversion ---

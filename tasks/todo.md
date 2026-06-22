@@ -373,7 +373,25 @@ the codebase.
 
 ---
 
-### [ ] 9. Shared runtime schema validation for the LLM plan (client + API)
+### [x] 9. Shared runtime schema validation for the LLM plan (client + API)
+
+> Done 2026-06-18. Added `zod`. Created `src/types/planSchema.ts` with two schemas:
+> `GeminiPlanSchema` (API format: `muscleGroupTargets` with MuscleGroup enum, reps
+> as `[min,max]`, rpe 5–10, restSeconds 30–180) and `LLMPlanResponseSchema` (client
+> format: `exercises` with union reps, optional rpe/weightKg). The MUSCLE_GROUPS
+> const uses `satisfies readonly MuscleGroup[]` to type-check enum values against
+> `exercise.ts`. `api/generate-plan.ts` now runs `GeminiPlanSchema.safeParse` before
+> returning 200; on failure logs Zod issues and returns the existing 502 path (no
+> API key logged). `validateLLMResponse` in `llmAssistantService.ts` replaces all
+> manual structural/range checks with `LLMPlanResponseSchema.safeParse`, maps Zod
+> issue paths to the existing i18n error keys (llm.error_invalid_exercise /
+> llm.error_invalid_session / llm.error_missing_fields), and retains business-rule
+> warnings (catalog lookup, duration, consecutive, duplicate muscle, weeks mismatch).
+> `LLMExercise`/`LLMSession`/`LLMPlanResponse` types now derived from Zod inference
+> and re-exported from `llmAssistantService.ts` for backward compat. Removed dead
+> `isValidDayOfWeek` helper, all manual cast blocks in `validateLLMResponse`. Added
+> 16 tests in `src/types/planSchema.test.ts`. Verified: lint 0, tsc clean, 122/122
+> unit tests green.
 
 **Problem.** The trust boundary is a non-deterministic Gemini response, yet
 `api/generate-plan.ts` only checks that `parsed.mesocycle` exists, and the client
