@@ -42,6 +42,7 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
             <button
               type="button"
               onClick={() => setRepsActual((v) => Math.max(0, v - 1))}
+              aria-label={t('session.reps_decrease')}
               className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-elevated text-xl font-bold text-text-primary active:bg-surface-elevated"
             >
               −
@@ -58,6 +59,7 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
             <button
               type="button"
               onClick={() => setRepsActual((v) => v + 1)}
+              aria-label={t('session.reps_increase')}
               className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-elevated text-xl font-bold text-text-primary active:bg-surface-elevated"
             >
               +
@@ -77,6 +79,7 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
               <button
                 type="button"
                 onClick={() => setWeightActual((v) => Math.max(0, v - 2.5))}
+                aria-label={t('session.weight_decrease')}
                 className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-elevated text-xl font-bold text-text-primary active:bg-surface-elevated"
               >
                 −
@@ -94,6 +97,7 @@ export const SetLogger = ({ selectedExercise, currentSet, onComplete, onSkipSet 
               <button
                 type="button"
                 onClick={() => setWeightActual((v) => v + 2.5)}
+                aria-label={t('session.weight_increase')}
                 className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-elevated text-xl font-bold text-text-primary active:bg-surface-elevated"
               >
                 +

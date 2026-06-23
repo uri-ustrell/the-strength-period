@@ -46,6 +46,13 @@
       }
     },
     "skip_rest": "Skip rest",
+    "rest_timer_label": "Rest timer",
+    "rest_remaining_min": "{{minutes}} min {{seconds}} s remaining",
+    "rest_remaining_sec": "{{seconds}} s remaining",
+    "reps_decrease": "Decrease reps",
+    "reps_increase": "Increase reps",
+    "weight_decrease": "Decrease weight",
+    "weight_increase": "Increase weight",
     "summary": "Session summary",
     "exercises_done": "Exercises completed",
     "total_volume": "Total volume (kg)",

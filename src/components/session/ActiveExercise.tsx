@@ -104,7 +104,7 @@ export const ActiveExercise = ({
                 <button
                   type="button"
                   onClick={() => onWeightChange(lowerWeight)}
-                  className="rounded p-0.5 text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
+                  className="flex h-11 w-11 items-center justify-center rounded text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
                   aria-label={t('common:session.weight_lower')}
                 >
                   <ChevronDown size={16} />
@@ -115,7 +115,7 @@ export const ActiveExercise = ({
                 <button
                   type="button"
                   onClick={() => onWeightChange(higherWeight)}
-                  className="rounded p-0.5 text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
+                  className="flex h-11 w-11 items-center justify-center rounded text-text-muted/70 hover:bg-surface-elevated hover:text-text-primary transition-colors"
                   aria-label={t('common:session.weight_higher')}
                 >
                   <ChevronUp size={16} />

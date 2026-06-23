@@ -46,6 +46,13 @@
       }
     },
     "skip_rest": "Saltar descanso",
+    "rest_timer_label": "Temporizador de descanso",
+    "rest_remaining_min": "Quedan {{minutes}} min {{seconds}} s",
+    "rest_remaining_sec": "Quedan {{seconds}} s",
+    "reps_decrease": "Reducir repeticiones",
+    "reps_increase": "Aumentar repeticiones",
+    "weight_decrease": "Reducir peso",
+    "weight_increase": "Aumentar peso",
     "summary": "Resumen de la sesión",
     "exercises_done": "Ejercicios completados",
     "total_volume": "Volumen total (kg)",

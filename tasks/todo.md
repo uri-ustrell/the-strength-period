@@ -551,7 +551,27 @@ CONVENTIONS calls Biome the source of truth.
 
 ---
 
-### [ ] 14. Accessibility pass (session-critical surfaces first)
+### [x] 14. Accessibility pass (session-critical surfaces first)
+
+> Done 2026-06-23. a11y lint was already 0 (cleared in #2/#3/#5) and
+> `DashboardMap` already uses semantic `ul`/`li`/`button` with no redundant
+> `role="list"`, so the substantive work was the live timer + tap targets:
+> - **RestTimer:** added a visually-hidden `role="timer"` `sr-only` region that
+>   announces worded time-remaining to screen readers. To avoid per-second SR
+>   spam, the phrase is refreshed only at milestones (every 15s) and for each of
+>   the final 10s; `aria-live` flips `polite → assertive` in the final 10s so it
+>   interrupts and counts down. The visual `mm:ss` is now `aria-hidden`. New
+>   i18n keys `session.rest_timer_label` / `rest_remaining_min` /
+>   `rest_remaining_sec` (ca/es/en parity).
+> - **ActiveExercise:** the inline weight chevrons were a ~20px tap target
+>   (`p-0.5` + 16px icon) — enlarged to `h-11 w-11` (44px). They already had
+>   aria-labels.
+> - **SetLogger:** the reps/weight +/− steppers (already 48px) had glyph-only
+>   names; added descriptive `aria-label`s (`session.reps_decrease` etc.,
+>   ca/es/en parity). The warm-up checkbox already has an associated `<label>`.
+>
+> Verified: i18n parity OK (6 namespaces), biome lint 0, tsc clean, 122/122
+> unit tests green, edited files format-clean.
 
 **Problem.** a11y lint warnings plus interaction-heavy timer UI used mid-workout.
 

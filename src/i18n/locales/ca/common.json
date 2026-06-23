@@ -46,6 +46,13 @@
       }
     },
     "skip_rest": "Saltar descans",
+    "rest_timer_label": "Temporitzador de descans",
+    "rest_remaining_min": "Queden {{minutes}} min {{seconds}} s",
+    "rest_remaining_sec": "Queden {{seconds}} s",
+    "reps_decrease": "Reduir repeticions",
+    "reps_increase": "Augmentar repeticions",
+    "weight_decrease": "Reduir pes",
+    "weight_increase": "Augmentar pes",
     "summary": "Resum de la sessió",
     "exercises_done": "Exercicis completats",
     "total_volume": "Volum total (kg)",
