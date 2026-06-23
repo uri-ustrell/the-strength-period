@@ -1,11 +1,31 @@
 # Implementation Status — History Archive
 
-> Detailed completion records, architecture decision rationale, and QA notes.
-> For current status, see `specs/STATUS.md`.
+> **How to read these docs.** This file is the append-only **chronicle**:
+> dated completion records, per-phase gate logs, QA notes, and full
+> architecture-decision rationale. Newest entries first. For the current
+> quick-scan snapshot see `specs/STATUS.md`; for the live work backlog see
+> `tasks/todo.md`. When a feature ships, summarize it here and update
+> `STATUS.md` in the same change.
 
 ---
 
 ## Recent Changes
+
+### 2025-07-16 — Code review fixes
+
+- Restored `baseUrl` in tsconfig files (required by `paths` alias).
+- Removed unnecessary `useCallback` wrappers in `useDB.ts`.
+- Added `response.ok` check in `exerciseLoader.ts` fetch.
+- Fixed misleading `useMemo` dependency in `SessionPreStart.tsx`.
+- Fixed critical `mesocycleId` bug in `sessionStore.ts` — sessions are now
+  correctly marked complete.
+- Removed unused `exercises` prop from `LLMAssistant`.
+- Extracted Dashboard helpers → `src/utils/dateHelpers.ts`.
+- Extracted PlanCreator utilities → `src/services/planning/muscleDistribution.ts`.
+- Extracted Stats aggregations → `src/services/stats/statsAggregation.ts`.
+- Extracted sessionStore navigation → `src/services/session/sessionNavigation.ts`.
+- Synced `specs/DATA_MODEL.md` with actual `UserConfig` type.
+- Build verification: zero errors.
 
 ### 2026-05-05 — Feature 17 "Progreso Jugable" — Phase 1 (visual + structural)
 

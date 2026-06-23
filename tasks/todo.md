@@ -461,7 +461,21 @@ rot.
 
 ## P3 — Documentation, a11y & hardening
 
-### [ ] 11. Trim `STATUS.md` and archive `STATUS_HISTORY.md`
+### [x] 11. Trim `STATUS.md` and archive `STATUS_HISTORY.md`
+
+> Done 2026-06-23. Rewrote `STATUS.md` (238 → 106 lines) as a current-state-only
+> snapshot: refreshed "Current Phase" to reality (Feature 17 shipped; P1/P2
+> backlog done, P3 in progress), updated the steps table (Step 16 marked
+> reverted/superseded, added an F17 row), kept the still-accurate Architecture
+> Notes + Decisions table (with a pointer to full rationale) and Known Issues,
+> and added a "Links" section. Deleted the redundant chronology: the entire
+> Step 16 Phase A–E gate wall and the per-step "Planned Steps" checklists were
+> already archived in `STATUS_HISTORY.md` (lines 117–1062, plus Step 15/17/18/19
+> entries), so they were dropped, not duplicated. The one un-archived block
+> (Code Review Fixes 2025-07-16) was moved into `STATUS_HISTORY.md` first. Added
+> a "How to read these docs" header to both files (snapshot vs chronicle vs
+> `tasks/todo.md` backlog) and the ship-time update rule. Verified: archived
+> block present in history, no content lost.
 
 **Problem.** `STATUS.md` (~25 KB) mixes current state with chronology;
 `STATUS_HISTORY.md` is ~152 KB. Neither is realistically read end-to-end.
