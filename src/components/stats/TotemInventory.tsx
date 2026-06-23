@@ -18,10 +18,9 @@ const FAMILY_COLOR: Record<TotemFamily, string> = {
 }
 
 /**
- * Feature 17 — Totem inventory.
+ * Totem inventory.
  *
- * Single-renderer replacement for the Step 16 dual-skin TotemInventory
- * (`ClassicTotemGrid` + `RetroInventoryShelf`). Totems are rendered as a
+ * Totems are rendered as a
  * collectible grid grouped by family. Locked totems remain visible — never
  * hidden — but dim, with a quiet hint copy ("Por desbloquear"). Earned
  * totems glow softly in mint.

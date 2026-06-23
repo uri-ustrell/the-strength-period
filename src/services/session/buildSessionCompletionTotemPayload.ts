@@ -6,10 +6,7 @@ import {
 } from '@/services/stats/buildTotemInventoryModel'
 
 /**
- * Step 16 Phase E sub-phase E1 — Earn-acknowledgement payload selector.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase E Shared Contracts → E1 — Earn-Acknowledgement Frame Contract".
+ * Earn-acknowledgement payload selector.
  *
  * Pure function. Diffs the totem inventory state **before** vs **after** the
  * just-finished session and returns the ordered list of newly-earned totems

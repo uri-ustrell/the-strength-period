@@ -3,12 +3,11 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useSessionStore } from '@/stores/sessionStore'
 
 /**
- * Step 16 Phase E sub-phase E1 (W5 fix) — verifies that the new
- * `lastFinishedSessionCompletedAtISO` selector is minted alongside
+ * Verifies that `lastFinishedSessionCompletedAtISO` is minted alongside
  * `lastFinishedSessionId` when `isFinished` flips, and cleared by `reset`.
  */
 
-describe('sessionStore — lastFinishedSessionCompletedAtISO (W5)', () => {
+describe('sessionStore — lastFinishedSessionCompletedAtISO', () => {
   beforeEach(() => {
     useSessionStore.getState().reset()
   })

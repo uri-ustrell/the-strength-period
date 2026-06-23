@@ -5,10 +5,10 @@ import type { ExecutedSession, ExecutedSet } from '@/types/session'
 interface ExportData {
   /**
    * Export-format version.
-   *  - `1`: Phase 0 baseline.
-   *  - `2`: Phase E4a/E4f baseline. Adds optional `ExecutedSet.isWarmup` and
-   *         optional `SessionTemplate.isPlannedRestDay` (both additive — no
-   *         field-level transform required). Import accepts both `1` and `2`.
+   *  - `1`: baseline.
+   *  - `2`: adds optional `ExecutedSet.isWarmup` and optional
+   *         `SessionTemplate.isPlannedRestDay` (both additive — no field-level
+   *         transform required). Import accepts both `1` and `2`.
    */
   version: 1 | 2
   exportedAt: string

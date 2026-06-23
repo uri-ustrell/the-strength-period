@@ -30,7 +30,7 @@ const SIZE_CLASS: Record<Size, string> = {
 }
 
 /**
- * Feature 17 — "Progreso Jugable" button primitive.
+ * "Progreso Jugable" button primitive.
  *
  * Primary button is a coral pill in `font-display` semibold with a subtle
  * `active:scale-[0.96]` press-bounce. Honors `prefers-reduced-motion` via the

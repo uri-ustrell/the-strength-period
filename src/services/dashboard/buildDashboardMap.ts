@@ -1,14 +1,9 @@
 import type { Mesocycle, SessionTemplate } from '@/types/planning'
 
 /**
- * Step 16 Phase B — Shared dashboard model.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase B Shared Contracts (Dashboard)". This module is the single source of
- * truth for dashboard rendering across every aesthetic variant
- * (`retro-platformer`, `classic-boring`, …). It contains zero React code, zero
- * IO, and never reads `matchMedia` — variant resolution happens at render time
- * via `useEffectiveAestheticVariant`.
+ * Shared dashboard model. The single source of truth for dashboard rendering.
+ * Contains zero React code, zero IO, and never reads `matchMedia` — it is a
+ * pure derivation from the mesocycle.
  */
 
 export type SessionNodeState = 'future' | 'available' | 'in-progress' | 'completed' | 'skipped'
@@ -20,7 +15,7 @@ export type SessionNode = {
   sessionIndexInWeek: number
   /** Day of week as defined in the SessionTemplate (1..7). */
   dayOfWeek: SessionTemplate['dayOfWeek']
-  /** Canonical state — see Phase B Shared Contracts. */
+  /** Canonical session state. */
   state: SessionNodeState
   /** Optional convenience for renderers; never required for routing. */
   durationMinutes: number
@@ -33,7 +28,7 @@ export type WeekRow = {
   weekIndex: number
   /**
    * True when EVERY session in the week is marked deload (`progressionType` is
-   * not enough — Phase B spec defers to engine intent). Detected via the
+   * not enough — defers to engine intent). Detected via the
    * heuristic in {@link isDeloadSession} so renderers can show the
    * "Deload" badge without overriding the week accent.
    */

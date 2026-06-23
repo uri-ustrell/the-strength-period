@@ -1,26 +1,13 @@
 import { useUserStore } from '@/stores/userStore'
 
 /**
- * Step 16 Phase C — Session audio service (C9).
+ * Session audio service.
  *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase C Shared Contracts (Session Execution)" → "Audio Gating Contract"
- * and "Variant: Classic Boring → Sound" (audio is disabled in classic).
- *
- * Both public entrypoints short-circuit immediately when:
- *   • the effective aesthetic variant is NOT `retro-platformer`, OR
- *   • the user opt-in flag is false (TODO below; currently no such flag
- *     exists in `userStore`, so we gate solely on the variant — no new
- *     persistence is added in this phase).
- *
- * `classic-boring` is therefore guaranteed silent: no `<audio>` element ever
- * mounts and no `AudioContext` is created.
- *
- * The variant is read via {@link resolveEffectiveAestheticVariant} against
- * the snapshot of `useUserStore` so audio entrypoints are usable from
- * non-React contexts (timers, callbacks). `prefers-reduced-motion` is
- * intentionally NOT consulted here — Settings already routes the user to
- * `classic-boring` via the runtime override, which short-circuits us.
+ * Both public entrypoints short-circuit immediately when the user opt-in flag
+ * (`userStore.audioOptIn`) is false — the default — so no `<audio>` element
+ * mounts and no `AudioContext` is created unless the user explicitly enables
+ * sound. The flag is read from the `useUserStore` snapshot so entrypoints are
+ * usable from non-React contexts (timers, callbacks).
  */
 
 let restEndCache: { audioCtx: AudioContext } | null = null
@@ -28,8 +15,8 @@ let setCompleteCache: { audioCtx: AudioContext } | null = null
 
 function isAudioEnabled(): boolean {
   if (typeof window === 'undefined') return false
-  // Feature 17: single, explicit user opt-in. Default is `false` so the
-  // app is silent unless the user enables it from Settings.
+  // Single, explicit user opt-in. Default is `false` so the app is silent
+  // unless the user enables it from Settings.
   return useUserStore.getState().audioOptIn === true
 }
 

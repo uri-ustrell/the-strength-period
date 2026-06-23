@@ -10,9 +10,8 @@ interface Props {
   onFinish: (globalRpe: number, notes?: string) => void
   onDiscard?: () => void
   /**
-   * Step 16 Phase E sub-phase E1 — earn-acknowledgement mount slot.
-   * Rendered between the summary numbers card and the RPE/notes card.
-   * `undefined` (default) preserves the pre-E1 layout exactly.
+   * Earn-acknowledgement mount slot. Rendered between the summary numbers card
+   * and the RPE/notes card. `undefined` (default) renders no accessory.
    */
   topAccessory?: ReactNode
 }

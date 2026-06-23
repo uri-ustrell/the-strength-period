@@ -112,8 +112,8 @@ export const Dashboard = () => {
       .sort((a, b) => a.weekNumber - b.weekNumber || a.dayOfWeek - b.dayOfWeek)[0]
   }, [activeMesocycle])
 
-  // Phase B: weekly progression is rendered inside `<DashboardMap />` (derived
-  // from the shared model). The legacy "current week" + 7-day-strip locals are gone.
+  // Weekly progression is rendered inside `<DashboardMap />`, derived from the
+  // shared dashboard model.
 
   const nextSessionDate = useMemo(() => {
     if (!nextSession || !activeMesocycle) return undefined
@@ -125,8 +125,7 @@ export const Dashboard = () => {
     return toDateStr(nextSessionDate) === toDateStr(new Date())
   }, [nextSessionDate])
 
-  // Phase B replaced the 7-day strip; per-week details are derived inside
-  // `<DashboardMap />` from the shared model.
+  // Per-week details are derived inside `<DashboardMap />` from the shared model.
 
   const handleStartSession = useCallback(() => {
     if (!nextSession || exercises.length === 0) return
@@ -140,8 +139,8 @@ export const Dashboard = () => {
     navigate('/session')
   }, [nextSession, exercises, recentSessions, equipment, setPreviewSession, navigate])
 
-  // Phase B: deterministic dashboard model derived from the active mesocycle.
-  // Recomputed inline (cheap, pure) — no extra IDB stores per spec.
+  // Deterministic dashboard model derived from the active mesocycle.
+  // Recomputed inline (cheap, pure) — no extra IDB stores.
   const dashboardMapModel = useMemo(
     () => (activeMesocycle ? buildDashboardMap(activeMesocycle, previewSessionTemplateId) : null),
     [activeMesocycle, previewSessionTemplateId]
@@ -394,7 +393,7 @@ export const Dashboard = () => {
 
           {activeMesocycle && dashboardMapModel ? (
             <>
-              {/* Phase B: variant-aware world map / calendar derived from the active mesocycle. */}
+              {/* Session map/calendar derived from the active mesocycle. */}
               <div className="mb-3">
                 <DashboardMap model={dashboardMapModel} onSelectSession={handleSelectMapSession} />
               </div>

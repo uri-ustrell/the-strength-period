@@ -3,12 +3,10 @@ import { useTranslation } from 'react-i18next'
 import type { SessionCompletionTotemPayload } from '@/services/session/buildSessionCompletionTotemPayload'
 
 /**
- * Feature 17 — Inline earn-acknowledgement frame.
+ * Inline earn-acknowledgement frame.
  *
- * Single-renderer replacement for the Step 16 EarnAcknowledgement router
- * (`retro` + `calm` subtrees). NEVER a modal: no `<dialog>`, no
- * `role="dialog"`, no `aria-modal`. When `payload === null` the component
- * renders nothing.
+ * NEVER a modal: no `<dialog>`, no `role="dialog"`, no `aria-modal`. When
+ * `payload === null` the component renders nothing.
  *
  * Idempotency latch: a `useRef` keyed on `payload.sessionId` so any future
  * autoplay animation can fire exactly once per session-finished event

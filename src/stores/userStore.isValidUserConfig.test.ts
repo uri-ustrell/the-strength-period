@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { isValidUserConfig } from '@/stores/userStore'
 
 /**
- * Feature 17 contract test for the optional `audioOptIn` field on
+ * Contract test for the optional `audioOptIn` field on
  * `UserConfig`. The `aestheticVariant` field is gone and the validator
  * silently ignores any leftover legacy keys.
  */

@@ -12,16 +12,15 @@
 @tailwind utilities;
 
 /*
- * Feature 17 — "Progreso Jugable" design tokens.
+ * "Progreso Jugable" design tokens.
  *
  * The app is dark-only by design. All colors live as CSS variables on
  * :root so React components can reference them via Tailwind's `bg-bg`,
  * `text-text-primary`, etc. or directly as `var(--color-accent)`.
  *
- * Family colors map the four totem families introduced in Feature 16's
- * service layer (consistency / recovery / preparation / reflection).
- * The dual-skin variants (classic-boring / retro-platformer) introduced
- * in Step 16 are GONE — there is one design now.
+ * Family colors map the four totem families in the service layer
+ * (consistency / recovery / preparation / reflection). There is a single
+ * design — no skin variants.
  */
 :root {
   color-scheme: dark;

@@ -7,10 +7,9 @@ import { Step3Context } from '@/pages/Onboarding/Step3Context'
 import { useUserStore } from '@/stores/userStore'
 
 /**
- * Feature 17 — Onboarding.
+ * Onboarding.
  *
- * The Step 16 dual-skin appearance selector step has been removed (variants
- * no longer exist). Onboarding is now a single context step: pick equipment,
+ * A single context step: pick equipment,
  * training days and minutes per session, then finish.
  */
 export const Onboarding = () => {

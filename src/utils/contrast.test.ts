@@ -1,18 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
 /**
- * Step 16 Phase E sub-phase E3 — WCAG 2.1 AA contrast audit for the
- * shared chart token palettes (classic + retro) consumed by
- * `<ChartThemeProvider>`.
+ * WCAG 2.1 AA contrast audit for the chart token palettes consumed by
+ * `<ChartThemeProvider>`: axis/legend/tooltip foreground vs background must be
+ * ≥ 4.5:1.
  *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase E Shared Contracts (Polish + Deferred Totems) → E3 — Chart
- * Variant Theming Contract": "AA contrast audited for retro chart text
- * on chart background (axis fg vs grid bg ≥ 4.5:1)".
- *
- * Card background is `bg-white` (#ffffff) on each <section> in
- * `Stats.tsx` (architect-verified). Retro tooltip body is `#fef3c7`
- * (amber-100) per the `<ChartThemeProvider>` retro overrides.
+ * Card background is `bg-white` (#ffffff) on each <section> in `Stats.tsx`;
+ * the amber tooltip body is `#fef3c7` (amber-100).
  *
  * Helper is intentionally inlined here — it is not used by production
  * code, so we avoid creating a new export surface.

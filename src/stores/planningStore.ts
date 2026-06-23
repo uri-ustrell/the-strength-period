@@ -162,7 +162,7 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
   },
 
   /**
-   * Phase E4f — Materialise a minimal rest-day SessionTemplate into the active
+   * Materialise a minimal rest-day SessionTemplate into the active
    * mesocycle for the given (weekNumber, dayOfWeek) slot. No-op when a session
    * already exists in that slot (rest-day capture is for empty slots only).
    */
@@ -201,7 +201,7 @@ export const usePlanningStore = create<PlanningStore>((set, get) => ({
   },
 
   /**
-   * Phase E4f — Remove a previously-materialised rest-day SessionTemplate from
+   * Remove a previously-materialised rest-day SessionTemplate from
    * the active mesocycle. Only operates on rest-day templates; ignores other
    * sessions defensively so a stray call never deletes real training data.
    */

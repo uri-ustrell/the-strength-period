@@ -25,19 +25,15 @@ const DAY_KEY: Record<number, string> = {
 }
 
 /**
- * Feature 17 — Dashboard period strip.
+ * Dashboard period strip.
  *
- * Single-renderer replacement for the Step 16 dual-skin DashboardMap. Renders
- * the mesocycle as a sequence of weeks of session pills:
+ * Renders the mesocycle as a sequence of weeks of session pills:
  *
  *   - future        → outlined, muted
  *   - available     → bordered, neutral surface
  *   - in-progress   → accent (coral) ring, focal card
  *   - completed     → filled surface, normal text
  *   - skipped       → muted (never red)
- *
- * No router, no aesthetic variant. The previous Phase B classic-calendar +
- * retro-world-map fork is gone.
  */
 export const DashboardMap = ({ model, onSelectSession }: DashboardMapProps) => {
   const { t } = useTranslation('common')

@@ -39,21 +39,19 @@ interface SessionStore {
    *  UUID and a slightly later `completedAt`. Cleared on success or on `reset`. */
   pendingSessionDraft: { sessionId: string; completedAt: string } | null
   /**
-   * Step 16 Phase E sub-phase E1 — last successfully finished session id.
-   * Persists across the cleared `pendingSessionDraft` so the page-level
-   * earn-acknowledgement effect can identify which session to diff against.
-   * Cleared by `reset`. `null` until at least one session has been saved
-   * via `finishSession`.
+   * Last successfully finished session id. Persists across the cleared
+   * `pendingSessionDraft` so the page-level earn-acknowledgement effect can
+   * identify which session to diff against. Cleared by `reset`. `null` until at
+   * least one session has been saved via `finishSession`.
    */
   lastFinishedSessionId: string | null
   /** ISO `YYYY-MM-DD` of `lastFinishedSessionId`. Derived from `completedAt`. */
   lastFinishedSessionDateISO: string | null
   /**
-   * Step 16 Phase E sub-phase E1 (W5 fix) — full ISO timestamp of the moment
-   * the session flipped to finished (mint time). Carried alongside
-   * `lastFinishedSessionId` so the page-level synthesized `ExecutedSession`
-   * can use the real `completedAt` instead of midnight-UTC of the date
-   * string. Cleared by `reset`.
+   * Full ISO timestamp of the moment the session flipped to finished. Carried
+   * alongside `lastFinishedSessionId` so the page-level synthesized
+   * `ExecutedSession` can use the real `completedAt` instead of midnight-UTC of
+   * the date string. Cleared by `reset`.
    */
   lastFinishedSessionCompletedAtISO: string | null
 
@@ -76,13 +74,12 @@ interface SessionStore {
 const toDateString = (iso: string): string => iso.slice(0, 10)
 
 /**
- * Step 16 Phase E sub-phase E1 (N1 fix) — at the moment `isFinished` flips to
- * true (auto-finish via the last set, or `finishEarly`) we mint the session id
- * + `completedAt` and expose them on the store so the page-level
- * earn-acknowledgement pipeline can render synchronously, BEFORE the user
- * taps Save & close. The same draft is later reused inside `finishSession`
- * so the eventually-persisted IDB row carries the same id the ack frame
- * keyed off — no duplicate row, no id drift.
+ * At the moment `isFinished` flips to true (auto-finish via the last set, or
+ * `finishEarly`) we mint the session id + `completedAt` and expose them on the
+ * store so the page-level earn-acknowledgement pipeline can render
+ * synchronously, BEFORE the user taps Save & close. The same draft is later
+ * reused inside `finishSession` so the eventually-persisted IDB row carries the
+ * same id the ack frame keyed off — no duplicate row, no id drift.
  */
 const buildFinishMeta = () => {
   const completedAt = new Date().toISOString()

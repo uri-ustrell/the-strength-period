@@ -4,15 +4,10 @@ import type { Exercise } from '@/types/exercise'
 import type { ExecutedSet } from '@/types/session'
 
 /**
- * Step 16 Phase C — Shared session-execution model.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase C Shared Contracts (Session Execution)". This module is the single
- * source of truth for session-execution rendering across every aesthetic
- * variant (`retro-platformer`, `classic-boring`, …). Pure function: zero
- * React, zero IO, zero `matchMedia`, zero direct store reads. `nowMs` is
- * injected so callers control the clock (deterministic in tests, fresh in
- * production).
+ * Shared session-execution model. The single source of truth for
+ * session-execution rendering. Pure function: zero React, zero IO, zero
+ * `matchMedia`, zero direct store reads. `nowMs` is injected so callers control
+ * the clock (deterministic in tests, fresh in production).
  */
 
 export type SetExecutionState = 'pending' | 'active' | 'completed' | 'skipped'
@@ -186,7 +181,7 @@ function computeHud(
   let rpeSum = 0
   let rpeCount = 0
   for (const set of executedSets) {
-    // Warm-ups excluded per Phase E4a
+    // Warm-ups excluded from mean RPE
     if (set.isWarmup === true) continue
     const weight = set.weightKgActual ?? set.weightKgPlanned ?? 0
     volumeKg += weight * set.repsActual

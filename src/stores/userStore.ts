@@ -41,7 +41,7 @@ function detectLanguage(): UserConfig['language'] {
 /**
  * Validates the shape of a persisted `UserConfig`. Optional fields may be
  * absent (older configs) but, when present, must match their declared type.
- * Legacy fields removed in Feature 17 (e.g. `aestheticVariant`) are silently
+ * Legacy fields no longer in the schema (e.g. `aestheticVariant`) are silently
  * tolerated — they're dropped on the next save.
  *
  * Exported for unit testing.

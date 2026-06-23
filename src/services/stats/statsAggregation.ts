@@ -97,7 +97,7 @@ export function aggregateVolume(
   const allMuscles = new Set<string>()
 
   for (const s of sets) {
-    // Warm-ups excluded per Phase E4a
+    // Warm-ups excluded from training volume
     if (s.isWarmup === true) continue
     const ex = exerciseMap.get(s.exerciseId)
     if (!ex) continue
@@ -138,7 +138,7 @@ export function aggregateProgression(
 
   for (const s of sets) {
     if (s.exerciseId !== exerciseId) continue
-    // Warm-ups excluded per Phase E4a (PR / progression detection ignores warm-up sets).
+    // Warm-ups excluded (PR / progression detection ignores warm-up sets).
     if (s.isWarmup === true) continue
     const weight = s.weightKgActual ?? 0
     const volume = weight * s.repsActual
@@ -196,7 +196,7 @@ export function aggregatePRs(sets: ExecutedSet[]): PRRecord[] {
   const prs = new Map<string, PRRecord>()
 
   for (const s of sets) {
-    // Warm-ups excluded per Phase E4a (PR detection ignores warm-up sets).
+    // Warm-ups excluded (PR detection ignores warm-up sets).
     if (s.isWarmup === true) continue
     const weight = s.weightKgActual ?? 0
     const volume = weight * s.repsActual

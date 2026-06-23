@@ -8,7 +8,7 @@ import {
 import { useUserStore } from '@/stores/userStore'
 
 /**
- * Feature 17 — audio gate is now `userStore.audioOptIn`.
+ * Audio gate is `userStore.audioOptIn`.
  * Default is `false`, so audio MUST short-circuit unless the user explicitly
  * opts in from Settings. The gate is asserted by spying on the
  * `AudioContext` constructor.
@@ -44,7 +44,7 @@ const audioCtxCtor = vi.fn(audioCtxImpl)
 
 const originalAudioCtx = (window as unknown as { AudioContext?: unknown }).AudioContext
 
-describe('sessionAudio — Feature 17 audioOptIn gate', () => {
+describe('sessionAudio — audioOptIn gate', () => {
   beforeEach(() => {
     audioCtxCtor.mockClear()
     Object.defineProperty(window, 'AudioContext', {

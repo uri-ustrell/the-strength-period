@@ -130,17 +130,17 @@ export const Session = () => {
     }
   }, [])
 
-  // Step 16 Phase E sub-phase E1 — earn-acknowledgement payload pipeline.
-  // Lazy-load the full session/set history exactly when `isFinished` flips to
-  // true. The totem inventory model is time-window-agnostic (Phase D), so the
-  // ack frame must be diffed against the entire history, not a window.
+  // Earn-acknowledgement payload pipeline. Lazy-load the full session/set
+  // history exactly when `isFinished` flips to true. The totem inventory model
+  // is time-window-agnostic, so the ack frame must be diffed against the entire
+  // history, not a window.
   const activeMesocycle = usePlanningStore((s) => s.activeMesocycle)
   const loadActiveMesocycle = usePlanningStore((s) => s.loadActive)
   const [allSessionsHistory, setAllSessionsHistory] = useState<ExecutedSession[]>([])
   const [allSetsHistory, setAllSetsHistory] = useState<ExecutedSet[]>([])
   /**
-   * Step 16 Phase E sub-phase E1 (W4 fix) — gates the ack payload until the
-   * IDB history fetch resolves. Without this, returning users see a brief
+   * Gates the ack payload until the IDB history fetch resolves. Without this,
+   * returning users see a brief
    * (~10–50 ms) false-positive flicker where entry-tier totems
    * (`first-session`, etc.) appear as "newly earned" because `totemsBefore`
    * is computed from an empty `allSessionsHistory` on the same render tick

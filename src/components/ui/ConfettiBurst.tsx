@@ -8,7 +8,7 @@ export interface ConfettiBurstProps {
 }
 
 /**
- * Feature 17 — Single-fire confetti burst.
+ * Single-fire confetti burst.
  *
  * Wraps `canvas-confetti`. Honors `prefers-reduced-motion: reduce`: when the
  * user has reduced motion enabled, the component is a strict no-op (no DOM,

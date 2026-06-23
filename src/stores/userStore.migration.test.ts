@@ -12,13 +12,13 @@ import { useUserStore } from '@/stores/userStore'
 import { DEFAULT_AUDIO_OPT_IN } from '@/types/user'
 
 /**
- * Feature 17 migration contract: a legacy persisted `UserConfig` that
+ * Migration contract: a legacy persisted `UserConfig` that
  *   1. predates the `audioOptIn` field, OR
  *   2. still carries the deprecated `aestheticVariant` field,
  * must hydrate cleanly with `audioOptIn = false`, drop the deprecated field
  * silently, and not crash.
  */
-describe('userStore.loadUserConfig — Feature 17 migration', () => {
+describe('userStore.loadUserConfig — config migration', () => {
   beforeEach(() => {
     getConfig.mockReset()
     setConfig.mockReset()
@@ -55,7 +55,7 @@ describe('userStore.loadUserConfig — Feature 17 migration', () => {
       minutesPerSession: 45,
       availableWeights: { manueles: [5, 10], barra: [] },
       onboardingCompleted: true,
-      // Field deleted in Feature 17 — must be ignored.
+      // Deprecated field — must be ignored.
       aestheticVariant: 'retro-platformer',
     }
     getConfig.mockResolvedValueOnce(legacyConfig)

@@ -2,15 +2,10 @@ import type { Mesocycle, SessionTemplate } from '@/types/planning'
 import type { ExecutedSession, ExecutedSet } from '@/types/session'
 
 /**
- * Step 16 Phase D — Shared totem inventory model.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase D Shared Contracts (Stats / Inventory)". This module is the single
- * source of truth for totem-inventory rendering across every aesthetic
- * variant (`retro-platformer`, `classic-boring`, …). Pure function: zero
- * React, zero IO, zero `matchMedia`, zero direct store reads. `nowMs` is
- * injected so callers control the clock (deterministic in tests, fresh in
- * production).
+ * Shared totem inventory model. The single source of truth for totem-inventory
+ * rendering. Pure function: zero React, zero IO, zero `matchMedia`, zero direct
+ * store reads. `nowMs` is injected so callers control the clock (deterministic
+ * in tests, fresh in production).
  *
  * The model is **time-window-agnostic** and **cumulative** — totems are
  * permanent and never recomputed against a sliding period; the existing
@@ -138,9 +133,9 @@ export const TOTEM_CATALOG_V1: ReadonlyArray<TotemCatalogEntry> = [
  * V2 catalog — additive extension of {@link TOTEM_CATALOG_V1}. V1 stays
  * frozen for historical reference; the live selector consumes V2.
  *
- * Phase E sub-phase E4a appends the `preparation` family band between
- * `recovery` and `reflection`. Family order is enforced by
- * {@link FAMILY_ORDER}; the catalog array below is hand-ordered to match.
+ * V2 appends the `preparation` family band between `recovery` and
+ * `reflection`. Family order is enforced by {@link FAMILY_ORDER}; the catalog
+ * array below is hand-ordered to match.
  */
 export const TOTEM_CATALOG_V2: ReadonlyArray<TotemCatalogEntry> = [
   // Insert the new recovery entry inside the recovery band to preserve the
@@ -155,14 +150,14 @@ export const TOTEM_CATALOG_V2: ReadonlyArray<TotemCatalogEntry> = [
     nameI18nKey: 'stats:totem.five_deloads_honored.name',
     ruleI18nKey: 'stats:totem.five_deloads_honored.rule',
   },
-  // Phase E4f — rest-day recovery totem (single-shot).
+  // Rest-day recovery totem (single-shot).
   {
     id: 'first-rest-day-honored',
     family: 'recovery',
     nameI18nKey: 'stats:totem.first_rest_day_honored.name',
     ruleI18nKey: 'stats:totem.first_rest_day_honored.rule',
   },
-  // Phase E4a — preparation band.
+  // Preparation band.
   {
     id: 'warm-up-habit',
     family: 'preparation',
@@ -179,8 +174,8 @@ export const TOTEM_CATALOG_V2: ReadonlyArray<TotemCatalogEntry> = [
 ]
 
 /**
- * Canonical family render order (Phase D + E4a). Renderers MUST iterate
- * families in this order; within each family, totems follow catalog index.
+ * Canonical family render order. Renderers MUST iterate families in this
+ * order; within each family, totems follow catalog index.
  */
 export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = [
   'consistency',
@@ -190,8 +185,8 @@ export const FAMILY_ORDER: ReadonlyArray<TotemFamily> = [
 ]
 
 /**
- * Mirrors `buildDashboardMap.isDeloadSession` exactly. Phase D requires
- * the deload-honored totem to use the same heuristic so dashboard and
+ * Mirrors `buildDashboardMap.isDeloadSession` exactly. The deload-honored
+ * totem must use the same heuristic so dashboard and
  * stats stay coherent. Conservative — returns `true` only when the
  * template explicitly carries the marker.
  */
@@ -341,7 +336,7 @@ function evalFiveDeloadsHonored(input: BuildTotemInventoryInput): string | null 
 }
 
 /**
- * Phase E4f — earned when ≥1 SessionTemplate has `isPlannedRestDay === true`,
+ * Earned when ≥1 SessionTemplate has `isPlannedRestDay === true`,
  * its planned calendar date is strictly past today (UTC, today exclusive),
  * and no ExecutedSession.date matches that rest-day date. Returns the
  * earliest honored rest-day calendar date (chronological).
@@ -422,7 +417,7 @@ function evalRpeAwareness(input: BuildTotemInventoryInput): string | null {
 }
 
 /**
- * Phase E4a — preparation family helpers. Both totems share the same
+ * Preparation family helpers. Both totems share the same
  * predicate: a session "qualifies" iff at least one of its executed sets
  * is marked `isWarmup === true`. Sessions without `completedAt` or marked
  * skipped are excluded.
@@ -457,7 +452,7 @@ function evalWarmupHabit(input: BuildTotemInventoryInput): string | null {
  * set. Tipping date = the date of the streak-completing session.
  *
  * Note: the totem id `triple-preparation` is retained for stability; the
- * threshold has been locked at 5 by user decision (Phase E4a).
+ * threshold has been locked at 5 by user decision.
  */
 function evalConsecutivePreparationStreak(input: BuildTotemInventoryInput): string | null {
   const completed = completedSessionsSorted(input)

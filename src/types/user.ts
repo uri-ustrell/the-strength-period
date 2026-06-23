@@ -10,11 +10,9 @@ export const DEFAULT_AVAILABLE_WEIGHTS: AvailableWeights = {
 }
 
 /**
- * Feature 17 — "Progreso Jugable" redesign.
- *
- * Audio is now an explicit user opt-in (default `false`). Replaces the
- * Step 16 `aestheticVariant` audio gate. When `true`, the session/stats
- * audio services play their short chimes; otherwise they short-circuit.
+ * Audio is an explicit user opt-in (default `false`). When `true`, the
+ * session/stats audio services play their short chimes; otherwise they
+ * short-circuit.
  */
 export const DEFAULT_AUDIO_OPT_IN = false
 

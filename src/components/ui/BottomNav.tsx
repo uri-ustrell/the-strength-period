@@ -24,7 +24,7 @@ const NAV_ITEMS = [
 const LANGUAGES = ['ca', 'es', 'en'] as const
 
 /**
- * Feature 17 — Dock primitive.
+ * Dock primitive.
  *
  * Floating bottom navigation (frosted glass over the bg). Exposed as
  * `BottomNav` for backwards compatibility with the existing layout.

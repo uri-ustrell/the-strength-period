@@ -32,8 +32,8 @@ export const SessionPreview = ({ session, compact = false }: Props) => {
     return map
   }, [session.exerciseAssignments, exercises])
 
-  // Phase E4f — planned rest days short-circuit: render a calm "rest" view
-  // with no exercise list, no skip/log CTAs. Honoring is by NOT executing.
+  // Planned rest days short-circuit: render a calm "rest" view with no
+  // exercise list, no skip/log CTAs. Honoring is by NOT executing.
   if (session.isPlannedRestDay === true) {
     return (
       <div className="rounded-lg bg-slate-50 px-3 py-2">

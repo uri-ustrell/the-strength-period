@@ -4,10 +4,7 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import type { SessionExecutionModel } from '@/services/session/buildSessionExecutionModel'
 
 /**
- * Step 16 Phase C — Shared session HUD.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase C Shared Contracts → Shared HUD Contract".
+ * Shared session HUD.
  *
  * Renders the four canonical readouts (`elapsed`, `volume`, `sets`, `mean
  * RPE`) with a per-readout `aria-live="polite"` region. Numbers update in

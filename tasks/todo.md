@@ -421,7 +421,22 @@ rpe can flow into IndexedDB.
 
 ---
 
-### [ ] 10. Move task-history comments out of production code
+### [x] 10. Move task-history comments out of production code
+
+> Done 2026-06-23. Swept all of `src/` (production + tests + fixtures) for
+> process-tracker coupling and rewrote each comment to be intent-focused and
+> self-contained. Removed every `Step N Phase` / `sub-phase`, standalone spec
+> `Phase X` ref, `Feature N`, `(W5 fix)`/`(N1 fix)` artifact, and "Spec:
+> 16-ethical-gamification.md → Phase … Contracts" pointer across ~30 files
+> (stores, types, services, pages, ui, plus test `describe`/`it` names and
+> docblocks). While here, fixed two stale docblocks that still described the
+> long-gone dual-skin variants (`sessionAudio.ts`, `statsAudio.ts`) — they now
+> document the actual `audioOptIn` gate. Kept genuine intent (background-safe
+> countdown rationale, warm-up exclusion reasons, version-history of the export
+> format, FAMILY_ORDER invariant). Verified: `grep -rE "Step N Phase|sub-phase|
+> Phase [A-Z]|Feature [0-9]"` over `src/` is empty, biome lint 0, tsc clean,
+> 122/122 unit tests green. Note: a pre-existing `format:check` diff in
+> `src/types/planSchema.test.ts` (from #9) is untouched and out of scope.
 
 **Problem.** Stores carry long narrative docblocks referencing process
 artifacts (e.g. "Step 16 Phase E sub-phase E1 (W5 fix)") in

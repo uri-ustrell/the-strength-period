@@ -13,7 +13,7 @@ const VARIANT_CLASS: Record<NonNullable<CardProps['variant']>, string> = {
 }
 
 /**
- * Feature 17 — "Cristal de Progreso" surface primitive.
+ * "Cristal de Progreso" surface primitive.
  *
  * Default `padding` is `p-4`; pass a custom `className` to override (e.g. for
  * tightly-padded session set rows).

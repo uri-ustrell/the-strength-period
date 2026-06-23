@@ -17,7 +17,7 @@ export const WeekView = ({ mesocycle, weekNumber, completedTemplateIds }: Props)
   const markRestDay = usePlanningStore((s) => s.markRestDay)
   const unmarkRestDay = usePlanningStore((s) => s.unmarkRestDay)
 
-  // Rest-day capture only operates on the active mesocycle (Phase E4f).
+  // Rest-day capture only operates on the active mesocycle.
   const isActive = activeMesocycle?.id === mesocycle.id
 
   const weekSessions = mesocycle.sessions.filter((s) => s.weekNumber === weekNumber)

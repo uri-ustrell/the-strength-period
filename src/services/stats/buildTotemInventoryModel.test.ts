@@ -10,10 +10,7 @@ import type { Mesocycle, SessionTemplate } from '@/types/planning'
 import type { ExecutedSession, ExecutedSet } from '@/types/session'
 
 /**
- * Step 16 Phase D — D4 selector tests.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase D Shared Contracts (Stats / Inventory)" → "v1 Totem Catalog".
+ * Totem inventory selector tests for the v1 catalog.
  */
 
 const NOW_MS = Date.parse('2026-05-04T12:00:00Z')
@@ -485,7 +482,7 @@ describe('catalog ordering invariant (V2)', () => {
   })
 })
 
-describe('Phase E4a — preparation family (warm-up-habit, triple-preparation)', () => {
+describe('preparation family (warm-up-habit, triple-preparation)', () => {
   it('preparation totems sit between recovery and reflection (FAMILY_ORDER invariant)', () => {
     const m = buildTotemInventoryModel(baseInput())
     const families = m.totems.map((t) => t.family)
@@ -618,10 +615,7 @@ describe('Phase E4a — preparation family (warm-up-habit, triple-preparation)',
 })
 
 /**
- * Phase E4f — first-rest-day-honored evaluator tests.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase E sub-phase E4f — Rest-day family". Time-relative evaluator —
+ * first-rest-day-honored evaluator tests. Time-relative evaluator —
  * uses a fixed `nowMs` so the "today" boundary is deterministic.
  *
  * Calendar fixture: `startDate = 2025-06-02` (a Monday), so:
@@ -631,7 +625,7 @@ describe('Phase E4a — preparation family (warm-up-habit, triple-preparation)',
  *   week 2 day 7 → 2025-06-15 (today)
  *   week 3 day 1 → 2025-06-16 (tomorrow)
  */
-describe('Phase E4f — first-rest-day-honored', () => {
+describe('first-rest-day-honored', () => {
   const NOW_MS_E4F = Date.UTC(2025, 5, 15) // 2025-06-15T00:00:00Z → todayISO = '2025-06-15'
 
   function makeRestDayTemplate(

@@ -11,10 +11,7 @@ import type { ExecutedSession } from '@/types/session'
 import { assertDefined } from '@/utils/assertDefined'
 
 /**
- * Step 16 Phase E sub-phase E1 — selector unit tests.
- *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase E Shared Contracts → E1 — Earn-Acknowledgement Frame Contract".
+ * Earn-acknowledgement payload selector unit tests.
  */
 
 const earned = (id: TotemId, family: TotemEntry['family'], dateISO = '2026-05-04'): TotemEntry => ({
@@ -153,7 +150,7 @@ describe('buildSessionCompletionTotemPayload', () => {
 })
 
 /**
- * Regression guard for N1 (Step 16 Phase E sub-phase E1 fix pass).
+ * Regression guard: just-finished session reflected before persistence.
  *
  * Verifies that the just-finished in-memory session, synthesized from the
  * live `sessionStore` state in `Session.tsx` and merged into the inputs of
@@ -206,7 +203,7 @@ describe('Regression N1 \u2014 synthesized in-memory session unlocks totems pre-
 })
 
 /**
- * Regression guard for W4 (Step 16 Phase E sub-phase E1 fix pass).
+ * Regression guard: history gate prevents false-positive earn flicker.
  *
  * `Session.tsx` now gates `totemAckPayload` on a `historyLoaded` boolean so
  * the IDB history fetch can resolve before the diff runs. Without that gate,
@@ -255,10 +252,10 @@ describe('Regression W4 — ack payload gated on history-loaded boolean', () => 
 })
 
 /**
- * Phase E4f — earn-ack diff covers the new `first-rest-day-honored` totem
- * with no changes to the selector itself (id-driven diff).
+ * Earn-ack diff covers the `first-rest-day-honored` totem with no changes to
+ * the selector itself (id-driven diff).
  */
-describe('Phase E4f — first-rest-day-honored earn-ack diff', () => {
+describe('first-rest-day-honored earn-ack diff', () => {
   it('flips available → earned and surfaces as the primary totem', () => {
     const before = model(available('first-rest-day-honored', 'recovery'))
     const after = model(earned('first-rest-day-honored', 'recovery', '2025-06-02'))

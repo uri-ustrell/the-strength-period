@@ -3,10 +3,9 @@ import { type CSSProperties, createContext, type ReactNode, useContext } from 'r
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 /**
- * Feature 17 — Chart theming wrapper.
+ * Chart theming wrapper.
  *
- * Single-renderer replacement for the Step 16 dual-skin
- * `<ChartThemeProvider>`. Tokens live in `:root` (`--theme-charts-*` are
+ * Tokens live in `:root` (`--theme-charts-*` are
  * bridged to the new `--color-chart-*` palette in `src/index.css`), so this
  * wrapper just exposes the `isAnimationActive` flag via context and forces
  * `width: 100%` on its children.

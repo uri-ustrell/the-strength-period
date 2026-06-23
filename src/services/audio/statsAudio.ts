@@ -1,23 +1,14 @@
 import { useUserStore } from '@/stores/userStore'
 
 /**
- * Step 16 Phase D — Stats audio service (D9).
+ * Stats audio service.
  *
- * Spec: `specs/features/16-ethical-gamification.md` →
- * "Phase D Shared Contracts (Stats / Inventory)" → "Audio Gating Contract".
- *
- * Mirrors the {@link import('./sessionAudio').playRestEndChime} pattern
- * exactly: the public entrypoint short-circuits immediately when:
- *   • the effective aesthetic variant is NOT `retro-platformer`, OR
- *   • the user opt-in `sfx` flag is false (TODO below; currently no such
- *     flag exists in `userStore`, so we gate solely on the variant — no
- *     new persistence is added in this phase).
- *
- * `classic-boring` is therefore guaranteed silent on the totem inventory
- * surface: no `<audio>` element ever mounts and no `AudioContext` is
- * created. The chime is single-fire per inspect-open (the renderer must
- * call `resetTotemInspect()` when the inspect panel collapses so the
- * next open re-arms the chime).
+ * Mirrors the {@link import('./sessionAudio').playRestEndChime} pattern: the
+ * public entrypoint short-circuits immediately when the user opt-in flag
+ * (`userStore.audioOptIn`) is false, so no `<audio>` element mounts and no
+ * `AudioContext` is created. The chime is single-fire per inspect-open (the
+ * renderer must call `resetTotemInspect()` when the inspect panel collapses so
+ * the next open re-arms the chime).
  */
 
 let chimeCache: { audioCtx: AudioContext } | null = null
@@ -25,7 +16,7 @@ let chimeFiredForCurrentInspect = false
 
 function isAudioEnabled(): boolean {
   if (typeof window === 'undefined') return false
-  // Feature 17: single, explicit user opt-in (default `false`).
+  // Single, explicit user opt-in (default `false`).
   return useUserStore.getState().audioOptIn === true
 }
 

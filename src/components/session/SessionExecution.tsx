@@ -38,10 +38,9 @@ const STATE_CLASS: Record<SetExecutionState, string> = {
 }
 
 /**
- * Feature 17 — Session execution surface.
+ * Session execution surface.
  *
- * Single-renderer replacement for the Step 16 dual-skin SessionExecution
- * (`classic-boring` + `retro-platformer`). Renders the model as a stacked
+ * Renders the model as a stacked
  * card list of exercises, each with one set row per `SetNode`. The active
  * card composes `SetLogger` + `RestTimer` exactly as before.
  *

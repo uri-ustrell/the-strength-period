@@ -204,7 +204,7 @@ describe('buildSessionExecutionModel', () => {
     expect(m.hud.setsCompleted).toBe(3)
   })
 
-  it('excludes warm-up sets from volumeKg (Phase E4a)', () => {
+  it('excludes warm-up sets from volumeKg', () => {
     const m = buildSessionExecutionModel(
       baseInput({
         generatedSession: makeGeneratedSession(makeSelected('a', 5)),

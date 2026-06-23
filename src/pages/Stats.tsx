@@ -41,8 +41,7 @@ export const Stats = () => {
   const [sessions, setSessions] = useState<ExecutedSession[]>([])
   const [sets, setSets] = useState<ExecutedSet[]>([])
   // Full-history snapshots, used by the totem inventory which is
-  // time-window-agnostic (Phase D Shared Contracts). The period selector
-  // above does NOT scope these.
+  // time-window-agnostic. The period selector above does NOT scope these.
   const [allSessionsHistory, setAllSessionsHistory] = useState<ExecutedSession[]>([])
   const [allSetsHistory, setAllSetsHistory] = useState<ExecutedSet[]>([])
   const [selectedExerciseId, setSelectedExerciseId] = useState<string>('')
@@ -61,8 +60,8 @@ export const Stats = () => {
   }, [])
 
   // Always load the full session/set history for the totem inventory model.
-  // Phase D requires totems to be cumulative and time-window-agnostic, so
-  // they cannot reuse the period-scoped `sessions`/`sets` above.
+  // Totems are cumulative and time-window-agnostic, so they cannot reuse the
+  // period-scoped `sessions`/`sets` above.
   useEffect(() => {
     let cancelled = false
     const fetchAll = async () => {
@@ -124,7 +123,7 @@ export const Stats = () => {
 
   const prRecords = useMemo(() => aggregatePRs(sets), [sets])
 
-  // Phase D — derive totem inventory from FULL history (period-agnostic).
+  // Derive totem inventory from FULL history (period-agnostic).
   const totemModel = useMemo(
     () =>
       buildTotemInventoryModel({
@@ -172,7 +171,7 @@ export const Stats = () => {
       </div>
 
       <div className="space-y-4 px-5 pt-4">
-        {/* Phase D — Totem Inventory (full history, time-window-agnostic). */}
+        {/* Totem Inventory (full history, time-window-agnostic). */}
         <section className="rounded-2xl bg-surface p-4 shadow-sm" data-testid="stats-totem-section">
           <TotemInventory model={totemModel} />
         </section>

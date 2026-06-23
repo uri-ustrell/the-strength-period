@@ -9,7 +9,7 @@ export interface EmptyStateProps {
 }
 
 /**
- * Feature 17 — Empty state primitive.
+ * Empty state primitive.
  *
  * Quiet, centered. Used wherever a screen has no data yet (no plan, no
  * sessions logged, no totems unlocked). Never punitive.
