@@ -21,7 +21,7 @@ User data remains local. Exercise data is pre-built at development time.
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 20+ (required by Vite 7)
 - npm 9+
 - Vercel CLI installed (`npm i -g vercel`) for full-stack local dev
 - Gemini API key (Google AI Studio)
@@ -72,14 +72,19 @@ npm run dev
 - `npm run dev`: frontend Vite dev mode (use `VITE_MOCK_API=true` for browser mocked API requests)
 - `npm run dev:api`: full-stack local mode via `vercel dev` (frontend + `/api/*` functions)
 - `npm run dev:frontend`: frontend-only Vite mode with mock API disabled (`VITE_MOCK_API=false`)
-- `npm run build`: TypeScript check + Vite production build
+- `npm run build`: TypeScript build (`tsc -b`) + Vite production build
 - `npm run preview`: serve production build locally
 - `npm run lint`: Biome lint + TypeScript check (`lint:biome` + `lint:types`)
-- `npm run ingest`: run Step 18 multi-source ingestion (`scripts/runIngestion.ts`)
-- `npm run photos`: run Step 18 exercise photo pipeline (`scripts/generateExercisePhotos.ts`)
-- `npm run presets`: run Step 18 preset batch pipeline (`scripts/generatePresetBatch.ts`)
+- `npm run format` / `npm run format:check`: Biome formatter (write / check-only)
+- `npm test`: full suite (`test:unit` Vitest + `test:ingestion` tsx script tests)
+- `npm run test:unit`: Vitest unit tests only
+- `npm run i18n:check`: locale parity + duplicate-key check (`scripts/checkI18nParity.ts`)
+- `npm run build:exercises`: rebuild `public/exercises/exercises.json` from raw data
+- `npm run ingest`: multi-source content ingestion (`scripts/runIngestion.ts`)
+- `npm run photos`: exercise photo pipeline (`scripts/generateExercisePhotos.ts`)
+- `npm run presets`: preset batch pipeline (`scripts/generatePresetBatch.ts`)
 
-## Step 18 Ingestion Workflows
+## Ingestion Workflows
 
 Example dry-run ingestion:
 
@@ -107,12 +112,17 @@ npm run build
 
 ## Tech Stack
 
-- React 18 + TypeScript 5 + Vite 5
-- Tailwind CSS v3
-- Zustand v4
-- i18next (ca/es/en)
+- React 18 runtime (`react` / `react-dom` ^18.3) with React 19 type definitions (`@types/react` ^19)
+- TypeScript ^5.9 + Vite ^7.3
+- Tailwind CSS ^3.4
+- Zustand ^4.5 (state) + Zod ^4 (runtime schema validation)
+- React Router ^6.30
+- Recharts ^3 (stats charts), `canvas-confetti` (earn animations)
+- i18next ^26 / react-i18next (ca/es/en)
 - IndexedDB via `idb`
-- Gemini API via Vercel Serverless Function
+- PWA via `vite-plugin-pwa`
+- Gemini API via Vercel Serverless Function (`api/generate-plan.ts`)
+- Tooling: Biome (lint + format), Vitest (unit tests), MSW (API mocking)
 
 ## License
 

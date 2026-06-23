@@ -523,7 +523,18 @@ shipped feature.
 
 ---
 
-### [ ] 13. Update `README.md` to match actual stack & scripts
+### [x] 13. Update `README.md` to match actual stack & scripts
+
+> Done 2026-06-23. Corrected Tech Stack against `package.json`: Vite 5 → ^7.3,
+> React stated precisely (runtime `react`/`react-dom` ^18.3 with React 19 type
+> defs `@types/react` ^19), TypeScript ^5.9; added the previously-missing libs
+> (Zod ^4, React Router ^6.30, Recharts ^3, canvas-confetti, i18next ^26,
+> vite-plugin-pwa) and a Tooling line (Biome / Vitest / MSW). Filled in the
+> Development Commands gaps (`format`, `format:check`, `test`, `test:unit`,
+> `i18n:check`, `build:exercises`) and clarified `build` = `tsc -b` + Vite.
+> Bumped Prerequisites Node 18+ → 20+ (Vite 7 requirement). De-coupled the
+> "Step 18" labels (section header + script descriptions) to plain "Ingestion".
+> Verified: no stale `Vite 5`/`Zustand v4`/`Step 1X` strings remain.
 
 **Problem.** README says "Vite 5 / React 18" but `package.json` has Vite 7 and
 React 19 typings; it also frames `npm run lint` as "TypeScript check only" while
