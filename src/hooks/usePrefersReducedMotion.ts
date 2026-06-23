@@ -6,10 +6,8 @@ const QUERY = '(prefers-reduced-motion: reduce)'
  * Subscribes to the OS `prefers-reduced-motion` media query and returns its
  * live boolean value. SSR-safe: returns `false` when `window` is undefined.
  *
- * The hook is read-only — it never persists anything. Callers that need to
- * derive a runtime override (e.g. forcing the `classic-boring` aesthetic
- * variant) must do so without mutating any persisted store. See
- * {@link useEffectiveAestheticVariant}.
+ * The hook is read-only — it never persists anything. Callers gate motion
+ * (animations, confetti) on the returned value at render time.
  */
 export function usePrefersReducedMotion(): boolean {
   const [reduced, setReduced] = useState<boolean>(() => {

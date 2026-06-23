@@ -492,7 +492,20 @@ rot.
 
 ---
 
-### [ ] 12. Reconcile `tasks/todo.md` ↔ `STATUS.md` ↔ code
+### [x] 12. Reconcile `tasks/todo.md` ↔ `STATUS.md` ↔ code
+
+> Done 2026-06-23. Verified the three sources now agree: `todo.md` deprecation
+> block (Feature 17 shipped, archived 2026-06-01) matches the refreshed
+> `STATUS.md` (#11) and the code. Confirmed every backlog "done" claim against
+> the tree — `React.lazy` in `App.tsx` (#6), `ErrorBoundary.tsx` (#7),
+> `planCreatorStore.ts` (#8), `planSchema.ts` (#9) all present — and grepped for
+> dead variant symbols (`useEffectiveAestheticVariant`, `AppearanceSelector`,
+> `Retro*/Classic*` renderers, `*Shared` helpers): all gone except one stale
+> doc-comment `{@link useEffectiveAestheticVariant}` in
+> `src/hooks/usePrefersReducedMotion.ts`, which was fixed. `aestheticVariant`
+> now appears only in legacy-tolerance tests/comments. Recorded the sync rule in
+> `tasks/lessons.md` (update STATUS.md + archive history + close todo items in
+> the same change; remove `{@link}` refs when deleting symbols). tsc clean.
 
 **Problem.** Before this rewrite, `todo.md` showed Feature 17 fully unchecked
 while `STATUS.md` and the code showed it shipped — contradictory sources of

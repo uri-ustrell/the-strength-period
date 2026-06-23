@@ -17,6 +17,7 @@
 - Zustand `useShallow` only helps when tick-frequency fields (countdown timers, etc.) are excluded from the shallow slice; otherwise every tick still re-renders the whole consumer subtree. For sub-second update rates, have the leaf component subscribe to that store slice directly.
 - When validating data loaded from IndexedDB or imported files, validate every field actually consumed downstream — not just the first few. A corrupted `trainingDays: "mon,wed"` (string) passes a naive truthy check while coercing `length=9` and silently corrupting derived day-of-week math.
 - Long-running async operations triggered by user actions (e.g. `finishSession`) should generate IDs and timestamps **once** and cache them in store state across retries; regenerating per attempt yields duplicate IDB rows on flaky writes.
+- Keep the three sources of truth in sync in the **same change**: when a feature ships (or is reverted), update `specs/STATUS.md` (snapshot), archive its log to `specs/STATUS_HISTORY.md` (chronicle), and move/close its `tasks/todo.md` items. Never let `todo.md` show a feature unchecked while `STATUS.md`/code show it shipped. When deleting a symbol, also remove every doc-comment `{@link}` / reference to it (grep the codebase) so comments don't point at things that no longer exist.
 
 ## Mistakes to Avoid
 <!-- Add anti-patterns with the context of what went wrong -->
