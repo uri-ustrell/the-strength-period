@@ -592,7 +592,26 @@ meet size guidance.
 
 ---
 
-### [ ] 15. Durable / honest rate limiting for `api/generate-plan.ts`
+### [x] 15. Durable / honest rate limiting for `api/generate-plan.ts`
+
+> Done 2026-06-23 (user chose the hybrid path). The limiter is now durable when
+> configured and honest when not:
+> - **Durable:** when `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` are
+>   set, `isRateLimitedDurable` runs a cross-instance sliding window in
+>   Upstash/Vercel KV via the REST `/pipeline` endpoint (no SDK / no new npm
+>   dep): per-IP sorted set, one round-trip doing `ZREMRANGEBYSCORE` (prune) →
+>   `ZADD` (record) → `ZCARD` (count) → `PEXPIRE` (TTL); limited when count >
+>   `RATE_LIMIT_MAX` (10/h). Same 429 shape.
+> - **Fallback:** with no KV configured, or on any KV/transport error, it falls
+>   back to the in-memory `isRateLimitedInMemory` (renamed; comment now states it
+>   is best-effort per-cold-start only). `isRateLimited` is async and picks the
+>   path; handler `await`s it.
+> - **Backstop documented:** a top-of-file note + README + `.env.example` state
+>   that the real protection for the shared key is a Gemini quota/budget alert,
+>   regardless of path.
+> Verified: biome lint 0 (api + src), format clean, tsc clean. No harness test
+> covers `api/` (serverless, outside the vitest/src glob); logic kept simple and
+> reviewed by hand.
 
 **Problem.** `rateLimitMap` is in-memory per serverless cold-start; it resets per
 instance, so it neither reliably protects the project key nor limits users
@@ -611,7 +630,37 @@ documented as best-effort with a real backstop.
 
 ---
 
-### [ ] 16. Verify PWA installability & offline behaviour
+### [x] 16. Verify PWA installability & offline behaviour
+
+> Done 2026-06-23. Audited the PWA config and the app's network surface, fixed
+> the defects found, and verified the generated artifacts:
+> - **Offline network surface:** the only client fetch is
+>   `exerciseLoader.ts` → `/exercises/exercises.json` (runtime `CacheFirst`).
+>   There is NO client call to `/api/generate-plan` — planning is fully on-device
+>   (deterministic engine + paste-JSON LLM assistant), so step 2's "AI path
+>   degrades offline" is moot: there is no online dependency to degrade. The
+>   serverless endpoint is vestigial for the shipped client (kept for the MSW
+>   mock / future use). User data is IndexedDB. So once the shell is cached the
+>   app is fully functional offline.
+> - **Fixes (`vite.config.ts`):** stale `theme_color`/`background_color`
+>   (`#4f46e5`/`#ffffff`) → dark identity `#1e1b2e` (matched `--color-bg`);
+>   added `workbox.globPatterns` incl. `woff,woff2` so the @fontsource fonts
+>   precache (text renders offline); added `navigateFallback: '/index.html'` +
+>   `navigateFallbackDenylist` for `/api/` and `/exercises/` so a hard
+>   refresh / deep-link on a client route (e.g. `/session`) serves the shell
+>   offline instead of 404. `index.html`: added `theme-color` meta + apple-touch-icon.
+> - **Verified on `npm run build`:** generateSW precaches 119 entries (2.6 MB)
+>   incl. `index.html` + 42 woff2; `sw.js` has the `NavigationRoute` →
+>   `index.html` fallback; `manifest.webmanifest` is valid (standalone,
+>   `start_url`/`scope` `/`, dark colors). `vite preview` serves `sw.js`,
+>   `manifest.webmanifest`, `exercises.json`, and SPA routes all 200.
+> - **Residual (flagged, not blocking):** icons are SVG-only (`favicon.svg`,
+>   `any maskable`). Chrome accepts SVG `sizes:"any"` for installability, but for
+>   best Android/Lighthouse coverage add raster PNG `192` + `512` icons (and a
+>   padded maskable variant). The true offline/installed-app confirmation
+>   (DevTools → Offline, then navigate; install prompt) is a manual browser step
+>   — the SW-controlled path can't be exercised by curl. All automatable
+>   mechanisms are verified above.
 
 **Problem.** `vite-plugin-pwa` is a dependency and "local-first / works offline"
 is the core promise, but installability/offline isn't verified in this audit.

@@ -5,12 +5,30 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`
 
-// Simple in-memory rate limiter (per cold start instance)
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 const RATE_LIMIT_MAX = 10
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000 // 1 hour
 
-function isRateLimited(ip: string): boolean {
+/**
+ * Rate limiting is hybrid:
+ *  - DURABLE (preferred): when `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`
+ *    are set, a cross-instance sliding-window counter runs in Upstash/Vercel KV
+ *    over the REST API (no SDK). This is the real, consistent limit.
+ *  - BEST-EFFORT FALLBACK: with no KV configured (or on a transient KV error)
+ *    we fall back to an in-memory per-cold-start counter. This does NOT limit
+ *    consistently across serverless instances — it is a courtesy throttle only.
+ *
+ * The hard backstop that actually protects the shared project key is a
+ * quota/budget alert on the Gemini key in Google AI Studio; configure that
+ * regardless of which path is active.
+ */
+const KV_URL = process.env.UPSTASH_REDIS_REST_URL
+const KV_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
+const kvConfigured = Boolean(KV_URL && KV_TOKEN)
+
+// Best-effort, per-cold-start-instance fallback only (see note above).
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+
+function isRateLimitedInMemory(ip: string): boolean {
   const now = Date.now()
   const entry = rateLimitMap.get(ip)
 
@@ -21,6 +39,56 @@ function isRateLimited(ip: string): boolean {
 
   entry.count++
   return entry.count > RATE_LIMIT_MAX
+}
+
+/**
+ * Durable sliding-window limiter backed by Upstash/Vercel KV REST. Uses a
+ * sorted set per IP: prune entries older than the window, add this request,
+ * count the window, refresh the TTL — all in one pipelined round-trip.
+ * Throws on any KV/transport error so the caller can fall back.
+ */
+async function isRateLimitedDurable(ip: string): Promise<boolean> {
+  const now = Date.now()
+  const key = `rl:gen-plan:${ip}`
+  const windowStart = now - RATE_LIMIT_WINDOW_MS
+  const member = `${now}:${Math.random().toString(36).slice(2)}`
+
+  const commands = [
+    ['ZREMRANGEBYSCORE', key, '0', String(windowStart)],
+    ['ZADD', key, String(now), member],
+    ['ZCARD', key],
+    ['PEXPIRE', key, String(RATE_LIMIT_WINDOW_MS)],
+  ]
+
+  const resp = await fetch(`${KV_URL}/pipeline`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${KV_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(commands),
+  })
+
+  if (!resp.ok) throw new Error(`KV pipeline HTTP ${resp.status}`)
+
+  const results = (await resp.json()) as Array<{ result?: unknown; error?: string }>
+  const zcard = results?.[2]
+  if (!zcard || zcard.error) throw new Error(zcard?.error || 'KV ZCARD missing')
+
+  const count = Number(zcard.result ?? 0)
+  return count > RATE_LIMIT_MAX
+}
+
+async function isRateLimited(ip: string): Promise<boolean> {
+  if (kvConfigured) {
+    try {
+      return await isRateLimitedDurable(ip)
+    } catch (err) {
+      console.warn('Durable rate limit unavailable, falling back to in-memory:', err)
+      return isRateLimitedInMemory(ip)
+    }
+  }
+  return isRateLimitedInMemory(ip)
 }
 
 const SYSTEM_PROMPT = `Ets un entrenador personal expert en periodització i rehabilitació esportiva.
@@ -199,7 +267,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Rate limiting by IP
   const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() || 'unknown'
-  if (isRateLimited(ip)) {
+  if (await isRateLimited(ip)) {
     return res.status(429).json({ error: 'Too many requests. Please try again later.' })
   }
 
@@ -242,7 +310,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const validation = GeminiPlanSchema.safeParse(parsed)
 
     if (!validation.success) {
-      console.error('Invalid plan structure:', JSON.stringify(validation.error.issues).substring(0, 500))
+      console.error(
+        'Invalid plan structure:',
+        JSON.stringify(validation.error.issues).substring(0, 500)
+      )
       return res.status(502).json({ error: 'Invalid plan structure from AI service' })
     }
 

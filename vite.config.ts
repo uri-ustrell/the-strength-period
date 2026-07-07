@@ -11,8 +11,9 @@ export default defineConfig({
       manifest: {
         name: 'The Strength Period',
         short_name: 'TSP',
-        theme_color: '#4f46e5',
-        background_color: '#ffffff',
+        // Dark single-skin identity (see src/index.css --color-bg #1e1b2e).
+        theme_color: '#1e1b2e',
+        background_color: '#1e1b2e',
         display: 'standalone',
         icons: [
           {
@@ -24,6 +25,14 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // Precache the app shell + fonts so all non-network flows (dashboard,
+        // session, stats) render fully offline after the first visit.
+        globPatterns: ['**/*.{js,css,html,svg,woff,woff2}'],
+        // SPA: serve index.html for client-side routes when offline (a hard
+        // refresh / deep-link on /session would otherwise 404). Keep API and
+        // the exercises asset out of the fallback.
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/api\//, /\/exercises\//],
         runtimeCaching: [
           {
             urlPattern: /\/exercises\/exercises\.json$/,

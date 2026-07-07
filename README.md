@@ -36,6 +36,7 @@ Required:
 Optional:
 - `GEMINI_MODEL`: overrides server default model (`gemini-2.5-flash`)
 - `VITE_MOCK_API`: frontend MSW flag (`true` enables mock response for `/api/generate-plan`)
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`: enable durable cross-instance rate limiting for `/api/generate-plan` (Upstash/Vercel KV REST). Without them the limiter is best-effort in-memory per instance; set a Gemini key quota alert as the real backstop either way.
 - `CLAUDE_API_KEY`: required for live `npm run presets` Claude generation (optional if validating from `--response-file`)
 - `CLAUDE_FREE_TIER_AVAILABLE`: set to `true` to keep preset generation in free-tier mode by default
 - `HUGGINGFACE_API_TOKEN`: optional free-tier provider token for `npm run photos`
