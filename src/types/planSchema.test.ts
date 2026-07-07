@@ -125,7 +125,9 @@ describe('LLMPlanResponseSchema', () => {
     const plan = {
       name: 'Test Plan',
       durationWeeks: 4,
-      sessions: [{ weekNumber: 1, dayOfWeek: 8, durationMinutes: 60, exercises: [makeLLMExercise()] }],
+      sessions: [
+        { weekNumber: 1, dayOfWeek: 8, durationMinutes: 60, exercises: [makeLLMExercise()] },
+      ],
     }
     expect(LLMPlanResponseSchema.safeParse(plan).success).toBe(false)
   })

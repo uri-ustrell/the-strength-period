@@ -6,7 +6,12 @@ import type {
   MuscleGroupTarget,
   SessionTemplate,
 } from '@/types/planning'
-import { LLMPlanResponseSchema, type LLMExercise, type LLMPlanResponse, type LLMSession } from '@/types/planSchema'
+import {
+  LLMPlanResponseSchema,
+  type LLMExercise,
+  type LLMPlanResponse,
+  type LLMSession,
+} from '@/types/planSchema'
 export type { LLMExercise, LLMPlanResponse, LLMSession }
 
 // --- Validation Types ---
@@ -272,7 +277,12 @@ export function validateLLMResponse(
     if (path.length >= 4 && path[0] === 'sessions' && path[2] === 'exercises') {
       return {
         valid: false,
-        errors: [{ key: 'llm.error_invalid_exercise', params: { session: (path[1] as number) + 1, index: (path[3] as number) + 1 } }],
+        errors: [
+          {
+            key: 'llm.error_invalid_exercise',
+            params: { session: (path[1] as number) + 1, index: (path[3] as number) + 1 },
+          },
+        ],
         warnings: [],
       }
     }
@@ -316,7 +326,10 @@ export function validateLLMResponse(
 
     for (const [muscle, count] of sessionPrimaryMuscles.entries()) {
       if (count > 1) {
-        warnings.push({ key: 'llm.warn_duplicate_muscle', params: { muscle, session: sessionIndex } })
+        warnings.push({
+          key: 'llm.warn_duplicate_muscle',
+          params: { muscle, session: sessionIndex },
+        })
       }
     }
 
@@ -331,7 +344,10 @@ export function validateLLMResponse(
     const estimatedMinutes = Math.round(estimatedSeconds / 60)
     const targetMinutes = minutesPerSession
     if (estimatedMinutes > targetMinutes * 1.1 || estimatedMinutes < targetMinutes * 0.5) {
-      warnings.push({ key: 'llm.warn_duration_mismatch', params: { session: sessionIndex, estimated: estimatedMinutes, target: targetMinutes } })
+      warnings.push({
+        key: 'llm.warn_duration_mismatch',
+        params: { session: sessionIndex, estimated: estimatedMinutes, target: targetMinutes },
+      })
     }
   }
 
